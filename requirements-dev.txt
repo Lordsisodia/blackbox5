@@ -1,0 +1,75 @@
+# ============================================================================
+# BLACKBOX5 - DEVELOPMENT DEPENDENCIES
+# ============================================================================
+# Purpose: Development, testing, and code quality tools
+# Last Updated: 2026-01-20 (PLAN-010)
+# ============================================================================
+# Install with: pip install -r requirements-dev.txt
+# ============================================================================
+
+# ============================================================================
+# BASE DEPENDENCIES
+# ============================================================================
+# Include all production dependencies
+-r requirements.txt
+
+# ============================================================================
+# TESTING FRAMEWORK
+# ============================================================================
+# Core testing framework
+pytest>=7.4.0
+pytest-asyncio>=0.23.3
+
+# Code coverage
+pytest-cov>=4.1.0
+
+# Mocking and testing utilities
+pytest-mock>=3.11.0
+
+# Performance profiling
+pytest-profiling>=1.7.0
+
+# CI/CD support
+pytest-xdist>=3.3.0  # Parallel test execution
+
+# Output formatting
+pytest-html>=3.2.0   # HTML test reports
+pytest-json-report>=1.5.0  # JSON test reports
+
+# Test reliability
+pytest-timeout>=2.2.0  # Timeout for slow tests
+pytest-rerunfailures>=12.0  # Rerun failed tests
+
+# ============================================================================
+# CODE QUALITY & FORMATTING
+# ============================================================================
+# Code formatting
+black>=24.1.1
+
+# Import sorting
+isort>=5.12.0
+
+# Linting
+ruff>=0.1.14
+
+# Type checking
+mypy>=1.8.0
+
+# ============================================================================
+# DOCUMENTATION
+# ============================================================================
+# Documentation generation
+# mkdocs>=1.5.0
+# mkdocs-material>=9.5.0
+
+# ============================================================================
+# DEVELOPMENT TOOLS
+# ============================================================================
+# IPython for interactive development
+# ipython>=8.18.0
+
+# Debugging
+# ipdb>=0.13.0
+
+# Profiling
+# py-spy>=0.3.0
