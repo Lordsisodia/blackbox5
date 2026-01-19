@@ -44,7 +44,7 @@ from agents.core.agent_loader import AgentLoader
 from agents.core.skill_manager import SkillManager
 from agents.core.base_agent import BaseAgent, AgentTask
 
-from orchestration.Orchestrator import AgentOrchestrator, WorkflowStep
+from orchestration.Orchestrator import AgentOrchestrator, WorkflowStep, Workflow
 from routing.task_router import TaskRouter, Task, AgentCapabilities, AgentType
 from state.event_bus import RedisEventBus, EventBusConfig
 from routing.complexity import TaskComplexityAnalyzer
@@ -389,7 +389,7 @@ class Blackbox5:
         try:
             # Step 1: Parse request into Task
             task = self._parse_request(request, session_id, context)
-            logger.info(f"Parsed task: {task.task_id} (type: {task.task_type}, domain: {task.domain})")
+            logger.info(f"Parsed task: {task.id} (type: {task.type}, priority: {task.priority})")
 
             # Step 2: Route task via TaskRouter
             routing_decision = self._task_router.route(task)
@@ -448,13 +448,12 @@ class Blackbox5:
 
         # Create Task object
         task = Task(
-            task_id=f"task_{session_id}",
+            id=f"task_{session_id}",
             description=request,
-            task_type=task_type,
-            domain=domain,
-            priority=priority,
-            context=context,
-            metadata={"session_id": session_id}
+            type=task_type,
+            priority=self._map_priority_to_int(priority),
+            required_capabilities=set(),
+            metadata={"session_id": session_id, "domain": domain, "context": context}
         )
 
         return task
@@ -508,6 +507,16 @@ class Blackbox5:
         else:
             return "normal"
 
+    def _map_priority_to_int(self, priority: str) -> int:
+        """Map string priority to integer (1-10)."""
+        priority_map = {
+            "critical": 10,
+            "high": 8,
+            "normal": 5,
+            "low": 2
+        }
+        return priority_map.get(priority.lower(), 5)
+
     async def _execute_task(self, task: Task, routing_decision) -> Any:
         """
         Execute task based on routing decision.
@@ -556,11 +565,11 @@ class Blackbox5:
 
         # Convert Task to AgentTask
         agent_task = AgentTask(
-            id=task.task_id,
+            id=task.id,
             description=task.description,
-            type=task.task_type,
+            type=task.type,
             complexity="medium",
-            context=task.context or {}
+            context=task.metadata.get("context", {})
         )
 
         # Execute agent
@@ -597,31 +606,43 @@ class Blackbox5:
         """
         logger.info("Executing with multi-agent orchestration")
 
-        # Create workflow steps for the task
-        # This is a simplified version - real implementation would break down
-        # the task into multiple steps based on complexity
+        # Create an AgentTask for the workflow step
+        agent_task = AgentTask(
+            id=task.id,
+            description=task.description,
+            type=task.type,
+            complexity="medium",
+            context=task.metadata.get("context", {})
+        )
+
+        # Create a workflow step
         workflow_step = WorkflowStep(
-            agent_type="developer",  # Default to developer
-            task=task.description,
-            agent_id=None,  # Let orchestrator assign
-            timeout=300
+            name=f"Step: {task.description[:50]}",
+            agent_name=routing_decision.recommended_agent or "developer",
+            task=agent_task,
+            timeout=300.0
+        )
+
+        # Create workflow
+        workflow = Workflow(
+            id=task.id,
+            name=f"Workflow: {task.description[:50]}",
+            description=task.description,
+            steps=[workflow_step],
+            metadata={"task_id": task.id}
         )
 
         # Execute via orchestrator
         try:
-            result = await self._orchestrator.execute_wave_based(
-                tasks=[workflow_step],
-                workflow_id=task.task_id
-            )
+            result = await self._orchestrator.execute_workflow(workflow)
 
             return {
-                "success": result.state.value == "completed",
-                "output": result.results,
-                "steps_completed": result.steps_completed,
-                "steps_total": result.steps_total,
-                "errors": result.errors,
-                "waves_completed": result.waves_completed,
-                "artifacts": list(result.results.keys()) if result.results else []
+                "success": result.status.value == "completed",
+                "output": {step.id: step.result for step in result.steps if step.result},
+                "steps_completed": sum(1 for step in result.steps if step.status.value == "completed"),
+                "steps_total": len(result.steps),
+                "errors": [step.error for step in result.steps if step.error],
+                "artifacts": []
             }
 
         except Exception as e:
