@@ -41,6 +41,12 @@ agent:
   - name: testing_framework_setup
     description: Configure testing frameworks, mocking libraries, and automated test
       runners
+  - name: integration_testing
+    description: Design and implement integration tests for API endpoints, database
+      interactions, and service integrations
+  - name: test_automation
+    description: Set up automated testing pipelines, CI/CD integration, and test
+      execution frameworks
   - name: handle_write_unit_tests_for_payment_module_tasks
     description: 'Expert at handling tasks like: Write unit tests for payment module'
     keywords:
