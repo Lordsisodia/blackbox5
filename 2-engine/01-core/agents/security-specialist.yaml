@@ -12,6 +12,9 @@ agent:
     - owasp
     - code-review
     - penetration-testing
+    - coding
+    - development
+    - security_audit
     created: '2025-01-20'
     modified: '2025-01-20'
   persona:

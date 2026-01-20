@@ -13,6 +13,9 @@ agent:
     - test-coverage
     - integration-testing
     - unit_testing
+    - coding
+    - development
+    - validation
     created: '2025-01-20'
     modified: '2025-01-20'
   persona:
