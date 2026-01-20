@@ -2,18 +2,26 @@
 Analyst Agent (Mary)
 
 Specializes in research, analysis, and data-driven insights.
+
+Uses Claude Code CLI for AI-powered research and analysis.
 """
 
 import logging
-from typing import List
+from typing import List, Optional
 from datetime import datetime
+from pathlib import Path
 
 from agents.core.base_agent import BaseAgent, AgentTask, AgentResult, AgentConfig
+
+# Import Claude Code execution mixin
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from client.ClaudeCodeAgentMixin import ClaudeCodeAgentMixin
 
 logger = logging.getLogger(__name__)
 
 
-class AnalystAgent(BaseAgent):
+class AnalystAgent(BaseAgent, ClaudeCodeAgentMixin):
     """
     Analyst Agent - Mary 📊
 
@@ -24,7 +32,18 @@ class AnalystAgent(BaseAgent):
     - Market research
     - Requirements analysis
     - User research
+
+    Uses Claude Code CLI for AI-powered research and analysis.
     """
+
+    # Claude Code configuration
+    claude_timeout = 300  # 5 minutes
+    claude_mcp_profile = None  # Auto-detect based on task
+
+    def __init__(self, config: AgentConfig):
+        """Initialize AnalystAgent with both BaseAgent and ClaudeCodeAgentMixin."""
+        BaseAgent.__init__(self, config)
+        ClaudeCodeAgentMixin.__init__(self)
 
     @classmethod
     def get_default_config(cls) -> AgentConfig:
@@ -42,6 +61,7 @@ class AnalystAgent(BaseAgent):
                 "market_research",
                 "requirements_analysis",
                 "user_research",
+                "analysis",
             ],
             temperature=0.5,  # Balanced for creative and analytical thinking
             metadata={
@@ -52,7 +72,7 @@ class AnalystAgent(BaseAgent):
 
     async def execute(self, task: AgentTask) -> AgentResult:
         """
-        Execute an analysis task.
+        Execute an analysis task using Claude Code CLI.
 
         Args:
             task: The task to execute
@@ -62,31 +82,50 @@ class AnalystAgent(BaseAgent):
         """
         thinking_steps = await self.think(task)
 
-        # Analyze task type
+        # Build task-specific prompt based on task type
         task_lower = task.description.lower()
+        task_type = None
+        context_prompt = None
 
-        if any(word in task_lower for word in ["research", "investigate", "study"]):
-            output = await self._conduct_research(task)
-        elif any(word in task_lower for word in ["data", "metrics", "analytics"]):
-            output = await self._analyze_data(task)
+        if any(word in task_lower for word in ["data", "metrics", "analytics"]):
+            task_type = "data_analysis"
+            context_prompt = self._build_data_analysis_prompt(task)
         elif any(word in task_lower for word in ["competitor", "competitive"]):
-            output = await self._competitive_analysis(task)
+            task_type = "competitive"
+            context_prompt = self._build_competitive_analysis_prompt(task)
         elif any(word in task_lower for word in ["requirement", "spec"]):
-            output = await self._analyze_requirements(task)
+            task_type = "requirements"
+            context_prompt = self._build_requirements_analysis_prompt(task)
         else:
-            output = await self._general_analysis(task)
+            task_type = "research"
+            context_prompt = self._build_research_prompt(task)
+
+        # Execute with Claude Code CLI
+        claude_result = await self.execute_with_claude(
+            task_description=context_prompt,
+            mcp_profile=self._select_mcp_profile(task_type, task)
+        )
+
+        # Extract additional metadata
+        insights = self._extract_insights(claude_result.get("output", ""))
+        recommendations = self._extract_recommendations(claude_result.get("output", ""))
 
         return AgentResult(
-            success=True,
-            output=output,
+            success=claude_result.get("success", False),
+            output=claude_result.get("output", ""),
             thinking_steps=thinking_steps,
             artifacts={
-                "insights": self._extract_insights(output),
-                "recommendations": self._extract_recommendations(output),
+                "insights": insights,
+                "recommendations": recommendations,
             },
             metadata={
                 "agent_name": self.name,
-                "analysis_type": self._determine_analysis_type(task),
+                "task_complexity": task.complexity,
+                "task_type": task_type,
+                "analysis_type": task_type,
+                "execution_engine": "claude-code-cli",
+                "duration": claude_result.get("metadata", {}).get("duration", 0),
+                "mcp_profile": claude_result.get("metadata", {}).get("mcp_profile", "unknown"),
             }
         )
 
@@ -100,190 +139,165 @@ class AnalystAgent(BaseAgent):
             "💡 Developing actionable recommendations",
         ]
 
-    async def _conduct_research(self, task: AgentTask) -> str:
-        """Conduct research on a topic."""
-        return f"""# Research Report: {task.description}
+    # =========================================================================
+    # TASK-SPECIFIC PROMPT BUILDERS
+    # =========================================================================
 
-## Executive Summary
-This research investigates {task.description} through comprehensive analysis of available information, patterns, and trends.
+    def _build_research_prompt(self, task: AgentTask) -> str:
+        """Build prompt for research tasks."""
+        return f"""Conduct comprehensive research on: {task.description}
 
-## Key Findings
-1. **Primary Insight**: Core analysis reveals significant patterns
-2. **Secondary Insights**: Supporting observations and correlations
-3. **Data Points**: Quantitative measures and statistics
+Please provide:
 
-## Detailed Analysis
-### Topic Overview
-- **Scope**: Comprehensive coverage of the subject matter
-- **Methodology**: Multi-source research and validation
-- **Limitations**: Known constraints and assumptions
+1. **Executive Summary**
+   - Key findings in 2-3 sentences
+   - Main conclusion
 
-### Findings
-Based on research and analysis:
-- Trend 1: Description and implications
-- Trend 2: Description and implications
-- Pattern 3: Description and implications
+2. **Key Findings**
+   - Primary insights
+   - Secondary observations
+   - Supporting data points
 
-## Recommendations
-1. **Immediate Action**: Specific steps to take now
-2. **Short-term Strategy**: Actions for next 1-3 months
-3. **Long-term Planning**: Strategic considerations for 6-12 months
+3. **Detailed Analysis**
+   - Topic overview and scope
+   - Methodology approach
+   - Comprehensive findings
+   - Identified patterns and trends
 
-## Sources
-- Multi-source verification
-- Cross-reference validation
-- Expert consultation where applicable
-"""
+4. **Recommendations**
+   - Immediate actions (now)
+   - Short-term strategy (1-3 months)
+   - Long-term planning (6-12 months)
 
-    async def _analyze_data(self, task: AgentTask) -> str:
-        """Analyze data and metrics."""
-        return f"""# Data Analysis: {task.description}
+5. **Sources and Validation**
+   - Multi-source verification
+   - Cross-reference validation
+   - Confidence level in findings
 
-## Overview
-Comprehensive analysis of available data with focus on actionable insights and trends.
+Use markdown formatting with clear headings and structured content."""
 
-## Data Summary
-| Metric | Value | Trend |
-|--------|-------|-------|
-| Metric 1 | Value | 📈 Increasing |
-| Metric 2 | Value | 📉 Decreasing |
-| Metric 3 | Value | ➡️ Stable |
+    def _build_data_analysis_prompt(self, task: AgentTask) -> str:
+        """Build prompt for data analysis tasks."""
+        return f"""Perform comprehensive data analysis for: {task.description}
 
-## Key Insights
-1. **Trend Analysis**: Clear patterns in the data
-2. **Anomalies**: Notable deviations from expected values
-3. **Correlations**: Relationships between different metrics
-4. **Opportunities**: Areas for improvement or growth
+Please provide:
 
-## Visual Analysis
-```
-[Data visualization would be included here]
-Shows trends, patterns, and key data points
-```
+1. **Data Summary**
+   - Key metrics in table format
+   - Trend indicators (📈 increasing, 📉 decreasing, ➡️ stable)
+   - Statistical overview
 
-## Recommendations
-Based on data analysis:
-1. **Optimization**: Areas where performance can be improved
-2. **Growth**: Opportunities for expansion
-3. **Risk Mitigation**: Potential issues to address
+2. **Key Insights**
+   - Trend analysis with patterns
+   - Notable anomalies or outliers
+   - Correlations between metrics
+   - Identified opportunities
 
-## Next Steps
-- Monitor key metrics
-- Conduct deeper analysis on specific areas
-- Implement recommended changes
-- Track impact of interventions
-"""
+3. **Visual Analysis**
+   - Describe what visualizations would be helpful
+   - ASCII charts where appropriate
+   - Graph interpretations
 
-    async def _competitive_analysis(self, task: AgentTask) -> str:
-        """Conduct competitive analysis."""
-        return f"""# Competitive Analysis: {task.description}
+4. **Recommendations**
+   - Optimization opportunities
+   - Growth potential areas
+   - Risk mitigation strategies
 
-## Market Landscape
-Analysis of competitive positioning and opportunities.
+5. **Next Steps**
+   - Metrics to monitor
+   - Areas for deeper analysis
+   - Implementation recommendations
 
-## Competitor Overview
-| Competitor | Strengths | Weaknesses | Market Share |
-|------------|-----------|------------|--------------|
-| Competitor A | Strength 1, Strength 2 | Weakness 1 | XX% |
-| Competitor B | Strength 3 | Weakness 2, Weakness 3 | YY% |
-| Our Position | Strength 4, Strength 5 | Weakness 4 | ZZ% |
+Include tables and structured data presentation."""
 
-## Analysis
-### Competitive Advantages
-1. **Our Strength 1**: Description and impact
-2. **Our Strength 2**: Description and impact
-3. **Unique Position**: What sets us apart
+    def _build_competitive_analysis_prompt(self, task: AgentTask) -> str:
+        """Build prompt for competitive analysis tasks."""
+        return f"""Conduct competitive analysis for: {task.description}
 
-### Competitive Gaps
-1. **Area for Improvement**: Description and priority
-2. **Market Opportunity**: Unmet needs
-3. **Threat Level**: Assessment of competitive pressure
+Please provide:
 
-## Strategic Recommendations
-1. **Leverage Strengths**: Maximize competitive advantages
-2. **Address Gaps**: Close critical capability gaps
-3. **Differentiate**: Strengthen unique positioning
-4. **Monitor**: Track competitive landscape changes
+1. **Market Landscape**
+   - Market overview and dynamics
+   - Key players and positioning
 
-## Action Plan
-- Short-term: Immediate actions to take
-- Medium-term: Strategic initiatives
-- Long-term: Vision for market leadership
-"""
+2. **Competitor Overview**
+   - Create a comparison table with:
+     * Competitor names
+     * Key strengths
+     * Notable weaknesses
+     * Market position
 
-    async def _analyze_requirements(self, task: AgentTask) -> str:
-        """Analyze and clarify requirements."""
-        return f"""# Requirements Analysis: {task.description}
+3. **Competitive Analysis**
+   - Our competitive advantages
+   - Market gaps and opportunities
+   - Threat assessment
 
-## Requirements Breakdown
-Detailed analysis of functional and non-functional requirements.
+4. **Strategic Recommendations**
+   - How to leverage our strengths
+   - Areas to address/gaps to close
+   - Differentiation strategies
+   - Monitoring approach
 
-## Functional Requirements
-| ID | Requirement | Priority | Complexity | Status |
-|----|-------------|----------|------------|--------|
-| FR-001 | Description | High | Medium | Clarified |
-| FR-002 | Description | Medium | Low | Clarified |
-| FR-003 | Description | High | High | Needs Review |
+5. **Action Plan**
+   - Short-term immediate actions
+   - Medium-term strategic initiatives
+   - Long-term vision
 
-## Non-Functional Requirements
-| Category | Requirement | Metric | Priority |
-|----------|-------------|--------|----------|
-| Performance | Response time | < 200ms | High |
-| Security | Encryption | AES-256 | Critical |
-| Scalability | Concurrent users | 10K+ | Medium |
+Use tables for clear comparison and structured recommendations."""
 
-## Analysis
-### Completeness
-✓ Core requirements identified
-⚠ Some edge cases need clarification
-✓ Acceptance criteria defined
+    def _build_requirements_analysis_prompt(self, task: AgentTask) -> str:
+        """Build prompt for requirements analysis tasks."""
+        return f"""Perform detailed requirements analysis for: {task.description}
 
-### Consistency
-✓ No conflicting requirements found
-✓ Requirements align with business goals
-⚠ Some dependencies need clarification
+Please provide:
 
-### Feasibility
-✓ Technically feasible
-✓ Resource requirements realistic
-⚠ Timeline may be aggressive
+1. **Requirements Breakdown**
+   - Functional requirements table with:
+     * Requirement ID
+     * Description
+     * Priority (Critical/High/Medium/Low)
+     * Complexity
+     * Status
 
-## Recommendations
-1. **Clarify**: Address items needing review
-2. **Prioritize**: Focus on critical path items
-3. **Plan**: Account for dependencies
-4. **Validate**: Confirm with stakeholders
+   - Non-functional requirements table with:
+     * Category
+     * Requirement
+     * Success metric
+     * Priority
 
-## Updated Requirements
-[Refined requirements list based on analysis]
-"""
+2. **Analysis**
+   - **Completeness**: What's covered vs missing
+   - **Consistency**: Any conflicts or dependencies
+   - **Feasibility**: Technical and resource assessment
+   - **Clarity**: Items needing clarification
 
-    async def _general_analysis(self, task: AgentTask) -> str:
-        """General analysis task."""
-        return f"""# Analysis: {task.description}
+3. **Recommendations**
+   - Items to clarify with stakeholders
+   - Prioritization approach
+   - Dependency management
+   - Validation strategy
 
-## Overview
-Comprehensive analysis of the provided topic or request.
+4. **Updated Requirements**
+   - Refined requirements list
+   - Acceptance criteria
+   - Assumptions documented
 
-## Key Points
-1. **Observation 1**: Detailed description
-2. **Observation 2**: Detailed description
-3. **Observation 3**: Detailed description
+Use tables for clear requirement presentation."""
 
-## Insights
-- **Primary Finding**: Main conclusion from analysis
-- **Supporting Evidence**: Data and observations
-- **Implications**: What this means for the project
+    def _select_mcp_profile(self, task_type: str, task: AgentTask) -> Optional[str]:
+        """Select appropriate MCP profile based on task type."""
+        # Analyst tasks often need research/data capabilities
+        task_lower = task.description.lower()
 
-## Recommendations
-Based on the analysis:
-1. Specific action item
-2. Specific action item
-3. Specific action item
+        if any(kw in task_lower for kw in ["web research", "lookup", "documentation"]):
+            return "data"  # May need documentation/web access
+        elif any(kw in task_lower for kw in ["analyze code", "review code"]):
+            return "filesystem"  # Need to read code files
+        return "standard"  # Default to standard for research
 
-## Conclusion
-Summary of analysis and key takeaways.
-"""
+    # =========================================================================
+    # UTILITY METHODS
+    # =========================================================================
 
     def _extract_insights(self, text: str) -> List[str]:
         """Extract key insights from output."""
@@ -295,18 +309,3 @@ Summary of analysis and key takeaways.
         """Extract recommendations from output."""
         import re
         return re.findall(r'^\d+\.\s+\*\*(.+?)\*\*:\s*(.+)', text, re.MULTILINE)
-
-    def _determine_analysis_type(self, task: AgentTask) -> str:
-        """Determine the type of analysis performed."""
-        task_lower = task.description.lower()
-
-        if "research" in task_lower:
-            return "research"
-        elif "data" in task_lower or "metric" in task_lower:
-            return "data_analysis"
-        elif "competitor" in task_lower:
-            return "competitive"
-        elif "requirement" in task_lower:
-            return "requirements"
-        else:
-            return "general"

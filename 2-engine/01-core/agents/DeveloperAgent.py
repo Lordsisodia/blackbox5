@@ -39,6 +39,11 @@ class DeveloperAgent(BaseAgent, ClaudeCodeAgentMixin):
     claude_timeout = 300  # 5 minutes
     claude_mcp_profile = None  # Auto-detect based on task
 
+    def __init__(self, config: AgentConfig):
+        """Initialize DeveloperAgent with both BaseAgent and ClaudeCodeAgentMixin."""
+        BaseAgent.__init__(self, config)
+        ClaudeCodeAgentMixin.__init__(self)
+
     @classmethod
     def get_default_config(cls) -> AgentConfig:
         """Get default configuration for the Developer agent."""
@@ -50,6 +55,7 @@ class DeveloperAgent(BaseAgent, ClaudeCodeAgentMixin):
             description="Expert developer specializing in code implementation, debugging, and technical problem-solving",
             capabilities=[
                 "coding",
+                "implementation",
                 "debugging",
                 "code_review",
                 "testing",

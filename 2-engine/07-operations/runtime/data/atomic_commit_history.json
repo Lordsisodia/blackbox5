@@ -32,5 +32,19 @@
     "timestamp": "2026-01-20T13:54:10.916592",
     "wave_id": 1,
     "rollback_commit": null
+  },
+  {
+    "task_id": "fix_4_1768892067",
+    "commit_hash": "14923ff",
+    "commit_type": "fix",
+    "scope": "agents",
+    "description": "Fix routing to Backend Specialist (was Frontend Specialist)",
+    "files": [
+      "2-engine/01-core/agents/backend-specialist.yaml",
+      "2-engine/07-operations/runtime/data/atomic_commit_history.json"
+    ],
+    "timestamp": "2026-01-20T13:54:27.637935",
+    "wave_id": 4,
+    "rollback_commit": null
   }
 ]
