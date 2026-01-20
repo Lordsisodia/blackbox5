@@ -33,7 +33,12 @@ class AgentLoader:
         Args:
             agents_path: Path to directory containing agent definitions
         """
-        self.agents_path = agents_path or Path.cwd() / "agents"
+        # Default to the agents directory (parent of this core module)
+        if agents_path is None:
+            # Path is: 2-engine/01-core/agents/core/agent_loader.py
+            # We want: 2-engine/01-core/agents/
+            agents_path = Path(__file__).parent.parent
+        self.agents_path = agents_path
         self._loaded_agents: Dict[str, Type[BaseAgent]] = {}
         self._agent_instances: Dict[str, BaseAgent] = {}
 
