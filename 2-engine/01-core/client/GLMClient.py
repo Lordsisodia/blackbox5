@@ -84,6 +84,7 @@ class GLMClient:
         max_retries: int = 3,
         enable_prompt_compression: bool = True,
         compression_config: Optional[Dict[str, Any]] = None,
+        enable_token_optimization: bool = True,
     ):
         """
         Initialize GLM client.
@@ -108,6 +109,18 @@ class GLMClient:
         self.max_retries = max_retries
         self.enable_prompt_compression = enable_prompt_compression
         self.compression_config = compression_config or {}
+        self.enable_token_optimization = enable_token_optimization
+
+        # Initialize token optimizer
+        self.token_optimizer = None
+        if enable_token_optimization:
+            try:
+                from TokenOptimizer import TokenOptimizer
+                self.token_optimizer = TokenOptimizer()
+                logger.info("GLM Client: Token optimization enabled")
+            except ImportError:
+                logger.warning("TokenOptimizer not available, optimization disabled")
+                self.enable_token_optimization = False
 
         # Try to import requests, provide helpful error if not available
         try:
@@ -308,6 +321,95 @@ class GLMClient:
 
             except (KeyError, IndexError, json.JSONDecodeError) as e:
                 raise GLMAPIError(f"Failed to parse GLM API response: {e}")
+
+    def create_optimized(
+        self,
+        system_prompt: str,
+        agent_persona: str,
+        conversation_history: List[Dict[str, str]],
+        code_context: str,
+        user_query: str,
+        task_type: Optional[str] = None,
+        model: str = "glm-4.7",
+        max_tokens: Optional[int] = None,
+        temperature: float = 0.7,
+        top_p: float = 0.9,
+        **kwargs
+    ) -> GLMResponse:
+        """
+        Create an optimized chat completion with automatic token management.
+
+        This method uses the TokenOptimizer to:
+        1. Cache static prompts (system, persona)
+        2. Trim conversation to budget
+        3. Allocate tokens by task type
+        4. Consolidate old messages
+
+        Args:
+            system_prompt: Base system prompt
+            agent_persona: Agent-specific persona (from agent.md)
+            conversation_history: Previous conversation messages
+            code_context: Code/files context
+            user_query: Current user query
+            task_type: Optional task type (auto-detected if None)
+            model: Model name
+            max_tokens: Maximum tokens in response
+            temperature: Sampling temperature
+            top_p: Nucleus sampling threshold
+            **kwargs: Additional parameters
+
+        Returns:
+            GLMResponse with the generated content
+        """
+        if not self.token_optimizer:
+            # Fallback to regular create
+            logger.warning("TokenOptimizer not available, using regular create()")
+            messages = [
+                {'role': 'system', 'content': system_prompt},
+                {'role': 'system', 'content': agent_persona},
+                *conversation_history,
+                {'role': 'user', 'content': user_query}
+            ]
+            return self.create(
+                messages=messages,
+                model=model,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                top_p=top_p,
+                **kwargs
+            )
+
+        # Optimize prompts
+        optimization_result = self.token_optimizer.optimize(
+            system_prompt=system_prompt,
+            agent_persona=agent_persona,
+            conversation_history=conversation_history,
+            code_context=code_context,
+            user_query=user_query,
+            task_type=task_type
+        )
+
+        # Log optimization stats
+        stats = optimization_result.stats
+        logger.info(
+            f"Token optimization ({stats.get('task_type', 'unknown')}): "
+            f"{stats['original_tokens']['total']} -> {stats['optimized_tokens']['total']} input tokens "
+            f"({100 * stats['optimized_tokens']['total'] / stats['original_tokens']['total']:.1f}%)"
+        )
+
+        # Determine max_tokens from budget if not provided
+        if max_tokens is None and 'budget' in stats:
+            max_tokens = stats['budget']['total_output']
+
+        # Call create with optimized messages
+        return self.create(
+            messages=optimization_result.messages,
+            model=model,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            top_p=top_p,
+            **kwargs
+        )
 
     async def acreate(
         self,

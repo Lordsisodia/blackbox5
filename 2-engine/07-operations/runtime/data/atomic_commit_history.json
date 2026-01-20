@@ -66,5 +66,18 @@
     "timestamp": "2026-01-21T04:05:04.697256",
     "wave_id": 1,
     "rollback_commit": null
+  },
+  {
+    "task_id": "fix_1_1768945089",
+    "commit_hash": "e534032",
+    "commit_type": "fix",
+    "scope": "agents",
+    "description": "Fix routing to Machine Learning Specialist (was Frontend Specialist)",
+    "files": [
+      "2-engine/01-core/agents/ml-specialist.yaml"
+    ],
+    "timestamp": "2026-01-21T04:38:11.389184",
+    "wave_id": 1,
+    "rollback_commit": null
   }
 ]

@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "model": "claude-sonnet-4-5-20250929",
+
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/first-principles-trigger.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/detect-assumptions.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-task-complexity.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/detect-dependencies.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/detect-knowledge-gaps.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-context-boundary.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/analyze-change-impact.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-reversibility.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-completion.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/auto-log-activity.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/capture-decisions.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/detect-technical-debt.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/detect-stakeholders.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-test-coverage.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-environment.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/manage-session-time.sh"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/extract-memories.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/detect-patterns.sh"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/analyze-subagent-quality.sh"
+          }
+        ]
+      }
+    ]
+  },
+
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit",
+      "Write",
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(node:*)",
+      "Bash(python*:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "Edit(5-project-memory/siso-internal/STATE.yaml)",
+      "Edit(2-engine/01-core/infrastructure/main.py)",
+      "Edit(config.yml)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+
+  "env": {
+    "BLACKBOX5_ENGINE_PATH": "./2-engine",
+    "BLACKBOX5_MEMORY_PATH": "./5-project-memory/siso-internal",
+    "BLACKBOX5_CONTEXT_THRESHOLD": "80",
+    "BLACKBOX5_SESSION_TIMEOUT": "14400"
+  }
+}
