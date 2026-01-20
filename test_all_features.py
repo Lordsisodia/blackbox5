@@ -48,13 +48,20 @@ class FeatureTester:
     def test_import(self, module_path: str) -> bool:
         """Test if a module can be imported"""
         try:
+            # First try normal import
             parts = module_path.split('.')
             module = __import__(module_path)
             for part in parts[1:]:
                 module = getattr(module, part)
             return True
         except Exception as e:
-            return False
+            # If that fails, try direct import from sys.modules
+            try:
+                import importlib
+                module = importlib.import_module(module_path)
+                return True
+            except:
+                return False
 
     def test_file_exists(self, file_path: str) -> bool:
         """Test if a file exists"""

@@ -46,5 +46,25 @@
     "timestamp": "2026-01-20T13:54:27.637935",
     "wave_id": 4,
     "rollback_commit": null
+  },
+  {
+    "task_id": "fix_1_1768943104",
+    "commit_hash": "212c7fb",
+    "commit_type": "fix",
+    "scope": "agents",
+    "description": "Fix routing to Frontend Specialist (was None)",
+    "files": [
+      "2-engine/01-core/agents/frontend-specialist.yaml",
+      "2-engine/01-core/interface/api/server.py",
+      "2-engine/07-operations/runtime/CLAUDE_AGENT_README.md",
+      "2-engine/07-operations/runtime/OVERNIGHT_INSTRUCTIONS.md",
+      "2-engine/07-operations/runtime/OVERNIGHT_READY.md",
+      "2-engine/07-operations/runtime/claude_code_autonomous_agent.py",
+      "2-engine/07-operations/runtime/overnight_monitor.py",
+      "2-engine/07-operations/runtime/simple_bb5_server.py"
+    ],
+    "timestamp": "2026-01-21T04:05:04.697256",
+    "wave_id": 1,
+    "rollback_commit": null
   }
 ]
