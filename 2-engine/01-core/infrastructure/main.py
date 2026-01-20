@@ -341,11 +341,11 @@ class Blackbox5:
         if "orchestrat" in role_lower:
             return AgentType.ORCHESTRATOR
         elif "manager" in role_lower or "pm" in role_lower:
-            return AgentType.MANAGER
+            return AgentType.SPECIALIST  # Managers are specialists
         elif "specialist" in role_lower or "expert" in role_lower:
             return AgentType.SPECIALIST
         elif "executor" in role_lower or "implementor" in role_lower:
-            return AgentType.EXECUTOR
+            return AgentType.SPECIALIST  # Executors are specialists
         else:
             return AgentType.GENERALIST
 
@@ -391,12 +391,23 @@ class Blackbox5:
             task = self._parse_request(request, session_id, context)
             logger.info(f"Parsed task: {task.id} (type: {task.type}, priority: {task.priority})")
 
-            # Step 2: Route task via TaskRouter
-            routing_decision = self._task_router.route(task)
+            # Step 2: Check for forced agent in context, otherwise route via TaskRouter
+            forced_agent = context.get('forced_agent') or task.metadata.get('context', {}).get('forced_agent')
+            if forced_agent and forced_agent in self._agents:
+                # Use forced agent
+                from routing.task_router import RoutingDecision
+                routing_decision = RoutingDecision(
+                    agent_name=forced_agent,
+                    confidence=1.0,
+                    reasoning=f"Agent forced by user: {forced_agent}",
+                    alternative_agents=[]
+                )
+                logger.info(f"Using forced agent: {forced_agent}")
+            else:
+                routing_decision = await self._task_router.route(task)
             logger.info(
-                f"Routing decision: {routing_decision.strategy.value} "
-                f"(agent: {routing_decision.recommended_agent}, "
-                f"complexity: {routing_decision.complexity.aggregate_score:.2f})"
+                f"Routing decision: {routing_decision.agent_name} "
+                f"(confidence: {routing_decision.confidence:.2f})"
             )
 
             # Step 3: Execute based on routing
@@ -409,19 +420,17 @@ class Blackbox5:
             response = {
                 "result": result,
                 "routing": {
-                    "strategy": routing_decision.strategy.value,
-                    "agent": routing_decision.recommended_agent,
-                    "complexity": routing_decision.complexity.aggregate_score,
+                    "agent": routing_decision.agent_name,
+                    "confidence": routing_decision.confidence,
                     "reasoning": routing_decision.reasoning,
-                    "estimated_duration": routing_decision.estimated_duration,
-                    "confidence": routing_decision.confidence
+                    "alternative_agents": routing_decision.alternative_agents
                 },
                 "guide_suggestions": guide_suggestions,
                 "session_id": session_id,
                 "timestamp": datetime.now().isoformat()
             }
 
-            logger.info(f"Request processed successfully in {response['routing']['estimated_duration']:.2f}s estimated")
+            logger.info(f"Request processed successfully")
 
             return response
 
@@ -439,37 +448,116 @@ class Blackbox5:
             context: Additional context
 
         Returns:
-            Task object
+            Task object (from routing.task_router)
         """
         # Infer task type and domain from request
         task_type = self._infer_task_type(request)
         domain = self._infer_domain(request)
         priority = self._infer_priority(request)
+        required_capabilities = self._infer_required_capabilities(request, task_type, domain)
 
-        # Create Task object
+        # Create Task object using the routing Task class
+        # Note: routing.Task uses: id, description, type, priority, required_capabilities, metadata
         task = Task(
             id=f"task_{session_id}",
             description=request,
             type=task_type,
             priority=self._map_priority_to_int(priority),
-            required_capabilities=set(),
-            metadata={"session_id": session_id, "domain": domain, "context": context}
+            required_capabilities=required_capabilities,
+            metadata={
+                "session_id": session_id,
+                "domain": domain,
+                "context": context
+            }
         )
 
         return task
+
+    def _get_all_available_capabilities(self) -> set:
+        """Get set of all capabilities that exist in registered agents."""
+        capabilities = set()
+        for agent in self._agents.values():
+            capabilities.update(agent.config.capabilities)
+        return capabilities
+
+    def _infer_required_capabilities(self, request: str, task_type: str, domain: str) -> set:
+        """
+        Infer required capabilities from task description, type, and domain.
+
+        This maps task characteristics to agent capabilities for better routing.
+        Only returns capabilities that actually exist in at least one registered agent.
+        """
+        request_lower = request.lower()
+        capabilities = set()
+
+        # Get all capabilities that actually exist in agents
+        available_caps = self._get_all_available_capabilities()
+
+        # Map task types to capabilities
+        task_type_caps = {
+            "architecture": {"architecture", "system_design", "design_patterns", "technical_planning"},
+            "analysis": {"research", "data_analysis", "competitive_analysis", "requirements_analysis"},
+            "implementation": {"coding", "implementation", "development"},
+            "testing": {"integration_testing", "test_automation"},
+            "debugging": {"debugging", "troubleshooting"},
+            "documentation": {"documentation", "technical_writing"},
+        }
+
+        if task_type in task_type_caps:
+            capabilities.update(task_type_caps[task_type])
+
+        # Map domains to capabilities
+        domain_caps = {
+            "backend": {"backend", "server_logic", "api_implementation", "database_integration"},
+            "frontend": {"frontend", "ui_development", "user_interface"},
+            "database": {"database_design", "database_optimization", "data_modeling"},
+            "devops": {"devops", "deployment", "ci_cd", "infrastructure"},
+            "security": {"security_design", "security_audit", "vulnerability_analysis"},
+            "performance": {"performance_optimization", "scalability"},
+            "mobile": {"mobile_development", "ios", "android"},
+            "ml": {"machine_learning", "ai", "data_science"},
+        }
+
+        if domain in domain_caps:
+            capabilities.update(domain_caps[domain])
+
+        # Extract specific technology keywords
+        tech_keywords = {
+            "api": {"api_implementation", "api_design", "rest_api", "graphql"},
+            "database": {"database_integration", "sql", "nosql", "orm"},
+            "microservices": {"microservices", "distributed_systems"},
+            "security": {"security_scanning", "vulnerability_analysis", "secure_code_review"},
+            "audit": {"security_scanning", "vulnerability_analysis", "secure_code_review"},
+            "testing": {"integration_testing", "test_automation"},
+            "unit test": {"integration_testing", "test_automation"},
+            "ui": {"ui_component_design", "frontend_architecture"},
+            "ux": {"user_experience"},
+            "performance": {"performance_optimization", "performance_analysis"},
+            "scale": {"scalability"},
+        }
+
+        for keyword, caps in tech_keywords.items():
+            if keyword in request_lower:
+                capabilities.update(caps)
+
+        # Filter to only include capabilities that actually exist in agents
+        return capabilities.intersection(available_caps)
 
     def _infer_task_type(self, request: str) -> str:
         """Infer task type from request."""
         request_lower = request.lower()
 
-        if any(word in request_lower for word in ["analyze", "investigate", "research", "study"]):
+        # Check for testing first (before implementation) to catch "unit test", "test", etc.
+        if any(word in request_lower for word in ["unit test", "write unit tests", "write tests", "create tests"]):
+            return "testing"
+        elif any(word in request_lower for word in ["test", "verify", "validate"]):
+            return "testing"
+        elif any(word in request_lower for word in ["analyze", "investigate", "research", "study"]):
             return "analysis"
         elif any(word in request_lower for word in ["design", "architecture", "plan"]):
             return "architecture"
         elif any(word in request_lower for word in ["implement", "build", "create", "write"]):
             return "implementation"
-        elif any(word in request_lower for word in ["test", "verify", "validate"]):
-            return "testing"
         elif any(word in request_lower for word in ["fix", "debug", "resolve"]):
             return "debugging"
         elif any(word in request_lower for word in ["document", "explain"]):
@@ -528,15 +616,9 @@ class Blackbox5:
         Returns:
             Execution result
         """
-        strategy = routing_decision.strategy.value
-
-        if strategy == "single_agent":
-            return await self._execute_single_agent(task, routing_decision)
-        elif strategy == "multi_agent":
-            return await self._execute_multi_agent(task, routing_decision)
-        else:
-            # Default to single agent
-            return await self._execute_single_agent(task, routing_decision)
+        # For now, always use single agent execution
+        # Multi-agent orchestration can be added later based on complexity
+        return await self._execute_single_agent(task, routing_decision)
 
     async def _execute_single_agent(self, task: Task, routing_decision) -> Any:
         """
@@ -549,19 +631,30 @@ class Blackbox5:
         Returns:
             Agent execution result
         """
-        agent_name = routing_decision.recommended_agent
+        agent_name = routing_decision.agent_name
 
         if not agent_name:
             # Fallback to first available agent
             agent_name = list(self._agents.keys())[0]
             logger.warning(f"No agent recommended, using fallback: {agent_name}")
 
-        agent = self._agents.get(agent_name)
+        # Find agent by name (not by key in dict)
+        # The routing decision returns agent.name (e.g., "architect")
+        # but the _agents dict is keyed by class name (e.g., "ArchitectAgent")
+        agent = None
+        for agent_instance in self._agents.values():
+            if agent_instance.name == agent_name:
+                agent = agent_instance
+                break
 
         if not agent:
-            raise ProcessingError(f"Agent not found: {agent_name}")
+            # Try direct lookup as fallback
+            agent = self._agents.get(agent_name)
 
-        logger.info(f"Executing with single agent: {agent_name}")
+        if not agent:
+            raise ProcessingError(f"Agent not found: {agent_name}. Available agents: {[a.name for a in self._agents.values()]}")
+
+        logger.info(f"Executing with single agent: {agent_name} ({agent.role})")
 
         # Convert Task to AgentTask
         agent_task = AgentTask(
@@ -572,9 +665,16 @@ class Blackbox5:
             context=task.metadata.get("context", {})
         )
 
-        # Execute agent
+        # Execute agent with hooks (includes duration tracking)
         try:
-            result = await agent.execute(agent_task)
+            result = await agent.execute_with_hooks(agent_task)
+
+            # Record task completion in router statistics
+            await self._task_router.record_task_completion(
+                agent_name=agent_name,
+                task_id=task.id,
+                success=result.success
+            )
 
             return {
                 "success": result.success,
@@ -587,6 +687,14 @@ class Blackbox5:
 
         except Exception as e:
             logger.error(f"Agent execution failed: {e}")
+
+            # Record failed task
+            await self._task_router.record_task_completion(
+                agent_name=agent_name,
+                task_id=task.id,
+                success=False
+            )
+
             return {
                 "success": False,
                 "error": str(e),
@@ -706,7 +814,7 @@ class Blackbox5:
         self._initialized = False
         logger.info("Blackbox5 shutdown complete")
 
-    def get_statistics(self) -> Dict[str, Any]:
+    async def get_statistics(self) -> Dict[str, Any]:
         """
         Get system statistics.
 
@@ -721,10 +829,10 @@ class Blackbox5:
         }
 
         if self._task_router:
-            stats["routing"] = self._task_router.get_statistics()
+            stats["routing"] = await self._task_router.get_statistics()
 
         if self._orchestrator:
-            stats["orchestrator"] = self._orchestrator.get_statistics()
+            stats["orchestrator"] = await self._orchestrator.get_statistics()
 
         return stats
 
@@ -807,7 +915,7 @@ if __name__ == "__main__":
         bb5 = await get_blackbox5()
 
         # Print statistics
-        stats = bb5.get_statistics()
+        stats = await bb5.get_statistics()
         print(f"\nSystem Statistics:")
         print(f"  Initialized: {stats['initialized']}")
         print(f"  Project: {stats['project_path']}")
@@ -822,9 +930,8 @@ if __name__ == "__main__":
         )
 
         print(f"\nResult:")
-        print(f"  Strategy: {result['routing']['strategy']}")
         print(f"  Agent: {result['routing']['agent']}")
-        print(f"  Complexity: {result['routing']['complexity']:.2f}")
+        print(f"  Confidence: {result['routing']['confidence']:.2f}")
         print(f"  Success: {result['result'].get('success', False)}")
 
         # Shutdown
