@@ -21,11 +21,11 @@ engine_root = Path(__file__).parent.parent
 import sys
 sys.path.insert(0, str(engine_root))
 
-from core.kernel import kernel, SystemStatus, RunLevel
-from core.config import ConfigManager
-from core.health import HealthMonitor
-from core.registry import ServiceRegistry
-from core.lifecycle import LifecycleManager
+from infrastructure.kernel import kernel, SystemStatus, RunLevel
+from infrastructure.config import ConfigManager
+from infrastructure.health import HealthMonitor
+from infrastructure.registry import ServiceRegistry
+from infrastructure.lifecycle import LifecycleManager
 
 
 logger = logging.getLogger("APIServer")
@@ -54,7 +54,7 @@ async def lifespan(app: FastAPI):
         config = ConfigManager.load()
 
         # Initialize core systems
-        from core.boot_enhanced import initialize_core_systems, start_engine
+        from infrastructure.boot_enhanced import initialize_core_systems, start_engine
         boot_config = await initialize_core_systems(config)
 
         health_monitor = boot_config.health_monitor
