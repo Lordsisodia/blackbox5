@@ -371,22 +371,38 @@ class AutonomousBlackboxTester:
         """Restart the BLACKBOX5 API server to pick up configuration changes"""
         logger.info("Restarting BLACKBOX5 server to pick up agent changes...")
 
-        # Kill existing server by PID if tracked
-        if self.server_process and hasattr(self.server_process, 'pid'):
+        # Kill ALL processes using port 8000 thoroughly
+        killed_pids = []
+        max_attempts = 3
+
+        for attempt in range(max_attempts):
             try:
-                import os
-                import signal
-                os.kill(self.server_process.pid, signal.SIGTERM)
-                logger.info(f"Terminated server process (PID: {self.server_process.pid})")
-                await asyncio.sleep(1)
-            except ProcessLookupError:
-                logger.debug(f"Process {self.server_process.pid} already terminated")
+                result = subprocess.run(
+                    ["lsof", "-ti", ":8000"],
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                )
+                if result.stdout.strip():
+                    pids = result.stdout.strip().split('\n')
+                    for pid in pids:
+                        try:
+                            subprocess.run(["kill", "-9", pid], capture_output=True, timeout=2)
+                            killed_pids.append(pid)
+                            logger.info(f"Killed process {pid} using port 8000")
+                        except:
+                            pass
+                    await asyncio.sleep(1)  # Wait for processes to die
+                else:
+                    break  # No processes found
             except Exception as e:
-                logger.warning(f"Failed to terminate tracked process: {e}")
+                logger.debug(f"Error killing processes (attempt {attempt+1}): {e}")
 
-            self.server_process = None
+        if killed_pids:
+            logger.info(f"Killed {len(killed_pids)} processes, waiting for port to clear...")
+            await asyncio.sleep(3)  # Extra wait after killing
 
-        # Also try to kill any process using port 8000
+        # Double-check port is clear
         try:
             result = subprocess.run(
                 ["lsof", "-ti", ":8000"],
@@ -395,18 +411,10 @@ class AutonomousBlackboxTester:
                 timeout=5
             )
             if result.stdout.strip():
-                pids = result.stdout.strip().split('\n')
-                for pid in pids:
-                    try:
-                        subprocess.run(["kill", "-9", pid], capture_output=True, timeout=2)
-                        logger.info(f"Killed process {pid} using port 8000")
-                    except:
-                        pass
-        except Exception as e:
-            logger.debug(f"No process to kill on port 8000: {e}")
-
-        # Wait a moment for port to be released
-        await asyncio.sleep(2)
+                logger.warning(f"Port 8000 still in use after killing: {result.stdout.strip()}")
+                return False
+        except:
+            pass
 
         # Start fresh server
         return await self.start_server()
@@ -544,10 +552,11 @@ class AutonomousBlackboxTester:
         """
         Analyze a task and improve the agent's configuration to better match similar tasks.
 
-        Strategy:
-        1. Add specific capability descriptions with the exact task phrases
-        2. Enhance the identity with task-specific keywords
-        3. Add tags that include technology-specific terms
+        SMART Strategy (v2):
+        1. Extract meaningful technology/technical terms from the task
+        2. Add those as tags to the agent's metadata
+        3. DO NOT touch identity or capabilities - they're already well-written
+        4. DO NOT keyword stuff with task words like "implement", "for", etc.
 
         Returns True if changes were made
         """
@@ -557,12 +566,15 @@ class AutonomousBlackboxTester:
         # Map agent names to file names
         agent_file_map = {
             "Frontend Specialist": "frontend-specialist.yaml",
+            "Backend Specialist": "backend-specialist.yaml",
             "UI/UX Specialist": "ui-ux-specialist.yaml",
             "Testing Specialist": "testing-specialist.yaml",
             "Mobile Development Specialist": "mobile-specialist.yaml",
+            "Database Specialist": "database-specialist.yaml",
+            "DevOps Specialist": "devops-specialist.yaml",
             "Machine Learning Specialist": "ml-specialist.yaml",
             "Security Specialist": "security-specialist.yaml",
-            # Add more mappings as needed
+            "architect": "architect.yaml",
         }
 
         yaml_filename = agent_file_map.get(agent_name)
@@ -581,80 +593,80 @@ class AutonomousBlackboxTester:
 
         agent_data = data.get('agent', {})
         metadata = agent_data.get('metadata', {})
-        persona = agent_data.get('persona', {})
-        capabilities = agent_data.get('capabilities', [])
+        current_tags = metadata.get('tags', [])
 
-        # Track if we made any changes
-        made_changes = False
+        # Extract MEANINGFUL technical terms from the task
+        # These are terms that should help with semantic matching
+        tech_terms = {
+            # Frontend technologies
+            "react", "vue", "angular", "typescript", "javascript", "jsx", "tsx",
+            "component", "dashboard", "interface", "ui", "frontend",
 
-        # Strategy 1: Add the exact task phrase as a new capability description
-        # This helps with semantic matching
-        task_lower = task_description.lower()
+            # Backend technologies
+            "api", "rest", "graphql", "backend", "server", "microservices",
+            "python", "nodejs", "django", "flask", "express", "fastapi",
 
-        # Create a specific capability based on the task
-        new_capability = {
-            "name": f"handle_{task_description.lower().replace(' ', '_')}_tasks",
-            "description": f"Expert at handling tasks like: {task_description}",
-            "keywords": task_description.lower().split()
+            # Database technologies
+            "database", "sql", "nosql", "postgresql", "mongodb", "redis",
+            "query", "optimization", "schema", "migration",
+
+            # DevOps technologies
+            "kubernetes", "docker", "deployment", "ci/cd", "infrastructure",
+            "aws", "gcp", "azure", "terraform", "ansible",
+
+            # Security
+            "security", "authentication", "authorization", "encryption",
+            "vulnerability", "audit", "penetration", "oauth", "jwt",
+
+            # Testing
+            "testing", "unit test", "integration test", "e2e", "pytest",
+            "jest", "cypress", "tdd", "bdd",
+
+            # Mobile
+            "mobile", "ios", "android", "react native", "flutter",
+            "swift", "kotlin", "push notification",
+
+            # UI/UX
+            "ux", "user experience", "user onboarding", "wireframe",
+            "prototype", "design system", "user flow",
+
+            # ML
+            "machine learning", "ml", "tensorflow", "pytorch", "model",
+            "training", "inference", "recommendation",
+
+            # Architecture
+            "architecture", "design", "system", "scalability", "patterns",
         }
 
-        # Check if this capability already exists (by description)
-        existing_descriptions = []
-        for cap in capabilities:
-            if isinstance(cap, dict):
-                existing_descriptions.append(cap.get('description', '').lower())
+        # Find tech terms in the task description
+        task_lower = task_description.lower()
+        found_terms = [term for term in tech_terms if term in task_lower]
 
-        if not any(task_description.lower() in desc for desc in existing_descriptions):
-            logger.info(f"Adding new capability to {agent_name}: {new_capability['name']}")
-            capabilities.append(new_capability)
-            made_changes = True
+        # Filter out terms already in tags
+        new_terms = [term for term in found_terms if term.lower() not in [t.lower() for t in current_tags]]
 
-        # Strategy 2: Enhance identity with task-specific keywords
-        identity = persona.get('identity', '')
+        if not new_terms:
+            logger.debug(f"No new technical terms to add for {agent_name}")
+            return False
 
-        # Extract key phrases from the task
-        key_phrases = []
-        if "react" in task_lower:
-            key_phrases.append("React component development")
-        if "component" in task_lower:
-            key_phrases.append("component architecture")
-        if "unit test" in task_lower:
-            key_phrases.append("unit testing")
-        if "security" in task_lower or "vulnerabilit" in task_lower:
-            key_phrases.append("security auditing")
-        if "dashboard" in task_lower:
-            key_phrases.append("dashboard development")
+        # Add new terms to tags
+        current_tags.extend(new_terms)
+        metadata['tags'] = current_tags
 
-        # Add key phrases to identity if not already present
-        for phrase in key_phrases:
-            if phrase.lower() not in identity.lower():
-                if identity and not identity.endswith('.'):
-                    identity += f", including {phrase.lower()}"
-                else:
-                    identity = f"Expert in {phrase.lower()}"
-                made_changes = True
+        # Write back the YAML file (preserve formatting)
+        agent_data['metadata'] = metadata
+        data['agent'] = agent_data
 
-        if made_changes:
-            persona['identity'] = identity
-            agent_data['persona'] = persona
-            agent_data['capabilities'] = capabilities
-            data['agent'] = agent_data
+        with open(yaml_path, 'w') as f:
+            yaml.safe_dump(data, f, default_flow_style=False, sort_keys=False)
 
-            # Write back the YAML file
-            with open(yaml_path, 'w') as f:
-                yaml.safe_dump(data, f, default_flow_style=False, sort_keys=False)
+        # Force server reload
+        import subprocess
+        subprocess.run(['touch', str(yaml_path)], check=True)
 
-            # Force server reload by touching the file
-            import subprocess
-            subprocess.run(['touch', str(yaml_path)], check=True)
-
-            logger.info(f"✓ Enhanced {agent_name} for task: {task_description[:50]}...")
-            logger.info(f"  - Added capability: {new_capability['name']}")
-            logger.info(f"  - Updated identity with: {', '.join(key_phrases[:3])}")
-            return True
-
-        logger.debug(f"No improvements needed for {agent_name} - already well configured")
-        return False
+        logger.info(f"✓ Enhanced {agent_name} for: {task_description[:50]}...")
+        logger.info(f"  - Added technical tags: {', '.join(new_terms[:5])}")
+        return True
 
     async def _fix_generic_capabilities(self, issue: Dict[str, Any], fix_plan: Dict[str, Any]) -> bool:
         """
