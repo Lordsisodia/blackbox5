@@ -9,7 +9,20 @@ from datetime import datetime
 import json
 import logging
 
-from ..operations.tools.git_ops import GitOps, CommitInfo
+try:
+    from ..operations.tools.git_ops import GitOps, CommitInfo
+except ImportError:
+    # Fallback to absolute import
+    try:
+        from git.git_ops import GitOps, CommitInfo
+    except ImportError:
+        # Last resort - direct import
+        import sys
+        from pathlib import Path
+        # Add the git tools directory to path
+        tools_path = Path(__file__).parent.parent.parent.parent / "05-tools" / "git"
+        sys.path.insert(0, str(tools_path))
+        from git_ops import GitOps, CommitInfo
 
 
 logger = logging.getLogger(__name__)

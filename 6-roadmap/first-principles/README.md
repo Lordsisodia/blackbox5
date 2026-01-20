@@ -6,6 +6,28 @@
 
 This section contains first-principles analysis of every component of BlackBox5. Each feature, workflow, agent, and assumption is documented and challenged to ensure we're building on solid foundations.
 
+---
+
+## 🚀 START HERE: Blackbox5 Core Flow
+
+**Before diving into specific features, workflows, or agents, read:**
+
+### Primary: [BLACKBOX5-CORE-FLOW.md](BLACKBOX5-CORE-FLOW.md) (This Directory)
+**Purpose:** Concise barebones architecture - the fundamental 4-stage flow
+
+### Also Read: [../BLACKBOX5-VISION-AND-FLOW.md](../BLACKBOX5-VISION-AND-FLOW.md) (Roadmap Root)
+**Purpose:** Comprehensive vision with examples, detailed flows, and implementation status
+
+**What's the difference?**
+- **BLACKBOX5-CORE-FLOW.md** - Short, foundational, focused on "what is this system?"
+- **BLACKBOX5-VISION-AND-FLOW.md** - Detailed, with examples, status, and "how does it work?"
+
+**Read both:**
+1. Start with BLACKBOX5-CORE-FLOW.md for the big picture
+2. Then read BLACKBOX5-VISION-AND-FLOW.md for details and examples
+
+---
+
 ## Structure
 
 ### `/features/`

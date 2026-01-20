@@ -1,0 +1,85 @@
+# Task Breakdown System Metadata
+# Artifact: Task Breakdown
+# Type: library
+
+id: "task-breakdown"
+type: "library"
+name: "Task Breakdown"
+category: "task-breakdown"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/task-breakdown/"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Automatically break down requirements into actionable tasks using MetaGPT-inspired
+  patterns. Extracts tasks from natural language requirements using pattern matching
+  and creates structured task hierarchies compatible with Blackbox4's planning system.
+  Supports action statements, numbered lists, bullet points, user stories, dependency
+  detection, effort estimation, and JSON/checklist output generation.
+
+  Key capabilities:
+  - Pattern-based requirement extraction
+  - Dependency detection
+  - Effort estimation
+  - Hierarchical task conversion
+  - JSON output format
+  - Checklist markdown output
+  - Command-line interface
+  - Library integration
+
+tags:
+  - "tasks"
+  - "breakdown"
+  - "metagpt"
+  - "automation"
+  - "phase2"
+  - "planning"
+
+keywords:
+  - "task"
+  - "breakdown"
+  - "requirement"
+  - "extract"
+  - "metagpt"
+  - "pattern"
+
+# Relationships
+depends_on:
+  - id: "hierarchical-tasks-lib"
+    type: "library"
+
+used_by:
+  - id: "ralph-runtime"
+    type: "library"
+  - id: "planning-module"
+    type: "module"
+
+relates_to:
+  - id: "hierarchical-tasks-lib"
+    type: "library"
+    relationship: "uses"
+
+# Classification
+phase: 2
+layer: "execution"
+
+# Status
+status: "active"
+stability: "medium"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/task-breakdown/README.md"
+
+# Metrics
+usage_count: 80
+last_used: "2026-01-20"
+success_rate: 0.88

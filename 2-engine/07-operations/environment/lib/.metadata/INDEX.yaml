@@ -1,0 +1,161 @@
+# Metadata Index for Blackbox5 Environment Library
+# Complete catalog of all library systems and scripts
+
+# Version
+version: "1.0.0"
+last_updated: "2026-01-20"
+
+# Library Systems (with metadata.yaml in subdirectories)
+library_systems:
+  - id: "context-variables-lib"
+    name: "Context Variables"
+    path: "context-variables/"
+    phase: 1
+    status: "active"
+    has_metadata: true
+
+  - id: "hierarchical-tasks-lib"
+    name: "Hierarchical Tasks"
+    path: "hierarchical-tasks/"
+    phase: 2
+    status: "active"
+    has_metadata: true
+
+  - id: "task-breakdown"
+    name: "Task Breakdown"
+    path: "task-breakdown/"
+    phase: 2
+    status: "active"
+    has_metadata: true
+
+  - id: "spec-creation"
+    name: "Spec Creation"
+    path: "spec-creation/"
+    phase: 2
+    status: "active"
+    has_metadata: true
+
+  - id: "circuit-breaker"
+    name: "Circuit Breaker"
+    path: "circuit-breaker/"
+    phase: 3
+    status: "active"
+    has_metadata: true
+
+  - id: "hooks-lib"
+    name: "Hooks"
+    path: "hooks/"
+    phase: 3
+    status: "active"
+    has_metadata: true
+
+  - id: "response-analyzer"
+    name: "Response Analyzer"
+    path: "response-analyzer/"
+    phase: 4
+    status: "active"
+    has_metadata: true
+
+  - id: "ralph-runtime"
+    name: "Ralph Runtime"
+    path: "ralph-runtime/"
+    phase: 4
+    status: "active"
+    has_metadata: true
+
+# Root-Level Scripts (with metadata.yaml in .metadata/)
+scripts:
+  - id: "auto-compact-script"
+    name: "Auto-Compact"
+    path: "auto-compact.sh"
+    phase: 3
+    category: "memory-management"
+
+  - id: "background-manager-script"
+    name: "Background Manager"
+    path: "background-manager.sh"
+    phase: 4
+    category: "task-management"
+
+  - id: "bmad-tracker-script"
+    name: "BMAD Phase Tracker"
+    path: "bmad-tracker.sh"
+    phase: 2
+    category: "methodology"
+
+  - id: "exit-decision-engine-script"
+    name: "Exit Decision Engine"
+    path: "exit_decision_engine.sh"
+    phase: 3
+    category: "circuit-breaker"
+
+  - id: "hooks-manager-script"
+    name: "Hooks Manager"
+    path: "hooks-manager.sh"
+    phase: 3
+    category: "hooks"
+
+  - id: "keyword-detector-script"
+    name: "Keyword Detector"
+    path: "keyword-detector.sh"
+    phase: 4
+    category: "modes"
+
+  - id: "lib-shared"
+    name: "Shared Library"
+    path: "lib.sh"
+    phase: 1
+    category: "utilities"
+
+  - id: "mcp-manager-script"
+    name: "MCP Server Manager"
+    path: "mcp-manager.sh"
+    phase: 3
+    category: "integrations"
+
+  - id: "notify-script"
+    name: "Enhanced Notification System"
+    path: "notify.sh"
+    phase: 4
+    category: "notifications"
+
+  - id: "response-analyzer-script"
+    name: "Response Analyzer Script"
+    path: "response-analyzer.sh"
+    phase: 4
+    category: "analysis"
+
+  - id: "vendor-validator-script"
+    name: "Vendor Swap Validator"
+    path: "vendor-validator.sh"
+    phase: 3
+    category: "validation"
+
+# Statistics
+stats:
+  total_library_systems: 8
+  total_scripts: 11
+  total_artifacts: 19
+  phase_1_count: 2
+  phase_2_count: 3
+  phase_3_count: 7
+  phase_4_count: 7
+
+# Categories
+categories:
+  - memory-management
+  - task-management
+  - methodology
+  - circuit-breaker
+  - hooks
+  - modes
+  - utilities
+  - integrations
+  - notifications
+  - analysis
+  - validation
+  - planning
+  - execution
+  - monitoring
+  - safety
+  - autonomous

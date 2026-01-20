@@ -412,3 +412,140 @@ summary = bridge.end_session(
 ✅ **Storage Location**: `.blackbox5/5-project-memory/siso-internal/operations/ralphy/`
 
 ✅ **Compatibility**: Works with existing Ralphy workflow, transparent to users
+
+---
+
+## MCP Configuration Issue & Fix
+
+### Problem: Ralphy hangs at "Thinking" state
+
+**Symptom**: When running Ralphy, it gets stuck at "Thinking" or "Logging" state indefinitely.
+
+**Root Cause**: Claude Code CLI is configured with multiple MCP servers (e.g., playwright, chrome-devtools, browser-mcp) that take a very long time to initialize or may timeout.
+
+When Ralphy calls Claude Code, it waits for:
+1. All MCP servers to initialize
+2. Each server to be ready
+3. The handshake to complete
+
+With 12+ MCP servers, this can take 2+ minutes or hang indefinitely.
+
+### Solution: Tiered MCP Profile System
+
+Instead of a single config, use **different MCP profiles for different task types**. The Black Box can determine which profile to use based on the task requirements.
+
+**Included Tool**: `ralphy-mcp-profiles.sh` manages MCP profiles automatically.
+
+#### Setup (One-time)
+
+```bash
+# Initialize the profile system
+./blackbox5/2-engine/07-operations/runtime/ralphy/ralphy-mcp-profiles.sh init
+```
+
+This creates profiles in `~/.claude-profiles/`:
+- **minimal**: No MCP servers (fastest, ~1s startup)
+- **filesystem**: Filesystem access only (~2s startup)
+- **standard**: Common MCPs (filesystem, fetch, search, ~5s startup)
+- **data**: Data & docs MCPs (filesystem, fetch, context7, wikipedia, ~10s startup)
+- **automation**: Browser automation (filesystem, playwright, chrome-devtools, ~15s startup)
+- **full**: All MCPs (slowest, ~30s+ startup)
+
+#### Usage Methods
+
+**Method 1: Manual Profile Selection**
+
+```bash
+# List available profiles
+./ralphy-mcp-profiles.sh list
+
+# Switch to a profile
+./ralphy-mcp-profiles.sh use automation
+
+# Run Ralphy with active profile
+eval $(./ralphy-mcp-profiles.sh export)
+ralphy.sh --prd PRD.md
+```
+
+**Method 2: Auto-Detection from Task**
+
+```bash
+# Auto-detect best profile for a task
+./ralphy-mcp-profiles.sh detect "Create a web scraper using playwright"
+# Output: Recommended profile: automation
+
+./ralphy-mcp-profiles.sh detect "Create a Python class for data validation"
+# Output: Recommended profile: minimal
+```
+
+**Method 3: Integration with Ralphy**
+
+```bash
+# One-liner with specific profile
+CLAUDE_CONFIG_DIR=~/.claude-profiles/minimal ralphy.sh --prd PRD.md
+
+# Or use the export command
+eval $(./ralphy-mcp-profiles.sh export minimal)
+ralphy.sh --prd PRD.md
+```
+
+#### Profile Selection Logic
+
+The `ralphy-mcp-profiles.sh detect` command uses keyword matching:
+
+| Task Keywords | Recommended Profile | Why |
+|--------------|-------------------|-----|
+| browser, scrape, screenshot, web, chrome, playwright, headless | **automation** | Needs browser tools |
+| search, documentation, docs, wikipedia, research, context, reference | **data** | Needs data lookup |
+| fetch, http, api, url, download | **standard** | Needs web requests |
+| (none of the above) | **minimal** | Pure coding, no external tools needed |
+
+#### Performance Comparison
+
+| Profile | MCP Servers | Startup Time | Best For |
+|---------|-------------|--------------|----------|
+| minimal | 0 | ~1 second | Pure coding tasks |
+| filesystem | 1 | ~2 seconds | File operations |
+| standard | 3 | ~5 seconds | APIs + web |
+| data | 4 | ~10 seconds | Research + docs |
+| automation | 3 | ~15 seconds | Browser automation |
+| full | 8+ | ~30+ seconds | Everything (slowest) |
+
+#### Integration with Black Box
+
+The Black Box can automatically select the appropriate profile:
+
+```python
+# In your Black Box task runner
+import subprocess
+import os
+
+def run_ralphy_with_profile(task_description, prd_file):
+    # Detect appropriate profile
+    result = subprocess.run(
+        ["./ralphy-mcp-profiles.sh", "detect", task_description],
+        capture_output=True, text=True
+    )
+
+    # Extract profile from output
+    profile = "minimal"  # fallback
+    for line in result.stdout.split("\n"):
+        if "Recommended profile:" in line:
+            profile = line.split()[-1]
+            break
+
+    # Set config dir and run Ralphy
+    config_dir = f"{os.path.expanduser('~')}/.claude-profiles/{profile}"
+    env = os.environ.copy()
+    env["CLAUDE_CONFIG_DIR"] = config_dir
+
+    subprocess.run(["ralphy.sh", "--prd", prd_file], env=env)
+```
+
+### Summary
+
+- **Problem**: MCP server initialization causes Ralphy to hang
+- **Solution**: Tiered profile system with task-based selection
+- **Tool**: `ralphy-mcp-profiles.sh` manages profiles automatically
+- **Benefit**: Fast startup for simple tasks, MCPs available when needed
+- **Integration**: Black Box can auto-select profiles based on task analysis

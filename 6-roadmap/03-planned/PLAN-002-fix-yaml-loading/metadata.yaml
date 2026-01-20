@@ -1,0 +1,42 @@
+id: "PLAN-002"
+name: "Fix YAML Agent Loading"
+slug: "fix-yaml-agent-loading"
+status: "planned"
+priority: "critical"
+effort: "1 day"
+domain: "agents"
+category: "bugfix"
+
+created: "2026-01-20"
+updated: "2026-01-20"
+
+validation_agent: "Agent 3"
+
+dependencies:
+  requires: ["PLAN-001"]
+  blocks: ["PLAN-003"]
+  blocked_by: ["PLAN-001"]
+
+problem:
+  summary: "YAML-based specialist agents are not loading at all"
+  impact: "18 specialist agents inaccessible"
+  core_agents_loaded: "3/3 (100%)"
+  specialist_agents_loaded: "0/18 (0%)"
+
+solution:
+  approach: "Extend AgentLoader to support YAML and multiple paths"
+  phases: 2
+    - extend_agentloader: "4 hours"
+    - add_yaml_parsing: "3 hours"
+
+files_to_change:
+  - "blackbox5/2-engine/01-core/agents/core/agent_loader.py"
+
+success_criteria:
+  - yaml_agents_load: true
+  - specialist_agents_loaded: "18/18"
+  - total_agents_loaded: "21/21"
+
+confidence: "high"
+ready_to_execute: false  # blocked by PLAN-001
+assigned_to: null

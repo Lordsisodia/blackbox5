@@ -1,0 +1,97 @@
+# Response Analyzer System Metadata
+# Artifact: Response Analyzer
+# Type: library
+
+id: "response-analyzer"
+type: "library"
+name: "Response Analyzer"
+category: "response-analyzer"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/response-analyzer/"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Comprehensive response analysis system for Ralph Runtime enabling real-time
+  evaluation of autonomous agent outputs. Provides pattern detection, quality scoring,
+  expectation validation, task completion verification, confusion detection,
+  confidence assessment, action recommendations, and trend analysis.
+
+  Components:
+  - ResponseAnalyzer: Core analysis with error detection and info extraction
+  - RalphResponseAnalyzer: Ralph-specific with runtime recommendations
+  - QualityScorer: Multi-dimensional quality scoring (completeness, accuracy, relevance, clarity)
+  - PatternMatcher: Success, error, confusion, and completion pattern detection
+  - ExpectationValidator: Validate against requirements and constraints
+
+  Key capabilities:
+  - Real-time response analysis
+  - Error pattern detection
+  - Information extraction (file paths, URLs, commands, code blocks)
+  - Multi-dimensional quality scoring
+  - Expectation comparison and validation
+  - Task completion verification
+  - Confusion detection
+  - Confidence assessment
+  - Action recommendations (CONTINUE, PAUSE_FOR_REVIEW, ERROR_RECOVERY, etc.)
+  - Intervention need assessment
+  - Trend analysis over time
+
+tags:
+  - "analysis"
+  - "quality"
+  - "validation"
+  - "patterns"
+  - "phase4"
+  - "monitoring"
+  - "scoring"
+
+keywords:
+  - "response"
+  - "analyze"
+  - "quality"
+  - "score"
+  - "pattern"
+  - "validate"
+  - "expectation"
+
+# Relationships
+depends_on: []
+
+used_by:
+  - id: "ralph-runtime"
+    type: "library"
+  - id: "circuit-breaker"
+    type: "library"
+  - id: "orchestrator-agent-v1"
+    type: "agent"
+
+relates_to:
+  - id: "circuit-breaker"
+    type: "library"
+    relationship: "integrates"
+
+# Classification
+phase: 4
+layer: "execution"
+
+# Status
+status: "active"
+stability: "high"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/response-analyzer/README.md"
+  examples: "2-engine/07-operations/environment/lib/response-analyzer/examples/"
+
+# Metrics
+usage_count: 180
+last_used: "2026-01-20"
+success_rate: 0.92

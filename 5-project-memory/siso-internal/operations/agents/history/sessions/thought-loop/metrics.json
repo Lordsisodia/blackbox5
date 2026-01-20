@@ -1,0 +1,59 @@
+{
+  "performance": {
+    "avg_duration_seconds": 0.09113538888888889,
+    "avg_iterations_per_session": 2.888888888888889,
+    "total_duration_seconds": 1.6404370000000001
+  },
+  "quality": {
+    "convergence_rate": 1.0,
+    "avg_confidence": 0.5794444444444445,
+    "high_confidence_rate": 0
+  },
+  "usage": {
+    "total_sessions": 18,
+    "sessions_this_week": 0,
+    "sessions_this_month": 0,
+    "most_common_problems": [
+      {
+        "problem": "test problem",
+        "count": 9
+      },
+      {
+        "problem": "add caching when only 11%",
+        "count": 2
+      },
+      {
+        "problem": "fix critical security bug?",
+        "count": 1
+      },
+      {
+        "problem": "what meaning life?",
+        "count": 1
+      },
+      {
+        "problem": "optimize performance?",
+        "count": 1
+      },
+      {
+        "problem": "add tests?",
+        "count": 1
+      },
+      {
+        "problem": "simple problem",
+        "count": 1
+      },
+      {
+        "problem": "add new layer?",
+        "count": 1
+      },
+      {
+        "problem": "assume caching will help performance",
+        "count": 1
+      }
+    ]
+  },
+  "metadata": {
+    "created": "2026-01-20T00:00:00Z",
+    "last_updated": "2026-01-20T05:10:49.693276"
+  }
+}

@@ -197,6 +197,8 @@ class BaseAgent(ABC):
         Returns:
             AgentResult containing the execution outcome
         """
+        import time
+
         # Validate task
         if not await self.validate_task(task):
             return AgentResult(
@@ -208,7 +210,8 @@ class BaseAgent(ABC):
         # Call before hook
         await self.before_execution(task)
 
-        # Execute task
+        # Execute task and measure duration
+        start_time = time.time()
         try:
             result = await self.execute(task)
         except Exception as e:
@@ -217,6 +220,21 @@ class BaseAgent(ABC):
                 success=False,
                 output="",
                 error=str(e)
+            )
+
+        end_time = time.time()
+
+        # Set duration if not already set by the agent
+        if result.duration == 0.0:
+            # Create new result with duration set
+            result = AgentResult(
+                success=result.success,
+                output=result.output,
+                artifacts=result.artifacts,
+                metadata=result.metadata,
+                error=result.error,
+                duration=end_time - start_time,
+                thinking_steps=result.thinking_steps
             )
 
         # Call after hook

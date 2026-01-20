@@ -1,0 +1,17 @@
+{
+  "name": "mcp-sequential-thinking-hosted",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Hosted Sequential Thinking MCP Server on Railway",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server-sequential-thinking": "latest",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

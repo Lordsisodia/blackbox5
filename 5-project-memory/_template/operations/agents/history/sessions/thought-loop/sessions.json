@@ -1,0 +1,11 @@
+{
+  "sessions": [],
+  "metadata": {
+    "created": "{PROJECT_START_DATE}",
+    "last_updated": "{PROJECT_START_DATE}",
+    "total_sessions": 0,
+    "total_converged": 0,
+    "avg_iterations": 0,
+    "avg_confidence": 0.0
+  }
+}

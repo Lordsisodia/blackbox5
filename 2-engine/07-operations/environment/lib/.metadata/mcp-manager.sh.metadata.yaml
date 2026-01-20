@@ -1,0 +1,81 @@
+# MCP Server Manager Metadata
+# Artifact: MCP Manager
+# Type: script
+
+id: "mcp-manager-script"
+type: "script"
+name: "MCP Server Manager"
+category: "integrations"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/mcp-manager.sh"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Manage Model Context Protocol (MCP) servers for Blackbox. Provides server
+  listing, status checking, and capability inspection for all configured MCP
+  integrations. Reads from Claude's MCP configuration and provides formatted
+  output of available servers.
+
+  Key capabilities:
+  - List all available MCP servers
+  - Get detailed server information
+  - Check server status
+  - Display server capabilities
+  - JSON-based state management
+  - Integration with Claude MCP config
+
+tags:
+  - "mcp"
+  - "integrations"
+  - "servers"
+  - "phase3"
+  - "context"
+  - "protocol"
+
+keywords:
+  - "mcp"
+  - "server"
+  - "model"
+  - "context"
+  - "protocol"
+  - "integration"
+
+# Relationships
+depends_on: []
+
+used_by:
+  - id: "orchestrator-agent-v1"
+    type: "agent"
+  - id: "mcp-integration"
+    type: "module"
+
+relates_to:
+  - id: "mcp-integration"
+    type: "module"
+    relationship: "manages"
+
+# Classification
+phase: 3
+layer: "system"
+
+# Status
+status: "active"
+stability: "medium"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/mcp-manager.sh"
+  examples: "2-engine/07-operations/.config/mcp-servers.json"
+
+# Metrics
+usage_count: 30
+last_used: "2026-01-20"
+success_rate: 0.85

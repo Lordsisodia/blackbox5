@@ -233,13 +233,27 @@ class TaskRouter:
     async def _get_candidates(self, task: Task) -> List[str]:
         """Get list of candidate agents for a task."""
         async with self._lock:
-            available = [
-                name
-                for name, caps in self._agents.items()
-                if caps.available and caps.can_handle(task.required_capabilities)
-            ]
+            candidates = []
+            for name, caps in self._agents.items():
+                if not caps.available:
+                    continue
 
-        return available
+                # If no capabilities required, all available agents are candidates
+                if not task.required_capabilities:
+                    candidates.append(name)
+                    continue
+
+                # Check if agent has ANY matching capability (partial match)
+                agent_caps = set(cap.lower() for cap in caps.capabilities)
+                required = set(req.lower() for req in task.required_capabilities)
+                intersection = agent_caps & required
+
+                # Include agents that have at least one matching capability
+                # or use can_handle for exact match (all required capabilities)
+                if intersection or required.issubset(agent_caps):
+                    candidates.append(name)
+
+        return candidates
 
     async def _score_candidates(
         self,
@@ -323,6 +337,40 @@ class TaskRouter:
                     alpha * (1.0 if success else 0.0) +
                     (1 - alpha) * caps.success_rate
                 )
+
+    async def record_task_completion(
+        self,
+        agent_name: str,
+        task_id: str,
+        success: bool
+    ) -> None:
+        """
+        Record task completion for statistics tracking.
+
+        Args:
+            agent_name: Name of agent that processed the task
+            task_id: ID of the completed task
+            success: Whether the task completed successfully
+        """
+        async with self._lock:
+            # Add to task history
+            self._task_history.append((agent_name, task_id, success))
+
+            # Update agent state - decrement current tasks
+            if agent_name in self._agents:
+                caps = self._agents[agent_name]
+                caps.current_tasks = max(0, caps.current_tasks - 1)
+
+                # Update success rate with exponential moving average
+                alpha = 0.2
+                caps.success_rate = (
+                    alpha * (1.0 if success else 0.0) +
+                    (1 - alpha) * caps.success_rate
+                )
+
+            # Keep task history manageable (last 1000 tasks)
+            if len(self._task_history) > 1000:
+                self._task_history = self._task_history[-1000:]
 
     async def get_statistics(self) -> Dict[str, Any]:
         """Get router statistics."""

@@ -1,0 +1,26 @@
+# BLACKBOX5 Catalog Header Template
+# Add this to the top of key files for AI discovery
+
+"""
+BLACKBOX5_CATALOG:
+  type: {component_type}
+  category: {category}
+  tags: [{tags}]
+  location: {relative_path}
+  description: {description}
+  provides: [{what_this_provides}]
+  depends_on: [{dependencies}]
+"""
+
+# Example usage:
+# For an agent file:
+"""
+BLACKBOX5_CATALOG:
+  type: agent
+  category: specialist
+  tags: [security, owasp, vulnerability]
+  location: 2-engine/01-core/agents/security-specialist.yaml
+  description: Security analysis and vulnerability detection specialist
+  provides: [security_scanning, vulnerability_analysis, secure_code_review]
+  depends_on: []
+"""

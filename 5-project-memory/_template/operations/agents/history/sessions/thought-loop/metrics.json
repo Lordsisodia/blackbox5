@@ -1,0 +1,22 @@
+{
+  "performance": {
+    "avg_duration_seconds": 0,
+    "avg_iterations_per_session": 0,
+    "total_duration_seconds": 0
+  },
+  "quality": {
+    "convergence_rate": 0,
+    "avg_confidence": 0,
+    "high_confidence_rate": 0
+  },
+  "usage": {
+    "total_sessions": 0,
+    "sessions_this_week": 0,
+    "sessions_this_month": 0,
+    "most_common_problems": []
+  },
+  "metadata": {
+    "created": "{PROJECT_START_DATE}",
+    "last_updated": "{PROJECT_START_DATE}"
+  }
+}

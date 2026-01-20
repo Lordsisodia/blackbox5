@@ -1,0 +1,85 @@
+# Hooks System Metadata
+# Artifact: Hooks
+# Type: library
+
+id: "hooks-lib"
+type: "library"
+name: "Hooks"
+category: "hooks"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/hooks/"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Pre-tool hook system for Blackbox that provides context injection and validation
+  capabilities before file operations. Hooks run automatically before Read/Write/Edit
+  operations to provide additional context or validate changes.
+
+  Components:
+  - inject-context.sh: Walks up directory tree to find and inject AGENTS.md context
+  - validate-changes.sh: Validates files for sensitive data, debug statements, TODOs
+
+  Key capabilities:
+  - Automatic context discovery from AGENTS.md files
+  - Sensitive data pattern detection (passwords, API keys, secrets, tokens)
+  - Debug statement detection (console.log, TODO/FIXME comments)
+  - Pre-operation validation before Write/Edit
+  - Multi-language support (JavaScript/TypeScript, Python, Java, Go, Rust)
+
+tags:
+  - "hooks"
+  - "validation"
+  - "context"
+  - "pre-tool"
+  - "phase3"
+  - "safety"
+  - "automation"
+
+keywords:
+  - "hook"
+  - "context"
+  - "validate"
+  - "inject"
+  - "pre-tool"
+  - "sensitive"
+  - "debug"
+
+# Relationships
+depends_on: []
+
+used_by:
+  - id: "orchestrator-agent-v1"
+    type: "agent"
+  - id: "blackbox-cli"
+    type: "tool"
+
+relates_to:
+  - id: "context-variables-lib"
+    type: "library"
+    relationship: "complements"
+
+# Classification
+phase: 3
+layer: "execution"
+
+# Status
+status: "active"
+stability: "high"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/hooks/inject-context.sh"
+  examples: "2-engine/07-operations/environment/lib/hooks/validate-changes.sh"
+
+# Metrics
+usage_count: 50
+last_used: "2026-01-20"
+success_rate: 0.95

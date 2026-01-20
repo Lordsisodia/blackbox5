@@ -1,0 +1,137 @@
+# BlackBox5 Project Context
+
+project:
+  name: "BlackBox5"
+  version: "5.0.0"
+  status: "active"
+  created: "2026-01-20"
+  updated: "2026-01-20"
+
+identity:
+  type: "autonomous-agent-framework"
+  description: "Next-generation autonomous agent system with hierarchical memory, multi-agent orchestration, and self-improvement capabilities"
+  purpose: "Enable AI agents to work autonomously on complex software engineering tasks with minimal human intervention"
+
+vision: |
+  BlackBox5 aims to create a fully autonomous agent system that can:
+  - Understand complex software engineering tasks
+  - Plan and execute multi-step solutions
+  - Learn from experience and improve over time
+  - Coordinate multiple specialized agents
+  - Maintain rich context across sessions
+  - Execute safely with proper guardrails
+
+goals:
+  primary:
+    - "Complete migration of BlackBox3/BlackBox4 capabilities to BlackBox5"
+    - "Implement hierarchical memory system with compression"
+    - "Build agent discovery and routing system"
+    - "Integrate researched frameworks (BMAD, SpecKit, MetaGPT, Swarm)"
+    - "Create comprehensive safety and execution guardrails"
+
+  secondary:
+    - "Achieve 90% token compression without context loss"
+    - "Support 50+ verified skills across all categories"
+    - "Enable autonomous self-improvement workflows"
+    - "Provide transparent observability and debugging"
+
+constraints:
+  technical:
+    - "Must maintain compatibility with existing MCP integrations"
+    - "Must support both synchronous and asynchronous agent workflows"
+    - "Must handle token limits efficiently (target: 90% compression)"
+    - "Must be testable and debuggable"
+
+  operational:
+    - "Single agent should be able to run autonomously for hours"
+    - "System must recover gracefully from failures"
+    - "All actions must be auditable and reversible"
+
+  scope:
+    - "Focus on autonomous software engineering tasks"
+    - "Prioritize agent coordination over single-agent optimization"
+    - "Emphasize memory and learning over raw reasoning power"
+
+current_state:
+  migration:
+    status: "in_progress"
+    progress: "47%"
+    remaining:
+      - "Memory system integration"
+      - "Agent type migration"
+      - "Skills verification (33/70 complete)"
+      - "Framework integration"
+
+  capabilities:
+    agents: "50 agents across 5 major types"
+    skills: "70 skills, 33 verified (47%)"
+    frameworks: "4 integrated, 11 researched"
+    memory: "Basic hierarchical, no compression yet"
+
+  gaps:
+    critical:
+      - "Memory compression not implemented"
+      - "Agent discovery and routing missing"
+      - "Learning system not functional"
+      - "Safety guardrails incomplete"
+
+    high:
+      - "Many skills not verified"
+      - "Framework integration incomplete"
+      - "Observability limited"
+      - "Testing coverage low"
+
+direction:
+  immediate:
+    - "Fix critical bugs (skills system, YAML loading, import paths)"
+    - "Complete memory compression implementation"
+    - "Verify all remaining skills"
+
+  short_term:
+    - "Build agent discovery system"
+    - "Implement learning from experience"
+    - "Complete framework integrations"
+
+  long_term:
+    - "Autonomous self-improvement"
+    - "Multi-agent collaboration patterns"
+    - "Production deployment"
+
+success_metrics:
+  autonomy:
+    - "Average autonomous session duration: >4 hours"
+    - "Human interventions per session: <2"
+
+  quality:
+    - "Task success rate: >85%"
+    - "Regression rate: <5%"
+
+  efficiency:
+    - "Token compression: >90%"
+    - "Average task completion time: <30 minutes"
+
+  learning:
+    - "Patterns extracted per week: >5"
+    - "Performance improvement rate: >10%/month"
+
+related_projects:
+  - name: "SISO Internal"
+    type: "parent"
+    relationship: "BlackBox5 is the AI agent framework for SISO Internal operations"
+
+  - name: "DeerFlow"
+    type: "research"
+    relationship: "Source of memory compression and optimization techniques"
+
+  - name: "Ralph"
+    type: "integration"
+    relationship: "Codebase learning and analysis system"
+
+  - name: "Vibe Kanban"
+    type: "integration"
+    relationship: "Task and project management system"
+
+links:
+  roadmap: "/blackbox5/6-roadmap/roadmap.md"
+  engine: "/blackbox5/engine/"
+  migration_map: "/blackbox5/ROADMAP-TO-MEMORY-MIGRATION-MAP.md"

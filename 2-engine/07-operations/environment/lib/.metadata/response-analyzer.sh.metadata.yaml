@@ -1,0 +1,94 @@
+# Response Analyzer Script Metadata
+# Artifact: Response Analyzer Script
+# Type: script
+
+id: "response-analyzer-script"
+type: "script"
+name: "Response Analyzer Script"
+category: "analysis"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/response-analyzer.sh"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Response analysis and progress tracking for autonomous agent execution. Part of
+  the Circuit Breaker implementation, this script analyzes AI responses for
+  completion indicators, extracts metrics, and tracks progress over time.
+
+  Key capabilities:
+  - Analyze AI responses for completion indicators
+  - Extract completion score (0-100) from fix plan
+  - Extract confidence levels from responses
+  - Count and categorize errors
+  - Generate response metrics (completion, confidence, errors, length)
+  - Track progress in markdown format
+  - Integration with circuit-breaker and fix plan files
+
+  Analysis outputs:
+  - Completion score: Based on task checklist completion
+  - Confidence score: Extracted from AI responses
+  - Error count: Categorized error patterns
+  - Response metrics: JSON with all analysis data
+
+tags:
+  - "analysis"
+  - "response"
+  - "progress"
+  - "phase4"
+  - "monitoring"
+  - "circuit-breaker"
+
+keywords:
+  - "response"
+  - "analyze"
+  - "progress"
+  - "completion"
+  - "confidence"
+  - "error"
+
+# Relationships
+depends_on:
+  - id: "circuit-breaker"
+    type: "library"
+
+used_by:
+  - id: "exit-decision-engine-script"
+    type: "script"
+  - id: "circuit-breaker"
+    type: "library"
+  - id: "ralph-runtime"
+    type: "library"
+
+relates_to:
+  - id: "response-analyzer"
+    type: "library"
+    relationship: "complements"
+  - id: "circuit-breaker"
+    type: "library"
+    relationship: "integrates"
+
+# Classification
+phase: 4
+layer: "execution"
+
+# Status
+status: "active"
+stability: "high"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/response-analyzer.sh"
+  examples: "2-engine/07-operations/.ralph/last-response.md"
+
+# Metrics
+usage_count: 140
+last_used: "2026-01-20"
+success_rate: 0.90

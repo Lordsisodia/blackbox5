@@ -1,0 +1,103 @@
+# Spec Creation Library Metadata
+# Artifact: Spec Creation
+# Type: library
+
+id: "spec-creation"
+type: "library"
+name: "Spec Creation"
+category: "spec-creation"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/spec-creation/"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Comprehensive Python library for creating, managing, and validating structured
+  specifications in Blackbox4. Inspired by GitHub Spec Kit workflows and integrated
+  with Phase 1 (Context Variables) and Phase 2 (Hierarchical Tasks). Provides
+  structured data models, sequential questioning, multi-format output, comprehensive
+  validation, and PRD templates for different project types.
+
+  Components:
+  - StructuredSpec: Main specification container
+  - UserStory: User stories with acceptance criteria
+  - FunctionalRequirement: Requirements with dependencies
+  - ProjectConstitution: Vision, tech stack, quality standards
+  - QuestioningEngine: Gap analysis and question generation
+  - SequentialQuestioner: Advanced adaptive questioning
+  - SpecValidator: Comprehensive validation and cross-artifact checking
+  - PRDTemplate: Multiple project type templates
+
+  Key capabilities:
+  - Structured data models for specs, stories, requirements, constitutions
+  - Sequential questioning with gap analysis
+  - Multi-format output (PRD markdown, JSON)
+  - Comprehensive validation
+  - Cross-artifact validation
+  - PRD templates for web, mobile, API, library, system projects
+  - Traceability checking
+  - Inconsistency detection
+
+tags:
+  - "spec"
+  - "prd"
+  - "planning"
+  - "validation"
+  - "requirements"
+  - "phase2"
+  - "documentation"
+
+keywords:
+  - "spec"
+  - "prd"
+  - "requirement"
+  - "user-story"
+  - "validation"
+  - "questioning"
+  - "template"
+
+# Relationships
+depends_on:
+  - id: "context-variables-lib"
+    type: "library"
+  - id: "hierarchical-tasks-lib"
+    type: "library"
+
+used_by:
+  - id: "planning-module"
+    type: "module"
+  - id: "orchestrator-agent-v1"
+    type: "agent"
+
+relates_to:
+  - id: "hierarchical-tasks-lib"
+    type: "library"
+    relationship: "integrates"
+  - id: "context-variables-lib"
+    type: "library"
+    relationship: "uses"
+
+# Classification
+phase: 2
+layer: "execution"
+
+# Status
+status: "active"
+stability: "high"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/spec-creation/README.md"
+  examples: "2-engine/07-operations/environment/lib/spec-creation/examples/"
+
+# Metrics
+usage_count: 100
+last_used: "2026-01-20"
+success_rate: 0.90

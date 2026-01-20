@@ -2,17 +2,36 @@
 # BLACKBOX5 ROADMAP - MASTER INDEX
 # ============================================================================
 # Purpose: Track all improvements from idea to completion
-# Last Updated: 2026-01-19
+# Last Updated: 2026-01-20
+# ============================================================================
+# NOTE: STATE.yaml is now the single source of truth. This file is maintained
+# for backward compatibility but may be deprecated in favor of STATE.yaml.
 # ============================================================================
 
 # ============================================================================
 # SYSTEM METADATA
 # ============================================================================
 system:
-  version: "1.0"
+  version: "2.0"
   name: "blackbox5-roadmap"
-  updated: "2026-01-19T12:00:00Z"
-  status: "initialized"
+  updated: "2026-01-20T12:00:00Z"
+  status: "planning-phase"
+
+# ============================================================================
+# NEW STRUCTURE
+# ============================================================================
+# Each item now has its own folder with:
+# - metadata.yaml (machine-readable)
+# - README.md (human-readable summary)
+# - proposal.md / plan.md / research.md (full content)
+#
+# Example structure:
+# 03-planned/
+#   PLAN-001-fix-skills-system/
+#     ├── metadata.yaml
+#     ├── README.md
+#     └── plan.md
+# ============================================================================
 
 # ============================================================================
 # IMPROVEMENTS BY STAGE
@@ -20,29 +39,69 @@ system:
 improvements:
   proposed:
     - "PROPOSAL-001"  # Memory & Context System Research (18% - Critical)
+      path: "00-proposed/PROPOSAL-001-memory-context/"
     - "PROPOSAL-002"  # Reasoning & Planning System Research (17% - Critical)
+      path: "00-proposed/PROPOSAL-002-reasoning-planning/"
     - "PROPOSAL-003"  # Skills & Capabilities System Research (16% - Critical)
+      path: "00-proposed/PROPOSAL-003-skills-capabilities/"
     - "PROPOSAL-004"  # Execution & Safety System Research (15% - Critical)
+      path: "00-proposed/PROPOSAL-004-execution-safety/"
     - "PROPOSAL-005"  # Agent Types & Specialization Research (12% - High)
+      path: "00-proposed/PROPOSAL-005-agent-types/"
     - "PROPOSAL-006"  # Learning & Adaptation System Research (10% - High)
+      path: "00-proposed/PROPOSAL-006-learning-adaptation/"
     - "PROPOSAL-007"  # Data Architecture & Processing Research (9% - High)
+      path: "00-proposed/PROPOSAL-007-data-architecture/"
     - "PROPOSAL-008"  # Performance & Optimization Research (8% - High)
+      path: "00-proposed/PROPOSAL-008-performance-optimization/"
     - "PROPOSAL-009"  # Security & Governance Research (7% - Medium)
+      path: "00-proposed/PROPOSAL-009-security-governance/"
     - "PROPOSAL-010"  # Orchestration Frameworks Research (6% - Medium)
+      path: "00-proposed/PROPOSAL-010-orchestration-frameworks/"
     - "PROPOSAL-011"  # Observability & Monitoring Research (6% - Medium)
+      path: "00-proposed/PROPOSAL-011-observability-monitoring/"
     - "PROPOSAL-012"  # Communication & Collaboration Research (5% - Medium)
+      path: "00-proposed/PROPOSAL-012-communication-collaboration/"
     - "PROPOSAL-013"  # Integrations Research (5% - Medium)
+      path: "00-proposed/PROPOSAL-013-integrations/"
     - "PROPOSAL-014"  # User Experience & Interface Research (4% - Medium)
+      path: "00-proposed/PROPOSAL-014-user-experience/"
     - "PROPOSAL-015"  # Testing & Validation Research (3% - Low)
+      path: "00-proposed/PROPOSAL-015-testing-validation/"
     - "PROPOSAL-016"  # State Management Research (2% - Low)
+      path: "00-proposed/PROPOSAL-016-state-management/"
     - "PROPOSAL-017"  # Configuration System Research (2% - Low)
+      path: "00-proposed/PROPOSAL-017-configuration/"
     - "PROPOSAL-018"  # Deployment & DevOps Research (2% - Low)
+      path: "00-proposed/PROPOSAL-018-deployment-devops/"
     - "PROPOSAL-019"  # Documentation System Research (1% - Low)
-  research: []
+      path: "00-proposed/PROPOSAL-019-documentation/"
+  research:
+    - "VALIDATION-001"  # Comprehensive Validation Report (Complete)
+      path: "01-research/VALIDATION-001-comprehensive-validation/"
   design: []
-  planned: []
+  planned:
+    - "PLAN-001"  # Fix Skills System Critical Issues (1-2 days)
+      path: "03-planned/PLAN-001-fix-skills-system/"
+    - "PLAN-002"  # Fix YAML Agent Loading (1 day)
+      path: "03-planned/PLAN-002-fix-yaml-loading/"
+    - "PLAN-003"  # Implement Planning Agent (3-5 days)
+      path: "03-planned/PLAN-003-implement-planning-agent/"
+    - "PLAN-004"  # Fix Import Path Errors (1-2 days)
+      path: "03-planned/PLAN-004-fix-import-paths/"
+    - "PLAN-005"  # Initialize Vibe Kanban Database (1-2 hours)
+      path: "03-planned/PLAN-005-initialize-vibe-kanban/"
+    - "PLAN-006"  # Remove Redundant Code and Systems (3-5 days)
+      path: "03-planned/PLAN-006-remove-duplicates/"
+    - "PLAN-007"  # Enable 90% LLMLingua Compression (15 min)
+      path: "03-planned/PLAN-007-enable-90-compression/"
+    - "PLAN-008"  # Fix Critical API Mismatches in main.py (2-3 hours) 🚨 NEW
+    - "PLAN-009"  # Fix Statistics Coroutine Warnings (1 hour) 🚨 NEW
+    - "PLAN-010"  # Add Missing Dependencies to requirements.txt (30 min) 🚨 NEW
   active: []
-  completed: []
+  completed:
+    - "VALIDATION-001"  # Comprehensive Validation Report
+      path: "05-completed/VALIDATION-001-comprehensive-validation/"
   cancelled: []
   backlog: []
 
@@ -52,51 +111,64 @@ improvements:
 first_principles:
   features_documented: 0
   assumptions_challenged: 0
-  validations_completed: 0
+  validations_completed: 1
   last_review: "2026-01-19"
 
 # ============================================================================
 # STATUS SUMMARY
 # ============================================================================
 status:
-  total: 19
+  total: 30
   by_stage:
     proposed: 19
-    research: 0
+    research: 1
     design: 0
-    planned: 0
+    planned: 10
     active: 0
-    completed: 0
+    completed: 1
     cancelled: 0
     backlog: 0
   by_priority:
-    critical: 4
-    high: 4
-    medium: 6
-    low: 4
-    backlog: 1
+    critical: 9
+    high: 5
+    medium: 7
+    low: 5
+    immediate: 4
   by_domain:
-    agents: 4
-    skills: 1
-    memory: 1
+    agents: 6
+    skills: 2
+    memory: 2
     tools: 1
     cli: 1
-    infrastructure: 9
-    testing: 1
-    documentation: 1
+    infrastructure: 15
+    testing: 2
+    documentation: 2
+    validation: 1
+    core_bootstrap: 2
   by_category:
-    feature: 0
-    bugfix: 0
-    refactor: 0
+    feature: 2
+    bugfix: 4
+    refactor: 2
     research: 19
-    infrastructure: 0
+    infrastructure: 3
+    validation: 1
+    api_fix: 1
+    deployment: 1
 
 # ============================================================================
 # DEPENDENCIES
 # ============================================================================
 dependencies:
-  blocking: []
-  blocked: []
+  blocking:
+    - "PLAN-003"  # Planning Agent blocked by PLAN-001, PLAN-002, PLAN-005
+      path: "03-planned/PLAN-003-implement-planning-agent/"
+  blocked:
+    - "PLAN-001"  # Blocks PLAN-002, PLAN-003
+      path: "03-planned/PLAN-001-fix-skills-system/"
+    - "PLAN-002"  # Blocks PLAN-003
+      path: "03-planned/PLAN-002-fix-yaml-loading/"
+    - "PLAN-005"  # Blocks PLAN-003
+      path: "03-planned/PLAN-005-initialize-vibe-kanban/"
   circular: []
 
 # ============================================================================
@@ -105,4 +177,6 @@ dependencies:
 metadata:
   created_at: "2026-01-19T12:00:00Z"
   created_by: "system"
-  version: "1.0"
+  version: "2.0"
+  restructured: "2026-01-20"
+  notes: "Each item now has its own folder with metadata.yaml, README.md, and content file"

@@ -82,11 +82,11 @@ chromadb>=0.4.22
 # ============================================================================
 # AI/ML FRAMEWORKS
 # ============================================================================
-# CrewAI - Multi-agent orchestration
-crewai>=0.28.0
+# CrewAI - Multi-agent orchestration (latest available)
+crewai>=0.5.0
 
-# MetaGPT - Multi-agent framework
-metagpt>=0.8.0
+# MetaGPT - Multi-agent framework (commented out - unavailable)
+# metagpt>=0.8.0
 
 # ============================================================================
 # FILE WATCHING

@@ -2,18 +2,26 @@
 Developer Agent (Amelia)
 
 Specializes in code implementation, debugging, and technical tasks.
+
+Uses Claude Code CLI for actual AI-powered code execution.
 """
 
 import logging
-from typing import List
+from typing import List, Optional
 from datetime import datetime
+from pathlib import Path
 
 from agents.core.base_agent import BaseAgent, AgentTask, AgentResult, AgentConfig
+
+# Import Claude Code execution mixin
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from client.ClaudeCodeAgentMixin import ClaudeCodeAgentMixin
 
 logger = logging.getLogger(__name__)
 
 
-class DeveloperAgent(BaseAgent):
+class DeveloperAgent(BaseAgent, ClaudeCodeAgentMixin):
     """
     Developer Agent - Amelia 💻
 
@@ -23,7 +31,13 @@ class DeveloperAgent(BaseAgent):
     - Code review and optimization
     - Technical documentation
     - Testing and validation
+
+    Uses Claude Code CLI for AI-powered code execution.
     """
+
+    # Claude Code configuration
+    claude_timeout = 300  # 5 minutes
+    claude_mcp_profile = None  # Auto-detect based on task
 
     @classmethod
     def get_default_config(cls) -> AgentConfig:
@@ -51,40 +65,60 @@ class DeveloperAgent(BaseAgent):
 
     async def execute(self, task: AgentTask) -> AgentResult:
         """
-        Execute a development task.
+        Execute a development task using Claude Code CLI.
 
         Args:
             task: The task to execute
 
         Returns:
-            AgentResult with code or technical solution
+            AgentResult with code or technical solution from Claude Code
         """
         thinking_steps = await self.think(task)
 
-        # Analyze task type
+        # Build task-specific prompt based on task type
         task_lower = task.description.lower()
+        task_type = None
+        context_prompt = None
 
         if any(word in task_lower for word in ["debug", "fix", "error", "bug"]):
-            output = await self._debug_task(task)
+            task_type = "debugging"
+            context_prompt = self._build_debug_prompt(task)
         elif any(word in task_lower for word in ["review", "refactor", "optimize"]):
-            output = await self._review_code(task)
+            task_type = "code_review"
+            context_prompt = self._build_review_prompt(task)
         elif any(word in task_lower for word in ["test", "validate"]):
-            output = await self._write_tests(task)
+            task_type = "testing"
+            context_prompt = self._build_test_prompt(task)
         else:
-            output = await self._implement_feature(task)
+            task_type = "implementation"
+            context_prompt = self._build_implementation_prompt(task)
+
+        # Execute with Claude Code CLI
+        claude_result = await self.execute_with_claude(
+            task_description=context_prompt,
+            mcp_profile=self._select_mcp_profile(task_type, task)
+        )
+
+        # Extract additional metadata
+        languages = self._detect_languages(task)
+        code_blocks = self._extract_code_blocks(claude_result.get("output", ""))
 
         return AgentResult(
-            success=True,
-            output=output,
+            success=claude_result.get("success", False),
+            output=claude_result.get("output", ""),
             thinking_steps=thinking_steps,
             artifacts={
-                "code_blocks": self._extract_code_blocks(output),
-                "files_created": self._estimate_files(task),
+                "code_blocks": code_blocks,
+                "files_created": claude_result.get("artifacts", {}).get("files_created", []),
             },
             metadata={
                 "agent_name": self.name,
                 "task_complexity": task.complexity,
-                "languages_used": self._detect_languages(task),
+                "task_type": task_type,
+                "languages_used": languages,
+                "execution_engine": "claude-code-cli",
+                "duration": claude_result.get("metadata", {}).get("duration", 0),
+                "mcp_profile": claude_result.get("metadata", {}).get("mcp_profile", "unknown"),
             }
         )
 
@@ -98,131 +132,80 @@ class DeveloperAgent(BaseAgent):
             "✅ Validating solution against requirements",
         ]
 
-    async def _debug_task(self, task: AgentTask) -> str:
-        """Handle debugging tasks."""
-        return f"""# Debug Analysis for: {task.description}
+    # =========================================================================
+    # TASK-SPECIFIC PROMPT BUILDERS
+    # =========================================================================
 
-## Investigation Steps
-1. Reproduced the issue
-2. Identified root cause through systematic debugging
-3. Analyzed affected code paths
-4. Developed minimal fix that addresses the core issue
+    def _build_debug_prompt(self, task: AgentTask) -> str:
+        """Build prompt for debugging tasks."""
+        return f"""Debug and fix the following issue: {task.description}
 
-## Recommended Fix
-```python
-# Fix implementation here
-def debug_solution():
-    "Minimal fix for the identified issue."
-    # Root cause analysis and solution
-    pass
-```
+Please:
+1. Analyze the issue systematically
+2. Identify the root cause
+3. Propose a minimal, targeted fix
+4. Explain the testing approach to verify the fix
+5. Consider potential edge cases and regressions
 
-## Validation
-- Verified fix resolves the issue
-- Checked for regressions
-- Added test case to prevent recurrence
-"""
+Provide your analysis and solution with clear code examples."""
 
-    async def _review_code(self, task: AgentTask) -> str:
-        """Handle code review tasks."""
-        return f"""# Code Review: {task.description}
+    def _build_review_prompt(self, task: AgentTask) -> str:
+        """Build prompt for code review tasks."""
+        return f"""Review the code related to: {task.description}
 
-## Review Summary
-✓ Code structure and organization
-✓ Naming conventions and readability
-✓ Error handling and edge cases
-✓ Performance considerations
-✓ Testing coverage
+Please analyze:
+1. Code quality and structure
+2. Naming conventions and readability
+3. Error handling and edge cases
+4. Performance considerations
+5. Security vulnerabilities
+6. Testing coverage
 
-## Suggestions
-1. Consider extracting complex logic into separate functions
-2. Add docstrings for public methods
-3. Increase test coverage for edge cases
-4. Optimize database queries if applicable
+Provide specific, actionable recommendations with code examples where applicable."""
 
-## Conclusion
-Code is ready to merge with minor improvements recommended.
-"""
+    def _build_test_prompt(self, task: AgentTask) -> str:
+        """Build prompt for test writing tasks."""
+        return f"""Write comprehensive tests for: {task.description}
 
-    async def _write_tests(self, task: AgentTask) -> str:
-        """Handle test writing tasks."""
-        return f"""# Test Plan: {task.description}
+Please include:
+1. Unit tests for core functionality
+2. Integration tests for component interactions
+3. Edge case and boundary condition tests
+4. Error handling and exception tests
+5. Clear test documentation
 
-## Test Cases
-```python
-import pytest
+Use pytest and follow testing best practices."""
 
-def test_core_functionality():
-    "Test the main use case."
-    assert True  # Implementation here
+    def _build_implementation_prompt(self, task: AgentTask) -> str:
+        """Build prompt for feature implementation tasks."""
+        return f"""Implement the following: {task.description}
 
-def test_edge_cases():
-    "Test edge cases and boundary conditions."
-    assert True  # Implementation here
+Please provide:
+1. Clean, well-documented code following best practices
+2. Type hints for clarity
+3. Comprehensive docstrings
+4. Error handling
+5. Usage examples
+6. Testing recommendations
 
-def test_error_handling():
-    "Test error scenarios."
-    with pytest.raises(Exception):
-        # Test error case
-        pass
-```
+Focus on maintainability, readability, and extensibility."""
 
-## Coverage
-- Unit tests: Core functionality
-- Integration tests: Component interactions
-- Edge cases: Boundary conditions
-- Error cases: Exception handling
-"""
-
-    async def _implement_feature(self, task: AgentTask) -> str:
-        """Handle feature implementation tasks."""
-        return f"""# Implementation: {task.description}
-
-## Overview
-Implementing the requested feature with best practices and clean code principles.
-
-## Implementation
-```python
-from typing import Any, Dict, List
-
-class FeatureImplementation:
-    "Implementation for {task.description}."
-
-    def __init__(self, config: Dict[str, Any]):
-        self.config = config
-        self.initialized = False
-
-    def initialize(self) -> None:
-        "Initialize the feature."
-        # Setup logic here
-        self.initialized = True
-
-    def execute(self, input_data: Any) -> Any:
-        "Execute the main functionality."
-        if not self.initialized:
-            raise RuntimeError("Feature not initialized")
-        # Main logic here
-        return {{"status": "success", "result": input_data}}
-
-    def cleanup(self) -> None:
-        "Cleanup resources."
-        self.initialized = False
-```
-
-## Usage Example
-```python
-feature = FeatureImplementation({{"option": "value"}})
-feature.initialize()
-result = feature.execute(data)
-feature.cleanup()
-```
-
-## Notes
-- Follows SOLID principles
-- Includes proper error handling
-- Type hints for clarity
-- Docstrings for documentation
-"""
+    def _select_mcp_profile(self, task_type: str, task: AgentTask) -> Optional[str]:
+        """Select appropriate MCP profile based on task type."""
+        # For most coding tasks, minimal is fastest
+        if task_type == "implementation":
+            # Check if task involves files or APIs
+            task_lower = task.description.lower()
+            if any(kw in task_lower for kw in ["file", "read", "write", "api", "http"]):
+                return "filesystem"
+            return "minimal"
+        elif task_type == "testing":
+            return "filesystem"  # May need to read test files
+        elif task_type == "code_review":
+            return "filesystem"  # Needs to read code files
+        elif task_type == "debugging":
+            return "filesystem"  # Needs to read code files
+        return None  # Auto-detect
 
     def _extract_code_blocks(self, text: str) -> List[str]:
         """Extract code blocks from output."""

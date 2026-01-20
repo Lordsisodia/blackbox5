@@ -1,0 +1,342 @@
+# ============================================================================
+# BLACKBOX5 ROADMAP - SINGLE SOURCE OF TRUTH
+# ============================================================================
+# Purpose: Track all improvements from idea to completion
+# Last Updated: 2026-01-20
+# ============================================================================
+# This is the SINGLE SOURCE OF TRUTH for the roadmap.
+# All dashboards are generated from this file.
+# ============================================================================
+
+# ============================================================================
+# SYSTEM METADATA
+# ============================================================================
+system:
+  name: "blackbox5-roadmap"
+  version: "2.0"
+  updated: "2026-01-20T13:00:00Z"
+  status: "planning-phase"
+
+# ============================================================================
+# NEXT BEST ACTION
+# ============================================================================
+# AI agents should start here. This is the highest-priority unblocked item.
+next_action: "PLAN-001"
+
+# ============================================================================
+# QUICK STATS
+# ============================================================================
+stats:
+  total: 29
+  proposed: 20
+  research: 1
+  design: 0
+  planned: 6
+  active: 0
+  completed: 2
+  cancelled: 0
+  backlog: 0
+
+# ============================================================================
+# PLANS INDEX
+# ============================================================================
+plans:
+  # Plans ready to start (no dependencies)
+  ready_to_start:
+    - id: "PLAN-001"
+      name: "Fix Skills System Critical Issues"
+      priority: "critical"
+      effort: "1-2 days"
+      domain: "skills"
+      category: "bugfix"
+      dependencies: []
+      blocks: ["PLAN-002", "PLAN-003"]
+      path: "03-planned/PLAN-001-fix-skills-system/"
+
+    - id: "PLAN-004"
+      name: "Fix Import Path Errors"
+      priority: "critical"
+      effort: "1-2 days"
+      domain: "infrastructure"
+      category: "bugfix"
+      dependencies: []
+      blocks: []
+      path: "03-planned/PLAN-004-fix-import-paths/"
+
+    - id: "PLAN-005"
+      name: "Initialize Vibe Kanban Database"
+      priority: "immediate"
+      effort: "1-2 hours"
+      domain: "infrastructure"
+      category: "infrastructure"
+      dependencies: []
+      blocks: ["PLAN-003"]
+      path: "03-planned/PLAN-005-initialize-vibe-kanban/"
+
+    - id: "PLAN-006"
+      name: "Remove Redundant Code and Systems"
+      priority: "high"
+      effort: "3-5 days"
+      domain: "infrastructure"
+      category: "refactor"
+      dependencies: []
+      blocks: []
+      path: "03-planned/PLAN-006-remove-duplicates/"
+
+  # Plans blocked by dependencies
+  blocked:
+    - id: "PLAN-002"
+      name: "Fix YAML Agent Loading"
+      priority: "critical"
+      effort: "1 day"
+      domain: "agents"
+      category: "bugfix"
+      dependencies: ["PLAN-001"]
+      blocks: ["PLAN-003"]
+      blocked_by: ["PLAN-001"]
+      path: "03-planned/PLAN-002-fix-yaml-loading/"
+
+    - id: "PLAN-003"
+      name: "Implement Planning Agent"
+      priority: "high"
+      effort: "3-5 days"
+      domain: "agents"
+      category: "feature"
+      dependencies: ["PLAN-001", "PLAN-002", "PLAN-005"]
+      blocks: []
+      blocked_by: ["PLAN-001", "PLAN-002", "PLAN-005"]
+      path: "03-planned/PLAN-003-implement-planning-agent/"
+
+  # Completed plans
+  completed:
+    - id: "PLAN-007"
+      name: "Enable 90% LLMLingua Compression"
+      priority: "immediate"
+      effort: "15 min"
+      domain: "infrastructure"
+      category: "feature"
+      dependencies: []
+      blocks: []
+      completed_at: "2026-01-20"
+      executed_by: "Ralphy v4.0.0 (autonomous coding agent)"
+      path: "03-planned/PLAN-007-enable-90-compression/"
+      deliverables:
+        - "verify_compression_setup.py (282 lines)"
+        - "test_verify_compression_setup.py (198 lines)"
+        - "Deployed to blackbox5/2-engine/01-core/middleware/"
+      notes: "Verification script created with graceful fallback. User needs HuggingFace auth for full 90% compression."
+
+# ============================================================================
+# DEPENDENCIES
+# ============================================================================
+dependencies:
+  # What each plan blocks
+  blocking:
+    PLAN-001: ["PLAN-002", "PLAN-003"]
+    PLAN-002: ["PLAN-003"]
+    PLAN-005: ["PLAN-003"]
+
+  # What each plan is blocked by
+  blocked:
+    PLAN-002: ["PLAN-001"]
+    PLAN-003: ["PLAN-001", "PLAN-002", "PLAN-005"]
+
+  # Circular dependencies (should be empty)
+  circular: []
+
+# ============================================================================
+# PROPOSALS INDEX
+# ============================================================================
+proposals:
+  # Tier 1: Critical (4 proposals - 66% weight)
+  critical:
+    - id: "PROPOSAL-001"
+      name: "Memory & Context System Research"
+      weight: 18
+      domain: "memory"
+      path: "00-proposed/PROPOSAL-001-memory-context/"
+
+    - id: "PROPOSAL-002"
+      name: "Reasoning & Planning System Research"
+      weight: 17
+      domain: "agents"
+      path: "00-proposed/PROPOSAL-002-reasoning-planning/"
+
+    - id: "PROPOSAL-003"
+      name: "Skills & Capabilities System Research"
+      weight: 16
+      domain: "skills"
+      path: "00-proposed/PROPOSAL-003-skills-capabilities/"
+
+    - id: "PROPOSAL-004"
+      name: "Execution & Safety System Research"
+      weight: 15
+      domain: "tools"
+      path: "00-proposed/PROPOSAL-004-execution-safety/"
+
+  # Tier 2: High (5 proposals - 51% weight)
+  high:
+    - id: "PROPOSAL-005"
+      name: "Agent Types & Specialization Research"
+      weight: 12
+      domain: "agents"
+      path: "00-proposed/PROPOSAL-005-agent-types/"
+
+    - id: "PROPOSAL-020"
+      name: "Open Source Black Box with VibeKanban Integration"
+      weight: 12
+      domain: "product"
+      path: "00-proposed/PROPOSAL-020-open-source-vibekanban/"
+
+    - id: "PROPOSAL-006"
+      name: "Learning & Adaptation System Research"
+      weight: 10
+      domain: "agents"
+      path: "00-proposed/PROPOSAL-006-learning-adaptation/"
+
+    - id: "PROPOSAL-007"
+      name: "Data Architecture & Processing Research"
+      weight: 9
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-007-data-architecture/"
+
+    - id: "PROPOSAL-008"
+      name: "Performance & Optimization Research"
+      weight: 8
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-008-performance-optimization/"
+
+  # Tier 3: Medium (6 proposals - 34% weight)
+  medium:
+    - id: "PROPOSAL-009"
+      name: "Security & Governance Research"
+      weight: 7
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-009-security-governance/"
+
+    - id: "PROPOSAL-010"
+      name: "Orchestration Frameworks Research"
+      weight: 6
+      domain: "agents"
+      path: "00-proposed/PROPOSAL-010-orchestration-frameworks/"
+
+    - id: "PROPOSAL-011"
+      name: "Observability & Monitoring Research"
+      weight: 6
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-011-observability-monitoring/"
+
+    - id: "PROPOSAL-012"
+      name: "Communication & Collaboration Research"
+      weight: 5
+      domain: "agents"
+      path: "00-proposed/PROPOSAL-012-communication-collaboration/"
+
+    - id: "PROPOSAL-013"
+      name: "Integrations Research"
+      weight: 5
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-013-integrations/"
+
+    - id: "PROPOSAL-014"
+      name: "User Experience & Interface Research"
+      weight: 4
+      domain: "cli"
+      path: "00-proposed/PROPOSAL-014-user-experience/"
+
+  # Tier 4: Foundational (5 proposals - 10% weight)
+  low:
+    - id: "PROPOSAL-015"
+      name: "Testing & Validation Research"
+      weight: 3
+      domain: "testing"
+      path: "00-proposed/PROPOSAL-015-testing-validation/"
+
+    - id: "PROPOSAL-016"
+      name: "State Management Research"
+      weight: 2
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-016-state-management/"
+
+    - id: "PROPOSAL-017"
+      name: "Configuration System Research"
+      weight: 2
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-017-configuration/"
+
+    - id: "PROPOSAL-018"
+      name: "Deployment & DevOps Research"
+      weight: 2
+      domain: "infrastructure"
+      path: "00-proposed/PROPOSAL-018-deployment-devops/"
+
+    - id: "PROPOSAL-019"
+      name: "Documentation System Research"
+      weight: 1
+      domain: "documentation"
+      path: "00-proposed/PROPOSAL-019-documentation/"
+
+# ============================================================================
+# RESEARCH INDEX
+# ============================================================================
+research:
+  active:
+    - id: "VALIDATION-001"
+      name: "Comprehensive Validation Report"
+      status: "complete"
+      date: "2026-01-19"
+      domain: "validation"
+      path: "01-research/VALIDATION-001-comprehensive-validation/"
+
+# ============================================================================
+# STATUS BY DOMAIN
+# ============================================================================
+status_by_domain:
+  agents: 6
+  skills: 2
+  memory: 2
+  tools: 1
+  cli: 1
+  infrastructure: 12
+  testing: 2
+  documentation: 2
+  validation: 1
+  product: 1
+
+# ============================================================================
+# STATUS BY PRIORITY
+# ============================================================================
+status_by_priority:
+  critical: 6
+  high: 5
+  medium: 7
+  low: 5
+  immediate: 4
+
+# ============================================================================
+# STATUS BY CATEGORY
+# ============================================================================
+status_by_category:
+  feature: 2
+  bugfix: 3
+  refactor: 2
+  research: 19
+  infrastructure: 2
+  validation: 1
+
+# ============================================================================
+# FIRST PRINCIPLES ANALYSIS
+# ============================================================================
+first_principles:
+  features_documented: 0
+  assumptions_challenged: 0
+  validations_completed: 1
+  last_review: "2026-01-19"
+
+# ============================================================================
+# METADATA
+# ============================================================================
+metadata:
+  created_at: "2026-01-19T12:00:00Z"
+  created_by: "system"
+  version: "2.0"

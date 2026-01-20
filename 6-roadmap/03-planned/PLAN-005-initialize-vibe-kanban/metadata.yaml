@@ -1,0 +1,38 @@
+id: "PLAN-005"
+name: "Initialize Vibe Kanban Database"
+slug: "initialize-vibe-kanban"
+status: "planned"
+priority: "immediate"
+effort: "1-2 hours"
+domain: "infrastructure"
+category: "infrastructure"
+
+created: "2026-01-20"
+updated: "2026-01-20"
+
+validation_agent: "Agent 6"
+
+dependencies:
+  requires: []
+  blocks: ["PLAN-003"]
+  blocked_by: []
+
+problem:
+  summary: "Vibe Kanban database not initialized"
+  impact: "Cannot create tasks programmatically"
+  error: "500 Database not initialized"
+
+solution:
+  approach: "Run database setup/migration scripts"
+  phases: 2
+    - locate_setup: "15 min"
+    - initialize_database: "30 min"
+
+success_criteria:
+  - database_initialized: true
+  - api_returns_projects: true
+  - can_create_tasks: true
+
+confidence: "high"
+ready_to_execute: true
+assigned_to: null

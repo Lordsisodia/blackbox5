@@ -1,0 +1,18 @@
+id: "PROPOSAL-003"
+name: "Skills & Capabilities System Research"
+slug: "skills-capabilities"
+status: "proposed"
+tier: "critical"
+weight: 16
+domain: "skills"
+
+created: "2026-01-19"
+updated: "2026-01-20"
+
+description: "Research skills and capabilities system for agent specialization"
+
+focus_areas:
+  - skill_definition
+  - skill_loading
+  - skill_composition
+  - capability_discovery

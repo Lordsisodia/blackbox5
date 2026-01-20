@@ -13,7 +13,7 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Optional, Type
 
-from .base_agent import BaseAgent, AgentConfig
+from .base_agent import BaseAgent, AgentConfig, AgentTask, AgentResult
 
 logger = logging.getLogger(__name__)
 
@@ -155,8 +155,8 @@ class AgentLoader:
         yaml_files = list(self.agents_path.rglob("*.yaml")) + list(self.agents_path.rglob("*.yml"))
 
         for yaml_file in yaml_files:
-            # Skip non-agent YAML files
-            if "agent" not in yaml_file.name.lower():
+            # Skip non-agent YAML files (look for agent or specialist in filename)
+            if "agent" not in yaml_file.name.lower() and "specialist" not in yaml_file.name.lower():
                 continue
 
             try:
@@ -192,6 +192,21 @@ class AgentLoader:
         if not agent_id:
             agent_id = yaml_file.stem
 
+        # Extract capabilities from YAML (can be list of strings or list of dicts with 'name')
+        raw_caps = agent_data.get('capabilities', [])
+        capabilities = []
+        for cap in raw_caps:
+            if isinstance(cap, str):
+                capabilities.append(cap)
+            elif isinstance(cap, dict) and 'name' in cap:
+                capabilities.append(cap['name'])
+            else:
+                logger.debug(f"Unexpected capability format: {cap}")
+
+        # Also extract tags as capabilities for routing
+        tags = metadata.get('tags', [])
+        capabilities.extend(tags)
+
         # Create config
         config = AgentConfig(
             name=metadata.get('name', agent_id),
@@ -199,17 +214,24 @@ class AgentLoader:
             role=persona.get('role', 'Agent'),
             category='specialists',
             description=persona.get('identity', ''),
-            capabilities=agent_data.get('capabilities', []),
+            capabilities=capabilities,
         )
 
         # Create dynamic agent class
         class YamlAgent(BaseAgent):
+            # Store config as class attribute for get_default_config
+            _yaml_config = config
+
+            @classmethod
+            def get_default_config(cls) -> AgentConfig:
+                """Return the config loaded from YAML."""
+                return cls._yaml_config
+
             def __init__(self, cfg: AgentConfig):
                 super().__init__(cfg)
                 self.yaml_data = data
 
-            async def execute(self, task: AgentTask) -> 'AgentResult':
-                from .base_agent import AgentResult
+            async def execute(self, task: AgentTask) -> AgentResult:
                 return AgentResult(
                     success=True,
                     output=f"YAML agent {self.name} processed: {task.description}",

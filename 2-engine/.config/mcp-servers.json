@@ -74,6 +74,22 @@
         "api_calls"
       ],
       "enabled": true
+    },
+    "code-parser": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@boxabirds/mcp-code-parser"
+      ],
+      "description": "Code parsing with Tree-sitter - understand code structure, find definitions, references",
+      "capabilities": [
+        "code_parsing",
+        "ast_analysis",
+        "code_structure",
+        "definition_search",
+        "reference_search"
+      ],
+      "enabled": true
     }
   },
   "settings": {

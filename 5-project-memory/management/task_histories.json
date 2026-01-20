@@ -1,0 +1,80 @@
+{
+  "ebc88fee-9426-41c9-8204-1ed8e51e16ac": {
+    "task_id": "ebc88fee-9426-41c9-8204-1ed8e51e16ac",
+    "title": "PLAN-001: Fix Skills System Critical Issues",
+    "created_at": "2026-01-19T22:32:33.284374+00:00",
+    "events": [
+      {
+        "event_type": "task_created",
+        "timestamp": "2026-01-19T22:32:33.285453+00:00",
+        "task_id": "ebc88fee-9426-41c9-8204-1ed8e51e16ac",
+        "task_title": "PLAN-001: Fix Skills System Critical Issues",
+        "details": {}
+      },
+      {
+        "event_type": "agent_spawned",
+        "timestamp": "2026-01-19T22:32:33.308096+00:00",
+        "task_id": "ebc88fee-9426-41c9-8204-1ed8e51e16ac",
+        "task_title": "PLAN-001: Fix Skills System Critical Issues",
+        "details": {
+          "executor": "CLAUDE_CODE",
+          "workspace_path": null
+        }
+      },
+      {
+        "event_type": "agent_failed",
+        "timestamp": "2026-01-20T00:32:35.996175+00:00",
+        "task_id": "ebc88fee-9426-41c9-8204-1ed8e51e16ac",
+        "task_title": "PLAN-001: Fix Skills System Critical Issues",
+        "details": {
+          "files_modified": 0,
+          "files_created": 0
+        }
+      }
+    ],
+    "final_status": null,
+    "completion_time": null,
+    "total_duration": null,
+    "agent_performance": {},
+    "merge_info": {}
+  },
+  "fd5342e5-c6bd-4f26-8fa7-818573e5da81": {
+    "task_id": "fd5342e5-c6bd-4f26-8fa7-818573e5da81",
+    "title": "PLAN-002: Fix YAML Agent Loading",
+    "created_at": "2026-01-20T00:32:36.052856+00:00",
+    "events": [
+      {
+        "event_type": "task_created",
+        "timestamp": "2026-01-20T00:32:36.054124+00:00",
+        "task_id": "fd5342e5-c6bd-4f26-8fa7-818573e5da81",
+        "task_title": "PLAN-002: Fix YAML Agent Loading",
+        "details": {}
+      },
+      {
+        "event_type": "agent_spawned",
+        "timestamp": "2026-01-20T00:32:36.102118+00:00",
+        "task_id": "fd5342e5-c6bd-4f26-8fa7-818573e5da81",
+        "task_title": "PLAN-002: Fix YAML Agent Loading",
+        "details": {
+          "executor": "CLAUDE_CODE",
+          "workspace_path": null
+        }
+      },
+      {
+        "event_type": "agent_failed",
+        "timestamp": "2026-01-20T02:32:38.639683+00:00",
+        "task_id": "fd5342e5-c6bd-4f26-8fa7-818573e5da81",
+        "task_title": "PLAN-002: Fix YAML Agent Loading",
+        "details": {
+          "files_modified": 0,
+          "files_created": 0
+        }
+      }
+    ],
+    "final_status": null,
+    "completion_time": null,
+    "total_duration": null,
+    "agent_performance": {},
+    "merge_info": {}
+  }
+}

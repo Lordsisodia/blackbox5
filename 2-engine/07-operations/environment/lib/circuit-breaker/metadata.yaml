@@ -1,0 +1,85 @@
+# Circuit Breaker Library Metadata
+# Artifact: Circuit Breaker
+# Type: library
+
+id: "circuit-breaker"
+type: "library"
+name: "Circuit Breaker"
+category: "circuit-breaker"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/circuit-breaker/"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Protection against infinite loops and runaway API token consumption during autonomous
+  execution. Implements configurable thresholds, state persistence, multiple stagnation
+  detection methods (progress delta, task completion, error patterns), project-specific
+  types with different tolerances, structured logging with rotation, and integration
+  ready for autonomous loops.
+
+  Key capabilities:
+  - Configurable thresholds (max loops, stagnation, absolute max)
+  - State persistence (survives process restarts)
+  - Multiple stagnation detection methods
+  - Project-specific types (critical_feature, simple_script, research_task)
+  - Structured logging with rotation
+  - Integration with autonomous loops
+  - Cooldown periods to prevent restart spam
+
+tags:
+  - "safety"
+  - "circuit-breaker"
+  - "loop-protection"
+  - "phase3"
+  - "monitoring"
+  - "autonomous"
+
+keywords:
+  - "circuit"
+  - "breaker"
+  - "loop"
+  - "infinite"
+  - "protection"
+  - "threshold"
+  - "stagnation"
+
+# Relationships
+depends_on: []
+
+used_by:
+  - id: "ralph-runtime"
+    type: "library"
+  - id: "orchestrator-agent-v1"
+    type: "agent"
+  - id: "ralph-agent"
+    type: "agent"
+
+relates_to:
+  - id: "response-analyzer"
+    type: "library"
+    relationship: "uses"
+
+# Classification
+phase: 3
+layer: "execution"
+
+# Status
+status: "active"
+stability: "high"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/circuit-breaker/README.md"
+
+# Metrics
+usage_count: 200
+last_used: "2026-01-20"
+success_rate: 0.98

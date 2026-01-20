@@ -19,12 +19,19 @@ import sys
 from pathlib import Path
 
 # Import main Blackbox 5 system
-engine_path = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(engine_path))
+# Find the infrastructure directory by going up from interface/api
+api_dir = Path(__file__).parent
+interface_dir = api_dir.parent  # Go up to interface/
+core_dir = interface_dir.parent  # Go up to 01-core/
+infrastructure_path = core_dir / "infrastructure"
+
+# Add paths to sys.path
+sys.path.insert(0, str(core_dir))
+sys.path.insert(0, str(infrastructure_path))
 
 # Import with explicit module path to avoid circular import
 import importlib.util
-spec = importlib.util.spec_from_file_location("blackbox5_main", str(engine_path / "main.py"))
+spec = importlib.util.spec_from_file_location("blackbox5_main", str(infrastructure_path / "main.py"))
 blackbox5_main = importlib.util.module_from_spec(spec)
 sys.modules['blackbox5_main'] = blackbox5_main
 spec.loader.exec_module(blackbox5_main)
@@ -594,7 +601,7 @@ async def get_statistics():
     """
     try:
         bb5 = await get_blackbox5()
-        return bb5.get_statistics()
+        return await bb5.get_statistics()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get statistics: {str(e)}")
 
@@ -608,6 +615,6 @@ if __name__ == "__main__":
         app,
         host="0.0.0.0",
         port=8000,
-        reload=True,
+        reload=False,
         log_level="info"
     )

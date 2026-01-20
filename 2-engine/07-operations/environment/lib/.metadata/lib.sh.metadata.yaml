@@ -1,0 +1,89 @@
+# Shared Library Metadata
+# Artifact: Lib
+# Type: library
+
+id: "lib-shared"
+type: "library"
+name: "Shared Library"
+category: "utilities"
+version: "1.0.0"
+
+# Location
+path: "2-engine/07-operations/environment/lib/lib.sh"
+created: "2026-01-14"
+modified: "2026-01-20"
+
+# Content
+description: |
+  Shared utility functions for all Blackbox environment scripts. Provides
+  cross-platform compatible functions for common operations including timestamps,
+  string manipulation, command detection, logging, and user interaction.
+
+  Key capabilities:
+  - Timestamp generation (directory format, human format)
+  - String slugification for URL-safe identifiers
+  - Portable in-place sed replacement (Linux/macOS compatible)
+  - Command existence checking
+  - Colored logging (info, success, error, warning)
+  - User confirmation prompts
+  - Blackbox root directory discovery
+
+tags:
+  - "utilities"
+  - "shared"
+  - "functions"
+  - "bash"
+  - "phase1"
+  - "foundation"
+
+keywords:
+  - "lib"
+  - "shared"
+  - "utility"
+  - "timestamp"
+  - "slugify"
+  - "logging"
+
+# Relationships
+depends_on: []
+
+used_by:
+  - id: "auto-compact-script"
+    type: "script"
+  - id: "background-manager-script"
+    type: "script"
+  - id: "bmad-tracker-script"
+    type: "script"
+  - id: "hooks-manager-script"
+    type: "script"
+  - id: "keyword-detector-script"
+    type: "script"
+  - id: "mcp-manager-script"
+    type: "script"
+  - id: "notify-script"
+    type: "script"
+  - id: "vendor-validator-script"
+    type: "script"
+
+relates_to: []
+
+# Classification
+phase: 1
+layer: "system"
+
+# Status
+status: "active"
+stability: "high"
+
+# Ownership
+owner: "core-team"
+maintainer: "ai-system"
+
+# Documentation
+docs:
+  primary: "2-engine/07-operations/environment/lib/lib.sh"
+
+# Metrics
+usage_count: 500
+last_used: "2026-01-20"
+success_rate: 1.0
