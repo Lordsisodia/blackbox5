@@ -18,5 +18,19 @@
     "timestamp": "2026-01-20T13:54:10.484678",
     "wave_id": 1,
     "rollback_commit": null
+  },
+  {
+    "task_id": "fix_1_1768892050",
+    "commit_hash": "372c429",
+    "commit_type": "fix",
+    "scope": "agents",
+    "description": "Fix routing to Mobile Development Specialist (was architect)",
+    "files": [
+      "2-engine/01-core/agents/mobile-specialist.yaml",
+      "2-engine/07-operations/runtime/data/"
+    ],
+    "timestamp": "2026-01-20T13:54:10.916592",
+    "wave_id": 1,
+    "rollback_commit": null
   }
 ]
