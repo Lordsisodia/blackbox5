@@ -1,0 +1,22 @@
+[
+  {
+    "task_id": "fix_1_1768892049",
+    "commit_hash": "21c58d8",
+    "commit_type": "fix",
+    "scope": "agents",
+    "description": "Fix routing to UI/UX Specialist (was architect)",
+    "files": [
+      "2-engine/01-core/agents/ui-ux-specialist.yaml",
+      "2-engine/07-operations/runtime/autonomous_blackbox_tester.py",
+      "2-engine/01-core/.docs/architecture/",
+      "2-engine/01-core/CLAUDE-CODE-INTEGRATION-COMPLETE.md",
+      "2-engine/01-core/MICROSERVICES_ARCHITECTURE.md",
+      "2-engine/01-core/add_numbers.py",
+      "2-engine/01-core/test_add_numbers.py",
+      "2-engine/01-core/test_all_agents.py"
+    ],
+    "timestamp": "2026-01-20T13:54:10.484678",
+    "wave_id": 1,
+    "rollback_commit": null
+  }
+]
