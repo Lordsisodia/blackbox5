@@ -38,6 +38,15 @@ agent:
   - name: testing_framework_setup
     description: Configure testing frameworks, mocking libraries, and automated test
       runners
+  - name: handle_write_unit_tests_for_payment_module_tasks
+    description: 'Expert at handling tasks like: Write unit tests for payment module'
+    keywords:
+    - write
+    - unit
+    - tests
+    - for
+    - payment
+    - module
   behavior:
     communication_style: structured and methodical, emphasizing quality metrics and
       clear testing goals
