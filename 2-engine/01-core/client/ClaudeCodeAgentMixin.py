@@ -80,10 +80,33 @@ Task: {task_description}
         if context:
             prompt += f"\nContext:\n{context}\n"
 
+        # Add structured output format requirement
         prompt += """
-Please complete this task with appropriate code, documentation, and explanation.
-Focus on clean, maintainable, and well-documented code.
-"""
+
+## CRITICAL: Output Format
+
+You MUST respond in this exact format:
+
+<output>
+{
+  "status": "success|partial|failed",
+  "summary": "One sentence describing what you did",
+  "deliverables": ["list of files created or modified"],
+  "next_steps": ["recommended next actions"],
+  "metadata": {
+    "agent": "%s",
+    "task_id": "from-input",
+    "duration_seconds": 0
+  }
+}
+---
+[Your detailed explanation, code, and reasoning for humans]
+</output>
+
+The JSON block at top (inside <output> tags) is for OTHER AGENTS to parse.
+The content after --- is for HUMANS to read.
+Always include both parts - this enables agent coordination.
+""" % name
 
         return prompt
 

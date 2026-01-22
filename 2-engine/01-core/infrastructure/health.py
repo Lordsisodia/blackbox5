@@ -31,6 +31,7 @@ class HealthCheck:
     interval: int = 30  # seconds
     timeout: int = 10   # seconds
     enabled: bool = True
+    recovery_func: Optional[Callable[[], bool]] = None  # Custom recovery function
 
     # Runtime state
     last_check: Optional[datetime] = None
@@ -58,13 +59,14 @@ class HealthMonitor:
     triggers automatic recovery, and provides health status APIs.
     """
 
-    def __init__(self, service_registry=None):
+    def __init__(self, service_registry=None, auto_recover: bool = True):
         self._registry = service_registry
         self._checks: Dict[str, HealthCheck] = {}
         self._check_interval = 30  # seconds
         self._monitor_task: Optional[asyncio.Task] = None
         self._running = False
         self._callbacks: List[Callable] = []  # Health change callbacks
+        self._auto_recover = auto_recover  # Enable automatic recovery
 
         # Health history
         self._history: List[SystemHealth] = []
@@ -74,13 +76,22 @@ class HealthMonitor:
         self._failure_threshold = 3  # Consecutive failures before degraded
         self._critical_threshold = 5  # Consecutive failures before critical
 
+        # Recovery tracking
+        self._recovery_attempts: Dict[str, int] = {}  # service -> attempt count
+        self._max_recovery_attempts = 3
+
+        # Alert handlers
+        self._alert_handlers: List[Callable] = []
+        self._register_default_alerts()
+
     def register_check(
         self,
         name: str,
         check_func: Callable[[], bool],
         interval: int = 30,
         timeout: int = 10,
-        enabled: bool = True
+        enabled: bool = True,
+        recovery_func: Optional[Callable[[], bool]] = None
     ) -> None:
         """
         Register a custom health check.
@@ -91,13 +102,15 @@ class HealthMonitor:
             interval: Check interval in seconds
             timeout: Timeout for the check
             enabled: Whether the check is enabled
+            recovery_func: Optional function to attempt recovery (returns True if successful)
         """
         self._checks[name] = HealthCheck(
             name=name,
             check_func=check_func,
             interval=interval,
             timeout=timeout,
-            enabled=enabled
+            enabled=enabled,
+            recovery_func=recovery_func
         )
         logger.debug(f"Registered health check: {name}")
 
@@ -110,6 +123,22 @@ class HealthMonitor:
     def on_health_change(self, callback: Callable) -> None:
         """Register callback for health status changes"""
         self._callbacks.append(callback)
+
+    def add_alert_handler(self, handler: Callable) -> None:
+        """
+        Register a custom alert handler.
+
+        Args:
+            handler: Function that accepts an alert dict
+        """
+        self._alert_handlers.append(handler)
+        handler_name = getattr(handler, '__name__', str(handler))
+        logger.debug(f"Registered alert handler: {handler_name}")
+
+    def _register_default_alerts(self) -> None:
+        """Register default alert handlers"""
+        self.add_alert_handler(self._alert_log)
+        self.add_alert_handler(self._alert_event_bus)
 
     async def start_monitoring(self, interval: int = 30) -> None:
         """
@@ -203,10 +232,19 @@ class HealthMonitor:
                 check.last_result = result
 
                 if result:
+                    # Service is healthy, reset recovery count
                     check.consecutive_failures = 0
+                    if name in self._recovery_attempts:
+                        logger.info(f"Service {name} recovered successfully")
+                        self._recovery_attempts[name] = 0
                 else:
+                    # Service is unhealthy
                     check.consecutive_failures += 1
                     check.failure_count += 1
+
+                    # Attempt recovery if enabled
+                    if self._auto_recover and check.consecutive_failures >= self._failure_threshold:
+                        await self._attempt_recovery(name, check)
 
             except asyncio.TimeoutError:
                 logger.warning(f"Health check timed out: {name}")
@@ -362,6 +400,199 @@ class HealthMonitor:
                 if h.status in (HealthStatus.UNHEALTHY, HealthStatus.CRITICAL)
             ),
             "monitoring_duration_seconds": duration
+        }
+
+    async def _attempt_recovery(self, service_name: str, health_check: HealthCheck) -> None:
+        """
+        Attempt to recover an unhealthy service.
+
+        Args:
+            service_name: Name of the unhealthy service
+            health_check: The health check that failed
+        """
+        # Check if we've exceeded max attempts
+        attempts = self._recovery_attempts.get(service_name, 0)
+        if attempts >= self._max_recovery_attempts:
+            logger.error(
+                f"Max recovery attempts ({self._max_recovery_attempts}) exceeded for {service_name}"
+            )
+            await self._alert_humans(service_name, "max_retries_exceeded", health_check)
+            return
+
+        logger.warning(f"Attempting recovery for {service_name} (attempt {attempts + 1}/{self._max_recovery_attempts})")
+
+        try:
+            # Strategy 1: Try to restart the service via registry
+            if self._registry:
+                try:
+                    service = await self._registry.get(service_name)
+
+                    if service and hasattr(service, 'restart'):
+                        logger.info(f"Attempting restart of service {service_name}")
+                        success = await service.restart()
+
+                        if success:
+                            logger.info(f"Recovery successful for {service_name} via restart")
+                            self._recovery_attempts[service_name] = 0
+                            return
+                        else:
+                            logger.warning(f"Restart failed for {service_name}")
+                    elif service and hasattr(service, 'recover'):
+                        logger.info(f"Attempting custom recovery for {service_name}")
+                        success = await service.recover()
+
+                        if success:
+                            logger.info(f"Recovery successful for {service_name} via custom recover()")
+                            self._recovery_attempts[service_name] = 0
+                            return
+                        else:
+                            logger.warning(f"Custom recovery failed for {service_name}")
+                except Exception as e:
+                    logger.error(f"Error during service recovery of {service_name}: {e}")
+
+            # Strategy 2: Re-run the health check function to see if it transiently fails
+            logger.info(f"Retrying health check for {service_name}")
+            try:
+                result = await asyncio.wait_for(
+                    asyncio.to_thread(health_check.check_func),
+                    timeout=health_check.timeout
+                )
+
+                if result:
+                    logger.info(f"Health check passed on retry for {service_name}")
+                    # Don't reset consecutive_failures here - let the next health check cycle do that
+                    self._recovery_attempts[service_name] = 0
+                    return
+            except Exception as e:
+                logger.warning(f"Retry health check failed for {service_name}: {e}")
+
+            # Strategy 3: If health check has custom recovery, use it
+            if hasattr(health_check, 'recovery_func') and health_check.recovery_func:
+                logger.info(f"Attempting custom recovery function for {service_name}")
+                try:
+                    if asyncio.iscoroutinefunction(health_check.recovery_func):
+                        success = await health_check.recovery_func()
+                    else:
+                        success = health_check.recovery_func()
+
+                    if success:
+                        logger.info(f"Custom recovery successful for {service_name}")
+                        self._recovery_attempts[service_name] = 0
+                        return
+                except Exception as e:
+                    logger.error(f"Custom recovery function failed for {service_name}: {e}")
+
+            # If we get here, recovery failed
+            logger.error(f"All recovery strategies failed for {service_name}")
+            self._recovery_attempts[service_name] = attempts + 1
+            await self._alert_humans(service_name, "recovery_failed", health_check)
+
+        except Exception as e:
+            logger.error(f"Unexpected error during recovery of {service_name}: {e}")
+            self._recovery_attempts[service_name] = attempts + 1
+            await self._alert_humans(service_name, f"recovery_error: {e}", health_check)
+
+    async def _alert_humans(
+        self,
+        service_name: str,
+        reason: str,
+        health_check: Optional[HealthCheck] = None
+    ) -> None:
+        """
+        Alert humans about unhealthy service or recovery failure.
+
+        Args:
+            service_name: Name of the service with issues
+            reason: Reason for the alert
+            health_check: The health check that triggered the alert
+        """
+        # Determine severity based on reason
+        if reason == "max_retries_exceeded":
+            severity = "critical"
+        elif "recovery_error" in reason or reason == "recovery_failed":
+            severity = "warning"
+        else:
+            severity = "info"
+
+        alert = {
+            "service": service_name,
+            "reason": reason,
+            "timestamp": datetime.now().isoformat(),
+            "severity": severity,
+            "consecutive_failures": health_check.consecutive_failures if health_check else 0,
+            "total_failures": health_check.failure_count if health_check else 0,
+            "recovery_attempts": self._recovery_attempts.get(service_name, 0)
+        }
+
+        # Call all alert handlers
+        for handler in self._alert_handlers:
+            try:
+                if asyncio.iscoroutinefunction(handler):
+                    await handler(alert)
+                else:
+                    handler(alert)
+            except Exception as e:
+                logger.error(f"Error in alert handler {handler.__name__}: {e}")
+
+    def _alert_log(self, alert: Dict[str, Any]) -> None:
+        """
+        Log alert to file (default alert handler).
+
+        Args:
+            alert: Alert dictionary
+        """
+        severity = alert.get("severity", "info").upper()
+        service = alert["service"]
+        reason = alert["reason"]
+        attempts = alert.get("recovery_attempts", 0)
+        failures = alert.get("consecutive_failures", 0)
+
+        log_message = (
+            f"HEALTH ALERT [{severity}]: {service} - {reason} "
+            f"(attempts: {attempts}, failures: {failures})"
+        )
+
+        if severity == "CRITICAL":
+            logger.critical(log_message)
+        elif severity == "WARNING":
+            logger.warning(log_message)
+        else:
+            logger.info(log_message)
+
+    async def _alert_event_bus(self, alert: Dict[str, Any]) -> None:
+        """
+        Send alert to event bus (default alert handler).
+
+        Args:
+            alert: Alert dictionary
+        """
+        try:
+            from ..communication.event_bus import get_event_bus
+            event_bus = get_event_bus()
+            await event_bus.publish("health.alert", alert)
+            logger.debug(f"Published alert to event bus: {alert['service']}")
+        except ImportError:
+            logger.debug("Event bus not available, skipping event bus alert")
+        except Exception as e:
+            logger.error(f"Could not publish alert to event bus: {e}")
+
+    def get_recovery_status(self) -> Dict[str, Any]:
+        """
+        Get recovery status for all services.
+
+        Returns:
+            Dictionary with recovery status
+        """
+        return {
+            "auto_recover_enabled": self._auto_recover,
+            "max_recovery_attempts": self._max_recovery_attempts,
+            "services": {
+                name: {
+                    "attempts": attempts,
+                    "can_recover": attempts < self._max_recovery_attempts
+                }
+                for name, attempts in self._recovery_attempts.items()
+            }
         }
 
 

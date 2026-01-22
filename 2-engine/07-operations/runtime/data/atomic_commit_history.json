@@ -79,5 +79,31 @@
     "timestamp": "2026-01-21T04:38:11.389184",
     "wave_id": 1,
     "rollback_commit": null
+  },
+  {
+    "task_id": "fix_3_1768948130",
+    "commit_hash": "d912be5",
+    "commit_type": "fix",
+    "scope": "agents",
+    "description": "Fix routing to Security Specialist (was None)",
+    "files": [
+      "2-engine/01-core/agents/security-specialist.yaml",
+      "2-engine/01-core/client/GLMClient.py",
+      "2-engine/07-operations/runtime/data/atomic_commit_history.json",
+      ".claude/",
+      "2-engine/01-core/blackbox5/",
+      "2-engine/01-core/client/TOKEN-OPTIMIZATION-GUIDE.md",
+      "2-engine/01-core/client/TokenOptimizer.py",
+      "2-engine/07-operations/environment/lib/python/core/prompts/backend-frontend-interchangeability-loop-v2.md",
+      "2-engine/07-operations/runtime/MCP-MULTIPLEXER-README.md",
+      "2-engine/07-operations/runtime/MCP-MUX-QUICKSTART.md",
+      "2-engine/07-operations/runtime/MCP-MUX-SETUP.md",
+      "2-engine/07-operations/runtime/install-mcp-mux.sh",
+      "MCP-PROXY-COMPARISON.md",
+      "MCP-STRATEGY-WITH-RAILWAY.md"
+    ],
+    "timestamp": "2026-01-21T05:28:51.221965",
+    "wave_id": 3,
+    "rollback_commit": null
   }
 ]

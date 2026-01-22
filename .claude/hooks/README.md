@@ -37,7 +37,7 @@ Claude Code Event → Hook Script → Action → Result
 | **UserPromptSubmit** | Before sending prompt to AI | First principles, assumptions, tasks, dependencies |
 | **PreToolUse** | Before tool execution | Context check, impact analysis, reversibility, completion |
 | **PostToolUse** | After tool execution | Activity log, decisions, debt detection, test coverage |
-| **SessionStart** | When Claude Code starts | Environment validation, time boxing |
+| **SessionStart** | When Claude Code starts | **Agent context loading**, Environment validation, time boxing |
 | **SessionEnd** | When Claude Code ends | Memory extraction, compaction, pattern detection |
 | **SubagentStop** | When subagent finishes | Quality analysis |
 
@@ -45,7 +45,25 @@ Claude Code Event → Hook Script → Action → Result
 
 ## Hook Specifications
 
-### 🔴 CRITICAL HOOKS (9 hooks)
+### 🔴 CRITICAL HOOKS (10 hooks)
+
+#### 0. Load Agent Context (SessionStart)
+**File**: `hooks/load-agents-context.sh`
+
+**Purpose**: Auto-load AGENTS.md at session start for persistent context
+
+**What It Does**:
+- Reads AGENTS.md from project root
+- Injects entire file into agent context
+- Ensures every session starts with essential knowledge
+
+**Why Critical**: Without this, agents lack project-specific knowledge on session start
+
+**Related Files**:
+- AGENTS.md (root) - The context file being loaded
+- 2-engine/01-core/infrastructure/AGENT-SYSTEM.md - System documentation
+
+---
 
 #### 1. Auto-log Activity (PostToolUse)
 **File**: `hooks/auto-log-activity.sh`
@@ -174,9 +192,41 @@ Claude Code Event → Hook Script → Action → Result
 
 ---
 
+### 🔵 NEXT-STEPS HOOKS (1 hook)
+
+#### 10. Reflection on Completion (Stop/SubagentStop)
+**File**: `hooks/reflect-on-completion.sh`
+
+**Purpose**: Maintain momentum and plan next steps after every completion
+
+**What It Does**:
+- Triggers when agent finishes (Stop/SubagentStop events)
+- Analyzes what was just accomplished
+- Determines completion status: completion, implementation, research, troubleshooting, or output
+- Generates contextual next-steps questions based on status
+- Saves reflection to memory for future reference
+- Injects reflection prompt into agent context
+
+**Status Detection**:
+- **completion**: Work finished, ready to ship/deploy
+- **implementation**: Code written, needs testing
+- **research**: Investigation complete, ready to apply
+- **troubleshooting**: Issue resolved, verify fix
+- **output**: Information delivered, await direction
+
+**Why Critical**: Prevents dead ends, maintains momentum between sessions, ensures every completion has a "what's next?"
+
+**Files Created**:
+- `5-project-memory/siso-internal/operations/reflections/reflection_[timestamp].md`
+- `5-project-memory/siso-internal/operations/reflection-log.txt`
+
+**Template**: `5-project-memory/siso-internal/operations/reflections/.template.md`
+
+---
+
 ### 🟡 HIGH VALUE HOOKS (9 hooks)
 
-#### 10. Assumption Detection (UserPromptSubmit)
+#### 11. Assumption Detection (UserPromptSubmit)
 **File**: `hooks/detect-assumptions.sh`
 
 **Purpose**: Question implicit assumptions

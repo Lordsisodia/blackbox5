@@ -63,6 +63,7 @@ Organized by **WHAT YOU WANT TO DO**:
 | **Templates** | `prd-templates/` | PRD templates |
 | **Libraries** | `lib.sh`, `lib/` | Shell & Python libs |
 | **Hooks** | `hooks/` | Git hooks |
+| **Claude Hooks** | `HOOKS-ARCHITECTURE.md` | Claude Code hooks system |
 
 ## Monitoring
 

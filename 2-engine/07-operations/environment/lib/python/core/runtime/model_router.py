@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional, List
 from enum import Enum
 import re
+from datetime import datetime
 
 
 class TaskComplexity(Enum):
@@ -69,6 +70,11 @@ class ModelRouter:
         # Default to GLM-4 if available
         self.primary_model = "glm-4-plus"
         self.fallback_model = "claude-sonnet"
+
+        # Cost tracking and quality measurement
+        self._cost_history = []
+        self._quality_history = []
+        self._routing_decisions = []
 
     def _load_models(self) -> Dict[str, Dict[str, Any]]:
         """Load available model configurations"""
@@ -142,19 +148,57 @@ class ModelRouter:
 
         # Route based on complexity
         if complexity == TaskComplexity.STRATEGIC_THINKING:
-            return self._get_hq_config()
-
+            model_config = self._get_hq_config()
         elif complexity == TaskComplexity.CODE_WITH_FRAMEWORK:
-            return self._get_framework_config(context)
-
+            model_config = self._get_framework_config(context)
         elif complexity == TaskComplexity.STANDARD_EXECUTION:
-            return self._get_balanced_config()
-
+            model_config = self._get_balanced_config()
         elif complexity == TaskComplexity.VALIDATION:
-            return self._get_fast_config()
-
+            model_config = self._get_fast_config()
         else:  # SIMPLE_OPERATION
-            return self._get_fastest_config()
+            model_config = self._get_fastest_config()
+
+        # Estimate cost for tracking
+        task_id = self._get_task_id(task)
+        estimated_input = self._estimate_tokens(self._get_task_description(task))
+        estimated_cost = self.estimate_cost(
+            model_config,
+            estimated_input,
+            estimated_input * 2  # Assume output is 2x input
+        )
+
+        # Record routing decision
+        decision = {
+            'task_id': task_id,
+            'complexity': complexity.value,
+            'model': model_config.model,
+            'tier': self.models[model_config.model]['tier'],
+            'estimated_cost': estimated_cost,
+            'estimated_tokens': estimated_input * 3,  # input + output (2x)
+            'timestamp': datetime.now().isoformat()
+        }
+
+        self._routing_decisions.append(decision)
+
+        return model_config
+
+    def _get_task_id(self, task: Any) -> str:
+        """Extract task ID from task"""
+        if hasattr(task, 'id'):
+            return task.id
+        return task.get('id', 'unknown')
+
+    def _get_task_description(self, task: Any) -> str:
+        """Extract task description from task"""
+        if hasattr(task, 'description'):
+            return task.description
+        return task.get('description', '')
+
+    def _estimate_tokens(self, text: str) -> int:
+        """Estimate token count from text (rough approximation)"""
+        # Rough estimate: 1 token ~= 4 characters for English
+        # This is a simple heuristic - in production you'd use a proper tokenizer
+        return len(text) // 4
 
     def _analyze_complexity(self,
                            task: Any,
@@ -337,6 +381,202 @@ class ModelRouter:
             self.primary_model = model_name
         else:
             raise ValueError(f"Unknown model: {model_name}")
+
+    def record_result(self, task_id: str, model_config: ModelConfig,
+                     input_tokens: int, output_tokens: int,
+                     success: bool, quality_score: float):
+        """Record actual cost and quality after task completion"""
+
+        actual_cost = self.estimate_cost(model_config, input_tokens, output_tokens)
+
+        # Find the routing decision
+        decision = next((d for d in self._routing_decisions if d['task_id'] == task_id), None)
+
+        if decision:
+            # Update with actual results
+            decision['actual_cost'] = actual_cost
+            decision['input_tokens'] = input_tokens
+            decision['output_tokens'] = output_tokens
+            decision['total_tokens'] = input_tokens + output_tokens
+            decision['success'] = success
+            decision['quality_score'] = quality_score
+
+            # Calculate cost difference
+            if actual_cost > 0:
+                decision['cost_diff'] = actual_cost - decision['estimated_cost']
+                decision['cost_accuracy'] = abs(decision['cost_diff'] / actual_cost)
+            else:
+                decision['cost_diff'] = 0
+                decision['cost_accuracy'] = 0
+
+        # Store in history
+        self._cost_history.append(decision)
+        self._quality_history.append(quality_score)
+
+        # Trim history to last 1000 entries
+        if len(self._cost_history) > 1000:
+            self._cost_history = self._cost_history[-1000:]
+        if len(self._quality_history) > 1000:
+            self._quality_history = self._quality_history[-1000:]
+
+    def measure_quality(self, result: Dict[str, Any], task: Dict[str, Any]) -> float:
+        """Measure quality of task result (0.0 to 1.0)"""
+
+        quality_score = 0.0
+
+        # Factor 1: Success (40%)
+        if result.get('success', False):
+            quality_score += 0.4
+
+        # Factor 2: No errors (30%)
+        if not result.get('error'):
+            quality_score += 0.3
+
+        # Factor 3: Output quality (30%)
+        output = result.get('output', '')
+        if output:
+            # Check for meaningful output (not empty/error messages)
+            if len(output) > 100:  # Substantial output
+                quality_score += 0.15
+
+            # Check for no error patterns
+            error_patterns = ['error', 'failed', 'exception', 'cannot']
+            if not any(p in output.lower() for p in error_patterns):
+                quality_score += 0.15
+
+        return min(quality_score, 1.0)
+
+    def get_cost_statistics(self) -> Dict[str, Any]:
+        """Get cost and quality statistics by tier"""
+
+        if not self._cost_history:
+            return {'message': 'No cost data available'}
+
+        # Calculate statistics
+        total_cost = sum(d.get('actual_cost', d.get('estimated_cost', 0)) for d in self._cost_history)
+        total_tokens = sum(d.get('total_tokens', 0) for d in self._cost_history)
+
+        # By tier
+        by_tier = {}
+        for decision in self._cost_history:
+            tier = decision.get('tier', 'unknown')
+            if tier not in by_tier:
+                by_tier[tier] = {
+                    'count': 0,
+                    'cost': 0,
+                    'tokens': 0,
+                    'avg_quality': 0
+                }
+
+            by_tier[tier]['count'] += 1
+            by_tier[tier]['cost'] += decision.get('actual_cost', 0)
+            by_tier[tier]['tokens'] += decision.get('total_tokens', 0)
+
+        # Calculate averages
+        for tier, stats in by_tier.items():
+            stats['avg_cost'] = stats['cost'] / stats['count']
+            stats['avg_tokens'] = stats['tokens'] / stats['count']
+
+            # Get quality scores for this tier
+            qualities = [d.get('quality_score', 0) for d in self._cost_history if d.get('tier') == tier]
+            stats['avg_quality'] = sum(qualities) / len(qualities) if qualities else 0
+
+        # Calculate cost accuracy
+        cost_accuracies = [d.get('cost_accuracy', 0) for d in self._cost_history if d.get('cost_accuracy', 0) > 0]
+        avg_cost_accuracy = sum(cost_accuracies) / len(cost_accuracies) if cost_accuracies else 0
+
+        return {
+            'total_cost': total_cost,
+            'total_tokens': total_tokens,
+            'total_tasks': len(self._cost_history),
+            'by_tier': by_tier,
+            'cost_accuracy': avg_cost_accuracy
+        }
+
+    def analyze_routing_effectiveness(self) -> Dict[str, Any]:
+        """Analyze if routing decisions were effective"""
+
+        stats = self.get_cost_statistics()
+
+        if 'message' in stats:
+            return {
+                'statistics': stats,
+                'insights': [{'severity': 'info', 'message': 'No data available for analysis'}],
+                'recommendations': []
+            }
+
+        insights = []
+
+        # Insight 1: Quality by tier
+        by_tier = stats.get('by_tier', {})
+        for tier, tier_stats in by_tier.items():
+            if tier_stats['avg_quality'] < 0.7:
+                insights.append({
+                    'severity': 'warning',
+                    'message': f"Tier '{tier}' has low quality ({tier_stats['avg_quality']:.2f}). Consider using higher tier."
+                })
+            elif tier_stats['avg_quality'] > 0.95:
+                insights.append({
+                    'severity': 'info',
+                    'message': f"Tier '{tier}' has excellent quality ({tier_stats['avg_quality']:.2f}). Could use lower tier."
+                })
+
+        # Insight 2: Cost overruns
+        cost_accuracy = stats.get('cost_accuracy', 0)
+        if cost_accuracy > 0.3:
+            insights.append({
+                'severity': 'warning',
+                'message': f"Cost estimates are off by {cost_accuracy*100:.1f}%. Calibrate token estimation."
+            })
+
+        # Insight 3: Routing distribution
+        tier_counts = {tier: s['count'] for tier, s in by_tier.items()}
+        if tier_counts.get('hq', 0) > tier_counts.get('fast', 0) * 2:
+            insights.append({
+                'severity': 'info',
+                'message': f"Overusing HQ model. {tier_counts['hq']} HQ vs {tier_counts.get('fast', 0)} fast tasks."
+            })
+
+        return {
+            'statistics': stats,
+            'insights': insights,
+            'recommendations': self._generate_recommendations(stats)
+        }
+
+    def _generate_recommendations(self, stats: Dict[str, Any]) -> List[str]:
+        """Generate actionable recommendations"""
+
+        recommendations = []
+
+        # Recommendation 1: If fast tier quality is high, use it more
+        by_tier = stats.get('by_tier', {})
+        if 'fast' in by_tier and by_tier['fast']['avg_quality'] > 0.8:
+            fast_count = by_tier['fast']['count']
+            total_count = stats['total_tasks']
+            if fast_count / total_count < 0.3:
+                recommendations.append(
+                    f"Fast tier quality is good (>{by_tier['fast']['avg_quality']:.2f}). "
+                    "Consider routing more simple tasks to fast tier to reduce costs."
+                )
+
+        # Recommendation 2: If HQ tier is overused
+        if 'hq' in by_tier:
+            hq_count = by_tier['hq']['count']
+            total_count = stats['total_tasks']
+            if hq_count / total_count > 0.5:
+                recommendations.append(
+                    f"HQ model used for {hq_count/total_count*100:.1f}% of tasks. "
+                    "Review if all require highest quality."
+                )
+
+        # Recommendation 3: Cost accuracy issues
+        if stats.get('cost_accuracy', 0) > 0.3:
+            recommendations.append(
+                "Calibrate token estimation - current estimates are off by "
+                f"{stats['cost_accuracy']*100:.1f}% on average."
+            )
+
+        return recommendations
 
 
 # Singleton instance

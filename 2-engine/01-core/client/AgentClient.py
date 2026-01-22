@@ -441,7 +441,7 @@ def create_client(
     # Get allowed tools for this agent type
     allowed_tools = get_tools_for_agent(agent_type, project_capabilities)
 
-    # Build system prompt
+    # Build system prompt with output format for agent-to-agent communication
     base_prompt = (
         f"You are an expert full-stack developer building production-quality software. "
         f"Your working directory is: {project_dir.resolve()}\n"
@@ -450,7 +450,29 @@ def create_client(
         f"Never use absolute paths or try to access files outside your working directory.\n\n"
         f"You follow existing code patterns, write clean maintainable code, and verify "
         f"your work through thorough testing. You communicate progress through Git commits "
-        f"and build-progress.txt updates."
+        f"and build-progress.txt updates.\n\n"
+        f"## CRITICAL: Output Format for Agent Communication\n\n"
+        f"Every response MUST use this exact format:\n\n"
+        f"```markdown\n"
+        f"<output>\n"
+        f"{{\n"
+        f'  "status": "success|partial|failed",\n'
+        f'  "summary": "One sentence describing what you did",\n'
+        f'  "deliverables": ["file1.ts", "file2.ts", "artifact-name"],\n'
+        f'  "next_steps": ["action1", "action2"],\n'
+        f'  "metadata": {{\n'
+        f'    "agent": "your-agent-name",\n'
+        f'    "task_id": "from-input",\n'
+        f'    "duration_seconds": 0\n'
+        f'  }}\n'
+        f"}}\n"
+        f"---\n"
+        f"[Your full explanation here - code, reasoning, details for humans]\n"
+        f"</output>\n"
+        f"```\n\n"
+        f"The JSON block at top (inside <output> tags) is for OTHER AGENTS to parse.\n"
+        f"The content after --- is for HUMANS to read.\n"
+        f"Always include both parts - this enables agent coordination."
     )
 
     # Log configuration

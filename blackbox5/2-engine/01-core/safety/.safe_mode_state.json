@@ -1,0 +1,92 @@
+{
+  "current_level": "off",
+  "enter_time": null,
+  "enter_reason": null,
+  "history": [
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "High memory usage",
+      "source": "test",
+      "timestamp": "2026-01-21T17:08:43.355918"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.356710"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.357030"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Issue resolved",
+      "source": "test",
+      "timestamp": "2026-01-21T17:08:43.357140"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.358290"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.358824"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.359115"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.359683"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.359981"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.360602"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "manual",
+      "timestamp": "2026-01-21T17:08:43.360910"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-01-21T17:08:43.483262"
+    }
+  ],
+  "last_updated": "2026-01-21T17:08:43.483279"
+}

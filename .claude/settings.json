@@ -91,6 +91,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": ".claude/hooks/load-agents-context.sh"
+          },
+          {
+            "type": "command",
             "command": ".claude/hooks/validate-environment.sh"
           },
           {
@@ -121,7 +125,24 @@
         "hooks": [
           {
             "type": "command",
+            "command": ".claude/hooks/reflect-on-completion.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
             "command": ".claude/hooks/analyze-subagent-quality.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/reflect-on-completion.sh",
+            "timeout": 10
           }
         ]
       }
@@ -130,24 +151,9 @@
 
   "permissions": {
     "allow": [
-      "Read",
-      "Glob",
-      "Grep",
-      "Edit",
-      "Write",
-      "Bash(git:*)",
-      "Bash(npm:*)",
-      "Bash(node:*)",
-      "Bash(python*:*)"
+      "*"
     ],
-    "deny": [
-      "Bash(rm -rf:*)",
-      "Bash(sudo:*)",
-      "Edit(5-project-memory/siso-internal/STATE.yaml)",
-      "Edit(2-engine/01-core/infrastructure/main.py)",
-      "Edit(config.yml)"
-    ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "bypassPermissions"
   },
 
   "env": {

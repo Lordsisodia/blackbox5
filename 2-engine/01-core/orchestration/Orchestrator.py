@@ -7,8 +7,9 @@ Coordinates multi-agent workflows and complex task execution.
 import logging
 import asyncio
 import uuid
+import json
 from pathlib import Path
-from typing import Dict, List, Optional, Any, Callable, Awaitable
+from typing import Dict, List, Optional, Any, Callable, Awaitable, Set
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime
@@ -145,9 +146,17 @@ class AgentOrchestrator:
         self._max_concurrent_agents = max_concurrent_agents
         self._enable_checkpoints = enable_checkpoints
         self._enable_state_management = enable_state_management
+
+        # Setup checkpoint directory
+        if self._enable_checkpoints:
+            self._checkpoint_dir = (memory_base_path / "checkpoints") if memory_base_path else Path("checkpoints")
+            self._checkpoint_dir.mkdir(parents=True, exist_ok=True)
+        else:
+            self._checkpoint_dir = None
+
         self._agents: Dict[str, BaseAgent] = {}
         self._workflows: Dict[str, Workflow] = {}
-        self._lock = asyncio.Lock()
+        self._lock: Optional[asyncio.Lock] = None
 
     async def register_agent(self, agent: BaseAgent) -> None:
         """
@@ -156,6 +165,8 @@ class AgentOrchestrator:
         Args:
             agent: Agent to register
         """
+        if self._lock is None:
+            self._lock = asyncio.Lock()
         async with self._lock:
             self._agents[agent.name] = agent
 
@@ -168,6 +179,8 @@ class AgentOrchestrator:
         Args:
             agent_name: Name of agent to unregister
         """
+        if self._lock is None:
+            self._lock = asyncio.Lock()
         async with self._lock:
             if agent_name in self._agents:
                 del self._agents[agent_name]
@@ -176,7 +189,7 @@ class AgentOrchestrator:
 
     async def execute_workflow(self, workflow: Workflow) -> Workflow:
         """
-        Execute a workflow.
+        Execute a workflow with checkpointing and resume capability.
 
         Args:
             workflow: Workflow to execute
@@ -185,6 +198,24 @@ class AgentOrchestrator:
             Completed workflow with results
         """
         logger.info(f"Starting workflow: {workflow.name}")
+
+        # Try to resume from checkpoint if enabled
+        completed_steps: Set[str] = set()
+        if self._enable_checkpoints and self._checkpoint_dir:
+            checkpoint = self._load_checkpoint(workflow.id)
+            if checkpoint:
+                completed_steps = set(checkpoint['completed_steps'])
+                logger.info(f"Resuming from checkpoint: {len(completed_steps)} steps already completed")
+
+                # Restore step states from checkpoint
+                for step_data in checkpoint.get('steps', []):
+                    for step in workflow.steps:
+                        if step.id == step_data['id']:
+                            step.status = WorkflowStatus(step_data['status'])
+                            step.retry_count = step_data.get('retry_count', 0)
+                            step.error = step_data.get('error')
+                            step.started_at = step_data.get('started_at')
+                            step.completed_at = step_data.get('completed_at')
 
         workflow.status = WorkflowStatus.RUNNING
         workflow.started_at = datetime.now().isoformat()
@@ -196,16 +227,19 @@ class AgentOrchestrator:
                     data={
                         "workflow_id": workflow.id,
                         "workflow_name": workflow.name,
+                        "resuming": len(completed_steps) > 0,
                     },
                     source="orchestrator",
                 )
             )
 
-            # Execute steps in dependency order
-            completed_steps = set()
+            # Execute steps in dependency order with deadlock detection
             failed = False
+            no_progress_count = 0
+            max_no_progress = len(workflow.steps) * 2  # Allow some slack for parallel steps
 
             while len(completed_steps) < len(workflow.steps) and not failed:
+                previous_count = len(completed_steps)
                 progress_made = False
 
                 for step in workflow.steps:
@@ -225,6 +259,10 @@ class AgentOrchestrator:
                         completed_steps.add(step.id)
                         progress_made = True
 
+                        # Save checkpoint after each completed step
+                        if self._enable_checkpoints and self._checkpoint_dir:
+                            self._save_checkpoint(workflow, completed_steps)
+
                     except Exception as e:
                         logger.error(f"Step {step.name} failed: {e}")
                         step.status = WorkflowStatus.FAILED
@@ -240,9 +278,22 @@ class AgentOrchestrator:
                             failed = True
                             progress_made = True
 
-                if not progress_made and not failed:
-                    # Circular dependency or stuck
-                    raise RuntimeError("Workflow stuck - no progress made")
+                # Check for progress (deadlock detection)
+                current_count = len(completed_steps)
+                if current_count == previous_count:
+                    no_progress_count += 1
+                else:
+                    no_progress_count = 0
+
+                # Detect deadlock
+                if no_progress_count > max_no_progress:
+                    deps = self._build_dependency_graph(workflow, completed_steps)
+                    raise RuntimeError(
+                        f"Workflow deadlock detected. "
+                        f"Completed: {len(completed_steps)}/{len(workflow.steps)}. "
+                        f"Blocked steps: {deps['blocked']}. "
+                        f"Circular dependencies: {deps['circular']}"
+                    )
 
             if failed:
                 workflow.status = WorkflowStatus.FAILED
@@ -255,6 +306,12 @@ class AgentOrchestrator:
             logger.error(f"Workflow {workflow.name} failed: {e}")
             workflow.status = WorkflowStatus.FAILED
             workflow.completed_at = datetime.now().isoformat()
+
+        finally:
+            # Clean up checkpoint on completion or failure
+            if self._enable_checkpoints and self._checkpoint_dir:
+                if workflow.status in [WorkflowStatus.COMPLETED, WorkflowStatus.FAILED, WorkflowStatus.CANCELLED]:
+                    self._delete_checkpoint(workflow.id)
 
         await self._emit_event(
             Event(
@@ -405,9 +462,178 @@ class AgentOrchestrator:
 
     async def get_statistics(self) -> Dict[str, Any]:
         """Get orchestrator statistics."""
+        if self._lock is None:
+            self._lock = asyncio.Lock()
         async with self._lock:
             return {
                 "total_agents": len(self._agents),
                 "total_workflows": len(self._workflows),
                 "agent_names": list(self._agents.keys()),
             }
+
+    # ==========================================================================
+    # CHECKPOINTING METHODS
+    # ==========================================================================
+
+    def _save_checkpoint(self, workflow: Workflow, completed_steps: Set[str]) -> None:
+        """
+        Save workflow checkpoint.
+
+        Args:
+            workflow: Current workflow instance
+            completed_steps: Set of completed step IDs
+        """
+        if not self._checkpoint_dir:
+            return
+
+        checkpoint_path = self._checkpoint_dir / f"{workflow.id}.json"
+
+        # Prepare checkpoint data with step states
+        steps_data = []
+        for step in workflow.steps:
+            steps_data.append({
+                'id': step.id,
+                'name': step.name,
+                'status': step.status.value,
+                'retry_count': step.retry_count,
+                'error': step.error,
+                'started_at': step.started_at,
+                'completed_at': step.completed_at,
+            })
+
+        checkpoint_data = {
+            'workflow_id': workflow.id,
+            'workflow_name': workflow.name,
+            'completed_steps': list(completed_steps),
+            'steps': steps_data,
+            'timestamp': datetime.now().isoformat()
+        }
+
+        try:
+            # Atomic write: write to temp file first, then rename
+            temp_path = checkpoint_path.with_suffix('.tmp')
+            temp_path.write_text(json.dumps(checkpoint_data, indent=2))
+            temp_path.replace(checkpoint_path)
+
+            logger.debug(f"Saved checkpoint: {len(completed_steps)} steps completed")
+        except Exception as e:
+            logger.error(f"Failed to save checkpoint: {e}")
+
+    def _load_checkpoint(self, workflow_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Load workflow checkpoint if exists.
+
+        Args:
+            workflow_id: Workflow ID to load checkpoint for
+
+        Returns:
+            Checkpoint data dict or None if not found
+        """
+        if not self._checkpoint_dir:
+            return None
+
+        checkpoint_path = self._checkpoint_dir / f"{workflow_id}.json"
+
+        if not checkpoint_path.exists():
+            return None
+
+        try:
+            data = json.loads(checkpoint_path.read_text())
+            logger.info(f"Loaded checkpoint: {len(data['completed_steps'])} steps completed")
+            return data
+        except Exception as e:
+            logger.error(f"Failed to load checkpoint: {e}")
+            return None
+
+    def _delete_checkpoint(self, workflow_id: str) -> None:
+        """
+        Delete workflow checkpoint after completion.
+
+        Args:
+            workflow_id: Workflow ID to delete checkpoint for
+        """
+        if not self._checkpoint_dir:
+            return
+
+        checkpoint_path = self._checkpoint_dir / f"{workflow_id}.json"
+        if checkpoint_path.exists():
+            try:
+                checkpoint_path.unlink()
+                logger.debug(f"Deleted checkpoint for {workflow_id}")
+            except Exception as e:
+                logger.error(f"Failed to delete checkpoint: {e}")
+
+    # ==========================================================================
+    # DEADLOCK DETECTION METHODS
+    # ==========================================================================
+
+    def _build_dependency_graph(self, workflow: Workflow, completed_steps: Set[str]) -> Dict[str, Any]:
+        """
+        Build dependency graph to debug deadlocks.
+
+        Args:
+            workflow: Current workflow
+            completed_steps: Set of completed step IDs
+
+        Returns:
+            Dictionary with blocked steps and circular dependencies
+        """
+        # Find blocked steps (not completed, dependencies not met)
+        blocked = []
+        for step in workflow.steps:
+            if step.id not in completed_steps:
+                unmet_deps = [d for d in step.depends_on if d not in completed_steps]
+                if unmet_deps:
+                    blocked.append({
+                        'step': step.id,
+                        'name': step.name,
+                        'waiting_for': unmet_deps
+                    })
+
+        # Check for circular dependencies
+        graph = {}
+        for step in workflow.steps:
+            graph[step.id] = step.depends_on
+
+        circular = self._detect_circular_dependencies(graph)
+
+        return {
+            'blocked': blocked,
+            'circular': circular
+        }
+
+    def _detect_circular_dependencies(self, graph: Dict[str, List[str]]) -> List[List[str]]:
+        """
+        Detect circular dependencies using DFS.
+
+        Args:
+            graph: Dependency graph mapping step_id -> [dependencies]
+
+        Returns:
+            List of cycles (each cycle is a list of step IDs)
+        """
+        visited = set()
+        rec_stack = set()
+        cycles = []
+
+        def dfs(node: str, path: List[str]) -> None:
+            visited.add(node)
+            rec_stack.add(node)
+            path.append(node)
+
+            for neighbor in graph.get(node, []):
+                if neighbor not in visited:
+                    dfs(neighbor, path)
+                elif neighbor in rec_stack:
+                    # Found cycle
+                    cycle_start = path.index(neighbor)
+                    cycles.append(path[cycle_start:] + [neighbor])
+
+            rec_stack.remove(node)
+            path.pop()
+
+        for node in graph:
+            if node not in visited:
+                dfs(node, [])
+
+        return cycles

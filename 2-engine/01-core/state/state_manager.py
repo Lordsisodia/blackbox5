@@ -7,6 +7,9 @@ and maintains a human-readable markdown file tracking workflow progress. This en
 - Simple workflow resumption
 - Clear visualization of completed, in-progress, and pending tasks
 - Integration with git for commit tracking
+- Thread-safe file operations with locking
+- Automatic backups before writes
+- Markdown validation
 """
 
 from pathlib import Path
@@ -15,6 +18,11 @@ from dataclasses import dataclass, field
 from datetime import datetime
 import logging
 import re
+import fcntl
+import errno
+import time
+from contextlib import contextmanager
+import shutil
 
 logger = logging.getLogger(__name__)
 
@@ -190,16 +198,142 @@ class StateManager:
     ## 📋 Pending (Waves 3-4)
     ### Wave 3
     - [ ] Task 6: Description
+
+    Features:
+    - Thread-safe file locking (fcntl on Unix)
+    - Automatic backups before writes
+    - Markdown validation
+    - Retry logic with exponential backoff
     """
 
-    def __init__(self, state_path: Optional[Path] = None):
+    def __init__(self, state_path: Optional[Path] = None, max_retries: int = 3, retry_delay: float = 0.5):
         """
         Initialize state manager.
 
         Args:
             state_path: Path to STATE.md file (default: ./STATE.md)
+            max_retries: Maximum number of retries for acquiring lock
+            retry_delay: Initial retry delay in seconds (doubles each retry)
         """
         self.state_path = state_path or Path("STATE.md")
+        self._lock_file = self.state_path.with_suffix('.lock')
+        self._backup_path = self.state_path.with_suffix('.backup')
+        self._max_retries = max_retries
+        self._retry_delay = retry_delay
+
+    @contextmanager
+    def _lock_state(self):
+        """
+        Acquire exclusive lock on STATE.md using fcntl.
+
+        Raises:
+            RuntimeError: If lock cannot be acquired after retries
+        """
+        # Ensure lock file directory exists
+        self._lock_file.parent.mkdir(parents=True, exist_ok=True)
+
+        # Open lock file
+        lock_file = open(self._lock_file, 'w')
+
+        try:
+            # Try to acquire exclusive lock (non-blocking)
+            fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            logger.debug(f"Acquired lock on {self.state_path}")
+            yield lock_file
+
+        except IOError as e:
+            if e.errno == errno.EWOULDBLOCK:
+                raise RuntimeError(
+                    f"STATE.md is locked by another process. "
+                    f"If stale, delete {self._lock_file}"
+                )
+            raise
+        finally:
+            # Release lock
+            try:
+                fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
+                logger.debug(f"Released lock on {self.state_path}")
+            except Exception as e:
+                logger.warning(f"Error releasing lock: {e}")
+            finally:
+                lock_file.close()
+
+    def validate_markdown(self, content: str) -> List[str]:
+        """
+        Validate STATE.md markdown format.
+
+        Args:
+            content: STATE.md file content
+
+        Returns:
+            List of validation errors (empty if valid)
+        """
+        errors = []
+
+        # Check 1: Must have workflow header
+        if not re.search(r'^# Workflow:', content, re.MULTILINE):
+            errors.append("Missing '# Workflow:' header")
+
+        # Check 2: Must have status line with Wave X/Y
+        if not re.search(r'Wave\s+\d+/\d+', content):
+            errors.append("Missing 'Wave X/Y' status line")
+
+        # Check 3: Must have at least one section header
+        if not re.search(r'^## ', content, re.MULTILINE):
+            errors.append("Missing sections (## Completed, ## In Progress, etc.)")
+
+        # Check 4: Checkboxes must be valid
+        invalid_lines = re.findall(r'^- \[[^x~ ]\]', content, re.MULTILINE)
+        if invalid_lines:
+            errors.append(f"Invalid checkbox format in {len(invalid_lines)} lines")
+
+        # Check 5: Workflow ID should be present
+        if not re.search(r'Workflow ID:', content):
+            errors.append("Missing Workflow ID")
+
+        # Check 6: Started timestamp should be present
+        if not re.search(r'Started:', content):
+            errors.append("Missing Started timestamp")
+
+        # Check 7: Updated timestamp should be present
+        if not re.search(r'Updated:', content):
+            errors.append("Missing Updated timestamp")
+
+        return errors
+
+    def _write_state_atomic(self, workflow_state: WorkflowState) -> None:
+        """
+        Write state atomically with backup.
+
+        This ensures that even if the write fails, we have a backup:
+        1. Create backup of existing file (if it exists)
+        2. Write to temp file
+        3. Validate new content
+        4. Atomic rename
+
+        Args:
+            workflow_state: WorkflowState to write
+        """
+        content = workflow_state.to_markdown()
+
+        # Validate content before writing
+        errors = self.validate_markdown(content)
+        if errors:
+            logger.warning(f"Markdown validation warnings: {errors}")
+            # Continue anyway - these are warnings, not hard failures
+
+        # 1. Create backup if file exists
+        if self.state_path.exists():
+            logger.debug(f"Creating backup: {self._backup_path}")
+            shutil.copy2(self.state_path, self._backup_path)
+
+        # 2. Write to temp file
+        temp_path = self.state_path.with_suffix('.tmp')
+        temp_path.write_text(content, encoding='utf-8')
+
+        # 3. Atomic rename
+        temp_path.rename(self.state_path)
+        logger.debug(f"Written state to {self.state_path}")
 
     def parse_state(self, content: str) -> Optional[WorkflowState]:
         """
@@ -211,6 +345,12 @@ class StateManager:
         Returns:
             WorkflowState if parsing successful, None otherwise
         """
+        # Validate markdown before parsing
+        errors = self.validate_markdown(content)
+        if errors:
+            logger.warning(f"STATE.md validation errors: {errors}")
+            # Continue parsing - these are warnings, not hard failures
+
         try:
             lines = content.splitlines()
 
@@ -373,6 +513,8 @@ class StateManager:
         """
         Update STATE.md with current workflow status.
 
+        This method uses file locking and retry logic to handle concurrent access safely.
+
         Args:
             workflow_id: Workflow identifier
             workflow_name: Human-readable workflow name
@@ -384,134 +526,152 @@ class StateManager:
             commit_hash: Optional git commit hash for current wave
             notes: Optional notes to add
             metadata: Optional metadata to include
+
+        Raises:
+            RuntimeError: If lock cannot be acquired after max_retries
         """
-        # Load existing state to preserve started_at and notes
-        existing_state = None
-        if self.state_path.exists():
-            existing_state = self.load_state()
+        # Retry logic with exponential backoff
+        for attempt in range(self._max_retries):
+            try:
+                with self._lock_state():
+                    # Load existing state to preserve started_at and notes
+                    existing_state = None
+                    if self.state_path.exists():
+                        existing_state = self.load_state()
 
-        # Build WorkflowState
-        tasks = {}
+                    # Build WorkflowState
+                    tasks = {}
 
-        # Add completed tasks
-        for task_dict in completed_tasks:
-            task_id = task_dict.get('task_id', task_dict.get('agent_id', 'unknown'))
-            # Extract task description from various fields
-            description = (
-                task_dict.get('description') or
-                task_dict.get('task') or
-                task_dict.get('prompt', 'Unknown')[:100]
-            )
+                    # Add completed tasks
+                    for task_dict in completed_tasks:
+                        task_id = task_dict.get('task_id', task_dict.get('agent_id', 'unknown'))
+                        # Extract task description from various fields
+                        description = (
+                            task_dict.get('description') or
+                            task_dict.get('task') or
+                            task_dict.get('prompt', 'Unknown')[:100]
+                        )
 
-            # Get result info
-            result = task_dict.get('result', {})
-            files = []
-            if result:
-                files = result.get('files_modified', result.get('files_created', []))
+                        # Get result info
+                        result = task_dict.get('result', {})
+                        files = []
+                        if result:
+                            files = result.get('files_modified', result.get('files_created', []))
 
-            tasks[task_id] = TaskState(
-                task_id=task_id,
-                description=description,
-                status='completed',
-                wave_id=task_dict.get('wave_id', 0),
-                commit_hash=task_dict.get('commit_hash'),
-                files_modified=files,
-                error=task_dict.get('error')
-            )
+                        tasks[task_id] = TaskState(
+                            task_id=task_id,
+                            description=description,
+                            status='completed',
+                            wave_id=task_dict.get('wave_id', 0),
+                            commit_hash=task_dict.get('commit_hash'),
+                            files_modified=files,
+                            error=task_dict.get('error')
+                        )
 
-        # Add current wave tasks
-        for task_dict in current_wave_tasks:
-            task_id = task_dict.get('task_id', task_dict.get('agent_id', 'unknown'))
-            description = (
-                task_dict.get('description') or
-                task_dict.get('task') or
-                task_dict.get('prompt', 'Unknown')[:100]
-            )
+                    # Add current wave tasks
+                    for task_dict in current_wave_tasks:
+                        task_id = task_dict.get('task_id', task_dict.get('agent_id', 'unknown'))
+                        description = (
+                            task_dict.get('description') or
+                            task_dict.get('task') or
+                            task_dict.get('prompt', 'Unknown')[:100]
+                        )
 
-            # Determine if in progress or pending
-            result = task_dict.get('result')
-            status = 'completed'
-            if result:
-                if result.get('success'):
-                    status = 'completed'
-                elif result.get('error'):
-                    status = 'failed'
+                        # Determine if in progress or pending
+                        result = task_dict.get('result')
+                        status = 'completed'
+                        if result:
+                            if result.get('success'):
+                                status = 'completed'
+                            elif result.get('error'):
+                                status = 'failed'
+                            else:
+                                status = 'in_progress'
+                        else:
+                            status = 'in_progress'
+
+                        # Get result info
+                        files = []
+                        if result:
+                            files = result.get('files_modified', result.get('files_created', []))
+
+                        # Use current wave commit hash if task doesn't have one
+                        task_commit = task_dict.get('commit_hash')
+                        if status == 'completed' and not task_commit and commit_hash:
+                            task_commit = commit_hash
+
+                        tasks[task_id] = TaskState(
+                            task_id=task_id,
+                            description=description,
+                            status=status,
+                            wave_id=wave_id,
+                            commit_hash=task_commit,
+                            files_modified=files,
+                            error=task_dict.get('error') or (result.get('error') if result else None)
+                        )
+
+                    # Add pending tasks
+                    for wave_num, wave_tasks in enumerate(pending_waves, start=wave_id + 1):
+                        for task_dict in wave_tasks:
+                            task_id = task_dict.get('task_id', task_dict.get('agent_id', f'wave{wave_num}_task{len(tasks)+1}'))
+                            description = (
+                                task_dict.get('description') or
+                                task_dict.get('task') or
+                                task_dict.get('prompt', 'Unknown')[:100]
+                            )
+
+                            tasks[task_id] = TaskState(
+                                task_id=task_id,
+                                description=description,
+                                status='pending',
+                                wave_id=wave_num
+                            )
+
+                    # Preserve or create timestamps
+                    started_at = existing_state.started_at if existing_state else datetime.now()
+                    updated_at = datetime.now()
+
+                    # Merge notes
+                    merged_notes = []
+                    if existing_state:
+                        merged_notes.extend(existing_state.notes)
+                    if notes:
+                        merged_notes.extend(notes)
+
+                    # Create WorkflowState
+                    workflow_state = WorkflowState(
+                        workflow_id=workflow_id,
+                        workflow_name=workflow_name,
+                        current_wave=wave_id,
+                        total_waves=total_waves,
+                        tasks=tasks,
+                        started_at=started_at,
+                        updated_at=updated_at,
+                        notes=merged_notes,
+                        metadata=metadata or {}
+                    )
+
+                    # Write atomically with backup
+                    self._write_state_atomic(workflow_state)
+
+                    logger.info(f"Updated STATE.md: Wave {wave_id}/{total_waves}, {len(tasks)} tasks total")
+                    return  # Success, exit retry loop
+
+            except RuntimeError as e:
+                if "locked by another process" in str(e):
+                    if attempt < self._max_retries - 1:
+                        # Exponential backoff: 0.5s, 1s, 2s, etc.
+                        delay = self._retry_delay * (2 ** attempt)
+                        logger.warning(
+                            f"STATE.md locked, retrying in {delay}s (attempt {attempt + 1}/{self._max_retries})"
+                        )
+                        time.sleep(delay)
+                        continue
+                    else:
+                        logger.error(f"Could not acquire lock after {self._max_retries} attempts")
+                        raise
                 else:
-                    status = 'in_progress'
-            else:
-                status = 'in_progress'
-
-            # Get result info
-            files = []
-            if result:
-                files = result.get('files_modified', result.get('files_created', []))
-
-            # Use current wave commit hash if task doesn't have one
-            task_commit = task_dict.get('commit_hash')
-            if status == 'completed' and not task_commit and commit_hash:
-                task_commit = commit_hash
-
-            tasks[task_id] = TaskState(
-                task_id=task_id,
-                description=description,
-                status=status,
-                wave_id=wave_id,
-                commit_hash=task_commit,
-                files_modified=files,
-                error=task_dict.get('error') or (result.get('error') if result else None)
-            )
-
-        # Add pending tasks
-        for wave_num, wave_tasks in enumerate(pending_waves, start=wave_id + 1):
-            for task_dict in wave_tasks:
-                task_id = task_dict.get('task_id', task_dict.get('agent_id', f'wave{wave_num}_task{len(tasks)+1}'))
-                description = (
-                    task_dict.get('description') or
-                    task_dict.get('task') or
-                    task_dict.get('prompt', 'Unknown')[:100]
-                )
-
-                tasks[task_id] = TaskState(
-                    task_id=task_id,
-                    description=description,
-                    status='pending',
-                    wave_id=wave_num
-                )
-
-        # Preserve or create timestamps
-        started_at = existing_state.started_at if existing_state else datetime.now()
-        updated_at = datetime.now()
-
-        # Merge notes
-        merged_notes = []
-        if existing_state:
-            merged_notes.extend(existing_state.notes)
-        if notes:
-            merged_notes.extend(notes)
-
-        # Create WorkflowState
-        workflow_state = WorkflowState(
-            workflow_id=workflow_id,
-            workflow_name=workflow_name,
-            current_wave=wave_id,
-            total_waves=total_waves,
-            tasks=tasks,
-            started_at=started_at,
-            updated_at=updated_at,
-            notes=merged_notes,
-            metadata=metadata or {}
-        )
-
-        # Write to STATE.md
-        content = workflow_state.to_markdown()
-
-        # Atomic write
-        self.state_path.parent.mkdir(parents=True, exist_ok=True)
-        temp_path = self.state_path.with_suffix('.tmp')
-        temp_path.write_text(content, encoding='utf-8')
-        temp_path.rename(self.state_path)
-
-        logger.info(f"Updated STATE.md: Wave {wave_id}/{total_waves}, {len(tasks)} tasks total")
+                    raise
 
     def load_state(self) -> Optional[WorkflowState]:
         """
@@ -567,14 +727,34 @@ class StateManager:
         Args:
             note: Note text to add
         """
-        state = self.load_state()
-        if state:
-            state.notes.append(note)
-            state.updated_at = datetime.now()
-            content = state.to_markdown()
-            self.state_path.write_text(content, encoding='utf-8')
-        else:
-            logger.warning("No existing state to add note to")
+        # Retry logic with exponential backoff
+        for attempt in range(self._max_retries):
+            try:
+                with self._lock_state():
+                    state = self.load_state()
+                    if state:
+                        state.notes.append(note)
+                        state.updated_at = datetime.now()
+                        self._write_state_atomic(state)
+                    else:
+                        logger.warning("No existing state to add note to")
+                    return  # Success, exit retry loop
+
+            except RuntimeError as e:
+                if "locked by another process" in str(e):
+                    if attempt < self._max_retries - 1:
+                        delay = self._retry_delay * (2 ** attempt)
+                        logger.warning(
+                            f"STATE.md locked (add_note), retrying in {delay}s "
+                            f"(attempt {attempt + 1}/{self._max_retries})"
+                        )
+                        time.sleep(delay)
+                        continue
+                    else:
+                        logger.error(f"Could not acquire lock after {self._max_retries} attempts")
+                        raise
+                else:
+                    raise
 
     def clear(self) -> None:
         """Clear the STATE.md file"""
@@ -600,39 +780,58 @@ class StateManager:
             all_waves: All waves with their tasks
             metadata: Optional metadata
         """
-        # Build all tasks as pending
-        tasks = {}
-        for wave_num, wave_tasks in enumerate(all_waves, start=1):
-            for task_dict in wave_tasks:
-                task_id = task_dict.get('task_id', task_dict.get('agent_id', f'wave{wave_num}_task{len(tasks)+1}'))
-                description = (
-                    task_dict.get('description') or
-                    task_dict.get('task') or
-                    task_dict.get('prompt', 'Unknown')[:100]
-                )
+        # Retry logic with exponential backoff
+        for attempt in range(self._max_retries):
+            try:
+                with self._lock_state():
+                    # Build all tasks as pending
+                    tasks = {}
+                    for wave_num, wave_tasks in enumerate(all_waves, start=1):
+                        for task_dict in wave_tasks:
+                            task_id = task_dict.get('task_id', task_dict.get('agent_id', f'wave{wave_num}_task{len(tasks)+1}'))
+                            description = (
+                                task_dict.get('description') or
+                                task_dict.get('task') or
+                                task_dict.get('prompt', 'Unknown')[:100]
+                            )
 
-                tasks[task_id] = TaskState(
-                    task_id=task_id,
-                    description=description,
-                    status='pending',
-                    wave_id=wave_num
-                )
+                            tasks[task_id] = TaskState(
+                                task_id=task_id,
+                                description=description,
+                                status='pending',
+                                wave_id=wave_num
+                            )
 
-        # Create initial state
-        workflow_state = WorkflowState(
-            workflow_id=workflow_id,
-            workflow_name=workflow_name,
-            current_wave=0,
-            total_waves=total_waves,
-            tasks=tasks,
-            started_at=datetime.now(),
-            updated_at=datetime.now(),
-            metadata=metadata or {}
-        )
+                    # Create initial state
+                    workflow_state = WorkflowState(
+                        workflow_id=workflow_id,
+                        workflow_name=workflow_name,
+                        current_wave=0,
+                        total_waves=total_waves,
+                        tasks=tasks,
+                        started_at=datetime.now(),
+                        updated_at=datetime.now(),
+                        metadata=metadata or {}
+                    )
 
-        # Write to STATE.md
-        content = workflow_state.to_markdown()
-        self.state_path.parent.mkdir(parents=True, exist_ok=True)
-        self.state_path.write_text(content, encoding='utf-8')
+                    # Write atomically with backup
+                    self._write_state_atomic(workflow_state)
 
-        logger.info(f"Initialized STATE.md for workflow '{workflow_name}' with {len(tasks)} tasks across {total_waves} waves")
+                    logger.info(f"Initialized STATE.md for workflow '{workflow_name}' with {len(tasks)} tasks across {total_waves} waves")
+                    return  # Success, exit retry loop
+
+            except RuntimeError as e:
+                if "locked by another process" in str(e):
+                    if attempt < self._max_retries - 1:
+                        delay = self._retry_delay * (2 ** attempt)
+                        logger.warning(
+                            f"STATE.md locked (initialize), retrying in {delay}s "
+                            f"(attempt {attempt + 1}/{self._max_retries})"
+                        )
+                        time.sleep(delay)
+                        continue
+                    else:
+                        logger.error(f"Could not acquire lock after {self._max_retries} attempts")
+                        raise
+                else:
+                    raise

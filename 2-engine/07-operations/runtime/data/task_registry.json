@@ -1,0 +1,817 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-21T11:34:24.917169",
+  "tasks": {
+    "TASK-1-1": {
+      "id": "TASK-1-1",
+      "title": "Validate database schema",
+      "description": "Check `profiles` table exists in Supabase\nVerify all required columns present\nCreate missing columns if needed",
+      "objective": "user-profile",
+      "phase": "phase-1",
+      "state": "DONE",
+      "assignee": null,
+      "assigned_at": "2026-01-21T10:45:46.332840",
+      "started_at": "2026-01-21T10:45:50.750070",
+      "completed_at": "2026-01-21T10:45:55.346087",
+      "dependencies": [],
+      "blocks": [],
+      "workspace": "workspaces/TASK-1-1",
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-1"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.419570",
+      "updated_at": "2026-01-21T10:45:55.346375"
+    },
+    "TASK-1-2": {
+      "id": "TASK-1-2",
+      "title": "Configure RLS policies",
+      "description": "Enable RLS on `profiles` table\nCreate policies for SELECT, INSERT, UPDATE, DELETE\nTest policies with different users",
+      "objective": "user-profile",
+      "phase": "phase-1",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-1-1"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-1"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.420292",
+      "updated_at": "2026-01-21T10:45:30.440802"
+    },
+    "TASK-1-3": {
+      "id": "TASK-1-3",
+      "title": "Set up Supabase Storage for avatars",
+      "description": "Create `avatars` bucket in Supabase Storage\nConfigure RLS policies for bucket\nSet up public folder structure\nTest upload/download",
+      "objective": "user-profile",
+      "phase": "phase-1",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-1-2"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-1"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.420449",
+      "updated_at": "2026-01-21T10:45:30.441621"
+    },
+    "TASK-1-4": {
+      "id": "TASK-1-4",
+      "title": "Create TypeScript types",
+      "description": "Define `Profile` type\nDefine `ProfileUpdate` type\nDefine `PrivacySettings` type\nDefine validation schemas with Zod",
+      "objective": "user-profile",
+      "phase": "phase-1",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-1-1"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-1"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.420617",
+      "updated_at": "2026-01-21T10:45:30.442379"
+    },
+    "TASK-2-1": {
+      "id": "TASK-2-1",
+      "title": "Implement profile service",
+      "description": "Create `profileService.ts`\nImplement `getProfile()` method\nImplement `updateProfile()` method\nImplement `deleteProfile()` method\nAdd error handling",
+      "objective": "user-profile",
+      "phase": "phase-2",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-1-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-2"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.421663",
+      "updated_at": "2026-01-21T10:45:30.443463"
+    },
+    "TASK-2-2": {
+      "id": "TASK-2-2",
+      "title": "Implement avatar service",
+      "description": "Create `avatarService.ts`\nImplement `uploadAvatar()` method\nImplement `deleteAvatar()` method\nImplement `compressImage()` utility\nAdd progress tracking",
+      "objective": "user-profile",
+      "phase": "phase-2",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-1-3",
+        "TASK-1-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-2"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.422960",
+      "updated_at": "2026-01-21T10:45:30.444525"
+    },
+    "TASK-2-3": {
+      "id": "TASK-2-3",
+      "title": "Implement privacy service",
+      "description": "Create `privacyService.ts`\nImplement `updatePrivacySettings()` method\nImplement `exportUserData()` method\nImplement JSON export formatting",
+      "objective": "user-profile",
+      "phase": "phase-2",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-1-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-2"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.423540",
+      "updated_at": "2026-01-21T10:45:30.445360"
+    },
+    "TASK-2-4": {
+      "id": "TASK-2-4",
+      "title": "Create custom hooks",
+      "description": "Create `useUserProfile` hook\nCreate `useProfileUpdate` hook\nCreate `useAvatarUpload` hook\nIntegrate TanStack Query",
+      "objective": "user-profile",
+      "phase": "phase-2",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-2-1",
+        "TASK-2-2",
+        "TASK-2-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-2"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.423836",
+      "updated_at": "2026-01-21T10:45:30.446469"
+    },
+    "TASK-3-1": {
+      "id": "TASK-3-1",
+      "title": "Build ProfileDisplay component",
+      "description": "Create `ProfileHeader` component\nCreate `ProfileInfo` component\nCreate `SocialLinks` component\nCreate `TokenBalance` component\nAssemble `ProfileDisplay` page",
+      "objective": "user-profile",
+      "phase": "phase-3",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-2-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-3"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.424130",
+      "updated_at": "2026-01-21T10:45:30.447193"
+    },
+    "TASK-3-2": {
+      "id": "TASK-3-2",
+      "title": "Build ProfileEdit component",
+      "description": "Create `BioField` component\nCreate `LocationField` component\nCreate `TimezoneSelector` component\nCreate `SocialLinksEditor` component\nAssemble `ProfileEdit` form with React Hook Form",
+      "objective": "user-profile",
+      "phase": "phase-3",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-2-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-3"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.424435",
+      "updated_at": "2026-01-21T10:45:30.448075"
+    },
+    "TASK-3-3": {
+      "id": "TASK-3-3",
+      "title": "Build AvatarUpload component",
+      "description": "Create drag & drop zone\nCreate image preview\nCreate progress indicator\nIntegrate compression\nAdd delete functionality",
+      "objective": "user-profile",
+      "phase": "phase-3",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-2-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-3"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.424747",
+      "updated_at": "2026-01-21T10:45:30.448797"
+    },
+    "TASK-3-4": {
+      "id": "TASK-3-4",
+      "title": "Build PrivacySettings component",
+      "description": "Create `VisibilityToggles` component\nCreate `DataExportButton` component\nImplement export functionality\nAssemble `PrivacySettings` page",
+      "objective": "user-profile",
+      "phase": "phase-3",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-2-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-3"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.425090",
+      "updated_at": "2026-01-21T10:45:30.449478"
+    },
+    "TASK-3-5": {
+      "id": "TASK-3-5",
+      "title": "Build AccountManagement component",
+      "description": "Create `DeleteAccountDialog` component\nCreate `DeletionWarning` component\nImplement deletion flow\nAdd confirmation emails\nAssemble `AccountManagement` page",
+      "objective": "user-profile",
+      "phase": "phase-3",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-2-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-3"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.425503",
+      "updated_at": "2026-01-21T10:45:30.450528"
+    },
+    "TASK-4-1": {
+      "id": "TASK-4-1",
+      "title": "Create profile routes",
+      "description": "Add `/profile` route\nAdd `/profile/edit` route\nAdd `/profile/avatar` route\nAdd `/profile/privacy` route\nAdd `/profile/account` route",
+      "objective": "user-profile",
+      "phase": "phase-4",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-3-"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-4"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.425969",
+      "updated_at": "2026-01-21T10:45:30.451249"
+    },
+    "TASK-4-2": {
+      "id": "TASK-4-2",
+      "title": "Create ProfileLayout",
+      "description": "Create layout wrapper\nAdd navigation tabs\nAdd breadcrumbs\nAdd back button",
+      "objective": "user-profile",
+      "phase": "phase-4",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-4-1"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-4"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.426347",
+      "updated_at": "2026-01-21T10:45:30.451905"
+    },
+    "TASK-4-3": {
+      "id": "TASK-4-3",
+      "title": "Add navigation links",
+      "description": "Add \"Profile\" to main navigation\nAdd mobile navigation\nAdd user dropdown link",
+      "objective": "user-profile",
+      "phase": "phase-4",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-4-1"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-4"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.426747",
+      "updated_at": "2026-01-21T10:45:30.452540"
+    },
+    "TASK-5-1": {
+      "id": "TASK-5-1",
+      "title": "Implement security measures",
+      "description": "Add XSS prevention\nAdd CSRF protection\nAdd rate limiting\nSanitize all inputs",
+      "objective": "user-profile",
+      "phase": "phase-5",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-4-2",
+        "TASK-4-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-5"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.427200",
+      "updated_at": "2026-01-21T10:45:30.453167"
+    },
+    "TASK-5-2": {
+      "id": "TASK-5-2",
+      "title": "Implement validation",
+      "description": "Add Zod schemas for all forms\nAdd client-side validation\nAdd server-side validation\nAdd error messages",
+      "objective": "user-profile",
+      "phase": "phase-5",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-4-2",
+        "TASK-4-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-5"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.427789",
+      "updated_at": "2026-01-21T10:45:30.453807"
+    },
+    "TASK-5-3": {
+      "id": "TASK-5-3",
+      "title": "Implement privacy controls",
+      "description": "Add visibility toggles\nAdd default privacy settings\nAdd data export\nAdd account deletion",
+      "objective": "user-profile",
+      "phase": "phase-5",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-4-2",
+        "TASK-4-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-5"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.428308",
+      "updated_at": "2026-01-21T10:45:30.454457"
+    },
+    "TASK-6-1": {
+      "id": "TASK-6-1",
+      "title": "Unit tests",
+      "description": "Test profile service\nTest avatar service\nTest privacy service\nTest custom hooks",
+      "objective": "user-profile",
+      "phase": "phase-6",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-5-1",
+        "TASK-5-2",
+        "TASK-5-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-6"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.428850",
+      "updated_at": "2026-01-21T10:45:30.455127"
+    },
+    "TASK-6-2": {
+      "id": "TASK-6-2",
+      "title": "Component tests",
+      "description": "Test ProfileDisplay\nTest ProfileEdit\nTest AvatarUpload\nTest PrivacySettings\nTest AccountManagement",
+      "objective": "user-profile",
+      "phase": "phase-6",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-5-1",
+        "TASK-5-2",
+        "TASK-5-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-6"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.430365",
+      "updated_at": "2026-01-21T10:45:30.455803"
+    },
+    "TASK-6-3": {
+      "id": "TASK-6-3",
+      "title": "E2E tests",
+      "description": "Test profile viewing\nTest profile editing\nTest avatar upload\nTest privacy settings\nTest account deletion",
+      "objective": "user-profile",
+      "phase": "phase-6",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-6-1",
+        "TASK-6-2"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-6"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.432529",
+      "updated_at": "2026-01-21T10:45:30.456520"
+    },
+    "TASK-6-4": {
+      "id": "TASK-6-4",
+      "title": "Security audit",
+      "description": "Test RLS policies\nTest XSS prevention\nTest CSRF protection\nTest rate limiting\nTest input validation",
+      "objective": "user-profile",
+      "phase": "phase-6",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-6-3"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-6"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.433198",
+      "updated_at": "2026-01-21T10:45:30.457199"
+    },
+    "TASK-7-1": {
+      "id": "TASK-7-1",
+      "title": "Performance optimization",
+      "description": "Optimize images\nLazy load components\nOptimize queries\nAdd caching",
+      "objective": "user-profile",
+      "phase": "phase-7",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-6-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-7"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.433780",
+      "updated_at": "2026-01-21T10:45:30.457859"
+    },
+    "TASK-7-2": {
+      "id": "TASK-7-2",
+      "title": "Accessibility audit",
+      "description": "Add ARIA labels\nTest keyboard navigation\nTest screen reader\nCheck color contrast",
+      "objective": "user-profile",
+      "phase": "phase-7",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-6-4"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-7"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.434378",
+      "updated_at": "2026-01-21T10:45:30.458531"
+    },
+    "TASK-8-1": {
+      "id": "TASK-8-1",
+      "title": "Write documentation",
+      "description": "Document components\nDocument hooks\nDocument services\nDocument API",
+      "objective": "user-profile",
+      "phase": "phase-8",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-7-1",
+        "TASK-7-2"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-8"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.434996",
+      "updated_at": "2026-01-21T10:45:30.459172"
+    },
+    "TASK-8-2": {
+      "id": "TASK-8-2",
+      "title": "Deploy to staging",
+      "description": "Deploy to staging environment\nRun smoke tests\nTest with real users",
+      "objective": "user-profile",
+      "phase": "phase-8",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-7-1",
+        "TASK-7-2"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-8"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.435734",
+      "updated_at": "2026-01-21T10:45:30.460079"
+    },
+    "TASK-8-3": {
+      "id": "TASK-8-3",
+      "title": "Deploy to production",
+      "description": "Deploy to production\nMonitor errors\nMonitor performance",
+      "objective": "user-profile",
+      "phase": "phase-8",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "TASK-8-1",
+        "TASK-8-2"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "phase-8"
+      ],
+      "priority": "high",
+      "created_at": "2026-01-21T10:45:30.437916",
+      "updated_at": "2026-01-21T10:45:30.461442"
+    },
+    "ap-task-001": {
+      "id": "ap-task-001",
+      "title": "Define Authentication Requirements",
+      "description": "Document security and functional requirements\n\nObjective: Define requirements for JWT authentication\n\nConstraints:\n  - [HARD] Must use industry-standard encryption\n  - [SOFT] Should support OAuth 2.0\n\nAssumptions:\n  - [high] JWT tokens are appropriate for session management",
+      "objective": "Build Authentication",
+      "phase": "Design Authentication System",
+      "state": "ACTIVE",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "security",
+        "jwt",
+        "action-plan-demo",
+        "phase:Design Authentication System"
+      ],
+      "priority": "medium",
+      "created_at": "2026-01-21T11:34:24.914591",
+      "updated_at": "2026-01-21T11:34:24.917168"
+    },
+    "ap-subtask-001": {
+      "id": "ap-subtask-001",
+      "title": "[Subtask] Review OWASP guidelines",
+      "description": "Review security best practices\n\nThinking Process:\nIndustry standards provide baseline requirements",
+      "objective": "Build Authentication",
+      "phase": "Design Authentication System",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "ap-task-001"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "security",
+        "jwt",
+        "action-plan-demo",
+        "phase:Design Authentication System",
+        "subtask"
+      ],
+      "priority": "medium",
+      "created_at": "2026-01-21T11:34:24.915556",
+      "updated_at": "2026-01-21T11:34:24.915557"
+    },
+    "ap-subtask-002": {
+      "id": "ap-subtask-002",
+      "title": "[Subtask] Document threat model",
+      "description": "Identify potential attack vectors\n\nThinking Process:\nUnderstanding threats is key to good security",
+      "objective": "Build Authentication",
+      "phase": "Design Authentication System",
+      "state": "BACKLOG",
+      "assignee": null,
+      "assigned_at": null,
+      "started_at": null,
+      "completed_at": null,
+      "dependencies": [
+        "ap-task-001"
+      ],
+      "blocks": [],
+      "workspace": null,
+      "github_issue": null,
+      "github_url": null,
+      "tags": [
+        "security",
+        "jwt",
+        "action-plan-demo",
+        "phase:Design Authentication System",
+        "subtask"
+      ],
+      "priority": "medium",
+      "created_at": "2026-01-21T11:34:24.916417",
+      "updated_at": "2026-01-21T11:34:24.916418"
+    }
+  },
+  "statistics": {
+    "total": 31,
+    "by_state": {
+      "BACKLOG": 29,
+      "ASSIGNED": 0,
+      "ACTIVE": 1,
+      "DONE": 1,
+      "FAILED": 0
+    },
+    "by_objective": {
+      "user-profile": 28,
+      "Build Authentication": 3
+    },
+    "by_assignee": {}
+  }
+}
