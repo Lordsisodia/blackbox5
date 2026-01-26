@@ -10,7 +10,7 @@ set -euo pipefail
 INPUT=$(cat)
 SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // "unknown"')
 
-MEMORY_BASE="${BLACKBOX5_MEMORY_PATH:-./blackbox5/5-project-memory/siso-internal}"
+MEMORY_BASE="${BLACKBOX5_MEMORY_PATH:-./blackbox5/5-project-memory/lumelle}"
 TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 TIMELINE_FILE="$MEMORY_BASE/project/timeline.yaml"

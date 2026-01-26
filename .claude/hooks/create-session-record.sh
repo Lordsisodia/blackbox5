@@ -13,11 +13,12 @@ TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // empty')
 TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 TIMESTAMP_UNIX=$(date +%s)
 
-MEMORY_BASE="${BLACKBOX5_MEMORY_PATH:-./blackbox5/5-project-memory/siso-internal}"
+MEMORY_BASE="${BLACKBOX5_MEMORY_PATH:-./blackbox5/5-project-memory/lumelle}"
 SESSIONS_DIR="$MEMORY_BASE/operations/sessions"
 
 mkdir -p "$SESSIONS_DIR"
 SESSION_DIR="$SESSIONS_DIR/session-${TIMESTAMP_UNIX}"
+mkdir -p "$SESSION_DIR"
 
 SESSION_START_FILE="$MEMORY_BASE/.session_start"
 if [[ -f "$SESSION_START_FILE" ]]; then
