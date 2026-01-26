@@ -110,6 +110,14 @@
         "hooks": [
           {
             "type": "command",
+            "command": ".claude/hooks/create-session-record.sh"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/update-timeline.sh"
+          },
+          {
+            "type": "command",
             "command": ".claude/hooks/extract-memories.sh"
           },
           {
@@ -140,6 +148,13 @@
         "matcher": "",
         "hooks": [
           {
+            "type": "prompt",
+            "prompt": "Generate a brief reflection (2-3 sentences) on:\n1. What was just accomplished in this session\n2. Whether this is complete or a checkpoint\n3. Recommended next steps\n\nContext: Session ID: $session_id, Working Directory: $(pwd)\n\nSave this reflection to operations/reflections/reflection_$(date +%s).md with timestamp $(date -u +\"%Y-%m-%dT%H:%M:%SZ\")",
+            "model": "claude-3-5-haiku-20241022",
+            "timeout": 30,
+            "statusMessage": "Generating session reflection with Haiku..."
+          },
+          {
             "type": "command",
             "command": ".claude/hooks/reflect-on-completion.sh",
             "timeout": 10
@@ -158,7 +173,7 @@
 
   "env": {
     "BLACKBOX5_ENGINE_PATH": "./2-engine",
-    "BLACKBOX5_MEMORY_PATH": "./5-project-memory/siso-internal",
+    "BLACKBOX5_MEMORY_PATH": "./blackbox5/5-project-memory/lumelle",
     "BLACKBOX5_CONTEXT_THRESHOLD": "80",
     "BLACKBOX5_SESSION_TIMEOUT": "14400"
   }
