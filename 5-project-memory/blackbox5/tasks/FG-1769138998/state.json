@@ -1,0 +1,102 @@
+{
+  "id": "FG-1769138998",
+  "objective": "Verify Fractal Genesis installation",
+  "root_path": "/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/blackbox5/tasks/FG-1769138998",
+  "created_at": "2026-01-23T03:29:58.395161",
+  "status": "initialized",
+  "current_depth": 0,
+  "max_depth": 3,
+  "subtasks": [
+    {
+      "id": "d7388f71",
+      "title": "Subtask 1 for Verify Fractal Genes...",
+      "description": "First principles component 1/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395769",
+      "subtasks": []
+    },
+    {
+      "id": "463ba413",
+      "title": "Subtask 2 for Verify Fractal Genes...",
+      "description": "First principles component 2/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395785",
+      "subtasks": []
+    },
+    {
+      "id": "adff59ee",
+      "title": "Subtask 3 for Verify Fractal Genes...",
+      "description": "First principles component 3/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395795",
+      "subtasks": []
+    },
+    {
+      "id": "fe9b42a7",
+      "title": "Subtask 4 for Verify Fractal Genes...",
+      "description": "First principles component 4/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395805",
+      "subtasks": []
+    },
+    {
+      "id": "7be00965",
+      "title": "Subtask 5 for Verify Fractal Genes...",
+      "description": "First principles component 5/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395814",
+      "subtasks": []
+    },
+    {
+      "id": "fd10e6af",
+      "title": "Subtask 6 for Verify Fractal Genes...",
+      "description": "First principles component 6/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395823",
+      "subtasks": []
+    },
+    {
+      "id": "a2ac6f86",
+      "title": "Subtask 7 for Verify Fractal Genes...",
+      "description": "First principles component 7/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395833",
+      "subtasks": []
+    },
+    {
+      "id": "57f3a34b",
+      "title": "Subtask 8 for Verify Fractal Genes...",
+      "description": "First principles component 8/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395842",
+      "subtasks": []
+    },
+    {
+      "id": "adaa4694",
+      "title": "Subtask 9 for Verify Fractal Genes...",
+      "description": "First principles component 9/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395850",
+      "subtasks": []
+    },
+    {
+      "id": "c9b00ceb",
+      "title": "Subtask 10 for Verify Fractal Genes...",
+      "description": "First principles component 10/10 derived from Verify Fractal Genesis installation",
+      "status": "pending",
+      "complexity": "unknown",
+      "created_at": "2026-01-23T03:29:58.395859",
+      "subtasks": []
+    }
+  ],
+  "history": []
+}
