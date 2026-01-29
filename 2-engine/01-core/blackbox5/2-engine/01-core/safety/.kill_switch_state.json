@@ -1,9 +1,0 @@
-{
-  "state": "triggered",
-  "trigger_time": "2026-01-21T05:28:50.722896",
-  "trigger_reason": "safety_violation",
-  "trigger_message": "Agent produced harmful content: theft",
-  "trigger_count": 1,
-  "recovery_count": 0,
-  "last_updated": "2026-01-21T05:28:50.723316"
-}

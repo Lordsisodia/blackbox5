@@ -90,6 +90,21 @@
         "reference_search"
       ],
       "enabled": true
+    },
+    "auto-claude": {
+      "command": "python",
+      "args": [
+        "08-integrations/auto-claude/mcp-server.py"
+      ],
+      "description": "Auto-Claude autonomous coding - create specs, run builds, QA validation, merge code",
+      "capabilities": [
+        "spec_creation",
+        "build_automation",
+        "qa_validation",
+        "git_operations",
+        "task_management"
+      ],
+      "enabled": true
     }
   },
   "settings": {

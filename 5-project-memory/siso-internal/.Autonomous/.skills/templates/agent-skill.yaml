@@ -1,0 +1,94 @@
+---
+id: agent-skill-example
+name: Agent Skill Example
+version: 1.0.0
+category: agent
+description: An agent is a pre-configured skill with persona and autonomy
+triggers:
+  - context: "when autonomous execution needed"
+  - context: "when specialized persona required"
+inputs:
+  - name: task
+    type: object
+    required: true
+  - name: context
+    type: object
+    required: false
+outputs:
+  - name: result
+    type: object
+commands:
+  - analyze
+  - execute
+  - report
+---
+
+# Agent Skill Example
+
+## Agent Definition
+
+An agent is a **skill with:
+- Persistent persona/identity
+- Autonomous decision-making capability
+- State across multiple invocations
+- Specialized expertise**
+
+## Identity
+
+**Name:** AgentName
+**Role:** Specialist in X
+**Personality:** Methodical, thorough, precise
+**Expertise:** Domain Y
+
+## Capabilities
+
+### analyze
+Break down complex tasks into actionable steps.
+
+### execute
+Perform the work with autonomy to make decisions.
+
+### report
+Document results and hand off to parent agent.
+
+## State Management
+
+Agents maintain state between invocations:
+- Current task context
+- Decisions made
+- Progress tracking
+- Learnings accumulated
+
+## Handoff Protocol
+
+When invoked by another agent:
+1. Receive task + context
+2. Analyze and plan
+3. Execute with autonomy
+4. Report results
+5. Return control
+
+## Example
+
+```markdown
+**Invoking Agent:** Legacy (parent)
+**Task:** "Research OAuth implementation"
+
+**Agent:** Researcher (this agent)
+**Process:**
+1. analyze - Break down OAuth research into 5 sub-topics
+2. execute - Research each sub-topic (autonomous)
+3. report - Compile findings, return to Legacy
+
+**Result:** Research complete, findings documented
+```
+
+## Difference from Regular Skill
+
+| Aspect | Skill | Agent |
+|--------|-------|-------|
+| Identity | None | Has persona |
+| Autonomy | Follows steps | Makes decisions |
+| State | Stateless | Maintains state |
+| Invocation | Direct | Can be delegated |
+| Scope | Single task | Multi-step workflow |

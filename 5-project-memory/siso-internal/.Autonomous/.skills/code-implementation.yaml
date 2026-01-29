@@ -1,0 +1,281 @@
+---
+id: code-implementation
+name: Code Implementation
+version: 1.0.0
+category: development
+description: TDD-based code implementation following red-green-refactor cycle (BMAD Amelia adaptation)
+triggers:
+  - keyword: "implement"
+  - keyword: "code"
+  - keyword: "develop"
+  - context: "when building features"
+  - context: "when story is ready"
+inputs:
+  - name: story_file
+    type: string
+    required: true
+    description: Path to story/requirements file
+  - name: task_id
+    type: string
+    required: true
+    description: Task identifier
+  - name: acceptance_criteria
+    type: array
+    required: true
+    description: List of acceptance criteria to implement
+outputs:
+  - name: implementation_result
+    type: object
+    description: What was implemented
+  - name: test_results
+    type: object
+    description: Test execution results
+  - name: files_changed
+    type: array
+    description: List of modified files
+commands:
+  - implement
+  - red-green-refactor
+  - write-test
+  - implement-feature
+  - refactor
+  - verify
+---
+
+# Code Implementation
+
+## Purpose
+
+Implement features with strict adherence to acceptance criteria using test-driven development.
+
+## Core Philosophy (from BMAD Amelia)
+
+**"The Story File is the single source of truth"**
+
+- Tasks/subtasks sequence is authoritative
+- Never implement anything not in the story
+- Red-green-refactor cycle: test first, make it pass, improve
+- All tests must pass before marking complete
+
+---
+
+## Identity
+
+**Name:** Code Implementer
+**Role:** Senior Software Engineer
+**Style:** Ultra-succinct, file paths and AC IDs only
+**Principles:**
+- Story file is truth
+- Red-green-refactor always
+- No code without test
+- No lying about tests
+
+---
+
+## Command: implement
+
+### Input
+- `story_file`: Requirements
+- `task_id`: Task identifier
+- `acceptance_criteria`: What must be implemented
+
+### Process
+
+1. **READ story file completely**
+   - Tasks/subtasks in order
+   - Acceptance criteria
+   - Technical constraints
+
+2. **Load project context**
+   - Find `project-context.md`
+   - Understand patterns
+   - Check existing code
+
+3. **For each acceptance criterion:**
+   - Run red-green-refactor cycle
+   - Mark complete only when tested
+
+4. **Final verification**
+   - Run full test suite
+   - All tests must pass
+   - Update documentation
+
+5. **Commit work**
+   - Descriptive message
+   - Reference task ID
+
+### Output
+
+```yaml
+implementation_result:
+  task_id: "LEGACY-2026-01-30-001"
+  story_file: "stories/user-auth.md"
+
+  acceptance_criteria:
+    - id: "AC-001"
+      description: "User can register with email"
+      status: "completed"
+      test_file: "auth.test.ts"
+      implementation_file: "auth.ts"
+    - id: "AC-002"
+      description: "User can login"
+      status: "completed"
+      test_file: "auth.test.ts"
+      implementation_file: "auth.ts"
+
+  test_results:
+    total: 15
+    passed: 15
+    failed: 0
+    coverage: 92%
+
+  files_changed:
+    - "src/auth.ts"
+    - "src/auth.test.ts"
+    - "src/types.ts"
+
+  commit_hash: "abc123"
+  status: "success"
+```
+
+---
+
+## Command: red-green-refactor
+
+The TDD cycle:
+
+### Red: Write failing test
+```typescript
+// auth.test.ts
+test('user can register with email', () => {
+  const result = register('user@example.com', 'password');
+  expect(result.success).toBe(true);
+});
+// FAILS: register function doesn't exist
+```
+
+### Green: Make it pass (minimal code)
+```typescript
+// auth.ts
+export function register(email: string, password: string) {
+  return { success: true }; // Minimal implementation
+}
+```
+
+### Refactor: Improve while keeping tests green
+```typescript
+// auth.ts
+export async function register(email: string, password: string) {
+  // Validate input
+  // Check if user exists
+  // Hash password
+  // Save to database
+  // Return success
+  return { success: true, userId: 'uuid' };
+}
+```
+
+---
+
+## Critical Rules
+
+1. **Read entire story first**
+   - No skipping around
+   - Follow order as written
+
+2. **Test first, always**
+   - Write failing test
+   - Then implementation
+   - No exceptions
+
+3. **All tests pass**
+   - Never proceed with failing tests
+   - Run full suite after each task
+
+4. **Mark only when done**
+   - Implementation + tests passing
+   - No partial marks
+
+5. **Document changes**
+   - All files in File List
+   - Decisions in Dev Agent Record
+
+---
+
+## Examples
+
+### Example: Implementing User Registration
+
+```markdown
+**Story:** User can register with email
+**AC:** User provides email, password → account created
+
+**Step 1: Red (write test)**
+```typescript
+test('AC-001: register creates user', async () => {
+  const result = await register('test@example.com', 'password123');
+  expect(result.success).toBe(true);
+  expect(result.userId).toBeDefined();
+});
+```
+Status: FAIL (function doesn't exist)
+
+**Step 2: Green (minimal implementation)**
+```typescript
+export async function register(email: string, password: string) {
+  return { success: true, userId: 'fake-id' };
+}
+```
+Status: PASS
+
+**Step 3: Refactor (proper implementation)**
+```typescript
+export async function register(email: string, password: string) {
+  validateEmail(email);
+  validatePassword(password);
+
+  const existing = await db.users.findByEmail(email);
+  if (existing) throw new Error('User exists');
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = await db.users.create({
+    email,
+    password: hashedPassword
+  });
+
+  return { success: true, userId: user.id };
+}
+```
+Status: PASS (tests still green)
+
+**AC-001: Marked complete ✓**
+```
+
+---
+
+## Error Handling
+
+### Test Fails After Refactor
+
+```yaml
+error: "REGRESSION"
+message: "Test failed after refactoring"
+action: "Revert to last green state, refactor more carefully"
+```
+
+### Story Conflict
+
+```yaml
+error: "STORY_CONFLICT"
+message: "Story contradicts project-context.md"
+resolution: "Story requirements take precedence"
+action: "Follow story, note conflict in decisions"
+```
+
+### Unclear Requirement
+
+```yaml
+error: "UNCLEAR_REQUIREMENT"
+message: "AC-003 is ambiguous"
+action: "Document assumption, proceed with best interpretation"
+```

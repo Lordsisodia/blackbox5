@@ -1,0 +1,77 @@
+---
+id: complex-skill-example
+name: Complex Skill Example
+version: 1.0.0
+category: workflow
+description: A complex skill with multiple commands in a folder
+triggers:
+  - keyword: "complex workflow"
+  - context: "multi-step process"
+inputs:
+  - name: workflow_id
+    type: string
+    required: true
+  - name: config
+    type: object
+    required: false
+outputs:
+  - name: workflow_result
+    type: object
+commands:
+  - id: init
+    file: init.md
+    description: Initialize the workflow
+  - id: process
+    file: process.md
+    description: Process the main logic
+  - id: finalize
+    file: finalize.md
+    description: Finalize and cleanup
+---
+
+# Complex Skill Example
+
+## Purpose
+Multi-step workflow skill with separate command files.
+
+## When to Use
+Use when you need to:
+- Do something complex
+- With multiple phases
+- That requires state between steps
+
+## Commands
+
+| Command | File | Purpose |
+|---------|------|---------|
+| init | [init.md](./init.md) | Set up the workflow |
+| process | [process.md](./process.md) | Execute main logic |
+| finalize | [finalize.md](./finalize.md) | Complete and cleanup |
+
+## Workflow
+
+```
+init → process → finalize
+```
+
+## Example
+
+```markdown
+**Scenario:** Running a complex analysis
+
+**Command Sequence:**
+1. init - Set up analysis parameters
+2. process - Run analysis (may loop multiple times)
+3. finalize - Generate report and cleanup
+
+**State Passed Between Commands:**
+- init → process: analysis_config
+- process → finalize: analysis_results
+```
+
+## Error Handling
+
+If any command fails:
+1. Document failure in workflow_result
+2. Run finalize for cleanup
+3. Report partial completion

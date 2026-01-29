@@ -1,0 +1,325 @@
+---
+id: run-initialization
+name: Run Initialization
+version: 1.0.0
+category: core
+description: Initialize a new run with all required documentation and tracking
+triggers:
+  - context: "at start of every run"
+  - keyword: "initialize run"
+inputs:
+  - name: task_id
+    type: string
+    required: false
+    description: Task ID to associate with this run
+  - name: previous_run
+    type: string
+    required: false
+    description: Previous run ID if continuing
+outputs:
+  - name: run_id
+    type: string
+    description: New run identifier
+  - name: run_path
+    type: string
+    description: Path to run folder
+  - name: run_metadata
+    type: object
+    description: Run configuration and state
+commands:
+  - initialize
+  - determine-run-number
+  - create-run-folder
+  - copy-templates
+---
+
+# Run Initialization
+
+## Purpose
+
+Create a structured workspace for each execution run with consistent documentation and tracking.
+
+## When to Use
+
+- At the start of every Legacy run
+- When continuing a partially completed task
+
+---
+
+## Command: initialize
+
+### Input
+- `task_id`: Optional task to associate
+- `previous_run`: Optional previous run if continuing
+
+### Process
+
+1. **Determine run number**
+   - Scan existing runs/ folder
+   - Find highest run-NNNN
+   - Next run = highest + 1
+
+2. **Create run folder**
+   ```
+   runs/run-NNNN/
+   ```
+
+3. **Create meta.yaml**
+   ```yaml
+   ---
+   run_id: "run-0017"
+   task: "LEGACY-2026-01-30-001"
+   status: "in_progress"
+   started_at: "2026-01-30T10:00:00Z"
+   completed_at: null
+
+   context_window:
+     estimated_usage: 0
+     actions_taken: []
+
+   sub_agents_spawned: []
+
+   validations:
+     assumptions_validated: 0
+     facts_verified: 0
+     self_corrections: 0
+
+   outputs:
+     thoughts: "THOUGHTS.md"
+     decisions: "DECISIONS.md"
+     assumptions: "ASSUMPTIONS.md"
+     learnings: "LEARNINGS.md"
+     validations: "VALIDATIONS.md"
+   ---
+   ```
+
+4. **Create THOUGHTS.md**
+   ```markdown
+   # Run 0017 - Thought Log
+
+   **Started:** 2026-01-30T10:00:00Z
+   **Task:** LEGACY-2026-01-30-001
+   **Status:** in_progress
+
+   ---
+
+   ## Thought Loop 1: Run Initialization
+
+   **Context:** Starting new run
+   **Reasoning:** Task LEGACY-001 selected, initializing run structure
+   **Decision:** Proceed with run-0017
+   **Action:** Created run folder and documentation files
+   ```
+
+5. **Create DECISIONS.md**
+   ```markdown
+   # Run 0017 - Decision Log
+
+   **Task:** LEGACY-2026-01-30-001
+   **Run:** run-0017
+
+   ---
+
+   ## Decisions Made
+
+   ### Decision 1: Run Number Selection
+
+   **Context:** Need to determine next run number
+   **Options Considered:**
+   - Continue from run-0016 (if related)
+   - Create new run-0017
+   **Decision:** Create run-0017
+   **Rationale:** Fresh context for new task execution
+   ```
+
+6. **Create ASSUMPTIONS.md**
+   ```markdown
+   # Run 0017 - Assumptions
+
+   **Task:** LEGACY-2026-01-30-001
+   **Run:** run-0017
+
+   ---
+
+   ## Pre-Run Assumptions
+
+   | # | Assumption | Verification | Status |
+   |---|------------|--------------|--------|
+   | 1 | On dev branch | `git branch` | ⏳ Pending |
+   | 2 | STATE.yaml current | Check timestamp | ⏳ Pending |
+   | 3 | Task file exists | File check | ⏳ Pending |
+   ```
+
+7. **Create LEARNINGS.md**
+   ```markdown
+   # Run 0017 - Learnings
+
+   **Task:** LEGACY-2026-01-30-001
+   **Run:** run-0017
+   **Date:** 2026-01-30
+
+   ---
+
+   ## Technical Learnings
+
+   [To be populated during run]
+
+   ## Process Learnings
+
+   ### What Worked Well
+
+   ### What Didn't Work
+
+   ### Improvements for Next Run
+   ```
+
+8. **Create VALIDATIONS.md**
+   ```markdown
+   # Run 0017 - Validations
+
+   **Task:** LEGACY-2026-01-30-001
+   **Run:** run-0017
+
+   ---
+
+   ## Validation Log
+
+   | Step | Type | Statement | Confidence | Decision |
+   |------|------|-----------|------------|----------|
+
+   ## Self-Correction Checks
+
+   | Check # | Status | Decision |
+   |---------|--------|----------|
+   ```
+
+9. **Update timeline**
+   - Append to `timeline/README.md`
+
+10. **Check for review**
+    - If run number divisible by 5: trigger first principles review
+
+### Output
+
+```yaml
+run_id: "run-0017"
+run_path: "runs/run-0017"
+run_metadata:
+  task: "LEGACY-2026-01-30-001"
+  status: "in_progress"
+  started_at: "2026-01-30T10:00:00Z"
+  files_created:
+    - "runs/run-0017/meta.yaml"
+    - "runs/run-0017/THOUGHTS.md"
+    - "runs/run-0017/DECISIONS.md"
+    - "runs/run-0017/ASSUMPTIONS.md"
+    - "runs/run-0017/LEARNINGS.md"
+    - "runs/run-0017/VALIDATIONS.md"
+  next_action: "Begin task execution"
+```
+
+---
+
+## Command: determine-run-number
+
+### Process
+
+1. List all directories in `runs/` matching `run-*`
+2. Extract numbers from `run-NNNN`
+3. Find maximum
+4. Return max + 1
+
+### Edge Cases
+
+- No existing runs: Start with run-0001
+- Gap in sequence: Use next sequential (don't fill gaps)
+- Collision: Increment until unique
+
+---
+
+## Command: create-run-folder
+
+### Process
+
+1. Create directory: `runs/run-NNNN/`
+2. Set permissions
+3. Verify creation
+4. Return path
+
+---
+
+## Examples
+
+### Example 1: Fresh Run
+
+```markdown
+**Input:**
+- task_id: "LEGACY-2026-01-30-001"
+- previous_run: null
+
+**Process:**
+1. Determine: Existing runs: run-0001 to run-0016
+2. Next: run-0017
+3. Create: runs/run-0017/
+4. Create: All documentation files
+5. Update: Timeline
+
+**Output:**
+run_id: "run-0017"
+run_path: "runs/run-0017"
+```
+
+### Example 2: Continuing Previous Run
+
+```markdown
+**Input:**
+- task_id: "LEGACY-2026-01-30-001"
+- previous_run: "run-0016"
+
+**Process:**
+1. Determine: Next is run-0017
+2. Create: runs/run-0017/
+3. Note: Continuing from run-0016 in meta.yaml
+4. Copy: Relevant context from run-0016
+
+**Output:**
+run_id: "run-0017"
+note: "Continuing work from run-0016"
+```
+
+---
+
+## Integration with Legacy
+
+### At Run Start
+
+```markdown
+**Legacy:**
+1. Check branch safety
+2. Select task (skill:task-selection)
+3. Initialize run (skill:run-initialization)
+4. Load task context
+5. Begin execution
+```
+
+### File Structure Created
+
+```
+runs/run-0017/
+├── meta.yaml          # Run metadata
+├── THOUGHTS.md        # Reasoning log
+├── DECISIONS.md       # Decision record
+├── ASSUMPTIONS.md     # Assumption tracking
+├── LEARNINGS.md       # Knowledge capture
+└── VALIDATIONS.md     # Validation log
+```
+
+---
+
+## Quality Checklist
+
+- [ ] Run number is sequential
+- [ ] All documentation files created
+- [ ] meta.yaml has correct structure
+- [ ] Timeline updated
+- [ ] Review triggered if needed (every 5 runs)

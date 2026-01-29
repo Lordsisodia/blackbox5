@@ -1,0 +1,257 @@
+---
+version: "1.0"
+generated_at: "2026-01-30T12:00:00Z"
+generator: "Legacy Skill Index"
+generated_by: "skill-discovery-system"
+
+# Core Skills - Always Loaded
+# These skills are embedded in LEGACY.md and always available
+core:
+  - id: truth-seeking
+    file: "truth-seeking.yaml"
+    type: "simple"
+    category: "core"
+    always_loaded: true
+    description: "Validate assumptions before acting"
+    commands:
+      - validate-assumption
+      - verify-fact
+      - self-correct
+
+  - id: task-selection
+    file: "task-selection.yaml"
+    type: "simple"
+    category: "core"
+    always_loaded: true
+    description: "Select next task from STATE.yaml"
+    commands:
+      - select-next-task
+      - check-dependencies
+      - prioritize
+
+  - id: run-initialization
+    file: "run-initialization.yaml"
+    type: "simple"
+    category: "core"
+    always_loaded: true
+    description: "Initialize new run with documentation"
+    commands:
+      - initialize
+      - determine-run-number
+      - create-run-folder
+      - copy-templates
+
+  - id: git-commit
+    file: "git-commit.yaml"
+    type: "simple"
+    category: "core"
+    always_loaded: true
+    description: "Safe commit to dev branch"
+    commands:
+      - commit
+      - validate-branch
+      - stage-files
+      - verify-commit
+
+# Triggered Skills - Loaded on Demand
+# These skills are loaded when their triggers match the context
+triggered:
+  - id: deep-research
+    file: "deep-research.yaml"
+    type: "agent"
+    category: "research"
+    always_loaded: false
+    description: "Research with 4D analysis framework"
+    triggers:
+      keywords: ["research", "investigate", "analyze", "compare", "evaluate"]
+      contexts: ["planning", "discovery", "architecture", "decision"]
+      file_patterns: []
+    commands:
+      - research
+      - analyze-technology
+      - analyze-features
+      - analyze-architecture
+      - analyze-pitfalls
+      - synthesize
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: code-implementation
+    file: "code-implementation.yaml"
+    type: "agent"
+    category: "development"
+    always_loaded: false
+    description: "TDD-based code implementation"
+    triggers:
+      keywords: ["implement", "code", "develop", "build", "create"]
+      contexts: ["development", "coding", "implementation"]
+      file_patterns: ["*.ts", "*.tsx", "*.js", "*.jsx"]
+    commands:
+      - implement
+      - red-green-refactor
+      - write-test
+      - implement-feature
+      - refactor
+      - verify
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: architecture-design
+    file: "architecture-design.yaml"
+    type: "agent"
+    category: "design"
+    always_loaded: false
+    description: "System architecture and technical design"
+    triggers:
+      keywords: ["architecture", "design", "system", "structure", "pattern"]
+      contexts: ["design", "architecture", "planning"]
+      file_patterns: ["*.md"]
+    commands:
+      - design
+      - evaluate-options
+      - select-technology
+      - define-components
+      - document-decisions
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: testing-validation
+    file: "testing-validation.yaml"
+    type: "simple"
+    category: "quality"
+    always_loaded: false
+    description: "Test and validate code"
+    triggers:
+      keywords: ["test", "validate", "verify", "check"]
+      contexts: ["testing", "validation", "quality"]
+      file_patterns: ["*.test.ts", "*.spec.ts"]
+    commands:
+      - test
+      - run-unit-tests
+      - run-integration-tests
+      - run-e2e-tests
+      - check-coverage
+      - validate-against-spec
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: codebase-navigation
+    file: "codebase-navigation.yaml"
+    type: "simple"
+    category: "utility"
+    always_loaded: false
+    description: "Navigate and understand codebases"
+    triggers:
+      keywords: ["find", "where is", "how does", "locate", "search"]
+      contexts: ["exploration", "discovery", "navigation"]
+      file_patterns: []
+    commands:
+      - find
+      - locate-file
+      - find-function
+      - search-pattern
+      - understand-concept
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: supabase-operations
+    file: "supabase-operations.yaml"
+    type: "simple"
+    category: "database"
+    always_loaded: false
+    description: "Database operations for Supabase"
+    triggers:
+      keywords: ["supabase", "database", "migration", "table", "rls", "policy"]
+      contexts: ["database", "schema", "migration"]
+      file_patterns: ["*.sql", "*.migration"]
+    commands:
+      - execute
+      - create-table
+      - alter-table
+      - create-policy
+      - apply-migration
+      - verify-rls
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: product-planning
+    file: "product-planning.yaml"
+    type: "agent"
+    category: "product"
+    always_loaded: false
+    description: "Create PRDs and requirements"
+    triggers:
+      keywords: ["prd", "requirements", "user story", "plan", "feature"]
+      contexts: ["planning", "product", "requirements"]
+      file_patterns: ["*.prd.md", "*requirements*"]
+    commands:
+      - plan
+      - create-prd
+      - write-user-stories
+      - define-acceptance-criteria
+      - prioritize
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+  - id: documentation
+    file: "documentation.yaml"
+    type: "simple"
+    category: "documentation"
+    always_loaded: false
+    description: "Create clear documentation"
+    triggers:
+      keywords: ["document", "readme", "docs", "guide"]
+      contexts: ["documentation", "onboarding", "reference"]
+      file_patterns: ["README.md", "*.md"]
+    commands:
+      - document
+      - create-readme
+      - document-api
+      - write-guide
+      - add-examples
+    usage_stats:
+      loaded: 0
+      invoked: 0
+      success_rate: null
+
+# Statistics
+stats:
+  total_skills: 12
+  core_skills: 4
+  triggered_skills: 8
+  last_generated: "2026-01-30T12:00:00Z"
+  last_skill_added: "documentation.yaml"
+
+# Discovery Configuration
+discovery:
+  scan_paths:
+    - "."
+  file_pattern: "*.yaml"
+  exclude_paths:
+    - "templates"
+    - "README.md"
+    - "skills-index.yaml"
+  auto_generate: true
+  cache_ttl_seconds: 3600
+
+# Trigger Scoring
+trigger_scoring:
+  keyword_match: 10
+  context_match: 5
+  file_pattern_match: 3
+  category_match: 2
+  minimum_score_to_trigger: 8

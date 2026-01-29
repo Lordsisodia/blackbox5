@@ -1,0 +1,285 @@
+# Blackbox5 System Map
+# This file provides a machine-readable overview of the Blackbox5 structure
+# for AI agents to quickly understand where things are located
+
+version: "2.0.0"
+last_updated: "2026-01-30"
+
+---
+
+# Top-Level Structure
+directories:
+  1-docs:
+    path: "1-docs/"
+    purpose: "Documentation and decision records"
+    contents:
+      - "01-theory/"         # Theoretical foundations
+      - "02-implementation/" # Implementation guides
+      - "03-guides/"         # User guides
+      - "04-project/"        # Project-specific docs
+      - "05-examples/"       # Example usage
+      - "decisions/"         # Decision records (MCP, infrastructure, roadmap)
+      - "development/"       # Development guides (moved from 2-engine/08-development/)
+      - "engine-guides/"     # Engine documentation
+
+  2-engine:
+    path: "2-engine/"
+    purpose: "Core multi-agent orchestration engine (CONSOLIDATED)"
+    contents:
+      - ".autonomous/"        # Autonomous agent system (LEGACY - keep as-is)
+      - ".config/"           # Configuration files
+      - ".docs/"             # Engine documentation archive
+      - "08-autonomous-system/"  # NEW: Redis-based autonomous system
+      - "core/"              # WAS 01-core - consolidated core systems
+      - "runtime/"           # WAS 03-knowledge + 07-operations - memory + hooks + monitoring
+      - "tools/"             # WAS 05-tools + 06-integrations - tools + integrations
+      - "modules/"           # Fractal genesis modules
+
+  3-gui:
+    path: "3-gui/"
+    purpose: "User interface layer"
+    contents:
+      - "framework/"         # UI framework
+      - "integrations/"      # GUI integrations (auto-claude, etc.)
+      - "vibe-kanban/"       # Kanban board application
+
+  5-project-memory:
+    path: "5-project-memory/"
+    purpose: "Project-specific memory and state"
+    contents:
+      - "_template/"         # Template for new projects
+      - "blackbox5/"         # Blackbox5 project memory
+      - "management/"        # Management utilities
+      - "siso-internal/"     # SISO Internal app project memory
+
+  6-roadmap:
+    path: "6-roadmap/"
+    purpose: "Self-improvement plans and roadmap"
+    contents:
+      - "00-proposed/"       # Proposed improvements
+      - "01-research/"       # Research phase
+      - "02-design/"         # Design phase
+      - "03-planned/"        # Planned implementations
+      - "04-active/"         # Active work
+      - "05-completed/"      # Completed items
+      - "archives/"          # Archived items
+
+# 2-Engine Consolidated Structure (NEW)
+engine_structure:
+  core:
+    path: "2-engine/core/"
+    purpose: "Core orchestration systems (was 01-core)"
+    contents:
+      - "agents/"            # Agent definitions (21 agents)
+      - "interface/"         # CLI, API, client
+      - "orchestration/"     # Orchestrator, routing, state, middleware
+      - "safety/"            # Kill switch, constitutional AI
+
+  runtime:
+    path: "2-engine/runtime/"
+    purpose: "Runtime systems (was 03-knowledge + 07-operations)"
+    contents:
+      - "commands/"          # CLI commands
+      - "hooks/"             # Claude Code hooks
+      - "memory/"            # All memory systems consolidated
+        - "working/"         # WorkingMemory (short-term)
+        - "agent/"           # AgentMemory (per-agent persistent)
+        - "episodic/"        # EpisodicMemory (long-term)
+        - "brain/"           # Knowledge graph (Neo4j)
+        - "consolidation/"   # Memory consolidation
+        - "importance/"      # Importance scoring
+      - "monitoring/"        # Health, logging, tracking
+
+  tools:
+    path: "2-engine/tools/"
+    purpose: "Tools and integrations (was 05-tools + 06-integrations)"
+    contents:
+      - "core/"              # Core tools
+      - "git/"               # Git operations (merged from 01-core/git_ops)
+      - "integrations/"      # External integrations
+        - "github/"
+        - "supabase/"
+        - "mcp/"
+        - "notion/"
+        - "vercel/"
+        - "cloudflare/"
+
+  autonomous:
+    path: "2-engine/08-autonomous-system/"
+    purpose: "NEW: Redis-based multi-agent autonomous system"
+    contents:
+      - "implementation/"    # Working code
+        - "agents/"          # Supervisor, autonomous, interface
+        - "schemas/"         # Task dataclasses
+        - "stores/"          # JSON/SQLite storage
+        - "redis/"           # Redis coordinator
+      - "research/"          # Research findings
+      - "examples/"          # Demo scripts
+
+  legacy_autonomous:
+    path: "2-engine/.autonomous/"
+    purpose: "LEGACY: Bash-based autonomous system (preserved as-is)"
+    contents:
+      - "lib/"
+      - "meta/"
+      - "prompts/"
+      - "schemas/"
+      - "shell/"
+      - "skills/"
+
+# Key Files at Root
+root_files:
+  README.md:
+    purpose: "Main project documentation"
+    read_first: true
+
+  CLAUDE.md:
+    purpose: "Claude Code integration guide"
+    for_ai: true
+
+  CATALOG.md:
+    purpose: "Complete feature catalog (200+ features)"
+    searchable: true
+
+  QUICK-START.md:
+    purpose: "Quick start guide"
+    for_users: true
+
+  SYSTEM-MAP.yaml:
+    purpose: "This file - system structure map"
+    for_ai: true
+
+  AGENT-GUIDE.md:
+    purpose: "Human-readable agent instructions"
+    for_ai: true
+
+# Quick Reference for Common Tasks
+task_locations:
+  find_agents:
+    path: "2-engine/core/agents/"
+    description: "Agent definitions (YAML + Python)"
+
+  find_memory_systems:
+    path: "2-engine/runtime/memory/"
+    description: "All memory systems (working, agent, episodic, brain)"
+
+  find_tools:
+    path: "2-engine/tools/core/"
+    description: "Core tools"
+
+  find_integrations:
+    path: "2-engine/tools/integrations/"
+    description: "GitHub, Supabase, MCP, etc."
+
+  find_autonomous_system:
+    path: "2-engine/08-autonomous-system/"
+    description: "Redis-based multi-agent autonomous system"
+
+  find_legacy_autonomous:
+    path: "2-engine/.autonomous/"
+    description: "Legacy bash-based autonomous system"
+
+  find_hooks:
+    path: "2-engine/runtime/hooks/"
+    description: "Claude Code hooks"
+
+  find_project_state:
+    path: "5-project-memory/siso-internal/STATE.yaml"
+    description: "Single source of truth for SISO Internal project"
+
+  find_gui:
+    path: "3-gui/vibe-kanban/"
+    description: "Vibe Kanban GUI application"
+
+  find_decisions:
+    path: "1-docs/decisions/"
+    description: "Architecture and strategy decisions"
+
+# Important Patterns
+patterns:
+  project_memory_structure:
+    description: "Each project in 5-project-memory follows this structure"
+    locations:
+      - "decisions/"         # Why we made choices
+      - "knowledge/"         # How things work
+      - "operations/"        # System operations
+      - "plans/"             # What we're building
+      - "project/"           # Project identity
+      - "tasks/"             # What we're working on
+
+  state_files:
+    description: "YAML files that serve as single source of truth"
+    examples:
+      - "5-project-memory/siso-internal/STATE.yaml"
+      - "6-roadmap/STATE.yaml"
+
+  schemas:
+    description: "Data structure definitions"
+    locations:
+      - "2-engine/runtime/memory/schemas/"
+      - "2-engine/08-autonomous-system/implementation/schemas/"
+
+# Consolidation History (What Changed)
+consolidation:
+  deleted:
+    - "2-engine/01-core/"           # Merged into core/
+    - "2-engine/02-agents/"         # Merged into core/agents/
+    - "2-engine/03-knowledge/"      # Merged into runtime/memory/
+    - "2-engine/04-work/"           # Merged into core/
+    - "2-engine/05-tools/"          # Merged into tools/
+    - "2-engine/06-integrations/"   # Merged into tools/integrations/
+    - "2-engine/07-operations/"     # Merged into runtime/
+    - "2-engine/08-development/"    # Moved to 1-docs/development/
+    - "2-engine/templates/"         # Deleted (empty)
+    - "2-engine/checkpoints/"       # Deleted (empty)
+
+  merged:
+    - from: "01-core/git_ops/"
+      to: "tools/git/"
+    - from: "03-knowledge/memory/ + storage/"
+      to: "runtime/memory/"
+    - from: "05-tools/ + 06-integrations/"
+      to: "tools/"
+    - from: "07-operations/hooks/ + commands/ + monitoring/"
+      to: "runtime/"
+
+  moved_to_docs:
+    - from: "01-core/guides/"
+      to: "1-docs/engine-guides/core/"
+    - from: "03-knowledge/guides/"
+      to: "1-docs/engine-guides/knowledge/"
+    - from: "08-development/"
+      to: "1-docs/development/"
+
+# Cache/Derived Files (Safe to Delete)
+cache_locations:
+  - "**/__pycache__/"
+  - "**/*.pyc"
+  - "**/.pytest_cache/"
+  - "**/.deepeval/"
+  - "3-gui/vibe-kanban/target/"
+  - "3-gui/vibe-kanban/node_modules/"
+  - "3-gui/integrations/auto-claude/node_modules/"
+
+# Size Warnings
+large_directories:
+  - path: "3-gui/vibe-kanban/target/"
+    size: "7.3GB"
+    note: "Rust build artifacts - can be rebuilt with cargo build"
+
+  - path: "3-gui/integrations/auto-claude/"
+    size: "1.5GB"
+    note: "External Auto-Claude project with node_modules"
+
+# Agent Navigation Tips
+agent_tips:
+  - "Always check SYSTEM-MAP.yaml first when exploring"
+  - "2-engine is now CONSOLIDATED: core/, runtime/, tools/, 08-autonomous-system/"
+  - "Memory is in runtime/memory/ (consolidated from 03-knowledge/)"
+  - "Tools + integrations are in tools/ (consolidated)"
+  - "Read STATE.yaml for current project status"
+  - "Use CATALOG.md to find specific features"
+  - "Decision docs are in 1-docs/decisions/"
+  - "New autonomous system is in 2-engine/08-autonomous-system/"
+  - "Legacy autonomous system is in 2-engine/.autonomous/ (untouched)"
+  - "GUI integrations are in 3-gui/integrations/"

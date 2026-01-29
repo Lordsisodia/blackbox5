@@ -1,0 +1,202 @@
+---
+id: testing-validation
+name: Testing and Validation
+version: 1.0.0
+category: quality
+description: Systematic testing and validation of code, features, and systems
+triggers:
+  - keyword: "test"
+  - keyword: "validate"
+  - keyword: "verify"
+  - context: "after implementation"
+  - context: "before commit"
+inputs:
+  - name: test_target
+    type: string
+    required: true
+    description: What to test (file, feature, system)
+  - name: test_types
+    type: array
+    required: false
+    description: "Types of tests to run"
+    default: ["unit", "integration"]
+  - name: coverage_threshold
+    type: number
+    required: false
+    default: 80
+    description: Minimum coverage percentage
+outputs:
+  - name: test_results
+    type: object
+    description: Complete test results
+  - name: coverage_report
+    type: object
+    description: Coverage analysis
+  - name: validation_status
+    type: string
+    description: pass | fail | partial
+commands:
+  - test
+  - run-unit-tests
+  - run-integration-tests
+  - run-e2e-tests
+  - check-coverage
+  - validate-against-spec
+---
+
+# Testing and Validation
+
+## Purpose
+
+Ensure code works correctly, meets requirements, and maintains quality standards.
+
+## When to Use
+
+- After implementing code
+- Before committing
+- When validating fixes
+- During code review
+
+---
+
+## Command: test
+
+### Input
+- `test_target`: What to test
+- `test_types`: Which test types to run
+- `coverage_threshold`: Minimum coverage required
+
+### Process
+
+1. **Identify test files**
+   - Find tests for target
+   - Check test existence
+
+2. **Run unit tests**
+   - Fast, isolated tests
+   - Core functionality
+
+3. **Run integration tests**
+   - Component interactions
+   - Database connections
+
+4. **Check coverage**
+   - Line coverage
+   - Branch coverage
+   - Compare to threshold
+
+5. **Validate against spec**
+   - Does implementation match requirements?
+   - All acceptance criteria covered?
+
+6. **Report results**
+   - Pass/fail status
+   - Coverage metrics
+   - Recommendations
+
+### Output
+
+```yaml
+test_results:
+  target: "src/auth.ts"
+  timestamp: "2026-01-30T10:00:00Z"
+
+  unit_tests:
+    total: 15
+    passed: 15
+    failed: 0
+    skipped: 0
+    duration: "2.3s"
+    files:
+      - "auth.test.ts": "15 passed"
+
+  integration_tests:
+    total: 5
+    passed: 5
+    failed: 0
+    duration: "8.1s"
+
+  coverage:
+    lines: 92%
+    functions: 88%
+    branches: 85%
+    statements: 91%
+    threshold: 80%
+    status: "PASS"
+
+  spec_validation:
+    acceptance_criteria:
+      - id: "AC-001"
+        description: "User can register"
+        tested: true
+        passing: true
+      - id: "AC-002"
+        description: "User can login"
+        tested: true
+        passing: true
+
+  status: "PASS"
+  can_commit: true
+```
+
+---
+
+## Test Types
+
+### Unit Tests
+- Test individual functions
+- Mock dependencies
+- Fast execution
+
+### Integration Tests
+- Test component interactions
+- Real database (test instance)
+- API endpoints
+
+### E2E Tests
+- Full user flows
+- Browser automation
+- Critical paths only
+
+---
+
+## Validation Checklist
+
+- [ ] All unit tests pass
+- [ ] Coverage meets threshold
+- [ ] Integration tests pass
+- [ ] Spec requirements covered
+- [ ] Edge cases tested
+- [ ] Error conditions tested
+
+---
+
+## Examples
+
+### Example: Testing Authentication
+
+```markdown
+**Target:** src/auth.ts
+**Types:** unit, integration
+
+**Results:**
+✓ Unit tests: 15/15 passed
+✓ Integration tests: 5/5 passed
+✓ Coverage: 92% (threshold: 80%)
+✓ All acceptance criteria covered
+
+**Status:** PASS - Ready to commit
+```
+
+### Example: Coverage Failure
+
+```markdown
+**Target:** src/utils.ts
+**Coverage:** 65% (threshold: 80%)
+
+**Uncovered:**
+- Line 45-50: Error handling
+- Line 78: Edge case
+
+**Action:** Add tests for uncovered lines
+```

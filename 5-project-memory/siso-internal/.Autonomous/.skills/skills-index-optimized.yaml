@@ -1,0 +1,116 @@
+---
+version: "1.1"
+optimized_for: ai-consumption
+
+# Quick Reference - Load this first
+quick_reference:
+  core_skills_count: 4
+  triggered_skills_count: 8
+
+  # Decision tree for skill selection
+  decision_tree:
+    - question: "Are you starting a run?"
+      skill: run-initialization
+
+    - question: "Are you picking a task?"
+      skill: task-selection
+
+    - question: "Are you unsure about something?"
+      skill: truth-seeking
+
+    - question: "Are you committing work?"
+      skill: git-commit
+
+    - question: "Does task involve writing code?"
+      skill: code-implementation
+
+    - question: "Does task involve research/decisions?"
+      skill: deep-research
+
+    - question: "Does task involve system design?"
+      skill: architecture-design
+
+    - question: "Does task involve database?"
+      skill: supabase-operations
+
+# Core Skills - Always loaded (minimal info)
+core:
+  truth-seeking:
+    when: "Before acting on any assumption"
+    commands: [validate, verify, self-correct]
+
+  task-selection:
+    when: "At start of run or when task completes"
+    commands: [select, check-dependencies]
+
+  run-initialization:
+    when: "Starting a new run"
+    commands: [init, create-folder]
+
+  git-commit:
+    when: "Saving work"
+    commands: [commit, validate-branch]
+
+# Triggered Skills - Load on demand (minimal info)
+triggered:
+  code-implementation:
+    triggers: [implement, code, develop, build]
+    when: "Writing production code"
+    load_if: "Task involves creating/modifying code files"
+
+  deep-research:
+    triggers: [research, analyze, investigate, compare, evaluate]
+    when: "Making decisions with unknowns"
+    load_if: "Task requires understanding options or trade-offs"
+
+  architecture-design:
+    triggers: [design, architecture, structure]
+    when: "Designing systems"
+    load_if: "Task involves component relationships or patterns"
+
+  testing-validation:
+    triggers: [test, validate, verify]
+    when: "Ensuring quality"
+    load_if: "Task involves checking correctness"
+
+  codebase-navigation:
+    triggers: [find, locate, navigate]
+    when: "Exploring code"
+    load_if: "Task requires understanding existing code"
+
+  supabase-operations:
+    triggers: [database, table, migration, rls]
+    when: "Working with database"
+    load_if: "Task involves schema or data"
+
+  product-planning:
+    triggers: [plan, requirements, prd]
+    when: "Defining what to build"
+    load_if: "Task involves requirements or user stories"
+
+  documentation:
+    triggers: [document, readme, docs]
+    when: "Creating documentation"
+    load_if: "Task involves explaining or instructing"
+
+# Usage Patterns - Common combinations
+patterns:
+  new_feature:
+    sequence: [product-planning, architecture-design, code-implementation, testing-validation]
+
+  bug_fix:
+    sequence: [codebase-navigation, code-implementation, testing-validation]
+
+  research:
+    sequence: [deep-research, architecture-design]
+
+  database_change:
+    sequence: [supabase-operations, testing-validation]
+
+# Self-Correction Checkpoints
+checkpoints:
+  every_n_steps: 3
+  questions:
+    - "Am I using the right skill?"
+    - "Is this skill helping or should I switch?"
+    - "Do I need to load a different skill?"

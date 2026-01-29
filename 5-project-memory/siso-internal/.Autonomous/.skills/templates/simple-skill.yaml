@@ -1,0 +1,63 @@
+---
+id: simple-skill-example
+name: Simple Skill Example
+version: 1.0.0
+category: utility
+description: A simple skill contained in a single YAML file
+triggers:
+  - keyword: "simple task"
+  - context: "when X happens"
+inputs:
+  - name: input_param
+    type: string
+    required: true
+outputs:
+  - name: result
+    type: string
+commands:
+  - execute
+---
+
+# Simple Skill Example
+
+## Purpose
+One-line description of what this skill does.
+
+## When to Use
+- Trigger condition 1
+- Trigger condition 2
+
+## Command: execute
+
+### Input
+- `input_param`: Description of input
+
+### Process
+1. Step one
+2. Step two
+3. Step three
+
+### Output
+- `result`: Description of output
+
+## Example
+
+```markdown
+**Scenario:** [What triggered the skill]
+
+**Input:**
+- input_param: "example value"
+
+**Process:**
+1. Did step one
+2. Did step two
+3. Did step three
+
+**Output:**
+- result: "completed successfully"
+```
+
+## Quality Check
+- [ ] Output meets expectation
+- [ ] No errors occurred
+- [ ] Result is documented

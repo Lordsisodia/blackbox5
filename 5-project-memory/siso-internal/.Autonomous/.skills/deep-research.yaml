@@ -1,0 +1,237 @@
+---
+id: deep-research
+name: Deep Research
+version: 1.0.0
+category: research
+description: Comprehensive research using 4D analysis framework (Technology, Features, Architecture, Pitfalls)
+triggers:
+  - keyword: "research"
+  - keyword: "investigate"
+  - keyword: "analyze"
+  - context: "when unknowns exist"
+  - context: "before architectural decisions"
+inputs:
+  - name: topic
+    type: string
+    required: true
+    description: Research topic or question
+  - name: dimensions
+    type: array
+    required: false
+    description: "Dimensions to research (default: all)"
+    default: ["technology", "features", "architecture", "pitfalls"]
+  - name: depth
+    type: string
+    required: false
+    description: "quick | standard | deep"
+    default: "standard"
+outputs:
+  - name: research_report
+    type: object
+    description: Complete 4D analysis
+  - name: artifacts
+    type: array
+    description: Paths to research artifacts
+commands:
+  - research
+  - analyze-technology
+  - analyze-features
+  - analyze-architecture
+  - analyze-pitfalls
+  - synthesize
+---
+
+# Deep Research
+
+## Purpose
+
+Transform ambiguous questions into documented, actionable intelligence using systematic 4D analysis.
+
+## When to Use
+
+- Before architectural decisions
+- When evaluating technologies
+- When entering unfamiliar domains
+- When risks need identification
+
+## 4D Analysis Framework
+
+### Dimension 1: Technology (Stack)
+What technologies are available? What are the trade-offs?
+
+### Dimension 2: Features (Capabilities)
+What features exist? What do users need?
+
+### Dimension 3: Architecture (Structure)
+How should it be built? What patterns apply?
+
+### Dimension 4: Pitfalls (Risks)
+What can go wrong? What are the hidden costs?
+
+---
+
+## Command: research
+
+### Input
+- `topic`: Research topic
+- `dimensions`: Which dimensions to analyze
+- `depth`: Research depth
+
+### Process
+
+1. **Clarify the question**
+   - What exactly needs to be known?
+   - What decisions depend on this?
+
+2. **Execute 4D analysis**
+   - Run analyze-technology
+   - Run analyze-features
+   - Run analyze-architecture
+   - Run analyze-pitfalls
+
+3. **Synthesize findings**
+   - Combine all dimensions
+   - Identify patterns
+   - Draw conclusions
+
+4. **Create artifacts**
+   - Save research notes
+   - Update knowledge base
+   - Link to relevant tasks
+
+### Output
+
+```yaml
+research_report:
+  topic: "OAuth implementation options"
+  date: "2026-01-30"
+  depth: "standard"
+
+  dimensions:
+    technology:
+      options:
+        - name: "Clerk"
+          pros: ["Easy setup", "Good docs"]
+          cons: ["Vendor lock-in", "Cost at scale"]
+          recommendation: "Best for rapid development"
+        - name: "Auth0"
+          pros: ["Enterprise features", "Mature"]
+          cons: ["Complex", "Expensive"]
+          recommendation: "Best for enterprise"
+        - name: "Supabase Auth"
+          pros: ["Integrated", "Open source"]
+          cons: ["Fewer features", "Self-hosted complexity"]
+          recommendation: "Best for tight Supabase integration"
+
+    features:
+      required:
+        - "Email/password login"
+        - "OAuth providers (Google, GitHub)"
+        - "Session management"
+        - "Password reset"
+      nice_to_have:
+        - "MFA"
+        - "SSO"
+        - "Audit logs"
+
+    architecture:
+      patterns:
+        - "JWT tokens for session"
+        - "Refresh token rotation"
+        - "RLS policies for authorization"
+      components:
+        - "Auth service"
+        - "Session store"
+        - "User database"
+
+    pitfalls:
+      risks:
+        - name: "Token storage security"
+          severity: "high"
+          mitigation: "HTTP-only cookies, not localStorage"
+        - name: "OAuth callback URL mismatch"
+          severity: "medium"
+          mitigation: "Strict URL validation"
+        - name: "Session fixation"
+          severity: "high"
+          mitigation: "Regenerate session on login"
+
+  recommendation:
+    primary: "Clerk for rapid development, migrate to Supabase Auth later"
+    rationale: "Speed now, control later"
+
+  confidence: 85
+  gaps:
+    - "Need to verify Clerk pricing at our scale"
+```
+
+---
+
+## Command: analyze-technology
+
+Research available technologies, compare options, evaluate trade-offs.
+
+---
+
+## Command: analyze-features
+
+Identify required vs nice-to-have features. Map user needs.
+
+---
+
+## Command: analyze-architecture
+
+Determine structural patterns. Design component relationships.
+
+---
+
+## Command: analyze-pitfalls
+
+Identify risks, hidden costs, failure modes. Plan mitigations.
+
+---
+
+## Examples
+
+### Example: Researching State Management
+
+```markdown
+**Input:**
+- topic: "React state management for large app"
+- dimensions: ["technology", "architecture", "pitfalls"]
+- depth: "standard"
+
+**Output:**
+research_report:
+  recommendation:
+    primary: "Zustand for global state, React Query for server state"
+    rationale: "Simple, performant, good TypeScript support"
+
+  dimensions:
+    technology:
+      options:
+        - Redux: "Too verbose for our needs"
+        - Zustand: "Clean, minimal, recommended"
+        - Jotai: "Good but smaller ecosystem"
+
+    architecture:
+      patterns:
+        - "Separate server and client state"
+        - "Atomic state for UI"
+        - "Derived state with selectors"
+
+    pitfalls:
+      risks:
+        - "Over-fetching with React Query"
+        - "State duplication between layers"
+```
+
+---
+
+## Integration
+
+Research results feed into:
+- Task first_principles analysis
+- Architecture decisions
+- Risk registers
+- Knowledge base

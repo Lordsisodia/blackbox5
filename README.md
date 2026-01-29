@@ -535,6 +535,31 @@ Memory export/import, format conversion, synchronization.
 
 Continuous operation, self-monitoring, error recovery, task queue management.
 
+#### Auto-Claude Integration ✅ **RUNNING**
+**Location:** `2-engine/08-integrations/auto-claude/`
+
+**Autonomous multi-agent coding framework:**
+- **Multi-Phase Pipeline** → Spec creation → Planning → Implementation → QA → Merge
+- **Git Worktree Isolation** → Safe parallel development (up to 12 agents)
+- **Self-Validating QA** → Built-in quality assurance loop
+- **Memory System** → Graphiti knowledge graph for cross-session learning
+- **Desktop UI** → Electron app with Kanban board, agent terminals, insights
+- **GitHub/GitLab Integration** → Import issues, AI investigation, PR creation
+- **CLI + Desktop** → Headless operation or full GUI
+
+**Quick Start:**
+```bash
+cd 2-engine/08-integrations/auto-claude
+./start-auto-claude.sh
+
+# Or directly:
+source apps/backend/.venv/bin/activate
+python apps/backend/runners/spec_runner.py --task "Your task" --auto-approve
+python apps/backend/run.py --spec 001
+```
+
+**Full Documentation:** `2-engine/08-integrations/auto-claude/INTEGRATION-README.md`
+
 #### Decision Engine ⚠️ **DIRECTORY NOT FOUND**
 **Location:** `2-engine/01-core/decision/`
 

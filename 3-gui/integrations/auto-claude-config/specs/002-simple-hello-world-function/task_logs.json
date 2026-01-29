@@ -1,0 +1,59 @@
+{
+  "spec_id": "002-pending",
+  "created_at": "2026-01-28T14:08:01.129214+00:00",
+  "updated_at": "2026-01-28T14:08:06.881051+00:00",
+  "phases": {
+    "planning": {
+      "phase": "planning",
+      "status": "active",
+      "started_at": "2026-01-28T14:08:01.129518+00:00",
+      "completed_at": null,
+      "entries": [
+        {
+          "timestamp": "2026-01-28T14:08:01.129547+00:00",
+          "type": "phase_start",
+          "content": "Starting spec creation process",
+          "phase": "planning"
+        },
+        {
+          "timestamp": "2026-01-28T14:08:01.130457+00:00",
+          "type": "info",
+          "content": "Starting phase 1: PROJECT DISCOVERY",
+          "phase": "planning"
+        },
+        {
+          "timestamp": "2026-01-28T14:08:06.879545+00:00",
+          "type": "success",
+          "content": "Discovered 0 files in project",
+          "phase": "planning"
+        },
+        {
+          "timestamp": "2026-01-28T14:08:06.880475+00:00",
+          "type": "info",
+          "content": "Starting phase 2: REQUIREMENTS GATHERING",
+          "phase": "planning"
+        },
+        {
+          "timestamp": "2026-01-28T14:08:06.881039+00:00",
+          "type": "success",
+          "content": "Task: Create a simple hello world function in Python that prints a greeting",
+          "phase": "planning"
+        }
+      ]
+    },
+    "coding": {
+      "phase": "coding",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "entries": []
+    },
+    "validation": {
+      "phase": "validation",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "entries": []
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "task_description": "Create a simple Python function that prints a 'Hello, World!' greeting message",
+  "workflow_type": "feature",
+  "services_involved": [],
+  "additional_context": "This is a standalone implementation with no dependencies. The function should be executable directly and importable.",
+  "created_at": "2026-01-28T21:15:00Z"
+}

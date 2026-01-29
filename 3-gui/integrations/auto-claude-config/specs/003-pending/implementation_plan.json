@@ -1,0 +1,35 @@
+{
+  "feature": "003-hello-world-function",
+  "spec_name": "003-hello-world-function",
+  "workflow_type": "simple",
+  "total_phases": 1,
+  "recommended_workers": 1,
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Implementation",
+      "description": "Create a simple Python hello world function",
+      "depends_on": [],
+      "subtasks": [
+        {
+          "id": "subtask-1-1",
+          "description": "Create hello_world.py with a greeting function",
+          "service": "main",
+          "status": "pending",
+          "files_to_create": ["hello_world.py"],
+          "files_to_modify": [],
+          "patterns_from": [],
+          "verification": {
+            "type": "manual",
+            "run": "python hello_world.py"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-01-28T21:15:00Z",
+    "complexity": "simple",
+    "estimated_sessions": 1
+  }
+}

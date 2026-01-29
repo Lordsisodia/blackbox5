@@ -2,8 +2,8 @@
 
 > This is the SINGLE SOURCE OF TRUTH for all project state. All dashboards are generated from this file.
 
-**Version**: 2.0
-**Last Updated**: 2026-01-19T12:45:00Z
+**Version**: 2.1
+**Last Updated**: 2026-01-30T10:00:00Z
 **Maintainer**: Update this file when state changes, then run `./generate-dashboards.sh`
 
 ---
@@ -54,7 +54,6 @@ active_tasks:
     created_at: "2026-01-18"
     started_at: null
     completed_at: null
-```
 
 ### Completed Tasks
 
@@ -469,6 +468,13 @@ siso_components:
     status: "active"
     location: "operations/agents/history/sessions/ralph/"
     description: "Autonomous agent runtime"
+
+  - name: "Ralph Multi-Project Agent"
+    type: "agent"
+    status: "in_setup"
+    location: "5-project-memory/siso-internal/ralph.p/"
+    description: "Autonomous multi-project management system"
+    config: "5-project-memory/siso-internal/ralph.p/CONFIG.yaml"
 
   - name: "AgentMemory"
     type: "system"

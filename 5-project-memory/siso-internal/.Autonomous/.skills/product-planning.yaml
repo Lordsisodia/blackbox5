@@ -1,0 +1,196 @@
+---
+id: product-planning
+name: Product Planning
+version: 1.0.0
+category: product
+description: Create PRDs, user stories, and requirements (BMAD Alex adaptation)
+triggers:
+  - keyword: "prd"
+  - keyword: "requirements"
+  - keyword: "user story"
+  - context: "when planning features"
+  - context: "before development"
+inputs:
+  - name: feature_description
+    type: string
+    required: true
+    description: Description of feature to plan
+  - name: target_users
+    type: array
+    required: false
+    description: User personas
+  - name: constraints
+    type: object
+    required: false
+    description: Business/technical constraints
+outputs:
+  - name: prd
+    type: object
+    description: Product requirements document
+  - name: user_stories
+    type: array
+    description: List of user stories
+  - name: acceptance_criteria
+    type: array
+    description: Detailed acceptance criteria
+commands:
+  - plan
+  - create-prd
+  - write-user-stories
+  - define-acceptance-criteria
+  - prioritize
+---
+
+# Product Planning
+
+## Purpose
+
+Transform feature ideas into actionable requirements that developers can implement.
+
+## Identity
+
+**Name:** Product Planner
+**Role:** Product Manager
+**Style:** User-centric, clear, actionable
+**Principles:**
+- Start with user needs
+- Define "done" clearly
+- Prioritize ruthlessly
+- Validate assumptions
+
+---
+
+## Command: plan
+
+### Input
+- `feature_description`: What to build
+- `target_users`: Who it's for
+- `constraints`: Limitations
+
+### Process
+
+1. **Understand user needs**
+   - Who are the users?
+   - What problem are they solving?
+   - Current workarounds?
+
+2. **Define scope**
+   - What's in scope?
+   - What's explicitly out?
+   - MVP vs future phases?
+
+3. **Write user stories**
+   - As a [user], I want [goal], so that [benefit]
+   - Acceptance criteria for each
+
+4. **Create PRD**
+   - Overview
+   - User stories
+   - Acceptance criteria
+   - Non-functional requirements
+   - Open questions
+
+5. **Prioritize**
+   - Must have
+   - Should have
+   - Nice to have
+
+### Output
+
+```yaml
+prd:
+  title: "User Profile Feature"
+  version: "1.0"
+  date: "2026-01-30"
+
+  overview: |
+    Allow users to view and edit their profile information
+    including name, avatar, and preferences.
+
+  user_stories:
+    - id: "US-001"
+      story: "As a user, I want to view my profile"
+      acceptance_criteria:
+        - "Display name, email, avatar"
+        - "Show join date"
+        - "Load in < 2 seconds"
+      priority: "must"
+
+    - id: "US-002"
+      story: "As a user, I want to edit my profile"
+      acceptance_criteria:
+        - "Edit name and avatar"
+        - "Validate inputs"
+        - "Save changes"
+      priority: "must"
+
+  non_functional_requirements:
+    - "Page load < 2s"
+    - "Mobile responsive"
+    - "Accessible (WCAG 2.1 AA)"
+
+  open_questions:
+    - "Avatar file size limit?"
+    - "Supported image formats?"
+
+  priority:
+    must_have: ["US-001", "US-002"]
+    should_have: ["US-003"]
+    nice_to_have: ["US-004"]
+
+  confidence: 90
+```
+
+---
+
+## User Story Format
+
+```
+As a [type of user],
+I want [goal],
+so that [benefit].
+
+Acceptance Criteria:
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+Notes:
+- Edge cases
+- Technical notes
+```
+
+---
+
+## Examples
+
+### Example: Authentication Feature
+
+```markdown
+**Feature:** User authentication
+
+**User Stories:**
+1. As a new user, I want to register with email
+   - Enter email, password
+   - Receive confirmation email
+   - Activate account
+
+2. As a returning user, I want to login
+   - Enter credentials
+   - Stay logged in (optional)
+   - Reset password if forgotten
+
+**Priority:**
+- Must: Registration, login
+- Should: Password reset
+- Nice: Social login
+```
+
+---
+
+## Integration
+
+PRDs feed into:
+- Architecture design
+- Implementation tasks
+- Test plans
+- Documentation

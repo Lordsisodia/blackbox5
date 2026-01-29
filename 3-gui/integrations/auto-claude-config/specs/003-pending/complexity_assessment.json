@@ -1,0 +1,19 @@
+{
+  "complexity": "simple",
+  "confidence": 1.0,
+  "reasoning": "Manual override: simple",
+  "signals": {},
+  "estimated_files": 1,
+  "estimated_services": 1,
+  "external_integrations": [],
+  "infrastructure_changes": false,
+  "phases_to_run": [
+    "discovery",
+    "historical_context",
+    "quick_spec",
+    "validation"
+  ],
+  "needs_research": false,
+  "needs_self_critique": false,
+  "created_at": "2026-01-28T21:11:29.503614"
+}
