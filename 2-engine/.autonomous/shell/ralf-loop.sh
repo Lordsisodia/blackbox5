@@ -7,22 +7,29 @@ set -e
 # Determine engine path (where this script lives)
 ENGINE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-# Project path can be passed as argument or auto-detected
+# Project path can be passed as argument
 PROJECT_DIR="${1:-$(pwd)}"
-PROJECT_AUTONOMOUS="$PROJECT_DIR/.Autonomous"
+PROJECT_AUTONOMOUS="$PROJECT_DIR/.autonomous"
 
-# Validate project has .Autonomous
+# Detect blackbox5 root from engine location
+BLACKBOX5_DIR="$(cd "$ENGINE_DIR/../.." && pwd)"
+
+# Validate project has .autonomous
 if [ ! -d "$PROJECT_AUTONOMOUS" ]; then
-    echo "Error: No .Autonomous folder found at $PROJECT_AUTONOMOUS"
+    echo "Error: No .autonomous folder found at $PROJECT_AUTONOMOUS"
     echo "Usage: $0 [path-to-project]"
-    echo "Or run from a directory containing .Autonomous/"
+    echo "Or run from a directory containing .autonomous/"
     exit 1
 fi
+
+# Change to blackbox5 root so Claude has access to everything
+cd "$BLACKBOX5_DIR"
 
 # Load routes if available
 ROUTES_FILE="$PROJECT_AUTONOMOUS/routes.yaml"
 if [ -f "$ROUTES_FILE" ]; then
     echo "[RALF] Loaded routes from $ROUTES_FILE"
+    echo "[RALF] Working directory: $BLACKBOX5_DIR (full blackbox5 access)"
 fi
 
 # Core paths
@@ -187,15 +194,17 @@ main() {
 
         log_phase "execution"
 
-        # Run RALF with project context
+        # Run RALF with full blackbox5 context
         log "Executing: cat ralf.md | claude -p --dangerously-skip-permissions"
+        log "Working directory: $BLACKBOX5_DIR"
         echo ""
         echo -e "${YELLOW}--- RALF Output Start ---${NC}"
         echo ""
 
-        # Export project path for the prompt to use
+        # Export paths for the prompt to use
         export RALF_PROJECT_DIR="$PROJECT_DIR"
         export RALF_ENGINE_DIR="$ENGINE_DIR"
+        export RALF_BLACKBOX5_DIR="$BLACKBOX5_DIR"
 
         if ! cat "$PROMPT_FILE" | claude -p --dangerously-skip-permissions 2>&1 | tee -a "$SESSION_LOG"; then
             EXIT_CODE=${PIPESTATUS[0]}
