@@ -5,10 +5,10 @@ project:
   name: "ralf-core"
   type: "meta"
   description: "Self-improvement project for the RALF autonomous system"
-  root: "../../../2-engine"  # Points to engine since we modify it
+  root: "../../"  # Points to ALL of blackbox5
 
 engine:
-  path: "../../../2-engine/.autonomous"
+  path: "../../2-engine/.autonomous"
   version: "1.0.0"
 
 memory:
@@ -20,12 +20,32 @@ memory:
   timeline: "./timeline"
 
 routes:
-  # Engine code locations (what we modify)
-  engine_shell: "../../../2-engine/.autonomous/shell"
-  engine_lib: "../../../2-engine/.autonomous/lib"
-  engine_prompts: "../../../2-engine/.autonomous/prompts"
-  engine_skills: "../../../2-engine/.autonomous/skills"
-  engine_schemas: "../../../2-engine/.autonomous/schemas"
+  # FULL BLACKBOX5 ACCESS
+  # RALF-CORE can see and modify anything in blackbox5
+
+  # Root
+  blackbox5_root: "../../"
+
+  # Engine
+  engine: "../../2-engine"
+  engine_shell: "../../2-engine/.autonomous/shell"
+  engine_lib: "../../2-engine/.autonomous/lib"
+  engine_prompts: "../../2-engine/.autonomous/prompts"
+  engine_skills: "../../2-engine/.autonomous/skills"
+  engine_schemas: "../../2-engine/.autonomous/schemas"
+
+  # All Project Memories
+  projects: "../../5-project-memory"
+  siso_internal: "../../5-project-memory/siso-internal"
+  ralf_core: "./"
+
+  # Knowledge & Docs
+  knowledge: "../../3-knowledge"
+  docs: "../../1-docs"
+
+  # Tools & Integrations
+  tools: "../../5-tools"
+  integrations: "../../6-integrations"
 
   # Feedback from other instances
   feedback_incoming: "./feedback/incoming"
@@ -33,7 +53,7 @@ routes:
   feedback_actions: "./feedback/actions"
 
   # Documentation
-  engine_docs: "../../../2-engine/.docs"
+  engine_docs: "../../2-engine/.docs"
 
 feedback:
   # Other projects send feedback here

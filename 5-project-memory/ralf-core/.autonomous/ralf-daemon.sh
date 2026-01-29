@@ -7,8 +7,13 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 ENGINE_DIR="$PROJECT_DIR/../../2-engine/.autonomous"
+BLACKBOX5_DIR="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 
-cd "$PROJECT_DIR"
+# Change to blackbox5 root so Claude has access to everything
+cd "$BLACKBOX5_DIR"
+
+# Export for RALF to use
+export RALF_BLACKBOX5_DIR="$BLACKBOX5_DIR"
 
 # Colors
 RED='\033[0;31m'
@@ -41,6 +46,7 @@ echo "║  RALF-CORE Autonomous Daemon                               ║"
 echo "║  Non-stop self-improvement mode                            ║"
 echo "╚════════════════════════════════════════════════════════════╝"
 echo ""
+log "Blackbox5 Root: $BLACKBOX5_DIR"
 log "Project: $PROJECT_DIR"
 log "Engine: $ENGINE_DIR"
 log "GitHub: https://github.com/Lordsisodia/blackbox5"
@@ -93,6 +99,7 @@ while true; do
 
         export RALF_PROJECT_DIR="$PROJECT_DIR"
         export RALF_ENGINE_DIR="$ENGINE_DIR"
+        export RALF_BLACKBOX5_DIR="$BLACKBOX5_DIR"
         export RALF_DAEMON_MODE="true"
 
         # Run with timeout to prevent hanging
