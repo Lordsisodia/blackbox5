@@ -829,7 +829,7 @@ git push origin "$CURRENT_BRANCH"
 3. **Atomic commits** - One logical change per commit
 4. **Test everything** - Every change verified
 5. **Full paths only** - No relative paths
-6. **Branch safety** - Never commit to main/master
+6. **Branch safety** - OK to commit to main and feature branches
 
 ### From Claude Best Practices
 7. **Read before change** - NEVER propose changes to unread code
