@@ -1,0 +1,18 @@
+id: "PROPOSAL-002"
+name: "Reasoning & Planning System Research"
+slug: "reasoning-planning"
+status: "proposed"
+tier: "critical"
+weight: 17
+domain: "agents"
+
+created: "2026-01-19"
+updated: "2026-01-20"
+
+description: "Research reasoning and planning capabilities for AI agents"
+
+focus_areas:
+  - reasoning_frameworks
+  - planning_algorithms
+  - decision_making
+  - goal_hierarchy

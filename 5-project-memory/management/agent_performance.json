@@ -1,0 +1,28 @@
+{
+  "ebc88fee-9426-41c9-8204-1ed8e51e16ac": {
+    "task_id": "ebc88fee-9426-41c9-8204-1ed8e51e16ac",
+    "executor": "CLAUDE_CODE",
+    "started_at": "2026-01-19T22:32:33.307027+00:00",
+    "completed_at": "2026-01-20T00:32:35.977695+00:00",
+    "duration": 7202.670668,
+    "success": false,
+    "files_modified": 0,
+    "files_created": 0,
+    "lines_changed": 0,
+    "errors": [],
+    "quality_score": 0.0
+  },
+  "fd5342e5-c6bd-4f26-8fa7-818573e5da81": {
+    "task_id": "fd5342e5-c6bd-4f26-8fa7-818573e5da81",
+    "executor": "CLAUDE_CODE",
+    "started_at": "2026-01-20T00:32:36.096655+00:00",
+    "completed_at": "2026-01-20T02:32:38.625066+00:00",
+    "duration": 7202.528411,
+    "success": false,
+    "files_modified": 0,
+    "files_created": 0,
+    "lines_changed": 0,
+    "errors": [],
+    "quality_score": 0.0
+  }
+}

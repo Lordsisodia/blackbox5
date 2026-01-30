@@ -1,0 +1,95 @@
+# RALF-CORE Routes Configuration
+# This project exists to improve the RALF engine itself
+
+project:
+  name: "ralf-core"
+  type: "meta"
+  description: "Self-improvement project for the RALF autonomous system"
+  root: "../../"  # Points to ALL of blackbox5
+
+engine:
+  path: "../../2-engine/.autonomous"
+  version: "1.0.0"
+
+memory:
+  tasks: "./tasks"
+  runs: "./runs"
+  workspaces: "./workspaces"
+  decisions: "./memory/decisions"
+  insights: "./memory/insights"
+  timeline: "./timeline"
+
+routes:
+  # FULL BLACKBOX5 ACCESS
+  # RALF-CORE can see and modify anything in blackbox5
+
+  # Root
+  blackbox5_root: "../../"
+
+  # Engine
+  engine: "../../2-engine"
+  engine_shell: "../../2-engine/.autonomous/shell"
+  engine_lib: "../../2-engine/.autonomous/lib"
+  engine_prompts: "../../2-engine/.autonomous/prompts"
+  engine_skills: "../../2-engine/.autonomous/skills"
+  engine_schemas: "../../2-engine/.autonomous/schemas"
+
+  # All Project Memories
+  projects: "../../5-project-memory"
+  siso_internal: "../../5-project-memory/siso-internal"
+  ralf_core: "./"
+
+  # Knowledge & Docs
+  knowledge: "../../3-knowledge"
+  docs: "../../1-docs"
+
+  # Tools & Integrations
+  tools: "../../5-tools"
+  integrations: "../../6-integrations"
+
+  # Feedback from other instances
+  feedback_incoming: "./feedback/incoming"
+  feedback_processed: "./feedback/processed"
+  feedback_actions: "./feedback/actions"
+
+  # Documentation
+  engine_docs: "../../2-engine/.docs"
+
+  # BMAD Integration
+  engine_routes: "../../2-engine/.autonomous/routes.yaml"
+  bmad_skills: "../../2-engine/.autonomous/skills"
+  bmad_workflows: "../../2-engine/.autonomous/workflows"
+  bmad_wip: "../../2-engine/.autonomous/wip"
+
+# BMAD Command Reference
+# Commands are defined in engine_routes, but available here:
+# CP, VP, EP, CE (PM) | CA, VA, EA (Architect) | BP, RS, CB, DP (Analyst)
+# SP, CS, ER (SM) | CU, VU, EU (UX) | DS, CR (Dev) | QA, VT, RT (QA)
+# TS, QD (Quick Flow) | IR, CC (Shared)
+
+feedback:
+  # Other projects send feedback here
+  endpoint: "./feedback/incoming"
+  auto_process: false  # Manual review before processing
+  include_telemetry: true
+  include_errors: true
+
+mcp:
+  default_profile: "full"
+  available:
+    - supabase
+    - filesystem
+    - serena
+    - sequential-thinking
+
+github:
+  repo_url: "https://github.com/Lordsisodia/blackbox5"
+  branch: "feature/tier2-skills-integration"
+  auto_push: true
+  auto_pull: true
+  # Uses default SSH key or git credential helper
+
+conventions:
+  branch_naming: "ralf/{version}-{description}"
+  commit_format: "ralf: [{component}] {description}"
+  test_location: "co-located"

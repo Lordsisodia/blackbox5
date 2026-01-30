@@ -1,0 +1,18 @@
+id: "PROPOSAL-001"
+name: "Memory & Context System Research"
+slug: "memory-context"
+status: "proposed"
+tier: "critical"
+weight: 18
+domain: "memory"
+
+created: "2026-01-19"
+updated: "2026-01-20"
+
+description: "Research memory and context systems for AI agents"
+
+focus_areas:
+  - memory_architecture
+  - context_management
+  - retrieval_systems
+  - compression_techniques

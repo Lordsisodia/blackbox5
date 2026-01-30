@@ -1,0 +1,74 @@
+{
+  "decision_patterns": [],
+  "convergence_patterns": [
+    {
+      "pattern": "test problem",
+      "frequency": 9,
+      "first_seen": "2026-01-20T05:09:51.194921",
+      "last_seen": "2026-01-20T05:10:49.690960",
+      "avg_confidence": 0.85
+    },
+    {
+      "pattern": "add caching when only 11%",
+      "frequency": 2,
+      "first_seen": "2026-01-20T05:10:34.686855",
+      "last_seen": "2026-01-20T05:10:49.662883",
+      "avg_confidence": 0.5800000000000001
+    },
+    {
+      "pattern": "fix critical security bug?",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.540102",
+      "last_seen": "2026-01-20T05:10:49.540102",
+      "avg_confidence": 0.5800000000000001
+    },
+    {
+      "pattern": "what meaning life?",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.593364",
+      "last_seen": "2026-01-20T05:10:49.593364",
+      "avg_confidence": 0.5800000000000001
+    },
+    {
+      "pattern": "optimize performance?",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.597579",
+      "last_seen": "2026-01-20T05:10:49.597579",
+      "avg_confidence": 0.605
+    },
+    {
+      "pattern": "add tests?",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.603936",
+      "last_seen": "2026-01-20T05:10:49.603936",
+      "avg_confidence": 0.55
+    },
+    {
+      "pattern": "simple problem",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.667900",
+      "last_seen": "2026-01-20T05:10:49.667900",
+      "avg_confidence": 0.55
+    },
+    {
+      "pattern": "add new layer?",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.675553",
+      "last_seen": "2026-01-20T05:10:49.675553",
+      "avg_confidence": 0.605
+    },
+    {
+      "pattern": "assume caching will help performance",
+      "frequency": 1,
+      "first_seen": "2026-01-20T05:10:49.679136",
+      "last_seen": "2026-01-20T05:10:49.679136",
+      "avg_confidence": 0.55
+    }
+  ],
+  "assumption_patterns": [],
+  "metadata": {
+    "created": "2026-01-20T00:00:00Z",
+    "last_updated": "2026-01-20T05:10:49.693001",
+    "total_patterns": 9
+  }
+}

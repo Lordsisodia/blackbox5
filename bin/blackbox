@@ -1,0 +1,39 @@
+#!/bin/bash
+# Blackbox5 Command Wrapper
+# Put this file in your PATH, or source it from your .bashrc/.zshrc
+
+BLACKBOX_DIR="/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/BLACKBOX5"
+
+case "$1" in
+    start|up)
+        cd "$BLACKBOX_DIR" && python3 blackbox.py start "${@:2}"
+        ;;
+    stop|down)
+        cd "$BLACKBOX_DIR" && python3 blackbox.py stop
+        ;;
+    restart|reload)
+        cd "$BLACKBOX_DIR" && python3 blackbox.py stop && sleep 2 && python3 blackbox.py start "${@:2}"
+        ;;
+    status|info)
+        cd "$BLACKBOX_DIR" && python3 blackbox.py status
+        ;;
+    agents)
+        cd "$BLACKBOX_DIR" && python3 blackbox.py agents
+        ;;
+    chat)
+        cd "$BLACKBOX_DIR" && python3 blackbox.py chat "${@:2}"
+        ;;
+    *)
+        echo "Blackbox5 Commands:"
+        echo "  blackbox start          - Start Blackbox5"
+        echo "  blackbox stop           - Stop Blackbox5"
+        echo "  blackbox restart        - Restart Blackbox5"
+        echo "  blackbox status         - Check status"
+        echo "  blackbox agents         - List all agents"
+        echo "  blackbox chat <msg>     - Send a message"
+        echo ""
+        echo "Examples:"
+        echo "  blackbox start"
+        echo "  blackbox chat 'What is 2+2?'"
+        ;;
+esac

@@ -1,0 +1,36 @@
+id: "PLAN-004"
+name: "Fix Import Path Errors"
+slug: "fix-import-path-errors"
+status: "planned"
+priority: "critical"
+effort: "1-2 days"
+domain: "infrastructure"
+category: "bugfix"
+
+created: "2026-01-20"
+updated: "2026-01-20"
+
+validation_agent: "Agent 3"
+
+dependencies:
+  requires: []
+  blocks: []
+  blocked_by: []
+
+problem:
+  summary: "Import path errors throughout codebase"
+  impact: "Code cannot find modules, breaks execution"
+  error_type: "ImportError / ModuleNotFoundError"
+
+solution:
+  approach: "Find and fix all incorrect import paths"
+  phases: 1
+    - audit_and_fix: "1-2 days"
+
+success_criteria:
+  - all_imports_valid: true
+  - zero_import_errors: true
+
+confidence: "high"
+ready_to_execute: true
+assigned_to: null

@@ -1,0 +1,254 @@
+# Ralph Autonomous Agent Configuration
+# Location: blackbox5/ralph.p/CONFIG.yaml
+# Purpose: Runtime configuration for Ralph autonomous system
+
+---
+
+# System Information
+system:
+  name: "Ralph Autonomous Agent"
+  version: "1.0.0"
+  created: "2026-01-30"
+  host_machine: "MacBook-M1"  # Change to "MacMini-M4" when migrated
+
+# API Configuration
+api:
+  # Primary: GLM 4.7 (2,000 prompts / 5 hours)
+  glm:
+    command: "claude"
+    rate_limit: 2000
+    window_hours: 5
+    priority: primary
+    use_for:
+      - coding
+      - documentation
+      - research
+      - testing
+
+  # Secondary: Kimi 2.5 (500 prompts / 5 hours)
+  kimi:
+    command: "cso-kimi"
+    rate_limit: 500
+    window_hours: 5
+    priority: secondary
+    use_for:
+      - architecture
+      - complex_reasoning
+      - code_review
+      - quality_checks
+
+  # Rate limit tracking
+  tracking:
+    log_file: "LOGS/usage.yaml"
+    alert_threshold: 0.8  # Alert at 80% of limit
+
+# Projects Configuration
+projects:
+  - id: "ecommerce-client"
+    name: "E-Commerce Client Project"
+    path: "../ecommerce-client"  # Adjust to actual path
+    priority: high
+    branch: "dev"
+    status: active
+
+    tasks:
+      - id: "admin-section"
+        name: "Admin Section"
+        description: "Sort out admin pages and functionality"
+        status: pending
+
+      - id: "features"
+        name: "Feature Implementation"
+        description: "Build specific functionalities"
+        status: pending
+
+      - id: "documentation"
+        name: "Documentation"
+        description: "Improve documentation"
+        status: pending
+
+      - id: "architecture"
+        name: "Architecture Refactor"
+        description: "Small refactors if needed"
+        status: pending
+
+    supabase:
+      project_ref: ""  # Fill in actual ref
+      connected: false  # Will be verified by setup agent
+
+  - id: "siso-internal"
+    name: "SISO Internal App"
+    path: "."
+    priority: medium
+    branch: "dev"
+    status: active
+
+    tasks:
+      - id: "organization"
+        name: "Project Organization"
+        description: "Ensure everything is organized"
+        status: ongoing
+
+      - id: "ideas"
+        name: "Idea Generation"
+        description: "Generate and test new ideas"
+        status: ongoing
+
+      - id: "features"
+        name: "Feature Implementation"
+        description: "Implement needed features"
+        status: pending
+
+    supabase:
+      project_ref: "siso-internal"  # From existing config
+      connected: true
+
+# Autonomous Loop Settings
+autonomous:
+  # Timing
+  check_interval: 300        # 5 minutes between checks
+  max_session_duration: 14400  # 4 hours max per session
+  idle_timeout: 600          # 10 minutes idle before pausing
+
+  # Scheduling
+  schedule:
+    enabled: true
+    active_hours:
+      start: "08:00"
+      end: "22:00"
+    timezone: "Asia/Ho_Chi_Minh"  # Vietnam time
+
+  # Safety
+  safety:
+    require_confirmation:
+      - git_push
+      - database_migration
+      - branch_switch
+      - destructive_operation
+      - merge_request
+
+    auto_approve:
+      - file_read
+      - documentation_update
+      - test_run
+      - research
+      - code_analysis
+
+    forbidden_operations:
+      - git_push_to_main
+      - git_push_to_master
+      - database_drop
+      - force_push
+
+# Branch Protection
+branches:
+  allowed:
+    - dev
+    - develop
+    - feature/*
+    - bugfix/*
+    - ralph/*
+
+  forbidden:
+    - main
+    - master
+    - production
+    - release/*
+
+  required_base: "dev"  # All new branches must be from dev
+
+# Agent Modes
+modes:
+  setup:
+    enabled: true
+    frequency: "on_startup"
+    tasks:
+      - validate_structure
+      - check_branch
+      - verify_supabase
+      - review_state
+
+  feature_dev:
+    enabled: true
+    frequency: "on_demand"
+    max_concurrent: 2
+    tasks:
+      - read_prd
+      - implement_core
+      - write_tests
+      - update_state
+
+  idea_generation:
+    enabled: true
+    frequency: "scheduled"  # Daily
+    schedule: "0 9 * * *"   # 9 AM daily
+    tasks:
+      - read_documents
+      - identify_gaps
+      - generate_ideas
+      - create_prds
+
+  testing:
+    enabled: true
+    frequency: "after_feature"
+    tasks:
+      - run_tests
+      - verify_supabase
+      - document_results
+
+# Logging
+logging:
+  level: INFO
+  files:
+    session: "LOGS/sessions/{timestamp}.log"
+    error: "LOGS/errors/{date}.log"
+    performance: "LOGS/performance/{week}.yaml"
+
+  rotation:
+    max_size_mb: 10
+    max_files: 10
+    max_age_days: 30
+
+# State Management
+state:
+  current_session: "STATE/current-session.yaml"
+  task_queue: "STATE/task-queue.yaml"
+  completed: "STATE/completed.yaml"
+
+  # Sync with BlackBox 5 memory
+  bb5_sync:
+    enabled: true
+    read_from:
+      - "../5-project-memory/siso-internal/STATE.yaml"
+      - "../5-project-memory/siso-internal/ACTIVE.md"
+      - "../5-project-memory/siso-internal/FEATURE-BACKLOG.yaml"
+    write_to:
+      - "../5-project-memory/siso-internal/WORK-LOG.md"
+      - "../5-project-memory/siso-internal/STATE.yaml"
+
+# Notifications
+notifications:
+  enabled: true
+  on:
+    - task_complete
+    - error
+    - session_end
+    - daily_summary
+
+  # Local notifications (no external services)
+  method: "local"
+  log_file: "LOGS/notifications.yaml"
+
+# Performance
+performance:
+  track_metrics: true
+  metrics:
+    - tasks_completed
+    - api_calls_made
+    - errors_encountered
+    - time_per_task
+    - success_rate
+
+  optimization:
+    auto_compact: true
+    compact_threshold: 100  # Compact after 100 operations

@@ -1,0 +1,127 @@
+{
+  "assumptions_validated": [
+    {
+      "assumption": "Addressing: Should we add caching when only 11% of time is on data fetching?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-189354",
+      "timestamp": "2026-01-20T05:10:34.686855",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: Should we add caching when only 11% of time is on data fetching?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-189354",
+      "timestamp": "2026-01-20T05:10:34.686855",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: Should we add caching when only 11% of time is on data fetching?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-189354",
+      "timestamp": "2026-01-20T05:10:34.686855",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: What is the meaning of life?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-c74efa",
+      "timestamp": "2026-01-20T05:10:49.593364",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: What is the meaning of life?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-c74efa",
+      "timestamp": "2026-01-20T05:10:49.593364",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: What is the meaning of life?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-c74efa",
+      "timestamp": "2026-01-20T05:10:49.593364",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: Should we add caching when only 11% of time is spent on data fetching?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-db498a",
+      "timestamp": "2026-01-20T05:10:49.662883",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: Should we add caching when only 11% of time is spent on data fetching?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-db498a",
+      "timestamp": "2026-01-20T05:10:49.662883",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    },
+    {
+      "assumption": "Addressing: Should we add caching when only 11% of time is spent on data fetching?",
+      "validity": "uncertain",
+      "confidence": 0.3,
+      "source_session": "tl-2026-01-20-db498a",
+      "timestamp": "2026-01-20T05:10:49.662883",
+      "evidence_summary": {
+        "supporting": 0,
+        "contradicting": 0
+      }
+    }
+  ],
+  "fallacies_detected": [],
+  "decision_patterns": [
+    {
+      "pattern": "optimize performance?",
+      "typical_answer": "NO",
+      "reasoning": "NO - This action may not be necessary due to: Optimizing without baseline measurement. Alternatives: Measure first to establish baseline and identify actual bottleneck",
+      "source_session": "tl-2026-01-20-7f20bd",
+      "timestamp": "2026-01-20T05:10:49.597579",
+      "frequency": 1
+    },
+    {
+      "pattern": "add new layer?",
+      "typical_answer": "NO",
+      "reasoning": "NO - This action may not be necessary due to: Adding complexity without clear justification. Alternatives: Consider if direct implementation would be simpler",
+      "source_session": "tl-2026-01-20-0ab5bf",
+      "timestamp": "2026-01-20T05:10:49.675553",
+      "frequency": 1
+    }
+  ],
+  "metadata": {
+    "created": "2026-01-20T00:00:00Z",
+    "last_updated": "2026-01-20T05:10:49.692687",
+    "total_insights": 11
+  }
+}

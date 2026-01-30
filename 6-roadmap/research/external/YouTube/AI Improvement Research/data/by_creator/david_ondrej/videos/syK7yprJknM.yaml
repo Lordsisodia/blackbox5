@@ -1,0 +1,1039 @@
+video:
+  id: syK7yprJknM
+  url: https://youtube.com/watch?v=syK7yprJknM
+  title: OpenCode just killed all vibe coding apps (it’s insane)
+  description: 'Learn about the best AI Business models here - https://www.youtube.com/watch?v=Ta5g-OxjPO4
+
+
+    Wanna learn how to code with AI? Go here: https://www.skool.com/new-society
+
+
+    Follow me on Instagram - https://www.instagram.com/davidondrej1/
+
+    Follow me on Twitter - https://x.com/DavidOndrej1
+
+
+    Host your n8n agents on Hostinger: https://www.hostinger.com/david
+
+
+    Subscribe if you''re serious about AI.
+
+
+    Build anything with Open Code, just watch
+
+
+    timestamps:
+
+    00:00:00 - Introduction
+
+    00:00:33 - Setting up OpenCode
+
+    00:02:47 - Comparing OpenCode and Claud Code
+
+    00:04:47 - OpenCode''s Response to Claud Code Block
+
+    00:05:58 - Building a CRM Dashboard with OpenCode
+
+    00:09:48 - Understanding OpenCode
+
+    00:12:18 - Building a Web-based Drawing and Design Editor
+
+    00:21:05 - OpenCode''s CLI Experience
+
+    00:22:25 - Building an Encrypted and Private File Manager
+
+    00:34:31 - Understanding the Encryption Process
+
+    00:38:23 - Exploring OpenCode''s Versatility
+
+    00:41:09 - Starting a New Build
+
+    00:49:01 - Understanding OpenCode''s Modes: Plan and Build'
+  published_at: '20260113'
+  duration: 3637
+  view_count: 120822
+  like_count: 3723
+  thumbnail: https://i.ytimg.com/vi_webp/syK7yprJknM/maxresdefault.webp
+creator:
+  name: David Ondrej
+  handle: '@DavidOndrej'
+  tier: 1
+  focus_areas:
+  - AI agents
+  - AI systems
+  - Deep technical
+source:
+  discovered_via: vip_rss
+  discovered_at: '2026-01-30T07:43:26.914617'
+  processed_at: '2026-01-30T07:43:26.914625'
+transcript:
+  full_text: My name is David Andre and here is how to build anything with open code.
+    Now, this might actually be the cloth code killer because open code is currently
+    the fastest growing coding agent in the world and as you can see on this chart,
+    it just became more popular than cloth code. It's also completely free, works
+    with over 70 different AI models, and you can choose any LLM provider you want.
+    So, in this video, I'll show you how to set up Open Code, how it compares to Cloth
+    Code, and how you can build anything with it. So, if you want to be at the cutting
+    edge of AI coding, watch until the end. Now, as you can see, Open Code has been
+    blowing up recently. In the last 30 days, it went from popular to super popular.
+    So, let me show you how to install it. First off, go to opencode.ai, which is
+    their main website. Now, you have multiple different ways to install it through
+    a terminal, but the curl command is the most general one. So, just click on it
+    and copy open terminal. Boom. And all you have to do is just paste in the curl
+    command, hit enter. This is going to install the latest version of Open Code.
+    Now, as you can see, I had 1.1.10, and now it updated to 1.16. Now, it's very
+    important that you have the latest version because this comes with some pretty
+    big updates, but more on that later. Now, after install finishes, the next terminal
+    command we need to run is open code of login. This will let us select which provider
+    we want to use. And just to show you how many there are, let me go through them.
+    Yeah, you can see that open code really does offer so many different ways to use
+    it. Which means that if you have a subscription with one of these or if you have
+    API key from any of these, you can use open code at no extra cost. This is completely
+    open source. It's free software which makes it much more appealing than close
+    code. Now, because I want to show you a lot of different models, I'm going to
+    use open router and then it asks for API key. So, go to open router.ai, create
+    an account, takes 20 seconds. Go to top right, click on keys, then click on create
+    API key. I'm going to name it subscribe. If you're watching this and if you want
+    to see more AI tutorials, make sure to subscribe. Takes 20 seconds and it helps
+    out a lot. Okay, let's click on create and let's copy this API key. Let's go back
+    to the terminal and paste it in. Boom. Enter. And just like that, the setup is
+    complete. It's literally that simple. Now you can use open code straight from
+    the terminal but it always helps to have an IDE to kind of see what it's building
+    right so I'm going to open an empty folder right here boom project and I'm using
+    cursor but you can use VS code win serve anti-gravity doesn't really matter let
+    me open the terminal right here and I'm going to type in open code and just like
+    that boom open code is launched cool the first thing is setting a model you can
+    do that by typing /models now remember we're still in the terminal so this is
+    a CLI app but look at the UI very intuitive very nice so since we're using open
+    router we can use any model on there which is basically every model But right
+    now, Clo Opus 4.5 is the best. So, let's use that. And the first thing I want
+    to show you is oneshoting a 3D game. So, I'm going to paste in a prompt. Create
+    a 3D endless runner game using Vanilla TypeScript and 3JS. Then it explains the
+    structure of the folders, features, player controls, and glowing cube that dodges
+    incoming obstacles on a procedurally generated neon create road. So, this is a
+    full 3D game, okay? This is not a simple, you know, single file HTML website.
+    This is a legit project. Now, let's see how open code handles this. First, it
+    creates a to-do list, right? list of tasks that it's going to do. So, it doesn't
+    jump straight into writing code. It first thinks and creates a list of to-dos
+    on how to best accomplish this goal. Then, it created a directory. So, it run
+    command. And look at the UI, guys. There's some people think that open code is
+    even more polished than close code. But man, look at this. Very clean, very separated
+    colors when it makes sense and also fast. On top of that, you see the exact amount
+    of tokens in the top right as well as the percentage of the context window and
+    the current cost. Let's scroll down. As you can see, it marks the to-dos as complete
+    one by one when it completes them. and highlighting anything instantly copies
+    it to your clipboard. These little details really make or break these tools. Open
+    code is very polished. It's very clean and unlike close code is fully open source.
+    So you don't have to be afraid of them collecting your data or not knowing what's
+    the inner workings of it. You can literally go to the open code GitHub and go
+    through all the files yourself. Check out what's inside forkit. Build your own
+    version of open code. Whatever you want to do with it. All right, let's see how
+    the game is going. still building and you can see even even the bottom left very
+    nice UI like the loader animation to show you that the agent is still working.
+    Okay, we're on the last to-do now. All files have been created. Let me verify
+    the project compiles correctly. It does npm install. And by the way, I'm in build
+    mode. I didn't have to approve a single thing. You can switch between build and
+    plan by simply pressing tab. And if you're in build, the agent is very autonomous,
+    very powerful, and requires way less input than cloud code. So let's see. Test
+    server. Okay, server start. And boom. All right, it's done. Took 3 minutes. Single
+    prompt. Let's see if it works. npm install and npm rundef. This is the command.
+    So, let's highlight this. And again, it autocopies to the clipboard. So, I'm going
+    to do Ctrl +V to paste this and hit enter. There we go. Here we have our local
+    host URL. And here we are. No errors so far. Okay, incoming projectiles controls
+    work really well, guys. This is a single oneshot prompt and we have a 3D game.
+    What if we crash? Let's see. Okay, crashing doesn't Oh, it works. Okay, beautiful.
+    Game over. Restart. Not bad. And again, single prompt. So, we could work on this.
+    We could add different camera angles, different obstacles, multiple levels. Yeah,
+    not bad at all. But if you think this 3D game is crazy, just wait until you see
+    what's coming. Now, before I show you more open code features, let's talk about
+    the recent drama which caused Open Code to get worse, but also get better because
+    it blew up. Let me explain. Few days ago, Enthropic, the company behind Cloed
+    third party apps, including Open Code, from using the cloth credentials. So before
+    you could use your claw subscription inside of open code which was stealing away
+    from users from cloud code. Now this is a very aggressive move from entropic and
+    it also tells you how valuable these models are to other companies. Simply put
+    everyone wants to use enthropic models right now. Even XAI the you know creators
+    of Grog were using cloth opus 4.5 to help them build software but Enthropic also
+    shut that down to prevent competing AI labs from using cloth to build their own
+    software and their own models. However, this move by Enthropic quickly started
+    to backfire. Then the team behind Open Code pivoted quickly and they partnered
+    with OpenAI and GitHub so that people can use these subscriptions inside of Open
+    Code. So if you're paying for CIGBD Pro or CIGD Plus, you can use that subscription
+    in Open Code for free to use models inside of Open Code, which again this is a
+    huge danger to the popularity of cloth code. And this goes to show just how ruthless
+    and competitive the AI field is getting. Now, for the second build I'm going to
+    show you, we're going to be using Gemini 3 Pro and we're going to build a CRM
+    dashboard for email campaigns. And again, I'm going to try to oneshot it with
+    open code. So, open the terminal again. Type in open code. And first off, let
+    me change the model to Gemini 3.0 Pro. There we go. I'm going to paste in my prompt.
+    Build a CRM dashboard for email campaigns using React, Vite, and Tailwind. So,
+    again, we describe the structure of the codebase, then the features. So, this
+    is not a single feature. This is a full CRM that we're going to try to oneshot
+    with Open Code. And again, I want to stress this. This is a single pro, right?
+    In the previous one, we didn't run into any errors, no issues, one prompt, and
+    it was a full working 3D game. Now, we're trying more of a business application,
+    a full CRM dashboard. So, let's see if Open Code can handle that. And of course,
+    since Open Code is a CLI tool, you can just open another one. Open code. Boom.
+    And we can have two Open Code agents running at the same time. And just to compare
+    the UI to cloud code, let me load up cloth. Boom. So, again, even that one confirmation
+    step where you have to give it access to this folder, it's annoying, right? So
+    cloth cloth code is very optimal UI, very clean. It pioneered a lot of this. It
+    invented a lot of this. But open code I feel like it's it's more beginner friendly.
+    It's cleaner and in some ways it's more polished and more optimized and gives
+    you more info. For example, again you can see the tokens, the percentage of the
+    context window and the cost in clo that's not possible. Even this is a custom
+    status line that I had to build myself to see the model and to see the git branch
+    and the time. I had to create it myself. It doesn't come by default in cloth code.
+    But all of these things that I'm showing you in Open Code come by default. All
+    right, again 3 minutes almost the same time as last time and Gemini 3 Pro is finished.
+    So let's see if Open Code managed to oneshot this application. So again, we get
+    clear instructions on how to run. So let me copy this. And again, highlighting
+    only copies it like such a quality of life. Simple highlighting automatically
+    copies that text, man. Amazing. Boom. Let's open our app. Here's our CRM. Okay,
+    no errors. First try. Let's see if the contact page works. Add contact. Testing
+    agent zero. Create contact. Okay, contact was added. Let's see if we can delete
+    Alice. We can. Nice. Campaigns. Let's see the campaigns. New campaign. Man, all
+    the features work. Let's see the analytics. But not bad. Personally, the UI feels
+    a bit vibe coded. So again, we could use Gemini say like go over the entire front
+    end and make the UI more unique. Notice the details. Open code shows you the model
+    and it shows you the provider. Stuff like this is just quality of life. It saves
+    seconds when building. But if you're serious and if you're building a lot of software
+    with multiple agents running, you want to know which Open Code instance is using
+    which model, which provider, stuff like that. And you can see the thinking blocks
+    are a bit less uh visible, less opaque, which makes it very clear of what is internal
+    thinking of the model and what are the changes that it makes. And by the way,
+    this is the default theme. If you want to change the theme, just type in slash
+    theme and open code has very wide selection of different themes that you can choose
+    from. For example, the matrix one is going to make you feel like you're in the
+    matrix. So you can customize this a lot. Cloth code has like a couple of themes,
+    but everybody uses default one. Open code is built from the people at Neoim. So
+    they know how to use terminal. They know how to use CLI tools and how to build
+    them and how to make it as polished as possible and as customizable as possible.
+    All right, let's see how these changes look so far. Man, much better. This is
+    way more unique, right? This doesn't look like a vibe coded default, you know,
+    blue buttons. This has some personality. It has that CLI feel. Very nice. So,
+    yeah, Jman i3 is really good at front end. But again, this is only the second
+    build. In this video, I'm going to show you five different apps that Open Code
+    can build. And so far, it's been able to oneshot the first one and the second
+    one. So let's see if open code lives up to the hype and if it's actually better
+    than cloud code, cursor and codex. Now let me clarify what open code actually
+    is because people are getting confused since there's new AI tools coming out every
+    single week. And especially if you're new to AI, you're not sure which tool does
+    what and or when you should use each of these tools. So Open Code is an AI coding
+    agent. It runs in your terminal aka CLI command line interface. But they also
+    have a desktop app which is more beginner friendly. And since it's a powerful
+    coding agent, it can execute multi-step tasks across your codebase. But it's not
+    a full IDE like cursor. It's not a full ID like VS Code or anti-gravity or Windsurf.
+    It is a coding agent. So once again, think of it as cloud code that is open source
+    with more AI models and with no restriction on what provider you're using. But
+    let's go deeper. Let's actually compare it to clot code which probably is the
+    most popular coding agent of all time. And I feel like I can speak confidently
+    on this issue because personally I have well over 500 hours inside of Cloud Code.
+    I made dozens videos on it. I've been using it since day one. So if there's somebody
+    who knows Cloud Code, it's me. So let me show you how Open Code compares. Now
+    first off, both of them run in the terminal. Both of them are coding agents that
+    are in the CLI. But that's where the similarities end. Open code unlike OpenAI
+    is actually open source with a MIT license. Cloth code is closed source. There
+    are some things that Enthropics has released, but closed code is closed, open
+    code is open. This is huge if you care about privacy and security. Open code also
+    supports over 70 different AI models. Anything from OpenAI, Gemini, Enthropic,
+    XAI, Deep Seek, Kimmy, GLM, so many different models, closed models, open models,
+    everything basically. Well, closed code only supports cloud models, right? Because
+    it's made by Enthropic. Also, there's a big difference between open code and closed
+    code. With Open Code, you can use GitHub Copilot as the back end, as the service,
+    right? And that only costs $10 a month and you get 500 premium requests. This
+    means it's very cost- effective compared to Cloth Code. Close code, while it has
+    some extra features, is way more expensive, right? Most people are running either
+    the $100 a month or the $200 a month plan in Cloud Code, which simply isn't affordable
+    for most people. And these extra features, they're coming fast. The Open Code
+    team is developing quickly because of the fact that it's open source. the entire
+    open source community can contribute and improve the project much faster which
+    creates a very interesting dynamic of like enthropic against the whole world which
+    is a tough battle for cloud code to win. So to summarize open code gives you all
+    of the main cloud core features for a fraction of the cost plus it's open source.
+    Now let's go to the third build idea which again I'm going to try to oneshot with
+    open code but this time we're going to use GPD 5.2 to Codex and I'm trying to
+    show you that really you can use any model you want instead of open code which
+    is one of the main selling points. This time we're going to do something very
+    different. We're going to do a TLR/PF Photoshop clone for the web. So this is
+    like image editing uh you know mirror dashboard drawing board. You'll see I'm
+    going to change the model to GBT 5.2.2. Okay, seems like GBD 5.2 CEX is not available
+    on Open Router. So let's do /exit to exit the open code UI and we're going to
+    try to login with my CHBD subscription. So again type in open code of login. We're
+    going to select open AI as the login method and you have two options. You can
+    either use API key or you can use your CHD subscription which a lot of people
+    are paying $20 a month for CHD plus or $200 a month for CHVD Pro which again makes
+    open code completely free for you. So let's hit enter. It's going to redirect
+    us to this website. Let's open that up. Okay. Authenticator. As always, make sure
+    to use TFA, guys. Don't be sloppy. So, I have two options. Either use my workspace
+    or personal account. Let's use personal account because I have the $200 a month
+    JGBT Pro subscription. So, let's use the best possible subscription. Now, we can
+    return to open code. And we're done, right? Let's do clear open code. And we should
+    be logged in through OpenAI. Still says open router. That's weird. Let's do models.
+    I think that's a bug. But now we can use GBD 5.2 Codex. There we go. You can see
+    that we're in OpenAI. I think it remembers the Open Router. Oh, yeah. Because
+    it's selected from before. There we go. Now it shows OpenAI as the provider. Very
+    nice. So, we're using GBD5. Codex, which is the best coding model from OpenAI
+    right now. And I'm going to paste in the prompt. Boom. Build a web-based drawing
+    and design editor using React V CSS and Convjs for canvas rendering. Again, structure
+    description of features. And this is how your prompt should be if you want to
+    oneshot apps, right? So this prompt, it's not short, but it's not super long either.
+    It's like medium length, single paragraph with clear description of the text tag,
+    of the build idea and the features. So if you want to build as fast as possible
+    and if you want these coding agents to actually oneshot your apps without running
+    into endless errors, feel free to pause the video and make sure to structure your
+    prompts like this. All right, so first again creates a list of to-dos. Then it
+    checks the current directory, sees that it's empty, creates the necessary subdirectories.
+    There we go. Writes the first file package.json. JSON then it writes the V config
+    moving very fast. GB 5.2 CEX is very fast. And since I already have the GBD Pro
+    subscription, this is running for free for me. There's no extra cost, right? So
+    if you're already paying 20 bucks a month for GGBT or $200 a month, start using
+    open code. You don't have to pay for cloud code. You can just use your subscription
+    and leverage it in more ways because let's be honest, most of us are not hitting
+    the limits. You know, this is not 2023 when GBD4 limits were super small and we
+    were hitting it every two hours. It's the big 2026 like limits are high. So we
+    want to make sure we squeeze the most out of them and we run multiple coding agents
+    in parallel leveraging our existing subscriptions instead of paying lots of money
+    to enthropic which u yeah often times is not going to the best uh pockets. Okay
+    so you can see that GBD5.2 codex is moving very fast much faster than Opus and
+    Gemini 3. Let's see the total time if it's going to be around 3 minutes as well
+    or if it's going to be faster. And if you don't like something again, you can
+    fork it. You can build your own version or you can do a PR to the official GitHub
+    repository suggesting a certain change. And if your idea is good, the team will
+    likely accept it. And notice in the top right, $0 spent because I'm using my existing
+    subscription. Man, amazing. Another benefit of using open code overload code is
+    that you have single interface for all your models, right? So if you wanted to
+    use the native CLI tools like Gemini CLI, cloud code, codec cli, all of these
+    look completely different. All of these have different slash commands, you know,
+    different tools. Open code, you just get used to one tool. You pick your theme,
+    you do slash init. Okay, that's another thing. If you start in a codebase that
+    is existing, start with slashinit. This will initialize the agents.mmd file. So
+    it will analyze every single file and learn your codebase and put everything into
+    agents.mmd. If you don't know what agents is, this is a convention that is like
+    a readme file for agents. I think it's developed by OpenAI originally, but I think
+    they gifted it to the Linux Foundation if I'm not mistaken. Yeah, it's under the
+    Linux Foundation and it's adopted by a lot of different tools including Open Code,
+    but of course cloud code doesn't adopt agents.md. So all of these tools, look
+    at them. Jules, Goose, Ader, Windsor, Warp, AMP, Root Code, GitHub, Copilot, Codeex,
+    Kilo Code, they use the agents.mmd file. What that means is that inside of your
+    codebase, actually, let me show you. Let me just show you in practice, right?
+    Let's launch a second open code agent. Boom. Let me put it up. And I'm going to
+    do slashinit. Enter. And it has this pre-prepared prompt, which is very nice.
+    Please analyze this codebase and create an agent.mmd file containing number one,
+    build lint test commands, especially for running a single test. Number two, code
+    style guidelines including imports, formatting, types, naming conventions, error
+    handling, etc. This prompt is really good guys. Take note. The file you create
+    will be given to agentic coding agents such as yourself that operate in this repository.
+    Make it about 150 lines long. If there are any cursor rules in that cursor rules
+    or cursor rules or copilot rules, make sure to include them. If there's already
+    an agent.mmd, improve it if it's located in root. Very nice prompt, concise. Great
+    job to the open code team for writing this. And as you can see, open code begins
+    analyzing the entire codebase. Listed out directory. check out all the files and
+    starts reading them and learning about this project and then it will create this
+    agents.md file which more and more coding agents use. So if you don't have an
+    agent.mmd file, what are you doing? This is a super fast way of improving the
+    performance of nearly every coding agent out there on your codebase. This is probably
+    the difference why like a lot of beginners don't get the power out of AI while
+    people who know how to prompt it, know how to use it do get the power because
+    they have stuff like ages.mmd file. Now, Codex is still going, not because it's
+    slower, but because it's probably overthinking like look how many changes it's
+    doing, right? It's writing so many files, so many things. And this is very uh
+    this is very iconic of GPD 5.2 CX. It's a model that likes to think a lot. So,
+    this is both good and bad. If you're fixing something that is a problematic bug
+    that you've been battling for hours or days, GBD5.2 CEX will put in the work.
+    it will reason for 10 15 20 minutes which again opens or gemini do not do but
+    if you're trying to build something quickly like I'm right now it's can be a bit
+    annoying because GPD codex models have a tendency to overthink it's almost done
+    and you can see how the second open code agent is running in parallel so both
+    are running at the same time and this one is building the agents MD file and it's
+    editing it one by one it's describing the history and again this means that any
+    agent in the future you run this is loaded as the system code and it will instantly
+    make that agent more powerful more aware where it will give it more context about
+    this codebase which is essential. Context is the difference between bad performance
+    and good performance when it comes to AI agents. So this is done 2 minutes 48
+    to create the agents.md file. Pretty slow I would say but look at this very nice
+    prompt. Very very clean formatting. Wow 145 lines. So the full app took almost
+    7 minutes. So longer than Opus and Gemini but let's see maybe it's impressive.
+    Maybe it's worth it. Let's jump in install again. And we need to do npm rundev.
+    npm rundev. Boom. Go to local host. And here we are. So let's uh let's see what's
+    happening. Can we like take a screenshot and paste this in? Let me take a screenshot
+    here. Not sure. Okay, let's do pencil. Pencil works. Let's change the color. Maybe
+    it works. Very nice. Rectangles. Rectangles work. And I can move around. Okay.
+    I can zoom in and zoom out. Let's do ellipse. Ellipse works. Opacity. Let's do
+    lines. See how good lines are. Okay. Lines work as well. Let's do text. Let me
+    change this. Not sure if we can change the text. Export as PNG. Let's export this
+    as PNG. Download this to the same folder. Nice. We can actually export this as
+    PNG. Not bad. So, obviously, this is not as advanced as Photoshop, but again,
+    one shot, no editors, and it's a simplified version of TLJ. And we can see the
+    layers right here. And we can like log, unlock, up and down, do a lot of different
+    changes that you could do in something like Photoshop. So, this is interesting
+    because uh TL Draw doesn't have these layers. So, it already has one more feature
+    that the draw doesn't have. And again, it's not as polished, but again, it's one-shoted,
+    no errors, super impressive. Open code free for free so far. There's two more
+    to go. Let's see if it can keep up 100% oneshot rate with zero errors. Now, let's
+    talk about what makes open code really appealing. And a big part of that is the
+    CLI experience. So, the terminal UI is generally impressive. This is what it looks
+    like in the default theme. And again, they have like 20 30 different themes. The
+    CLI includes automatic prompt summarization, to-do lists, desk notifications.
+    It's really, really good. Maybe even better than cloth code, honestly. And of
+    course, just like in cursor, just like in cloth code, there's plan mode and there's
+    build mode. So, you can switch with tab. You don't need to do shift tab, just
+    tab to let the agents try first. Really good tip for VIP coding. And the reason
+    why the CLI experience is so good is because it's by past Neoim team, right? So
+    these guys know how to code. They know what the terminal, how to use the terminal,
+    what it should look like, what a good interface for console should look like and
+    it tells. Another benefit of open code is that it supports agents.mmd. This is
+    a convention that was started by OpenAI, but clot code doesn't. Right? So I already
+    talked about this, but cloth code still doesn't support agents.md. Open code does.
+    If you wanted to have global, it needs to be in the root of your computer. If
+    you wanted to have per project like I showed you earlier, it needs to be hgn.
+    MD and just do slashinit in the project and it will create it by itself. But make
+    sure to do the slashinit. Do not forget that. If you're starting from a scratch,
+    it's not as important, but if you were going to use open code on your existing
+    codebase, definitely do so. So now let's get to the fourth build idea, which I'm
+    going to use GLM 4.7, which might be the best coding model that's open source
+    right now. And we're going to build an encrypted and private file manager software
+    which is something that I actually need for myself because u as the world is becoming
+    more centralized and governments and companies want more of your data. We should
+    be very careful what we upload online because basically anything can be used against
+    you since every country has like tens hundreds of thousands of laws. Nobody knows
+    what they are. Having your data encrypted and private is a really good idea. So
+    we're going to build this. We need to type in GLM4.7. There we go. Through open
+    router. And as you can see, it remembers the sessions, right? So it remembers
+    the connection to open router and it remembers the authentication to open AAI
+    chd subscription and you don't have to like reoff every time. It's very seamless
+    to switch, very clean. Yeah, very convenient. So let me paste in the prompt for
+    this one. And actually, let's start with plan mode. Plan mode sometimes asks you
+    questions which is very helpful to get more context. A lot of you are making the
+    mistake of of not giving the AI enough context. And that's why you don't have
+    the same results as me or other people who are building super fast with AI and
+    who can actually build production ready apps that grow into real serious startups
+    is because we know how to provide context. Right? So as you can see, boom, it
+    asked me six questions. So here are my answers. Boom. I'm going to do Ctrl J to
+    go new line. Value location should value keep it simple. Default to out vault.
+    Number two, file naming. Keep original names remain until locked. Number four,
+    override behavior. Yes. Number five, recursive direction directory support. Should
+    add support directories. Let's do single files for now. Number six, backup strategy.
+    Not needed for now. Let's keep this a quick and dirty prototype. I really like
+    that word. much better than MVP. Now, get to work and make this happen and build
+    this app like a 10x engineer would. Boom. Press tab to switch to build mode and
+    enter. And let's see how good GLM 4.7 is. On some benchmarks, it's similar to
+    Sonet 4.5, which is the second best model from Entropic. Uh, probably won't be
+    good as Opus, but let's see. Well, well, well. So, here we are. Uh, I quickly
+    went to the gym and I'm back. But we seem to be stuck. So, I'm going to escape.
+    This is how you interrupt, by the way. You need to press escape twice, which is
+    also better than close code. In closed code, you need to do it once and sometimes
+    you hit it by accident, which is annoying, right? So, I say, uh, what is the state?
+    What happened? Now, I'm not sure if it actually ran into errors that it couldn't
+    solve or if it's because I left the computer and went to the gym and, you know,
+    it went to sleep. So I'm not going to quite dismiss it saying that it failed one
+    shot because it might not be fair. The user is asking me what's the state. Let's
+    see persistence issue. So it's trying something. Maybe it's not the best idea
+    to use the least powerful model out of these because like Opus 4.5, GPT 5.2 CEX
+    and Gemini 3 Pro are all better than GLM 4.7. But again, GLM 4.7 is fully open
+    source, more like open weights, right? the other three models are not. So yeah,
+    maybe it's maybe I should have given the hardest build idea to the best model.
+    But let's see if GLM4.7 fixes this, then it's going to be real impressive. Not
+    only on the model, but on open code as a coding agent, just giving it all the
+    tools necessary and the prompting and the scaffolding to let the models cook.
+    People don't realize the value of a good coding agent isn't just the model because
+    you can have GLM 4.7 and you can just run it, you know, by the direct API call
+    and it's going to work fine. But if you use it inside of open code, it's going
+    to be probably a lot better because open code gives it the tools, the prompts,
+    the environment to let it do its thing and it's goes in loops until it figures
+    that out. So yeah the it remains to be seen what is the value of AI agents uh
+    like against each other you know whether cloud core or or open code in a year
+    will be much different or whether they'll be basically same because oh permission
+    required I'm not running that command I am not running that command that is very
+    risky I'm going to reject that and actually I'm going to rerun the idea uh in
+    a new open code. So there is two feces I can say model. I'm going to do opus and
+    it remembers the recent models. Wow, this is amazing. This is such a quality of
+    life. If you use wind surf, oh my god, hopefully they fixed it. I used wind surf
+    a few months ago. You had to retype the model from scratch. It's so bad. All right,
+    so I'm going to give it this. I will say first analyze the state of the project
+    then finish it like a 10x engineer would because we already have something you
+    know we have SRC we have virtual environment but yeah the speed of software development
+    is uh decreasing so like the the gaps are decreasing the speed is increasing and
+    within 12 months it'll be like you know one prompt literally seconds to implement
+    whole features so if cloud code implements something that people Open code is
+    going to have it the next day or within a few days at most. Same thing vi vice
+    versa. But there are some things you cannot change such as the privacy first approach,
+    right? I mean this is why people love agent zero. It's locally runnable. It's
+    open source. It's free. It's privacy first. It's security first. These things
+    you cannot change, right? Enthropic is always going to be closed source. Enthropic
+    is always going to train on your data. Enthropic is always going to do the best
+    interest for the Silicon Valley crowd. Open code is open source, right? It's in
+    the name. I mean, okay, it's in the name. That's not the best argument because
+    OpenAI used to be open source and it's also in the name, but hopefully open code
+    stays open source forever. But my point is that like the features and the speed
+    of change can change, but the underlying print principles will not change. Closed
+    code will likely always be closed source and will always collect your data and
+    train on your data. So I I think these things will become more valuable in the
+    future. The the underlying foundations that cannot be changed. We have some questions.
+    Okay. And this is this is different rather than like Yeah, I like this. So before
+    it asks me questions that I have to manually respond to, but now this is like
+    the way Claw does it, right? Where you select the ones that seems good. Okay,
+    keep it. And then we do confirm. Beautiful. Yeah, I really like this way of input.
+    Rather than like having to type it, just multi select. Okay, so now we need to
+    give it the go ahead. get to work and make it happen. Now, one thing that I will
+    say about clot code, it's really good, is the prediction. They added it recently
+    of your next prompt. So, see, look at this. The first thing cloth asks you is
+    if you want to send more data to Enthropic. You're already sending them data and
+    they're like, "Do you want us to train on your prompts?" No, I want you to train
+    on my prompts. [ __ ] I'm paying $200 a month, stupid. And you but anyways do
+    you see this? All I have to do is tap and it's like predicting my prompt. Uh I
+    don't know why it's not working. Try write a test for file path. Hey okay let
+    me send something but this is a really good feature inside of cloud code. I say
+    yes there you go. You can see it predicted my prompt. All I have to do is press
+    tab and it writes it there. This is a very useful feature that I would love to
+    see in open code or in other tools because a lot of the time it's not correct
+    every time but like I say 60 to 70% of the time it actually predicts the next
+    thing you want to do and again saves you 10 20 30 seconds having to type the prompt
+    which compounds quickly given how good and how fast the AI models are. So here
+    we are in open code. It's still running into some errors but we're using a better
+    mold now. So let's see if it does it. We can probably uh like this is a fail like
+    I'm not running this that vault. That's crazy. Um I'm yeah I don't know what's
+    in this folder. I don't know if it's a new folder here. It's not in this project
+    directory. This is a global on my MacBook. That would be very risky to run a remove
+    command. And this is a recursive deletion. Uh that's yeah that's bad. Don't just
+    auto accept commands from AI agents. Okay. And this is another benefit of agent
+    zero by the way. It runs in a docker container. So it wouldn't [ __ ] you up like
+    this. Okay, so Opus is suggesting the same, but I really don't like that. Um,
+    uh, these RM commands are super risky. How can I be sure this is safe to run?
+    Is the vault folder used for anything else in our MacBook? Pink harder. Answer
+    in short. Use terminal. You use save terminal commands to triple check answer
+    in short. I'm not doing this. Can I open that vault in my MacBook uh finder? I
+    really don't like these recursive deletion commands. Oh [ __ ] What the [ __ ]
+    I didn't know open code could do that. It can open your finder like that. Wow,
+    that is pretty good. I mean, it's just a terminal command, so maybe I'm just u
+    not educated on terminal commands, but I didn't know it could like do that. Well,
+    this saves a lot of time. Okay, sometimes in cursor you have to like click and
+    like show in u reveal in finder and stuff like that. Well, damn, this is good.
+    This is good. I'm impressed by open code that vault folder. Where is it? In David.
+    Okay, so it's hidden folder. Open it again in Finder. And I want to see that again.
+    This is fast influence on Opus, by the way. Did they improve it? Metadata. Okay.
+    All of this was created now. Looks safe to delete. Try again. Try it again. There
+    we go. That vault and echo cleaned up. Okay. Allow once. Yes, we don't want to
+    allow remove commands always. There we go. End to end test code secret test content
+    34 creating new encrypted vault. So opus is doing better than GLM as expected.
+    All right. I'm not sure how we're going to test this one because it's there's
+    a issue consistency problem is that save will generates a new salt infernet but
+    the file was encrypted old format. Okay. So it's fixing some inconsistencies.
+    The type checker is catching these errors. See, I have no clue how the technical
+    implementation of this is. So, what I'm going to do is I'm going to use this one.
+    Boom. Clear. Open code. And I'm going to say explain the technical side of this
+    project. How does it actually work? Be concise. I'm going to switch to plan mode
+    so it analyzes more files and reads it. And by the way, this is how I actually
+    build. I have one agent that's the builder, the coding agent, and I have one that's
+    like more of an adviser, more of a consultant that explains things. And I really
+    try to upskill myself. A lot of you guys are just using AI to build [ __ ] for
+    you, and you're not improving yourself. That's a huge loss. The best thing is,
+    as the AI is exponentially improving, is to also exponentially improve your skill
+    set. Change password. Verify file decing the RM command. All commands work. Okay,
+    nice. So, it updates the to-dos. very nice and seems to be good. Even though it
+    ran into some errors while building it, it managed to self fix them. This is really
+    nice about open code is like it doesn't give up too early. The hardness is really
+    good. All right, so let's see. Okay, what is this? Encrypted file CLI tool let
+    you securely store retrieve files using as 256 encryption. Okay. Architecture
+    user CLI vault class crypto vault encrypted files worker modules. How encryption
+    works. All right. This is beyond the scope of this video, but all right. How do
+    I test it? How can I actually test this myself with some files? Give me step by
+    step. Answer in short. I'm going to give it some bigger file. I don't know how
+    long it takes to encrypt. Maybe one of these video files. Okay. Like half a gigabyte.
+    Check the files. I added 500 MB MP4. Is this good for test testing or will this
+    take forever? I don't know if the encryption or decryption is slow. So, we'll
+    see. Yes. Give me step by step how to try it with this file. Answer in short.
+    I don't know why it's scared. I mean, worst case scenario, it's going to take
+    30 seconds like it said. Doors. Okay. And again, I'm going to show you the beauty
+    of just highlighting Never mind. I'm just going to highlight the text and it's
+    autocopied. Boom. Terminal. Paste it in. We have the VNV active. That's good.
+    Now we need to Is it no vault? Okay. We need to do password. Okay. Confirm. Nice.
+    Good design. Set value location.vault. Vault. Beautiful. I like that. Now we need
+    to unlock it. Vault. Unlock. Password. I mistyped it. Uh hopefully it doesn't
+    crash. Vault unlock. Okay, there we go. It's unlocked. What now? need to add this
+    old add file. It has spaces in the name. That's not good. Okay, so this is the
+    part that's going to take some time. It's in encrypting this file. We should have
+    probably some um feedback in the CLI that it's showing that it works or like the
+    progress of the encryption. Okay, that's wasn't that bad. It was like 20 seconds.
+    Wasn't bad at all. So, let's do vault list. I need to probably decrypt. Doesn't
+    need to decrypt the list of files. Probably. There we go. Original path. So, it's
+    encrypted in the vault. This is nice. This is nice. Recover it to /temp. We don't
+    need to do these. Oh, do these steps. It's fine. just tell me how to clear everything
+    up once I'm done testing so that my MacBook isn't full of test files and uh that
+    vault uh file that vault stuff whatever I'm going to be general I don't want to
+    finish this like halfway okay we're going to remove the vault okay this they need
+    to fix this one thing I don't like about over code is the scrolling. If I'm on
+    my touchpad, it's super sensitive. Like look at this. I'm scrolling very slowly
+    and it's like going crazy. So I really need to use a mouse with the scroll wheel.
+    I have no clue. In CL code, this is not an issue. CL code has smooth scrolling.
+    So they need to fix that. Also, sometimes you highlight stuff and it goes crazy
+    up and down. So yeah, I don't know. Let's delete this. And that's it. Cool. So
+    this was the CLI tool. Most complex one so far. Took the most amount of time.
+    But uh Open Code managed to do it. Now, one thing you should understand is that
+    Open Code works everywhere. It is a native desktop app, not just the CLI. I was
+    showing you the CLI, you know, the tool for the terminal, but it has a clean desktop
+    app. I'm going to pop up a screenshot right here. It also has an ID extension.
+    So, if we go back into cursor, which of course is for of VS Code. If we type in
+    open code, there we go. You can see it has the extension. So if you prefer using
+    VS Code cursor and you just want to have the simplest way to install open code,
+    maybe the extension is the way to start. And uh I like the terminal. It's the
+    most developer friendly. But this the desktop app is definitely the most beginner
+    friendly. So if you want to use open code, but you're scared of terminal, just
+    install the desktop app. It's uh very very nice. And it's almost an ID. It's it's
+    not a full ID, but it's getting there. It has a built-in terminal. You can change
+    the project folder. You can change Git branches. Pretty good. As I said, the desktop
+    app is surprisingly nice. It doesn't require you to use terminal or know anything
+    about CLIs. That makes it great for beginners. But the CLI, if you are not afraid
+    of the terminal, is one of the nicest designs and one of the best UIs out there.
+    It might even be better UI than cloud code. There's a strong argument for that.
+    Now, you should also know about open code Zen. So, Zen is the gateway service
+    from Open Code. Now, again, it's optional. Open code is completely free. You can
+    use your JGB subscription. You can use open router. But if you don't have any
+    current subscriptions and you want to have something that's like price efficient
+    and has the best models, then this could be your solution. Open code Zen. Now
+    the best part about it is that there is no like markup, right? So whatever the
+    model cost is like let's say you're using OpenAI models. Well, whatever that model
+    costs in the API, that's how much you pay on the open code. Then open code doesn't
+    charge you extra and it's usage based. So it's not like you pay $20 a month. You
+    pay $20 and you get $20 worth of credits and you don't pay until you use those
+    up. If you're paying for cloud code, you're most likely not using all your subscriptions,
+    right? Like I I was paying for the $200 month cloud code and then I was never
+    hitting the limit. So I downgraded to $100 a month and I'm still never hitting
+    the limit, which means that I'm not using all the money I'm paying for. With Open
+    Code Zen, that's not the case. You only pay when you use up those credits. And
+    those credits are the actual price, not more expensive, no like extra markup.
+    They also offer a model called Big Pickle, which is a fine version of GM 4.7.
+    So that probably would have performed better than GM 4.7 open router. Actually,
+    they also have Gro code fast one and Miniax M2.1 for free. So these models are
+    free on Open Code Zen to attract users. Uh but they have other models as well.
+    Let's dive into the fifth build idea. We're going to use Grock 4.1 fast for this.
+    And the idea is a bit more complex. Probably the most complex out of these. Not
+    technically, but like in terms of my vision for it and the features for it, right?
+    So, it should be like a recursive narrus 4.5 for prompting. This could be useful
+    for product photos for for personal photos in many different ways. We're going
+    to test it as well. Let's get started. Yo, this codeex is crazy. Openi keeps opening
+    that. Very annoying. Uh, OpenAI fixed that. I I don't know why it's opening five
+    times when I'm like I'm going to uninstall Codex just for that. Like what is that?
+    Boom. Going to use Grog 4.1 fast. Wait, is it code? Okay, I think it's better.
+    I'm not sure which Grock which of these Grock models is the best at coding, but
+    let's use the 4.1. Then we're going to do straight to build and going to do get
+    to work and build this like a 10x engineer would. Also, Grock 4.1 fast should
+    be fast. This should be the fastest app so far. Let's see if it nails it. Now,
+    when you're using the GPD502 model, let's launch a new open code. So, I'm going
+    to show you one disadvantage compared to Codex. So, let's open a codex, right?
+    Like opens spamming this try if we go and you do the 5.2 CEX, which we can use
+    as well again uh model and we can use the 5.2 the codex, but we cannot set the
+    reasoning effort. Right? This is one thing that's really good about the codex
+    extension, the ID extension from OpenAI is that you can select the reasoning effort.
+    The issue with this, I think it's set to probably high. I don't think it's extra
+    high. It's probably high. That is overkill for most problems. You want to stay
+    to like medium for default or like low. High and extra high just man, this is
+    like for the the deepest errors. Extra high can run for like 30 minutes. Even
+    high can run for 15 minutes. So for most stuff you want to use medium. Here when
+    you use it in open code you cannot set reasoning effort. So that's one advantage
+    to using codex extension from openai. I'm trying to give you honest objective
+    assessment of open code right. It has a lot of pluses but it has some minuses
+    as well. These companies are always going to protect their native apps and tools,
+    give them some benefits that are not available through the API so that others
+    cannot uh build a better product at least in theory. Right? Obviously the the
+    bonus of open code is that it's open source and it it uh lets anybody contribute.
+    There's million there's literally millions of developers in the world who are
+    contributing to open source projects and uh you really need to have a great engineering
+    team if you're a closed source company to compete with that is finished or what's
+    going on? Why did it stop? Why did you stop? This might be an issue with Grock
+    4.1. Like look at look at this task list. You know it wasn't done. It's on the
+    third item of like 12. Yeah. So Grog 4.1 fast is nowhere near as good as Opus
+    or Gemini 3. It's just not. Even though you'll see Xi team posting benchmarks
+    and Elon posting benchmarks, uh the reality is it's not. You know, I don't know
+    any person who's using this model actually to code. Everyone's using either Opus
+    4.5 or Gemini 3 or GBT 5.2 Codex for bug fixes. These are the three best models
+    right now. It's done as well. Continuing step by step to doist. This is very disappointing.
+    Wow. While I'm switching back to Opus, I guess to finish this. Finish this. Also,
+    I'm going to do one more thing. I have this Plexity D research, which gives it
+    more info on how to use the API. I say info. Boom. In whatever above is more info
+    about how to actually pass files to the Nanob Pro model on open router API. Make
+    sure to follow this. Now, get to work and finish this app like a senior developer
+    would. The fewer lines of code, the better. Boom. There we go. So, this deep research
+    just uh I can show you the prompt. It's asking for how to properly pro inside
+    of open API. How to pass images correctly. Answer the short perlexity deep research.
+    Check 28 sources. that way. Uh I mean look these you know they have web search
+    tools right open code as web search tool code as web search tool but they're not
+    going to be as good as a deep research that checks 28 sources and uh yeah gives
+    you a detailed answer. So when you're building with AI and you're getting stuck
+    or you're doing something risky make sure to do a deep research and feed those
+    results to your coding agent. This is one of the main things you have to do when
+    being an effective AI coder. lot of a lot of you are not paying for any tool you
+    know whether it's perplexity Gemini L JBD all of these have deep research you're
+    not using it even if you are paying for it you're not really using deep research
+    which is a huge mistake not just for coding but in general in life because a lot
+    of you like to be practical you currently watching this are facing some problems
+    whether it's your personal life your business whatever some of them some of those
+    most of those are probably not coding related but you can still use the most powerful
+    reasoning models and deep research to help you solve them in creative ways, figure
+    out solutions that that you aren't aware of, stuff like that. But you probably
+    aren't and that's why you're missing out. That's why only a few people really
+    squeeze AI to the fullest and improve their life from it. Most people use CH GBT.
+    They think they're good at it. They have the free plan. They don't know how to
+    prompt it. It's terrible. So yeah, even like legit most people who think they're
+    at the cutting edge of AI are nowhere near and they're completely clueless. Okay,
+    let's see. It runs the build. Yeah. So, cloth opens 4.5 10 times better. I mean,
+    probably like 50 times better, 100 times better than u gro 4.1 fast. I mean, it's
+    not not even in the same league. So, don't don't listen to these benchmarks where
+    Grock 4.1 fast beats Opus 4.5. It's just use it, okay? Use it for yourself and
+    you'll see. Uh that's the main thing. the vibes test the in production test and
+    like it's not an open code issue because with other models it didn't happen you
+    know with Gemini didn't get stuck GPD 5.2 to codex didn't get stuck. Opus didn't
+    get stuck. So we cannot give that L to open code. We have to give it to the model
+    which was doc 4.1. All right. So we have the project structure. Let's see. This
+    is how we need to run it. Copy. ENV local the example. We're going to copy that
+    file again. Very nice. You just highlight it. It's already copied. Such a quality
+    of life thing. So we need to give it to what? Open our API key. Let's do that.
+    This one we have create API key. Let's say testing. Give it $10 limit. Boom. Again,
+    do not share API keys with anybody. Treat them as passwords. So, we have the EMV
+    local. Let's replace this. Save that. What do we have run def? That's it. Okay.
+    So, clear and pm, right? Let's open the local host. Let's see if this actually
+    works. Uh oh, error. We have errors. I'm going to screenshot. and I'm going to
+    paste it in. We are running into a bunch of errors. The screenshot also I'm going
+    to copy the whole terminal. Terminal. Boom. Paste that in terminal. Let me Lord
+    of Super Whisper is kind of slow. Think harder and explain what exactly the issue
+    is. We're running into a bunch of errors when the app opens and it goes into a
+    wide screen. Give me a very simple and concise explanation. then implement a clean
+    and minimal fix. I'm gonna do this. Boom. Plan mode to figure out what's going
+    on. And again, in plan mode, it doesn't execute changes, but it's incentivized
+    to read, learn about the codebase, to think harder. So, really learn to switch
+    between plan and build. And these are really the only two modes. One thing about
+    open code is that it removes all the clutter. It simplifies, right? You see all
+    these different AI tools. They have like 10 different modes blah blah blah. Like
+    all these extensions like there's so many coding extensions that have like seven
+    different like architect debugging overwhelming, right? Open code is like simplified.
+    That's that's the way to explain it. You have plan and build. That's it. Like
+    what else do you need to do? You plan the change and you build it. You have a
+    you have error, you plan how to solve it, then you solve it. Like so clean, man.
+    There's no like even in claw there's that third default mode. What is that? I
+    never used the default B in cloth code. So useless. And say yes. Execute. Issue
+    app compiles. Fine. Conserus. I don't know. We'll see. Okay. Why is it asking?
+    Oh, I switch back to plan. No. Use opus. What? What is going on? Okay, my my bad.
+    So, I'm going to show you one thing. You can click on previous messages. Very
+    good. So, I'm going to do revert under messages and file change. Just enter. And
+    now we're in this. And now we're going to do build mode. I didn't switch the mode.
+    That's my bad. But the the UI is very nice. Like you can all of this is highlightable.
+    You can click on previous messages. And uh you know this popup, let me show you
+    again the copy message to clickboard for create a new session. And you can search
+    as well. Man, so nice. So nice. You might not see this as big thing, but like
+    if you spent hours with these coding agents, these small updates really do add
+    up. And why is it using the wrong model name? Oh my. Oh my, it's trolling me.
+    I'm going to create the spec.md. Going to put it here is the original prompt.
+    I'm going to say stop trolling. Read spec.md and use the exact same model slugs
+    as in there. I'm going to do five exclamation exclamation points because again
+    they have these models have a outdated context cut off and uh yeah see like it
+    use 2.5 flash like that's not nana pro also the opus one it it tries to be sneaky
+    tries to be sneaky here okay it did update opus that's good now tell me how to
+    test the app again we have it started what am I It's already started. Boom. Reload.
+    This is terrible UI. Okay. But the the front end is terrible. You can do a much
+    better job than that. Keep it simple. Keep it minimal. Like a combination of Google
+    Drive and Dropbox. We cannot We cannot do this. This in the big 26. Where's this
+    front end? This is not 1992 website. What is this? I'm I'm going to screenshot
+    it. Like this is embarrassing. We might need to do another open code with the
+    Gemini 3. Fix our front. Okay. Wait. Let's Let's give shot. Give this guy a shot.
+    Oh, okay. It's improving. It's improving. It's getting there. Okay. So, the UI
+    has been redesigned apparently. Let's reload. Okay. Much better. Much better.
+    Upload an image to start. Let's do some product photo. All right. So, we're going
+    to take this iconic you are absolutely right mug. There we go. Oh, it works. Okay.
+    All right. So, here we are. Look at this. We have the canvas. Now, we should be
+    doing API call to opus. Look at this. So, it's the improvements. Natural lighting
+    enhancement, cleaner background, dynamic angle, shut life. Yeah, let's do lure
+    lighting enhancement. This looks like fake. Looks too inserted. Now, we're waiting
+    for Nano Banana Pro to create the variations. Okay. Uh, we don't see them yet.
+    This can take 10 to 20 30 seconds. Generating image is much slower generating
+    text, but we didn't get the outcome. I don't know what happened. Oh, we have some
+    500 error, but it's progress. Again, this is the most feature complex app. So,
+    I'm going to say uh logs. Paste it in. Logs. Switch to plan mode, by the way.
+    We give it the screenshot so it has full context. Right now we have a strange
+    Oh, why are we in Grog 4.1? What? We're running into an issue where everything
+    works until the point where I select the variation I want to generate. Right?
+    So the first agent, the prompting agent with Opus 4.5 correctly generates the
+    variations. They get displayed in the UI. I can select the one I want. However,
+    after that, we never get the output from the Narabara Pro. That's the issue. How
+    we're passing the file to Nabara Pro. Maybe the file format is the issue. But
+    yeah, there's there's definitely some issue. Also, I have a suspicion that is
+    not following this deep research. So, I'm going to create a new file. Actually,
+    I'm going to create a new folder named docs. And I'm going to move this and open
+    it up. New file as well. I'm going to do uh open router files MD is just documentation
+    so I can reference it. Make sure our code follows open router files. All right.
+    Okay. So basically I'm tagging the file to remind it and I'll say think harder,
+    explain what is likely happening and implement and prepare a stepbystep fix plan.
+    Yeah. So it wasn't following the documentation. That's why it's very important
+    that if something is essential, you create a markdown file inside of your codebase
+    and you can tag it multiple times. I'm going to switch to Google say yes implement
+    this so employ these free fixes we'll see honestly it's amazing watching these
+    AI agents work like when you were looking at this in you know 2022 2023 nothing
+    like this even existed but even last year early last year clo code still didn't
+    exist wild now it works let's go you're absolutely right is generating variations
+    how to improve this image what was But improved lighting. Yes, that's what's the
+    worst about this image is like the inconsistent lighting. But does it generate
+    the images? Okay. Oh, why did it reset the whole canvas? Oh, this is still going.
+    Why is this still going? Oh, my bad. That's crazy. Open code just reset my session
+    because uh yeah, whatever. Let's try again. Make sure no AI agents are running.
+    What is going on? This should be like a recursive improvement of any image, right?
+    So can use this for Shopify, e-commerce, for dating, whatever. Natural lighting
+    enhancement. Let's see. Let's see. Can we get the nanob probe to work? We need
+    to add more debugging if it doesn't work. But as you can see, like don't give
+    up after first shot. You still need to upskill yourself if you want to build like
+    very impressive apps, right? Most people are avoiding the pain of learning anything
+    technical and that's why they're not getting the best results of AI coding. Yeah,
+    you can oneshot most of simple apps, but you cannot oneshot like unique software
+    that nobody has ever built before. You can see we're not getting the generation.
+    Yeah, that's crazy. What's going on here? Let's do deep research. How to correctly
+    can nano banana row accept the webb files? If so, how do this properly? Open router
+    API or should we convert to PNG? Maybe this we're fighting an uphill battle here.
+    Maybe it's easier to convert to PNG. Okay, it supports WPS input. Just going to
+    add this to here. Boom. There we go. Are we fully following open router files
+    plan mode? Okay. Yes, we are. But we still are getting errors. That's crazy. All
+    right. Whatever. We have the new console logs. So, let's rerun that. I'm going
+    to kill the server. Clear and npm around. It wants to delete the next folder.
+    Uh, remember that next. Okay. So, I guess uh this one is an L. So, four wins,
+    one L. Um, yeah, that's the accurate. I mean, I could spend 30 minutes on this
+    and fix it, but I think it's safe to say that it didn't one-shot it for sure.
+    And yeah, it didn't even finish it in like 30 minutes. So open code four wins
+    1 L in terms of building these apps. This was definitely most feature complex
+    one but uh yeah 80% win rate is not bad and they have a very nice scaffold. Question
+    is whether it's better at using opus and cloth code. It's very hard to say. I
+    would say probably not because enthropic has knowledge of how cloud models work.
+    But it will definitely be better at using other models than you just uh using
+    them randomly in some chat app or direct API calls. Open code has a very nice
+    environment that it puts the AI agents in. It has a nice interface. The prompts
+    are optimized. Will I stop using cloth code? Probably not. But for other other
+    models, I'll very likely use open code. So let me explain plan mode and build
+    mode a bit more. I already went over it on surface level. But let me explain it
+    deeper. Plan mode is read only. Yeah. Can analyze your codebase and create a strategy,
+    but it cannot touch your files. It cannot make any changes. So, it's safe. You
+    can talk to it. You can chat with it. It won't mess anything up. Build mode let
+    the agent actually write, delete files, create files and stuff like that. And
+    you can switch them with tab. So, not shift tab, just tab. There's also lots of
+    quality of life features inside of open code. And this is why so many people are
+    switching to it. Not just the fact that it's open source, not just the fact that
+    it's free and that it, you know, offers so many different models. so many different
+    providers. It's all the little stuff like this, the message actions. This is what
+    impresses me the most. So, for example, the headings automatically summarize your
+    pros. If you paste in a lot of stuff, you can see like it says 32 lines instead
+    of making it actually long. Makes it easier to navigate. There's also to-do list.
+    We look at that. And clicking messages gives you useful popup like this. We also
+    looked at that. So, yeah, this has been open code. As you can see, it's a very
+    capable, very powerful cloud code alternative, especially if you care about using
+    open software and especially if you already have a subscription. As I mentioned,
+    if you're already paying $20 a month for CHIGBT plus, you can use Open Code completely
+    for free and it's a strong competitor to cloth code. So, yeah, there's a it's
+    no secret why Open Code is blowing up over the last two three weeks because uh
+    it is one of the most powerful coding agents out there. That being said, if you
+    are serious about AI in 2026 and you want to use tools like Cloud Core, Open Code
+    to build an actual business, I just made a full video about that on what is the
+    best AI business model for 2026. Go watch it here.
+  segments:
+  - start: 00:00:00
+    text: My name is David Andre and here is how
+  - start: 00:00:01
+    text: to build anything with open code. Now,
+  - start: 00:00:03
+    text: this might actually be the cloth code
+  - start: 00:00:05
+    text: killer because open code is currently
+  - start: 00:00:07
+    text: the fastest growing coding agent in the
+  - start: 00:00:09
+    text: world and as you can see on this chart,
+  - start: 00:00:10
+    text: it just became more popular than cloth
+  - start: 00:00:13
+    text: code. It's also completely free, works
+  - start: 00:00:15
+    text: with over 70 different AI models, and
+  - start: 00:00:17
+    text: you can choose any LLM provider you
+  - start: 00:00:18
+    text: want. So, in this video, I'll show you
+  - start: 00:00:20
+    text: how to set up Open Code, how it compares
+  - start: 00:00:22
+    text: to Cloth Code, and how you can build
+  - start: 00:00:23
+    text: anything with it. So, if you want to be
+  - start: 00:00:25
+    text: at the cutting edge of AI coding, watch
+  - start: 00:00:26
+    text: until the end. Now, as you can see, Open
+  - start: 00:00:28
+    text: Code has been blowing up recently. In
+  - start: 00:00:30
+    text: the last 30 days, it went from popular
+  - start: 00:00:32
+    text: to super popular. So, let me show you
+  - start: 00:00:33
+    text: how to install it. First off, go to
+  - start: 00:00:35
+    text: opencode.ai, which is their main
+  - start: 00:00:37
+    text: website. Now, you have multiple
+  - start: 00:00:38
+    text: different ways to install it through a
+  - start: 00:00:39
+    text: terminal, but the curl command is the
+  - start: 00:00:41
+    text: most general one. So, just click on it
+  - start: 00:00:43
+    text: and copy open terminal. Boom. And all
+  - start: 00:00:45
+    text: you have to do is just paste in the curl
+  - start: 00:00:47
+    text: command, hit enter. This is going to
+  - start: 00:00:48
+    text: install the latest version of Open Code.
+  - start: 00:00:50
+    text: Now, as you can see, I had 1.1.10, and
+  - start: 00:00:52
+    text: now it updated to 1.16. Now, it's very
+  - start: 00:00:55
+    text: important that you have the latest
+  - start: 00:00:56
+    text: version because this comes with some
+  - start: 00:00:58
+    text: pretty big updates, but more on that
+  - start: 00:01:00
+    text: later. Now, after install finishes, the
+  - start: 00:01:01
+    text: next terminal command we need to run is
+  - start: 00:01:03
+    text: open code of login. This will let us
+  - start: 00:01:06
+    text: select which provider we want to use.
+  - start: 00:01:08
+    text: And just to show you how many there are,
+  - start: 00:01:10
+    text: let me go through them. Yeah, you can
+  - start: 00:01:12
+    text: see that open code really does offer so
+  - start: 00:01:14
+    text: many different ways to use it. Which
+  - start: 00:01:15
+    text: means that if you have a subscription
+  - start: 00:01:17
+    text: with one of these or if you have API key
+  - start: 00:01:18
+    text: from any of these, you can use open code
+  - start: 00:01:20
+    text: at no extra cost. This is completely
+  - start: 00:01:22
+    text: open source. It's free software which
+  - start: 00:01:24
+    text: makes it much more appealing than close
+  - start: 00:01:25
+    text: code. Now, because I want to show you a
+  - start: 00:01:27
+    text: lot of different models, I'm going to
+  - start: 00:01:28
+    text: use open router and then it asks for API
+  - start: 00:01:30
+    text: key. So, go to open router.ai, create an
+  - start: 00:01:32
+    text: account, takes 20 seconds. Go to top
+  - start: 00:01:33
+    text: right, click on keys, then click on
+  - start: 00:01:35
+    text: create API key. I'm going to name it
+  - start: 00:01:37
+    text: subscribe. If you're watching this and
+  - start: 00:01:38
+    text: if you want to see more AI tutorials,
+  - start: 00:01:40
+    text: make sure to subscribe. Takes 20 seconds
+  - start: 00:01:42
+    text: and it helps out a lot. Okay, let's
+  - start: 00:01:43
+    text: click on create and let's copy this API
+  - start: 00:01:45
+    text: key. Let's go back to the terminal and
+  - start: 00:01:47
+    text: paste it in. Boom. Enter. And just like
+  - start: 00:01:49
+    text: that, the setup is complete. It's
+  - start: 00:01:50
+    text: literally that simple. Now you can use
+  - start: 00:01:52
+    text: open code straight from the terminal but
+  - start: 00:01:54
+    text: it always helps to have an IDE to kind
+  - start: 00:01:55
+    text: of see what it's building right so I'm
+  - start: 00:01:57
+    text: going to open an empty folder right here
+  - start: 00:01:59
+    text: boom project and I'm using cursor but
+  - start: 00:02:00
+    text: you can use VS code win serve
+  - start: 00:02:02
+    text: anti-gravity doesn't really matter let
+  - start: 00:02:04
+    text: me open the terminal right here and I'm
+  - start: 00:02:05
+    text: going to type in open code and just like
+  - start: 00:02:07
+    text: that boom open code is launched cool the
+  - start: 00:02:09
+    text: first thing is setting a model you can
+  - start: 00:02:11
+    text: do that by typing /models now remember
+  - start: 00:02:12
+    text: we're still in the terminal so this is a
+  - start: 00:02:14
+    text: CLI app but look at the UI very
+  - start: 00:02:16
+    text: intuitive very nice so since we're using
+  - start: 00:02:18
+    text: open router we can use any model on
+  - start: 00:02:19
+    text: there which is basically every model But
+  - start: 00:02:21
+    text: right now, Clo Opus 4.5 is the best. So,
+  - start: 00:02:23
+    text: let's use that. And the first thing I
+  - start: 00:02:25
+    text: want to show you is oneshoting a 3D
+  - start: 00:02:27
+    text: game. So, I'm going to paste in a
+  - start: 00:02:28
+    text: prompt. Create a 3D endless runner game
+  - start: 00:02:30
+    text: using Vanilla TypeScript and 3JS. Then
+  - start: 00:02:32
+    text: it explains the structure of the
+  - start: 00:02:34
+    text: folders, features, player controls, and
+  - start: 00:02:35
+    text: glowing cube that dodges incoming
+  - start: 00:02:37
+    text: obstacles on a procedurally generated
+  - start: 00:02:38
+    text: neon create road. So, this is a full 3D
+  - start: 00:02:40
+    text: game, okay? This is not a simple, you
+  - start: 00:02:42
+    text: know, single file HTML website. This is
+  - start: 00:02:45
+    text: a legit project. Now, let's see how open
+  - start: 00:02:47
+    text: code handles this. First, it creates a
+  - start: 00:02:49
+    text: to-do list, right? list of tasks that
+  - start: 00:02:51
+    text: it's going to do. So, it doesn't jump
+  - start: 00:02:53
+    text: straight into writing code. It first
+  - start: 00:02:54
+    text: thinks and creates a list of to-dos on
+  segment_count: 1654
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: classify

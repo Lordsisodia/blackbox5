@@ -1,0 +1,422 @@
+video:
+  id: yk088BCn4Vk
+  url: https://youtube.com/watch?v=yk088BCn4Vk
+  title: OpenAI is killing open-source… here’s why
+  description: 'Try KimiK2.5 for FREE: https://kilocode.ai?utm_source=DavidOndrej&utm_medium=creator&utm_campaign=202601_kimi&utm_content=youtube
+
+
+    Wanna learn how to code with AI? Go here: https://www.skool.com/new-society
+
+
+    Learn about the best AI Business models here - https://www.youtube.com/watch?v=Ta5g-OxjPO4
+
+
+    Follow me on Instagram - https://www.instagram.com/davidondrej1/
+
+    Follow me on Twitter - https://x.com/DavidOndrej1
+
+
+    AgentZero: https://github.com/agent0ai/agent-zero
+
+
+    Host your n8n agents on Hostinger: https://www.hostinger.com/david
+
+
+    Subscribe if you''re serious about AI.
+
+
+    OpenAI just acqui-hired Cline, what does this mean for Cline? What does this mean
+    for Open source and more importantly, what are the best alternatives?
+
+
+    www.vectal.ai'
+  published_at: '20260129'
+  duration: 671
+  view_count: 594
+  like_count: 34
+  thumbnail: https://i.ytimg.com/vi_webp/yk088BCn4Vk/maxresdefault.webp
+creator:
+  name: David Ondrej
+  handle: '@DavidOndrej'
+  tier: 1
+  focus_areas:
+  - AI agents
+  - AI systems
+  - Deep technical
+source:
+  discovered_via: vip_rss
+  discovered_at: '2026-01-30T07:42:10.517964'
+  processed_at: '2026-01-30T07:42:10.517972'
+transcript:
+  full_text: So, OpenAI just killed Klein and nobody is talking about this. OpenAI
+    just silently gutted one of the most popular AI coding tools, Klein. They made
+    a secret deal where they poached all of the best people from Klein, leaving the
+    company to die. In this video, I'll explain what exactly happened, what this deal
+    means, the impact on the open source community, and what are the best client alternatives.
+    First off, here is why this actually matters. Klein wasn't just another tool.
+    It was a major pillar of the open- source AI coding community that a lot of people
+    were building on top of. But now at least five people that we know of left client
+    to join OpenAI Codex team. And by the way, these weren't some random employees.
+    This was some of the best talent at Klein. Now, naturally, this leaves the millions
+    of client users with no clear answer on what's next and whether the tool will
+    even survive. Now, to add fuel to the fire, last week the commits on client because
+    it's open source were the lowest since 2024, meaning it signals a big downtrend
+    of development. Less and less comets means less features, less bug fixes, and
+    overall it's just a very bad sign for the future of client. Now, what we're seeing
+    right now with client is actually a very concerning trend in the AI field. And
+    it first started with Scale AI. So, last year, Mark Zuckerberg paid 14 billion
+    for 49% of Scale AI, but this was a, you know, kind of fake deal. It was mainly
+    to poach the CEO Alexander Wang as well as some other people and have them start
+    working at Meta. Now, right after this deal, Google, OpenAI, and XAI all withdrew
+    their contracts with Scale AI because they're providing some data labeling to
+    these other AI research labs. And obviously, they didn't want Zuck to have all
+    their data. So, they canled their contracts with Scale AI. Now, today, Scale is
+    still alive, but they've laid off 14% of their staff. You know, the core people
+    have left, and investors are calling it a zombie company. The second victim of
+    this ruthless strategy was Windsorf which happened also last year where Google
+    paid 2.4 4 billion to poach the Windsor CEO, a co-founder of Winerf and 40 other
+    senior engineers, but without actually acquiring the company. And this is the
+    shitty part. Now, coincidentally, 4 months later, Google launches anti-gravity,
+    which is very similar tool to Windsurf. It literally feels the same. They even
+    left in like the assistant name as in Windsurf accidentally because it was built
+    by the same team. And this is the dirty playbook. take the talent, clone the product
+    and leave the corpse of the company for someone else to buy or to eventually fade
+    away. And this is exactly what's happening to client. Openai is doing the same
+    playbook like Meta and Google. They poached the core team from client but didn't
+    acquire the product or the company which is obviously a major concern for the
+    millions of client users all over the world. But believe it or not, this is not
+    the first issue client has been facing recently. It was already fractured before
+    this aqua hire from OpenAI because the head of AI at Klein was fired. Now shortly
+    after multiple engineers from Klein followed him. They went out the door, left
+    client and magically ended up at OpenAI. So the issues inside of Klein and the
+    team are much worse than people realize. Now you might be thinking, okay, David,
+    what tool should I use now? If client is not headed in the right direction, is
+    there any other coding extension that's open source that's promising and I would
+    say currently the best client alternative out there in my opinion is kilo code.
+    Now there are many reasons but first off Kilo is a supererset of client and root
+    code meaning it's bigger right it has all of their features and more plus the
+    team at kilo code is very committed to staying open source and not selling out
+    like client did and actually they made their commitment public is co-founded by
+    sit this guy and he's actually the co-founder of GitLab and he kept GitLab open
+    source for over a decade and even managed to take the company public without selling
+    out the community so he literally already proved that you can stay open source
+    scaled to 11 billion valuation without closing the door on contributors and without
+    selling out to someone like OpenAI. And now he's doing the exact same thing with
+    Kilo Code where he gave Kilo Code the Apache 2.0 license which means that his
+    commitment to staying open and free is legally binding. And by the way, this strategy
+    is working because Kilo Code is winning right now. They're number one on Open
+    Router in terms of token spent and they're approaching 100 billion tokens in total,
+    which is a big leap ahead everyone else, even Clo. And as of 2026, over 1 million
+    people are actively using Kilo code. And the best part is you can build anything
+    with it. So I contacted the team at Kilo and we agreed to partner on this video.
+    So let me show you how to use Kilo Code to build anything using an open source
+    tool that isn't sending all your data to SAM Ultimate. Let's get started. So it's
+    no secret that one of the best AI models in the world right now is Kim K2.5, which
+    just released a few days ago. I made a full video on that. But what many people
+    don't know is that Kilo code is offering Kim K 2.5 completely for free for the
+    next week. And as you can see, Kim K 2.5 is not some shitty model. This model
+    is literally comparable to Clot 4.5 Opus on many different benchmarks and Kilo
+    Code is giving it to us for free for the next week. So here's what you have to
+    do. Type in Kilo Code into Google or just go to kilo.ai. Very nice and clean domain.
+    And here go to the top right and click on sign up and simply create a free account.
+    Boom. Once you log in, you should be redirected to this page. As you can see,
+    I have a zero credits and I'm on the free plan. So, everything I'm showing you
+    is literally free. Just follow my steps and you'll know how to use Kilo Code to
+    build anything with one of the best AI models for free. So, while others are spending
+    hundreds of dollars on expensive subscriptions, we're going to use Kilo Code,
+    which is an open source tool, to use an open source model, Kim K2.5, and we're
+    going to use all of that completely for free. So, pay attention and follow what
+    I'm about to show you. Okay. The next thing we have to do is open VS Code or your
+    ID of choice. You know, obviously this will work with any of the forks of VS Code,
+    which if you're using them, make sure to use Kilo code as well. So, I'm going
+    to open an empty project. Boom. Let's create a folder project. Open. Now, go to
+    the top right, click on extensions, and type in kilo code. Here we go. It's this
+    one. Kilo code. And just make sure to click on install. I already have it installed,
+    but just a oneclick install. Install. And then click trust. Two buttons you have
+    to click. Very simple, right? So, once you install extension, this sidebar should
+    appear on the left. And by the way, if you have a team, if you're working with
+    other developers on your team, Kilo is offering 30 days for free for the team
+    plan. But anyways, the next thing you have to do is click on the icon right here,
+    which will redirect you to your profile. If you haven't logged in here, make sure
+    to click that. It will open up the browser and it will authenticate so that then
+    you can send a message with some free models. Now, obviously, we want to use Kim
+    K2.5, which is again the best open source model in the world. Might even be the
+    best model overall. It's debatable. But here, just type in Kimmy K2.5. As you
+    can see in the parenthesis, it says free, which means Kilo code isn't charging
+    for it. Right? As you can see, I haven't connected my credit card. I haven't done
+    any API keys. Kilo Code is giving this model for free for the next week. So, there
+    literally has never been a better time to download Kilo code. All right, so let
+    me show you just how powerful Kilo Code really is because um you can do a lot
+    with this free extension. So, the first thing I told it for each project I give
+    you, create a subfolder and build everything in there. So, first of all, go to
+    the bottom left and select code. As you can see, Kilo offers multiple different
+    agents, right? You have the architect, code, ask, debug, orchestrator, and review
+    depending on what part of software engineering you're doing. Right now, I'm going
+    to go straight into code because I have prepared a solid prompt. And again, make
+    sure to select Kim K2.5. And let's send it. Boom. So, I told it build an interactive
+    fluid simulation in Python with Pygame and Numpy. Implement a grid-based velocity
+    solver. Mouse drag adds die and force to the fluid. Render density as colorful
+    smoke trails. Support multiple colors. add diffusion and advocation, keep it smooth
+    at 60 fps, full screen and reset option. So, this isn't like a simple HTML site,
+    single web page like everyone else is doing. This is a full game that even two,
+    three years ago would take you months to develop. And I'm speaking from experience
+    because when I was 15, I actually built a mobile game from scratch, you know,
+    before any AI. I had to teach myself C, Unity, all that stuff. And it took me
+    like 10 months to build. So, we literally are living in the future. So, as you
+    can see, Kilo code creates a to-do list. it instead of trying to do it all in
+    one shot, which is pretty dumb, it breaks down this complex goal into several
+    smaller tasks and then focuses on them one by one. Okay, so it's asking for permissions
+    to create a folder and start a virtual environment. I'm going to accept that.
+    Next is wants to see into the folder and install the dependencies. I'm going to
+    accept that as well. Continue while running. As you can see on the right, we have
+    the folder created with the necessary codebase structure. And now it's writing
+    the code. You could see that even though Kimuk 2.5 is a powerful model one trillion
+    parameters it is still very fast. So we can see it writing in real time which
+    is also nice user interface because some of the other coding assistants they kind
+    of hide it right they're like loading loading and then they give you a hundreds
+    of lines at once. In Kilo you can see how it's working one line at a time. And
+    again I want to stress this guys we're using one of the best AI models in the
+    world completely for free. It's a open source model Kimik 2.5. It's from Moonshot
+    AAI and it rivals Opus. It even beats Opus on many different benchmarks and Kilo
+    has made it free for the next week. So if you're a user of client and you don't
+    like this sketchy acquisition by OpenAI, consider switching to Kilo. All right,
+    it's asking me to run this. Let's click on run with the requirements txt. So it
+    completed all the to-do list. Okay, that was fast. And now test and verify smooth
+    performance. So let's test this run. It should use Pygame to launch the game and
+    for us to test it. Okay, there it is. This Py game. So how do we do drag add and
+    force color red space change color okay so I need to make some changes so I'm
+    going to use the checkpoints which are very nice in kilo one of the main features
+    I'm going to do restore checkpoints restore files and task confirm and I'm going
+    to continue from here the dragging doesn't really work make sure it properly registers
+    my mouse and renders the fluids so while it's building you can see these checkpoints
+    are being created automatically. So you can jump in at any point instead of losing
+    a lot of progress because you had to reverse to a super earlier point. There's
+    a lot of checkpoints in Kilo and this is why a lot of people love Kilo, right?
+    So now it's implementing my suggestions and also at the top you can see a very
+    clean breakdown of the context window. You can see which prompt, which tool usage
+    cost, how many tokens, how many lines of code we created. This breakdown is amazing.
+    You can see the cache tokens, input output tokens, the context length of this
+    model. Yeah, I wish every single AI tool had such a nice breakdown. Very, very
+    intuitive, very transparent. You know, you know exactly how many tokens are burning.
+    And obviously, right now, it's using a free model, but if you're using a paid
+    model, you can see how much you're spending as well. All right, so I'm actually
+    impressed by the reasoning effort of Kilo because it's still running. It's writing
+    hundreds of lines of code. Unfortunately, I do have to leave now for dinner, but
+    this is what the result will look like. I'll finish it later and put it as edit.
+    As you can see, Kilo is very competent of building any type of apps, not just
+    HTML websites, but real games with Pyode. And again, this model is completely
+    for free. So, if you want to try Kilo code, there's going to be a link below the
+    video. It's a great tool. It's fully open source. You can try it for free and
+    they're giving you Kim K2.5 completely for free. So, go below in the description,
+    try Kilo. And again, thank you to the Kilo team for partnering on this video.
+    That being said, thank you everyone for watching and I wish you a wonderful productive
+    week. See you.
+  segments:
+  - start: 00:00:00
+    text: So, OpenAI just killed Klein and nobody
+  - start: 00:00:03
+    text: is talking about this. OpenAI just
+  - start: 00:00:05
+    text: silently gutted one of the most popular
+  - start: 00:00:07
+    text: AI coding tools, Klein. They made a
+  - start: 00:00:09
+    text: secret deal where they poached all of
+  - start: 00:00:11
+    text: the best people from Klein, leaving the
+  - start: 00:00:13
+    text: company to die. In this video, I'll
+  - start: 00:00:14
+    text: explain what exactly happened, what this
+  - start: 00:00:16
+    text: deal means, the impact on the open
+  - start: 00:00:18
+    text: source community, and what are the best
+  - start: 00:00:20
+    text: client alternatives. First off, here is
+  - start: 00:00:22
+    text: why this actually matters. Klein wasn't
+  - start: 00:00:24
+    text: just another tool. It was a major pillar
+  - start: 00:00:26
+    text: of the open- source AI coding community
+  - start: 00:00:28
+    text: that a lot of people were building on
+  - start: 00:00:30
+    text: top of. But now at least five people
+  - start: 00:00:32
+    text: that we know of left client to join
+  - start: 00:00:34
+    text: OpenAI Codex team. And by the way, these
+  - start: 00:00:36
+    text: weren't some random employees. This was
+  - start: 00:00:38
+    text: some of the best talent at Klein. Now,
+  - start: 00:00:40
+    text: naturally, this leaves the millions of
+  - start: 00:00:43
+    text: client users with no clear answer on
+  - start: 00:00:45
+    text: what's next and whether the tool will
+  - start: 00:00:47
+    text: even survive. Now, to add fuel to the
+  - start: 00:00:49
+    text: fire, last week the commits on client
+  - start: 00:00:51
+    text: because it's open source were the lowest
+  - start: 00:00:53
+    text: since 2024, meaning it signals a big
+  - start: 00:00:56
+    text: downtrend of development. Less and less
+  - start: 00:00:58
+    text: comets means less features, less bug
+  - start: 00:01:00
+    text: fixes, and overall it's just a very bad
+  - start: 00:01:02
+    text: sign for the future of client. Now, what
+  - start: 00:01:04
+    text: we're seeing right now with client is
+  - start: 00:01:05
+    text: actually a very concerning trend in the
+  - start: 00:01:07
+    text: AI field. And it first started with
+  - start: 00:01:09
+    text: Scale AI. So, last year, Mark Zuckerberg
+  - start: 00:01:11
+    text: paid 14 billion for 49% of Scale AI, but
+  - start: 00:01:14
+    text: this was a, you know, kind of fake deal.
+  - start: 00:01:16
+    text: It was mainly to poach the CEO Alexander
+  - start: 00:01:18
+    text: Wang as well as some other people and
+  - start: 00:01:20
+    text: have them start working at Meta. Now,
+  - start: 00:01:22
+    text: right after this deal, Google, OpenAI,
+  - start: 00:01:24
+    text: and XAI all withdrew their contracts
+  - start: 00:01:26
+    text: with Scale AI because they're providing
+  - start: 00:01:28
+    text: some data labeling to these other AI
+  - start: 00:01:30
+    text: research labs. And obviously, they
+  - start: 00:01:31
+    text: didn't want Zuck to have all their data.
+  - start: 00:01:33
+    text: So, they canled their contracts with
+  - start: 00:01:35
+    text: Scale AI. Now, today, Scale is still
+  - start: 00:01:37
+    text: alive, but they've laid off 14% of their
+  - start: 00:01:40
+    text: staff. You know, the core people have
+  - start: 00:01:41
+    text: left, and investors are calling it a
+  - start: 00:01:43
+    text: zombie company. The second victim of
+  - start: 00:01:45
+    text: this ruthless strategy was Windsorf
+  - start: 00:01:47
+    text: which happened also last year where
+  - start: 00:01:48
+    text: Google paid 2.4 4 billion to poach the
+  - start: 00:01:51
+    text: Windsor CEO, a co-founder of Winerf and
+  - start: 00:01:53
+    text: 40 other senior engineers, but without
+  - start: 00:01:56
+    text: actually acquiring the company. And this
+  - start: 00:01:58
+    text: is the shitty part. Now, coincidentally,
+  - start: 00:02:01
+    text: 4 months later, Google launches
+  - start: 00:02:03
+    text: anti-gravity, which is very similar tool
+  - start: 00:02:05
+    text: to Windsurf. It literally feels the
+  - start: 00:02:06
+    text: same. They even left in like the
+  - start: 00:02:08
+    text: assistant name as in Windsurf
+  - start: 00:02:10
+    text: accidentally because it was built by the
+  - start: 00:02:12
+    text: same team. And this is the dirty
+  - start: 00:02:14
+    text: playbook. take the talent, clone the
+  - start: 00:02:15
+    text: product and leave the corpse of the
+  - start: 00:02:17
+    text: company for someone else to buy or to
+  - start: 00:02:19
+    text: eventually fade away. And this is
+  - start: 00:02:20
+    text: exactly what's happening to client.
+  - start: 00:02:22
+    text: Openai is doing the same playbook like
+  - start: 00:02:24
+    text: Meta and Google. They poached the core
+  - start: 00:02:26
+    text: team from client but didn't acquire the
+  - start: 00:02:28
+    text: product or the company which is
+  - start: 00:02:29
+    text: obviously a major concern for the
+  - start: 00:02:31
+    text: millions of client users all over the
+  - start: 00:02:33
+    text: world. But believe it or not, this is
+  - start: 00:02:34
+    text: not the first issue client has been
+  - start: 00:02:36
+    text: facing recently. It was already
+  - start: 00:02:38
+    text: fractured before this aqua hire from
+  - start: 00:02:40
+    text: OpenAI because the head of AI at Klein
+  - start: 00:02:43
+    text: was fired. Now shortly after multiple
+  - start: 00:02:46
+    text: engineers from Klein followed him. They
+  - start: 00:02:48
+    text: went out the door, left client and
+  - start: 00:02:51
+    text: magically ended up at OpenAI. So the
+  - start: 00:02:53
+    text: issues inside of Klein and the team are
+  - start: 00:02:56
+    text: much worse than people realize. Now you
+  - start: 00:02:58
+    text: might be thinking, okay, David, what
+  - start: 00:03:00
+    text: tool should I use now? If client is not
+  - start: 00:03:02
+    text: headed in the right direction, is there
+  - start: 00:03:04
+    text: any other coding extension that's open
+  - start: 00:03:06
+    text: source that's promising and I would say
+  - start: 00:03:08
+    text: currently the best client alternative
+  - start: 00:03:10
+    text: out there in my opinion is kilo code.
+  - start: 00:03:12
+    text: Now there are many reasons but first off
+  - start: 00:03:14
+    text: Kilo is a supererset of client and root
+  - start: 00:03:16
+    text: code meaning it's bigger right it has
+  - start: 00:03:18
+    text: all of their features and more plus the
+  - start: 00:03:20
+    text: team at kilo code is very committed to
+  segment_count: 341
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: classify
