@@ -1,0 +1,97 @@
+#!/bin/bash
+# RALF Performance Dashboard
+
+BLACKBOX5_DIR="${BLACKBOX5_HOME:-$HOME/.blackbox5}"
+METRICS_FILE="$BLACKBOX5_DIR/ralf-metrics.jsonl"
+RUNS_DIR="$BLACKBOX5_DIR/5-project-memory/ralf-core/.autonomous/runs"
+
+clear
+echo "=== RALF Performance Dashboard ==="
+echo ""
+
+# Overall Stats
+echo "📊 Overall Stats"
+if [ -f "$METRICS_FILE" ]; then
+    TOTAL_LOOPS=$(wc -l < "$METRICS_FILE" 2>/dev/null || echo 0)
+    if [ "$TOTAL_LOOPS" -gt 0 ]; then
+        AVG_DURATION=$(jq -s 'map(.duration) | add / length' "$METRICS_FILE" 2>/dev/null)
+        AVG_MINS=$((AVG_DURATION / 60))
+        AVG_SECS=$((AVG_DURATION % 60))
+        echo "Total Loops: $TOTAL_LOOPS"
+        echo "Avg Duration: ${AVG_MINS}m ${AVG_SECS}s"
+    else
+        echo "Total Loops: 0"
+        echo "Avg Duration: N/A"
+    fi
+else
+    echo "Total Loops: 0 (no metrics yet)"
+    echo "Avg Duration: N/A"
+fi
+echo ""
+
+# Last 24h
+echo "📅 Last 24h"
+TODAY=$(date +%Y-%m-%d)
+if [ -f "$METRICS_FILE" ]; then
+    TODAY_LOOPS=$(grep "$TODAY" "$METRICS_FILE" | wc -l 2>/dev/null || echo 0)
+    echo "Loops today: $TODAY_LOOPS"
+else
+    echo "Loops today: 0 (no metrics yet)"
+fi
+echo ""
+
+# Documentation Coverage
+echo "📁 Documentation Coverage"
+TOTAL_RUNS=$(ls -1 "$RUNS_DIR" 2>/dev/null | wc -l | tr -d ' ')
+if [ "$TOTAL_RUNS" -gt 0 ]; then
+    RESULTS=$(ls -1 "$RUNS_DIR"/*/RESULTS.md 2>/dev/null | wc -l | tr -d ' ')
+    THOUGHTS=$(ls -1 "$RUNS_DIR"/*/THOUGHTS.md 2>/dev/null | wc -l | tr -d ' ')
+    DECISIONS=$(ls -1 "$RUNS_DIR"/*/DECISIONS.md 2>/dev/null | wc -l | tr -d ' ')
+    LEARNINGS=$(ls -1 "$RUNS_DIR"/*/LEARNINGS.md 2>/dev/null | wc -l | tr -d ' ')
+    ASSUMPTIONS=$(ls -1 "$RUNS_DIR"/*/ASSUMPTIONS.md 2>/dev/null | wc -l | tr -d ' ')
+    
+    calc_pct() { 
+        if [ "$2" -gt 0 ]; then 
+            printf "%d%%" $(( ($1 * 100) / $2 ))
+        else 
+            echo "0%" 
+        fi 
+    }
+    
+    echo "RESULTS.md:   $RESULTS/$TOTAL_RUNS ($(calc_pct $RESULTS $TOTAL_RUNS))"
+    echo "THOUGHTS.md:  $THOUGHTS/$TOTAL_RUNS ($(calc_pct $THOUGHTS $TOTAL_RUNS))"
+    echo "DECISIONS.md: $DECISIONS/$TOTAL_RUNS ($(calc_pct $DECISIONS $TOTAL_RUNS))"
+    echo "LEARNINGS.md:  $LEARNINGS/$TOTAL_RUNS ($(calc_pct $LEARNINGS $TOTAL_RUNS))"
+    echo "ASSUMPTIONS.md: $ASSUMPTIONS/$TOTAL_RUNS ($(calc_pct $ASSUMPTIONS $TOTAL_RUNS))"
+else
+    echo "No runs yet"
+fi
+echo ""
+
+# Recent Activity
+echo "🕐 Recent Activity (Last 5)"
+if [ -f "$METRICS_FILE" ]; then
+    tail -5 "$METRICS_FILE" | while read -r line; do
+        LOOP=$(echo "$line" | jq -r '.loop')
+        DUR=$(echo "$line" | jq -r '.duration')
+        TASK=$(echo "$line" | jq -r '.task' | cut -c1-30)
+        STATUS=$(echo "$line" jq -r '.status')
+        MINS=$((DUR / 60))
+        SECS=$((DUR % 60))
+        echo "[$LOOP] ${MINS}m ${SECS}s | $STATUS | $TASK"
+    done
+else
+    echo "No activity yet (run RALF to generate metrics)"
+fi
+echo ""
+
+# Task Queue
+echo "📋 Task Queue"
+ACTIVE=$(ls -1 "$BLACKBOX5_DIR/5-project-memory/ralf-core/.autonomous/tasks/active/" 2>/dev/null | wc -l | tr -d ' ')
+COMPLETED=$(ls -1 "$BLACKBOX5_DIR/5-project-memory/ralf-core/.autonomous/tasks/completed/" 2>/dev/null | wc -l | tr -d ' ')
+echo "Active:   $ACTIVE"
+echo "Completed: $COMPLETED"
+echo ""
+
+echo "💡 Run 'ralf-dashboard' again to refresh"
+echo "💡 Run 'c' to start/attach to RALF"
