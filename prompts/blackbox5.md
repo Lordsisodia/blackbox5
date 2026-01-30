@@ -408,7 +408,7 @@ git log --oneline --since="1 week ago" | wc -l  # Recent activity
 | Documentation | All paths documented | Some paths missing | Create docs |
 | Test Coverage | >80% coverage | Unknown | Add tests |
 | Error Handling | All errors handled | Some unhandled | Fix handling |
-| Skills | 12 BMAD skills | 9 skills | Create missing |
+| BMAD Skills | 9 BMAD skills (complete set) | 9 skills | Complete |
 | Project Memories | 4 active | Tasks only in 1 | Populate others |
 
 **Check for missing components:**
