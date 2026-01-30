@@ -619,35 +619,31 @@ class SkillManager:
 
     # ========== Advanced Caching with ContextManager (NEW) ==========
 
-    def _get_cache_manager(self) -> 'ContextManager':
+    def _get_cache_manager(self) -> Optional['ContextManager']:
         """
         Get or create the ContextManager for skill caching.
 
         Returns:
-            ContextManager instance
+            ContextManager instance or None if not available
         """
         if self._cache_manager is None:
             try:
-                # Try to import ContextManager from skills-cap
-                import sys
-                skills_cap_path = Path(__file__).parent.parent.parent.parent.parent / '02-agents' / 'capabilities' / 'skills-cap'
-                if skills_cap_path.exists():
-                    sys.path.insert(0, str(skills_cap_path))
-                    from context.manager import ContextManager
+                # Try to import ContextManager from runtime
+                from runtime.context.manager import ContextManager
 
-                    cache_root = Path.home() / ".claude" / "skills" / ".cache"
-                    self._cache_manager = ContextManager(
-                        context_root=cache_root,
-                        max_size_mb=50.0,  # 50MB skill cache
-                        enable_compression=True,
-                        enable_semantic_index=False
-                    )
-                    logger.info(f"ContextManager initialized for skill caching at {cache_root}")
-                else:
-                    logger.warning("ContextManager not found, caching disabled")
-                    self._cache_enabled = False
-            except ImportError as e:
-                logger.warning(f"Could not import ContextManager: {e}. Caching disabled.")
+                cache_root = Path.home() / ".claude" / "skills" / ".cache"
+                cache_root.mkdir(parents=True, exist_ok=True)
+
+                self._cache_manager = ContextManager(
+                    context_root=cache_root,
+                    max_size_mb=50.0,  # 50MB skill cache
+                    enable_compression=True,
+                    enable_semantic_index=False
+                )
+                logger.info(f"ContextManager initialized for skill caching at {cache_root}")
+            except ImportError:
+                # ContextManager not available, disable caching
+                logger.debug("ContextManager not available, caching disabled")
                 self._cache_enabled = False
 
         return self._cache_manager
