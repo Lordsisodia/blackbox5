@@ -21,7 +21,7 @@ system:
 # NEXT BEST ACTION
 # ============================================================================
 # AI agents should start here. This is the highest-priority unblocked item.
-next_action: "PLAN-001"
+next_action: "PLAN-004"
 
 # ============================================================================
 # QUICK STATS
@@ -31,9 +31,9 @@ stats:
   proposed: 20
   research: 1
   design: 0
-  planned: 6
+  planned: 4
   active: 0
-  completed: 2
+  completed: 3
   cancelled: 0
   backlog: 0
 
@@ -43,15 +43,16 @@ stats:
 plans:
   # Plans ready to start (no dependencies)
   ready_to_start:
-    - id: "PLAN-001"
-      name: "Fix Skills System Critical Issues"
+    - id: "PLAN-002"
+      name: "Fix YAML Agent Loading"
       priority: "critical"
-      effort: "1-2 days"
-      domain: "skills"
+      effort: "1 day"
+      domain: "agents"
       category: "bugfix"
       dependencies: []
-      blocks: ["PLAN-002", "PLAN-003"]
-      path: "03-planned/PLAN-001-fix-skills-system/"
+      blocks: ["PLAN-003"]
+      path: "03-planned/PLAN-002-fix-yaml-loading/"
+      note: "Now unblocked - PLAN-001 completed"
 
     - id: "PLAN-004"
       name: "Fix Import Path Errors"
@@ -85,30 +86,37 @@ plans:
 
   # Plans blocked by dependencies
   blocked:
-    - id: "PLAN-002"
-      name: "Fix YAML Agent Loading"
-      priority: "critical"
-      effort: "1 day"
-      domain: "agents"
-      category: "bugfix"
-      dependencies: ["PLAN-001"]
-      blocks: ["PLAN-003"]
-      blocked_by: ["PLAN-001"]
-      path: "03-planned/PLAN-002-fix-yaml-loading/"
-
     - id: "PLAN-003"
       name: "Implement Planning Agent"
       priority: "high"
       effort: "3-5 days"
       domain: "agents"
       category: "feature"
-      dependencies: ["PLAN-001", "PLAN-002", "PLAN-005"]
+      dependencies: ["PLAN-002", "PLAN-005"]
       blocks: []
-      blocked_by: ["PLAN-001", "PLAN-002", "PLAN-005"]
+      blocked_by: ["PLAN-002", "PLAN-005"]
       path: "03-planned/PLAN-003-implement-planning-agent/"
+      note: "PLAN-001 completed - now only blocked by PLAN-002 and PLAN-005"
 
   # Completed plans
   completed:
+    - id: "PLAN-001"
+      name: "Fix Skills System Critical Issues"
+      priority: "critical"
+      effort: "1-2 days"
+      domain: "skills"
+      category: "bugfix"
+      dependencies: []
+      blocks: ["PLAN-002", "PLAN-003"]
+      completed_at: "2026-01-31"
+      executed_by: "RALF (Agent-2.4)"
+      path: "05-completed/PLAN-001-fix-skills-system/"
+      deliverables:
+        - "TASK-1738300332 - Skills audit confirmed single canonical system"
+        - "Verified: 2-engine/.autonomous/skills/ with 11 BMAD skills"
+        - "Decision: NO ACTION REQUIRED - System already healthy"
+      notes: "Original plan was based on outdated information. Audit revealed single canonical system exists - no consolidation needed."
+
     - id: "PLAN-007"
       name: "Enable 90% LLMLingua Compression"
       priority: "immediate"
@@ -138,8 +146,8 @@ dependencies:
 
   # What each plan is blocked by
   blocked:
-    PLAN-002: ["PLAN-001"]
-    PLAN-003: ["PLAN-001", "PLAN-002", "PLAN-005"]
+    PLAN-002: []
+    PLAN-003: ["PLAN-002", "PLAN-005"]
 
   # Circular dependencies (should be empty)
   circular: []
