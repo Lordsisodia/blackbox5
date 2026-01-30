@@ -1,7 +1,19 @@
 #!/bin/bash
 # Pre-flight validation for Legacy
+#
+# Usage: ./validate.sh [--dry-run] [--verbose]
 
-PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Source dry-run library
+source "$SCRIPT_DIR/../lib/dry_run.sh"
+
+# Initialize dry-run mode and get remaining args
+REMAINING_ARGS=$(dry_run_init "$@")
+set -- $REMAINING_ARGS
 
 # Colors
 RED='\033[0;31m'
@@ -39,6 +51,11 @@ echo "║              Legacy Pre-Flight Check                       ║"
 echo "╚════════════════════════════════════════════════════════════╝"
 echo ""
 
+if dry_run_is_active; then
+    echo -e "${YELLOW}[DRY-RUN MODE]${NC} Validating without making changes"
+    echo ""
+fi
+
 echo -e "${BLUE}Environment:${NC}"
 check "Running on macOS/Linux" "[ $(uname) = 'Darwin' ] || [ $(uname) = 'Linux' ]" "required"
 check "Bash version >= 4.0" "[ ${BASH_VERSINFO[0]} -ge 4 ]" "optional"
@@ -71,7 +88,7 @@ check "prompts/procedures/execution-protocol.md" "[ -f '$PROJECT_DIR/.Autonomous
 
 echo ""
 echo -e "${BLUE}Git Status:${NC}"
-cd "$PROJECT_DIR"
+dry_run_cd "$PROJECT_DIR"
 CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
 check "Git repository initialized" "[ -d '$PROJECT_DIR/.git' ]" "required"
 check "Not on main/master branch" "[ '$CURRENT_BRANCH' != 'main' ] && [ '$CURRENT_BRANCH' != 'master' ]" "required"
@@ -102,6 +119,7 @@ if [ $ERRORS -gt 0 ]; then
     echo "  Warnings: $WARNINGS"
     echo ""
     echo "Fix the errors above before running Legacy."
+    dry_run_summary
     exit 1
 elif [ $WARNINGS -gt 0 ]; then
     echo -e "${YELLOW}VALIDATION PASSED WITH WARNINGS${NC}"
@@ -109,11 +127,13 @@ elif [ $WARNINGS -gt 0 ]; then
     echo "  Warnings: $WARNINGS"
     echo ""
     echo "Legacy can run, but some features may be limited."
+    dry_run_summary
     exit 0
 else
     echo -e "${GREEN}VALIDATION PASSED${NC}"
     echo "  All checks passed. Legacy is ready to run."
     echo ""
     echo "Start with: ./.Autonomous/legacy-loop.sh"
+    dry_run_summary
     exit 0
 fi

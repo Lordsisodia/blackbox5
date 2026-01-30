@@ -1,8 +1,21 @@
 #!/bin/bash
 # Telemetry and monitoring for Legacy runs
 # Tracks performance, errors, and system health
+#
+# Usage: ./telemetry.sh [--dry-run] [--verbose] {init|event|phase|metric|complete|status|watch}
 
-PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Source dry-run library
+source "$SCRIPT_DIR/../lib/dry_run.sh"
+
+# Initialize dry-run mode and get remaining args
+REMAINING_ARGS=$(dry_run_init "$@")
+set -- $REMAINING_ARGS
+
 TELEMETRY_DIR="$PROJECT_DIR/.Autonomous/telemetry"
 CURRENT_RUN_DIR=""
 
@@ -16,32 +29,40 @@ NC='\033[0m'
 
 # Initialize telemetry
 init_telemetry() {
-    mkdir -p "$TELEMETRY_DIR"
+    dry_run_mkdir "$TELEMETRY_DIR"
     TIMESTAMP=$(date +%Y%m%d_%H%M%S)
     TELEMETRY_FILE="$TELEMETRY_DIR/run-$TIMESTAMP.json"
 
-    cat > "$TELEMETRY_FILE" << EOF
-{
-  "run_id": "$TIMESTAMP",
-  "start_time": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-  "status": "starting",
-  "events": [],
-  "metrics": {
-    "files_read": 0,
-    "files_written": 0,
-    "commands_executed": 0,
-    "errors": 0,
-    "warnings": 0
+    local json_content="{
+  \"run_id\": \"$TIMESTAMP\",
+  \"start_time\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+  \"status\": \"starting\",
+  \"events\": [],
+  \"metrics\": {
+    \"files_read\": 0,
+    \"files_written\": 0,
+    \"commands_executed\": 0,
+    \"errors\": 0,
+    \"warnings\": 0
   },
-  "phases": {
-    "initialization": "pending",
-    "task_selection": "pending",
-    "execution": "pending",
-    "documentation": "pending",
-    "completion": "pending"
+  \"phases\": {
+    \"initialization\": \"pending\",
+    \"task_selection\": \"pending\",
+    \"execution\": \"pending\",
+    \"documentation\": \"pending\",
+    \"completion\": \"pending\"
   }
-}
-EOF
+}"
+
+    if dry_run_is_active; then
+        dry_run_echo "Create telemetry file: $TELEMETRY_FILE"
+        if dry_run_is_verbose; then
+            echo "$json_content"
+        fi
+    else
+        echo "$json_content" > "$TELEMETRY_FILE"
+    fi
+
     echo "$TELEMETRY_FILE"
 }
 
@@ -59,29 +80,34 @@ log_event() {
         local timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)
         local event="{\"time\": \"$timestamp\", \"type\": \"$type\", \"message\": \"$message\"}"
 
-        # Update metrics based on type
-        case "$type" in
-            "error")
-                jq '.metrics.errors += 1' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
-                echo -e "${RED}[ERROR]${NC} $message"
-                ;;
-            "warning")
-                jq '.metrics.warnings += 1' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
-                echo -e "${YELLOW}[WARN]${NC} $message"
-                ;;
-            "success")
-                echo -e "${GREEN}[OK]${NC} $message"
-                ;;
-            "info")
-                echo -e "${BLUE}[INFO]${NC} $message"
-                ;;
-            "phase")
-                echo -e "${CYAN}[PHASE]${NC} $message"
-                ;;
-        esac
+        if dry_run_is_active; then
+            dry_run_echo "Log event [$type]: $message"
+            dry_run_echo "Update metric: $type += 1"
+        else
+            # Update metrics based on type
+            case "$type" in
+                "error")
+                    jq '.metrics.errors += 1' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+                    echo -e "${RED}[ERROR]${NC} $message"
+                    ;;
+                "warning")
+                    jq '.metrics.warnings += 1' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+                    echo -e "${YELLOW}[WARN]${NC} $message"
+                    ;;
+                "success")
+                    echo -e "${GREEN}[OK]${NC} $message"
+                    ;;
+                "info")
+                    echo -e "${BLUE}[INFO]${NC} $message"
+                    ;;
+                "phase")
+                    echo -e "${CYAN}[PHASE]${NC} $message"
+                    ;;
+            esac
 
-        # Add event to array
-        jq ".events += [$event]" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            # Add event to array
+            jq ".events += [$event]" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+        fi
     fi
 }
 
@@ -92,8 +118,12 @@ update_phase() {
     local file=$(ls -t "$TELEMETRY_DIR"/run-*.json 2>/dev/null | head -1)
 
     if [ -f "$file" ]; then
-        jq ".phases.$phase = \"$status\"" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
-        log_event "phase" "Phase '$phase' is now $status" "$file"
+        if dry_run_is_active; then
+            dry_run_echo "Update phase '$phase' to status: $status"
+        else
+            jq ".phases.$phase = \"$status\"" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            log_event "phase" "Phase '$phase' is now $status" "$file"
+        fi
     fi
 }
 
@@ -103,7 +133,11 @@ increment_metric() {
     local file=$(ls -t "$TELEMETRY_DIR"/run-*.json 2>/dev/null | head -1)
 
     if [ -f "$file" ]; then
-        jq ".metrics.$metric += 1" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+        if dry_run_is_active; then
+            dry_run_echo "Increment metric: $metric += 1"
+        else
+            jq ".metrics.$metric += 1" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+        fi
     fi
 }
 
@@ -113,14 +147,29 @@ complete_run() {
     local file=$(ls -t "$TELEMETRY_DIR"/run-*.json 2>/dev/null | head -1)
 
     if [ -f "$file" ]; then
-        jq ".status = \"$status\" | .end_time = \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
-        log_event "info" "Run completed with status: $status" "$file"
+        if dry_run_is_active; then
+            dry_run_echo "Mark run complete with status: $status"
+            dry_run_echo "Set end_time to: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+        else
+            jq ".status = \"$status\" | .end_time = \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            log_event "info" "Run completed with status: $status" "$file"
+        fi
     fi
 }
 
 # Display current status
 show_status() {
     local file=$(ls -t "$TELEMETRY_DIR"/run-*.json 2>/dev/null | head -1)
+
+    if dry_run_is_active; then
+        dry_run_echo "Display telemetry status"
+        if [ -f "$file" ]; then
+            dry_run_echo "Read from: $file"
+        else
+            dry_run_echo "No telemetry file found"
+        fi
+        return 0
+    fi
 
     if [ -f "$file" ]; then
         echo ""
@@ -157,6 +206,11 @@ show_status() {
 
 # Watch mode - continuous monitoring
 watch_mode() {
+    if dry_run_is_active; then
+        dry_run_echo "Start watch mode (would refresh every 5 seconds)"
+        return 0
+    fi
+
     while true; do
         clear
         show_status
@@ -188,7 +242,7 @@ case "$1" in
         watch_mode
         ;;
     *)
-        echo "Usage: $0 {init|event|phase|metric|complete|status|watch}"
+        echo "Usage: $0 [--dry-run] [--verbose] {init|event|phase|metric|complete|status|watch}"
         echo ""
         echo "Commands:"
         echo "  init              - Initialize telemetry for new run"
@@ -198,5 +252,12 @@ case "$1" in
         echo "  complete <status> - Mark run complete"
         echo "  status            - Show current status"
         echo "  watch             - Continuous monitoring"
+        echo ""
+        echo "Options:"
+        echo "  --dry-run         - Show what would be done without making changes"
+        echo "  --verbose, -v     - Show detailed output in dry-run mode"
         ;;
 esac
+
+# Print dry-run summary
+dry_run_summary
