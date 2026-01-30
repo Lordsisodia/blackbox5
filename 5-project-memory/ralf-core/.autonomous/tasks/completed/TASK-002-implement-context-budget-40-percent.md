@@ -40,7 +40,7 @@ New threshold:
 
 ## Approach
 
-1. Modify `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/context_budget.py`
+1. Modify `~/.blackbox5/2-engine/.autonomous/lib/context_budget.py`
 2. Add sub-agent threshold parameter
 3. Implement delegation logic
 4. Test with a task that consumes context quickly
@@ -48,8 +48,8 @@ New threshold:
 
 ## Files to Modify
 
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/context_budget.py`
-- May need new: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/subagent_spawner.py`
+- `~/.blackbox5/2-engine/.autonomous/lib/context_budget.py`
+- May need new: `~/.blackbox5/2-engine/.autonomous/lib/subagent_spawner.py`
 
 ## Risk Level
 

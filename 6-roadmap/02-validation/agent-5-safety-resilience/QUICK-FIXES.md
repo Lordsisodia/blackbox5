@@ -279,7 +279,7 @@ This ensures that when the kill switch triggers, safe mode automatically engages
 
 ### Step 1: Apply all fixes
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/01-core
+cd ~/.blackbox5/2-engine/01-core
 
 # Fix imports
 # (apply the changes above manually or use sed/python script)

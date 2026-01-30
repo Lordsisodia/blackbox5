@@ -6,7 +6,7 @@
 **Started:** 2026-01-30
 **Agent:** Agent-2.3
 **Project:** RALF-CORE
-**Run Directory:** /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0004
+**Run Directory:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0004
 
 ---
 
@@ -49,7 +49,7 @@ Revert to Agent-2.2 reference in ralf.md if issues found
 ## Completion
 
 **Completed:** 2026-01-30
-**Run Folder:** /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0004
+**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0004
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow
 **Result:** PARTIAL (2/5 features working)

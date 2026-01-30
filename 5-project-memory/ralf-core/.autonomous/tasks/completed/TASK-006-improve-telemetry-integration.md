@@ -49,7 +49,7 @@ The telemetry script supports these commands:
 - `complete <file>` - Mark run complete
 - `status [file]` - View telemetry status
 
-Location: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh`
+Location: `~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh`
 
 ## Related
 

@@ -31,7 +31,7 @@ Current phase gate failures just say "cannot proceed" without clear guidance on 
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow
 **Changes Made:**
-- Created `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/phase_gates.py` with improved feedback
+- Created `~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py` with improved feedback
 - Added detailed feedback configuration for all 8 phase gates
 - Implemented `GateCheckResult` dataclass for structured results
 - Added `format_gate_result()` for human-readable output
@@ -69,7 +69,7 @@ Example plan.md structure:
 
 ## Files to Modify
 
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/phase_gates.py`
+- `~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py`
 
 ## Risk Level
 

@@ -18,7 +18,7 @@ Agent-2.3 includes many critical paths in the AGENT.md, but they should also be 
 
 ## Success Criteria
 
-- [x] Create `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/1-docs/04-project/critical-paths.md`
+- [x] Create `~/.blackbox5/1-docs/04-project/critical-paths.md`
 - [x] Document all project memory paths
 - [x] Document all engine component paths
 - [x] Document all skill paths
@@ -67,7 +67,7 @@ Agent-2.3 includes many critical paths in the AGENT.md, but they should also be 
 
 ## Files to Create
 
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/1-docs/04-project/critical-paths.md`
+- `~/.blackbox5/1-docs/04-project/critical-paths.md`
 
 ## Risk Level
 

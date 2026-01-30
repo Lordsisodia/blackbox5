@@ -23,14 +23,14 @@
 ### 1. Multi-project Memory Access - PASS
 
 Verified access to all project memories:
-- RALF-CORE: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/ralf-core/`
-- Blackbox5: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/blackbox5/`
-- SISO-INTERNAL: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/siso-internal/`
-- Management: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/management/`
+- RALF-CORE: `~/.blackbox5/5-project-memory/ralf-core/`
+- Blackbox5: `~/.blackbox5/5-project-memory/blackbox5/`
+- SISO-INTERNAL: `~/.blackbox5/5-project-memory/siso-internal/`
+- Management: `~/.blackbox5/5-project-memory/management/`
 
 ### 2. 40% Sub-agent Threshold - FAIL
 
-**Issue:** `context_budget.py` does not exist at `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/context_budget.py`
+**Issue:** `context_budget.py` does not exist at `~/.blackbox5/2-engine/.autonomous/lib/context_budget.py`
 
 **Required functionality:**
 - Accept `--subagent-threshold 40` parameter
@@ -41,7 +41,7 @@ Verified access to all project memories:
 
 ### 3. Automatic Skill Routing - PASS
 
-**Location:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/skill_router.py`
+**Location:** `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`
 
 **Test results:**
 - "Implement a new feature" -> Developer (Amelia), 40% confidence
@@ -55,7 +55,7 @@ Verified access to all project memories:
 
 ### 4. Phase Gates Enforcement - FAIL
 
-**Issue:** `phase_gates.py` does not exist at `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/phase_gates.py`
+**Issue:** `phase_gates.py` does not exist at `~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py`
 
 **Required gates:**
 - Quick Flow: quick_spec_gate, dev_story_gate, code_review_gate

@@ -345,7 +345,7 @@ railway down
 
 Run this plan with:
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
+cd ~/.blackbox5
 # Follow the implementation order
 ```
 

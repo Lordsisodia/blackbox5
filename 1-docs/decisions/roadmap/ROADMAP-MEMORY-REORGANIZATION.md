@@ -98,7 +98,7 @@ Is it an improvement to BlackBox5?
 
 ```bash
 # Navigate to BlackBox5
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
+cd ~/.blackbox5
 
 # Review the migration map
 cat ROADMAP-TO-MEMORY-MIGRATION-MAP.md

@@ -18,7 +18,7 @@ Agent-2.3 specifies automatic skill routing, but the implementation doesn't exis
 
 ## Success Criteria
 
-- [x] Create skill router script at `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/skill_router.py`
+- [x] Create skill router script at `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`
 - [x] Implement keyword matching for each BMAD skill
 - [x] Create skill loading mechanism
 - [x] Test routing with different task types
@@ -41,18 +41,18 @@ Agent-2.3 specifies automatic skill routing, but the implementation doesn't exis
 ## Approach
 
 1. Create skill_router.py with keyword matching
-2. Load skill files from `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/skills/`
+2. Load skill files from `~/.blackbox5/2-engine/.autonomous/skills/`
 3. Parse task description for keywords
 4. Return recommended skill path
 5. Integrate with ralf-loop.sh
 
 ## Files to Create
 
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/skill_router.py`
+- `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`
 
 ## Files to Modify
 
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/ralf-loop.sh` (to call skill router)
+- `~/.blackbox5/2-engine/.autonomous/shell/ralf-loop.sh` (to call skill router)
 
 ## Risk Level
 
@@ -73,7 +73,7 @@ Remove skill router calls from ralf-loop.sh if issues arise
 
 ### Summary
 
-The skill router was already implemented at `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/lib/skill_router.py`. Verified functionality:
+The skill router was already implemented at `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`. Verified functionality:
 
 1. **Keyword Matching**: Routes tasks based on keyword analysis with weighted scoring
 2. **9 BMAD Skills Supported**: PM, Architect, Analyst, Scrum Master, UX, Dev, QA, TEA, Quick Flow
