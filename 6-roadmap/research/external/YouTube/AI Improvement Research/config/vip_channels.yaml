@@ -1,0 +1,100 @@
+# VIP Channels - Auto-process ALL new videos
+# Tier 1: Core AI/Claude/MCP content (highest priority)
+# Tier 2: Strong AI/coding relevance
+# Tier 3: Broader tech with occasional AI gems
+
+channels:
+  # Tier 1 - Core AI/Claude/MCP
+  - name: "Anthropic"
+    id: "UCJkO8Rqyr0nQdP4h4LV6pQw"
+    tier: 1
+    focus: ["Claude", "AI safety", "research", "MCP"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCJkO8Rqyr0nQdP4h4LV6pQw"
+
+  - name: "Simon Willison"
+    id: "UCSB7xS4tM2Jkx6j1vJ9J0Vw"
+    tier: 1
+    focus: ["LLMs", "Claude", "tools", "datasette"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSB7xS4tM2Jkx6j1vJ9J0Vw"
+
+  - name: "Latent Space"
+    id: "UCxQKHvKbmJyX8O6I7rY0XxA"
+    tier: 1
+    focus: ["AI engineering", "agents", "MCP", "tools"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmJyX8O6I7rY0XxA"
+
+  - name: "AI Engineer"
+    id: "UCw0S0k8SYYsQJ8K0q7Z0XxA"
+    tier: 1
+    focus: ["AI engineering", "agents", "production AI"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCw0S0k8SYYsQJ8K0q7Z0XxA"
+
+  # Tier 2 - Strong AI/Coding
+  - name: "Fireship"
+    id: "UCsBjURrPoezykLs9EqgamOA"
+    tier: 2
+    focus: ["quick tutorials", "new tech", "AI tools"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA"
+
+  - name: "Theo - t3.gg"
+    id: "UCbRP3c757lWg9M-U7KfjVRQ"
+    tier: 2
+    focus: ["web dev", "AI tools", "Cursor", "opinion"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCbRP3c757lWg9M-U7KfjVRQ"
+
+  - name: "NetworkChuck"
+    id: "UC9x0AN7LWHuX_aVHqmlCA"
+    tier: 2
+    focus: ["tutorials", "AI tools", "automation"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7LWHuX_aVHqmlCA"
+
+  - name: "Matt Berman"
+    id: "UCY1YlKxC6ZcV7Z7Z7Z7Z7Z7"
+    tier: 2
+    focus: ["AI news", "Claude", "ChatGPT", "testing"]
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCY1YlKxC6ZcV7Z7Z7Z7Z7Z7"
+
+  # Add your specific YouTubers here when ready
+  # - name: "Your Channel"
+  #   id: "CHANNEL_ID"
+  #   tier: 1
+  #   focus: ["..."]
+  #   rss: "..."
+
+# Keywords that trigger immediate processing (even from non-VIP if manually added)
+trigger_keywords:
+  primary:
+    - "Claude Code"
+    - "Claude"
+    - "MCP"
+    - "Model Context Protocol"
+    - "AI agent"
+    - "vibe coding"
+    - "Cursor"
+    - "LLM"
+    - "prompt engineering"
+    - "AI memory"
+    - "context window"
+    - "system prompt"
+
+  secondary:
+    - "OpenAI"
+    - "GPT"
+    - "Anthropic"
+    - "AI tutorial"
+    - "AI workflow"
+    - "autonomous"
+    - "orchestration"
+
+# Topics for categorization
+topics:
+  - "Claude Code"
+  - "MCP"
+  - "AI Agents"
+  - "Prompt Engineering"
+  - "AI Memory"
+  - "Vibe Coding"
+  - "Open Source AI"
+  - "Model Releases"
+  - "AI Architecture"
+  - "Context Management"

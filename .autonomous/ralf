@@ -1,0 +1,19 @@
+#!/bin/bash
+# RALF wrapper for blackbox5 directory
+# Delegates to SISO-INTERNAL's RALF setup
+
+# Get the directory where this script lives
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BLACKBOX5_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# SISO-INTERNAL is the parent of blackbox5
+SISO_INTERNAL_DIR="$(cd "$BLACKBOX5_DIR/.." && pwd)"
+RALF_WRAPPER="$SISO_INTERNAL_DIR/.autonomous/ralf"
+
+if [ ! -f "$RALF_WRAPPER" ]; then
+    echo "Error: RALF wrapper not found at $RALF_WRAPPER"
+    exit 1
+fi
+
+# Run RALF from SISO-INTERNAL
+exec "$RALF_WRAPPER"

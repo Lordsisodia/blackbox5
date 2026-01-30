@@ -156,9 +156,12 @@ results = OrchestratorAgent().orchestrate_parallel_execution()
 └── knowledge/                   # Learned patterns
 
 2-engine/
-├── 02-agents/                   # Agent implementations
-├── 06-integrations/             # Vibe Kanban, GitHub
-└── 07-operations/              # Ralphy integration
+├── core/agents/definitions/     # Agent implementations (21 agents)
+├── core/orchestration/          # Orchestrator, routing, state
+├── core/interface/              # CLI, API, client
+├── core/autonomous/             # Redis-based autonomous system
+├── runtime/                     # Memory, hooks, monitoring
+└── tools/integrations/          # Vibe Kanban, GitHub, etc.
 ```
 
 ---

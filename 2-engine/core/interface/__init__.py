@@ -1,65 +1,61 @@
 """
-Client module for Blackbox5 agents.
+Spec-Driven Development Pipeline
 
-Provides various client implementations for agent execution:
-- ClaudeCodeClient: Execute tasks via Claude Code CLI (preferred)
-- ClaudeCodeAgentMixin: Mixin for adding Claude Code execution to agents
-- AgentClient: Generic agent client with multiple backends
-- GLMClient: GLM API client
-- AgentOutputParser: Parse structured outputs from agents
+This module provides the core infrastructure for spec-driven development,
+integrating PRD, Epic, and Task generation with GitHub integration.
 """
 
-from client.ClaudeCodeClient import (
-    ClaudeCodeClient,
-    ClaudeCodeRequest,
-    ClaudeCodeResult,
-    execute,
-    execute_async,
-    get_client
+from .config import Config, load_config
+from .prd_agent import PRDAgent, PRDParser, PRDValidator, PRDData
+from .epic_agent import (
+    EpicAgent,
+    EpicParser,
+    EpicValidator,
+    EpicData,
+    TechnicalDecisionMaker,
+    ArchitectureGenerator,
+    ComponentBreakdown,
+    EpicStatus,
+    TechnicalDecision,
+    Component,
+    ImplementationPhase,
 )
-
-from client.ClaudeCodeAgentMixin import (
-    ClaudeCodeAgentMixin,
-    ClaudeCodeAgentTemplate
-)
-
-from client.AgentOutputParser import (
-    ParsedAgentOutput,
-    AgentOutputParserError,
-    parse_agent_output,
-    parse_agent_output_lax,
-    extract_status,
-    extract_deliverables,
-    extract_next_steps,
-    create_agent_output,
-    validate_agent_output,
-    handle_agent_response,
-    chain_agent_outputs,
+from .exceptions import (
+    SpecDrivenException,
+    PRDValidationError,
+    EpicValidationError,
+    TaskValidationError,
+    GitHubSyncError,
 )
 
 __all__ = [
-    # Claude Code CLI Client
-    "ClaudeCodeClient",
-    "ClaudeCodeRequest",
-    "ClaudeCodeResult",
-    "execute",
-    "execute_async",
-    "get_client",
+    # Config
+    "Config",
+    "load_config",
 
-    # Claude Code Agent Mixin
-    "ClaudeCodeAgentMixin",
-    "ClaudeCodeAgentTemplate",
+    # PRD Agent
+    "PRDAgent",
+    "PRDParser",
+    "PRDValidator",
+    "PRDData",
 
-    # Agent Output Parser
-    "ParsedAgentOutput",
-    "AgentOutputParserError",
-    "parse_agent_output",
-    "parse_agent_output_lax",
-    "extract_status",
-    "extract_deliverables",
-    "extract_next_steps",
-    "create_agent_output",
-    "validate_agent_output",
-    "handle_agent_response",
-    "chain_agent_outputs",
+    # Epic Agent
+    "EpicAgent",
+    "EpicParser",
+    "EpicValidator",
+    "EpicData",
+    "TechnicalDecisionMaker",
+    "ArchitectureGenerator",
+    "ComponentBreakdown",
+    "EpicStatus",
+    "TechnicalDecision",
+    "Component",
+    "ImplementationPhase",
+
+    # Exceptions
+    "SpecDrivenException",
+    "PRDValidationError",
+    "EpicValidationError",
+    "TaskValidationError",
+    "GitHubSyncError",
 ]

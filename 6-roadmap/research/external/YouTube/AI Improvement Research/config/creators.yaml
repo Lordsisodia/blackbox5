@@ -1,0 +1,286 @@
+# VIP Creators - AI Improvement Research
+# Organized by tier (1 = highest priority, must-watch)
+# All new videos from these creators are auto-processed
+
+creators:
+  # TIER 1 - Gold Standard (Must Watch)
+  - name: "David Ondrej"
+    handle: "@DavidOndrej"
+    url: "https://www.youtube.com/@DavidOndrej"
+    tier: 1
+    posting_frequency: "rare"  # rare|occasional|frequent|constant
+    quality_notes: "Doesn't post often, but when he does, it's gold"
+    focus_areas:
+      - "AI agents"
+      - "AI systems"
+      - "Deep technical"
+    content_types:
+      - "analysis"
+      - "tutorial"
+    trust_level: "high"
+    actionability: "high"
+
+  - name: "Rasmus (rasmic)"
+    handle: "@rasmic"
+    url: "https://www.youtube.com/@rasmic"
+    tier: 1
+    posting_frequency: "occasional"
+    quality_notes: "Gold tier quality"
+    focus_areas:
+      - "AI development"
+      - "Coding"
+      - "Technical deep-dives"
+    content_types:
+      - "tutorial"
+      - "demo"
+    trust_level: "high"
+    actionability: "high"
+
+  - name: "In the World of AI"
+    handle: "@intheworldofai"
+    url: "https://www.youtube.com/@intheworldofai"
+    tier: 1
+    posting_frequency: "frequent"
+    quality_notes: "Gold standard for AI news"
+    focus_areas:
+      - "AI news"
+      - "Model releases"
+      - "Industry updates"
+    content_types:
+      - "news"
+      - "analysis"
+    trust_level: "high"
+    actionability: "medium"
+
+  - name: "VRSEN (vrsen)"
+    handle: "@vrsen"
+    url: "https://www.youtube.com/@vrsen"
+    tier: 1
+    posting_frequency: "occasional"
+    quality_notes: "Gold standard"
+    focus_areas:
+      - "AI agents"
+      - "Autonomous systems"
+      - "AI architecture"
+    content_types:
+      - "tutorial"
+      - "analysis"
+    trust_level: "high"
+    actionability: "high"
+
+  # TIER 2 - Silver Standard (High Quality, Selective)
+  - name: "Misha van den Berg"
+    handle: "@mischavandenburg"
+    url: "https://www.youtube.com/@mischavandenburg"
+    tier: 2
+    posting_frequency: "frequent"
+    quality_notes: "Not always niche-relevant, but gold when it is"
+    focus_areas:
+      - "AI tools"
+      - "Development workflows"
+      - "Productivity"
+    content_types:
+      - "tutorial"
+      - "demo"
+    trust_level: "high"
+    actionability: "high"
+
+  - name: "Matthew Berman"
+    handle: "@matthew_berman"
+    url: "https://www.youtube.com/@matthew_berman/videos"
+    tier: 2
+    posting_frequency: "frequent"
+    quality_notes: "Silver standard, solid content"
+    focus_areas:
+      - "AI news"
+      - "Model comparisons"
+      - "AI tools"
+    content_types:
+      - "news"
+      - "review"
+    trust_level: "medium-high"
+    actionability: "medium"
+
+  - name: "AI Grid"
+    handle: "@TheAiGrid"
+    url: "https://www.youtube.com/@TheAiGrid"
+    tier: 2
+    posting_frequency: "frequent"
+    quality_notes: "AI news channel, good for staying current"
+    focus_areas:
+      - "AI news"
+      - "Rapid updates"
+      - "Breaking news"
+    content_types:
+      - "news"
+    trust_level: "medium"
+    actionability: "low"  # News awareness, not action
+
+  - name: "Bijan Bowen"
+    handle: "@Bijanbowen"
+    url: "https://www.youtube.com/@Bijanbowen"
+    tier: 2
+    posting_frequency: "occasional"
+    quality_notes: "Silver standard"
+    focus_areas:
+      - "AI tools"
+      - "Workflows"
+    content_types:
+      - "tutorial"
+      - "demo"
+    trust_level: "medium"
+    actionability: "medium"
+
+  - name: "AI Jason"
+    handle: "@AIJasonZ"
+    url: "https://www.youtube.com/@AIJasonZ"
+    tier: 2
+    posting_frequency: "frequent"
+    quality_notes: "Silver standard"
+    focus_areas:
+      - "AI tutorials"
+      - "No-code AI"
+      - "AI tools"
+    content_types:
+      - "tutorial"
+    trust_level: "medium"
+    actionability: "medium"
+
+  - name: "Sean Kochel"
+    handle: "@iamseankochel"
+    url: "https://www.youtube.com/@iamseankochel"
+    tier: 2
+    posting_frequency: "occasional"
+    quality_notes: "Silver standard"
+    focus_areas:
+      - "AI development"
+      - "Coding"
+    content_types:
+      - "tutorial"
+    trust_level: "medium"
+    actionability: "medium"
+
+  - name: "Greg Isenberg"
+    handle: "@GregIsenberg"
+    url: "https://www.youtube.com/@GregIsenberg"
+    tier: 2
+    posting_frequency: "frequent"
+    quality_notes: "Silver standard, business-focused"
+    focus_areas:
+      - "AI business"
+      - "Startup strategy"
+      - "AI products"
+    content_types:
+      - "analysis"
+      - "opinion"
+    trust_level: "medium"
+    actionability: "medium"
+
+  # TIER 3 - Bronze/News (High Volume, Filtered)
+  - name: "AI Labs"
+    handle: "@AILABS-393"
+    url: "https://www.youtube.com/@AILABS-393"
+    tier: 3
+    posting_frequency: "constant"
+    quality_notes: "Fast to publish, high volume, not deep"
+    focus_areas:
+      - "Breaking AI news"
+      - "Rapid updates"
+    content_types:
+      - "news"
+    trust_level: "medium"
+    actionability: "low"
+
+  - name: "AI Code King"
+    handle: "@AICodeKing"
+    url: "https://www.youtube.com/@AICodeKing"
+    tier: 3
+    posting_frequency: "constant"
+    quality_notes: "Similar to AI Labs - fast, high volume, shallow"
+    focus_areas:
+      - "AI coding"
+      - "Quick tutorials"
+    content_types:
+      - "news"
+      - "tutorial"
+    trust_level: "medium"
+    actionability: "low"
+
+  - name: "Andre Mikalsen"
+    handle: "@AndreMikalsen"
+    url: "https://www.youtube.com/@AndreMikalsen"
+    tier: 3
+    posting_frequency: "rare"
+    quality_notes: "Good but infrequent"
+    focus_areas:
+      - "AI"
+      - "Development"
+    content_types:
+      - "tutorial"
+    trust_level: "medium"
+    actionability: "medium"
+
+  - name: "Theo (t3dotgg)"
+    handle: "@t3dotgg"
+    url: "https://www.youtube.com/@t3dotgg/videos"
+    tier: 3
+    posting_frequency: "frequent"
+    quality_notes: "Web dev focus, not always AI"
+    focus_areas:
+      - "Web development"
+      - "AI tools for devs"
+    content_types:
+      - "opinion"
+      - "analysis"
+    trust_level: "medium"
+    actionability: "medium"
+
+  - name: "AIchievable"
+    handle: "@aichievable"
+    url: "https://www.youtube.com/@aichievable"
+    tier: 3
+    posting_frequency: "occasional"
+    quality_notes: "Unknown quality, to be evaluated"
+    focus_areas:
+      - "AI"
+    content_types:
+      - "tutorial"
+    trust_level: "unknown"
+    actionability: "unknown"
+
+# Processing Rules by Tier
+tier_rules:
+  tier_1:
+    - "Process all videos immediately"
+    - "Always generate full report"
+    - "Priority queue for transcription"
+    - "Alert on new upload"
+
+  tier_2:
+    - "Process all videos"
+    - "Generate report if composite score >= 6.5"
+
+  tier_3:
+    - "Process all videos"
+    - "Generate report if composite score >= 7.5"
+
+# Your Project Context (for relevance scoring)
+project_context:
+  active_projects:
+    - name: "SISO Internal"
+      keywords: ["Claude Code", "workflows", "agents", "automation"]
+
+    - name: "AI Systems Research"
+      keywords: ["AI architecture", "LLM internals", "reasoning"]
+
+    - name: "MCP Implementation"
+      keywords: ["MCP", "Model Context Protocol", "servers", "tools"]
+
+    - name: "AI Memory Management"
+      keywords: ["AI memory", "context window", "RAG", "embeddings"]
+
+  learning_priorities:
+    - "MCP server development"
+    - "Claude Code extensions"
+    - "AI agent architectures"
+    - "Context management techniques"

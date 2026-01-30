@@ -466,3 +466,42 @@ This integration uses Notion API version `2025-09-03`. The integration will cont
 - Notion Integration Guide: https://developers.notion.com/docs/create-a-notion-integration
 - Block Types: https://developers.notion.com/reference/block-type
 - Property Types: https://developers.notion.com/reference/property-object
+
+## Implementation Details
+
+### Files Created
+
+1. **`manager.py`** (~500 lines) - Main `NotionManager` class
+2. **`types.py`** (~400 lines) - Data classes and enums for Page, Database, Block, etc.
+3. **`config.py`** - Configuration helpers with `RateLimiter` class
+4. **`demo.py`** - Usage demonstrations
+5. **`README.md`** - Full documentation
+6. **`QUICKSTART.md`** - Quick start guide
+7. **`tests/test_integration.py`** - Comprehensive tests
+
+### Key Implementation Details
+
+1. **API Configuration**:
+   - API Base URL: `https://api.notion.com`
+   - API Version: `2025-09-03`
+   - Notion-Version Header: `2022-06-28`
+   - Authentication: Bearer token from `NOTION_TOKEN` env var
+
+2. **Block Structure**: Hierarchical block system mirroring Notion's content model
+3. **Markdown Conversion**: Comprehensive markdown-to-blocks converter
+4. **Type Safety**: Dataclasses for all Notion entities with proper type hints
+5. **Rate Limiting**: `RateLimiter` helper for 3 req/sec recommended limit
+6. **Error Handling**: Graceful 404 handling (returns None) with proper logging
+
+### Notion API Quirks
+
+1. No partial property updates - must provide full property object
+2. Title property is required (exactly one per page)
+3. Integration must be shared via "Add connections" before API access
+4. Rich text arrays required for all text content
+5. Database schema updates require full schema
+
+### Rate Limits
+
+- Recommended: 3 requests per second
+- Hard Limit: 2,700 requests per 15 minutes

@@ -18,16 +18,31 @@
 
 | If you need... | Go to... |
 |----------------|----------|
-| Agent implementations | `2-engine/02-agents/` |
-| Tools (106+) | `2-engine/05-tools/` |
-| Memory systems | `2-engine/03-knowledge/storage/` |
-| External integrations | `2-engine/06-integrations/` |
-| Autonomous system (NEW) | `2-engine/08-autonomous-system/` |
-| GUI/Vibe Kanban | `3-gui/vibe-kanban/` |
+| Agent implementations | `2-engine/core/agents/definitions/` |
+| Core orchestration | `2-engine/core/orchestration/` |
+| CLI/API/Client | `2-engine/core/interface/` |
+| Safety systems | `2-engine/core/safety/` |
+| Tools (106+) | `2-engine/tools/core/` |
+| Memory systems | `2-engine/runtime/memory/` |
+| External integrations | `2-engine/tools/integrations/` |
+| Hooks | `2-engine/runtime/hooks/` |
+| Autonomous system | `2-engine/core/autonomous/` |
+| GUI/Vibe Kanban | `3-gui/apps/vibe-kanban/` |
 | GUI integrations | `3-gui/integrations/` |
 | Project state | `5-project-memory/siso-internal/` |
 | Roadmap/plans | `6-roadmap/` |
 | Decision records | `1-docs/decisions/` |
+
+### Core Structure Detail
+
+See `2-engine/core/CORE-STRUCTURE.md` for detailed core/ navigation.
+
+| Agent Type | Location |
+|------------|----------|
+| Core agents (base classes) | `2-engine/core/agents/definitions/core/` |
+| Core agents (Analyst, Architect, Developer) | `2-engine/core/agents/definitions/core/` |
+| Managerial agents | `2-engine/core/agents/definitions/managerial/` |
+| Specialist agents (18 YAMLs) | `2-engine/core/agents/definitions/specialists/` |
 
 ---
 
@@ -70,24 +85,24 @@ These YAML files are the "source of truth":
 
 ---
 
-## Autonomous System (NEW)
+## Autonomous System
 
-The new autonomous multi-agent system is at:
+The autonomous multi-agent system is at:
 
 ```
-2-engine/08-autonomous-system/
+2-engine/core/autonomous/
 ├── README.md              # Architecture overview
-├── redis-guide.md         # Redis coordination
-├── task-tracking.md       # Task management
-├── implementation/        # Working code
-│   ├── agents/            # Supervisor, autonomous, interface
-│   ├── schemas/           # Task dataclasses
-│   ├── stores/            # JSON/SQLite storage
-│   └── redis/             # Redis coordinator
-└── research/              # Research findings
+├── agents/                # Supervisor, autonomous, interface
+├── schemas/               # Task dataclasses
+├── stores/                # JSON/SQLite storage
+└── redis/                 # Redis coordinator
 ```
 
 **Key insight:** Uses Redis pub/sub for 1ms agent coordination (10,000x faster than polling).
+
+**Documentation:**
+- `1-docs/guides/autonomous/` - Implementation guides
+- `1-docs/research/autonomous-system/` - Research findings
 
 ---
 
@@ -95,7 +110,7 @@ The new autonomous multi-agent system is at:
 
 ### Find a specific tool
 ```bash
-grep -r "tool_name" 2-engine/05-tools/
+grep -r "tool_name" 2-engine/tools/core/
 ```
 
 ### Check current tasks
@@ -105,11 +120,11 @@ Read: `5-project-memory/siso-internal/STATE.yaml` → `active_tasks`
 Look in: `1-docs/decisions/mcp/`
 
 ### Understand the memory system
-Read: `2-engine/03-knowledge/storage/ProductionMemorySystem.py`
+Read: `2-engine/runtime/memory/ProductionMemorySystem.py`
 
 ### Run the autonomous system demo
 ```bash
-cd 2-engine/08-autonomous-system/implementation
+cd 2-engine/core/autonomous/
 python examples/basic_demo.py
 ```
 
@@ -117,11 +132,17 @@ python examples/basic_demo.py
 
 ## What Changed Recently
 
-1. **Autonomous system moved** → `2-engine/08-autonomous-system/`
-2. **Auto-claude moved** → `3-gui/integrations/auto-claude/`
-3. **Morning routine docs** → `5-project-memory/siso-internal/.docs/`
-4. **Decision docs** → `1-docs/decisions/`
-5. **SYSTEM-MAP.yaml** → New root file (this guide's machine-readable version)
+1. **2-Engine Consolidation** → Merged 8 folders into 5:
+   - `01-core/` + `02-agents/` + `04-work/` → `2-engine/core/`
+   - `03-knowledge/` + `07-operations/` → `2-engine/runtime/`
+   - `05-tools/` + `06-integrations/` → `2-engine/tools/`
+   - `08-development/` → `1-docs/development/`
+2. **Autonomous system** → `2-engine/core/autonomous/`
+3. **Auto-claude moved** → `3-gui/integrations/auto-claude/`
+4. **Morning routine docs** → `5-project-memory/siso-internal/.docs/`
+5. **Decision docs** → `1-docs/decisions/`
+6. **SYSTEM-MAP.yaml** → New root file (this guide's machine-readable version)
+7. **CORE-STRUCTURE.md** → New guide for navigating core/ directory
 
 ---
 
@@ -130,7 +151,7 @@ python examples/basic_demo.py
 - `**/__pycache__/` — Python cache
 - `**/*.pyc` — Compiled Python
 - `**/.pytest_cache/` — Test cache
-- `3-gui/vibe-kanban/target/` — Rust build (7GB, rebuildable)
+- `3-gui/apps/vibe-kanban/target/` — Rust build (7GB, rebuildable)
 - `**/node_modules/` — JS dependencies
 
 ---

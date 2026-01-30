@@ -18,6 +18,23 @@ Skills are modular capabilities that Legacy can invoke:
 
 ## Skill Categories
 
+### BMAD Agent Skills
+
+| Skill | Agent | Role | Commands |
+|-------|-------|------|----------|
+| `bmad-pm.md` | John | Product Manager | CP, VP, EP, CE, IR, CC |
+| `bmad-architect.md` | Winston | Architect | CA, VA, EA, IR |
+| `bmad-analyst.md` | Mary | Business Analyst | BP, RS, CB, DP |
+| `bmad-sm.md` | Bob | Scrum Master | SP, CS, ER, CC |
+| `bmad-ux.md` | Sally | UX Designer | CU, VU, EU |
+| `bmad-dev.md` | Amelia | Developer | DS, CR, QD |
+| `bmad-qa.md` | Quinn | QA Engineer | QA, VT, RT |
+| `bmad-quick-flow.md` | Barry | Solo Dev | TS, QD, CR |
+
+**Command Reference:** See `../routes.yaml` for full command routing
+
+**Workflow Patterns:** See `../workflows/` for A/P/C menu and WIP tracking patterns
+
 ### Core Skills (from BB5)
 
 | Skill | Source | Purpose |
