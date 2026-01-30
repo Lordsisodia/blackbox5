@@ -283,6 +283,15 @@ python3 /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/
 cp /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml "$RUN_DIR/decision_registry.yaml"
 ```
 
+**Record Telemetry:**
+```bash
+# Record loop start event
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "RALF loop started" "$TELEMETRY_FILE"
+
+# Update initialization phase
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "initialization" "in_progress" "$TELEMETRY_FILE"
+```
+
 ---
 
 ## Step 2: Select Path & Task
@@ -293,11 +302,21 @@ cp /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.auto
 - Assess complexity
 - Select path: Quick Flow OR Full BMAD
 - Update task status to `in_progress` IMMEDIATELY
+- **Record telemetry:**
+  ```bash
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "task_selection" "complete" "$TELEMETRY_FILE"
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Task selected: [TASK-ID]" "$TELEMETRY_FILE"
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh metric "files_read" "$TELEMETRY_FILE"
+  ```
 
 **If NO tasks exist:**
 - Run **AUTONOMOUS TASK GENERATION** (see below)
 - Create ONE new task from the highest priority finding
 - Execute it
+- **Record telemetry:**
+  ```bash
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Autonomous task generation triggered" "$TELEMETRY_FILE"
+  ```
 
 ---
 
@@ -632,12 +651,22 @@ Input: {
 - List files to modify
 - Identify tests needed
 - Assess risk
+- **Record telemetry:**
+  ```bash
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "execution" "in_progress" "$TELEMETRY_FILE"
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "phase" "Starting QUICK-SPEC phase" "$TELEMETRY_FILE"
+  ```
 - **Gate Check:** `phase_gates.py check --phase quick_spec`
 
 **Phase 2: DEV-STORY**
 - Make atomic changes
 - Test immediately
 - Commit after each change
+- **Record telemetry:**
+  ```bash
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh metric "files_written" "$TELEMETRY_FILE"
+  /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "success" "Changes committed" "$TELEMETRY_FILE"
+  ```
 - **Gate Check:** `phase_gates.py check --phase dev_story`
 
 **Phase 3: CODE-REVIEW**
@@ -690,6 +719,12 @@ Input: {
 
 **Create run folder:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-NNNN/`
 
+**Record telemetry:**
+```bash
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "documentation" "in_progress" "$TELEMETRY_FILE"
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Creating run documentation" "$TELEMETRY_FILE"
+```
+
 **Required files:**
 - `THOUGHTS.md` - Reasoning process
 - `DECISIONS.md` - Choices made
@@ -720,6 +755,10 @@ EOF
 
 # Move to completed
 mv "$TASK_FILE" "/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/"
+
+# Record telemetry
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "completion" "complete" "$TELEMETRY_FILE"
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "success" "Task completed: [TASK-ID]" "$TELEMETRY_FILE"
 ```
 
 ---
@@ -741,6 +780,12 @@ git commit -m "ralf: [component] complete task [TASK-ID]
 Co-authored-by: Agent-2.2 <ralf@blackbox5.local>"
 
 git push origin "$CURRENT_BRANCH"
+
+# Complete telemetry
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh complete "COMPLETE" "$TELEMETRY_FILE"
+
+# Show telemetry status
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/.autonomous/shell/telemetry.sh status "$TELEMETRY_FILE"
 ```
 
 ---

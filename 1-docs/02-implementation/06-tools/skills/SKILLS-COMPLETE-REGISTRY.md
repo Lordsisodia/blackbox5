@@ -1,8 +1,10 @@
 # Black Box 5 Skills Registry
 
-**Date**: 2026-01-28
+**Date**: 2026-01-30
 **Status**: Complete Inventory of All Skills
 **Purpose**: Central registry of all skills in Black Box 5
+
+**Update**: Tier 2 BMAD skills have been converted to Agent Skills Standard format.
 
 ---
 
@@ -59,10 +61,30 @@ This registry provides a complete inventory of all skills in Black Box 5, organi
 
 ## Tier 2: Agent Skills (Markdown-Based)
 
-**Location**: `2-engine/04-work/modules/skills/`
+**Location**: `~/.claude/skills/`
 **Purpose**: Cross-platform agent capabilities
-**Format**: Markdown (various formats)
-**Status**: Converting to Agent Skills standard
+**Format**: SKILL.md with YAML frontmatter (Agent Skills Standard)
+**Status**: BMAD skills converted ✅
+
+### BMAD Agent Skills (Converted)
+
+All 9 BMAD skills have been converted to Agent Skills Standard format:
+
+| Skill | Agent | Role | Commands | Status |
+|-------|-------|------|----------|--------|
+| `bmad-pm` | John | Product Manager | CP, VP, EP, CE, IR, CC | ✅ Converted |
+| `bmad-architect` | Alex | Architect | CA, VA, EA, IR | ✅ Converted |
+| `bmad-analyst` | Mary | Business Analyst | BP, RS, CB, DP | ✅ Converted |
+| `bmad-sm` | Sam | Scrum Master | SP, CS, ER, CC | ✅ Converted |
+| `bmad-ux` | Uma | UX Designer | CU, VU, EU | ✅ Converted |
+| `bmad-dev` | Amelia | Developer | DS, CR, QD | ✅ Converted |
+| `bmad-qa` | Quinn | QA Engineer | QA, VT, RT | ✅ Converted |
+| `bmad-quick-flow` | Barry | Solo Dev | TS, QD, CR | ✅ Converted |
+| `bmad-tea` | TEA | Task Execution Agent | TE | ✅ Converted |
+
+**Location**: `~/.claude/skills/bmad-*/SKILL.md`
+**Format**: YAML frontmatter + Markdown content
+**Loading**: On-demand via SkillManager with progressive disclosure
 
 ### Current Agent Skills Inventory
 
@@ -142,9 +164,50 @@ This registry provides a complete inventory of all skills in Black Box 5, organi
 
 ## Converted Skills (Agent Skills Standard)
 
-**Location**: `~/.claude/skills/` (to be created)
+**Location**: `~/.claude/skills/`
 **Format**: SKILL.md (YAML + Markdown)
-**Status**: Not yet created (pending migration)
+**Status**: ✅ Created and operational
+
+### Converted Skills Inventory
+
+#### BMAD Skills (9 skills)
+All BMAD skills converted to Agent Skills Standard:
+
+1. **bmad-pm** - Product Manager (John)
+2. **bmad-architect** - Architect (Alex)
+3. **bmad-analyst** - Analyst (Mary)
+4. **bmad-sm** - Scrum Master (Sam)
+5. **bmad-ux** - UX Designer (Uma)
+6. **bmad-dev** - Developer (Amelia)
+7. **bmad-qa** - QA Engineer (Quinn)
+8. **bmad-quick-flow** - Quick Flow (Barry)
+9. **bmad-tea** - Task Execution Agent (TEA)
+
+#### Other Skills (16 skills)
+
+**Development & Operations**:
+- `feedback-triage` - Convert feedback to prioritized backlog
+- `git-workflows` - Codebase navigation and git operations
+- `testing-patterns` - Testing procedures and patterns
+- `run-initialization` - Initialize Blackbox5 workflows
+- `supabase-operations` - Database operations for SISO Internal
+- `siso-tasks-cli` - Query SISO tasks from Supabase
+
+**n8n Integration** (7 skills):
+- `n8n-code-javascript` - JavaScript in n8n Code nodes
+- `n8n-code-python` - Python in n8n Code nodes
+- `n8n-expression-syntax` - n8n expression syntax
+- `n8n-mcp-tools-expert` - n8n MCP tools expert
+- `n8n-node-configuration` - n8n node configuration
+- `n8n-validation-expert` - n8n validation expert
+- `n8n-workflow-patterns` - n8n workflow patterns
+
+**Integrations**:
+- `notifications-local` - Local notification workflows
+- `notion-mcp` - Notion integration via MCP
+- `test-skill` - Test skill for Tier 2 integration
+
+**Total Converted Skills**: 25 skills
 
 ### Planned Conversions
 
@@ -208,8 +271,15 @@ This registry provides a complete inventory of all skills in Black Box 5, organi
 
 ## Legacy Skills (Archived)
 
-**Location**: `.blackbox/.skills/` (archived)
+**Location**: `.blackbox/.skills/` (archived) and `2-engine/.autonomous/skills/`
 **Status**: No longer actively maintained
+
+### Legacy BMAD Skills (Source)
+The original BMAD skills in `2-engine/.autonomous/skills/` are now considered legacy source files. The converted versions in `~/.claude/skills/` are the canonical versions.
+
+**Source Files** (for reference):
+- `bmad-pm.md`, `bmad-architect.md`, `bmad-analyst.md`, `bmad-sm.md`, `bmad-ux.md`
+- `bmad-dev.md`, `bmad-qa.md`, `bmad-quick-flow.md`, `bmad-tea.md`
 
 ### Legacy Skills Inventory
 
@@ -276,12 +346,17 @@ From `SKILLS-CONVERSION-FINAL-SUMMARY.md`:
 
 | Skill | Current Format | Target Format | Priority | Status |
 |-------|---------------|---------------|----------|--------|
-| `supabase-ddl-rls` | Simple MD | SKILL.md | HIGH | Not started |
-| `siso-tasks` | MCP-based | SKILL.md (CLI) | HIGH | Not started |
-| `feedback-triage` | Structured MD | SKILL.md | HIGH | Not started |
-| `repo-codebase-navigation` | Simple MD | SKILL.md | MEDIUM | Not started |
-| `testing-playbook` | Simple MD | SKILL.md | MEDIUM | Not started |
-| `notifications-local` | Simple MD | SKILL.md | LOW | Not started |
+| `bmad-*` (9 skills) | Markdown | SKILL.md | HIGH | ✅ Complete |
+| `supabase-operations` | Simple MD | SKILL.md | HIGH | ✅ Complete |
+| `siso-tasks-cli` | MCP-based | SKILL.md (CLI) | HIGH | ✅ Complete |
+| `feedback-triage` | Structured MD | SKILL.md | HIGH | ✅ Complete |
+| `git-workflows` | Simple MD | SKILL.md | HIGH | ✅ Complete |
+| `testing-patterns` | Simple MD | SKILL.md | MEDIUM | ✅ Complete |
+| `notifications-local` | Simple MD | SKILL.md | LOW | ✅ Complete |
+| `run-initialization` | Markdown | SKILL.md | MEDIUM | ✅ Complete |
+| `n8n-*` (7 skills) | Various | SKILL.md | MEDIUM | ✅ Complete |
+| `notion-mcp` | Markdown | SKILL.md | LOW | ✅ Complete |
+| `test-skill` | Markdown | SKILL.md | LOW | ✅ Complete |
 | `orm-patterns` | XML (Legacy) | SKILL.md | LOW | Not started |
 | `migrations` | XML (Legacy) | SKILL.md | LOW | Not started |
 | `integration-testing` | XML (Legacy) | SKILL.md | LOW | Not started |
@@ -537,21 +612,23 @@ From `SKILLS-CONVERSION-FINAL-SUMMARY.md`:
 
 ## Summary
 
-**Total Skills**: 47 (6 active Tier 2, 4 Tier 1, 37 legacy/archived)
+**Total Skills**: 66 (25 active Tier 2, 4 Tier 1, 37 legacy/archived)
 
-**Active Skills**: 10 (6 Tier 2 agent skills, 4 Tier 1 engine skill categories)
+**Active Skills**: 29 (25 Tier 2 agent skills, 4 Tier 1 engine skill categories)
 
-**Conversion Status**: 0% converted to Agent Skills standard (6 pending)
+**Conversion Status**: 100% of high-priority skills converted to Agent Skills standard
 
 **Next Actions**:
-1. Create `~/.claude/skills/` directory
-2. Convert top 5 high-priority skills
-3. Test with Claude Code
-4. Update registry
+1. ✅ Create `~/.claude/skills/` directory
+2. ✅ Convert BMAD skills (9 skills)
+3. ✅ Convert other high-priority skills (16 skills)
+4. ✅ Test with Claude Code
+5. ✅ Update registry
+6. Monitor skill usage and gather feedback
 
 ---
 
-**Registry Version**: 1.0.0
-**Last Updated**: 2026-01-28
+**Registry Version**: 1.1.0
+**Last Updated**: 2026-01-30
 **Next Review**: 2026-02-28
 **Maintainer**: SISO Internal Team
