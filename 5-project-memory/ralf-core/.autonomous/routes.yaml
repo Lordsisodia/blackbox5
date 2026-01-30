@@ -84,7 +84,7 @@ mcp:
 
 github:
   repo_url: "https://github.com/Lordsisodia/blackbox5"
-  branch: "feature/tier2-skills-integration"
+  branch: "main"
   auto_push: true
   auto_pull: true
   # Uses default SSH key or git credential helper
