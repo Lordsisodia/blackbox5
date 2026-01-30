@@ -1,0 +1,46 @@
+# Decision Registry - TASK-1738300332
+
+decisions:
+  - id: "DEC-20260131-002"
+    timestamp: "2026-01-31T04:27:32Z"
+    phase: "DISCOVERY"
+    context: "Skills system audit - TASK-1738300332"
+
+    options_considered:
+      - id: "OPT-001"
+        description: "Keep skills/ as canonical (NO CHANGE)"
+        pros: ["System already correct", "No risk", "SkillRouter working"]
+        cons: ["None"]
+      - id: "OPT-002"
+        description: "Archive skills/ and create new system"
+        pros: ["None"]
+        cons: ["Unnecessary work", "Introduction of risk"]
+      - id: "OPT-003"
+        description: "Merge non-existent systems"
+        pros: ["None"]
+        cons: ["Not applicable", "Systems don't exist"]
+
+    selected_option: "OPT-001"
+    rationale: "Only one skills system exists in the current codebase. The PLAN-001 document references directories (skills-cap/, .skills-new/) that don't exist. The skills/ directory at 2-engine/.autonomous/skills/ is already the canonical and working system."
+
+    assumptions:
+      - id: "ASM-001"
+        statement: "PLAN-001 was based on a different codebase structure that no longer exists"
+        risk_level: "LOW"
+        verification_method: "Filesystem audit confirmed only skills/ exists"
+        status: "VERIFIED"
+
+    reversibility: "HIGH"
+    rollback_complexity: "No changes made - nothing to rollback"
+    rollback_steps: []
+
+    verification:
+      required: true
+      criteria:
+        - "Only one skills/ directory exists: VERIFIED"
+        - "SkillRouter correctly references skills/: VERIFIED"
+        - "No duplicate skills found: VERIFIED"
+        - "Previous task TASK-20260130-001 completed consolidation: VERIFIED"
+
+    status: "DECIDED"
+    verified: true
