@@ -75,7 +75,7 @@ if [ -f "$METRICS_FILE" ]; then
         LOOP=$(echo "$line" | jq -r '.loop')
         DUR=$(echo "$line" | jq -r '.duration')
         TASK=$(echo "$line" | jq -r '.task' | cut -c1-30)
-        STATUS=$(echo "$line" jq -r '.status')
+        STATUS=$(echo "$line" | jq -r '.status')
         MINS=$((DUR / 60))
         SECS=$((DUR % 60))
         echo "[$LOOP] ${MINS}m ${SECS}s | $STATUS | $TASK"
