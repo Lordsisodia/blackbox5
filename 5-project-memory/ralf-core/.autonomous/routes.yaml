@@ -55,6 +55,18 @@ routes:
   # Documentation
   engine_docs: "../../2-engine/.docs"
 
+  # BMAD Integration
+  engine_routes: "../../2-engine/.autonomous/routes.yaml"
+  bmad_skills: "../../2-engine/.autonomous/skills"
+  bmad_workflows: "../../2-engine/.autonomous/workflows"
+  bmad_wip: "../../2-engine/.autonomous/wip"
+
+# BMAD Command Reference
+# Commands are defined in engine_routes, but available here:
+# CP, VP, EP, CE (PM) | CA, VA, EA (Architect) | BP, RS, CB, DP (Analyst)
+# SP, CS, ER (SM) | CU, VU, EU (UX) | DS, CR (Dev) | QA, VT, RT (QA)
+# TS, QD (Quick Flow) | IR, CC (Shared)
+
 feedback:
   # Other projects send feedback here
   endpoint: "./feedback/incoming"
