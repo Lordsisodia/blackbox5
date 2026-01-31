@@ -9,8 +9,28 @@ set -euo pipefail
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
-ENGINE_DIR="${RALF_ENGINE_DIR:-$HOME/.blackbox5/2-engine/.autonomous}"
+
+# Auto-detect if running in GitHub Codespace
+if [[ -n "${CODESPACE_NAME:-}" ]] || [[ -d "/workspaces/blackbox5" ]]; then
+    # GitHub Codespace environment
+    BASE_DIR="/workspaces/blackbox5"
+    # Set up API key for Claude if available
+    if [[ -f "$HOME/.anthropic_api_key" ]]; then
+        export ANTHROPIC_API_KEY=$(cat "$HOME/.anthropic_api_key")
+    fi
+    # Set base URL if using proxy (e.g., api.z.ai)
+    if [[ -n "${ANTHROPIC_BASE_URL:-}" ]]; then
+        export ANTHROPIC_BASE_URL
+    elif [[ -f "$HOME/.anthropic_base_url" ]]; then
+        export ANTHROPIC_BASE_URL=$(cat "$HOME/.anthropic_base_url")
+    fi
+else
+    # Local environment
+    BASE_DIR="${RALF_BASE_DIR:-$HOME/.blackbox5}"
+fi
+
+PROJECT_DIR="${RALF_PROJECT_DIR:-$BASE_DIR/5-project-memory/blackbox5}"
+ENGINE_DIR="${RALF_ENGINE_DIR:-$BASE_DIR/2-engine/.autonomous}"
 PROMPT_FILE="$ENGINE_DIR/prompts/system/executor/variations/v2-legacy-based.md"
 COMM_DIR="$PROJECT_DIR/.autonomous/communications"
 RUNS_DIR="$PROJECT_DIR/runs/executor"
