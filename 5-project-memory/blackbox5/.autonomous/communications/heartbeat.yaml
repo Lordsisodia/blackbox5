@@ -4,9 +4,9 @@ heartbeats:
     status: running
     current_action: planning
   executor:
-    last_seen: '2026-01-31T22:47:02Z'
+    last_seen: '2026-02-01T05:55:00Z'
     status: running
-    current_action: executing
+    current_action: idle
 metadata:
   timeout_seconds: 120
-  last_updated: '2026-02-01T04:45:00Z'
+  last_updated: '2026-02-01T05:55:00Z'

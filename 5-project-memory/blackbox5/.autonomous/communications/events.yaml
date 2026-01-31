@@ -364,6 +364,19 @@ events:
   type: completed
   task_id: TASK-ANALYSIS-1769891364
   data: success
+- id: 74
+  timestamp: '2026-02-01T05:50:00Z'
+  type: started
+  task_id: TASK-1738366802
+  data: null
+- id: 75
+  timestamp: '2026-02-01T05:55:00Z'
+  type: completed
+  task_id: TASK-1738366802
+  data:
+    runs_archived: 42
+    runs_remaining: 5
+    state_updated: true
 metadata:
-  last_event_id: 73
-  last_updated: '2026-02-01T00:05:00Z'
+  last_event_id: 75
+  last_updated: '2026-02-01T05:55:00Z'

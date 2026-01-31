@@ -11,7 +11,7 @@ project:
   version: "5.0.0"
   description: "Global AI Infrastructure for multi-agent orchestration"
   status: "active"
-  last_updated: "2026-02-01T00:00:00Z"
+  last_updated: "2026-02-01T05:50:00Z"
   updated_by: "Claude"
 
 # =============================================================================
@@ -389,11 +389,11 @@ runs:
     completed:
       path: "runs/completed/"
       description: "Completed runs awaiting analysis"
-      count: 47
+      count: 5
     archived:
       path: "runs/archived/"
       description: "Analyzed and archived runs"
-      count: 0
+      count: 42
   files_per_run: "3-9 files (THOUGHTS.md, DECISIONS.md, RESULTS.md, LEARNINGS.md, state files)"
   lifecycle: "active → completed → archived (after analysis)"
 

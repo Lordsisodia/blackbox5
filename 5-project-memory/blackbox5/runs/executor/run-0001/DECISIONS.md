@@ -1,25 +1,27 @@
-# Decisions - TASK-ANALYSIS-1769891364
+# Decisions - TASK-1738366802
 
-## Decision 1: Analysis Scope
-**Context:** Task asked to analyze STATE.yaml, goals.yaml, and recent runs
-**Selected:** Expanded analysis to include queue, events, heartbeat, and active tasks
-**Rationale:** Broader context needed for accurate priority assessment
-**Reversibility:** HIGH - Analysis can be re-done with different scope
+## Which Runs to Keep vs Archive
 
-## Decision 2: Finding Prioritization
-**Context:** Multiple gaps identified in project state
-**Selected:** Prioritized findings by immediate impact
-**Rationale:** Queue depth and missing STATE.yaml block effective operation
-**Reversibility:** MEDIUM - Priorities can be re-evaluated by Planner
+**Context:** Need to decide how many runs to keep in completed/ vs move to archived/
 
-## Decision 3: Recommendation Format
-**Context:** Need to communicate findings to Planner effectively
-**Selected:** Structured recommendations by timeframe (Immediate/Short-term/Medium-term)
-**Rationale:** Clear action hierarchy helps Planner make decisions
-**Reversibility:** HIGH - Format can be adjusted in future analyses
+**Selected:** Keep last 5 runs in completed/, archive the remaining 42
 
-## Decision 4: Task Completion Signal
-**Context:** Analysis task complete, need to signal status
-**Selected:** Will signal COMPLETE with full documentation
-**Rationale:** All success criteria met, findings documented
-**Reversibility:** N/A - Task is complete
+**Rationale:**
+- Task specification explicitly stated: "Keep recent completed runs (last 5) in completed/ for quick reference"
+- 5 runs provides sufficient recent history for quick access
+- 42 runs archived maintains the analysis history without cluttering completed/
+
+**Reversibility:** HIGH - Runs can be moved back from archived/ to completed/ if needed
+
+## Run Selection Method
+
+**Context:** Need to determine which runs are "oldest" vs "newest"
+
+**Selected:** Alphabetical sort of run directory names
+
+**Rationale:**
+- Run names follow patterns: run-0001, run-1769*, run-20260131_*
+- Alphabetical sort correctly orders: run-0001 (earliest) → run-20260131_* (latest)
+- This matches the chronological order of run creation
+
+**Reversibility:** MEDIUM - If naming convention changes, sort order may need adjustment

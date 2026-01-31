@@ -1,14 +1,4 @@
 queue:
-  - id: TASK-ANALYSIS-1769891364
-    type: analyze
-    title: Analyze codebase for next priorities
-    priority: medium
-    estimated_minutes: 30
-    context_level: 2
-    approach: Read STATE.yaml, goals.yaml, recent runs. Identify highest priority work.
-    status: completed
-    added_at: '2026-01-31T20:29:24Z'
-    completed_at: '2026-02-01T04:35:00Z'
   - id: TASK-1769892000
     type: analyze
     title: Analyze 47 completed runs for patterns and insights
@@ -32,6 +22,16 @@ queue:
     added_at: '2026-02-01T04:30:00Z'
     completed_at: '2026-02-01T04:40:00Z'
     status: completed
+  - id: TASK-1769891364
+    type: analyze
+    title: Analyze codebase for next priorities
+    priority: medium
+    estimated_minutes: 30
+    context_level: 2
+    approach: Read STATE.yaml, goals.yaml, recent runs. Identify highest priority work.
+    status: completed
+    added_at: '2026-01-31T20:29:24Z'
+    completed_at: '2026-02-01T04:35:00Z'
   - id: TASK-1769892001
     type: implement
     title: Create skill usage tracking system
