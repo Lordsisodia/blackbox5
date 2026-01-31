@@ -2,7 +2,7 @@
 # BLACKBOX5 ROADMAP - SINGLE SOURCE OF TRUTH
 # ============================================================================
 # Purpose: Track all improvements from idea to completion
-# Last Updated: 2026-01-20
+# Last Updated: 2026-01-31
 # ============================================================================
 # This is the SINGLE SOURCE OF TRUTH for the roadmap.
 # All dashboards are generated from this file.
@@ -14,14 +14,14 @@
 system:
   name: "blackbox5-roadmap"
   version: "2.0"
-  updated: "2026-01-20T13:00:00Z"
+  updated: "2026-01-31T12:30:00Z"
   status: "planning-phase"
 
 # ============================================================================
 # NEXT BEST ACTION
 # ============================================================================
 # AI agents should start here. This is the highest-priority unblocked item.
-next_action: "PLAN-004"
+next_action: "PLAN-005"
 
 # ============================================================================
 # QUICK STATS
@@ -31,9 +31,9 @@ stats:
   proposed: 20
   research: 1
   design: 0
-  planned: 4
+  planned: 2
   active: 0
-  completed: 3
+  completed: 5
   cancelled: 0
   backlog: 0
 
@@ -43,27 +43,6 @@ stats:
 plans:
   # Plans ready to start (no dependencies)
   ready_to_start:
-    - id: "PLAN-002"
-      name: "Fix YAML Agent Loading"
-      priority: "critical"
-      effort: "1 day"
-      domain: "agents"
-      category: "bugfix"
-      dependencies: []
-      blocks: ["PLAN-003"]
-      path: "03-planned/PLAN-002-fix-yaml-loading/"
-      note: "Now unblocked - PLAN-001 completed"
-
-    - id: "PLAN-004"
-      name: "Fix Import Path Errors"
-      priority: "critical"
-      effort: "1-2 days"
-      domain: "infrastructure"
-      category: "bugfix"
-      dependencies: []
-      blocks: []
-      path: "03-planned/PLAN-004-fix-import-paths/"
-
     - id: "PLAN-005"
       name: "Initialize Vibe Kanban Database"
       priority: "immediate"
@@ -92,14 +71,48 @@ plans:
       effort: "3-5 days"
       domain: "agents"
       category: "feature"
-      dependencies: ["PLAN-002", "PLAN-005"]
+      dependencies: ["PLAN-005"]
       blocks: []
-      blocked_by: ["PLAN-002", "PLAN-005"]
+      blocked_by: ["PLAN-005"]
       path: "03-planned/PLAN-003-implement-planning-agent/"
-      note: "PLAN-001 completed - now only blocked by PLAN-002 and PLAN-005"
+      note: "PLAN-001 and PLAN-002 completed - now only blocked by PLAN-005"
 
   # Completed plans
   completed:
+    - id: "PLAN-002"
+      name: "Fix YAML Agent Loading"
+      priority: "critical"
+      effort: "1 day"
+      domain: "agents"
+      category: "bugfix"
+      dependencies: []
+      blocks: ["PLAN-003"]
+      completed_at: "2026-01-31"
+      executed_by: "RALF (Agent-2.5)"
+      path: "03-planned/PLAN-002-fix-yaml-loading/"
+      deliverables:
+        - "AgentLoader._load_yaml_agents() implemented"
+        - "YAML agents load dynamically as Python classes"
+        - "21/21 agents loading (3 core + 18 specialists)"
+      notes: "YAML agent loading was already implemented in agent_loader.py. Verification confirmed 21/21 agents load successfully."
+
+    - id: "PLAN-004"
+      name: "Fix Import Path Errors"
+      priority: "critical"
+      effort: "1-2 days"
+      domain: "infrastructure"
+      category: "bugfix"
+      dependencies: []
+      blocks: []
+      completed_at: "2026-01-31"
+      executed_by: "RALF (Agent-2.4/2.5)"
+      path: "03-planned/PLAN-004-fix-import-paths/"
+      deliverables:
+        - "Fixed import path in server.py (commit 13f2382)"
+        - "Fixed agent loading imports (commit c7f5e51)"
+        - "Python compilation audit completed"
+      notes: "Multiple commits fixed import paths. TASK-1769813746 verified completion. Template files have expected placeholders."
+
     - id: "PLAN-001"
       name: "Fix Skills System Critical Issues"
       priority: "critical"
@@ -141,13 +154,11 @@ dependencies:
   # What each plan blocks
   blocking:
     PLAN-001: ["PLAN-002", "PLAN-003"]
-    PLAN-002: ["PLAN-003"]
     PLAN-005: ["PLAN-003"]
 
   # What each plan is blocked by
   blocked:
-    PLAN-002: []
-    PLAN-003: ["PLAN-002", "PLAN-005"]
+    PLAN-003: ["PLAN-005"]
 
   # Circular dependencies (should be empty)
   circular: []
