@@ -1,0 +1,30 @@
+#!/bin/bash
+# RALF Thought Logger
+# Appends a thought to THOUGHTS.md and removes UNFILLED marker on first use
+# Usage: ralf-thought "Your thought here"
+
+RUN_DIR="${RALF_RUN_DIR:-.}"
+THOUGHTS_FILE="$RUN_DIR/THOUGHTS.md"
+
+if [ $# -eq 0 ]; then
+    echo "Usage: ralf-thought \"Your thought here\""
+    exit 1
+fi
+
+if [ ! -f "$THOUGHTS_FILE" ]; then
+    echo "❌ THOUGHTS.md not found in $RUN_DIR"
+    exit 1
+fi
+
+THOUGHT="$1"
+TIMESTAMP=$(date '+%H:%M:%S')
+
+# Remove UNFILLED marker on first write if present
+if grep -q "RALF_TEMPLATE: UNFILLED" "$THOUGHTS_FILE" 2>/dev/null; then
+    sed -i '' '/RALF_TEMPLATE: UNFILLED/d' "$THOUGHTS_FILE"
+    sed -i '' '/Append thoughts incrementally/d' "$THOUGHTS_FILE"
+fi
+
+# Append the thought
+echo "- [$TIMESTAMP] $THOUGHT" >> "$THOUGHTS_FILE"
+echo "📝 Logged thought"

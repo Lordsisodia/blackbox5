@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-01-31T22:33:20.874876",
+  "branch": "main",
+  "recent_commits": [
+    {
+      "hash": "ea12e8b",
+      "subject": "legacy: v1.2.7 - Add failure recovery, BMAD skills, version header",
+      "date": "2026-01-31 19:47:33 +0700"
+    },
+    {
+      "hash": "92aa556",
+      "subject": "ralph: [config] Remove model switching, stop conditions, and review triggers - use preset model only",
+      "date": "2026-01-31 19:33:44 +0700"
+    },
+    {
+      "hash": "8e71fbc",
+      "subject": "ralf: [20260131-193306] [GLM-4.7] loop 43 - unknown",
+      "date": "2026-01-31 19:33:06 +0700"
+    },
+    {
+      "hash": "3bc0dfe",
+      "subject": "ralf: [20260131-123214] [GLM-4.7] loop 44 - TASK-1769862609 Implement BMAD Framework",
+      "date": "2026-01-31 19:32:55 +0700"
+    },
+    {
+      "hash": "bcb4f06",
+      "subject": "ralf: [20260131-192928] [GLM-4.7] loop 42 - unknown",
+      "date": "2026-01-31 19:29:28 +0700"
+    }
+  ],
+  "total_loops_analyzed": 6,
+  "status_distribution": {
+    "blocked": 1,
+    "unknown": 4,
+    "failed": 1
+  },
+  "success_rate": 0.0,
+  "context_budget_issues": 0,
+  "top_failure_patterns": [],
+  "recommendations": [
+    "CRITICAL: Success rate below 50%. Review task complexity and system prompt."
+  ]
+}

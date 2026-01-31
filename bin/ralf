@@ -3,8 +3,10 @@
 # Usage: ./ralf [project-name]
 # Example: ./ralf ralf-core
 
-BLACKBOX5_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_NAME="${1:-ralf-core}"
+# Resolve blackbox5 root (script is in bin/ subdirectory)
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+BLACKBOX5_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROJECT_NAME="${1:-blackbox5}"
 
 # Validate project exists
 PROJECT_DIR="$BLACKBOX5_DIR/5-project-memory/$PROJECT_NAME"

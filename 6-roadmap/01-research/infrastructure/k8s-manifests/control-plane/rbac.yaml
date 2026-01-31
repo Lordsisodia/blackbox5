@@ -1,0 +1,111 @@
+# RBAC Configuration for RALF Agents
+# Defines permissions for RALF pods to interact with Kubernetes
+
+---
+# Service Account for RALF agents
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ralf-agent
+  namespace: blackbox5-agents
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: agent
+---
+# Role for RALF agents (namespace-scoped permissions)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ralf-agent-role
+  namespace: blackbox5-agents
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: agent
+rules:
+  # Allow agents to read their own pod info
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+  # Allow agents to read configmaps (for configuration)
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
+  # Allow agents to read secrets (for MCP config)
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "watch"]
+  # Allow agents to read RALFInstance CRDs
+  - apiGroups: ["blackbox5.io"]
+    resources: ["ralfinstances"]
+    verbs: ["get", "list", "watch"]
+---
+# RoleBinding to attach role to service account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ralf-agent-binding
+  namespace: blackbox5-agents
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: agent
+subjects:
+  - kind: ServiceAccount
+    name: ralf-agent
+    namespace: blackbox5-agents
+roleRef:
+  kind: Role
+  name: ralf-agent-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# Service Account for Control Plane
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ralf-control
+  namespace: blackbox5-system
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: control-plane
+---
+# ClusterRole for Control Plane (needs broader permissions)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ralf-control-role
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: control-plane
+rules:
+  # Full access to pods in blackbox5-agents namespace
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps", "secrets"]
+    verbs: ["*"]
+  # Access to deployments
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["*"]
+  # Access to RALFInstance CRDs
+  - apiGroups: ["blackbox5.io"]
+    resources: ["ralfinstances", "ralfinstances/status"]
+    verbs: ["*"]
+  # Access to persistent volumes
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+---
+# ClusterRoleBinding for Control Plane
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: ralf-control-binding
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: control-plane
+subjects:
+  - kind: ServiceAccount
+    name: ralf-control
+    namespace: blackbox5-system
+roleRef:
+  kind: ClusterRole
+  name: ralf-control-role
+  apiGroup: rbac.authorization.k8s.io

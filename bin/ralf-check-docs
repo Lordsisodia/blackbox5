@@ -1,0 +1,65 @@
+#!/bin/bash
+# RALF Documentation Check
+# Validates that all documentation files are properly filled
+# Returns 0 if all complete, 1 if any issues
+# Usage: ralf-check-docs [run_dir]
+
+RUN_DIR="${1:-$RALF_RUN_DIR}"
+
+if [ -z "$RUN_DIR" ]; then
+    echo "❌ No run directory specified"
+    echo "Usage: ralf-check-docs <run_directory>"
+    echo "   or: Set RALF_RUN_DIR environment variable"
+    exit 1
+fi
+
+if [ ! -d "$RUN_DIR" ]; then
+    echo "❌ Run directory does not exist: $RUN_DIR"
+    exit 1
+fi
+
+REQUIRED_FILES=("THOUGHTS.md" "RESULTS.md" "DECISIONS.md" "ASSUMPTIONS.md" "LEARNINGS.md")
+ISSUES=0
+UNFILLED=()
+MISSING=()
+
+for file in "${REQUIRED_FILES[@]}"; do
+    filepath="$RUN_DIR/$file"
+    if [ ! -f "$filepath" ]; then
+        MISSING+=("$file")
+        ISSUES=$((ISSUES + 1))
+    elif grep -q "RALF_TEMPLATE: UNFILLED" "$filepath" 2>/dev/null; then
+        UNFILLED+=("$file")
+        ISSUES=$((ISSUES + 1))
+    fi
+done
+
+# Report status
+if [ $ISSUES -eq 0 ]; then
+    echo "✅ All documentation complete"
+    exit 0
+fi
+
+# Report issues
+echo "❌ Documentation incomplete"
+echo ""
+
+if [ ${#MISSING[@]} -gt 0 ]; then
+    echo "Missing files:"
+    for f in "${MISSING[@]}"; do
+        echo "  - $f"
+    done
+    echo ""
+fi
+
+if [ ${#UNFILLED[@]} -gt 0 ]; then
+    echo "Files still have template markers (UNFILLED):"
+    for f in "${UNFILLED[@]}"; do
+        echo "  - $f"
+    done
+    echo ""
+    echo "Fix: Edit files and replace FILL_ME with actual content."
+    echo "      Remove '<!-- RALF_TEMPLATE: UNFILLED -->' line when done."
+fi
+
+exit 1

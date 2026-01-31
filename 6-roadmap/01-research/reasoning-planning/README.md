@@ -140,6 +140,39 @@ This comprehensive research session analyzed **24 sources** (20 academic papers,
 
 ---
 
+### 6. Epistemic Iteration - Active Reasoning with Belief Revision ⭐ NEW
+
+**What it is:** Successive approximation toward truth through inquiry cycles, where each iteration incorporates new external information and remakes assumptions based on evidence.
+
+**Why it matters:**
+- Real reasoning requires active information gathering, not just internal computation
+- Belief revision based on new evidence reduces hallucination
+- Three meta-cognitive questions drive iteration: "Do I need more info?", "What info do I need?", "Am I thinking correctly?"
+- Google's AI Co-Scientist uses this to make novel scientific discoveries
+- Agentic RAG (2025) implements dynamic, iterative information seeking
+
+**BlackBox5 Action:**
+```python
+# Priority: HIGH | Effort: 4 weeks
+# Implement epistemic iteration with:
+# - Belief state representation with confidence levels
+# - Active information gathering (search, APIs, code execution)
+# - Meta-cognitive monitoring (bias detection, logic verification)
+# - Dynamic halting conditions (sufficiency checking)
+# - Multi-agent validation (researcher, critic, skeptic, synthesizer)
+# - Integration with Memory System for belief persistence
+```
+
+**Resources:**
+- [Epistemic Iteration Full Documentation](./findings/epistemic-iteration/README.md)
+- [Quick Reference](./findings/epistemic-iteration/QUICK-REFERENCE.md)
+- [Google AI Co-Scientist](https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/) - EXHYTE framework
+- [Agentic RAG Guide](https://towardsdatascience.com/how-to-perform-agentic-information-retrieval/) - Dynamic retrieval
+- [ReAct Paper](https://arxiv.org/abs/2210.03629) - Reasoning + Acting
+- [Reflexion Paper](https://arxiv.org/abs/2303.11366) - Self-reflective agents
+
+---
+
 ## Implementation Roadmap
 
 ### Phase 1: Core Enhancements (Weeks 1-4)
@@ -265,6 +298,7 @@ This comprehensive research session analyzed **24 sources** (20 academic papers,
 1. **Tree-of-Thoughts:** `/findings/tree-of-thoughts-implementation-guide.md`
 2. **Hierarchical Planning:** `/findings/hierarchical-planning-patterns.md`
 3. **Reflection:** `/findings/reflection-self-correction-mechanisms.md`
+4. **Epistemic Iteration:** `/findings/epistemic-iteration/README.md` - Active reasoning with belief revision and information gathering
 
 ### Research Log
 - **File:** `/research-log.md`

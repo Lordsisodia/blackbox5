@@ -26,14 +26,36 @@ WARNINGS=0
 # Check required documentation files
 echo "📄 Documentation Files:"
 REQUIRED_FILES=("THOUGHTS.md" "DECISIONS.md" "ASSUMPTIONS.md" "LEARNINGS.md" "RESULTS.md")
+UNFILLED_FILES=()
 for file in "${REQUIRED_FILES[@]}"; do
     if [ -f "$RUN_DIR/$file" ]; then
-        echo "  ✅ $file"
+        # Check if still has UNFILLED marker
+        if grep -q "RALF_TEMPLATE: UNFILLED" "$RUN_DIR/$file" 2>/dev/null; then
+            echo "  ⚠️  $file - TEMPLATE NOT FILLED"
+            UNFILLED_FILES+=("$file")
+            ISSUES=$((ISSUES + 1))
+        else
+            echo "  ✅ $file"
+        fi
     else
         echo "  ❌ $file - MISSING"
         ISSUES=$((ISSUES + 1))
     fi
 done
+
+# Report partial fills if any
+if [ ${#UNFILLED_FILES[@]} -gt 0 ]; then
+    echo ""
+    echo "  ❌ PARTIAL FILL DETECTED"
+    echo ""
+    echo "  The following files still have template placeholders:"
+    for f in "${UNFILLED_FILES[@]}"; do
+        echo "    - $f"
+    done
+    echo ""
+    echo "  To fix: Edit these files and replace FILL_ME markers with actual content."
+    echo "  Remove the '<!-- RALF_TEMPLATE: UNFILLED -->' line when done."
+fi
 echo ""
 
 # Check system files

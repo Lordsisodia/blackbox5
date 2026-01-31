@@ -1,0 +1,282 @@
+# SISO Claude Configuration
+
+Device: shaans-MacBook-Pro.local
+Last synced: Thu Nov 20 18:16:29 WITA 2025
+
+IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
+
+---
+
+## Superintelligence Hand-Off Protocol (Auto-Activation)
+
+You have access to the **Superintelligence Protocol** at `/Users/shaansisodia/.blackbox5/6-roadmap/01-research/superintelligence-protocol/`.
+
+### When to Auto-Activate
+
+**Activate the protocol WITHOUT asking when:**
+- User asks architecture/design questions ("Should we...", "How should we...", "What's the best way to...")
+- Task involves multiple files or systems
+- High uncertainty or novel problem
+- User seems to be making a significant decision
+- Keywords: architecture, design, refactor, optimize, strategy, complex, integrate
+
+**Don't activate for:**
+- Simple file edits
+- Clear bug fixes
+- Information lookups
+- Routine tasks
+
+### How to Activate
+
+```
+When you detect a complex problem:
+
+1. Say: "I'll activate the superintelligence protocol for this."
+
+2. Execute the 7-step process:
+   - Context Gathering (scan relevant projects/folders)
+   - First Principles (break down the problem)
+   - Information Gap (identify unknowns)
+   - Active Research (search, verify, test)
+   - Multi-Perspective (deploy expert agents)
+   - Meta-Cognitive Check (verify reasoning)
+   - Synthesis (integrate into recommendation)
+
+3. Return: Clear recommendation with confidence score, assumptions, and implementation path
+```
+
+### Expert Agents Available
+
+Deploy these sub-agents as needed:
+- **Architect** - System design, patterns, scalability
+- **Researcher** - Information gathering, best practices
+- **Critic** - Risk analysis, edge cases, failure modes
+- **Synthesizer** - Integration of multiple perspectives
+
+### Context Management
+
+- Use sub-agents to gather context (don't waste your context window)
+- Scan projects first, then folders
+- Cache context for reuse
+- Return only synthesized, high-value insights
+
+### Output Format
+
+Always return:
+```
+**Recommendation:** [Clear answer]
+**Confidence:** [0-100%]
+**Key Assumptions:** [What we're betting on]
+**Risks:** [What could go wrong]
+**Implementation Path:** [Next steps]
+```
+
+---
+
+## Examples of Auto-Activation
+
+**User:** "Should we refactor the auth system?"
+→ **You:** "I'll activate the superintelligence protocol for this." [Proceed with 7-step analysis]
+
+**User:** "What's the best architecture for real-time collaboration?"
+→ **You:** "I'll activate the superintelligence protocol for this." [Proceed with analysis]
+
+**User:** "Fix this typo"
+→ **You:** [Fix directly, no protocol needed]
+
+---
+
+## BlackBox5 Workflow Integration
+
+### Workspace & Task Management
+
+**For EVERY new task, you MUST:**
+
+1. **Create/Use Workspace**
+   - Work in `~/.blackbox5/5-project-memory/[project]/.autonomous/`
+   - Create run folder: `runs/run-YYYYMMDD_HHMMSS/`
+   - Initialize with: THOUGHTS.md, DECISIONS.md, ASSUMPTIONS.md, LEARNINGS.md, RESULTS.md
+
+2. **Select ONE Task**
+   - Check `tasks/active/` for pending tasks
+   - Read task file completely before starting
+   - ONE task per session - never batch multiple tasks
+
+3. **Track Progress**
+   - Update `fix_plan.md` after each task completion
+   - Update `prd.json` with task status
+   - Document in run folder files
+
+4. **Commit & Update BlackBox5**
+   ```bash
+   git checkout -b claude/[task-slug]
+   git add [files]
+   git commit -m "claude: [component] [description]
+
+   - Detailed changes
+   - Task: [TASK-ID]
+   - Validation: [results]
+
+   Co-authored-by: Claude <claude@blackbox5.local>"
+   git push origin claude/[task-slug]
+   ```
+
+5. **Exit Properly**
+   - Return `PROMISE_COMPLETE` when done
+   - Status: COMPLETE | PARTIAL | BLOCKED
+   - Document next steps
+
+### Sub-Agent Rules
+
+**ALWAYS spawn sub-agents for:**
+- Codebase exploration (finding files, patterns)
+- Context gathering (reading multiple files)
+- Research (investigating unknown areas)
+- Validation (reviewing your work)
+
+**NEVER spawn sub-agents for:**
+- Simple file reads (use Read tool directly)
+- Implementation work (do it yourself)
+- Known locations
+
+### Context Management
+
+- **70% context usage:** Summarize THOUGHTS.md
+- **85% context usage:** Complete current task, exit with PARTIAL
+- **95% context usage:** Force checkpoint, exit immediately
+
+### BlackBox5 Directory Structure
+
+```
+~/.blackbox5/
+├── 1-docs/              # Documentation
+├── 2-engine/            # Core engine (RALF, agents)
+├── 5-project-memory/    # Project workspaces
+│   └── [project]/
+│       └── .autonomous/
+│           ├── tasks/active/      # Pending tasks
+│           ├── tasks/completed/   # Done tasks
+│           ├── runs/              # Session history
+│           ├── memory/            # Insights, decisions
+│           └── timeline/          # Project timeline
+├── 6-roadmap/           # Plans and roadmaps
+└── bin/                 # Executables
+```
+
+### Integration with Superintelligence Protocol
+
+When working on BlackBox5:
+- Reference the Superintelligence Protocol documentation
+- Use the Project Scanner for context gathering
+- Follow the Iterative Improvement Framework
+- Document learnings in the protocol research directory
+- Update BlackBox5 state after every significant change
+
+---
+
+## Task File Format
+
+Tasks in `tasks/active/` follow this structure:
+
+```markdown
+# TASK-[ID]: [Title]
+
+**Status:** pending | in_progress | completed
+**Priority:** CRITICAL | HIGH | MEDIUM | LOW
+**Created:** YYYY-MM-DDTHH:MM:SSZ
+
+## Objective
+Clear one-sentence goal.
+
+## Success Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Context
+Background information needed to complete the task.
+
+## Approach
+1. Step 1
+2. Step 2
+
+## Rollback Strategy
+How to undo if things go wrong.
+```
+
+---
+
+## Decision Framework
+
+### When to Just Do It
+- Clear bug fix (< 30 min)
+- Simple edit (< 10 min)
+- Documentation typo
+- Single file change
+
+### When to Create Formal Task
+- > 30 minutes of work
+- Touches multiple files
+- Requires research
+- Has dependencies
+
+### When to Hand Off to RALF
+- Task queue is empty (let RALF generate)
+- Requires continuous iteration
+- Long-running improvement
+- Fits RALF's autonomous loop pattern
+
+### When to Ask User
+- Requirements unclear
+- Scope creep detected
+- External dependency blocked
+- High-risk change (affects critical path)
+- Uncertain about approach
+
+---
+
+## Stop Conditions
+
+**PAUSE and ask user when:**
+
+1. **Unclear Requirements** - Task objective is ambiguous
+2. **Scope Creep** - Task growing beyond original intent
+3. **Blocked** - Waiting on external input/dependency
+4. **High Risk** - Change could break critical systems
+5. **Context Overflow** - At 85% token usage with work remaining
+6. **Contradiction** - Finding conflicts with existing code/docs
+7. **No Clear Path** - Multiple approaches, uncertain which is best
+
+**EXIT with status when:**
+
+- COMPLETE: All success criteria met
+- PARTIAL: Progress made, more work needed
+- BLOCKED: Cannot proceed without human input
+
+---
+
+## Installation Instructions
+
+1. Copy this file to `~/.claude/CLAUDE.md`
+2. Replace `[BLACKBOX5_PATH]` with your actual BlackBox5 path
+3. Replace `[YOUR_DEVICE]` with your device name
+4. Update `[DATE]` with current date
+5. Start Claude Code - this context will load automatically
+
+---
+
+## Integration with Other Systems
+
+### RALF Handoff
+- RALF handles autonomous loops when task queue is empty
+- You handle user-directed tasks
+- Hand off when: queue empty, continuous iteration needed, long-running tasks
+
+### Superintelligence Protocol
+- Auto-activates for complex tasks
+- Provides 7-dimensional reasoning
+- Use for: architecture, design, complex decisions
+
+### BlackBox5 Memory
+- All work tracked in `5-project-memory/`
+- Tasks, runs, decisions, insights stored there
+- Update after every session

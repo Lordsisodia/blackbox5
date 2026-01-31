@@ -1,0 +1,95 @@
+# RALF-2026-01-30-002: Add Dry-Run Mode to Shell Scripts
+
+**Task ID:** RALF-2026-01-30-002
+**Status:** completed
+**Type:** improvement
+**Priority:** high
+**Component:** shell
+
+---
+
+## Goal
+
+Add `--dry-run` support to all shell scripts in `engine/shell/` to enable safe testing of changes.
+
+## Background
+
+From the testing strategy analysis, shell scripts need a dry-run mode that:
+- Shows what would be executed without doing it
+- Validates paths and prerequisites
+- Reports potential issues
+- Returns exit code 0 if validation passes
+
+This is critical for RALF to safely test script changes.
+
+## Scripts to Update
+
+| Script | Priority | Dry-Run Behavior |
+|--------|----------|------------------|
+| `ralf-loop.sh` | Critical | Show what would be checked/executed |
+| `telemetry.sh` | High | Show what telemetry would be recorded |
+| `validate.sh` | High | Show validation checks |
+| `task` | Medium | Show task operations |
+| `test-run.sh` | Medium | Show test execution plan |
+
+## Implementation Plan
+
+### 1. Create Common Library
+
+Create `engine/lib/dry_run.sh` with shared dry-run utilities:
+- `dry_run_echo()` - Print what would happen
+- `dry_run_exec()` - Skip execution in dry-run mode
+- `dry_run_check()` - Validate prerequisites
+
+### 2. Update Each Script
+
+Add to each script:
+```bash
+DRY_RUN=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --dry-run)
+            DRY_RUN=true
+            shift
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
+
+# Example usage
+if [[ "$DRY_RUN" == true ]]; then
+    echo "[DRY-RUN] Would execute: some_command"
+else
+    some_command
+fi
+```
+
+### 3. Create Test Script
+
+Create `engine/shell/test-dry-run.sh` that:
+- Runs all scripts with `--dry-run`
+- Validates exit codes
+- Reports any failures
+
+## Success Criteria
+
+- [ ] `lib/dry_run.sh` created with common utilities
+- [ ] All 6 scripts support `--dry-run` flag
+- [ ] `test-dry-run.sh` validates all scripts
+- [ ] Documentation updated in `skills/run-initialization.md`
+- [ ] Changes committed and pushed
+
+## Notes
+
+- Start with `ralf-loop.sh` as it's the most critical
+- Use consistent output format: `[DRY-RUN] Would: <action>`
+- Ensure dry-run mode never modifies state
+- Consider adding `--verbose` flag for detailed output
+
+## Related
+
+- Testing strategy: `memory/insights/testing-strategy.md`
+- Feedback system: `memory/insights/feedback-system-design.md`

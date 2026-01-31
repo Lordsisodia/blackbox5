@@ -1,0 +1,180 @@
+# =============================================================================
+# TIMELINE.yaml - Project Timeline and Milestones
+# =============================================================================
+# Purpose: Track milestones, events, and project progress over time
+# Updated: 2026-01-31T23:00:00Z
+# =============================================================================
+
+project:
+  name: blackbox5
+  start_date: "2026-01-20"
+  target_completion: null
+  current_phase: "Ready for Development"
+
+# =============================================================================
+# MILESTONES - Major project achievements
+# =============================================================================
+
+milestones:
+  - id: "M-001"
+    name: "Project Kickoff"
+    description: "Initial blackbox5 project memory setup"
+    target_date: "2026-01-20"
+    completed_date: "2026-01-20"
+    status: "completed"
+    deliverables:
+      - "Basic folder structure"
+      - "project/context.yaml"
+    criteria: "Project initialized"
+
+  - id: "M-002"
+    name: "Phase 1: Analysis Complete"
+    description: "Complete analysis of siso-internal, blackbox5, and ralf-core"
+    target_date: "2026-01-31"
+    completed_date: "2026-01-31"
+    status: "completed"
+    deliverables:
+      - "siso-internal-inventory.md"
+      - "blackbox5-current-inventory.md"
+      - "ralf-core-migration-inventory.md"
+    criteria: "All analysis documents complete"
+
+  - id: "M-003"
+    name: "Phase 2: Templates Complete"
+    description: "Create all 26 templates"
+    target_date: "2026-01-31"
+    completed_date: "2026-01-31"
+    status: "completed"
+    deliverables:
+      - "8 root templates"
+      - "3 decision templates"
+      - "5 research templates"
+      - "7 epic templates"
+      - "3 task templates"
+    criteria: "All templates created in .templates/"
+
+  - id: "M-004"
+    name: "Phase 3: Content Migration"
+    description: "Migrate content and restructure folders"
+    target_date: "2026-01-31"
+    completed_date: "2026-01-31"
+    status: "completed"
+    deliverables:
+      - "8 root files created"
+      - "40 tasks migrated"
+      - "47 runs archived"
+      - "domains/ removed"
+      - ".docs/ folders created"
+    criteria: "All content migrated"
+
+  - id: "M-005"
+    name: "Phase 4: Integration"
+    description: "Final integration and validation"
+    target_date: "2026-01-31"
+    completed_date: "2026-01-31"
+    status: "completed"
+    deliverables:
+      - "README.md updated for 6-folder structure"
+      - "Example epic created with research"
+      - "STATE.yaml comprehensive map"
+      - "All status files synchronized"
+    criteria: "Project memory matches siso-internal standard"
+
+# =============================================================================
+# EVENTS - Significant project events
+# =============================================================================
+
+events:
+  - date: "2026-01-20"
+    type: "milestone"
+    title: "Project Started"
+    description: "Blackbox5 project memory initialized"
+    impact: "high"
+    related_items: null
+
+  - date: "2026-01-31"
+    type: "milestone"
+    title: "Template System Created"
+    description: "All 26 templates created based on siso-internal patterns"
+    impact: "high"
+    related_items:
+      - "M-002"
+      - "M-003"
+
+  - date: "2026-01-31"
+    type: "decision"
+    title: "6-Folder Structure Adopted"
+    description: "Decided to organize by question type"
+    impact: "high"
+    related_items:
+      - "DEC-2026-01-31-ARCH-6-folder-structure"
+
+  - date: "2026-01-31"
+    type: "milestone"
+    title: "Project Memory Reorganization Complete"
+    description: "All 4 phases completed - 26 templates, 8 root files, 6-folder structure"
+    impact: "high"
+    related_items:
+      - "M-004"
+      - "M-005"
+
+# =============================================================================
+# PROGRESS METRICS
+# =============================================================================
+
+progress:
+  overall_completion: 100
+  milestones_completed: 5
+  milestones_total: 5
+  days_elapsed: 11
+  days_remaining: null
+  velocity: null
+
+# =============================================================================
+# PHASES - Project phases tracking
+# =============================================================================
+
+phases:
+  - name: "Analysis"
+    start_date: "2026-01-31"
+    end_date: "2026-01-31"
+    status: "completed"
+    description: "Analyze existing structures"
+
+  - name: "Template Creation"
+    start_date: "2026-01-31"
+    end_date: "2026-01-31"
+    status: "completed"
+    description: "Create all templates"
+
+  - name: "Content Migration"
+    start_date: "2026-01-31"
+    end_date: "2026-01-31"
+    status: "completed"
+    description: "Migrate and restructure content"
+
+  - name: "Integration"
+    start_date: "2026-01-31"
+    end_date: "2026-01-31"
+    status: "completed"
+    description: "Final integration and validation"
+
+# =============================================================================
+# AGENT INSTRUCTIONS
+# =============================================================================
+#
+# HOW TO USE THIS FILE:
+# 1. Check 'milestones' to see what has been achieved
+# 2. Check 'progress' for overall completion metrics
+# 3. Add new events when significant things happen
+# 4. Update milestone status when phases complete
+# 5. Update 'current_phase' in project section
+#
+# UPDATE CHECKLIST:
+# [ ] Add new milestones for upcoming work
+# [ ] Mark completed milestones with completed_date
+# [ ] Add events for significant decisions/achievements
+# [ ] Update progress metrics
+# [ ] Update current_phase when moving to new work
+#
+# =============================================================================

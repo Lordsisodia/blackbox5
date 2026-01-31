@@ -238,15 +238,21 @@ print(f'✓ Returns: {type(result)}')
 
 ## Step 6: Document The Run
 
-**Create run folder:** `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-$(date +%s)/`
+**Run folder:** `$RALF_RUN_DIR` (pre-created with templates)
 
-**Required files:**
-- `THOUGHTS.md` - Reasoning process
+**Required files (templates pre-created with `RALF_TEMPLATE: UNFILLED` markers):**
+- `THOUGHTS.md` - Reasoning process (append incrementally with `ralf-thought "message"`)
 - `DECISIONS.md` - Choices made (with reversibility)
 - `ASSUMPTIONS.md` - What was assumed vs verified
 - `LEARNINGS.md` - Discoveries
 - `RESULTS.md` - Validation results
 - `context_budget.json` - Token usage (auto-initialized)
+
+**Documentation Tools:**
+- `ralf-thought "message"` - Append thought to THOUGHTS.md
+- `ralf-check-docs` - Validate all docs are filled before completing
+
+**CRITICAL:** Remove `RALF_TEMPLATE: UNFILLED` markers and replace all `FILL_ME` placeholders with actual content.
 
 ## Step 6.5: System Enforcement (CRITICAL)
 
@@ -510,9 +516,14 @@ git push origin main
 
 **CRITICAL:** DO NOT mark any task as complete until ALL items below are verified.
 
-### Required Documentation Files (MUST exist in $RUN_DIR):
+### Required Documentation Files (MUST be filled in $RUN_DIR):
 
-- [ ] **THOUGHTS.md** - Your reasoning process
+Templates are pre-created. You MUST:
+1. Replace all `FILL_ME` placeholders with actual content
+2. Remove `<!-- RALF_TEMPLATE: UNFILLED -->` markers
+3. Verify with `ralf-check-docs` before completing
+
+- [ ] **THOUGHTS.md** - Your reasoning process (use `ralf-thought` to append)
 - [ ] **DECISIONS.md** - All decisions with reversibility
 - [ ] **ASSUMPTIONS.md** - Assumptions made, verification status
 - [ ] **LEARNINGS.md** - Discoveries, lessons learned
@@ -525,22 +536,31 @@ git push origin main
 - [ ] **Code integrates with existing system**
 - [ ] **Code can be called/used**
 
-### Validation Command:
+### Validation Commands:
 
+**Quick check (recommended before completing):**
+```bash
+ralf-check-docs
+```
+
+**Manual verification:**
 ```bash
 cd "$RUN_DIR"
-REQUIRED_FILES=("THOUGHTS.md" "DECISIONS.md" "ASSUMPTIONS.md" "LEARNINGS.md" "RESULTS.md" "context_budget.json")
-MISSING=()
-for file in "${REQUIRED_FILES[@]}"; do
-    [ -f "$file" ] || MISSING+=("$file")
+
+# Check for UNFILLED markers
+UNFILLED=()
+for file in THOUGHTS.md DECISIONS.md ASSUMPTIONS.md LEARNINGS.md RESULTS.md; do
+    if grep -q "RALF_TEMPLATE: UNFILLED" "$file" 2>/dev/null; then
+        UNFILLED+=("$file")
+    fi
 done
 
-if [ ${#MISSING[@]} -gt 0 ]; then
-    echo "❌ CANNOT COMPLETE: Missing files: ${MISSING[*]}"
+if [ ${#UNFILLED[@]} -gt 0 ]; then
+    echo "❌ CANNOT COMPLETE: Files still have template markers: ${UNFILLED[*]}"
     exit 1
 fi
 
-echo "✅ All documentation files present"
+echo "✅ All documentation files filled"
 echo "✅ Integration verified"
 ```
 

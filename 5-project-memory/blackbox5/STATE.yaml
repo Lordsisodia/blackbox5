@@ -1,0 +1,476 @@
+# =============================================================================
+# STATE.yaml - Single Source of Truth for blackbox5
+# =============================================================================
+# Purpose: Definitive map of the entire project memory structure
+# Updated: 2026-01-31T23:00:00Z
+# Updated By: Claude
+# =============================================================================
+
+project:
+  name: blackbox5
+  version: "5.0.0"
+  description: "Global AI Infrastructure for multi-agent orchestration"
+  status: "active"
+  last_updated: "2026-01-31T23:00:00Z"
+  updated_by: "Claude"
+
+# =============================================================================
+# ROOT FILES - Start here for project state
+# =============================================================================
+
+root_files:
+  state:
+    file: "STATE.yaml"
+    purpose: "Single source of truth - this file"
+    updated: "2026-01-31"
+  dashboard:
+    file: "ACTIVE.md"
+    purpose: "Current work dashboard - what is happening now"
+    updated: "2026-01-31"
+  log:
+    file: "WORK-LOG.md"
+    purpose: "Chronological activity log"
+    updated: "2026-01-31"
+  timeline:
+    file: "timeline.yaml"
+    purpose: "Milestones and project timeline"
+    updated: "2026-01-31"
+  features:
+    file: "feature_backlog.yaml"
+    purpose: "Pending features queue"
+    updated: "2026-01-31"
+  tests:
+    file: "test_results.yaml"
+    purpose: "Test outcomes and coverage"
+    updated: "2026-01-31"
+  naming:
+    file: "_NAMING.md"
+    purpose: "Naming conventions for the project"
+    updated: "2026-01-31"
+  queries:
+    file: "QUERIES.md"
+    purpose: "Common queries for AI agents"
+    updated: "2026-01-31"
+  readme:
+    file: "README.md"
+    purpose: "Project overview and navigation"
+    updated: "2026-01-31"
+
+# =============================================================================
+# FOLDER STRUCTURE - 6-Folder Organization (by question type)
+# =============================================================================
+
+folders:
+  # WHO are we? Project identity and direction
+  project:
+    path: "project/"
+    question: "WHO are we?"
+    purpose: "Project identity, goals, constraints, current state"
+    docs: "project/.docs/"
+    contents:
+      - file: "context.yaml"
+        purpose: "Project goals, constraints, current progress"
+
+  # WHAT are we building? Plans and specifications
+  plans:
+    path: "plans/"
+    question: "WHAT are we building?"
+    purpose: "Plans, epics, features, requirements"
+    docs: "plans/.docs/"
+    subfolders:
+      active:
+        path: "plans/active/"
+        purpose: "Active epics and features in development"
+        contents:
+          - path: "project-memory-reorganization/"
+            type: "epic"
+            status: "completed"
+            files:
+              - "epic.md"
+              - "README.md"
+              - "TASK-SUMMARY.md"
+              - "metadata.yaml"
+            research:
+              path: "research/"
+              files:
+                - "STACK.md"
+      archived:
+        path: "plans/archived/"
+        purpose: "Completed/archived plans"
+        contents: []
+      briefs:
+        path: "plans/briefs/"
+        purpose: "Product briefs"
+        contents: []
+      features:
+        path: "plans/features/"
+        purpose: "Feature management"
+        contents: []
+      prds:
+        path: "plans/prds/"
+        purpose: "Product requirements documents"
+        contents: []
+
+  # WHY are we doing it this way? Decisions and rationale
+  decisions:
+    path: "decisions/"
+    question: "WHY are we doing it this way?"
+    purpose: "Architecture, scope, and technical decisions"
+    docs: "decisions/.docs/"
+    subfolders:
+      architectural:
+        path: "decisions/architectural/"
+        purpose: "Architecture decisions"
+        contents:
+          - file: "DEC-2026-01-31-agent-context-architecture.md"
+            title: "Agent Context Architecture"
+            date: "2026-01-31"
+          - file: "DEC-2026-01-31-docs-folder-placement.md"
+            title: "Docs Folder Placement"
+            date: "2026-01-31"
+      scope:
+        path: "decisions/scope/"
+        purpose: "Scope decisions"
+        contents: []
+      technical:
+        path: "decisions/technical/"
+        purpose: "Technical decisions"
+        contents: []
+      infrastructure:
+        path: "decisions/infrastructure/"
+        purpose: "Infrastructure decisions"
+        contents:
+          - file: "k8s-architecture-design.md"
+            title: "Kubernetes Architecture Design"
+
+  # HOW does it work? Knowledge and research
+  knowledge:
+    path: "knowledge/"
+    question: "HOW does it work?"
+    purpose: "Architecture, patterns, research, findings"
+    docs: "knowledge/.docs/"
+    subfolders:
+      architecture:
+        path: "knowledge/architecture/"
+        purpose: "System architecture documentation"
+        contents:
+          - file: "agent-context-layers.md"
+            purpose: "Agent context layer definitions"
+      archives:
+        path: "knowledge/archives/"
+        purpose: "Archived knowledge"
+        contents: []
+      codebase:
+        path: "knowledge/codebase/"
+        purpose: "Code patterns and gotchas"
+        contents: []
+      first_principles:
+        path: "knowledge/first-principles/"
+        purpose: "First principles analysis"
+        contents: []
+      frameworks:
+        path: "knowledge/frameworks/"
+        purpose: "Framework research"
+        contents: []
+      ralph_integration:
+        path: "knowledge/ralph-integration/"
+        purpose: "Ralph integration docs"
+        contents: []
+      ralph_loop:
+        path: "knowledge/ralph-loop/"
+        purpose: "Ralph loop documentation"
+        contents: []
+      research:
+        path: "knowledge/research/"
+        purpose: "Research findings"
+        contents: []
+      validation:
+        path: "knowledge/validation/"
+        purpose: "Validation results"
+        contents: []
+      ralph_patterns:
+        path: "knowledge/ralf-patterns/"
+        purpose: "RALF patterns and reports"
+        contents:
+          - path: "reports/"
+            files:
+              - "daily-20260131_223320.md"
+      ralf_core_archive:
+        file: "ralf-core-README-archive.md"
+        purpose: "Archived RALF-Core README"
+
+  # WHAT needs to be done? Tasks and work tracking
+  tasks:
+    path: "tasks/"
+    question: "WHAT needs to be done?"
+    purpose: "Tasks, work items, backlog"
+    docs: "tasks/.docs/"
+    subfolders:
+      active:
+        path: "tasks/active/"
+        purpose: "Active task files"
+        contents: []
+      backlog:
+        path: "tasks/backlog/"
+        purpose: "Backlogged tasks"
+        contents: []
+      completed:
+        path: "tasks/completed/"
+        purpose: "Completed tasks"
+        subfolders:
+          ralf_core:
+            path: "tasks/completed/ralf-core/"
+            purpose: "RALF-Core migrated tasks"
+            count: 40
+            note: "See individual task files"
+      working:
+        path: "tasks/working/"
+        purpose: "Working task folders"
+        contents: []
+
+  # System operations and runtime
+  operations:
+    path: "operations/"
+    question: "System operations"
+    purpose: "Agents, workflows, logs, sessions"
+    docs: "operations/.docs/"
+    subfolders:
+      agents:
+        path: "operations/agents/"
+        purpose: "Agent-specific memory"
+        contents: []
+      architecture:
+        path: "operations/architecture/"
+        purpose: "Architecture validation"
+        contents: []
+      docs:
+        path: "operations/docs/"
+        purpose: "System documentation"
+        contents: []
+      logs:
+        path: "operations/logs/"
+        purpose: "System logs"
+        contents: []
+      sessions:
+        path: "operations/sessions/"
+        purpose: "Session transcripts"
+        contents: []
+      workflows:
+        path: "operations/workflows/"
+        purpose: "Workflow definitions"
+        contents: []
+
+# =============================================================================
+# TEMPLATES - 26 templates for consistent documentation
+# =============================================================================
+
+templates:
+  root:
+    path: ".templates/root/"
+    count: 8
+    files:
+      - "STATE.yaml.template"
+      - "WORK-LOG.md.template"
+      - "ACTIVE.md.template"
+      - "timeline.yaml.template"
+      - "feature_backlog.yaml.template"
+      - "test_results.yaml.template"
+      - "_NAMING.md.template"
+      - "QUERIES.md.template"
+  decisions:
+    path: ".templates/decisions/"
+    count: 3
+    files:
+      - "architectural.md.template"
+      - "scope.md.template"
+      - "technical.md.template"
+  research:
+    path: ".templates/research/"
+    count: 5
+    files:
+      - "STACK.md.template"
+      - "FEATURES.md.template"
+      - "ARCHITECTURE.md.template"
+      - "PITFALLS.md.template"
+      - "SUMMARY.md.template"
+  epic:
+    path: ".templates/epic/"
+    count: 7
+    files:
+      - "epic.md.template"
+      - "README.md.template"
+      - "INDEX.md.template"
+      - "XREF.md.template"
+      - "ARCHITECTURE.md.template"
+      - "TASK-SUMMARY.md.template"
+      - "metadata.yaml.template"
+  tasks:
+    path: ".templates/tasks/"
+    count: 3
+    files:
+      - "task-specification.md.template"
+      - "task-context-bundle.md.template"
+      - "task-completion.md.template"
+
+# =============================================================================
+# DOCUMENTATION - .docs/ folders (AI-managed documentation)
+# =============================================================================
+
+docs:
+  root:
+    path: ".docs/"
+    files:
+      - "siso-internal-patterns.md"
+        purpose: "10 key patterns from siso-internal"
+      - "ai-template-usage-guide.md"
+        purpose: "How AI agents should use templates"
+      - "dot-docs-system.md"
+        purpose: "Specification for .docs/ system"
+      - "migration-plan.md"
+        purpose: "4-phase migration plan"
+
+# =============================================================================
+# ARCHIVED CONTENT - Historical data
+# =============================================================================
+
+archived:
+  runs:
+    path: ".archived/runs/"
+    count: 47
+    description: "Archived RALF run folders"
+  ralf_core_backup:
+    path: ".ralf-core-backup-20260131-210936/"
+    description: "Original RALF-Core backup before migration"
+
+# =============================================================================
+# ACTIVE WORK - Current state
+# =============================================================================
+
+tasks:
+  active: []
+  completed:
+    - id: "TASK-1769799720"
+      title: "Create Missing BMAD Workflow YAML Files"
+      completed_at: "2026-01-30"
+      completed_by: "RALF"
+      result: "success"
+    - id: "TASK-1769862609"
+      title: "Implement BMAD Framework"
+      completed_at: "2026-01-31"
+      completed_by: "RALF"
+      result: "success"
+
+features:
+  completed:
+    - id: "project-memory-reorganization"
+      name: "Project Memory Reorganization"
+      description: "Restructure blackbox5 project memory to match siso-internal gold standard"
+      status: "completed"
+      progress: 100
+      started_at: "2026-01-31T20:00:00Z"
+      completed_at: "2026-01-31T23:00:00Z"
+      target_completion: "2026-01-31"
+
+decisions:
+  architectural:
+    - id: "DEC-2026-01-31-ARCH-6-folder-structure"
+      title: "6-Folder Memory Structure"
+      date: "2026-01-31"
+      status: "accepted"
+      rationale: "Organize by question type for intuitive navigation"
+    - id: "DEC-2026-01-31-ARCH-docs-folder-placement"
+      title: ".docs Folder Placement Strategy"
+      date: "2026-01-31"
+      status: "accepted"
+      rationale: "Both root and per-folder .docs/ for contextual AI documentation"
+  scope:
+    - id: "DEC-2026-01-31-SCOPE-remove-domains"
+      title: "Remove Empty domains/ Folder"
+      date: "2026-01-31"
+      status: "accepted"
+      rationale: "YAGNI principle - don't create structure until content exists"
+  technical:
+    - id: "DEC-2026-01-31-TECH-consolidate-ralf-core"
+      title: "Consolidate RALF-Core into Blackbox5"
+      date: "2026-01-31"
+      status: "accepted"
+      rationale: "Single project memory for autonomous agent system"
+
+research:
+  completed:
+    - dimension: "project-memory-patterns"
+      status: "completed"
+      file: ".docs/siso-internal-patterns.md"
+      started_at: "2026-01-31T20:00:00Z"
+      key_findings: "Documented 10 key patterns from siso-internal"
+
+# =============================================================================
+# SYSTEM STATUS
+# =============================================================================
+
+github_sync:
+  last_sync: null
+  branch: "main"
+  commit_hash: null
+  sync_status: "pending"
+  pending_changes: null
+
+system:
+  environment: "development"
+  dependencies_status: "ok"
+  last_health_check: "2026-01-31T23:00:00Z"
+  known_issues: null
+
+timeline:
+  current_milestone: "project-memory-reorganization"
+  next_milestone: null
+  days_in_current_phase: 1
+
+activity:
+  last_24h:
+    commits: 8
+    files_modified: 35
+    tasks_completed: 1
+  last_7d:
+    commits: 18
+    files_modified: 90
+    tasks_completed: 41
+
+risks:
+  active:
+    - id: "RISK-001"
+      description: "Template adoption may be slow without clear examples"
+      severity: "medium"
+      probability: "medium"
+      mitigation: "Create example epic with full documentation"
+      owner: "Claude"
+      status: "mitigated"
+      reason: "Example epic created with complete documentation"
+  mitigated: []
+
+# =============================================================================
+# AGENT INSTRUCTIONS
+# =============================================================================
+#
+# HOW TO USE THIS FILE:
+# 1. Start here when you need to understand the project structure
+# 2. Use the 'folders' section to navigate to specific areas
+# 3. Use the 'root_files' section to find current state
+# 4. Use the 'templates' section when creating new content
+# 5. Update this file when you:
+#    - Add/remove folders
+#    - Add/remove root files
+#    - Complete tasks or features
+#    - Make new decisions
+#    - Update project status
+#
+# UPDATE CHECKLIST:
+# [ ] Update 'last_updated' timestamp
+# [ ] Update 'updated_by' field
+# [ ] Add completed tasks to 'tasks.completed'
+# [ ] Move completed features to 'features.completed'
+# [ ] Add new decisions to appropriate section
+# [ ] Update 'activity' counts
+# [ ] Update folder contents if structure changed
+#
+# =============================================================================

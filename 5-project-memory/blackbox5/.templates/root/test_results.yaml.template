@@ -1,0 +1,17 @@
+# Test Results
+
+test_run:
+  id: "TR-XXX"
+  name: "FILL_ME"
+  timestamp: "FILL_ME"
+
+summary:
+  total_tests: 0
+  passed: 0
+  failed: 0
+  status: "FILL_ME"
+
+test_cases:
+  - id: "TC-001"
+    name: "FILL_ME"
+    status: "FILL_ME"

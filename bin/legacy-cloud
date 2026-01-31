@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+"""
+Legacy Cloud CLI - Control Kubernetes Legacy agents from local machine
+
+Usage:
+    legacy-cloud status                    # Show all Legacy agents
+    legacy-cloud start                     # Start a new Legacy agent
+    legacy-cloud stop <agent-id>           # Stop a Legacy agent
+    legacy-cloud logs <agent-id>           # Stream logs from agent
+    legacy-cloud exec <agent-id> <cmd>     # Execute command in agent
+    legacy-cloud scale <n>                 # Scale to N agents
+
+Environment:
+    LEGACY_KUBECONFIG - Path to kubeconfig (default: ~/.kube/config)
+    LEGACY_NAMESPACE  - Kubernetes namespace (default: legacy)
+"""
+
+import argparse
+import subprocess
+import sys
+import os
+from typing import Optional, List
+
+# Configuration
+KUBECONFIG = os.environ.get("LEGACY_KUBECONFIG", os.path.expanduser("~/.kube/config"))
+NAMESPACE = os.environ.get("LEGACY_NAMESPACE", "legacy")
+
+def run_kubectl(args: List[str], capture: bool = False) -> str:
+    """Run kubectl command."""
+    cmd = ["kubectl", "--kubeconfig", KUBECONFIG, "-n", NAMESPACE] + args
+    if capture:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        return result.stdout
+    else:
+        subprocess.run(cmd)
+        return ""
+
+def get_agent_pods() -> List[dict]:
+    """Get list of RALF agent pods."""
+    output = run_kubectl([
+        "get", "pods",
+        "-l", "app=ralf",
+        "-o", "jsonpath={range .items[*]}{.metadata.name}{'\t'}{.status.phase}{'\t'}{.status.containerStatuses[0].ready}{'\n'}{end}"
+    ], capture=True)
+
+    pods = []
+    for line in output.strip().split('\n'):
+        if line:
+            parts = line.split('\t')
+            pods.append({
+                "name": parts[0],
+                "phase": parts[1] if len(parts) > 1 else "Unknown",
+                "ready": parts[2] if len(parts) > 2 else "false"
+            })
+    return pods
+
+def cmd_status():
+    """Show status of all Legacy agents."""
+    print("═══════════════════════════════════════════════════════════")
+    print("  Legacy Cloud Agents")
+    print("═══════════════════════════════════════════════════════════")
+    print()
+
+    pods = get_agent_pods()
+
+    if not pods:
+        print("No Legacy agents running.")
+        print()
+        print("Start one with: legacy-cloud start")
+        return
+
+    print(f"{'Agent ID':<30} {'Status':<15} {'Ready':<10}")
+    print("-" * 60)
+    for pod in pods:
+        ready_str = "✓" if pod["ready"] == "true" else "✗"
+        print(f"{pod['name']:<30} {pod['phase']:<15} {ready_str:<10}")
+
+    print()
+    print(f"Total: {len(pods)} agent(s)")
+    print()
+    print("Commands:")
+    print(f"  ralf-cloud logs {pods[0]['name']}     # View logs")
+    print(f"  ralf-cloud stop {pods[0]['name']}     # Stop agent")
+
+def cmd_start():
+    """Start a new Legacy agent."""
+    print("Starting RALF agent...")
+
+    # Scale up deployment
+    run_kubectl(["scale", "deployment/ralf-agent", "--replicas=1"])
+
+    print()
+    print("Waiting for agent to be ready...")
+    run_kubectl(["wait", "--for=condition=ready", "pod", "-l", "app=ralf", "--timeout=60s"])
+
+    print()
+    print("✓ RALF agent started")
+    print()
+    cmd_status()
+
+def cmd_stop(agent_id: str):
+    """Stop a RALF agent."""
+    print(f"Stopping RALF agent: {agent_id}")
+
+    # Delete the specific pod (it will be recreated if deployment has replicas)
+    # For now, just scale to 0
+    run_kubectl(["scale", "deployment/ralf-agent", "--replicas=0"])
+
+    print()
+    print(f"✓ RALF agent stopped")
+
+def cmd_logs(agent_id: Optional[str] = None, follow: bool = False):
+    """Stream logs from RALF agent."""
+    if agent_id:
+        pod = agent_id
+    else:
+        # Get first pod
+        pods = get_agent_pods()
+        if not pods:
+            print("No RALF agents running.")
+            return
+        pod = pods[0]["name"]
+
+    print(f"Streaming logs from {pod}...")
+    print("(Press Ctrl+C to exit)")
+    print()
+
+    args = ["logs", pod]
+    if follow:
+        args.append("-f")
+
+    run_kubectl(args)
+
+def cmd_exec(agent_id: str, command: str):
+    """Execute command in RALF agent."""
+    print(f"Executing in {agent_id}: {command}")
+    print()
+
+    run_kubectl(["exec", agent_id, "--", "/bin/bash", "-c", command])
+
+def cmd_scale(n: int):
+    """Scale RALF agents to N replicas."""
+    print(f"Scaling RALF agents to {n}...")
+
+    run_kubectl(["scale", "deployment/ralf-agent", f"--replicas={n}"])
+
+    print()
+    print(f"✓ Scaled to {n} agent(s)")
+    print()
+    cmd_status()
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Control Legacy agents in Kubernetes",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  ralf-cloud status              # Show all agents
+  ralf-cloud start               # Start an agent
+  ralf-cloud logs -f             # Stream logs
+  ralf-cloud scale 3             # Run 3 agents
+  ralf-cloud exec ralf-agent-xxx "ls -la"  # Run command
+        """
+    )
+
+    subparsers = parser.add_subparsers(dest="command", help="Command to run")
+
+    # status
+    subparsers.add_parser("status", help="Show agent status")
+
+    # start
+    subparsers.add_parser("start", help="Start a RALF agent")
+
+    # stop
+    stop_parser = subparsers.add_parser("stop", help="Stop a RALF agent")
+    stop_parser.add_argument("agent_id", help="Agent ID (pod name)")
+
+    # logs
+    logs_parser = subparsers.add_parser("logs", help="View agent logs")
+    logs_parser.add_argument("agent_id", nargs="?", help="Agent ID (optional)")
+    logs_parser.add_argument("-f", "--follow", action="store_true", help="Follow logs")
+
+    # exec
+    exec_parser = subparsers.add_parser("exec", help="Execute command in agent")
+    exec_parser.add_argument("agent_id", help="Agent ID")
+    exec_parser.add_argument("command", help="Command to execute")
+
+    # scale
+    scale_parser = subparsers.add_parser("scale", help="Scale agents")
+    scale_parser.add_argument("n", type=int, help="Number of agents")
+
+    args = parser.parse_args()
+
+    if not args.command:
+        parser.print_help()
+        return 1
+
+    # Route to command handler
+    if args.command == "status":
+        cmd_status()
+    elif args.command == "start":
+        cmd_start()
+    elif args.command == "stop":
+        cmd_stop(args.agent_id)
+    elif args.command == "logs":
+        cmd_logs(args.agent_id, args.follow)
+    elif args.command == "exec":
+        cmd_exec(args.agent_id, args.command)
+    elif args.command == "scale":
+        cmd_scale(args.n)
+
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

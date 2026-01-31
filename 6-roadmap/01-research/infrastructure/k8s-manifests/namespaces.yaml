@@ -1,0 +1,42 @@
+# Blackbox5 Kubernetes Namespaces
+# Organizes components by function
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blackbox5-system
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: control-plane
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blackbox5-agents
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: agents
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blackbox5-storage
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: storage
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blackbox5-mcp
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: mcp
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blackbox5-monitoring
+  labels:
+    app.kubernetes.io/name: blackbox5
+    app.kubernetes.io/component: monitoring

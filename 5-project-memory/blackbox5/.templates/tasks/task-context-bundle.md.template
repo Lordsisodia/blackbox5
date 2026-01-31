@@ -1,0 +1,127 @@
+# Task Context: TASK-XXX
+
+## Quick Links
+
+- **Task File**: `TASK-XXX.md`
+- **Status**: FILL_ME (pending/in_progress/completed)
+- **Priority**: FILL_ME (critical/high/medium/low)
+
+---
+
+## Related Planning
+
+### Epic
+- **Location**: `plans/active/EPIC-NAME/epic.md`
+- **Section**: FILL_ME (relevant section)
+- **Summary**: FILL_ME (2-3 sentence epic summary)
+
+### PRD
+- **Location**: `plans/prds/active/FEATURE.md`
+- **Relevance**: FILL_ME (how PRD relates to this task)
+
+### Research
+- **Location**: `knowledge/research/active/TOPIC/`
+- **Key Files**:
+  - `STACK.md` - FILL_ME (key findings)
+  - `FEATURES.md` - FILL_ME (key findings)
+  - `ARCHITECTURE.md` - FILL_ME (key findings)
+  - `PITFALLS.md` - FILL_ME (known issues)
+
+---
+
+## Context Snippets
+
+<details>
+<summary>Epic Summary</summary>
+
+FILL_ME (2-3 paragraph summary of the epic)
+
+</details>
+
+<details>
+<summary>Research Highlights</summary>
+
+**Technology Stack**:
+- FILL_ME (key tech choices)
+
+**Known Pitfalls**:
+- FILL_ME (risks to watch for)
+
+</details>
+
+<details>
+<summary>Task Specification</summary>
+
+**What Will Happen**:
+1. FILL_ME (step 1)
+2. FILL_ME (step 2)
+3. FILL_ME (step 3)
+
+**Expected Output**:
+- FILL_ME (deliverables)
+
+</details>
+
+---
+
+## Dependencies
+
+### Requires
+- [ ] FILL_ME (prerequisite task)
+- [ ] FILL_ME (prerequisite task)
+
+### Blocks
+- FILL_ME (what this task blocks)
+
+### Related Tasks
+- FILL_ME (related but not dependent)
+
+---
+
+## Related Decisions
+
+### Architectural
+- [DEC-XXX](decisions/architectural/DEC-XXX.md) - FILL_ME (brief description)
+
+### Technical
+- [DEC-XXX](decisions/technical/DEC-XXX.md) - FILL_ME (brief description)
+
+### Scope
+- [DEC-XXX](decisions/scope/DEC-XXX.md) - FILL_ME (brief description)
+
+---
+
+## Acceptance Criteria
+
+- [ ] FILL_ME (criterion 1)
+- [ ] FILL_ME (criterion 2)
+- [ ] FILL_ME (criterion 3)
+
+---
+
+## Next Steps After This Task
+
+### Option A: FILL_ME
+- FILL_ME (description)
+
+### Option B: FILL_ME
+- FILL_ME (description)
+
+---
+
+## Configuration
+
+**Repository**: FILL_ME
+**Labels**: FILL_ME
+**Estimated Effort**: FILL_ME
+
+---
+
+## Notes
+
+FILL_ME (any additional notes)
+
+---
+
+**Last Updated**: FILL_ME (ISO date)
+**Status**: FILL_ME (ready to start/in progress/blocked)
