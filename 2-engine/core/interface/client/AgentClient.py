@@ -324,7 +324,7 @@ def get_tools_for_agent(
                 "Grep",
                 "Bash",
                 "WebSearch",
-                "WebFetch",
+                "mcp__web_reader__webReader",
             ],
             "optional_tools": [],
         },
@@ -337,7 +337,7 @@ def get_tools_for_agent(
                 "Grep",
                 "Bash",
                 "WebSearch",
-                "WebFetch",
+                "mcp__web_reader__webReader",
             ],
             "optional_tools": [],
         },
@@ -348,7 +348,7 @@ def get_tools_for_agent(
                 "Grep",
                 "Bash",
                 "WebSearch",
-                "WebFetch",
+                "mcp__web_reader__webReader",
             ],
             "optional_tools": [
                 # Browser tools for E2E testing
@@ -367,7 +367,7 @@ def get_tools_for_agent(
                 "Grep",
                 "Bash",
                 "WebSearch",
-                "WebFetch",
+                "mcp__web_reader__webReader",
             ],
             "optional_tools": [
                 # Browser tools for E2E testing
