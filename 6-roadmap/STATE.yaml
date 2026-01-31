@@ -14,8 +14,8 @@
 system:
   name: "blackbox5-roadmap"
   version: "2.0"
-  updated: "2026-01-31T19:32:00Z"
-  status: "planning-phase"
+  updated: "2026-02-01T00:00:00Z"
+  status: "active-development"
 
 # ============================================================================
 # NEXT BEST ACTION
@@ -31,9 +31,9 @@ stats:
   proposed: 20
   research: 1
   design: 0
-  planned: 1
+  planned: 2
   active: 0
-  completed: 6
+  completed: 9
   cancelled: 0
   backlog: 0
 
@@ -52,7 +52,7 @@ plans:
       dependencies: []
       blocks: []
       path: "03-planned/PLAN-003-implement-planning-agent/"
-      note: "All dependencies completed (PLAN-001, PLAN-002, PLAN-005)"
+      note: "Dependencies completed (PLAN-002, PLAN-005). PLAN-001 was obsolete."
 
     - id: "PLAN-006"
       name: "Remove Redundant Code and Systems"
@@ -128,15 +128,15 @@ plans:
       domain: "skills"
       category: "bugfix"
       dependencies: []
-      blocks: ["PLAN-002", "PLAN-003"]
+      blocks: []
       completed_at: "2026-01-31"
       executed_by: "RALF (Agent-2.4)"
       path: "05-completed/PLAN-001-fix-skills-system/"
       deliverables:
         - "TASK-1738300332 - Skills audit confirmed single canonical system"
-        - "Verified: 2-engine/.autonomous/skills/ with 11 BMAD skills"
+        - "Verified: 2-engine/.autonomous/skills/ with 15 skills"
         - "Decision: NO ACTION REQUIRED - System already healthy"
-      notes: "Original plan was based on outdated information. Audit revealed single canonical system exists - no consolidation needed."
+      notes: "OBSOLETE: Original plan described 3 conflicting skills systems that don't exist. Directories skills-cap/ and .skills-new/ not found. Only canonical system at 2-engine/.autonomous/skills/ exists."
 
     - id: "PLAN-007"
       name: "Enable 90% LLMLingua Compression"
@@ -155,13 +155,62 @@ plans:
         - "Deployed to blackbox5/2-engine/01-core/middleware/"
       notes: "Verification script created with graceful fallback. User needs HuggingFace auth for full 90% compression."
 
+    - id: "PLAN-008"
+      name: "Fix Critical API Mismatches in main.py"
+      priority: "critical"
+      effort: "2-3 hours"
+      domain: "infrastructure"
+      category: "bugfix"
+      dependencies: []
+      blocks: []
+      completed_at: "2026-01-20"
+      executed_by: "Blackbox5 Wave 0 Agent"
+      path: "05-completed/PLAN-008-fix-critical-api-mismatches/"
+      deliverables:
+        - "Fixed Task constructor parameter (task_id -> id)"
+        - "Fixed Orchestrator method call (execute_wave_based -> execute_workflow)"
+        - "Fixed AgentTask parameter names"
+        - "Fixed all task.task_id references"
+      notes: "All API mismatches resolved. System can now boot and process requests."
+
+    - id: "PLAN-009"
+      name: "Fix Statistics Coroutine Warnings"
+      priority: "medium"
+      effort: "1 hour"
+      domain: "infrastructure"
+      category: "bugfix"
+      dependencies: []
+      blocks: []
+      completed_at: "2026-02-01"
+      executed_by: "Claude"
+      path: "05-completed/PLAN-009-fix-statistics-coroutine/"
+      deliverables:
+        - "Verified get_statistics() is async in main.py"
+        - "Verified all callers properly await async methods"
+      notes: "Issue was already resolved in current simplified main.py implementation."
+
+    - id: "PLAN-010"
+      name: "Add Missing Dependencies to requirements.txt"
+      priority: "medium"
+      effort: "30 minutes"
+      domain: "infrastructure"
+      category: "bugfix"
+      dependencies: []
+      blocks: []
+      completed_at: "2026-02-01"
+      executed_by: "Claude"
+      path: "05-completed/PLAN-010-add-missing-dependencies/"
+      deliverables:
+        - "Added llmlingua>=0.2.2 to requirements.txt"
+        - "Created requirements-dev.txt with testing and dev tools"
+      notes: "Redis, pyyaml, chromadb, neo4j were already present. Only llmlingua was missing."
+
 # ============================================================================
 # DEPENDENCIES
 # ============================================================================
 dependencies:
   # What each plan blocks
-  blocking:
-    PLAN-001: ["PLAN-002", "PLAN-003"]
+  blocking: {}
 
   # What each plan is blocked by
   blocked: []

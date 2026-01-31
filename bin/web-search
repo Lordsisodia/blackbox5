@@ -148,7 +148,7 @@ def setup_wizard():
     print("3. Self-host with Docker")
     print()
     print("See the skill documentation for detailed setup instructions:")
-    print("  2-engine/.autonomous/skills/web-search.md")
+    print("  2-engine/.autonomous/skills/web-search/SKILL.md")
     print()
 
     url = input("Enter your SearXNG URL (e.g., https://your-search.onrender.com): ").strip()

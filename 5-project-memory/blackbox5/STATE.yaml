@@ -19,9 +19,14 @@ project:
 # =============================================================================
 
 root_files:
+  map:
+    file: "MAP.yaml"
+    purpose: "COMPLETE FILE CATALOG - All 359 files mapped to 10 levels deep"
+    updated: "2026-01-31"
+    note: "Contains every file: root, .archived/runs/*, .autonomous, .docs, .templates, all 6 folders"
   state:
     file: "STATE.yaml"
-    purpose: "Single source of truth - this file"
+    purpose: "Single source of truth - project state and structure"
     updated: "2026-01-31"
   dashboard:
     file: "ACTIVE.md"
@@ -55,6 +60,10 @@ root_files:
     file: "README.md"
     purpose: "Project overview and navigation"
     updated: "2026-01-31"
+  goals:
+    file: "goals.yaml"
+    purpose: "Autonomous agent goals and improvement targets"
+    updated: "2026-02-01"
 
 # =============================================================================
 # FOLDER STRUCTURE - 6-Folder Organization (by question type)
@@ -150,6 +159,12 @@ folders:
     purpose: "Architecture, patterns, research, findings"
     docs: "knowledge/.docs/"
     subfolders:
+      analysis:
+        path: "knowledge/analysis/"
+        purpose: "Analysis of runs, patterns, and system behavior"
+        contents:
+          - file: "autonomous-runs-analysis.md"
+            purpose: "Analysis of 47 archived runs with patterns and recommendations"
       architecture:
         path: "knowledge/architecture/"
         purpose: "System architecture documentation"
@@ -334,13 +349,29 @@ docs:
 # =============================================================================
 
 archived:
-  runs:
-    path: ".archived/runs/"
-    count: 47
-    description: "Archived RALF run folders"
   ralf_core_backup:
     path: ".ralf-core-backup-20260131-210936/"
     description: "Original RALF-Core backup before migration"
+
+runs:
+  path: "runs/"
+  description: "RALF autonomous execution runs"
+  total_count: 47
+  structure:
+    active:
+      path: "runs/active/"
+      description: "Currently executing runs"
+      count: 0
+    completed:
+      path: "runs/completed/"
+      description: "Completed runs awaiting analysis"
+      count: 47
+    archived:
+      path: "runs/archived/"
+      description: "Analyzed and archived runs"
+      count: 0
+  files_per_run: "3-9 files (THOUGHTS.md, DECISIONS.md, RESULTS.md, LEARNINGS.md, state files)"
+  lifecycle: "active → completed → archived (after analysis)"
 
 # =============================================================================
 # ACTIVE WORK - Current state
@@ -449,6 +480,41 @@ risks:
   mitigated: []
 
 # =============================================================================
+# CONTINUOUS IMPROVEMENT METRICS
+# =============================================================================
+
+improvement_metrics:
+  runs_completed: 47
+  learnings_captured: 47
+  first_principles_reviews: 0
+
+  improvements:
+    proposed: 0
+    approved: 0
+    applied: 0
+    rejected: 0
+
+  by_category:
+    skills:
+      added: 1
+      refined: 0
+      removed: 0
+    process:
+      changes: 2
+    guidance:
+      changes: 1
+
+  velocity_trends:
+    task_completion_time: "stable"
+    error_rate: "stable"
+    rework_required: "stable"
+    context_efficiency: "stable"
+
+  last_review: null
+  next_review_due: "2026-02-05"
+  review_interval_runs: 5
+
+# =============================================================================
 # AGENT INSTRUCTIONS
 # =============================================================================
 #
@@ -457,7 +523,8 @@ risks:
 # 2. Use the 'folders' section to navigate to specific areas
 # 3. Use the 'root_files' section to find current state
 # 4. Use the 'templates' section when creating new content
-# 5. Update this file when you:
+# 5. For COMPLETE FILE LIST: See MAP.yaml (every file cataloged)
+# 6. Update this file when you:
 #    - Add/remove folders
 #    - Add/remove root files
 #    - Complete tasks or features
@@ -472,5 +539,13 @@ risks:
 # [ ] Add new decisions to appropriate section
 # [ ] Update 'activity' counts
 # [ ] Update folder contents if structure changed
+# [ ] Update 'improvement_metrics' if changes made to system
+# [ ] ALSO UPDATE MAP.yaml with new file paths!
+#
+# FILE DISCOVERY:
+# - STATE.yaml: Structure and status (this file)
+# - MAP.yaml: Complete file catalog (every path)
+# - ACTIVE.md: Current work
+# - WORK-LOG.md: History
 #
 # =============================================================================

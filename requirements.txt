@@ -97,3 +97,9 @@ watchdog>=4.0.0
 # OPTIONAL: MCP INTEGRATIONS
 # ============================================================================
 # mcp>=0.1.0  # Uncomment when MCP is ready
+
+# ============================================================================
+# TOKEN COMPRESSION
+# ============================================================================
+# LLMLingua - For prompt compression and token optimization
+llmlingua>=0.2.2

@@ -1,6 +1,6 @@
 # Active Work Dashboard
 
-**Updated:** 2026-01-31T23:00:00Z
+**Updated:** 2026-02-01T00:00:00Z
 
 ---
 
@@ -13,7 +13,7 @@
 | Active Tasks | 0 |
 | Active Features | 0 |
 | Open Decisions | 0 |
-| Last Update | 2026-01-31 |
+| Last Update | 2026-02-01 |
 
 ---
 
@@ -101,10 +101,11 @@ Ready for actual development work using the new structure.
 
 ### For AI Agents
 
-1. **Start here:** `STATE.yaml` - Complete project map
-2. **Current work:** This file (`ACTIVE.md`)
-3. **History:** `WORK-LOG.md`
-4. **Templates:** `.templates/`
+1. **Find any file:** `MAP.yaml` - Complete file catalog (94 files)
+2. **Project state:** `STATE.yaml` - Structure and status
+3. **Current work:** This file (`ACTIVE.md`)
+4. **History:** `WORK-LOG.md`
+5. **Templates:** `.templates/` (26 templates)
 
 ### For Humans
 

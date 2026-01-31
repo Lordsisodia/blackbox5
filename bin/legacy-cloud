@@ -3,12 +3,17 @@
 Legacy Cloud CLI - Control Kubernetes Legacy agents from local machine
 
 Usage:
-    legacy-cloud status                    # Show all Legacy agents
-    legacy-cloud start                     # Start a new Legacy agent
-    legacy-cloud stop <agent-id>           # Stop a Legacy agent
-    legacy-cloud logs <agent-id>           # Stream logs from agent
-    legacy-cloud exec <agent-id> <cmd>     # Execute command in agent
-    legacy-cloud scale <n>                 # Scale to N agents
+    legacy-cloud status                           # Show all Legacy agents
+    legacy-cloud create --name <name> \           # Create new Legacy agent
+                      --project <project> \
+                      --task <task> \
+                      [--prompt <prompt>]
+    legacy-cloud start <instance-name>            # Start a Legacy agent
+    legacy-cloud stop <instance-name>             # Stop a Legacy agent
+    legacy-cloud logs <instance-name>             # Stream logs from agent
+    legacy-cloud exec <instance-name> <cmd>       # Execute command in agent
+    legacy-cloud scale <instance-name> <n>        # Scale instance to N replicas
+    legacy-cloud list                             # List all Legacy configurations
 
 Environment:
     LEGACY_KUBECONFIG - Path to kubeconfig (default: ~/.kube/config)
@@ -19,7 +24,9 @@ import argparse
 import subprocess
 import sys
 import os
-from typing import Optional, List
+import re
+from typing import Optional, List, Dict
+from datetime import datetime
 
 # Configuration
 KUBECONFIG = os.environ.get("LEGACY_KUBECONFIG", os.path.expanduser("~/.kube/config"))
@@ -35,24 +42,52 @@ def run_kubectl(args: List[str], capture: bool = False) -> str:
         subprocess.run(cmd)
         return ""
 
-def get_agent_pods() -> List[dict]:
-    """Get list of RALF agent pods."""
+def sanitize_name(name: str) -> str:
+    """Sanitize name for Kubernetes resources."""
+    return re.sub(r'[^a-z0-9-]', '-', name.lower())[:63]
+
+def get_agent_pods(instance: Optional[str] = None) -> List[Dict]:
+    """Get list of Legacy agent pods."""
+    label_selector = "app=legacy"
+    if instance:
+        label_selector += f",instance={instance}"
+
     output = run_kubectl([
         "get", "pods",
-        "-l", "app=ralf",
-        "-o", "jsonpath={range .items[*]}{.metadata.name}{'\t'}{.status.phase}{'\t'}{.status.containerStatuses[0].ready}{'\n'}{end}"
+        "-l", label_selector,
+        "-o", "jsonpath={range .items[*]}{.metadata.name}{'\t'}{.status.phase}{'\t'}{.status.containerStatuses[0].ready}{'\t'}{.metadata.labels.instance}{'\n'}{end}"
     ], capture=True)
 
     pods = []
     for line in output.strip().split('\n'):
-        if line:
+        if line and '\t' in line:
             parts = line.split('\t')
             pods.append({
                 "name": parts[0],
                 "phase": parts[1] if len(parts) > 1 else "Unknown",
-                "ready": parts[2] if len(parts) > 2 else "false"
+                "ready": parts[2] if len(parts) > 2 else "false",
+                "instance": parts[3] if len(parts) > 3 else "unknown"
             })
     return pods
+
+def get_deployments() -> List[Dict]:
+    """Get list of Legacy deployments."""
+    output = run_kubectl([
+        "get", "deployments",
+        "-l", "app=legacy",
+        "-o", "jsonpath={range .items[*]}{.metadata.name}{'\t'}{.spec.replicas}{'\t'}{.metadata.labels.project}{'\n'}{end}"
+    ], capture=True)
+
+    deployments = []
+    for line in output.strip().split('\n'):
+        if line and '\t' in line:
+            parts = line.split('\t')
+            deployments.append({
+                "name": parts[0],
+                "replicas": int(parts[1]) if len(parts) > 1 else 0,
+                "project": parts[2] if len(parts) > 2 else "unknown"
+            })
+    return deployments
 
 def cmd_status():
     """Show status of all Legacy agents."""
@@ -61,67 +96,255 @@ def cmd_status():
     print("═══════════════════════════════════════════════════════════")
     print()
 
+    deployments = get_deployments()
     pods = get_agent_pods()
 
-    if not pods:
-        print("No Legacy agents running.")
+    if not deployments:
+        print("No Legacy configurations found.")
         print()
-        print("Start one with: legacy-cloud start")
+        print("Create one with: legacy-cloud create --name <name> --project <project> --task <task>")
         return
 
-    print(f"{'Agent ID':<30} {'Status':<15} {'Ready':<10}")
-    print("-" * 60)
-    for pod in pods:
-        ready_str = "✓" if pod["ready"] == "true" else "✗"
-        print(f"{pod['name']:<30} {pod['phase']:<15} {ready_str:<10}")
+    print(f"{'Instance':<25} {'Project':<20} {'Replicas':<10} {'Status':<15}")
+    print("-" * 75)
+
+    for dep in deployments:
+        # Count running pods for this instance
+        instance_pods = [p for p in pods if p["instance"] == dep["name"].replace("legacy-agent-", "")]
+        running = len([p for p in instance_pods if p["phase"] == "Running"])
+        status = f"{running}/{dep['replicas']} running" if dep['replicas'] > 0 else "stopped"
+        instance_name = dep["name"].replace("legacy-agent-", "")
+        print(f"{instance_name:<25} {dep['project']:<20} {dep['replicas']:<10} {status:<15}")
 
     print()
-    print(f"Total: {len(pods)} agent(s)")
+    print(f"Total: {len(deployments)} configuration(s), {len(pods)} pod(s)")
     print()
     print("Commands:")
-    print(f"  ralf-cloud logs {pods[0]['name']}     # View logs")
-    print(f"  ralf-cloud stop {pods[0]['name']}     # Stop agent")
+    print("  legacy-cloud create    # Create new Legacy instance")
+    print("  legacy-cloud start     # Start an instance")
+    print("  legacy-cloud logs      # View logs")
 
-def cmd_start():
-    """Start a new Legacy agent."""
-    print("Starting RALF agent...")
+def cmd_create(name: str, project: str, task: str, prompt: Optional[str] = None):
+    """Create a new Legacy agent configuration."""
+    instance_name = sanitize_name(name)
+    project_name = sanitize_name(project)
 
-    # Scale up deployment
-    run_kubectl(["scale", "deployment/ralf-agent", "--replicas=1"])
+    print(f"Creating Legacy instance: {instance_name}")
+    print(f"  Project: {project}")
+    print(f"  Task: {task}")
+    print()
+
+    # Determine project directory based on project name
+    if project == "blackbox5":
+        project_dir = "/opt/blackbox5/5-project-memory/blackbox5"
+        engine_dir = "/opt/blackbox5/2-engine/.autonomous"
+    elif project == "siso-internal":
+        project_dir = "/opt/blackbox5/5-project-memory/siso-internal"
+        engine_dir = "/opt/blackbox5/2-engine/.autonomous"
+    else:
+        project_dir = f"/opt/blackbox5/5-project-memory/{project_name}"
+        engine_dir = "/opt/blackbox5/2-engine/.autonomous"
+
+    # Create ConfigMap with system prompt
+    system_prompt = prompt or f"You are Legacy, an autonomous AI agent working on {project}. Your task: {task}"
+
+    legacy_md = f"""# Legacy Agent - {project}
+
+You are Legacy, running in daemon mode.
+
+## Current Context
+- Instance: {instance_name}
+- Project: {project}
+- Project Path: {project_dir}
+- Task: {task}
+- Mode: Continuous improvement
+
+## Your Responsibilities
+{task}
+
+## Project Structure
+- Code: {project_dir}
+- Engine: {engine_dir}
+- Memory: {project_dir}/.autonomous/
+
+## Your Loop
+1. Check {project_dir}/.autonomous/tasks/active/ for tasks
+2. Select highest priority task for {project}
+3. Execute using appropriate skills
+4. Document results in runs/
+5. Commit changes to git
+6. Mark task complete
+7. Repeat
+
+System Prompt: {system_prompt}
+
+Begin working on {project}.
+"""
+
+    # Create ConfigMap
+    configmap_name = f"legacy-config-{instance_name}"
+    configmap_yaml = f"""apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {configmap_name}
+  namespace: {NAMESPACE}
+data:
+  SYSTEM_PROMPT: |
+    {system_prompt}
+  legacy.md: |
+    {legacy_md}
+"""
+
+    # Apply ConfigMap
+    subprocess.run(["kubectl", "--kubeconfig", KUBECONFIG, "-n", NAMESPACE, "apply", "-f", "-"],
+                   input=configmap_yaml, text=True, capture_output=True)
+
+    # Create Deployment
+    deployment_name = f"legacy-agent-{instance_name}"
+    deployment_yaml = f"""apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {deployment_name}
+  namespace: {NAMESPACE}
+  labels:
+    app: legacy
+    instance: {instance_name}
+    project: {project_name}
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: legacy
+      instance: {instance_name}
+  template:
+    metadata:
+      labels:
+        app: legacy
+        instance: {instance_name}
+        project: {project_name}
+    spec:
+      serviceAccountName: legacy-agent
+      containers:
+        - name: legacy
+          image: blackbox5/legacy-agent:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "4Gi"
+              cpu: "2000m"
+            limits:
+              memory: "12Gi"
+              cpu: "6000m"
+          env:
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: legacy-secrets
+                  key: anthropic-api-key
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: legacy-secrets
+                  key: github-token
+            - name: LEGACY_MODE
+              value: "daemon"
+            - name: LEGACY_INSTANCE_ID
+              value: "{instance_name}"
+            - name: LEGACY_PROJECT_NAME
+              value: "{project}"
+            - name: LEGACY_PROJECT_DIR
+              value: "{project_dir}"
+            - name: LEGACY_ENGINE_DIR
+              value: "{engine_dir}"
+            - name: LEGACY_BLACKBOX5_DIR
+              value: "/opt/blackbox5"
+            - name: LEGACY_TASK_DESCRIPTION
+              value: "{task}"
+          volumeMounts:
+            - name: code
+              mountPath: /opt/blackbox5
+            - name: data
+              mountPath: {project_dir}/.autonomous
+            - name: config
+              mountPath: /etc/legacy
+          livenessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "pgrep -f claude || exit 1"
+            initialDelaySeconds: 60
+            periodSeconds: 60
+          readinessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "test -f /opt/blackbox5/bin/legacy"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      volumes:
+        - name: code
+          persistentVolumeClaim:
+            claimName: blackbox5-code
+        - name: data
+          persistentVolumeClaim:
+            claimName: legacy-data
+        - name: config
+          configMap:
+            name: {configmap_name}
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 120
+"""
+
+    # Apply Deployment
+    subprocess.run(["kubectl", "--kubeconfig", KUBECONFIG, "-n", NAMESPACE, "apply", "-f", "-"],
+                   input=deployment_yaml, text=True, capture_output=True)
+
+    print(f"✓ Legacy instance '{instance_name}' created")
+    print()
+    print(f"To start: legacy-cloud start {instance_name}")
+    print(f"To scale: legacy-cloud scale {instance_name} 3")
+
+def cmd_start(instance_name: str):
+    """Start a Legacy agent."""
+    deployment_name = f"legacy-agent-{sanitize_name(instance_name)}"
+
+    print(f"Starting Legacy instance: {instance_name}")
+
+    run_kubectl(["scale", f"deployment/{deployment_name}", "--replicas=1"])
 
     print()
     print("Waiting for agent to be ready...")
-    run_kubectl(["wait", "--for=condition=ready", "pod", "-l", "app=ralf", "--timeout=60s"])
+    run_kubectl(["wait", "--for=condition=ready", "pod", "-l", f"instance={sanitize_name(instance_name)}", "--timeout=120s"])
 
     print()
-    print("✓ RALF agent started")
+    print(f"✓ Legacy instance '{instance_name}' started")
     print()
     cmd_status()
 
-def cmd_stop(agent_id: str):
-    """Stop a RALF agent."""
-    print(f"Stopping RALF agent: {agent_id}")
+def cmd_stop(instance_name: str):
+    """Stop a Legacy agent."""
+    deployment_name = f"legacy-agent-{sanitize_name(instance_name)}"
 
-    # Delete the specific pod (it will be recreated if deployment has replicas)
-    # For now, just scale to 0
-    run_kubectl(["scale", "deployment/ralf-agent", "--replicas=0"])
+    print(f"Stopping Legacy instance: {instance_name}")
+
+    run_kubectl(["scale", f"deployment/{deployment_name}", "--replicas=0"])
 
     print()
-    print(f"✓ RALF agent stopped")
+    print(f"✓ Legacy instance '{instance_name}' stopped")
 
-def cmd_logs(agent_id: Optional[str] = None, follow: bool = False):
-    """Stream logs from RALF agent."""
-    if agent_id:
-        pod = agent_id
-    else:
-        # Get first pod
-        pods = get_agent_pods()
-        if not pods:
-            print("No RALF agents running.")
-            return
-        pod = pods[0]["name"]
+def cmd_logs(instance_name: str, follow: bool = False):
+    """Stream logs from Legacy agent."""
+    pods = get_agent_pods(sanitize_name(instance_name))
 
-    print(f"Streaming logs from {pod}...")
+    if not pods:
+        print(f"No pods found for instance: {instance_name}")
+        return
+
+    pod = pods[0]["name"]
+
+    print(f"Streaming logs from {instance_name} ({pod})...")
     print("(Press Ctrl+C to exit)")
     print()
 
@@ -131,23 +354,68 @@ def cmd_logs(agent_id: Optional[str] = None, follow: bool = False):
 
     run_kubectl(args)
 
-def cmd_exec(agent_id: str, command: str):
-    """Execute command in RALF agent."""
-    print(f"Executing in {agent_id}: {command}")
+def cmd_exec(instance_name: str, command: str):
+    """Execute command in Legacy agent."""
+    pods = get_agent_pods(sanitize_name(instance_name))
+
+    if not pods:
+        print(f"No pods found for instance: {instance_name}")
+        return
+
+    pod = pods[0]["name"]
+
+    print(f"Executing in {instance_name}: {command}")
     print()
 
-    run_kubectl(["exec", agent_id, "--", "/bin/bash", "-c", command])
+    run_kubectl(["exec", pod, "--", "/bin/bash", "-c", command])
 
-def cmd_scale(n: int):
-    """Scale RALF agents to N replicas."""
-    print(f"Scaling RALF agents to {n}...")
+def cmd_scale(instance_name: str, n: int):
+    """Scale Legacy agents to N replicas."""
+    deployment_name = f"legacy-agent-{sanitize_name(instance_name)}"
 
-    run_kubectl(["scale", "deployment/ralf-agent", f"--replicas={n}"])
+    print(f"Scaling Legacy instance '{instance_name}' to {n}...")
+
+    run_kubectl(["scale", f"deployment/{deployment_name}", f"--replicas={n}"])
+
+    if n > 0:
+        print()
+        print("Waiting for pods to be ready...")
+        run_kubectl(["wait", "--for=condition=ready", "pod", "-l", f"instance={sanitize_name(instance_name)}", "--timeout=120s"])
 
     print()
-    print(f"✓ Scaled to {n} agent(s)")
+    print(f"✓ Scaled '{instance_name}' to {n} replica(s)")
     print()
     cmd_status()
+
+def cmd_list():
+    """List all Legacy configurations."""
+    print("═══════════════════════════════════════════════════════════")
+    print("  Legacy Configurations")
+    print("═══════════════════════════════════════════════════════════")
+    print()
+
+    deployments = get_deployments()
+
+    if not deployments:
+        print("No Legacy configurations found.")
+        return
+
+    for dep in deployments:
+        instance_name = dep["name"].replace("legacy-agent-", "")
+        print(f"Instance: {instance_name}")
+        print(f"  Project: {dep['project']}")
+        print(f"  Replicas: {dep['replicas']}")
+
+        # Get ConfigMap to show task
+        configmap_name = f"legacy-config-{instance_name}"
+        task = run_kubectl(["get", "configmap", configmap_name, "-o", "jsonpath={.data['legacy.md']}"], capture=True)
+        if task:
+            # Extract task description
+            for line in task.split('\n'):
+                if line.startswith("## Your Responsibilities"):
+                    print(f"  Task: {line}")
+                    break
+        print()
 
 def main():
     parser = argparse.ArgumentParser(
@@ -155,11 +423,14 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  ralf-cloud status              # Show all agents
-  ralf-cloud start               # Start an agent
-  ralf-cloud logs -f             # Stream logs
-  ralf-cloud scale 3             # Run 3 agents
-  ralf-cloud exec ralf-agent-xxx "ls -la"  # Run command
+  legacy-cloud status                           # Show all agents
+  legacy-cloud create --name bb5-improver \     # Create new agent
+                      --project blackbox5 \
+                      --task "Improve documentation"
+  legacy-cloud start bb5-improver               # Start agent
+  legacy-cloud logs bb5-improver -f             # Stream logs
+  legacy-cloud scale bb5-improver 3             # Run 3 copies
+  legacy-cloud exec bb5-improver "git status"   # Run command
         """
     )
 
@@ -168,26 +439,38 @@ Examples:
     # status
     subparsers.add_parser("status", help="Show agent status")
 
+    # list
+    subparsers.add_parser("list", help="List all Legacy configurations")
+
+    # create
+    create_parser = subparsers.add_parser("create", help="Create new Legacy instance")
+    create_parser.add_argument("--name", required=True, help="Instance name (e.g., bb5-docs)")
+    create_parser.add_argument("--project", required=True, help="Project name (e.g., blackbox5)")
+    create_parser.add_argument("--task", required=True, help="Task description")
+    create_parser.add_argument("--prompt", help="Custom system prompt (optional)")
+
     # start
-    subparsers.add_parser("start", help="Start a RALF agent")
+    start_parser = subparsers.add_parser("start", help="Start a Legacy instance")
+    start_parser.add_argument("instance_name", help="Instance name")
 
     # stop
-    stop_parser = subparsers.add_parser("stop", help="Stop a RALF agent")
-    stop_parser.add_argument("agent_id", help="Agent ID (pod name)")
+    stop_parser = subparsers.add_parser("stop", help="Stop a Legacy instance")
+    stop_parser.add_argument("instance_name", help="Instance name")
 
     # logs
     logs_parser = subparsers.add_parser("logs", help="View agent logs")
-    logs_parser.add_argument("agent_id", nargs="?", help="Agent ID (optional)")
+    logs_parser.add_argument("instance_name", help="Instance name")
     logs_parser.add_argument("-f", "--follow", action="store_true", help="Follow logs")
 
     # exec
     exec_parser = subparsers.add_parser("exec", help="Execute command in agent")
-    exec_parser.add_argument("agent_id", help="Agent ID")
+    exec_parser.add_argument("instance_name", help="Instance name")
     exec_parser.add_argument("command", help="Command to execute")
 
     # scale
     scale_parser = subparsers.add_parser("scale", help="Scale agents")
-    scale_parser.add_argument("n", type=int, help="Number of agents")
+    scale_parser.add_argument("instance_name", help="Instance name")
+    scale_parser.add_argument("n", type=int, help="Number of replicas")
 
     args = parser.parse_args()
 
@@ -198,16 +481,20 @@ Examples:
     # Route to command handler
     if args.command == "status":
         cmd_status()
+    elif args.command == "list":
+        cmd_list()
+    elif args.command == "create":
+        cmd_create(args.name, args.project, args.task, args.prompt)
     elif args.command == "start":
-        cmd_start()
+        cmd_start(args.instance_name)
     elif args.command == "stop":
-        cmd_stop(args.agent_id)
+        cmd_stop(args.instance_name)
     elif args.command == "logs":
-        cmd_logs(args.agent_id, args.follow)
+        cmd_logs(args.instance_name, args.follow)
     elif args.command == "exec":
-        cmd_exec(args.agent_id, args.command)
+        cmd_exec(args.instance_name, args.command)
     elif args.command == "scale":
-        cmd_scale(args.n)
+        cmd_scale(args.instance_name, args.n)
 
     return 0
 

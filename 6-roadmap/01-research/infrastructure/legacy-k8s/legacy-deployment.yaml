@@ -1,0 +1,215 @@
+# Legacy Agent Deployment for Kubernetes
+# Supports multiple Legacy instances with different projects and system prompts
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: legacy
+---
+# ConfigMap template for Legacy system prompts
+# Each Legacy instance gets its own ConfigMap based on project
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: legacy-config-template
+  namespace: legacy
+data:
+  # Base system prompt - will be customized per project
+  SYSTEM_PROMPT: |
+    You are Legacy, an autonomous AI agent.
+
+    Your current project: {{PROJECT_NAME}}
+    Your current task: {{TASK_DESCRIPTION}}
+
+    Work autonomously to improve this project.
+    Always commit changes and document your work.
+
+  # Legacy.md template
+  legacy.md: |
+    # Legacy Agent - {{PROJECT_NAME}}
+
+    You are Legacy, running in daemon mode.
+
+    ## Current Context
+    - Project: {{PROJECT_NAME}}
+    - Project Path: {{PROJECT_DIR}}
+    - Task: {{TASK_DESCRIPTION}}
+    - Mode: Continuous improvement
+
+    ## Your Responsibilities
+    {{TASK_DESCRIPTION}}
+
+    ## Project Structure
+    - Code: {{PROJECT_DIR}}
+    - Engine: {{ENGINE_DIR}}
+    - Memory: {{PROJECT_DIR}}/.autonomous/
+
+    ## Your Loop
+    1. Check {{PROJECT_DIR}}/.autonomous/tasks/active/ for tasks
+    2. Select highest priority task for {{PROJECT_NAME}}
+    3. Execute using appropriate skills
+    4. Document results in runs/
+    5. Commit changes to git
+    6. Mark task complete
+    7. Repeat
+
+    Begin working on {{PROJECT_NAME}}.
+
+---
+# Persistent Volume Claim for Blackbox5 code (shared)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: blackbox5-code
+  namespace: legacy
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: hcloud-volumes
+  resources:
+    requests:
+      storage: 100Gi
+---
+# Persistent Volume Claim for Legacy data (shared)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: legacy-data
+  namespace: legacy
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: hcloud-volumes
+  resources:
+    requests:
+      storage: 50Gi
+---
+# Secret for API keys
+type: Opaque
+---
+# Legacy Agent Deployment Template
+# This is a template - use legacy-cloud CLI to create instances
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legacy-agent-TEMPLATE
+  namespace: legacy
+  labels:
+    app: legacy
+    instance: TEMPLATE
+    project: PROJECT_NAME
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: legacy
+      instance: TEMPLATE
+  template:
+    metadata:
+      labels:
+        app: legacy
+        instance: TEMPLATE
+        project: PROJECT_NAME
+    spec:
+      serviceAccountName: legacy-agent
+      containers:
+        - name: legacy
+          image: blackbox5/legacy-agent:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "4Gi"
+              cpu: "2000m"
+            limits:
+              memory: "12Gi"
+              cpu: "6000m"
+          env:
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: legacy-secrets
+                  key: anthropic-api-key
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: legacy-secrets
+                  key: github-token
+            - name: LEGACY_MODE
+              value: "daemon"
+            - name: LEGACY_INSTANCE_ID
+              value: "TEMPLATE"
+            - name: LEGACY_PROJECT_NAME
+              value: "PROJECT_NAME"
+            - name: LEGACY_PROJECT_DIR
+              value: "PROJECT_DIR"
+            - name: LEGACY_ENGINE_DIR
+              value: "ENGINE_DIR"
+            - name: LEGACY_BLACKBOX5_DIR
+              value: "/opt/blackbox5"
+            - name: LEGACY_TASK_DESCRIPTION
+              value: "TASK_DESCRIPTION"
+          volumeMounts:
+            - name: code
+              mountPath: /opt/blackbox5
+            - name: data
+              mountPath: PROJECT_DIR/.autonomous
+            - name: config
+              mountPath: /etc/legacy
+          livenessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "pgrep -f claude || exit 1"
+            initialDelaySeconds: 60
+            periodSeconds: 60
+          readinessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "test -f /opt/blackbox5/bin/legacy"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      volumes:
+        - name: code
+          persistentVolumeClaim:
+            claimName: blackbox5-code
+        - name: data
+          persistentVolumeClaim:
+            claimName: legacy-data
+        - name: config
+          configMap:
+            name: legacy-config-TEMPLATE
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 120
+---
+# RBAC for Legacy agent
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: legacy-agent
+  namespace: legacy
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: legacy-agent-role
+  namespace: legacy
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "configmaps"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: legacy-agent-binding
+  namespace: legacy
+subjects:
+  - kind: ServiceAccount
+    name: legacy-agent
+roleRef:
+  kind: Role
+  name: legacy-agent-role
+  apiGroup: rbac.authorization.k8s.io

@@ -53,6 +53,31 @@ core:
       - stage-files
       - verify-commit
 
+  - id: continuous-improvement
+    file: "continuous-improvement.yaml"
+    type: "simple"
+    category: "core"
+    always_loaded: true
+    description: "Systematically improve processes, skills, and instructions"
+    commands:
+      - capture-learning
+      - analyze-pattern
+      - propose-improvement
+      - apply-change
+      - measure-velocity
+
+  - id: state-management
+    file: "state-management.yaml"
+    type: "simple"
+    category: "core"
+    always_loaded: true
+    description: "Update STATE.yaml to reflect current project state"
+    commands:
+      - update-task-status
+      - mark-completed
+      - set-next-action
+      - update-metrics
+
 # Triggered Skills - Loaded on Demand
 # These skills are loaded when their triggers match the context
 triggered:
@@ -230,11 +255,11 @@ triggered:
 
 # Statistics
 stats:
-  total_skills: 12
-  core_skills: 4
+  total_skills: 14
+  core_skills: 6
   triggered_skills: 8
-  last_generated: "2026-01-30T12:00:00Z"
-  last_skill_added: "documentation.yaml"
+  last_generated: "2026-02-01T00:50:00Z"
+  last_skill_added: "state-management.yaml"
 
 # Discovery Configuration
 discovery:

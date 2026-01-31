@@ -141,9 +141,10 @@ Safely persist work to git with branch protection, validation, and clear commit 
    git push origin <branch>
    ```
 
-9. **Update STATE.yaml**
-   - Record commit hash
-   - Update task commit_range
+9. **Trigger State Management**
+   → Invoke skill:state-management
+   → Pass commit_hash
+   → Update task status to completed
 
 ### Output
 
@@ -317,9 +318,9 @@ commit_result:
 **Legacy:**
 1. Complete task execution
 2. Run skill:git-commit
-3. If success: Continue to next task
-4. If blocked: Exit with BLOCKED status
-5. Update STATE.yaml with commit hash
+3. If success: Trigger skill:state-management
+4. Update STATE.yaml with commit hash and task status
+5. If blocked: Exit with BLOCKED status
 ```
 
 ### In Run Documentation

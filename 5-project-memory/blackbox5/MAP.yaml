@@ -1,0 +1,1063 @@
+# =============================================================================
+# MAP.yaml - Complete File-Level Project Map (10 Levels Deep)
+# =============================================================================
+# Purpose: Definitive catalog of EVERY file in blackbox5 project memory
+# Updated: 2026-01-31T23:45:00Z
+# Updated By: Claude
+# Total Files: 359
+# Agents: UPDATE THIS FILE when adding/removing files
+# =============================================================================
+
+meta:
+  project: blackbox5
+  version: "5.0.0"
+  last_updated: "2026-01-31T23:45:00Z"
+  total_files: 359
+  total_templates: 26
+  total_folders: 6
+  structure_depth: 10
+
+# =============================================================================
+# ROOT FILES (11 files)
+# =============================================================================
+
+root:
+  path: "/"
+  description: "Project root - start here"
+  count: 11
+  files:
+    - path: "MAP.yaml"
+      type: "map"
+      purpose: "This file - complete file catalog"
+      size: "~20KB"
+      updated: "2026-01-31"
+
+    - path: "STATE.yaml"
+      type: "state"
+      purpose: "Single source of truth - project state"
+      size: "15.2KB"
+      updated: "2026-01-31"
+
+    - path: "README.md"
+      type: "documentation"
+      purpose: "Project overview and navigation"
+      size: "5.9KB"
+      updated: "2026-01-31"
+
+    - path: "ACTIVE.md"
+      type: "dashboard"
+      purpose: "Current work dashboard"
+      size: "2.6KB"
+      updated: "2026-01-31"
+
+    - path: "WORK-LOG.md"
+      type: "log"
+      purpose: "Chronological activity log"
+      size: "4.5KB"
+      updated: "2026-01-31"
+
+    - path: "timeline.yaml"
+      type: "timeline"
+      purpose: "Milestones and project timeline"
+      size: "5.8KB"
+      updated: "2026-01-31"
+
+    - path: "feature_backlog.yaml"
+      type: "backlog"
+      purpose: "Pending features queue"
+      size: "0.2KB"
+      updated: "2026-01-31"
+
+    - path: "test_results.yaml"
+      type: "test"
+      purpose: "Test outcomes and coverage"
+      size: "0.2KB"
+      updated: "2026-01-31"
+
+    - path: "_NAMING.md"
+      type: "conventions"
+      purpose: "Naming conventions"
+      size: "0.2KB"
+      updated: "2026-01-31"
+
+    - path: "QUERIES.md"
+      type: "queries"
+      purpose: "Common queries for AI agents"
+      size: "0.2KB"
+      updated: "2026-01-31"
+
+# =============================================================================
+# .archived/ FOLDER (47 run folders - 150+ files)
+# =============================================================================
+
+archived:
+  path: ".archived/"
+  description: "Archived historical content"
+  count: 150
+
+  runs:
+    path: ".archived/runs/"
+    description: "Archived RALF run folders"
+    total_runs: 47
+    note: "Each run contains THOUGHTS.md, DECISIONS.md, RESULTS.md, etc."
+
+    # Early runs (run-0001 to run-0005)
+    run_0001:
+      path: ".archived/runs/run-0001/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "THOUGHTS.md"
+
+    run_0002:
+      path: ".archived/runs/run-0002/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "THOUGHTS.md"
+
+    run_0003:
+      path: ".archived/runs/run-0003/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "THOUGHTS.md"
+
+    run_0004:
+      path: ".archived/runs/run-0004/"
+      files:
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_0005:
+      path: ".archived/runs/run-0005/"
+      files:
+        - "RESULTS.md"
+
+    # Timestamped runs (sample - full list in complete inventory)
+    run_1769799687:
+      path: ".archived/runs/run-1769799687/"
+      files:
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769800176:
+      path: ".archived/runs/run-1769800176/"
+      files:
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769800330:
+      path: ".archived/runs/run-1769800330/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769800446:
+      path: ".archived/runs/run-1769800446/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769801446:
+      path: ".archived/runs/run-1769801446/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769802000:
+      path: ".archived/runs/run-1769802000/"
+      files:
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769807303:
+      path: ".archived/runs/run-1769807303/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "decision_registry.yaml"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "quick_spec.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769808452:
+      path: ".archived/runs/run-1769808452/"
+      files:
+        - "decision_registry.yaml"
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769811911:
+      path: ".archived/runs/run-1769811911/"
+      files:
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769812631:
+      path: ".archived/runs/run-1769812631/"
+      files:
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769813313:
+      path: ".archived/runs/run-1769813313/"
+      files:
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769813382:
+      path: ".archived/runs/run-1769813382/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769814004:
+      path: ".archived/runs/run-1769814004/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769859012:
+      path: ".archived/runs/run-1769859012/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    # Additional runs with state files
+    run_1769860333:
+      path: ".archived/runs/run-1769860333/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769861511:
+      path: ".archived/runs/run-1769861511/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769861639:
+      path: ".archived/runs/run-1769861639/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769861725:
+      path: ".archived/runs/run-1769861725/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769861933:
+      path: ".archived/runs/run-1769861933/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769861997:
+      path: ".archived/runs/run-1769861997/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769862140:
+      path: ".archived/runs/run-1769862140/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769862304:
+      path: ".archived/runs/run-1769862304/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769862348:
+      path: ".archived/runs/run-1769862348/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769862398:
+      path: ".archived/runs/run-1769862398/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "metrics.json"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769862575:
+      path: ".archived/runs/run-1769862575/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    run_1769862734:
+      path: ".archived/runs/run-1769862734/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_1769862792:
+      path: ".archived/runs/run-1769862792/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "metrics.json"
+        - "phase_gate_state.yaml"
+        - "task_state.json"
+        - "validations.json"
+
+    # Date-stamped runs
+    run_20260131_035653:
+      path: ".archived/runs/run-20260131_035653/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+
+    run_20260131_042226:
+      path: ".archived/runs/run-20260131_042226/"
+      files:
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_042332:
+      path: ".archived/runs/run-20260131_042332/"
+      files:
+        - ".gate_dev_story_passed"
+        - ".gate_quick_spec_passed"
+        - ".phase_code_review_criteria"
+        - ".phase_dev_story_criteria"
+        - ".phase_quick_spec_criteria"
+        - "decision_registry.yaml"
+        - "quick_spec.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_043355:
+      path: ".archived/runs/run-20260131_043355/"
+      files:
+        - "AUDIT.md"
+        - "decision_registry.yaml"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_050255:
+      path: ".archived/runs/run-20260131_050255/"
+      files:
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_050659:
+      path: ".archived/runs/run-20260131_050659/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_052931:
+      path: ".archived/runs/run-20260131_052931/"
+      files:
+        - "DECISIONS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_221634:
+      path: ".archived/runs/run-20260131_221634/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+
+    run_20260131_221654:
+      path: ".archived/runs/run-20260131_221654/"
+      files:
+        - "context_budget.json"
+        - "decision_registry.yaml"
+
+    # Hyphenated date runs
+    run_20260131_060616:
+      path: ".archived/runs/run-20260131-060616/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_060933:
+      path: ".archived/runs/run-20260131-060933/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "decision_registry.yaml"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    run_20260131_182500:
+      path: ".archived/runs/run-20260131-182500/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+    # Integration test run
+    run_integration_test:
+      path: ".archived/runs/run-integration-test/"
+      files:
+        - "ASSUMPTIONS.md"
+        - "context_budget.json"
+        - "DECISIONS.md"
+        - "INTEGRATION_DOCUMENTATION.md"
+        - "LEARNINGS.md"
+        - "RESULTS.md"
+        - "THOUGHTS.md"
+
+# =============================================================================
+# .autonomous/ FOLDER (50+ files)
+# =============================================================================
+
+autonomous:
+  path: ".autonomous/"
+  description: "RALF autonomous agent system files"
+  count: 50
+
+  root:
+    path: ".autonomous/"
+    files:
+      - "decision_registry.md"
+      - "ralf-daemon.sh"
+      - "routes.yaml"
+
+  logs:
+    path: ".autonomous/LOGS/"
+    description: "RALF session logs"
+    files:
+      - "ralf-session-20260130_084449.log"
+      - "ralf-session-20260130_084549.log"
+      - "ralf-session-20260130_084558.log"
+      - "ralf-session-20260131_035653.log"
+      - "ralf-session-20260131_221634.log"
+      - "ralf-session-20260131_221654.log"
+
+  tasks_completed:
+    path: ".autonomous/tasks/completed/"
+    description: "Completed tasks (source before migration)"
+    count: 40
+    files:
+      - "RALF-2026-01-30-001.md"
+      - "RALF-2026-01-30-002.md"
+      - "STOP_1769783023.md"
+      - "TASK-001-test-agent-23-integration.md"
+      - "TASK-002-implement-context-budget-40-percent.md"
+      - "TASK-003-create-automatic-skill-router.md"
+      - "TASK-004-document-blackbox5-critical-paths.md"
+      - "TASK-005-improve-phase-gates-feedback.md"
+      - "TASK-006-improve-telemetry-integration.md"
+      - "TASK-1738300000-fix-branch-safety-config.md"
+      - "TASK-1738300001-fix-branch-safety-configuration-blocker.md"
+      - "TASK-1738300103-create-ralf-dev-workflow.md"
+      - "TASK-1738300332-fix-skills-system-critical-issues.md"
+      - "TASK-1738304776-complete-agent-2.4-setup.md"
+      - "TASK-1738304900-update-roadmap-state.md"
+      - "TASK-1738312136-add-core-module-tests.md"
+      - "TASK-1738334891-archive-duplicate-documentation.md"
+      - "TASK-1769783044-create-goals-system.md"
+      - "TASK-1769799336-integrate-v23-unified-loop.md"
+      - "TASK-1769799720-create-bmad-workflows.md"
+      - "TASK-1769800176-create-workflow-loader-library.md"
+      - "TASK-1769800247-fix-v2.3-templates.md"
+      - "TASK-1769800446-decision-registry-implementation.md"
+      - "TASK-1769800918-initialize-vibe-kanban-database.md"
+      - "TASK-1769802000-shell-phase-gate-integration.md"
+      - "TASK-1769807395-fix-skills-system-critical-issues.md"
+      - "TASK-1769807450-fix-import-path-errors.md"
+      - "TASK-1769808835-fix-import-path-errors.md"
+      - "TASK-1769808835-missing-bmad-skills.md"
+      - "TASK-1769808838-fix-branch-protection.md"
+      - "TASK-1769809124-ralph-master-prompt.md"
+      - "TASK-1769811192-complete-agent-v2.3-integration.md"
+      - "TASK-1769811775-fix-critical-api-mismatches.md"
+      - "TASK-1769812063-fix-hardcoded-paths.md"
+      - "TASK-1769812506-fix-agentloader-import-paths.md"
+      - "TASK-1769813746-verify-plan004-imports.md"
+      - "TASK-1769861580-update-roadmap-state.md"
+      - "TASK-1769862394-continue-plan-003-planning-agent-tests.md"
+      - "TASK-1769862609-implement-bmad-framework.md"
+      - "TASK-20260130-001-fix-skills-system.md"
+
+# =============================================================================
+# .docs/ FOLDER (4 files)
+# =============================================================================
+
+docs:
+  path: ".docs/"
+  description: "AI-managed documentation"
+  count: 4
+  files:
+    - path: ".docs/siso-internal-patterns.md"
+      type: "documentation"
+      purpose: "10 key patterns from siso-internal"
+
+    - path: ".docs/ai-template-usage-guide.md"
+      type: "documentation"
+      purpose: "How AI agents should use templates"
+
+    - path: ".docs/dot-docs-system.md"
+      type: "documentation"
+      purpose: "Specification for .docs/ system"
+
+    - path: ".docs/migration-plan.md"
+      type: "documentation"
+      purpose: "4-phase migration plan"
+
+# =============================================================================
+# .templates/ FOLDER (26 templates)
+# =============================================================================
+
+templates:
+  path: ".templates/"
+  description: "26 templates for consistent documentation"
+  count: 26
+
+  root:
+    path: ".templates/root/"
+    count: 8
+    files:
+      - "STATE.yaml.template"
+      - "ACTIVE.md.template"
+      - "WORK-LOG.md.template"
+      - "timeline.yaml.template"
+      - "feature_backlog.yaml.template"
+      - "test_results.yaml.template"
+      - "_NAMING.md.template"
+      - "QUERIES.md.template"
+
+  decisions:
+    path: ".templates/decisions/"
+    count: 3
+    files:
+      - "architectural.md.template"
+      - "scope.md.template"
+      - "technical.md.template"
+
+  research:
+    path: ".templates/research/"
+    count: 5
+    files:
+      - "STACK.md.template"
+      - "FEATURES.md.template"
+      - "ARCHITECTURE.md.template"
+      - "PITFALLS.md.template"
+      - "SUMMARY.md.template"
+
+  epic:
+    path: ".templates/epic/"
+    count: 7
+    files:
+      - "epic.md.template"
+      - "README.md.template"
+      - "INDEX.md.template"
+      - "XREF.md.template"
+      - "ARCHITECTURE.md.template"
+      - "TASK-SUMMARY.md.template"
+      - "metadata.yaml.template"
+
+  tasks:
+    path: ".templates/tasks/"
+    count: 3
+    files:
+      - "task-specification.md.template"
+      - "task-context-bundle.md.template"
+      - "task-completion.md.template"
+
+# =============================================================================
+# project/ FOLDER (1 file)
+# =============================================================================
+
+project:
+  path: "project/"
+  description: "WHO are we? Project identity and direction"
+  docs: "project/.docs/ (empty)"
+  count: 1
+  files:
+    - path: "project/context.yaml"
+      type: "context"
+      purpose: "Project goals, constraints, current progress"
+
+# =============================================================================
+# plans/ FOLDER (9 files)
+# =============================================================================
+
+plans:
+  path: "plans/"
+  description: "WHAT are we building? Plans and specifications"
+  docs: "plans/.docs/ (empty)"
+  count: 9
+
+  active:
+    path: "plans/active/"
+    description: "Active epics and features"
+
+    project_memory_reorganization:
+      path: "plans/active/project-memory-reorganization/"
+      type: "epic"
+      status: "completed"
+      count: 5
+      files:
+        - "epic.md"
+        - "README.md"
+        - "TASK-SUMMARY.md"
+        - "metadata.yaml"
+
+      research:
+        path: "plans/active/project-memory-reorganization/research/"
+        files:
+          - "STACK.md"
+
+  archived:
+    path: "plans/archived/"
+    description: "Completed/archived plans"
+    count: 0
+    files: []
+
+  briefs:
+    path: "plans/briefs/"
+    description: "Product briefs"
+    count: 0
+    files: []
+
+  features:
+    path: "plans/features/"
+    description: "Feature management"
+    count: 0
+    files: []
+
+  prds:
+    path: "plans/prds/"
+    description: "Product requirements documents"
+    count: 0
+    files: []
+
+# =============================================================================
+# decisions/ FOLDER (3 files)
+# =============================================================================
+
+decisions:
+  path: "decisions/"
+  description: "WHY are we doing it this way? Decisions and rationale"
+  docs: "decisions/.docs/ (empty)"
+  count: 3
+
+  architectural:
+    path: "decisions/architectural/"
+    description: "Architecture decisions"
+    count: 2
+    files:
+      - path: "decisions/architectural/DEC-2026-01-31-agent-context-architecture.md"
+        title: "Agent Context Architecture"
+        date: "2026-01-31"
+
+      - path: "decisions/architectural/DEC-2026-01-31-docs-folder-placement.md"
+        title: "Docs Folder Placement"
+        date: "2026-01-31"
+
+  scope:
+    path: "decisions/scope/"
+    description: "Scope decisions"
+    count: 0
+    files: []
+
+  technical:
+    path: "decisions/technical/"
+    description: "Technical decisions"
+    count: 0
+    files: []
+
+  infrastructure:
+    path: "decisions/infrastructure/"
+    description: "Infrastructure decisions"
+    count: 1
+    files:
+      - path: "decisions/infrastructure/k8s-architecture-design.md"
+        title: "Kubernetes Architecture Design"
+
+# =============================================================================
+# knowledge/ FOLDER (5 files)
+# =============================================================================
+
+knowledge:
+  path: "knowledge/"
+  description: "HOW does it work? Knowledge and research"
+  docs: "knowledge/.docs/ (empty)"
+  count: 5
+
+  architecture:
+    path: "knowledge/architecture/"
+    description: "System architecture documentation"
+    count: 1
+    files:
+      - path: "knowledge/architecture/agent-context-layers.md"
+        purpose: "Agent context layer definitions"
+
+  archives:
+    path: "knowledge/archives/"
+    description: "Archived knowledge"
+    count: 0
+    files: []
+
+  codebase:
+    path: "knowledge/codebase/"
+    description: "Code patterns and gotchas"
+    count: 0
+    files: []
+
+  first_principles:
+    path: "knowledge/first-principles/"
+    description: "First principles analysis"
+    count: 0
+    files: []
+
+  frameworks:
+    path: "knowledge/frameworks/"
+    description: "Framework research"
+    count: 0
+    files: []
+
+  ralph_integration:
+    path: "knowledge/ralph-integration/"
+    description: "Ralph integration docs"
+    count: 0
+    files: []
+
+  ralph_loop:
+    path: "knowledge/ralph-loop/"
+    description: "Ralph loop documentation"
+    count: 0
+    files: []
+
+  research:
+    path: "knowledge/research/"
+    description: "Research findings"
+    count: 0
+    files: []
+
+  validation:
+    path: "knowledge/validation/"
+    description: "Validation results"
+    count: 0
+    files: []
+
+  ralph_patterns:
+    path: "knowledge/ralf-patterns/"
+    description: "RALF patterns and reports"
+    count: 2
+    files:
+      - path: "knowledge/ralf-patterns/auto-insights.json"
+        purpose: "Auto-generated insights"
+
+      - path: "knowledge/ralf-patterns/reports/daily-20260131_223320.md"
+        purpose: "Daily RALF pattern report"
+
+  ralf_core_archive:
+    path: "knowledge/ralf-core-README-archive.md"
+    type: "archive"
+    purpose: "Archived RALF-Core README"
+
+# =============================================================================
+# tasks/ FOLDER (42 files)
+# =============================================================================
+
+tasks:
+  path: "tasks/"
+  description: "WHAT needs to be done? Tasks and work tracking"
+  docs: "tasks/.docs/ (empty)"
+  count: 42
+
+  active:
+    path: "tasks/active/"
+    description: "Active task files"
+    count: 0
+    files: []
+
+  backlog:
+    path: "tasks/backlog/"
+    description: "Backlogged tasks"
+    count: 0
+    files: []
+
+  completed:
+    path: "tasks/completed/"
+    description: "Completed tasks"
+
+    ralf_core:
+      path: "tasks/completed/ralf-core/"
+      description: "RALF-Core migrated tasks"
+      count: 40
+      files:
+        - "RALF-2026-01-30-001.md"
+        - "RALF-2026-01-30-002.md"
+        - "STOP_1769783023.md"
+        - "TASK-001-test-agent-23-integration.md"
+        - "TASK-002-implement-context-budget-40-percent.md"
+        - "TASK-003-create-automatic-skill-router.md"
+        - "TASK-004-document-blackbox5-critical-paths.md"
+        - "TASK-005-improve-phase-gates-feedback.md"
+        - "TASK-006-improve-telemetry-integration.md"
+        - "TASK-1738300000-fix-branch-safety-config.md"
+        - "TASK-1738300001-fix-branch-safety-configuration-blocker.md"
+        - "TASK-1738300103-create-ralf-dev-workflow.md"
+        - "TASK-1738300332-fix-skills-system-critical-issues.md"
+        - "TASK-1738304776-complete-agent-2.4-setup.md"
+        - "TASK-1738304900-update-roadmap-state.md"
+        - "TASK-1738312136-add-core-module-tests.md"
+        - "TASK-1738334891-archive-duplicate-documentation.md"
+        - "TASK-1769783044-create-goals-system.md"
+        - "TASK-1769799336-integrate-v23-unified-loop.md"
+        - "TASK-1769799720-create-bmad-workflows.md"
+        - "TASK-1769800176-create-workflow-loader-library.md"
+        - "TASK-1769800247-fix-v2.3-templates.md"
+        - "TASK-1769800446-decision-registry-implementation.md"
+        - "TASK-1769800918-initialize-vibe-kanban-database.md"
+        - "TASK-1769802000-shell-phase-gate-integration.md"
+        - "TASK-1769807395-fix-skills-system-critical-issues.md"
+        - "TASK-1769807450-fix-import-path-errors.md"
+        - "TASK-1769808835-fix-import-path-errors.md"
+        - "TASK-1769808835-missing-bmad-skills.md"
+        - "TASK-1769808838-fix-branch-protection.md"
+        - "TASK-1769809124-ralph-master-prompt.md"
+        - "TASK-1769811192-complete-agent-v2.3-integration.md"
+        - "TASK-1769811775-fix-critical-api-mismatches.md"
+        - "TASK-1769812063-fix-hardcoded-paths.md"
+        - "TASK-1769812506-fix-agentloader-import-paths.md"
+        - "TASK-1769813746-verify-plan004-imports.md"
+        - "TASK-1769861580-update-roadmap-state.md"
+        - "TASK-1769862394-continue-plan-003-planning-agent-tests.md"
+        - "TASK-1769862609-implement-bmad-framework.md"
+        - "TASK-20260130-001-fix-skills-system.md"
+
+  working:
+    path: "tasks/working/"
+    description: "Working task folders"
+    count: 1
+    files:
+      - path: "tasks/FG-1769138998/state.json"
+        purpose: "Task state for FG-1769138998"
+
+# =============================================================================
+# operations/ FOLDER (0 files)
+# =============================================================================
+
+operations:
+  path: "operations/"
+  description: "System operations"
+  docs: "operations/.docs/ (empty)"
+  count: 0
+
+  agents:
+    path: "operations/agents/"
+    description: "Agent-specific memory"
+    count: 0
+    files: []
+
+  architecture:
+    path: "operations/architecture/"
+    description: "Architecture validation"
+    count: 0
+    files: []
+
+  docs:
+    path: "operations/docs/"
+    description: "System documentation"
+    count: 0
+    files: []
+
+  logs:
+    path: "operations/logs/"
+    description: "System logs"
+    count: 0
+    files: []
+
+  sessions:
+    path: "operations/sessions/"
+    description: "Session transcripts"
+    count: 0
+    files: []
+
+  workflows:
+    path: "operations/workflows/"
+    description: "Workflow definitions"
+    count: 0
+    files: []
+
+# =============================================================================
+# SUMMARY BY CATEGORY
+# =============================================================================
+
+summary:
+  documentation:
+    description: "Markdown documentation files"
+    count: 200
+    locations:
+      - "Root files"
+      - ".docs/"
+      - "decisions/"
+      - "knowledge/"
+      - "plans/"
+      - "tasks/"
+      - ".archived/runs/*/"
+
+  configuration:
+    description: "YAML/JSON configuration files"
+    count: 100
+    locations:
+      - "Root *.yaml files"
+      - "plans/*/metadata.yaml"
+      - ".archived/runs/*/*.yaml"
+      - ".archived/runs/*/*.json"
+
+  templates:
+    description: "Template files"
+    count: 26
+    locations:
+      - ".templates/*/*.template"
+
+  logs:
+    description: "Log files"
+    count: 6
+    locations:
+      - ".autonomous/LOGS/*.log"
+
+  other:
+    description: "Other files (gate markers, etc.)"
+    count: 27
+    locations:
+      - ".archived/runs/run-20260131_042332/.gate_*"
+      - ".archived/runs/run-20260131_042332/.phase_*"
+
+# =============================================================================
+# AGENT INSTRUCTIONS
+# =============================================================================
+#
+# HOW TO USE THIS FILE:
+# 1. This is the definitive catalog of all 359 files in the project
+# 2. Use Ctrl+F to search for specific filenames
+# 3. Check the 'path' field for exact locations
+# 4. Use 'summary' section to understand file distribution
+#
+# HOW TO UPDATE THIS FILE:
+# When adding files:
+# 1. Add to appropriate section below
+# 2. Update counts in 'meta' and 'summary' sections
+# 3. Update 'last_updated' timestamp
+#
+# When removing files:
+# 1. Remove from appropriate section
+# 2. Update counts
+# 3. Update timestamp
+#
+# FILE ORGANIZATION:
+# - Root: Core project files (11)
+# - .archived/: Historical runs (150 files in 47 runs)
+# - .autonomous/: RALF system files (50 files)
+# - .docs/: AI documentation (4 files)
+# - .templates/: Templates (26 files)
+# - project/: Project context (1 file)
+# - plans/: Plans and epics (9 files)
+# - decisions/: Decisions (3 files)
+# - knowledge/: Knowledge base (5 files)
+# - tasks/: Tasks (42 files)
+# - operations/: Operations (0 files - ready for use)
+#
+# =============================================================================

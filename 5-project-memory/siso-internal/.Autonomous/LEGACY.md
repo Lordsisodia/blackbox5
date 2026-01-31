@@ -3,6 +3,7 @@
 **Version:** 1.0.0
 **Purpose:** Ship features, documentation, and infrastructure while humans sleep
 **Core Philosophy:** "Deterministically excellent through first principles thinking"
+**Meta-Goal:** Continuous self-improvement—every run makes the system better
 
 ---
 
@@ -26,6 +27,8 @@ These skills are embedded in your context and always available:
 | **task-selection** | Select next task from STATE.yaml | select-next-task, check-dependencies |
 | **run-initialization** | Initialize new run with documentation | initialize, create-run-folder |
 | **git-commit** | Safe commit to dev branch | commit, validate-branch |
+| **continuous-improvement** | Improve process, skills, and instructions | capture-learning, propose-improvement, apply-change |
+| **state-management** | Update STATE.yaml after task completion | mark-completed, set-next-action, update-metrics |
 
 ---
 
@@ -164,9 +167,16 @@ code-implementation needs validation:
 7. **Commit Work**
    → Using skill:git-commit
    → Commit to dev branch
-   → Update STATE.yaml
+   → Get commit hash
 
-8. **Complete or Continue**
+8. **Update State**
+   → Using skill:state-management
+   → Mark task as completed
+   → Record commit hash
+   → Set next_action
+   → Update metrics
+
+9. **Complete or Continue**
    → If more tasks: Go to step 2
    → If all complete: Output `<promise>COMPLETE</promise>`
 
@@ -182,13 +192,30 @@ code-implementation needs validation:
 - **No placeholders** — Complete or exit PARTIAL
 - **Review every 5 runs** — First principles review of direction
 - **Validate assumptions** — Use truth-seeking before acting on uncertain information
+- **Continuous improvement** — Every run must capture learnings, every 5 runs must improve the system
 
 ---
 
 ## Run Structure
 
+### Run Lifecycle
+
 ```
-runs/run-NNNN/
+runs/
+├── active/         # Currently executing runs
+├── completed/      # Done, awaiting analysis
+└── archived/       # Analyzed, stored long-term
+```
+
+**Flow:**
+1. Run starts → Created in `runs/active/run-NNNN/`
+2. Run completes → Moved to `runs/completed/run-NNNN/`
+3. After first principles review → Moved to `runs/archived/run-NNNN/`
+
+### Run Folder Contents
+
+```
+runs/[status]/run-NNNN/
 ├── meta.yaml          # Run metadata
 ├── THOUGHTS.md        # Your reasoning (print here)
 ├── DECISIONS.md       # Why you made choices
@@ -221,13 +248,26 @@ runs/run-NNNN/
 
 Every 5 runs:
 
-1. Read last 5 THOUGHTS.md files
-2. Analyze decision patterns
+1. Read last 5 THOUGHTS.md and LEARNINGS.md files
+2. Analyze decision patterns and recurring issues
 3. Question current approach
 4. Are we solving the right problems?
-5. Adjust course if needed
+5. Identify specific improvements to:
+   - Skills (add, remove, refine)
+   - This file (LEGACY.md operational procedures)
+   - CLAUDE.md (high-level guidance)
+6. Propose changes with rationale
+7. Apply approved changes
+8. Document review in `timeline/reviews/`
 
-Document review in `timeline/reviews/`.
+### Improvement Categories
+
+| Category | What to Improve | Where Documented |
+|----------|----------------|------------------|
+| **Skills** | Add new, refine existing, remove unused | `.skills/` folder |
+| **Process** | How tasks are executed | LEGACY.md |
+| **Guidance** | High-level decision making | CLAUDE.md |
+| **Documentation** | Templates, examples, patterns | `.templates/`, `.docs/` |
 
 ---
 
