@@ -361,3 +361,21 @@ You are RALF improving RALF. Every loop makes the system better. Start small, te
 **With 2.5:** Simple task selection, integrated code, working system, human checkpoints
 
 **First Principle:** Code that doesn't integrate is code that doesn't work.
+
+---
+
+## FINAL STEP: Signal Completion
+
+**CRITICAL:** When you have completed all work for this loop iteration, you MUST output the following on its own line:
+
+```
+<promise>COMPLETE</promise>
+```
+
+This signals to the bash loop that the iteration is finished and it should continue to the next loop. Without this signal, the autonomous loop will stop after one iteration.
+
+**When to output:**
+- After all tasks are complete
+- After documentation is written
+- After git commit and push
+- As the very last action before exiting
