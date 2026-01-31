@@ -1,151 +1,4 @@
 queue:
-  - id: TASK-1769892000
-    type: analyze
-    title: Analyze 47 completed runs for patterns and insights
-    priority: high
-    estimated_minutes: 45
-    context_level: 3
-    approach: |
-      Read the 47 completed runs in runs/completed/. Analyze patterns in:
-      1. What types of tasks were completed
-      2. Common failure modes or blockers
-      3. Recurring themes in LEARNINGS.md files
-      4. Velocity trends and task completion times
-      Write findings to knowledge/analysis/run-patterns-20260201.md
-    files_to_modify:
-      - knowledge/analysis/run-patterns-20260201.md
-    acceptance_criteria:
-      - Analysis document created with pattern findings
-      - At least 3 recurring themes identified
-      - Recommendations for system improvement documented
-    dependencies: []
-    added_at: '2026-02-01T04:30:00Z'
-    completed_at: '2026-02-01T04:40:00Z'
-    status: completed
-  - id: TASK-1769891364
-    type: analyze
-    title: Analyze codebase for next priorities
-    priority: medium
-    estimated_minutes: 30
-    context_level: 2
-    approach: Read STATE.yaml, goals.yaml, recent runs. Identify highest priority work.
-    status: completed
-    added_at: '2026-01-31T20:29:24Z'
-    completed_at: '2026-02-01T04:35:00Z'
-  - id: TASK-1769892001
-    type: implement
-    title: Create skill usage tracking system
-    priority: high
-    estimated_minutes: 60
-    context_level: 2
-    approach: |
-      Based on goals.yaml IG-004 (Optimize Skill Usage), create a system to track skill usage.
-      Create a YAML file at operations/skill-usage.yaml that tracks:
-      - Skill name
-      - Usage count
-      - Last used timestamp
-      - Success rate
-      - Average execution time
-    files_to_modify:
-      - operations/skill-usage.yaml
-    acceptance_criteria:
-      - Skill tracking YAML file created with proper schema
-      - Documentation on how to update the tracking
-      - Initial data for existing skills populated
-    dependencies: []
-    added_at: '2026-02-01T04:30:00Z'
-    completed_at: '2026-02-01T06:25:00Z'
-    status: completed
-  - id: TASK-1769892002
-    type: analyze
-    title: Review and improve CLAUDE.md decision framework
-    priority: medium
-    estimated_minutes: 40
-    context_level: 3
-    approach: |
-      Based on goals.yaml IG-001, analyze the current CLAUDE.md decision framework.
-      Read ~/.claude/CLAUDE.md and identify:
-      1. Ambiguous decision points
-      2. Missing examples
-      3. Context threshold tuning opportunities
-      Write recommendations to knowledge/analysis/claude-md-improvements.md
-    files_to_modify:
-      - knowledge/analysis/claude-md-improvements.md
-    acceptance_criteria:
-      - Analysis document created with specific improvement recommendations
-      - At least 3 concrete changes proposed
-      - Examples provided for ambiguous sections
-    dependencies: []
-    added_at: '2026-02-01T04:30:00Z'
-    status: pending
-  - id: TASK-1769892003
-    type: organize
-    title: Archive old runs and update run lifecycle
-    priority: medium
-    estimated_minutes: 30
-    context_level: 2
-    approach: |
-      Based on STATE.yaml runs section, organize the 47 completed runs.
-      1. Identify runs ready for archiving (already analyzed)
-      2. Move appropriate runs from completed/ to archived/
-      3. Update STATE.yaml with new counts
-      4. Ensure runs follow the lifecycle: active → completed → archived
-    files_to_modify:
-      - STATE.yaml
-    acceptance_criteria:
-      - Old runs moved to archived/
-      - STATE.yaml run counts updated
-      - Run lifecycle properly documented
-    dependencies: []
-    added_at: '2026-02-01T04:30:00Z'
-    status: pending
-  - id: TASK-1769892004
-    type: implement
-    title: Implement pre-execution validation system
-    priority: high
-    estimated_minutes: 45
-    context_level: 2
-    approach: |
-      Based on run-patterns-20260201.md findings, create a pre-execution validation system.
-      Create operations/validation-checklist.yaml with checks for:
-      1. Duplicate task detection (search completed/)
-      2. Assumption validation requirements
-      3. Target path existence verification
-      4. State freshness check
-    files_to_modify:
-      - operations/validation-checklist.yaml
-    acceptance_criteria:
-      - Validation checklist YAML created with all 4 checks
-      - Integration guide for Executor to use checklist
-      - Example validation output format
-    dependencies: []
-    added_at: '2026-02-01T04:45:00Z'
-    completed_at: '2026-02-01T06:10:00Z'
-    status: completed
-  - id: TASK-1769892005
-    type: analyze
-    title: Build project relationship map
-    priority: high
-    estimated_minutes: 40
-    context_level: 3
-    approach: |
-      Map cross-project dependencies in BlackBox5 ecosystem.
-      Create operations/project-map.yaml documenting:
-      1. All projects in ~/.blackbox5/
-      2. Dependencies between projects
-      3. Common cross-project patterns
-      4. Files commonly referenced across projects
-    files_to_modify:
-      - operations/project-map.yaml
-      - knowledge/analysis/project-relationships.md
-    acceptance_criteria:
-      - Project map YAML created with all relationships
-      - Analysis document with findings
-      - Recommendations for context gathering optimization
-    dependencies: []
-    added_at: '2026-02-01T06:00:00Z'
-    completed_at: '2026-02-01T07:30:00Z'
-    status: completed
   - id: TASK-1769892006
     type: analyze
     title: Audit documentation freshness
@@ -170,27 +23,7 @@ queue:
     dependencies: []
     added_at: '2026-02-01T06:00:00Z'
     status: pending
-  - id: TASK-1769895000
-    type: implement
-    title: Implement context gathering optimization
-    priority: high
-    estimated_minutes: 50
-    context_level: 2
-    approach: |
-      Implement context gathering optimization from project-relationships.md.
-      Add automatic routes.yaml reading, project-map.yaml reference,
-      and path validation to reduce 'missed file' errors.
-    files_to_modify:
-      - operations/context-gathering.yaml
-      - operations/.docs/context-gathering-guide.md
-    acceptance_criteria:
-      - Context gathering configuration created
-      - Cross-project task detection implemented
-      - Documentation created
-    dependencies:
-      - TASK-1769892005
-    added_at: '2026-02-01T08:00:00Z'
-    status: pending
+
   - id: TASK-1769895001
     type: analyze
     title: Optimize LEGACY.md operational procedures
@@ -210,31 +43,56 @@ queue:
     dependencies: []
     added_at: '2026-02-01T08:05:00Z'
     status: pending
-  - id: TASK-1769896000
+
+  - id: TASK-1769899000
     type: implement
-    title: Implement skill effectiveness metrics
+    title: Apply CLAUDE.md sub-agent deployment refinements
     priority: high
-    estimated_minutes: 45
+    estimated_minutes: 30
     context_level: 2
     approach: |
-      Create a metrics tracking system to measure skill effectiveness.
-      Build on operations/skill-usage.yaml to track task completion
-      times, error rates, and ROI per skill.
+      Apply sub-agent deployment refinements from claude-md-decision-effectiveness.md.
+      Add file count thresholds and specific guidance for direct reads vs sub-agents.
+      Update ~/.claude/CLAUDE.md lines ~280-290.
     files_to_modify:
-      - operations/skill-metrics.yaml
-      - operations/.docs/skill-metrics-guide.md
+      - ~/.claude/CLAUDE.md
     acceptance_criteria:
-      - Skill metrics YAML created with effectiveness tracking
-      - ROI calculation methodology documented
-      - Skill selection recommendations defined
+      - Sub-agent deployment section updated with file count thresholds
+      - "When to use direct reads" guidance added
+      - Examples provided for both approaches
+      - Cross-project exploration threshold defined
+    dependencies:
+      - TASK-1769897000
+    added_at: '2026-02-01T10:05:00Z'
+    status: pending
+
+  - id: TASK-1769899001
+    type: implement
+    title: Create skill selection guidance framework
+    priority: high
+    estimated_minutes: 35
+    context_level: 2
+    approach: |
+      Add skill selection guidance to ~/.claude/CLAUDE.md.
+      Document when to check for skills, selection process, domain-to-skill mapping.
+      Reference operations/skill-usage.yaml and operations/skill-metrics.yaml.
+    files_to_modify:
+      - ~/.claude/CLAUDE.md
+    acceptance_criteria:
+      - New "When to Use Skills" section added to CLAUDE.md
+      - Skill selection process documented
+      - Domain-to-skill mapping provided
+      - Confidence threshold defined (>80%)
+      - Examples of skill invocation patterns included
     dependencies:
       - TASK-1769892001
-    added_at: '2026-02-01T08:20:00Z'
+      - TASK-1769896000
+    added_at: '2026-02-01T10:05:00Z'
     status: pending
 
 metadata:
-  last_updated: '2026-02-01T08:10:00Z'
+  last_updated: '2026-02-01T11:10:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 6
-  last_completed: TASK-1769892005
+  current_depth: 4
+  last_completed: TASK-1769892003
