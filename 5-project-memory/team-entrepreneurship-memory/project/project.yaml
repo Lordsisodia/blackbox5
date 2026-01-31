@@ -1,0 +1,58 @@
+# Team Entrepreneurship Project
+
+name: Team Entrepreneurship
+version: "3.0"
+created: "2024-09-01"
+updated: "2026-01-24"
+status: "active"
+
+# Project Metadata
+description: "Team Entrepreneurship coursework portfolio - MLAD3 Year 3 with focus on AI automation partnerships, Learning Contract completion, and competency development"
+type: "production"
+tags: ["coursework", "mlad3", "year-3", "active", "partnerships", "ai-automation"]
+
+# Projects (sub-projects within this project)
+projects:
+  - id: "lc-completion"
+    name: "Learning Contract Completion"
+    status: "active"
+    priority: "critical"
+    started: "2025-09-01"
+    links:
+      research: "knowledge/research/lc-research/"
+      plans: "plans/active/lc-action-plan/"
+  - id: "partnerships"
+    name: "AI Automation Agency Partnerships"
+    status: "active"
+    priority: "high"
+    started: "2025-10-01"
+    links:
+      research: "knowledge/research/partnership-research/"
+      plans: "plans/active/partnership-strategy/"
+  - id: "blackbox-research"
+    name: "BlackBox AI Agent Framework"
+    status: "active"
+    priority: "medium"
+    started: "2025-10-01"
+    links:
+      research: "knowledge/research/blackbox-research/"
+      plans: "plans/active/blackbox-development/"
+
+# Team
+team:
+  - agent: "Shaan Sisodia"
+    role: "Student Entrepreneur"
+    responsibilities: ["Learning Contract completion", "Partnership development", "BlackBox research"]
+  - agent: "Sam"
+    role: "Partnership Outreach"
+    responsibilities: ["Agency outreach", "Partnership coordination"]
+  - agent: "Pranav"
+    role: "Sales Strategy"
+    responsibilities: ["Sales process development", "Partnership conversion"]
+
+# Progress
+progress:
+  total_features: 25
+  completed_features: 16
+  active_features: 6
+  overall_completion: "64%"

@@ -1,0 +1,90 @@
+# Team Entrepreneurship Project Context
+
+project:
+  name: "Team Entrepreneurship"
+  description: "Year 3 MLAD3 coursework portfolio with focus on AI automation agency partnerships and comprehensive competency development"
+  status: "active"
+
+current_focus:
+  feature: "Learning Contract Maximum Grade Push"
+  phase: "Coursework Completion (Option B)"
+  next_step: "Execute action plan - LC1/LC5/LC6 improvements, then LfO undertakings"
+
+goals:
+  primary: "Achieve 90-100% (Outstanding) on MLAD3 Learning Contract within 24 hours"
+  secondary:
+    - "Complete 6 LfO undertakings for evidence portfolio"
+    - "Build 1,000 AI automation agency partnerships within 9 months"
+    - "Develop competencies: Strategic Leadership, Entrepreneurial Judgment, Self-Management"
+
+constraints:
+  technical:
+    - "Learning Contract word count limits (hard limits on LC1: 500 words)"
+    - "PebblePad submission format requirements"
+    - "Year 2 feedback patterns to avoid (technical vs personal experience)"
+
+  time:
+    - "24-hour deadline for LC improvements (Jan 25, 2026)"
+    - "SMART Objectives Review 2: January 26, 2026"
+    - "9-month window for AI automation partnerships (commoditisation threat)"
+
+  resources:
+    - "Multi-agent delegation (3 specialized agents)"
+    - "Psychometric data analysis (INTJ, motivations, Big 5, etc.)"
+    - "Year 2 feedback with 12 critical issues identified"
+
+scope:
+  in_scope:
+    - "Learning Contract improvements (LC1, LC5, LC6)"
+    - "LfO undertakings completion (6 total)"
+    - "Psychometric integration throughout portfolio"
+    - "Personal experience focus (avoiding technical achievement pattern)"
+
+  out_of_scope:
+    - "New venture development (focus on coursework completion)"
+    - "Technical feature development (BlackBox research only)"
+    - "Client delivery work (paused for coursework push)"
+
+stakeholders:
+  - role: "Academic Assessor"
+    name: "MLAD3 Course Team"
+    responsibilities: ["Learning Contract evaluation", "Competency assessment", "Portfolio marking"]
+  - role: "Coach"
+    name: "Emma"
+    responsibilities: ["Guidance", "Feedback", "Support"]
+  - role: "Team Members"
+    name: "Sam, Pranav"
+    responsibilities: ["Partnership outreach", "Sales strategy", "Execution support"]
+
+timeline:
+  started: "2024-09-01"
+  estimated_completion: "2026-04-30"
+  milestones:
+    - "2026-01-25": "Learning Contract improvements complete (LC1 v09, LC5 v05, LC6 v05)"
+    - "2026-01-26": "SMART Objectives Review 2 deadline"
+    - "2026-02-01": "LfO undertakings completion target"
+    - "2026-04-30": "1,000 partnerships goal / Year 3 completion"
+
+active_tasks:
+  - task-1: "LC1 v09 creation (psychometric integration + word count reduction to 500)"
+  - task-2: "LC5 v05 creation (enhance team examples with depth/quantification)"
+  - task-3: "LC6 v05 creation (add interim milestones with context)"
+  - task-4: "LfO-01/02/03 polish (3 existing drafts)"
+  - task-5: "LfO-04/05/06 creation (3 new undertakings from DATA-COLLECTION templates)"
+
+upcoming_tasks:
+  - "Submit Learning Contract to PebblePad"
+  - "Begin LfO undertaking execution (after LC submission)"
+  - "Validate all sections against Outstanding criteria (90-100%)"
+
+completed_tasks:
+  - "Psychometric data analysis complete (6 assessments integrated)"
+  - "Year 2 feedback analysis complete (12 issues identified)"
+  - "Action plan created and stored in Black Box 5 memory"
+  - "Project memory initialized from template"
+
+recent_work:
+  - "2026-01-24": "Created comprehensive coursework action plan (9 tasks, 20-27 hours work)"
+  - "2026-01-24": "Initialized Black Box 5 project memory from template"
+  - "2026-01-24": "Analyzed LC status: 5/9 Outstanding, 3 need improvement, 1 no changes needed"
+  - "2026-01-24": "Identified LfO status: 3 drafts exist, 3 need creation"

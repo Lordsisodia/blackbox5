@@ -260,28 +260,235 @@ print(f'✓ Returns: {type(result)}')
 - `RESULTS.md` - Validation results
 - `context_budget.json` - Token usage (auto-initialized)
 
----
+## Step 6.5: System Enforcement (CRITICAL)
 
-## Step 7: Update Task & Commit
+The `c` script initializes systems, but YOU must update them during execution:
+
+### Context Budget Updates
+
+**You MUST track token usage:**
 
 ```bash
-# Update task status
-TASK_FILE="~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/[TASK-ID]*"
+# Read current budget
+BUDGET_FILE="$RUN_DIR/context_budget.json"
+
+# Update with current token count (estimate or use actual)
+cat > "$BUDGET_FILE" << EOF
+{
+  "config": {
+    "max_tokens": 200000,
+    "thresholds": {
+      "subagent": 40,
+      "warning": 70,
+      "critical": 85,
+      "hard_limit": 95
+    }
+  },
+  "current": {
+    "current_tokens": [ESTIMATE],
+    "max_tokens": 200000,
+    "percentage": [CALCULATED],
+    "threshold_triggered": [null/40/70/85/95],
+    "action_taken": [null/action description],
+    "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  },
+  "history": [
+    ...previous entries...
+  ],
+  "loop": [LOOP_COUNT],
+  "run_dir": "$RUN_DIR"
+}
+EOF
+```
+
+**Actions at thresholds:**
+- **40%**: Spawn sub-agent, delegate remaining work
+- **70%**: Compress THOUGHTS.md to key points only
+- **85%**: Emergency summary - aggressive compression
+- **95%**: Force checkpoint and exit with PARTIAL status
+
+### Phase Gate Updates
+
+**Update phase gate state as you progress:**
+
+```bash
+# Update phase_gate_state.yaml as you pass each gate
+cat > "$RUN_DIR/phase_gate_state.yaml" << EOF
+run:
+  loop: [LOOP_COUNT]
+  timestamp: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  run_dir: "$RUN_DIR"
+
+gates:
+  init:
+    status: "passed"
+    timestamp: "[ISO_DATE]"
+  quick_spec:
+    status: "[pending/passed/failed]"
+    timestamp: "[ISO_DATE or null]"
+  dev_story:
+    status: "[pending/passed/failed]"
+    timestamp: "[ISO_DATE or null]"
+  code_review:
+    status: "[pending/passed/failed]"
+    timestamp: "[ISO_DATE or null]"
+  validate:
+    status: "[pending/passed/failed]"
+    timestamp: "[ISO_DATE or null]"
+  wrap:
+    status: "[pending/passed/failed]"
+    timestamp: "[ISO_DATE or null]"
+
+current_phase: "[CURRENT_PHASE]"
+EOF
+```
+
+### Decision Registry Updates
+
+**Record every significant decision:**
+
+```bash
+# Append to run decision registry
+cat >> "$RUN_DIR/decision_registry.yaml" << EOF
+  - id: "DEC-[LOOP]-[NUMBER]"
+    timestamp: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    phase: "[CURRENT_PHASE]"
+    context: "[What decision was about]"
+    options_considered:
+      - id: "OPT-001"
+        description: "[Option 1]"
+        pros: ["[pro1]", "[pro2]"]
+        cons: ["[con1]", "[con2]"]
+      - id: "OPT-002"
+        description: "[Option 2]"
+        pros: ["[pro1]"]
+        cons: ["[con1]", "[con2]"]
+    selected_option: "OPT-[N]"
+    rationale: "[Why this option]"
+    reversibility: "[LOW/MEDIUM/HIGH]"
+    status: "DECIDED"
+EOF
+```
+
+### Validation Log Updates
+
+**When you verify a claim, log it:**
+
+```bash
+# Append to validations.json
+jq '.validations += [{
+  "id": "VAL-'$(date +%s)'",
+  "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'",
+  "claim": "[What was claimed]",
+  "test_method": "[How tested]",
+  "result": "[VERIFIED/INVALIDATED]",
+  "evidence": "[Proof]"
+}] | .metadata.total_validations += 1 | .metadata.claims_verified += 1' "$RUN_DIR/validations.json" > "$RUN_DIR/validations.json.tmp" && mv "$RUN_DIR/validations.json.tmp" "$RUN_DIR/validations.json"
+```
+
+---
+
+## Step 7: Update Systems & Commit
+
+### 7.1 Update Task State
+
+**CRITICAL:** Update the task file with completion status:
+
+```bash
+# Find the task file
+TASK_FILE=$(find ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active -name "*[TASK-ID]*" | head -1)
+
+# Update task status to completed
+sed -i '' 's/^\*\*Status:\*\* .*/\*\*Status:\*\* completed/' "$TASK_FILE"
+
+# Add completion metadata
 cat >> "$TASK_FILE" << EOF
 
 ## Completion
 **Completed:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
 **Run Folder:** $RUN_DIR
-**Integration Test:** [PASS/FAIL]
+**Agent:** Agent-2.4
+**Path Used:** [Quick Flow/Full BMAD]
+**Phase Gates:** All passed
+**Decisions Recorded:** [N]
 EOF
 
-# Move to completed
-mv "$TASK_FILE" "~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/"
+# Move to completed folder
+mv "$TASK_FILE" ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/
+```
 
-# Commit
+### 7.2 Update Run Metrics
+
+```bash
+# Update metrics.json with final data
+cat > "$RUN_DIR/metrics.json" << EOF
+{
+  "loop": [LOOP_NUMBER],
+  "start_time": "[START_TIME]",
+  "end_time": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "duration_seconds": [CALCULATED],
+  "model": "GLM-4.7",
+  "task_id": "[TASK-ID]",
+  "task_status": "completed",
+  "exit_code": 0,
+  "files_created": [N],
+  "files_modified": [N],
+  "systems_updated": [
+    "task_state",
+    "run_metrics"
+  ]
+}
+EOF
+```
+
+### 7.3 Global Decision Registry Update
+
+**CRITICAL:** Copy decisions to global registry:
+
+```bash
+# If decisions were made, append to global registry
+if [ -f "$RUN_DIR/DECISIONS.md" ] && [ -s "$RUN_DIR/DECISIONS.md" ]; then
+    # Extract decisions and append to global registry
+    echo "# Decisions from $(date +%Y-%m-%d)" >> ~/.blackbox5/5-project-memory/ralf-core/.autonomous/decision_registry.md
+    cat "$RUN_DIR/DECISIONS.md" >> ~/.blackbox5/5-project-memory/ralf-core/.autonomous/decision_registry.md
+    echo "" >> ~/.blackbox5/5-project-memory/ralf-core/.autonomous/decision_registry.md
+fi
+```
+
+### 7.4 Create Validation Entry
+
+**When you verify something, document it:**
+
+```bash
+# Create validation entry for verified claims
+VALIDATION_ID="VAL-$(date +%s)"
+cat > ~/.blackbox5/5-project-memory/ralf-core/.autonomous/validations/validated/$VALIDATION_ID.md << EOF
+# Validation: $VALIDATION_ID
+
+**Date:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+**Task:** [TASK-ID]
+**Run:** $RUN_DIR
+
+## Claim
+[What was claimed]
+
+## Test Method
+[How it was tested]
+
+## Result
+✅ VERIFIED / ❌ INVALIDATED
+
+## Evidence
+[Proof]
+EOF
+```
+
+### 7.5 Commit
+
+```bash
 cd ~/.blackbox5
 git add -A
-git commit -m "ralf: [$(date +%Y%m%d-%H%M%S)] [GLM-4.7] autonomous improvements"
+git commit -m "ralf: [$(date +%Y%m%d-%H%M%S)] [GLM-4.7] [TASK-ID] - [brief description]"
 git push origin main
 ```
 
