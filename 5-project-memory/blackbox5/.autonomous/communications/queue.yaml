@@ -167,7 +167,8 @@ queue:
       - Last_updated timestamp current
     dependencies: []
     added_at: '2026-02-01T05:30:00Z'
-    status: pending
+    completed_at: '2026-02-01T06:00:00Z'
+    status: completed
   - id: TASK-1769893003
     type: analyze
     title: Test and validate validation-checklist.yaml
@@ -193,9 +194,56 @@ queue:
     added_at: '2026-02-01T05:30:00Z'
     status: pending
 
+  - id: TASK-1769894001
+    type: analyze
+    title: Map system flow and cross-project dependencies
+    priority: high
+    estimated_minutes: 60
+    context_level: 3
+    approach: |
+      Based on goals.yaml IG-003 (Improve System Flow), create dependency mapping.
+      1. Identify all blackbox5 projects and their relationships
+      2. Map data flow between projects (5-project-memory, 2-engine, siso-internal)
+      3. Document shared resources and potential conflicts
+      4. Create visual/ASCII dependency graph
+      Write findings to knowledge/analysis/system-flow-mapping-20260201.md
+    files_to_modify:
+      - knowledge/analysis/system-flow-mapping-20260201.md
+    acceptance_criteria:
+      - Dependency map created showing all projects
+      - Data flow between projects documented
+      - At least 3 dependency patterns identified
+      - Recommendations for reducing coupling
+    dependencies: []
+    added_at: '2026-02-01T05:30:00Z'
+    status: pending
+  - id: TASK-1769894002
+    type: improve
+    title: Optimize LEGACY.md skill discovery mechanism
+    priority: high
+    estimated_minutes: 45
+    context_level: 2
+    approach: |
+      Based on goals.yaml IG-002 (Improve LEGACY.md), optimize skill selection.
+      1. Analyze current skill discovery process in LEGACY.md
+      2. Identify bottlenecks (e.g., linear search, no caching)
+      3. Propose improvements (skill index, categories, scoring)
+      4. Document optimized flow in knowledge/analysis/skill-discovery-optimization.md
+    files_to_modify:
+      - knowledge/analysis/skill-discovery-optimization.md
+      - ~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md
+    acceptance_criteria:
+      - Current skill discovery analyzed and documented
+      - At least 3 optimization opportunities identified
+      - Proposed improvements with effort/benefit analysis
+      - Integration plan for Executor
+    dependencies: []
+    added_at: '2026-02-01T05:30:00Z'
+    status: pending
+
 metadata:
-  last_updated: '2026-02-01T05:30:00Z'
-  updated_by: planner
+  last_updated: '2026-02-01T06:00:00Z'
+  updated_by: executor
   queue_depth_target: 5
-  current_depth: 5
-  last_completed: TASK-1769892004
+  current_depth: 4
+  last_completed: TASK-1769893002

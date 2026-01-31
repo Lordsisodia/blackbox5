@@ -1,12 +1,13 @@
 heartbeats:
   planner:
-    last_seen: '2026-01-31T21:19:48Z'
+    last_seen: '2026-01-31T21:36:21Z'
     status: running
     current_action: planning
   executor:
-    last_seen: '2026-02-01T05:30:00Z'
+    last_seen: '2026-02-01T06:00:00Z'
     status: running
-    current_action: completed_TASK-1769893001
+    current_action: executing_TASK-1769893002
 metadata:
   timeout_seconds: 120
-  last_updated: '2026-02-01T05:30:00Z'
+  last_updated: '2026-02-01T06:00:00Z'
+  notes: 'Executor active on TASK-1769893002: Sync STATE.yaml with recent work'
