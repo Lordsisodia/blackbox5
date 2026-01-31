@@ -3,7 +3,7 @@ id: deep-research
 name: Deep Research
 version: 1.0.0
 category: research
-description: Comprehensive research using 4D analysis framework (Technology, Features, Architecture, Pitfalls)
+description: "DEPRECATED: Use bmad-analyst skill instead. Comprehensive research and analysis."
 triggers:
   - keyword: "research"
   - keyword: "investigate"

@@ -1,0 +1,150 @@
+# ============================================================================
+# BLACKBOX5 - TEST SUITE
+# ============================================================================
+# Purpose: Comprehensive testing including integration tests
+# Trigger: Manual dispatch, scheduled runs, or PRs with specific labels
+# ============================================================================
+
+name: Test Suite
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run integration tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  pull_request:
+    branches: [main, master]
+    types: [labeled]
+
+jobs:
+  # ========================================================================
+  # UNIT TESTS (FAST)
+  # ========================================================================
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || contains(github.event.label.name, 'run-tests')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run unit tests
+        run: |
+          pytest 2-engine/tests/unit/ -v \
+            -m "unit" \
+            --tb=short \
+            --disable-warnings
+
+  # ========================================================================
+  # INTEGRATION TESTS (SLOW - REQUIRES SERVICES)
+  # ========================================================================
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.label.name, 'run-integration-tests')
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run integration tests
+        run: |
+          pytest 2-engine/tests/integration/ -v \
+            -m "integration" \
+            --tb=short \
+            --disable-warnings
+        continue-on-error: true
+        env:
+          REDIS_URL: redis://localhost:6379/0
+
+  # ========================================================================
+  # SAFETY SYSTEM TESTS
+  # ========================================================================
+  safety-tests:
+    name: Safety System Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run safety tests
+        run: |
+          pytest core/safety/tests/ -v \
+            --tb=short \
+            --disable-warnings
+        continue-on-error: true
+
+  # ========================================================================
+  # ORCHESTRATION TESTS
+  # ========================================================================
+  orchestration-tests:
+    name: Orchestration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run orchestration tests
+        run: |
+          pytest core/orchestration/tests/ -v \
+            --tb=short \
+            --disable-warnings
+        continue-on-error: true

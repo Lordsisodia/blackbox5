@@ -80,6 +80,19 @@ milestones:
       - "All status files synchronized"
     criteria: "Project memory matches siso-internal standard"
 
+  - id: "M-006"
+    name: "Skills System Migration"
+    description: "Migrate all skills to Anthropic Agent Skills Standard folder structure"
+    target_date: "2026-02-01"
+    completed_date: "2026-02-01"
+    status: "completed"
+    deliverables:
+      - "23 skills in folder-based structure"
+      - "SKILL.md format with YAML frontmatter"
+      - "Updated skill_router.py"
+      - "6 YAML skills deprecated"
+    criteria: "All skills follow Anthropic standard"
+
 # =============================================================================
 # EVENTS - Significant project events
 # =============================================================================
@@ -118,15 +131,23 @@ events:
       - "M-004"
       - "M-005"
 
+  - date: "2026-02-01"
+    type: "infrastructure"
+    title: "Skills System Migrated to Anthropic Standard"
+    description: "Reorganized all 23 skills to folder-based structure with SKILL.md format"
+    impact: "high"
+    related_items:
+      - "skills-migration-2026-02-01"
+
 # =============================================================================
 # PROGRESS METRICS
 # =============================================================================
 
 progress:
   overall_completion: 100
-  milestones_completed: 5
-  milestones_total: 5
-  days_elapsed: 11
+  milestones_completed: 6
+  milestones_total: 6
+  days_elapsed: 12
   days_remaining: null
   velocity: null
 

@@ -1,0 +1,10 @@
+# Bidirectional Chat
+# Written by: Both
+# Read by: Both
+# =============================================================================
+
+messages: []
+
+metadata:
+  last_message_id: 0
+  last_updated: null

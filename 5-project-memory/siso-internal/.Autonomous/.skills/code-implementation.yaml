@@ -3,7 +3,7 @@ id: code-implementation
 name: Code Implementation
 version: 1.0.0
 category: development
-description: TDD-based code implementation following red-green-refactor cycle (BMAD Amelia adaptation)
+description: "DEPRECATED: Use bmad-dev skill instead. TDD-based code implementation."
 triggers:
   - keyword: "implement"
   - keyword: "code"

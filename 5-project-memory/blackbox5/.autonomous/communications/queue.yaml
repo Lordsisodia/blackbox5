@@ -1,0 +1,12 @@
+# Task Queue
+# Written by: Planner
+# Read by: Executor
+# =============================================================================
+
+queue: []
+
+metadata:
+  last_updated: null
+  updated_by: null
+  queue_depth_target: 5
+  current_depth: 0
