@@ -524,6 +524,13 @@ improvement_metrics:
   learnings_captured: 49
   first_principles_reviews: 0
 
+  review_schedule:
+    every_n_runs: 5
+    last_review_run: null
+    next_review_run: 50
+    auto_trigger: true
+    current_loop: 44
+
   improvements:
     proposed: 1
     approved: 1

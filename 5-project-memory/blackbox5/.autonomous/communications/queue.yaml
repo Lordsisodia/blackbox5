@@ -44,28 +44,6 @@ queue:
     added_at: '2026-02-01T08:05:00Z'
     status: pending
 
-  - id: TASK-1769899000
-    type: implement
-    title: Apply CLAUDE.md sub-agent deployment refinements
-    priority: high
-    estimated_minutes: 30
-    context_level: 2
-    approach: |
-      Apply sub-agent deployment refinements from claude-md-decision-effectiveness.md.
-      Add file count thresholds and specific guidance for direct reads vs sub-agents.
-      Update ~/.claude/CLAUDE.md lines ~280-290.
-    files_to_modify:
-      - ~/.claude/CLAUDE.md
-    acceptance_criteria:
-      - Sub-agent deployment section updated with file count thresholds
-      - "When to use direct reads" guidance added
-      - Examples provided for both approaches
-      - Cross-project exploration threshold defined
-    dependencies:
-      - TASK-1769897000
-    added_at: '2026-02-01T10:05:00Z'
-    status: pending
-
   - id: TASK-1769899001
     type: implement
     title: Create skill selection guidance framework
@@ -90,9 +68,82 @@ queue:
     added_at: '2026-02-01T10:05:00Z'
     status: pending
 
+  - id: TASK-1769899002
+    type: implement
+    title: Create learning-to-improvement pipeline
+    priority: high
+    estimated_minutes: 45
+    context_level: 3
+    approach: |
+      Implement structured pipeline that converts learnings into actionable tasks.
+      Create operations/improvement-pipeline.yaml with pipeline states.
+      Update LEARNINGS.md template with mandatory action_item field.
+      Document pipeline in .docs/improvement-pipeline-guide.md.
+    files_to_modify:
+      - .templates/tasks/LEARNINGS.md.template
+      - operations/improvement-pipeline.yaml
+      - operations/.docs/improvement-pipeline-guide.md
+      - goals.yaml
+    acceptance_criteria:
+      - Pipeline YAML created with 6 states
+      - LEARNINGS.md template updated
+      - Documentation created
+      - Improvement metrics updated
+    dependencies:
+      - TASK-1769898000
+    added_at: '2026-02-01T11:30:00Z'
+    status: pending
+
+  - id: TASK-1769902000
+    type: analyze
+    title: Extract action items from existing learnings
+    priority: high
+    estimated_minutes: 50
+    context_level: 3
+    approach: |
+      Review all 21 LEARNINGS.md files from archived runs.
+      Extract 10-15 high-quality improvement tasks from 80+ learnings.
+      Create improvement task files in .autonomous/tasks/improvements/.
+      Document extraction methodology.
+    files_to_modify:
+      - operations/improvement-backlog.yaml
+      - STATE.yaml
+    acceptance_criteria:
+      - 21 LEARNINGS.md files reviewed
+      - 10-15 improvement tasks created
+      - Extraction methodology documented
+      - improvement_metrics updated
+    dependencies:
+      - TASK-1769898000
+    added_at: '2026-02-01T12:00:00Z'
+    status: pending
+
+  - id: TASK-1769902001
+    type: implement
+    title: Implement automated first principles review
+    priority: high
+    estimated_minutes: 40
+    context_level: 2
+    approach: |
+      Add review schedule to STATE.yaml.
+      Create first-principles-review.md.template.
+      Document review process in operations/.docs/.
+      Enable automated triggering every 5 runs.
+    files_to_modify:
+      - STATE.yaml
+      - RALF-CONTEXT.md
+    acceptance_criteria:
+      - Review schedule configured
+      - Template created
+      - Guide documented
+      - Review trigger logic defined
+    dependencies: []
+    added_at: '2026-02-01T12:00:00Z'
+    status: pending
+
 metadata:
-  last_updated: '2026-02-01T11:10:00Z'
+  last_updated: '2026-02-01T12:00:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 4
-  last_completed: TASK-1769892003
+  current_depth: 5
+  last_completed: TASK-1769899000
