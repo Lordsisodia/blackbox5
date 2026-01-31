@@ -210,10 +210,31 @@ queue:
     dependencies: []
     added_at: '2026-02-01T08:05:00Z'
     status: pending
+  - id: TASK-1769896000
+    type: implement
+    title: Implement skill effectiveness metrics
+    priority: high
+    estimated_minutes: 45
+    context_level: 2
+    approach: |
+      Create a metrics tracking system to measure skill effectiveness.
+      Build on operations/skill-usage.yaml to track task completion
+      times, error rates, and ROI per skill.
+    files_to_modify:
+      - operations/skill-metrics.yaml
+      - operations/.docs/skill-metrics-guide.md
+    acceptance_criteria:
+      - Skill metrics YAML created with effectiveness tracking
+      - ROI calculation methodology documented
+      - Skill selection recommendations defined
+    dependencies:
+      - TASK-1769892001
+    added_at: '2026-02-01T08:20:00Z'
+    status: pending
 
 metadata:
   last_updated: '2026-02-01T08:10:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 5
+  current_depth: 6
   last_completed: TASK-1769892005
