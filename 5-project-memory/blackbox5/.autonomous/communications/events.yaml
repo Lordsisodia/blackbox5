@@ -369,6 +369,11 @@ events:
   type: started
   task_id: TASK-1769892001
   data: null
+- id: 75
+  timestamp: '2026-02-01T05:00:00Z'
+  type: completed
+  task_id: TASK-1769892001
+  data: success
 metadata:
-  last_event_id: 74
+  last_event_id: 75
   last_updated: '2026-02-01T05:00:00Z'
