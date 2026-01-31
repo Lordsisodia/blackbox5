@@ -1,0 +1,238 @@
+#!/bin/bash
+#
+# RALF-Planner
+# Purpose: Analyze codebase, plan tasks, fill queue
+# Runs: Continuously in background
+#
+
+set -euo pipefail
+
+# Configuration
+PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+COMM_DIR="$PROJECT_DIR/.autonomous/communications"
+QUEUE_FILE="$COMM_DIR/queue.yaml"
+EVENTS_FILE="$COMM_DIR/events.yaml"
+CHAT_FILE="$COMM_DIR/chat-log.yaml"
+HEARTBEAT_FILE="$COMM_DIR/heartbeat.yaml"
+STATE_FILE="$PROJECT_DIR/STATE.yaml"
+GOALS_FILE="$PROJECT_DIR/goals.yaml"
+
+QUEUE_TARGET=5
+QUEUE_MIN=2
+LOOP_INTERVAL=30
+
+# Logging
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] [PLANNER] $*"
+}
+
+# Update heartbeat
+update_heartbeat() {
+    local status="$1"
+    local action="${2:-idle}"
+    local tmp_file=$(mktemp)
+
+    cat > "$tmp_file" << EOF
+heartbeats:
+  planner:
+    last_seen: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    status: $status
+    current_action: $action
+
+  executor:
+    last_seen: $(yq '.heartbeats.executor.last_seen' "$HEARTBEAT_FILE" 2>/dev/null || echo "null")
+    status: $(yq '.heartbeats.executor.status' "$HEARTBEAT_FILE" 2>/dev/null || echo "unknown")
+    current_action: $(yq '.heartbeats.executor.current_action' "$HEARTBEAT_FILE" 2>/dev/null || echo "null")
+
+metadata:
+  timeout_seconds: 120
+  last_updated: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+EOF
+
+    mv "$tmp_file" "$HEARTBEAT_FILE"
+}
+
+# Get current queue depth
+get_queue_depth() {
+    yq '.queue | length' "$QUEUE_FILE" 2>/dev/null || echo "0"
+}
+
+# Read recent events
+read_events() {
+    local tail_count="${1:-10}"
+    yq ".events | .[-$tail_count:]" "$EVENTS_FILE" 2>/dev/null || echo "[]"
+}
+
+# Read new chat messages
+read_chat() {
+    yq '.messages' "$CHAT_FILE" 2>/dev/null || echo "[]"
+}
+
+# Add task to queue
+add_to_queue() {
+    local task_id="$1"
+    local task_type="$2"
+    local title="$3"
+    local priority="$4"
+    local estimated="$5"
+    local approach="$6"
+
+    local tmp_file=$(mktemp)
+
+    # Read current queue
+    local current_queue
+    current_queue=$(yq '.queue' "$QUEUE_FILE" 2>/dev/null || echo "[]")
+
+    # Create new task
+    local new_task
+    new_task=$(cat << EOF
+{
+  "id": "$task_id",
+  "type": "$task_type",
+  "title": "$title",
+  "priority": "$priority",
+  "estimated_minutes": $estimated,
+  "context_level": 2,
+  "approach": "$approach",
+  "status": "pending",
+  "added_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+}
+EOF
+)
+
+    # Combine and write
+    yq -n "
+queue: $current_queue + [$new_task]
+metadata:
+  last_updated: \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
+  updated_by: planner
+  queue_depth_target: $QUEUE_TARGET
+  current_depth: $(($(get_queue_depth) + 1))
+" > "$tmp_file"
+
+    mv "$tmp_file" "$QUEUE_FILE"
+    log "Added task $task_id to queue"
+}
+
+# Plan next tasks based on STATE.yaml
+plan_tasks() {
+    local needed="$1"
+    log "Planning $needed tasks..."
+
+    # Read STATE.yaml to find what needs doing
+    local next_action
+    next_action=$(yq '.tasks.next_action' "$STATE_FILE" 2>/dev/null || echo "null")
+
+    if [[ "$next_action" == "null" ]]; then
+        log "No next_action in STATE.yaml, analyzing..."
+        # TODO: Implement deep analysis to find work
+        # For now, add a placeholder analysis task
+        add_to_queue \
+            "TASK-ANALYSIS-$(date +%s)" \
+            "analyze" \
+            "Analyze codebase for next priorities" \
+            "medium" \
+            30 \
+            "Read STATE.yaml, goals.yaml, recent runs. Identify highest priority work."
+        return
+    fi
+
+    # Add the next action as a task
+    add_to_queue \
+        "$next_action" \
+        "implement" \
+        "Execute $next_action" \
+        "high" \
+        60 \
+        "Read task from STATE.yaml and execute"
+
+    # TODO: Add more tasks based on dependency chain
+}
+
+# Answer questions from chat
+answer_questions() {
+    local messages
+    messages=$(read_chat)
+
+    # Check for unanswered questions
+    local unanswered
+    unanswered=$(echo "$messages" | yq '[.[] | select(.type == "question" and .from == "executor")] | length')
+
+    if [[ "$unanswered" -gt 0 ]]; then
+        log "Found $unanswered unanswered questions"
+        # TODO: Implement question answering logic
+        # For now, just log that we saw them
+    fi
+}
+
+# Analyze codebase during idle time
+analyze_codebase() {
+    log "Queue full, analyzing codebase..."
+
+    # TODO: Implement actual analysis
+    # - Check for tech debt
+    # - Look for patterns
+    # - Identify organization opportunities
+    # - Write to knowledge/analysis/
+
+    log "Analysis complete (placeholder)"
+}
+
+# Main loop
+main() {
+    log "RALF-Planner starting..."
+    log "Project: $PROJECT_DIR"
+    log "Queue target: $QUEUE_TARGET"
+
+    # Initialize heartbeat
+    update_heartbeat "starting" "initializing"
+
+    while true; do
+        # Update heartbeat
+        update_heartbeat "running" "checking_state"
+
+        # Read executor status
+        local events
+        events=$(read_events 5)
+
+        # Check for questions
+        answer_questions
+
+        # Check queue depth
+        local depth
+        depth=$(get_queue_depth)
+        log "Current queue depth: $depth"
+
+        if [[ "$depth" -lt "$QUEUE_MIN" ]]; then
+            # Need more tasks
+            local needed=$((QUEUE_TARGET - depth))
+            update_heartbeat "running" "planning"
+            plan_tasks "$needed"
+
+        elif [[ "$depth" -ge "$QUEUE_TARGET" ]]; then
+            # Queue full, do analysis
+            update_heartbeat "running" "analyzing"
+            analyze_codebase
+
+        else
+            # Queue healthy, brief pause
+            log "Queue healthy ($depth tasks)"
+        fi
+
+        # Sleep before next iteration
+        update_heartbeat "running" "sleeping"
+        sleep "$LOOP_INTERVAL"
+    done
+}
+
+# Handle shutdown
+cleanup() {
+    log "Shutting down..."
+    update_heartbeat "stopped" "shutdown"
+    exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Run
+main "$@"

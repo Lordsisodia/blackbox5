@@ -3,7 +3,7 @@ id: documentation
 name: Documentation
 version: 1.0.0
 category: documentation
-description: Create clear, useful documentation (BMAD John adaptation)
+description: "DEPRECATED: Use bmad-dev skill instead. Create clear, useful documentation."
 triggers:
   - keyword: "document"
   - keyword: "readme"

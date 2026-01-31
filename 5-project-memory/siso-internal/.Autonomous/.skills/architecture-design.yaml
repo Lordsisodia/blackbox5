@@ -3,7 +3,7 @@ id: architecture-design
 name: Architecture Design
 version: 1.0.0
 category: design
-description: System architecture and technical design (BMAD Winston adaptation)
+description: "DEPRECATED: Use bmad-architect skill instead. System architecture and technical design."
 triggers:
   - keyword: "architecture"
   - keyword: "design"

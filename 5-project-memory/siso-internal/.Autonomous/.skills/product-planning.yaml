@@ -3,7 +3,7 @@ id: product-planning
 name: Product Planning
 version: 1.0.0
 category: product
-description: Create PRDs, user stories, and requirements (BMAD Alex adaptation)
+description: "DEPRECATED: Use bmad-pm or bmad-planning skill instead. Create PRDs and requirements."
 triggers:
   - keyword: "prd"
   - keyword: "requirements"

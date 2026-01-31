@@ -11,8 +11,8 @@ project:
   version: "5.0.0"
   description: "Global AI Infrastructure for multi-agent orchestration"
   status: "active"
-  last_updated: "2026-01-31T19:20:00Z"
-  updated_by: "RALF"
+  last_updated: "2026-02-01T00:00:00Z"
+  updated_by: "Claude"
 
 # =============================================================================
 # ROOT FILES - Start here for project state
@@ -27,7 +27,7 @@ root_files:
   state:
     file: "STATE.yaml"
     purpose: "Single source of truth - project state and structure"
-    updated: "2026-01-31"
+    updated: "2026-02-01"
   dashboard:
     file: "ACTIVE.md"
     purpose: "Current work dashboard - what is happening now"
@@ -343,6 +343,30 @@ docs:
         purpose: "Specification for .docs/ system"
       - "migration-plan.md"
         purpose: "4-phase migration plan"
+
+# =============================================================================
+# AUTONOMOUS SYSTEM DOCUMENTATION
+# =============================================================================
+
+autonomous:
+  path: ".autonomous/"
+  description: "Dual-RALF autonomous agent system"
+  files:
+    - "DUAL-RALF-ARCHITECTURE.md"
+      purpose: "Complete architecture documentation"
+  communications:
+    path: ".autonomous/communications/"
+    files:
+      - "protocol.yaml"
+        purpose: "Communication rules and specifications"
+      - "queue.yaml"
+        purpose: "Task queue (Planner → Executor)"
+      - "events.yaml"
+        purpose: "Execution events (Executor → Planner)"
+      - "chat-log.yaml"
+        purpose: "Bidirectional chat messages"
+      - "heartbeat.yaml"
+        purpose: "Agent health checks"
 
 # =============================================================================
 # ARCHIVED CONTENT - Historical data

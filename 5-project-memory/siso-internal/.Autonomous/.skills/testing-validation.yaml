@@ -3,7 +3,7 @@ id: testing-validation
 name: Testing and Validation
 version: 1.0.0
 category: quality
-description: Systematic testing and validation of code, features, and systems
+description: "DEPRECATED: Use bmad-qa skill instead. Systematic testing and validation."
 triggers:
   - keyword: "test"
   - keyword: "validate"

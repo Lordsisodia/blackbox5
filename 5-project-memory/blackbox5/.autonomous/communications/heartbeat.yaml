@@ -1,0 +1,19 @@
+# Agent Heartbeats
+# Written by: Both
+# Read by: Both
+# =============================================================================
+
+heartbeats:
+  planner:
+    last_seen: null
+    status: unknown
+    current_action: null
+
+  executor:
+    last_seen: null
+    status: unknown
+    current_action: null
+
+metadata:
+  timeout_seconds: 120
+  last_updated: null

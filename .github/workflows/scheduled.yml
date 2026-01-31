@@ -1,0 +1,88 @@
+# ============================================================================
+# BLACKBOX5 - SCHEDULED TASKS
+# ============================================================================
+# Purpose: Periodic maintenance and health checks
+# Trigger: Scheduled (cron) or manual
+# ============================================================================
+
+name: Scheduled Tasks
+
+on:
+  schedule:
+    # Run daily at 3 AM UTC
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  # ========================================================================
+  # DEPENDENCY CHECK
+  # ========================================================================
+  dependencies:
+    name: Check Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check for outdated dependencies
+        run: |
+          pip install pip-outdated
+          pip-outdated requirements.txt || true
+        continue-on-error: true
+
+  # ========================================================================
+  # STATE FILE VALIDATION
+  # ========================================================================
+  state-check:
+    name: Validate STATE.yaml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate STATE.yaml
+        run: |
+          pip install pyyaml
+          python -c "
+          import yaml
+          import sys
+          try:
+              with open('5-project-memory/blackbox5/STATE.yaml', 'r') as f:
+                  yaml.safe_load(f)
+              print('STATE.yaml is valid')
+          except Exception as e:
+              print(f'Invalid STATE.yaml: {e}')
+              sys.exit(1)
+          "
+        continue-on-error: true
+
+  # ========================================================================
+  # STALE ISSUE/PR CHECK
+  # ========================================================================
+  stale:
+    name: Mark Stale Issues
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Mark stale issues and PRs
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'This issue has been automatically marked as stale due to inactivity.'
+          stale-pr-message: 'This PR has been automatically marked as stale due to inactivity.'
+          days-before-stale: 60
+          days-before-close: 7
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'

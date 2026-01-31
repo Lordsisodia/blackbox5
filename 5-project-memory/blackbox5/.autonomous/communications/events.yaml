@@ -1,0 +1,10 @@
+# Execution Events
+# Written by: Executor
+# Read by: Planner
+# =============================================================================
+
+events: []
+
+metadata:
+  last_event_id: 0
+  last_updated: null
