@@ -569,7 +569,7 @@ class TestLoggingIntegration:
         logger1 = logging.getLogger("logger1")
         logger1.info("Message 1")
 
-        setup_logging(log_file=log_file=log_file2, json_logs=True)
+        setup_logging(log_file=log_file2, json_logs=True)
         logger2 = logging.getLogger("logger2")
         logger2.info("Message 2")
 
