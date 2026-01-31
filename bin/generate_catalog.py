@@ -13,11 +13,14 @@ Usage:
 
 import os
 import sys
+import logging
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any
 import re
 import ast
+
+logger = logging.getLogger(__name__)
 
 
 class CatalogGenerator:
@@ -160,8 +163,12 @@ class CatalogGenerator:
                             "location": str(py_file.relative_to(self.root_dir)),
                             "description": func_doc or "",
                         })
-            except:
-                pass
+            except (IOError, OSError) as e:
+                logger.warning(f"Could not read file {py_file}: {e}")
+            except SyntaxError as e:
+                logger.debug(f"Skipping malformed Python file {py_file}: {e}")
+            except Exception as e:
+                logger.error(f"Unexpected error processing {py_file}: {e}")
 
     def _scan_integrations(self):
         """Scan all external integrations."""
@@ -238,8 +245,10 @@ class CatalogGenerator:
                         line = line.strip()
                         if line and not line.startswith('#'):
                             return line[:100]
-            except:
-                pass
+            except (IOError, OSError) as e:
+                logger.debug(f"Could not read README {readme}: {e}")
+            except UnicodeDecodeError as e:
+                logger.debug(f"Could not decode README {readme}: {e}")
         return ""
 
     def _build_directory_map(self):

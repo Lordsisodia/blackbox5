@@ -116,8 +116,12 @@ def stop_services():
             for pid in pids:
                 os.kill(int(pid), signal.SIGTERM)
             print_success("API server stopped (port 8000)")
-    except:
-        pass
+    except (subprocess.SubprocessError, FileNotFoundError) as e:
+        print_error(f"Could not find process on port 8000: {e}")
+    except (ProcessLookupError, OSError) as e:
+        print_error(f"Could not stop process: {e}")
+    except ValueError as e:
+        print_error(f"Invalid process ID: {e}")
 
 
 def check_status():
@@ -134,8 +138,10 @@ def check_status():
             if response.status_code == 200:
                 agents = response.json()
                 print_info(f"   Agents:       {len(agents)} loaded")
-        except:
-            pass
+        except requests.Timeout:
+            print_info("   Agents:       Timeout fetching agent count")
+        except (requests.ConnectionError, requests.RequestException) as e:
+            print_info(f"   Agents:       Could not connect to API: {e}")
     else:
         print_error(f"API Server:     Not running")
 
