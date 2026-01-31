@@ -61,8 +61,10 @@ start_planner() {
         return
     fi
 
+    # Use GLM key from codespace secret if available, otherwise fall back to file
+    local api_key="${ANTHROPIC_API_KEY:-$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")}"
     tmux new-session -d -s ralf-planner-v2 -n planner \
-        "export ANTHROPIC_API_KEY='$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")' && \
+        "export ANTHROPIC_API_KEY='$api_key' && \
          export ANTHROPIC_BASE_URL='${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}' && \
          cd '$PROJECT_DIR' && \
          export RALF_MODE=plan && \
@@ -82,8 +84,10 @@ start_executor() {
         return
     fi
 
+    # Use GLM key from codespace secret if available, otherwise fall back to file
+    local api_key="${ANTHROPIC_API_KEY:-$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")}"
     tmux new-session -d -s ralf-executor-v2 -n executor \
-        "export ANTHROPIC_API_KEY='$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")' && \
+        "export ANTHROPIC_API_KEY='$api_key' && \
          export ANTHROPIC_BASE_URL='${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}' && \
          cd '$PROJECT_DIR' && \
          export RALF_MODE=execute && \
