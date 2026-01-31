@@ -1,0 +1,152 @@
+# =============================================================================
+# STATE.yaml - Single Source of Truth for blackbox5
+# =============================================================================
+# This file is the central project state. Keep it updated as the single
+# source of truth for project status, tasks, features, and decisions.
+# Updated by: FILL_ME - Agent name or user
+# Updated at: FILL_ME - ISO timestamp (YYYY-MM-DDTHH:MM:SSZ)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# METADATA
+# -----------------------------------------------------------------------------
+project:
+  name: blackbox5
+  version: "FILL_ME - e.g., 0.1.0"
+  description: "FILL_ME - Brief project description"
+  status: "FILL_ME - active|paused|completed|archived"
+  last_updated: "FILL_ME - ISO timestamp"
+  updated_by: "FILL_ME - Agent or user name"
+
+# -----------------------------------------------------------------------------
+# TASKS
+# -----------------------------------------------------------------------------
+tasks:
+  # Active tasks currently being worked on
+  active:
+    - id: "TASK-YYYY-MM-DD-NNN"
+      title: "FILL_ME - Task title"
+      description: "FILL_ME - Brief description"
+      assigned_to: "FILL_ME - Agent name"
+      started_at: "FILL_ME - ISO timestamp"
+      priority: "FILL_ME - critical|high|medium|low"
+      status: "FILL_ME - in_progress|blocked|review"
+
+  # Recently completed tasks (keep last 10)
+  completed:
+    - id: "TASK-YYYY-MM-DD-NNN"
+      title: "FILL_ME - Task title"
+      completed_at: "FILL_ME - ISO timestamp"
+      completed_by: "FILL_ME - Agent name"
+      result: "FILL_ME - success|partial|failed"
+
+# -----------------------------------------------------------------------------
+# FEATURES
+# -----------------------------------------------------------------------------
+features:
+  active:
+    - id: "FILL_ME - Feature identifier"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - What this feature does"
+      status: "FILL_ME - planning|in_development|testing|ready"
+      progress: "FILL_ME - Percentage 0-100"
+      started_at: "FILL_ME - ISO timestamp"
+      target_completion: "FILL_ME - ISO date or null"
+
+# -----------------------------------------------------------------------------
+# DECISIONS
+# -----------------------------------------------------------------------------
+decisions:
+  # Architectural decisions
+  architectural:
+    - id: "DEC-YYYY-MM-DD-ARCH-slug"
+      title: "FILL_ME - Decision title"
+      date: "FILL_ME - ISO date"
+      status: "FILL_ME - proposed|accepted|deprecated|superseded"
+      rationale: "FILL_ME - Why this decision was made"
+
+  # Scope decisions
+  scope:
+    - id: "DEC-YYYY-MM-DD-SCOPE-slug"
+      title: "FILL_ME - Scope decision"
+      date: "FILL_ME - ISO date"
+      status: "FILL_ME - in_scope|out_of_scope|deferred"
+      rationale: "FILL_ME - Reasoning"
+
+  # Technical decisions
+  technical:
+    - id: "DEC-YYYY-MM-DD-TECH-slug"
+      title: "FILL_ME - Technical decision"
+      date: "FILL_ME - ISO date"
+      status: "FILL_ME - proposed|accepted|deprecated"
+      rationale: "FILL_ME - Technical reasoning"
+
+# -----------------------------------------------------------------------------
+# RESEARCH
+# -----------------------------------------------------------------------------
+research:
+  active:
+    - dimension: "FILL_ME - Research dimension name (e.g., AUTHENTICATION)"
+      status: "FILL_ME - in_progress|completed|blocked"
+      file: "FILL_ME - Path to research document (e.g., AUTHENTICATION.md)"
+      started_at: "FILL_ME - ISO timestamp"
+      key_findings: "FILL_ME - Summary of findings or null"
+
+# -----------------------------------------------------------------------------
+# GITHUB SYNC
+# -----------------------------------------------------------------------------
+github_sync:
+  last_sync: "FILL_ME - ISO timestamp or null"
+  branch: "FILL_ME - Current git branch"
+  commit_hash: "FILL_ME - Last commit hash or null"
+  sync_status: "FILL_ME - synced|pending|conflict"
+  pending_changes: "FILL_ME - List of files with uncommitted changes or null"
+
+# -----------------------------------------------------------------------------
+# SYSTEM
+# -----------------------------------------------------------------------------
+system:
+  environment: "FILL_ME - development|staging|production"
+  dependencies_status: "FILL_ME - ok|warning|error"
+  last_health_check: "FILL_ME - ISO timestamp"
+  known_issues: "FILL_ME - List of known issues or null"
+
+# -----------------------------------------------------------------------------
+# TIMELINE
+# -----------------------------------------------------------------------------
+timeline:
+  current_milestone: "FILL_ME - Current milestone ID or null"
+  next_milestone: "FILL_ME - Next milestone ID or null"
+  days_in_current_phase: "FILL_ME - Number or null"
+
+# -----------------------------------------------------------------------------
+# ACTIVITY
+# -----------------------------------------------------------------------------
+activity:
+  last_24h:
+    commits: "FILL_ME - Number or null"
+    files_modified: "FILL_ME - Number or null"
+    tasks_completed: "FILL_ME - Number or null"
+
+  last_7d:
+    commits: "FILL_ME - Number or null"
+    files_modified: "FILL_ME - Number or null"
+    tasks_completed: "FILL_ME - Number or null"
+
+# -----------------------------------------------------------------------------
+# RISKS
+# -----------------------------------------------------------------------------
+risks:
+  active:
+    - id: "RISK-NNN"
+      description: "FILL_ME - Risk description"
+      severity: "FILL_ME - critical|high|medium|low"
+      probability: "FILL_ME - high|medium|low"
+      mitigation: "FILL_ME - Mitigation strategy or null"
+      owner: "FILL_ME - Risk owner or null"
+
+  mitigated:
+    - id: "RISK-NNN"
+      description: "FILL_ME - Risk description"
+      mitigated_at: "FILL_ME - ISO timestamp"
+      mitigation_strategy: "FILL_ME - How it was mitigated"

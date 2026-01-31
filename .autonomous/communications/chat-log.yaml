@@ -1,0 +1,13 @@
+# Chat Log
+# Written by: Both agents
+# Read by: Both agents
+
+messages: []
+
+# Example entry:
+# - id: 1
+#   timestamp: '2026-01-31T20:09:44Z'
+#   from: planner|executor
+#   type: question|answer|discovery|note
+#   content: |
+#     Message content here

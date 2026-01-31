@@ -1,0 +1,19 @@
+# Assumptions: {{RUN_ID}}
+**Started:** {{START_TIME}}
+
+## Verified Assumptions
+
+| Assumption | Confidence | Verified | Notes |
+|------------|------------|----------|-------|
+| [Assumption] | high/medium/low | yes/no | [Notes] |
+
+## Unverified Assumptions
+
+| Assumption | Impact if Wrong | Plan to Verify |
+|------------|-----------------|----------------|
+| [Assumption] | high/medium/low | [How we'll check] |
+
+## Dependencies
+
+- [External dependency 1]
+- [External dependency 2]

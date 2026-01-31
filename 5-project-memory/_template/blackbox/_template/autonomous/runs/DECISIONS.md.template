@@ -1,0 +1,25 @@
+# Decisions: {{RUN_ID}}
+**Started:** {{START_TIME}}
+
+## DEC-001: [Decision Title]
+
+**Context:**
+[What led to this decision]
+
+**Options Considered:**
+1. [Option A] - [pros/cons]
+2. [Option B] - [pros/cons]
+
+**Selected:** [Which option]
+
+**Rationale:**
+[Why this choice]
+
+**Assumptions:**
+- [Assumption 1]
+- [Assumption 2]
+
+**Reversibility:** [yes/no/partial]
+
+---
+

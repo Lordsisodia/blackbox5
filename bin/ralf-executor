@@ -30,69 +30,106 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] [EXECUTOR] $*"
 }
 
-# Update heartbeat
+# Update heartbeat using Python for reliable YAML manipulation
 update_heartbeat() {
     local status="$1"
     local action="${2:-idle}"
-    local tmp_file=$(mktemp)
 
-    cat > "$tmp_file" << EOF
-heartbeats:
-  planner:
-    last_seen: $(yq '.heartbeats.planner.last_seen' "$HEARTBEAT_FILE" 2>/dev/null || echo "null")
-    status: $(yq '.heartbeats.planner.status' "$HEARTBEAT_FILE" 2>/dev/null || echo "unknown")
-    current_action: $(yq '.heartbeats.planner.current_action' "$HEARTBEAT_FILE" 2>/dev/null || echo "null")
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
 
-  executor:
-    last_seen: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-    status: $status
-    current_action: $action
+heartbeat_file = "$HEARTBEAT_FILE"
 
-metadata:
-  timeout_seconds: 120
-  last_updated: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-EOF
+try:
+    with open(heartbeat_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {}
+except FileNotFoundError:
+    data = {}
 
-    mv "$tmp_file" "$HEARTBEAT_FILE"
+if not isinstance(data, dict):
+    data = {}
+if "heartbeats" not in data:
+    data["heartbeats"] = {}
+if "planner" not in data["heartbeats"]:
+    data["heartbeats"]["planner"] = {}
+if "executor" not in data["heartbeats"]:
+    data["heartbeats"]["executor"] = {}
+if "metadata" not in data:
+    data["metadata"] = {}
+
+now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+# Preserve planner data if exists, update executor
+data["heartbeats"]["executor"]["last_seen"] = now
+data["heartbeats"]["executor"]["status"] = "$status"
+data["heartbeats"]["executor"]["current_action"] = "$action"
+
+data["metadata"]["timeout_seconds"] = 120
+data["metadata"]["last_updated"] = now
+
+with open(heartbeat_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
 }
 
-# Add event
+# Add event using Python for reliable YAML manipulation
 add_event() {
     local type="$1"
     local task_id="${2:-}"
-    local data="${3:-}"
+    local data="${3:-null}"
 
-    local tmp_file=$(mktemp)
-    local last_id
-    last_id=$(yq '.metadata.last_event_id' "$EVENTS_FILE" 2>/dev/null || echo "0")
-    local new_id=$((last_id + 1))
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
 
-    # Read current events
-    local current_events
-    current_events=$(yq '.events' "$EVENTS_FILE" 2>/dev/null || echo "[]")
+events_file = "$EVENTS_FILE"
 
-    # Create new event
-    local new_event
-    new_event=$(cat << EOF
-{
-  "id": $new_id,
-  "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-  "type": "$type",
-  "task_id": ${task_id:+"$task_id"},
-  "data": ${data:-null}
+try:
+    with open(events_file, 'r') as f:
+        data_yaml = yaml.safe_load(f)
+        if data_yaml is None:
+            data_yaml = {"events": [], "metadata": {}}
+except FileNotFoundError:
+    data_yaml = {"events": [], "metadata": {}}
+
+if not isinstance(data_yaml, dict):
+    data_yaml = {"events": [], "metadata": {}}
+
+if "events" not in data_yaml:
+    data_yaml["events"] = []
+if "metadata" not in data_yaml:
+    data_yaml["metadata"] = {}
+
+last_id = data_yaml["metadata"].get("last_event_id", 0)
+new_id = last_id + 1
+
+event_data = "$data"
+if event_data == "null" or event_data == "":
+    event_data = None
+
+event = {
+    "id": new_id,
+    "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "type": "$type",
+    "task_id": "$task_id" if "$task_id" else None,
+    "data": event_data
 }
-EOF
-)
 
-    # Write combined (keep only last 100 events)
-    yq -n "
-events: ($current_events + [$new_event]) | .[-100:]
-metadata:
-  last_event_id: $new_id
-  last_updated: \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
-" > "$tmp_file"
+data_yaml["events"].append(event)
+# Keep only last 100 events
+data_yaml["events"] = data_yaml["events"][-100:]
 
-    mv "$tmp_file" "$EVENTS_FILE"
+data_yaml["metadata"]["last_event_id"] = new_id
+data_yaml["metadata"]["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+with open(events_file, 'w') as f:
+    yaml.dump(data_yaml, f, default_flow_style=False, sort_keys=False)
+PYEOF
 }
 
 # Get next task from queue
@@ -100,37 +137,78 @@ get_next_task() {
     yq '.queue | .[0] | select(.status == "pending")' "$QUEUE_FILE" 2>/dev/null
 }
 
-# Claim task (mark as in_progress)
+# Claim task (mark as in_progress) using Python
 claim_task() {
     local task_id="$1"
-    local tmp_file=$(mktemp)
 
-    yq "
-.queue = [.queue[] | select(.id == \"$task_id\") .status = \"in_progress\"] | [.queue[] | select(.id != \"$task_id\")] + [.queue[] | select(.id == \"$task_id\")]
-" "$QUEUE_FILE" > "$tmp_file"
+    python3 << PYEOF
+import yaml
 
-    mv "$tmp_file" "$QUEUE_FILE"
+queue_file = "$QUEUE_FILE"
+
+try:
+    with open(queue_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {"queue": [], "metadata": {}}
+except FileNotFoundError:
+    data = {"queue": [], "metadata": {}}
+
+if not isinstance(data, dict):
+    data = {"queue": [], "metadata": {}}
+if "queue" not in data:
+    data["queue"] = []
+
+# Mark task as in_progress and move to end (so pending tasks are first)
+for task in data["queue"]:
+    if task.get("id") == "$task_id":
+        task["status"] = "in_progress"
+        break
+
+with open(queue_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
+
     log "Claimed task $task_id"
 }
 
-# Remove completed task from queue
+# Remove completed task from queue using Python
 complete_task_in_queue() {
     local task_id="$1"
-    local tmp_file=$(mktemp)
 
-    local current_depth
-    current_depth=$(yq '.queue | length' "$QUEUE_FILE")
+    python3 << PYEOF
+import yaml
+from datetime import datetime, timezone
 
-    yq "
-.queue = [.queue[] | select(.id != \"$task_id\")]
-metadata:
-  last_updated: \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
-  updated_by: executor
-  queue_depth_target: 5
-  current_depth: $((current_depth - 1))
-" "$QUEUE_FILE" > "$tmp_file"
+queue_file = "$QUEUE_FILE"
 
-    mv "$tmp_file" "$QUEUE_FILE"
+try:
+    with open(queue_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {"queue": [], "metadata": {}}
+except FileNotFoundError:
+    data = {"queue": [], "metadata": {}}
+
+if not isinstance(data, dict):
+    data = {"queue": [], "metadata": {}}
+if "queue" not in data:
+    data["queue"] = []
+if "metadata" not in data:
+    data["metadata"] = {}
+
+# Remove task with matching id
+data["queue"] = [t for t in data["queue"] if t.get("id") != "$task_id"]
+
+# Update metadata
+data["metadata"]["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+data["metadata"]["updated_by"] = "executor"
+data["metadata"]["queue_depth_target"] = 5
+data["metadata"]["current_depth"] = len(data["queue"])
+
+with open(queue_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
 }
 
 # Mark task complete in STATE.yaml
@@ -294,7 +372,7 @@ main() {
             mark_task_complete "$task_id" "$commit_hash" "success"
 
             # Report completed
-            add_event "completed" "$task_id" "{\"commit_hash\": \"$commit_hash\"}"
+            add_event "completed" "$task_id" "success"
 
             current_task=""
             log "Task $task_id complete"

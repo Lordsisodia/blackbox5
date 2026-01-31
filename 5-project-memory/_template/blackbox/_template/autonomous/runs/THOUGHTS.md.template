@@ -1,0 +1,23 @@
+# Run: {{RUN_ID}}
+**Started:** {{START_TIME}}
+**Agent:** {{AGENT_TYPE}}
+
+## Initial Assessment
+
+[What are we doing and why?]
+
+## Context Gathered
+
+[What files/context were loaded?]
+
+## Reasoning Process
+
+[Step-by-step thinking]
+
+## Key Decisions Made
+
+[Critical choices during execution]
+
+## Open Questions
+
+[Anything that needs clarification]

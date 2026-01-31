@@ -1,0 +1,19 @@
+# Task Queue
+# Written by: Planner
+# Read by: Executor
+
+queue: []
+
+# Example entry:
+# - id: TASK-ANALYSIS-1769890182
+#   type: analyze|implement|test|refactor|docs
+#   title: Brief task description
+#   priority: critical|high|medium|low
+#   estimated_minutes: 30
+#   context_level: 1|2|3
+#   approach: |
+#     Step-by-step approach
+#   status: pending|in_progress|completed|failed|blocked
+#   added_at: '2026-01-31T20:09:44Z'
+#   started_at: null
+#   completed_at: null

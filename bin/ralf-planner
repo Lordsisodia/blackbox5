@@ -26,30 +26,50 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] [PLANNER] $*"
 }
 
-# Update heartbeat
+# Update heartbeat using Python for reliable YAML manipulation
 update_heartbeat() {
     local status="$1"
     local action="${2:-idle}"
-    local tmp_file=$(mktemp)
 
-    cat > "$tmp_file" << EOF
-heartbeats:
-  planner:
-    last_seen: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-    status: $status
-    current_action: $action
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
 
-  executor:
-    last_seen: $(yq '.heartbeats.executor.last_seen' "$HEARTBEAT_FILE" 2>/dev/null || echo "null")
-    status: $(yq '.heartbeats.executor.status' "$HEARTBEAT_FILE" 2>/dev/null || echo "unknown")
-    current_action: $(yq '.heartbeats.executor.current_action' "$HEARTBEAT_FILE" 2>/dev/null || echo "null")
+heartbeat_file = "$HEARTBEAT_FILE"
 
-metadata:
-  timeout_seconds: 120
-  last_updated: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-EOF
+try:
+    with open(heartbeat_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {}
+except FileNotFoundError:
+    data = {}
 
-    mv "$tmp_file" "$HEARTBEAT_FILE"
+if not isinstance(data, dict):
+    data = {}
+if "heartbeats" not in data:
+    data["heartbeats"] = {}
+if "planner" not in data["heartbeats"]:
+    data["heartbeats"]["planner"] = {}
+if "executor" not in data["heartbeats"]:
+    data["heartbeats"]["executor"] = {}
+if "metadata" not in data:
+    data["metadata"] = {}
+
+now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+data["heartbeats"]["planner"]["last_seen"] = now
+data["heartbeats"]["planner"]["status"] = "$status"
+data["heartbeats"]["planner"]["current_action"] = "$action"
+
+# Preserve executor data if exists
+data["metadata"]["timeout_seconds"] = 120
+data["metadata"]["last_updated"] = now
+
+with open(heartbeat_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
 }
 
 # Get current queue depth
@@ -68,7 +88,7 @@ read_chat() {
     yq '.messages' "$CHAT_FILE" 2>/dev/null || echo "[]"
 }
 
-# Add task to queue
+# Add task to queue using Python for reliable YAML manipulation
 add_to_queue() {
     local task_id="$1"
     local task_type="$2"
@@ -77,40 +97,53 @@ add_to_queue() {
     local estimated="$5"
     local approach="$6"
 
-    local tmp_file=$(mktemp)
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
 
-    # Read current queue
-    local current_queue
-    current_queue=$(yq '.queue' "$QUEUE_FILE" 2>/dev/null || echo "[]")
+queue_file = "$QUEUE_FILE"
+queue_target = $QUEUE_TARGET
 
-    # Create new task
-    local new_task
-    new_task=$(cat << EOF
-{
-  "id": "$task_id",
-  "type": "$task_type",
-  "title": "$title",
-  "priority": "$priority",
-  "estimated_minutes": $estimated,
-  "context_level": 2,
-  "approach": "$approach",
-  "status": "pending",
-  "added_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+task = {
+    "id": "$task_id",
+    "type": "$task_type",
+    "title": "$title",
+    "priority": "$priority",
+    "estimated_minutes": $estimated,
+    "context_level": 2,
+    "approach": "$approach",
+    "status": "pending",
+    "added_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 }
-EOF
-)
 
-    # Combine and write
-    yq -n "
-queue: $current_queue + [$new_task]
-metadata:
-  last_updated: \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
-  updated_by: planner
-  queue_depth_target: $QUEUE_TARGET
-  current_depth: $(($(get_queue_depth) + 1))
-" > "$tmp_file"
+try:
+    with open(queue_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {"queue": [], "metadata": {}}
+except FileNotFoundError:
+    data = {"queue": [], "metadata": {}}
 
-    mv "$tmp_file" "$QUEUE_FILE"
+if not isinstance(data, dict):
+    data = {"queue": [], "metadata": {}}
+if "queue" not in data:
+    data["queue"] = []
+if "metadata" not in data:
+    data["metadata"] = {}
+
+data["queue"].append(task)
+data["metadata"]["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+data["metadata"]["updated_by"] = "planner"
+data["metadata"]["queue_depth_target"] = queue_target
+data["metadata"]["current_depth"] = len(data["queue"])
+
+with open(queue_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+
+print(f"Added task $task_id to queue")
+PYEOF
+
     log "Added task $task_id to queue"
 }
 

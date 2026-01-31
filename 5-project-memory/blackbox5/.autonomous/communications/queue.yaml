@@ -1,12 +1,129 @@
-# Task Queue
-# Written by: Planner
-# Read by: Executor
-# =============================================================================
-
-queue: []
+queue:
+  - id: TASK-ANALYSIS-1769891364
+    type: analyze
+    title: Analyze codebase for next priorities
+    priority: medium
+    estimated_minutes: 30
+    context_level: 2
+    approach: Read STATE.yaml, goals.yaml, recent runs. Identify highest priority work.
+    status: completed
+    added_at: '2026-01-31T20:29:24Z'
+    completed_at: '2026-02-01T04:35:00Z'
+  - id: TASK-1769892000
+    type: analyze
+    title: Analyze 47 completed runs for patterns and insights
+    priority: high
+    estimated_minutes: 45
+    context_level: 3
+    approach: |
+      Read the 47 completed runs in runs/completed/. Analyze patterns in:
+      1. What types of tasks were completed
+      2. Common failure modes or blockers
+      3. Recurring themes in LEARNINGS.md files
+      4. Velocity trends and task completion times
+      Write findings to knowledge/analysis/run-patterns-20260201.md
+    files_to_modify:
+      - knowledge/analysis/run-patterns-20260201.md
+    acceptance_criteria:
+      - Analysis document created with pattern findings
+      - At least 3 recurring themes identified
+      - Recommendations for system improvement documented
+    dependencies: []
+    added_at: '2026-02-01T04:30:00Z'
+    completed_at: '2026-02-01T04:40:00Z'
+    status: completed
+  - id: TASK-1769892001
+    type: implement
+    title: Create skill usage tracking system
+    priority: high
+    estimated_minutes: 60
+    context_level: 2
+    approach: |
+      Based on goals.yaml IG-004 (Optimize Skill Usage), create a system to track skill usage.
+      Create a YAML file at operations/skill-usage.yaml that tracks:
+      - Skill name
+      - Usage count
+      - Last used timestamp
+      - Success rate
+      - Average execution time
+    files_to_modify:
+      - operations/skill-usage.yaml
+    acceptance_criteria:
+      - Skill tracking YAML file created with proper schema
+      - Documentation on how to update the tracking
+      - Initial data for existing skills populated
+    dependencies: []
+    added_at: '2026-02-01T04:30:00Z'
+    status: pending
+  - id: TASK-1769892002
+    type: analyze
+    title: Review and improve CLAUDE.md decision framework
+    priority: medium
+    estimated_minutes: 40
+    context_level: 3
+    approach: |
+      Based on goals.yaml IG-001, analyze the current CLAUDE.md decision framework.
+      Read ~/.claude/CLAUDE.md and identify:
+      1. Ambiguous decision points
+      2. Missing examples
+      3. Context threshold tuning opportunities
+      Write recommendations to knowledge/analysis/claude-md-improvements.md
+    files_to_modify:
+      - knowledge/analysis/claude-md-improvements.md
+    acceptance_criteria:
+      - Analysis document created with specific improvement recommendations
+      - At least 3 concrete changes proposed
+      - Examples provided for ambiguous sections
+    dependencies: []
+    added_at: '2026-02-01T04:30:00Z'
+    status: pending
+  - id: TASK-1769892003
+    type: organize
+    title: Archive old runs and update run lifecycle
+    priority: medium
+    estimated_minutes: 30
+    context_level: 2
+    approach: |
+      Based on STATE.yaml runs section, organize the 47 completed runs.
+      1. Identify runs ready for archiving (already analyzed)
+      2. Move appropriate runs from completed/ to archived/
+      3. Update STATE.yaml with new counts
+      4. Ensure runs follow the lifecycle: active → completed → archived
+    files_to_modify:
+      - STATE.yaml
+    acceptance_criteria:
+      - Old runs moved to archived/
+      - STATE.yaml run counts updated
+      - Run lifecycle properly documented
+    dependencies: []
+    added_at: '2026-02-01T04:30:00Z'
+    status: pending
+  - id: TASK-1769892004
+    type: implement
+    title: Implement pre-execution validation system
+    priority: high
+    estimated_minutes: 45
+    context_level: 2
+    approach: |
+      Based on run-patterns-20260201.md findings, create a pre-execution validation system.
+      Create operations/validation-checklist.yaml with checks for:
+      1. Duplicate task detection (search completed/)
+      2. Assumption validation requirements
+      3. Target path existence verification
+      4. State freshness check
+    files_to_modify:
+      - operations/validation-checklist.yaml
+    acceptance_criteria:
+      - Validation checklist YAML created with all 4 checks
+      - Integration guide for Executor to use checklist
+      - Example validation output format
+    dependencies: []
+    added_at: '2026-02-01T04:45:00Z'
+    status: pending
 
 metadata:
-  last_updated: null
-  updated_by: null
+  last_updated: '2026-02-01T04:45:00Z'
+  updated_by: planner
   queue_depth_target: 5
-  current_depth: 0
+  current_depth: 5
+  last_completed: TASK-1769892000

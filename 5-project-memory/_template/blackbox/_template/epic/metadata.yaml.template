@@ -1,0 +1,28 @@
+plan:
+  feature: "FILL_ME"
+  type: "epic"
+  status: "FILL_ME"
+
+created:
+  date: "FILL_ME"
+  by: "FILL_ME"
+  version: "1.0"
+
+epic:
+  technical_decisions: 0
+  components: 0
+  dependencies: []
+
+task:
+  id: "FILL_ME"
+  parallel: true
+  effort_hours: 0
+
+content_files: []
+
+progress:
+  complete: 0
+  total: 0
+  percentage: 0
+
+next_steps: []
