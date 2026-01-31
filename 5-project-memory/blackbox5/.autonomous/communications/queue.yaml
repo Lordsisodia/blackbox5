@@ -122,10 +122,79 @@ queue:
     added_at: '2026-02-01T04:45:00Z'
     completed_at: '2026-02-01T05:15:00Z'
     status: completed
+  - id: TASK-1769893001
+    type: implement
+    title: Integrate skill usage tracking into execution flow
+    priority: high
+    estimated_minutes: 60
+    context_level: 2
+    approach: |
+      Add hooks to update operations/skill-usage.yaml during skill execution.
+      Identify where skills are invoked in LEGACY.md/Executor flow and add:
+      1. Pre-execution: Note skill name, start time
+      2. Post-execution: Update usage_count, last_used, success
+      3. Post-task: Update skill-usage.yaml with collected metrics
+    files_to_modify:
+      - operations/skill-usage.yaml
+      - ~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md
+    acceptance_criteria:
+      - skill-usage.yaml update mechanism documented
+      - At least 5 skills show usage data > 0
+      - Integration points identified in LEGACY.md
+    dependencies: []
+    added_at: '2026-02-01T05:30:00Z'
+    status: pending
+  - id: TASK-1769893002
+    type: organize
+    title: Sync STATE.yaml with recent completed work
+    priority: medium
+    estimated_minutes: 30
+    context_level: 1
+    approach: |
+      Update STATE.yaml to reflect:
+      1. Add operations/skill-usage.yaml to files
+      2. Add operations/validation-checklist.yaml to files
+      3. Update improvement_metrics with new analyses
+      4. Refresh last_updated timestamp
+      5. Document any state drift discovered
+    files_to_modify:
+      - STATE.yaml
+    acceptance_criteria:
+      - STATE.yaml includes skill-usage.yaml and validation-checklist.yaml
+      - Improvement metrics updated with 3 new analyses
+      - State drift (if any) documented
+      - Last_updated timestamp current
+    dependencies: []
+    added_at: '2026-02-01T05:30:00Z'
+    status: pending
+  - id: TASK-1769893003
+    type: analyze
+    title: Test and validate validation-checklist.yaml
+    priority: high
+    estimated_minutes: 45
+    context_level: 2
+    approach: |
+      Execute each check in validation-checklist.yaml against a sample task:
+      1. CHECK-001: Test duplicate detection with known completed task
+      2. CHECK-002: Verify assumption validation logic
+      3. CHECK-003: Test path verification with real file paths
+      4. CHECK-004: Validate state freshness check accuracy
+      Document results, issues found, fixes needed.
+    files_to_modify:
+      - knowledge/analysis/validation-testing-20260201.md
+      - operations/validation-checklist.yaml
+    acceptance_criteria:
+      - All 4 checks tested and documented
+      - Real usage example created
+      - Any issues fixed or documented
+      - Executor integration guide verified
+    dependencies: []
+    added_at: '2026-02-01T05:30:00Z'
+    status: pending
 
 metadata:
-  last_updated: '2026-02-01T05:15:00Z'
-  updated_by: executor
+  last_updated: '2026-02-01T05:30:00Z'
+  updated_by: planner
   queue_depth_target: 5
   current_depth: 5
   last_completed: TASK-1769892004
