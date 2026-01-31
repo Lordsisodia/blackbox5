@@ -35,31 +35,31 @@ skills:
   - skill_id: bmad-pm
     name: "Product Manager (John)"
     category: agent
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 2
+    last_used: "2026-02-01T04:30:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 180.5
+    last_status: success
     notes: "PRD creation and requirements gathering"
 
   - skill_id: bmad-architect
     name: "Architect (Winston)"
     category: agent
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 1
+    last_used: "2026-02-01T04:35:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 245.0
+    last_status: success
     notes: "System design and ADRs"
 
   - skill_id: bmad-analyst
     name: "Business Analyst (Mary)"
     category: agent
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 3
+    last_used: "2026-02-01T04:40:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 320.0
+    last_status: success
     notes: "Research and analysis"
 
   - skill_id: bmad-sm
@@ -85,11 +85,11 @@ skills:
   - skill_id: bmad-dev
     name: "Developer (Amelia)"
     category: agent
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 1
+    last_used: "2026-02-01T05:00:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 420.0
+    last_status: success
     notes: "Implementation and coding"
 
   - skill_id: bmad-qa
@@ -125,11 +125,11 @@ skills:
   - skill_id: bmad-planning
     name: "Planning Agent"
     category: agent
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 1
+    last_used: "2026-02-01T04:30:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 150.0
+    last_status: success
     notes: "Task breakdown and organization"
 
   # Protocol & Framework Skills
@@ -146,42 +146,42 @@ skills:
   - skill_id: continuous-improvement
     name: "Continuous Improvement"
     category: protocol
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 1
+    last_used: "2026-02-01T04:40:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 95.0
+    last_status: success
     notes: "Systematic self-improvement"
 
   - skill_id: run-initialization
     name: "Run Initialization"
     category: protocol
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 5
+    last_used: "2026-02-01T05:00:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 12.0
+    last_status: success
     notes: "Run setup and documentation"
 
   # Utility Skills
   - skill_id: web-search
     name: "Web Search"
     category: utility
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 2
+    last_used: "2026-02-01T04:30:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 8.5
+    last_status: success
     notes: "Web search via SearXNG"
 
   - skill_id: codebase-navigation
     name: "Codebase Navigation"
     category: utility
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 4
+    last_used: "2026-02-01T05:15:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 45.0
+    last_status: success
     notes: "Navigate and understand codebases"
 
   - skill_id: supabase-operations
@@ -198,41 +198,41 @@ skills:
   - skill_id: truth-seeking
     name: "Truth Seeking"
     category: core
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 5
+    last_used: "2026-02-01T05:15:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 18.5
+    last_status: success
     notes: "Validate assumptions and verify facts"
 
   - skill_id: git-commit
     name: "Git Commit"
     category: core
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 5
+    last_used: "2026-02-01T05:15:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 15.0
+    last_status: success
     notes: "Safely commit changes to git"
 
   - skill_id: task-selection
     name: "Task Selection"
     category: core
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 5
+    last_used: "2026-02-01T05:30:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 5.0
+    last_status: success
     notes: "Select next task from STATE.yaml"
 
   - skill_id: state-management
     name: "State Management"
     category: core
-    usage_count: 0
-    last_used: null
-    success_rate: null
-    avg_execution_time_seconds: null
-    last_status: null
+    usage_count: 4
+    last_used: "2026-02-01T05:00:00Z"
+    success_rate: 100.0
+    avg_execution_time_seconds: 22.0
+    last_status: success
     notes: "Update STATE.yaml with progress"
 
   # Infrastructure Skills
@@ -267,24 +267,154 @@ skills:
     notes: "Control Legacy agents in K8s"
 
 # -----------------------------------------------------------------------------
-# USAGE GUIDE FOR INTEGRATION
+# RALF-EXECUTOR INTEGRATION GUIDE
 # -----------------------------------------------------------------------------
 #
-# How to Update Tracking:
-# ----------------------
+# The Executor updates skill-usage.yaml during task execution at these points:
 #
-# 1. Before Skill Execution:
-#    - Note the start time
-#    - Record which skill is being invoked
+# === INTEGRATION POINT 1: PRE-EXECUTION ===
+# Location: Executor Step 3 - "Execute ONE Task"
 #
-# 2. After Skill Execution:
-#    - Increment usage_count by 1
-#    - Update last_used to current timestamp
-#    - Update last_status (success/failed/partial)
-#    - Recalculate success_rate: (success_count / total_count) * 100
-#    - Update avg_execution_time_seconds with new timing
+# Before invoking a skill, Executor should:
+# 1. Note: skill_name, start_time (ISO timestamp)
+# 2. Store temporarily in memory for post-execution update
 #
-# 3. Example Update (Python/Manual):
+# Example tracking variables:
+#   ACTIVE_SKILL="bmad-pm"
+#   SKILL_START_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+#
+# === INTEGRATION POINT 2: POST-EXECUTION ===
+# Location: After skill invocation completes
+#
+# After skill completes, update the tracking data:
+# 1. Calculate execution_time = (end_time - start_time) in seconds
+# 2. Determine result status (success/failed/partial)
+# 3. Apply update to skill-usage.yaml:
+#    - usage_count += 1
+#    - last_used = end_time
+#    - last_status = result_status
+#    - Recalculate success_rate
+#    - Update avg_execution_time_seconds (rolling average)
+#
+# === INTEGRATION POINT 3: COMMIT-LEVEL ===
+# Location: Executor Step 4 - "Document and Complete"
+#
+# When committing work, include updated skill-usage.yaml:
+# git add operations/skill-usage.yaml
+# git commit -m "executor: [timestamp] [TASK-ID] - Update skill usage metrics"
+#
+# === YAML UPDATE FORMULA ===
+#
+# Given:
+#   - current_usage_count = N
+#   - current_success_count = M (derived from current_success_rate)
+#   - current_avg_time = T
+#   - new_execution_time = t_new
+#   - new_status = "success" | "failed" | "partial"
+#
+# Update:
+#   usage_count: N + 1
+#   last_used: "[current ISO timestamp]"
+#   last_status: new_status
+#   success_rate: ((M + (1 if new_status=="success" else 0)) / (N + 1)) * 100
+#   avg_execution_time_seconds: ((T * N) + t_new) / (N + 1)
+#
+# === INTEGRATION POINT 4: RALF-PLANNER ANALYSIS ===
+# Location: Periodic analysis (IG-004 optimization)
+#
+# Planner reads skill-usage.yaml to:
+# 1. Identify underutilized high-value skills
+# 2. Detect failing skills needing replacement
+# 3. Optimize task routing to best-suited skills
+# 4. Remove stale unused skills (> 90 days inactivity)
+#
+# === BASH/SED INTEGRATION EXAMPLE ===
+#
+# # Pre-execution
+# SKILL_ID="bmad-pm"
+# START_TIME=$(date +%s)
+#
+# # ... skill execution happens ...
+#
+# # Post-execution
+# END_TIME=$(date +%s)
+# ELAPSED=$((END_TIME - START_TIME))
+# STATUS="success"  # or "failed" or "partial"
+# TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+#
+# # Update YAML (using yq or Python)
+# yq eval ".skills[] | select(.skill_id == \"$SKILL_ID\") |
+#   .usage_count += 1 |
+#   .last_used = \"$TIMESTAMP\" |
+#   .last_status = \"$STATUS\"" \
+#   -i operations/skill-usage.yaml
+#
+# === PYTHON INTEGRATION EXAMPLE ===
+#
+# import yaml
+# from datetime import datetime
+#
+# def update_skill_usage(skill_id: str, status: str, exec_time: float):
+#     with open('operations/skill-usage.yaml') as f:
+#         data = yaml.safe_load(f)
+#
+#     for skill in data['skills']:
+#         if skill['skill_id'] == skill_id:
+#             old_count = skill['usage_count']
+#             old_avg = skill['avg_execution_time_seconds'] or 0
+#
+#             skill['usage_count'] = old_count + 1
+#             skill['last_used'] = datetime.utcnow().isoformat() + 'Z'
+#             skill['last_status'] = status
+#
+#             # Recalculate average
+#             if old_count > 0:
+#                 skill['avg_execution_time_seconds'] = (
+#                     (old_avg * old_count) + exec_time
+#                 ) / (old_count + 1)
+#             else:
+#                 skill['avg_execution_time_seconds'] = exec_time
+#
+#             # Update success rate
+#             old_success = int((skill['success_rate'] or 0) * old_count / 100)
+#             new_success = old_success + (1 if status == 'success' else 0)
+#             skill['success_rate'] = (new_success / (old_count + 1)) * 100
+#             break
+#
+#     with open('operations/skill-usage.yaml', 'w') as f:
+#         yaml.dump(data, f, sort_keys=False)
+#
+# # Usage:
+# update_skill_usage('bmad-pm', 'success', 45.2)
+#
+# -----------------------------------------------------------------------------
+# LEGACY SYSTEM INTEGRATION
+# -----------------------------------------------------------------------------
+#
+# For Legacy autonomous build system (5-project-memory/siso-internal/.Autonomous/):
+#
+# Integration Points:
+# 1. Skill Discovery Process (Step 4) - Record skill selection
+# 2. Skill Invocation Format - Track direct/triggered/self invocations
+# 3. THOUGHTS.md logging - Include skill usage metrics
+# 4. Run Completion - Aggregate skill usage from run to master tracking
+#
+# Legacy adds tracking in THOUGHTS.md:
+#   ## Skill Usage This Run
+#   - Skills invoked: 5
+#   - Most used: code-implementation (3 times)
+#   - Total skill time: 245 seconds
+#
+# -----------------------------------------------------------------------------
+# USAGE GUIDE FOR MANUAL UPDATES
+# -----------------------------------------------------------------------------
+#
+# 1. Analyzing Usage:
+#    - Low usage_count + high success_rate = Underutilized good skill
+#    - High usage_count + low success_rate = Needs tuning or replacement
+#    - Null last_used (older than 30 days) = Candidate for removal
+#
+# 2. Example Manual Update:
 #    ```yaml
 #    # Find skill by skill_id
 #    # Update fields:
@@ -294,10 +424,5 @@ skills:
 #    avg_execution_time_seconds: 45.2
 #    last_status: "success"
 #    ```
-#
-# 4. Analyzing Usage:
-#    - Low usage_count + high success_rate = Underutilized good skill
-#    - High usage_count + low success_rate = Needs tuning or replacement
-#    - Null last_used (older than 30 days) = Candidate for removal
 #
 # -----------------------------------------------------------------------------

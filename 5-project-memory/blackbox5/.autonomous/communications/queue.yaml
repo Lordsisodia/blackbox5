@@ -143,7 +143,8 @@ queue:
       - Integration points identified in LEGACY.md
     dependencies: []
     added_at: '2026-02-01T05:30:00Z'
-    status: pending
+    completed_at: '2026-02-01T05:30:00Z'
+    status: completed
   - id: TASK-1769893002
     type: organize
     title: Sync STATE.yaml with recent completed work

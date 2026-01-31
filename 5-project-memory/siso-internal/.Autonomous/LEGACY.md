@@ -109,6 +109,9 @@ Command: validate-assumption
 Input:
   statement: "The database uses UUIDs"
   required_confidence: 70
+
+[INTEGRATION HOOK: Track usage_start_time before invocation]
+[INTEGRATION HOOK: Update skill-usage.yaml after completion]
 ```
 
 ### Triggered Invocation
@@ -120,6 +123,9 @@ Task: "Implement user authentication"
 → Input:
     story_file: "stories/auth.md"
     task_id: "LEGACY-2026-01-30-001"
+
+[INTEGRATION HOOK: Record skill_id, start_time]
+[INTEGRATION HOOK: Calculate execution_time, update metrics]
 ```
 
 ### Self-Invocation (Skills calling skills)
@@ -129,6 +135,8 @@ code-implementation needs validation:
 → Invokes skill:truth-seeking (core, already loaded)
 → Command: validate-assumption
 → Input: "This approach matches project patterns"
+
+[INTEGRATION HOOK: Nested skill tracking - child skill inherits parent task context]
 ```
 
 ---
@@ -138,6 +146,7 @@ code-implementation needs validation:
 1. **Initialize Run**
    → Using skill:run-initialization
    → Create `runs/run-NNNN/` with documentation
+   → Initialize empty SKILL-USAGE.md
 
 2. **Select Task**
    → Using skill:task-selection
@@ -151,11 +160,13 @@ code-implementation needs validation:
    → Analyze task for triggers
    → Load triggered skills on-demand
    → Document selection reasoning
+   → **[TRACKING]** Record skill name, start_time
 
 5. **Execute with Validation**
    → Using loaded skills
    → Validate assumptions with skill:truth-seeking
    → Self-correct every 3 steps
+   → **[TRACKING]** After each skill, record execution_time, status
 
 6. **Document Everything**
    → THOUGHTS.md: Reasoning and decisions
@@ -163,11 +174,13 @@ code-implementation needs validation:
    → ASSUMPTIONS.md: What was validated
    → LEARNINGS.md: What was discovered
    → VALIDATIONS.md: Validation log
+   → SKILL-USAGE.md: Skill metrics for this run
 
 7. **Commit Work**
    → Using skill:git-commit
    → Commit to dev branch
    → Get commit hash
+   → **[TRACKING]** Include SKILL-USAGE.md in commit
 
 8. **Update State**
    → Using skill:state-management
@@ -175,6 +188,7 @@ code-implementation needs validation:
    → Record commit hash
    → Set next_action
    → Update metrics
+   → **[TRACKING]** Update ../../operations/skill-usage.yaml with run data
 
 9. **Complete or Continue**
    → If more tasks: Go to step 2
@@ -222,8 +236,32 @@ runs/[status]/run-NNNN/
 ├── ASSUMPTIONS.md     # What you verified
 ├── LEARNINGS.md       # What you discovered
 ├── VALIDATIONS.md     # Validation log
+├── SKILL-USAGE.md     # Skill usage metrics for this run (NEW)
 └── loaded-skills/     # Skills used this run
     └── {skill-name}.yaml
+```
+
+### SKILL-USAGE.md Template
+
+```markdown
+# Skill Usage - Run NNNN
+
+## Skills Invoked
+
+| Skill ID | Count | Total Time (s) | Status | Notes |
+|----------|-------|----------------|--------|-------|
+| truth-seeking | 3 | 12.5 | success | Assumption validation |
+| code-implementation | 1 | 245.0 | success | Main implementation |
+| git-commit | 1 | 8.2 | success | Committed changes |
+
+## Summary
+- Total skills invoked: 5
+- Most used skill: truth-seeking (3 times)
+- Total skill execution time: 265.7s
+- Success rate: 100%
+
+## Integration Update
+After run completion, update ../../operations/skill-usage.yaml with aggregated data.
 ```
 
 ---
