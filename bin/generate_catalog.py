@@ -90,7 +90,7 @@ class CatalogGenerator:
                         "description": docstring or "",
                         "category": "core" if node.name in ["ArchitectAgent", "AnalystAgent", "DeveloperAgent"] else "specialist"
                     })
-        except:
+        except (SyntaxError, ValueError, IOError):
             pass
 
     def _parse_yaml_agent(self, file_path: Path):

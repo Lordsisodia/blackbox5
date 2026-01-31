@@ -54,7 +54,7 @@ def is_running(url):
     try:
         response = requests.get(f"{url}/health", timeout=2)
         return response.status_code == 200
-    except:
+    except requests.RequestException:
         return False
 
 
