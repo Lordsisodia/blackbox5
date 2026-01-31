@@ -38,8 +38,6 @@ RUNS_DIR="$PROJECT_DIR/runs/executor"
 # Logging
 LOG_FILE="$PROJECT_DIR/.autonomous/executor-v2.log"
 RUN_COUNTER=0
-IDLE_START=""
-IDLE_TIMEOUT=300  # 5 minutes
 
 log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] [EXECUTOR-v2] $*" | tee -a "$LOG_FILE"
@@ -150,9 +148,9 @@ Engine Directory: $ENGINE_DIR
 ## YOUR TASK
 
 Execute ONE execution iteration:
-1. Read queue.yaml to find pending tasks
-2. If task available: Claim it, execute it, document it, commit it
-3. If no task: Report idle status
+1. Check tasks/active/ for pending tasks
+2. If task available: Claim it, execute it, document it, commit it, move to completed/
+3. If no tasks: Find work - check feedback/, analyze runs/, organize insights/
 4. Write your THOUGHTS.md, RESULTS.md, DECISIONS.md to the run directory
 5. Update events.yaml and heartbeat.yaml
 6. Signal completion (COMPLETE, RETRY, BLOCKED, FAILED, or PARTIAL)
@@ -205,27 +203,6 @@ main() {
 
         # Run Claude
         run_claude "$run_dir"
-
-        # Check for idle timeout
-        if grep -q "<promise>COMPLETE</promise>" "$LOG_FILE" 2>/dev/null || \
-           grep -q "No tasks available" "$LOG_FILE" 2>/dev/null; then
-            if [[ -z "$IDLE_START" ]]; then
-                IDLE_START=$(date +%s)
-                log "No tasks, starting idle timer"
-            else
-                local idle_time
-                idle_time=$(($(date +%s) - IDLE_START))
-                log "Idle for ${idle_time}s"
-
-                if [[ "$idle_time" -gt "$IDLE_TIMEOUT" ]]; then
-                    log "Idle timeout reached, exiting"
-                    update_heartbeat "stopped" "idle_timeout"
-                    exit 0
-                fi
-            fi
-        else
-            IDLE_START=""
-        fi
 
         # Update heartbeat
         update_heartbeat "running" "sleeping"
