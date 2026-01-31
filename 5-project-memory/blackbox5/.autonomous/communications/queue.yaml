@@ -144,7 +144,8 @@ queue:
       - Recommendations for context gathering optimization
     dependencies: []
     added_at: '2026-02-01T06:00:00Z'
-    status: pending
+    completed_at: '2026-02-01T07:30:00Z'
+    status: completed
   - id: TASK-1769892006
     type: analyze
     title: Audit documentation freshness
@@ -169,10 +170,50 @@ queue:
     dependencies: []
     added_at: '2026-02-01T06:00:00Z'
     status: pending
+  - id: TASK-1769895000
+    type: implement
+    title: Implement context gathering optimization
+    priority: high
+    estimated_minutes: 50
+    context_level: 2
+    approach: |
+      Implement context gathering optimization from project-relationships.md.
+      Add automatic routes.yaml reading, project-map.yaml reference,
+      and path validation to reduce 'missed file' errors.
+    files_to_modify:
+      - operations/context-gathering.yaml
+      - operations/.docs/context-gathering-guide.md
+    acceptance_criteria:
+      - Context gathering configuration created
+      - Cross-project task detection implemented
+      - Documentation created
+    dependencies:
+      - TASK-1769892005
+    added_at: '2026-02-01T08:00:00Z'
+    status: pending
+  - id: TASK-1769895001
+    type: analyze
+    title: Optimize LEGACY.md operational procedures
+    priority: medium
+    estimated_minutes: 40
+    context_level: 3
+    approach: |
+      Analyze LEGACY.md for friction points and inefficiencies.
+      Focus on skill discovery, quality gates, and run initialization.
+      Create specific recommendations for optimization.
+    files_to_modify:
+      - knowledge/analysis/legacy-md-optimization.md
+    acceptance_criteria:
+      - Analysis document created
+      - At least 3 friction points identified
+      - Concrete optimization recommendations provided
+    dependencies: []
+    added_at: '2026-02-01T08:05:00Z'
+    status: pending
 
 metadata:
-  last_updated: '2026-02-01T06:30:00Z'
+  last_updated: '2026-02-01T08:10:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 7
-  last_completed: TASK-1769892001
+  current_depth: 5
+  last_completed: TASK-1769892005
