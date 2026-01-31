@@ -169,8 +169,8 @@ queue:
     status: pending
 
 metadata:
-  last_updated: '2026-02-01T04:45:00Z'
+  last_updated: '2026-02-01T06:00:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 5
+  current_depth: 7
   last_completed: TASK-1769892000
