@@ -1,0 +1,303 @@
+# Skill Usage Tracking
+# =============================================================================
+# Purpose: Track skill usage for optimization (IG-004)
+# Updated: 2026-02-01
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# METADATA
+# -----------------------------------------------------------------------------
+metadata:
+  version: "1.0.0"
+  last_updated: "2026-02-01T05:00:00Z"
+  updated_by: "RALF-Executor"
+  description: "Track skill usage frequency, success rates, and performance"
+
+# -----------------------------------------------------------------------------
+# SKILL METRICS
+# -----------------------------------------------------------------------------
+#
+# Schema:
+#   - skill_id: Unique identifier matching folder name
+#   - name: Display name
+#   - category: agent|protocol|utility|infrastructure|core
+#   - usage_count: Total times skill has been invoked
+#   - last_used: ISO timestamp of most recent use
+#   - success_rate: Percentage (0-100) of successful executions
+#   - avg_execution_time_seconds: Average time to complete
+#   - last_status: success|failed|partial
+#   - notes: Any observations or issues
+#
+# -----------------------------------------------------------------------------
+
+skills:
+  # BMAD Agent Skills
+  - skill_id: bmad-pm
+    name: "Product Manager (John)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "PRD creation and requirements gathering"
+
+  - skill_id: bmad-architect
+    name: "Architect (Winston)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "System design and ADRs"
+
+  - skill_id: bmad-analyst
+    name: "Business Analyst (Mary)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Research and analysis"
+
+  - skill_id: bmad-sm
+    name: "Scrum Master (Bob)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Process and coordination"
+
+  - skill_id: bmad-ux
+    name: "UX Designer (Sally)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "User experience and design"
+
+  - skill_id: bmad-dev
+    name: "Developer (Amelia)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Implementation and coding"
+
+  - skill_id: bmad-qa
+    name: "QA Engineer (Quinn)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Testing and quality"
+
+  - skill_id: bmad-tea
+    name: "Test Architect (TEA)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Test strategy and infrastructure"
+
+  - skill_id: bmad-quick-flow
+    name: "Solo Developer (Barry)"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Fast path for simple tasks"
+
+  - skill_id: bmad-planning
+    name: "Planning Agent"
+    category: agent
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Task breakdown and organization"
+
+  # Protocol & Framework Skills
+  - skill_id: superintelligence-protocol
+    name: "Superintelligence Protocol"
+    category: protocol
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Complex problem-solving protocol"
+
+  - skill_id: continuous-improvement
+    name: "Continuous Improvement"
+    category: protocol
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Systematic self-improvement"
+
+  - skill_id: run-initialization
+    name: "Run Initialization"
+    category: protocol
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Run setup and documentation"
+
+  # Utility Skills
+  - skill_id: web-search
+    name: "Web Search"
+    category: utility
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Web search via SearXNG"
+
+  - skill_id: codebase-navigation
+    name: "Codebase Navigation"
+    category: utility
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Navigate and understand codebases"
+
+  - skill_id: supabase-operations
+    name: "Supabase Operations"
+    category: utility
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Database operations for Supabase"
+
+  # Core System Skills
+  - skill_id: truth-seeking
+    name: "Truth Seeking"
+    category: core
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Validate assumptions and verify facts"
+
+  - skill_id: git-commit
+    name: "Git Commit"
+    category: core
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Safely commit changes to git"
+
+  - skill_id: task-selection
+    name: "Task Selection"
+    category: core
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Select next task from STATE.yaml"
+
+  - skill_id: state-management
+    name: "State Management"
+    category: core
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Update STATE.yaml with progress"
+
+  # Infrastructure Skills
+  - skill_id: ralf-cloud-control
+    name: "RALF Cloud Control"
+    category: infrastructure
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Manage RALF agents in Kubernetes"
+
+  - skill_id: github-codespaces-control
+    name: "GitHub Codespaces Control"
+    category: infrastructure
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Spawn agents in GitHub Codespaces"
+
+  - skill_id: legacy-cloud-control
+    name: "Legacy Cloud Control"
+    category: infrastructure
+    usage_count: 0
+    last_used: null
+    success_rate: null
+    avg_execution_time_seconds: null
+    last_status: null
+    notes: "Control Legacy agents in K8s"
+
+# -----------------------------------------------------------------------------
+# USAGE GUIDE FOR INTEGRATION
+# -----------------------------------------------------------------------------
+#
+# How to Update Tracking:
+# ----------------------
+#
+# 1. Before Skill Execution:
+#    - Note the start time
+#    - Record which skill is being invoked
+#
+# 2. After Skill Execution:
+#    - Increment usage_count by 1
+#    - Update last_used to current timestamp
+#    - Update last_status (success/failed/partial)
+#    - Recalculate success_rate: (success_count / total_count) * 100
+#    - Update avg_execution_time_seconds with new timing
+#
+# 3. Example Update (Python/Manual):
+#    ```yaml
+#    # Find skill by skill_id
+#    # Update fields:
+#    usage_count: 5              # Was 4, now 5
+#    last_used: "2026-02-01T05:15:00Z"
+#    success_rate: 80.0          # 4 successes out of 5 attempts
+#    avg_execution_time_seconds: 45.2
+#    last_status: "success"
+#    ```
+#
+# 4. Analyzing Usage:
+#    - Low usage_count + high success_rate = Underutilized good skill
+#    - High usage_count + low success_rate = Needs tuning or replacement
+#    - Null last_used (older than 30 days) = Candidate for removal
+#
+# -----------------------------------------------------------------------------
