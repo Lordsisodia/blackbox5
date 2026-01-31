@@ -120,11 +120,12 @@ queue:
       - Example validation output format
     dependencies: []
     added_at: '2026-02-01T04:45:00Z'
-    status: pending
+    completed_at: '2026-02-01T05:15:00Z'
+    status: completed
 
 metadata:
-  last_updated: '2026-02-01T05:00:00Z'
+  last_updated: '2026-02-01T05:15:00Z'
   updated_by: executor
   queue_depth_target: 5
   current_depth: 5
-  last_completed: TASK-1769892001
+  last_completed: TASK-1769892004

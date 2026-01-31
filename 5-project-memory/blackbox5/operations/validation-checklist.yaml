@@ -1,0 +1,292 @@
+# Pre-Execution Validation Checklist
+# Version: 1.0.0
+# Purpose: Prevent duplicate work, validate assumptions, and ensure readiness before task execution
+# Based on: run-patterns-20260201.md findings
+
+checklist:
+  # Check 1: Duplicate Task Detection (HIGH PRIORITY)
+  # Addresses Theme 2: Stale State / Duplicate Work
+  - id: CHECK-001
+    name: "Duplicate Task Detection"
+    priority: critical
+    description: "Search completed tasks and recent commits to detect duplicate work"
+    enabled: true
+
+    # How to execute this check
+    execution:
+      step_1: "Search completed tasks for keywords"
+      command_1: 'grep -r "{task_keywords}" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/null | head -5'
+
+      step_2: "Search recent commits for related work"
+      command_2: 'cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "{task_keywords}" | head -5'
+
+      step_3: "Check for completed tasks with similar IDs"
+      command_3: 'grep -r "status: completed" $RALF_PROJECT_DIR/.autonomous/communications/queue.yaml | grep -A 10 "{task_pattern}"'
+
+    # Pass criteria
+    pass_criteria:
+      - "No matches in completed tasks"
+      - "No related commits in past week"
+      - "Task ID not in completed/ directory"
+
+    # Fail actions
+    fail_actions:
+      - "Read matching completed task"
+      - "Determine: Skip? Continue? Merge?"
+      - "Report to Planner via chat-log.yaml"
+      - "Do NOT create redundant work"
+
+    # Example output
+    example_output: |
+      CHECK-001: Duplicate Task Detection
+      Status: PASS
+      Details:
+        - Completed tasks search: 0 matches
+        - Recent commits search: 0 matches
+        - Task ID check: Not found in completed/
+      Recommendation: Proceed with task execution
+
+    # Example failure output
+    example_failure: |
+      CHECK-001: Duplicate Task Detection
+      Status: FAIL
+      Details:
+        - Found matching task: TASK-1769892001 (completed 2026-02-01)
+        - Similar commit: abc1234 "Create skill usage tracking system"
+      Recommendation: SKIP - Task already completed
+      Action: Report to Planner, mark task as duplicate
+
+  # Check 2: Assumption Validation Requirements
+  # Addresses Theme 3: Assumption Validation Failures
+  - id: CHECK-002
+    name: "Assumption Validation"
+    priority: high
+    description: "Ensure assumptions are documented and validated before execution"
+    enabled: true
+
+    execution:
+      step_1: "Check if ASSUMPTIONS.md exists in current run"
+      command_1: '[ -s "$RALF_RUN_DIR/ASSUMPTIONS.md" ] && echo "EXISTS" || echo "MISSING"'
+
+      step_2: "For context_level 2+ tasks, verify assumptions documented"
+      command_2: 'grep -A 10 "## Assumptions" "$RALF_RUN_DIR/ASSUMPTIONS.md" 2>/dev/null | wc -l'
+
+      step_3: "Validate key assumptions against codebase"
+      command_3: |
+        # Read assumptions and validate
+        # Example: Check if import paths exist
+        # Example: Check if functions/classes exist
+        echo "Validate: {assumption_1}, {assumption_2}, {assumption_3}"
+
+    pass_criteria:
+      - "ASSUMPTIONS.md exists for context_level 2+ tasks"
+      - "At least 3 assumptions documented"
+      - "Key assumptions validated against codebase"
+
+    fail_actions:
+      - "Create ASSUMPTIONS.md with task assumptions"
+      - "Validate each assumption before proceeding"
+      - "Document validation results"
+      - "Ask Planner via chat-log.yaml if assumptions unclear"
+
+    example_output: |
+      CHECK-002: Assumption Validation
+      Status: PASS
+      Details:
+        - ASSUMPTIONS.md: EXISTS
+        - Assumptions documented: 5
+        - Validations:
+          - Import path 2-engine/core exists: VALID
+          - AgentConfig class available: VALID
+          - YAML schema compatible: VALID
+      Recommendation: Assumptions validated, proceed with execution
+
+    example_failure: |
+      CHECK-002: Assumption Validation
+      Status: FAIL
+      Details:
+        - ASSUMPTIONS.md: MISSING
+        - Context level: 2 (requires assumptions)
+      Recommendation: Create ASSUMPTIONS.md before proceeding
+      Action: Document assumptions, validate, then resume
+
+  # Check 3: Target Path Existence Verification
+  # Addresses Theme 4: Path/Import Configuration Issues
+  - id: CHECK-003
+    name: "Target Path Verification"
+    priority: high
+    description: "Verify all target files and paths exist before modification"
+    enabled: true
+
+    execution:
+      step_1: "Extract target files from task definition"
+      command_1: 'yq ".files_to_modify" $RALF_PROJECT_DIR/.autonomous/communications/queue.yaml'
+
+      step_2: "Verify each target file exists"
+      command_2: |
+        for file in "{target_files}"; do
+          if [ -f "$file" ]; then
+            echo "EXISTS: $file"
+          else
+            echo "MISSING: $file"
+          fi
+        done
+
+      step_3: "Check if parent directories exist"
+      command_3: |
+        for file in "{target_files}"; do
+          dir=$(dirname "$file")
+          if [ -d "$dir" ]; then
+            echo "DIR_EXISTS: $dir"
+          else
+            echo "DIR_MISSING: $dir"
+          fi
+        done
+
+    pass_criteria:
+      - "All target files exist (or are new files to be created)"
+      - "All parent directories exist"
+      - "Paths use absolute or correct relative references"
+
+    fail_actions:
+      - "Create missing parent directories"
+      - "Verify path structure with Planner if needed"
+      - "Check for path typos or structural changes"
+
+    example_output: |
+      CHECK-003: Target Path Verification
+      Status: PASS
+      Details:
+        - operations/skill-usage.yaml: EXISTS
+        - 2-engine/core/config.py: EXISTS
+        - Parent directories: ALL VALID
+      Recommendation: Target paths verified, ready for modification
+
+    example_failure: |
+      CHECK-003: Target Path Verification
+      Status: FAIL
+      Details:
+        - 2-engine/01-core/config.py: MISSING
+        - Expected: 2-engine/core/config.py
+        - Parent directory: 2-engine/01-core DOES NOT EXIST
+      Recommendation: Path mismatch - structure may have changed
+      Action: Verify actual path structure, update task if needed
+
+  # Check 4: State Freshness Check
+  # Addresses Theme 2: Stale State issues
+  - id: CHECK-004
+    name: "State Freshness Verification"
+    priority: medium
+    description: "Ensure STATE.yaml and roadmap reflect current codebase state"
+    enabled: true
+
+    execution:
+      step_1: "Check STATE.yaml last update time"
+      command_1: 'stat -c "%y" $RALF_PROJECT_DIR/STATE.yaml 2>/dev/null || stat -f "%Sm" $RALF_PROJECT_DIR/STATE.yaml'
+
+      step_2: "Compare with latest commit timestamp"
+      command_2: 'cd ~/.blackbox5 && git log -1 --format="%ct" && echo "Current: $(date +%s)"'
+
+      step_3: "Check for drift between STATE.yaml and reality"
+      command_3: |
+        # Verify roadmap items match actual implementation
+        # Check if "ready_to_start" items are actually completed
+        grep -A 5 "status: ready_to_start" $RALF_PROJECT_DIR/STATE.yaml | head -20
+
+    pass_criteria:
+      - "STATE.yaml updated within 24 hours"
+      - "No roadmap items marked 'ready_to_start' that are actually complete"
+      - "Completed items match git history"
+
+    fail_actions:
+      - "Update STATE.yaml with current state"
+      - "Sync roadmap with actual implementation"
+      - "Report state drift to Planner"
+
+    example_output: |
+      CHECK-004: State Freshness Verification
+      Status: PASS
+      Details:
+        - STATE.yaml last updated: 2026-02-01T05:00:00Z (1 hour ago)
+        - Latest commit: 2026-02-01T05:00:00Z
+        - State freshness: CURRENT
+        - Drift check: No stale roadmap items found
+      Recommendation: State is fresh, proceed with execution
+
+    example_failure: |
+      CHECK-004: State Freshness Verification
+      Status: FAIL
+      Details:
+        - STATE.yaml last updated: 2026-01-30T10:00:00Z (19 hours ago)
+        - Latest commit: 2026-02-01T05:00:00Z
+        - State freshness: STALE
+        - Drift check: PLAN-005 marked "ready_to_start" but completed 12h ago
+      Recommendation: State is stale, update before proceeding
+      Action: Update STATE.yaml, sync roadmap, then resume
+
+# Integration Guide for Executor
+integration:
+  # When to run validation
+  trigger_points:
+    - "After claiming task from queue (before execution)"
+    - "After reading task definition"
+    - "Before modifying any files"
+
+  # How to integrate into Executor workflow
+  workflow:
+    1: "Claim task from queue.yaml"
+    2: "Write 'started' event to events.yaml"
+    3: "RUN validation-checklist.yaml (all checks)"
+    4: "IF any check FAILS: Handle fail_actions"
+    5: "IF all checks PASS: Proceed with task execution"
+    6: "Document validation results in THOUGHTS.md"
+
+  # Output format for validation
+  output_format: |
+    === PRE-EXECUTION VALIDATION RESULTS ===
+    Task: {TASK_ID}
+    Timestamp: {UTC_TIMESTAMP}
+    Executor: {RUN_ID}
+
+    CHECK-001: Duplicate Detection - {PASS/FAIL}
+    {details}
+
+    CHECK-002: Assumption Validation - {PASS/FAIL}
+    {details}
+
+    CHECK-003: Target Path Verification - {PASS/FAIL}
+    {details}
+
+    CHECK-004: State Freshness Check - {PASS/FAIL}
+    {details}
+
+    OVERALL: {PASS/FAIL/BLOCKED}
+    Recommendation: {recommendation}
+    ==========================================
+
+# Configuration
+metadata:
+  version: "1.0.0"
+  created: "2026-02-01T05:15:00Z"
+  created_by: "TASK-1769892004"
+  based_on: "knowledge/analysis/run-patterns-20260201.md"
+  last_updated: "2026-02-01T05:15:00Z"
+
+# Tuning parameters
+settings:
+  # Severity levels for failures
+  severity:
+    critical: "BLOCK execution"  # Must pass before any work
+    high: "WARN but allow"       # Warning, document risk
+    medium: "INFO only"          # Informational
+
+  # Age thresholds
+  thresholds:
+    stale_state_hours: 24        # STATE.yaml older than this is stale
+    duplicate_commit_days: 7     # Search commits this far back
+
+  # Context level requirements
+  context_requirements:
+    level_1: "Minimal validation (CHECK-001 only)"
+    level_2: "Standard validation (CHECK-001, CHECK-002, CHECK-003)"
+    level_3: "Full validation (ALL checks)"
