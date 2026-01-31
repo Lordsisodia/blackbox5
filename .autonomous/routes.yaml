@@ -1,0 +1,29 @@
+# Project Routes Configuration
+# Copy this to routes.yaml and customize for your project
+
+project:
+  name: {{PROJECT_NAME}}
+  path: {{PROJECT_PATH}}
+  github:
+    owner: {{GITHUB_OWNER}}
+    repo: {{GITHUB_REPO}}
+  branch:
+    main: main
+    prefix: ralf
+
+paths:
+  root: {{PROJECT_PATH}}
+  docs: {{PROJECT_PATH}}/docs
+  src: {{PROJECT_PATH}}/src
+  tests: {{PROJECT_PATH}}/tests
+
+conventions:
+  branch_format: "ralf/{version}-{description}"
+  commit_format: "ralf: [{component}] {description}"
+  task_id_format: "TASK-{TYPE}-{timestamp}"
+  run_folder_format: "run-YYYYMMDD_HHMMSS"
+
+communication:
+  queue_depth_target: 5
+  heartbeat_interval_seconds: 30
+  max_idle_minutes: 10

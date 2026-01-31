@@ -1,0 +1,19 @@
+# Timeline
+
+project:
+  name: blackbox5
+  start_date: "FILL_ME"
+
+milestones:
+  - id: "M-001"
+    name: "FILL_ME"
+    target_date: "FILL_ME"
+    status: "FILL_ME"
+
+events:
+  - date: "FILL_ME"
+    type: "FILL_ME"
+    title: "FILL_ME"
+
+progress:
+  overall_completion: "FILL_ME"

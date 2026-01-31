@@ -1,0 +1,16 @@
+# Agent Heartbeats
+# Written by: Both agents
+# Read by: Both agents
+
+heartbeats:
+  planner:
+    last_seen: null
+    status: idle|running|sleeping|error
+    current_action: null
+    pid: null
+  executor:
+    last_seen: null
+    status: idle|running|executing|error
+    current_action: null
+    current_task: null
+    pid: null

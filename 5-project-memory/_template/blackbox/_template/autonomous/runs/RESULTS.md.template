@@ -1,0 +1,42 @@
+# Results: {{RUN_ID}}
+**Started:** {{START_TIME}}
+**Completed:** {{END_TIME}}
+**Duration:** {{DURATION}}
+
+## Task Summary
+
+**Task ID:** {{TASK_ID}}
+**Task Type:** {{TASK_TYPE}}
+**Status:** [completed/partial/blocked]
+
+## Success Criteria
+
+- [ ] Criterion 1
+- [ ] Criterion 2
+- [ ] Criterion 3
+
+## Outcome
+
+[What was accomplished]
+
+## Files Changed
+
+| File | Change Type | Notes |
+|------|-------------|-------|
+| [path] | added/modified/deleted | [notes] |
+
+## Metrics
+
+- Lines added: [N]
+- Lines removed: [N]
+- Files touched: [N]
+- Tests added: [N]
+
+## Next Steps
+
+1. [Next step 1]
+2. [Next step 2]
+
+## Blockers (if any)
+
+[What's blocking completion]

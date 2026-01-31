@@ -1,0 +1,205 @@
+#!/bin/bash
+#
+# RALF-Planner v2
+# Purpose: Strategic planning agent using v2-legacy-based.md prompt
+# Runs: Continuously in background, invokes Claude Code
+#
+
+set -euo pipefail
+
+# Configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+ENGINE_DIR="${RALF_ENGINE_DIR:-$HOME/.blackbox5/2-engine/.autonomous}"
+PROMPT_FILE="$ENGINE_DIR/prompts/system/planner/variations/v2-legacy-based.md"
+COMM_DIR="$PROJECT_DIR/.autonomous/communications"
+RUNS_DIR="$PROJECT_DIR/runs/planner"
+
+# Logging
+LOG_FILE="$PROJECT_DIR/.autonomous/planner-v2.log"
+RUN_COUNTER=0
+
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] [PLANNER-v2] $*" | tee -a "$LOG_FILE"
+}
+
+error() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] [PLANNER-v2] ERROR: $*" | tee -a "$LOG_FILE" >&2
+}
+
+# Initialize run directory
+init_run() {
+    RUN_COUNTER=$((RUN_COUNTER + 1))
+    local run_dir="$RUNS_DIR/run-$(printf %04d $RUN_COUNTER)"
+    mkdir -p "$run_dir"
+    export RALF_RUN_DIR="$run_dir"
+    echo "$run_dir"
+}
+
+# Read current state for context
+read_state() {
+    local queue="{}"
+    local events="{}"
+    local heartbeat="{}"
+
+    if [[ -f "$COMM_DIR/queue.yaml" ]]; then
+        queue=$(cat "$COMM_DIR/queue.yaml" 2>/dev/null || echo "{}")
+    fi
+
+    if [[ -f "$COMM_DIR/events.yaml" ]]; then
+        events=$(cat "$COMM_DIR/events.yaml" 2>/dev/null | tail -50 || echo "{}")
+    fi
+
+    if [[ -f "$COMM_DIR/heartbeat.yaml" ]]; then
+        heartbeat=$(cat "$COMM_DIR/heartbeat.yaml" 2>/dev/null || echo "{}")
+    fi
+
+    echo "QUEUE: $queue"
+    echo "EVENTS: $events"
+    echo "HEARTBEAT: $heartbeat"
+}
+
+# Update heartbeat
+update_heartbeat() {
+    local status="$1"
+    local action="${2:-idle}"
+
+    python3 << PYEOF
+import yaml
+from datetime import datetime, timezone
+
+heartbeat_file = "$COMM_DIR/heartbeat.yaml"
+
+try:
+    with open(heartbeat_file, 'r') as f:
+        data = yaml.safe_load(f) or {}
+except FileNotFoundError:
+    data = {}
+
+if not isinstance(data, dict):
+    data = {}
+if "heartbeats" not in data:
+    data["heartbeats"] = {}
+if "planner" not in data["heartbeats"]:
+    data["heartbeats"]["planner"] = {}
+
+now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+data["heartbeats"]["planner"]["last_seen"] = now
+data["heartbeats"]["planner"]["status"] = "$status"
+data["heartbeats"]["planner"]["current_action"] = "$action"
+
+with open(heartbeat_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
+}
+
+# Main execution - invoke Claude
+run_claude() {
+    local run_dir="$1"
+    local state_context
+    state_context=$(read_state)
+
+    log "Invoking Claude Code for planning..."
+
+    # Build the full prompt
+    local full_prompt
+    full_prompt=$(cat << EOF
+$(cat "$PROMPT_FILE")
+
+---
+
+## CURRENT STATE
+
+Run directory: $run_dir
+
+State Context:
+$state_context
+
+Project Directory: $PROJECT_DIR
+Engine Directory: $ENGINE_DIR
+
+## YOUR TASK
+
+Execute ONE planning iteration:
+1. Read the current state from communications files
+2. Decide what action to take (plan tasks, answer questions, analyze, or review)
+3. Update queue.yaml, chat-log.yaml, or knowledge/analysis/ as needed
+4. Write your THOUGHTS.md, RESULTS.md, DECISIONS.md to the run directory
+5. Update heartbeat.yaml
+6. Signal completion
+
+Do not loop - this is one iteration. The bash script will handle the loop.
+EOF
+)
+
+    # Invoke Claude Code
+    export RALF_RUN_DIR="$run_dir"
+    export RALF_PROJECT_DIR="$PROJECT_DIR"
+    export RALF_ENGINE_DIR="$ENGINE_DIR"
+
+    # Debug: Log prompt size
+    log "Prompt size: ${#full_prompt} characters"
+
+    # Invoke Claude Code with debug output - write directly to log
+    log "Starting Claude invocation at $(date '+%Y-%m-%d %H:%M:%S')"
+    if echo "$full_prompt" | claude -p \
+        --dangerously-skip-permissions \
+        --allowed-tools "Read,Edit,Bash,Write" \
+        2>&1 >> "$LOG_FILE"; then
+        log "Claude invocation completed at $(date '+%Y-%m-%d %H:%M:%S')"
+    else
+        error "Claude invocation failed at $(date '+%Y-%m-%d %H:%M:%S')"
+    fi
+}
+
+# Main loop
+main() {
+    log "RALF-Planner v2 starting..."
+    log "Project: $PROJECT_DIR"
+    log "Prompt: $PROMPT_FILE"
+
+    # Check prompt file exists
+    if [[ ! -f "$PROMPT_FILE" ]]; then
+        error "Prompt file not found: $PROMPT_FILE"
+        exit 1
+    fi
+
+    # Create directories
+    mkdir -p "$RUNS_DIR"
+    mkdir -p "$COMM_DIR"
+    mkdir -p "$PROJECT_DIR/knowledge/analysis"
+
+    while true; do
+        log "--- Starting iteration ---"
+
+        # Initialize run
+        local run_dir
+        run_dir=$(init_run)
+        log "Run directory: $run_dir"
+
+        # Update heartbeat
+        update_heartbeat "running" "planning"
+
+        # Run Claude
+        run_claude "$run_dir"
+
+        # Update heartbeat
+        update_heartbeat "running" "sleeping"
+
+        log "--- Iteration complete, sleeping 30s ---"
+        sleep 30
+    done
+}
+
+# Handle shutdown
+cleanup() {
+    log "Shutting down..."
+    update_heartbeat "stopped" "shutdown"
+    exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Run
+main "$@"

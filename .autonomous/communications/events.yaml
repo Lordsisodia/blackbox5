@@ -1,0 +1,16 @@
+# Execution Events
+# Written by: Executor
+# Read by: Planner
+
+events: []
+
+# Example entry:
+# - id: 1
+#   timestamp: '2026-01-31T20:09:44Z'
+#   type: started|completed|failed|blocked|discovery|idle
+#   task_id: TASK-ANALYSIS-1769890182
+#   data:
+#     exit_code: 0
+#     message: Optional details
+#     files_changed:
+#       - path/to/file.ts
