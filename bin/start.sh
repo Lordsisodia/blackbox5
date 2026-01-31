@@ -3,9 +3,6 @@
 # Usage: ./start.sh [options]
 #
 # Options:
-#   --api-only       Start only the API server
-#   --gui-only       Start only Vibe Kanban GUI
-#   --full           Start both API and GUI (default)
 #   --help           Show this help message
 
 set -e
@@ -21,38 +18,18 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 ENGINE_DIR="$PROJECT_ROOT/2-engine/core"
-GUI_DIR="$PROJECT_ROOT/3-gui/apps/vibe-kanban"
 
 # Parse options
 START_API=true
-START_GUI=true
 
 case "${1:-}" in
-    --api-only)
-        START_GUI=false
-        ;;
-    --gui-only)
-        START_API=false
-        ;;
-    --full)
-        START_API=true
-        START_GUI=true
-        ;;
     --help|-h)
         echo "Blackbox5 Startup Script"
         echo ""
-        echo "Usage: ./start.sh [option]"
+        echo "Usage: ./start.sh"
         echo ""
-        echo "Options:"
-        echo "  --api-only       Start only the API server (port 8000)"
-        echo "  --gui-only       Start only Vibe Kanban GUI (port 3000)"
-        echo "  --full           Start both API and GUI (default)"
-        echo "  --help, -h       Show this help message"
+        echo "Starts the Blackbox5 API server."
         echo ""
-        echo "Examples:"
-        echo "  ./start.sh              # Start everything"
-        echo "  ./start.sh --api-only   # Start just the API"
-        echo "  ./start.sh --gui-only   # Start just the GUI"
         exit 0
         ;;
 esac
@@ -91,47 +68,8 @@ if ! command -v python3 &> /dev/null; then
     exit 1
 fi
 
-if ! command -v pnpm &> /dev/null && [ "$START_GUI" = true ]; then
-    echo -e "${YELLOW}⚠️  pnpm not found. Attempting to install...${NC}"
-    npm install -g pnpm
-fi
-
 echo -e "${GREEN}✅ Prerequisites OK${NC}"
 echo ""
-
-# Start Vibe Kanban GUI
-if [ "$START_GUI" = true ]; then
-    echo -e "${YELLOW}🎨 Starting Vibe Kanban GUI...${NC}"
-
-    if check_port 3000; then
-        echo -e "${YELLOW}⚠️  Port 3000 already in use. GUI may already be running.${NC}"
-    else
-        cd "$GUI_DIR"
-
-        # Install dependencies if needed
-        if [ ! -d "node_modules" ]; then
-            echo -e "${YELLOW}📦 Installing GUI dependencies...${NC}"
-            pnpm install --silent
-        fi
-
-        # Start GUI in background
-        echo -e "${GREEN}✅ Starting GUI on http://localhost:3000${NC}"
-        pnpm run dev > /tmp/vibe-kanban.log 2>&1 &
-        GUI_PID=$!
-        echo "   GUI PID: $GUI_PID"
-        echo "   Logs: /tmp/vibe-kanban.log"
-
-        # Wait a bit for GUI to start
-        sleep 3
-
-        if check_port 3000; then
-            echo -e "${GREEN}✅ GUI started successfully!${NC}"
-        else
-            echo -e "${YELLOW}⚠️  GUI starting... check logs if needed${NC}"
-        fi
-    fi
-    echo ""
-fi
 
 # Start Blackbox5 API
 if [ "$START_API" = true ]; then
@@ -180,25 +118,19 @@ if [ "$START_API" = true ]; then
     echo ""
 fi
 
-if [ "$START_GUI" = true ]; then
-    echo -e "${GREEN}🎨 Vibe Kanban:${NC}   http://localhost:3000"
-    echo ""
-fi
-
 echo -e "${YELLOW}💡 Quick Commands:${NC}"
 echo -e "   ${BLUE}curl http://localhost:8000/health${NC}           # Check API health"
 echo -e "   ${BLUE}curl http://localhost:8000/agents${NC}           # List all agents"
 echo -e "   ${BLUE}tail -f /tmp/blackbox5-api.log${NC}              # View API logs"
-echo -e "   ${BLUE}tail -f /tmp/vibe-kanban.log${NC}                # View GUI logs"
 echo ""
 
-if [ ! -z "${GUI_PID:-}" ] || [ ! -z "${API_PID:-}" ]; then
-    echo -e "${YELLOW}Press Ctrl+C to stop all services, or run:${NC}"
-    echo -e "   ${BLUE}kill $GUI_PID $API_PID${NC} 2>/dev/null"
+if [ ! -z "${API_PID:-}" ]; then
+    echo -e "${YELLOW}Press Ctrl+C to stop the API server, or run:${NC}"
+    echo -e "   ${BLUE}kill $API_PID${NC}"
     echo ""
 
     # Handle graceful shutdown
-    trap "echo -e '${YELLOW}🛑 Stopping Blackbox5...${NC}'; kill $GUI_PID $API_PID 2>/dev/null; echo -e '${GREEN}✅ Done${NC}'; exit 0" SIGINT SIGTERM
+    trap "echo -e '${YELLOW}🛑 Stopping Blackbox5...${NC}'; kill $API_PID 2>/dev/null; echo -e '${GREEN}✅ Done${NC}'; exit 0" SIGINT SIGTERM
 
     # Keep script running
     wait

@@ -23,9 +23,8 @@ from pathlib import Path
 
 # Configuration
 API_URL = "http://localhost:8000"
-GUI_URL = "http://localhost:3000"
 ENGINE_DIR = Path(__file__).parent / "2-engine" / "01-core"
-GUI_DIR = Path(__file__).parent / "3-gui" / "vibe-kanban"
+# Vibe Kanban GUI removed - not used
 
 
 def print_header(title):
@@ -96,79 +95,29 @@ def start_api():
 
 
 def start_gui():
-    """Start the Vibe Kanban GUI."""
-    print_info("Starting Vibe Kanban GUI...")
-
-    try:
-        # Change to GUI directory
-        os.chdir(GUI_DIR)
-
-        # Check if pnpm is available
-        subprocess.run(["pnpm", "--version"], check=True,
-                      capture_output=True, text=True)
-    except:
-        print_info("pnpm not found, trying npm...")
-        try:
-            subprocess.run(["npm", "--version"], check=True,
-                          capture_output=True, text=True)
-            npm_cmd = "npm"
-        except:
-            print_error("Neither pnpm nor npm found!")
-            return None
-
-    # Install dependencies if needed
-    if not (GUI_DIR / "node_modules").exists():
-        print_info("Installing GUI dependencies...")
-        subprocess.run(["pnpm", "install"], check=True)
-
-    # Start GUI in background
-    try:
-        process = subprocess.Popen(
-            ["pnpm", "run", "dev"],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            start_new_session=True
-        )
-
-        # Wait for startup
-        for _ in range(15):
-            time.sleep(1)
-            try:
-                response = requests.get(GUI_URL, timeout=1)
-                if response.status_code == 200:
-                    print_success(f"Vibe Kanban GUI started on {GUI_URL}")
-                    return process
-            except:
-                pass
-
-        print_info("GUI is starting (may take a moment)")
-        print_info(f"Visit {GUI_URL} in your browser")
-        return process
-
-    except Exception as e:
-        print_error(f"Failed to start GUI: {e}")
-        return None
+    """Vibe Kanban GUI removed - not implemented."""
+    print_info("GUI not implemented")
+    return None
 
 
 def stop_services():
     """Stop all Blackbox5 services."""
     print_info("Stopping Blackbox5 services...")
 
-    # Kill processes by port
-    for port, name in [(8000, "API"), (3000, "GUI")]:
-        try:
-            result = subprocess.run(
-                ["lsof", "-t", "-i", f":{port}"],
-                capture_output=True,
-                text=True
-            )
-            if result.stdout.strip():
-                pids = result.stdout.strip().split('\n')
-                for pid in pids:
-                    os.kill(int(pid), signal.SIGTERM)
-                print_success(f"{name} server stopped (port {port})")
-        except:
-            pass
+    # Kill API process by port
+    try:
+        result = subprocess.run(
+            ["lsof", "-t", "-i", ":8000"],
+            capture_output=True,
+            text=True
+        )
+        if result.stdout.strip():
+            pids = result.stdout.strip().split('\n')
+            for pid in pids:
+                os.kill(int(pid), signal.SIGTERM)
+            print_success("API server stopped (port 8000)")
+    except:
+        pass
 
 
 def check_status():
@@ -189,16 +138,6 @@ def check_status():
             pass
     else:
         print_error(f"API Server:     Not running")
-
-    # Check GUI
-    try:
-        response = requests.get(GUI_URL, timeout=2)
-        if response.status_code == 200:
-            print_success(f"Vibe Kanban:    Running ({GUI_URL})")
-        else:
-            print_error(f"Vibe Kanban:    Not responding")
-    except:
-        print_error(f"Vibe Kanban:    Not running")
 
     print()
 
@@ -288,26 +227,20 @@ def main():
     command = sys.argv[1].lower()
 
     if command == "start":
-        api_only = "--api-only" in sys.argv
-        gui_only = "--gui-only" in sys.argv
-
         print_header("🚀 STARTING BLACKBOX5")
 
-        if not gui_only:
-            api_process = start_api()
+        api_process = start_api()
 
-        if not api_only:
-            gui_process = start_gui()
+        if api_process:
+            print_success("\n🎉 Blackbox5 is ready!")
+            print_info("\nUse Ctrl+C to stop, or run: python blackbox.py stop")
 
-        print_success("\n🎉 Blackbox5 is ready!")
-        print_info("\nUse Ctrl+C to stop, or run: python blackbox.py stop")
-
-        # Keep running
-        try:
-            while True:
-                time.sleep(1)
-        except KeyboardInterrupt:
-            stop_services()
+            # Keep running
+            try:
+                while True:
+                    time.sleep(1)
+            except KeyboardInterrupt:
+                stop_services()
 
     elif command == "status":
         check_status()
