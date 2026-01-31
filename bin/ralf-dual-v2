@@ -62,7 +62,9 @@ start_planner() {
     fi
 
     tmux new-session -d -s ralf-planner-v2 -n planner \
-        "cd '$PROJECT_DIR' && \
+        "export ANTHROPIC_API_KEY='$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")' && \
+         export ANTHROPIC_BASE_URL='${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}' && \
+         cd '$PROJECT_DIR' && \
          export RALF_MODE=plan && \
          export RALF_PROJECT_DIR='$PROJECT_DIR' && \
          export RALF_ENGINE_DIR='$ENGINE_DIR' && \
@@ -81,7 +83,9 @@ start_executor() {
     fi
 
     tmux new-session -d -s ralf-executor-v2 -n executor \
-        "cd '$PROJECT_DIR' && \
+        "export ANTHROPIC_API_KEY='$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")' && \
+         export ANTHROPIC_BASE_URL='${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}' && \
+         cd '$PROJECT_DIR' && \
          export RALF_MODE=execute && \
          export RALF_PROJECT_DIR='$PROJECT_DIR' && \
          export RALF_ENGINE_DIR='$ENGINE_DIR' && \
