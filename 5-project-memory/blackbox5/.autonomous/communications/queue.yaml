@@ -120,6 +120,53 @@ queue:
     dependencies: []
     added_at: '2026-02-01T04:45:00Z'
     status: pending
+  - id: TASK-1769892005
+    type: analyze
+    title: Build project relationship map
+    priority: high
+    estimated_minutes: 40
+    context_level: 3
+    approach: |
+      Map cross-project dependencies in BlackBox5 ecosystem.
+      Create operations/project-map.yaml documenting:
+      1. All projects in ~/.blackbox5/
+      2. Dependencies between projects
+      3. Common cross-project patterns
+      4. Files commonly referenced across projects
+    files_to_modify:
+      - operations/project-map.yaml
+      - knowledge/analysis/project-relationships.md
+    acceptance_criteria:
+      - Project map YAML created with all relationships
+      - Analysis document with findings
+      - Recommendations for context gathering optimization
+    dependencies: []
+    added_at: '2026-02-01T06:00:00Z'
+    status: pending
+  - id: TASK-1769892006
+    type: analyze
+    title: Audit documentation freshness
+    priority: medium
+    estimated_minutes: 35
+    context_level: 2
+    approach: |
+      Audit all documentation to identify stale content.
+      Check all .md files in .docs/, decisions/, knowledge/ for:
+      1. Last modified date (>30 days = stale)
+      2. Reference count (0 references = orphaned)
+      3. Outdated content patterns
+      Create operations/documentation-audit.yaml with findings.
+    files_to_modify:
+      - operations/documentation-audit.yaml
+      - knowledge/analysis/documentation-freshness-20260201.md
+    acceptance_criteria:
+      - Documentation audit YAML created
+      - All stale docs identified (>30 days)
+      - Orphaned docs flagged
+      - Recommendations for doc maintenance
+    dependencies: []
+    added_at: '2026-02-01T06:00:00Z'
+    status: pending
 
 metadata:
   last_updated: '2026-02-01T04:45:00Z'

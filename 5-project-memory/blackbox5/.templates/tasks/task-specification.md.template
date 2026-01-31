@@ -12,6 +12,19 @@ FILL_ME
 
 ---
 
+## Pre-Execution Validation
+
+<!-- Run these checks BEFORE starting work -->
+
+- [ ] **Duplicate Check:** Searched completed/ for similar tasks
+- [ ] **Path Validation:** Verified all target paths exist
+- [ ] **Commit Check:** Checked recent commits for related work
+- [ ] **Assumptions:** Listed and validated all assumptions
+
+**Validation Result:** [pass/warn/fail]
+
+---
+
 ## Acceptance Criteria
 
 - [ ] FILL_ME
