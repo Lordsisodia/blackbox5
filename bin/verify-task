@@ -1,0 +1,299 @@
+#!/bin/bash
+# verify-task - Pre-execution verification for RALF tasks
+# Purpose: Prevent duplicate work and validate task assumptions before execution
+#
+# Usage: verify-task [--project-dir <path>] [--task-file <path>]
+#
+# Exit codes:
+# 0 - All checks passed, safe to proceed
+# 1 - Warnings (can proceed with caution)
+# 2 - Errors found (should fix before proceeding)
+# 3 - Critical issues (must not proceed)
+
+set -eo pipefail
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+# Default paths
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+BLACKBOX5_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROJECT_DIR="${BLACKBOX5_DIR}/5-project-memory/blackbox5"
+TASK_FILE=""
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --project-dir)
+            PROJECT_DIR="$2"
+            shift 2
+            ;;
+        --task-file)
+            TASK_FILE="$2"
+            shift 2
+            ;;
+        --help|-h)
+            echo "Usage: verify-task [--project-dir <path>] [--task-file <path>]"
+            echo ""
+            echo "Pre-execution verification checks:"
+            echo "  1. Duplicate task detection"
+            echo "  2. Path validation"
+            echo "  3. STATE.yaml freshness"
+            echo ""
+            echo "Exit codes:"
+            echo "  0 - All checks passed"
+            echo "  1 - Warnings (proceed with caution)"
+            echo "  2 - Errors found (fix recommended)"
+            echo "  3 - Critical issues (do not proceed)"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Use --help for usage"
+            exit 3
+            ;;
+    esac
+done
+
+# Verify project directory
+if [[ ! -d "$PROJECT_DIR" ]]; then
+    echo -e "${RED}[ERROR]${NC} Project directory not found: $PROJECT_DIR"
+    exit 3
+fi
+
+# Paths
+TASKS_DIR="$PROJECT_DIR/.autonomous/tasks"
+COMPLETED_DIR="$TASKS_DIR/completed"
+ACTIVE_DIR="$TASKS_DIR/active"
+STATE_FILE="$PROJECT_DIR/STATE.yaml"
+WORKING_DIR="$TASKS_DIR/working"
+
+# Tracking variables
+EXIT_CODE=0
+WARNINGS=0
+ERRORS=0
+CRITICAL=0
+
+# Helper functions
+log_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+log_success() {
+    echo -e "${GREEN}[✓]${NC} $1"
+}
+
+log_warning() {
+    echo -e "${YELLOW}[!]${NC} $1"
+    ((WARNINGS++))
+    [[ $EXIT_CODE -lt 1 ]] && EXIT_CODE=1
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+    ((ERRORS++))
+    [[ $EXIT_CODE -lt 2 ]] && EXIT_CODE=2
+}
+
+log_critical() {
+    echo -e "${RED}[CRITICAL]${NC} $1"
+    ((CRITICAL++))
+    EXIT_CODE=3
+}
+
+section() {
+    echo ""
+    echo -e "${CYAN}═══ $1 ═══${NC}"
+    echo ""
+}
+
+# =============================================================================
+# CHECK 1: STATE.yaml Freshness
+# =============================================================================
+section "CHECK 1: STATE.yaml Freshness"
+
+if [[ ! -f "$STATE_FILE" ]]; then
+    log_critical "STATE.yaml not found at: $STATE_FILE"
+else
+    # Get last updated timestamp from STATE.yaml
+    # STATE.yaml has last_updated nested under project:, so we need to find it
+    LAST_UPDATED=$(grep -E "^\s+last_updated:" "$STATE_FILE" | head -1 | sed 's/.*"\(.*\)".*/\1/')
+
+    if [[ -z "$LAST_UPDATED" ]]; then
+        log_warning "STATE.yaml has no last_updated timestamp"
+    else
+        # Convert to epoch for comparison
+        if date -d "$LAST_UPDATED" +%s >/dev/null 2>&1; then
+            LAST_EPOCH=$(date -d "$LAST_UPDATED" +%s)
+            CURRENT_EPOCH=$(date +%s)
+            DAYS_SINCE=$(( (CURRENT_EPOCH - LAST_EPOCH) / 86400 ))
+
+            log_info "STATE.yaml last updated: $LAST_UPDATED ($DAYS_SINCE days ago)"
+
+            if [[ $DAYS_SINCE -gt 7 ]]; then
+                log_warning "STATE.yaml is stale ($DAYS_SINCE days old)"
+                echo "     → Recommend running: update-state"
+            elif [[ $DAYS_SINCE -gt 3 ]]; then
+                log_warning "STATE.yaml is getting old ($DAYS_SINCE days)"
+            else
+                log_success "STATE.yaml is fresh"
+            fi
+        else
+            log_warning "Could not parse STATE.yaml timestamp: $LAST_UPDATED"
+        fi
+    fi
+fi
+
+# =============================================================================
+# CHECK 2: Duplicate Task Detection
+# =============================================================================
+section "CHECK 2: Duplicate Task Detection"
+
+# Get current task info (if task file provided)
+CURRENT_TITLE=""
+CURRENT_KEYWORDS=""
+
+if [[ -n "$TASK_FILE" && -f "$TASK_FILE" ]]; then
+    CURRENT_TITLE=$(grep -E "^# (Task|TASK-):" "$TASK_FILE" 2>/dev/null | sed 's/^# Task: //' | sed 's/^# TASK-[0-9]*: //' | head -1 || echo "")
+    CURRENT_KEYWORDS=$(grep -i "keywords\|tags" "$TASK_FILE" 2>/dev/null | head -1 || echo "")
+
+    log_info "Checking for duplicates of: $CURRENT_TITLE"
+fi
+
+# Check completed tasks
+if [[ -d "$COMPLETED_DIR" ]]; then
+    DUPLICATE_COUNT=0
+
+    # Search for similar tasks in completed directory
+    while IFS= read -r -d '' completed_file || [[ -n "$completed_file" ]]; do
+        completed_title=$(grep -E "^# (Task|TASK-):" "$completed_file" 2>/dev/null | sed 's/^# Task: //' | sed 's/^# TASK-[0-9]*: //' | head -1 || true)
+
+        if [[ -n "$completed_title" ]]; then
+            # Simple similarity check (same or similar title)
+            if [[ -n "$CURRENT_TITLE" ]]; then
+                # Check for exact match
+                if [[ "$completed_title" == "$CURRENT_TITLE" ]]; then
+                    log_error "Exact duplicate found in completed:"
+                    echo "     → $completed_file"
+                    echo "     → Title: $completed_title"
+                    ((DUPLICATE_COUNT++))
+                # Check for substring match (case-insensitive)
+                elif [[ "${completed_title,,}" == *"${CURRENT_TITLE,,}"* ]] || \
+                     [[ "${CURRENT_TITLE,,}" == *"${completed_title,,}"* ]]; then
+                    log_warning "Similar task found in completed:"
+                    echo "     → $completed_file"
+                    echo "     → Title: $completed_title"
+                    ((DUPLICATE_COUNT++))
+                fi
+            fi
+        fi
+    done < <(find "$COMPLETED_DIR" -name "*.md" -type f -print0 2>/dev/null)
+
+    if [[ $DUPLICATE_COUNT -eq 0 ]]; then
+        log_success "No duplicate tasks found in completed/"
+    else
+        log_error "Found $DUPLICATE_COUNT potential duplicate(s) in completed/"
+        echo "     → Review these files before proceeding"
+    fi
+else
+    log_warning "No completed/ directory found"
+fi
+
+# =============================================================================
+# CHECK 3: Path Validation
+# =============================================================================
+section "CHECK 3: Path Validation"
+
+PATH_ISSUES=0
+
+# If task file provided, extract and validate paths
+if [[ -n "$TASK_FILE" && -f "$TASK_FILE" ]]; then
+    log_info "Validating paths referenced in task..."
+
+    # Extract file paths (common patterns)
+    # Look for paths like: path/to/file, /path/to/file, ./path/to/file
+    FILE_PATHS=$(grep -oE '[a-zA-Z0-9_./-]+\.[a-z]{2,4}' "$TASK_FILE" 2>/dev/null | sort -u || echo "")
+
+    if [[ -n "$FILE_PATHS" ]]; then
+        while IFS= read -r path; do
+            # Skip if it's a URL or doesn't look like a file path
+            [[ "$path" =~ ^https?:// ]] && continue
+            [[ "$path" =~ ^[0-9]+\.[0-9]+ ]] && continue
+
+            # Convert relative path from project directory
+            FULL_PATH="$BLACKBOX5_DIR/$path"
+
+            if [[ ! -e "$FULL_PATH" ]]; then
+                # Also check if path exists from blackbox5 root
+                if [[ ! -e "$path" ]]; then
+                    log_warning "Path not found: $path"
+                    ((PATH_ISSUES++))
+                fi
+            fi
+        done <<< "$FILE_PATHS"
+
+        if [[ $PATH_ISSUES -eq 0 ]]; then
+            log_success "All referenced paths exist"
+        else
+            log_warning "Found $PATH_ISSUES path issue(s)"
+            echo "     → Verify these paths exist or update task"
+        fi
+    else
+        log_info "No file paths found to validate"
+    fi
+else
+    log_info "No task file provided, skipping path validation"
+fi
+
+# =============================================================================
+# CHECK 4: Active Tasks Check
+# =============================================================================
+section "CHECK 4: Active Tasks"
+
+ACTIVE_COUNT=$(find "$ACTIVE_DIR" -name "*.md" -type f ! -size 0 2>/dev/null | wc -l)
+
+log_info "Active tasks found: $ACTIVE_COUNT"
+
+if [[ $ACTIVE_COUNT -eq 0 ]]; then
+    log_warning "No active tasks found (empty or none exist)"
+    echo "     → This may indicate task management issue"
+else
+    log_success "Active tasks present"
+fi
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+section "SUMMARY"
+
+echo "Checks completed with:"
+echo "  - $WARNINGS warning(s)"
+echo "  - $ERRORS error(s)"
+echo "  - $CRITICAL critical issue(s)"
+echo ""
+
+case $EXIT_CODE in
+    0)
+        log_success "All checks passed - Safe to proceed"
+        ;;
+    1)
+        log_warning "Warnings present - Proceed with caution"
+        echo "  Review warnings above before starting work"
+        ;;
+    2)
+        log_error "Errors found - Fix recommended"
+        echo "  Address errors above to avoid wasted work"
+        ;;
+    3)
+        log_critical "Critical issues - DO NOT PROCEED"
+        echo "  Fix critical issues before continuing"
+        ;;
+esac
+
+echo ""
+exit $EXIT_CODE

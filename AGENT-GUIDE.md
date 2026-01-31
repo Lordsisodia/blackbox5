@@ -108,6 +108,30 @@ The autonomous multi-agent system is at:
 
 ## Common Tasks
 
+### Pre-execution Verification (Before Starting Work)
+```bash
+# Run verification to prevent duplicate work and validate paths
+./bin/verify-task
+
+# With specific task file
+./bin/verify-task --task-file path/to/task.md
+
+# With specific project directory
+./bin/verify-task --project-dir 5-project-memory/blackbox5
+```
+
+**What it checks:**
+1. STATE.yaml freshness (warns if stale)
+2. Duplicate task detection (prevents redoing work)
+3. Path validation (ensures referenced files exist)
+4. Active tasks count
+
+**Exit codes:**
+- 0: All checks passed - safe to proceed
+- 1: Warnings - proceed with caution
+- 2: Errors found - fix recommended
+- 3: Critical issues - do not proceed
+
 ### Find a specific tool
 ```bash
 grep -r "tool_name" 2-engine/tools/core/
