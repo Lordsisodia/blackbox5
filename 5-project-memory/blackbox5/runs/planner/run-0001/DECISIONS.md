@@ -520,3 +520,121 @@ The project relationship map revealed that **blackbox5 improvements flow back to
 - All projects become more efficient
 
 This validates the dual-RALF architecture and the focus on blackbox5 as the self-improvement project.
+
+---
+
+## Update: 2026-02-01T08:20:00Z (Eighth Iteration - Loop 44)
+
+### Decision 19: Create Missing Task Files
+
+**Decision:** Create task files for TASK-1769892002 and TASK-1769892003 which existed in queue but not in active/ directory.
+
+**Context:**
+- Queue.yaml showed 5 pending tasks
+- Active/ directory only had 3 task files
+- 2 tasks were "phantom" entries without filesystem representation
+
+**Options Considered:**
+1. Remove tasks from queue (rejected: tasks are valid and aligned with goals)
+2. Leave as-is (rejected: inconsistency causes confusion and potential execution failures)
+3. Create missing task files (chosen)
+
+**Decision:** Option 3 - Create missing task files.
+
+**Rationale:**
+- Queue state and filesystem state must be consistent
+- Executor needs task files to execute
+- Tasks are valid and contribute to goal coverage
+- Maintains system integrity and predictability
+
+**Expected Outcome:**
+- Filesystem synchronized with queue
+- No "missing file" errors during execution
+- Accurate queue depth metrics
+
+### Decision 20: Add New Task for Skill Effectiveness Metrics
+
+**Decision:** Create TASK-1769896000 to implement skill effectiveness metrics building on the skill usage tracking system.
+
+**Context:**
+- TASK-1769892001 (skill usage tracking) was just completed
+- IG-004 (Optimize Skill Usage) calls for tracking effectiveness, not just usage
+- Natural progression of the work with momentum
+
+**Options Considered:**
+1. Wait for more usage data before analyzing effectiveness
+2. Focus on other improvement goals
+3. Create effectiveness metrics task now (chosen)
+
+**Decision:** Option 3 - Create effectiveness metrics task.
+
+**Rationale:**
+- Can design the metrics system now and populate with data as it becomes available
+- High value: will help Executor choose better skills
+- Builds on just-completed work while context is fresh
+- Addresses the "effectiveness" part of IG-004 that usage tracking didn't cover
+
+**Expected Outcome:**
+- System to measure skill ROI
+- Data-driven skill selection guidance
+- Higher skill hit rate and lower false-positive rate
+
+### Decision 21: Maintain Queue Depth Above Target
+
+**Decision:** Allow queue depth to reach 6 (above target of 5) to ensure Executor has buffer of work.
+
+**Context:**
+- Target depth is 5 tasks
+- After creating missing files and new task, depth is 6
+- Executor is currently idle
+
+**Options Considered:**
+1. Strictly maintain 5 tasks (would require removing a valid task)
+2. Reduce to 4 tasks (would remove too much capacity)
+3. Allow 6 tasks (chosen)
+
+**Decision:** Option 3 - Allow 6 tasks.
+
+**Rationale:**
+- Executor is idle and ready for work
+- Better to have excess capacity than risk running out
+- All 6 tasks are high-quality and aligned with goals
+- Can adjust target based on Executor velocity observation
+
+**Expected Outcome:**
+- Executor has ample work to choose from
+- No risk of idle time due to lack of tasks
+- Data on whether 6 is optimal depth
+
+### Decision Framework Applied
+
+**From CLAUDE.md:**
+- **When to Just Do It:** Filesystem synchronization (quick maintenance)
+- **When to Create Formal Task:** Triggered - new high-value opportunity identified
+- **When to Hand Off to RALF:** N/A
+- **When to Ask User:** Not needed
+
+**From RALF-Planner Rules:**
+- **Stay ahead:** Queue now has 6 tasks (above target, healthy) ✓
+- **First principles:** Applied - addressed inconsistency, built on completed work
+- **No execution:** Followed - only planning
+- **Answer fast:** No questions to answer
+- **Adapt quickly:** Created tasks based on discovered gap
+
+### Quality Gates:
+- [x] Queue has 3-5+ tasks (currently 6)
+- [x] All tasks have clear success criteria
+- [x] No duplicate work planned
+- [x] Filesystem synchronized with queue
+- [x] Executor health confirmed
+- [x] All 5 improvement goals covered
+
+### New Pattern Identified
+
+**Queue-Filesystem Drift:** Multiple iterations have revealed that queue.yaml and filesystem can become desynchronized. This suggests a need for:
+1. Pre-planning validation step to check file existence
+2. Automated sync check in the planning loop
+3. Potential tooling to maintain consistency
+
+**Recommendation:** Add to standard procedure: "Before assessing queue depth, verify all queued tasks have corresponding files in active/"
+
