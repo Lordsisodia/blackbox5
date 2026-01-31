@@ -259,10 +259,10 @@ main() {
         update_heartbeat "running" "sleeping"
 
         echo ""
-        info "😴 Sleeping for 30 seconds..."
+        info "😴 Sleeping for 3 seconds..."
         echo -e "${BLUE}───────────────────────────────────────────────────────────────${NC}"
         echo ""
-        sleep 30
+        sleep 3
     done
 }
 
