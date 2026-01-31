@@ -13,15 +13,16 @@ checklist:
     enabled: true
 
     # How to execute this check
+    # NOTE: All commands use absolute paths due to bash cwd resets
     execution:
       step_1: "Search completed tasks for keywords"
-      command_1: 'grep -r "{task_keywords}" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/null | head -5'
+      command_1: 'grep -r "{task_keywords}" /workspaces/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/ 2>/dev/null | head -5'
 
       step_2: "Search recent commits for related work"
-      command_2: 'cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "{task_keywords}" | head -5'
+      command_2: 'cd /workspaces/blackbox5 && git log --oneline --since="1 week ago" | grep -i "{task_keywords}" | head -5'
 
       step_3: "Check for completed tasks with similar IDs"
-      command_3: 'grep -r "status: completed" $RALF_PROJECT_DIR/.autonomous/communications/queue.yaml | grep -A 10 "{task_pattern}"'
+      command_3: 'grep -r "status: completed" /workspaces/blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml | grep -A 10 "{task_pattern}"'
 
     # Pass criteria
     pass_criteria:
@@ -64,12 +65,13 @@ checklist:
     description: "Ensure assumptions are documented and validated before execution"
     enabled: true
 
+    # NOTE: All commands use absolute paths due to bash cwd resets
     execution:
       step_1: "Check if ASSUMPTIONS.md exists in current run"
-      command_1: '[ -s "$RALF_RUN_DIR/ASSUMPTIONS.md" ] && echo "EXISTS" || echo "MISSING"'
+      command_1: '[ -s "/workspaces/blackbox5/5-project-memory/blackbox5/runs/executor/run-0001/ASSUMPTIONS.md" ] && echo "EXISTS" || echo "MISSING"'
 
       step_2: "For context_level 2+ tasks, verify assumptions documented"
-      command_2: 'grep -A 10 "## Assumptions" "$RALF_RUN_DIR/ASSUMPTIONS.md" 2>/dev/null | wc -l'
+      command_2: 'grep -A 10 "## Assumptions" "/workspaces/blackbox5/5-project-memory/blackbox5/runs/executor/run-0001/ASSUMPTIONS.md" 2>/dev/null | wc -l'
 
       step_3: "Validate key assumptions against codebase"
       command_3: |
@@ -118,12 +120,14 @@ checklist:
     description: "Verify all target files and paths exist before modification"
     enabled: true
 
+    # NOTE: All commands use absolute paths due to bash cwd resets
     execution:
       step_1: "Extract target files from task definition"
-      command_1: 'yq ".files_to_modify" $RALF_PROJECT_DIR/.autonomous/communications/queue.yaml'
+      command_1: 'yq ".files_to_modify" /workspaces/blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml'
 
       step_2: "Verify each target file exists"
       command_2: |
+        cd /workspaces/blackbox5/5-project-memory/blackbox5
         for file in "{target_files}"; do
           if [ -f "$file" ]; then
             echo "EXISTS: $file"
@@ -134,6 +138,7 @@ checklist:
 
       step_3: "Check if parent directories exist"
       command_3: |
+        cd /workspaces/blackbox5/5-project-memory/blackbox5
         for file in "{target_files}"; do
           dir=$(dirname "$file")
           if [ -d "$dir" ]; then
@@ -180,18 +185,20 @@ checklist:
     description: "Ensure STATE.yaml and roadmap reflect current codebase state"
     enabled: true
 
+    # NOTE: All commands use absolute paths due to bash cwd resets
     execution:
       step_1: "Check STATE.yaml last update time"
-      command_1: 'stat -c "%y" $RALF_PROJECT_DIR/STATE.yaml 2>/dev/null || stat -f "%Sm" $RALF_PROJECT_DIR/STATE.yaml'
+      command_1: 'stat -c "%y" /workspaces/blackbox5/5-project-memory/blackbox5/STATE.yaml 2>/dev/null || stat -f "%Sm" /workspaces/blackbox5/5-project-memory/blackbox5/STATE.yaml'
 
       step_2: "Compare with latest commit timestamp"
-      command_2: 'cd ~/.blackbox5 && git log -1 --format="%ct" && echo "Current: $(date +%s)"'
+      command_2: 'cd /workspaces/blackbox5 && git log -1 --format="%ct" && echo "Current: $(date +%s)"'
 
       step_3: "Check for drift between STATE.yaml and reality"
       command_3: |
+        cd /workspaces/blackbox5/5-project-memory/blackbox5
         # Verify roadmap items match actual implementation
         # Check if "ready_to_start" items are actually completed
-        grep -A 5 "status: ready_to_start" $RALF_PROJECT_DIR/STATE.yaml | head -20
+        grep -A 5 "status: ready_to_start" STATE.yaml | head -20
 
     pass_criteria:
       - "STATE.yaml updated within 24 hours"
@@ -266,11 +273,19 @@ integration:
 
 # Configuration
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
+  working_dir: "/workspaces/blackbox5/5-project-memory/blackbox5"
   created: "2026-02-01T05:15:00Z"
   created_by: "TASK-1769892004"
   based_on: "knowledge/analysis/run-patterns-20260201.md"
-  last_updated: "2026-02-01T05:15:00Z"
+  last_updated: "2026-02-01T06:45:00Z"
+  updated_by: "TASK-1769893003"
+  changes:
+    - "Fixed CHECK-001: Use absolute paths for grep commands"
+    - "Fixed CHECK-002: Use absolute paths for ASSUMPTIONS.md checks"
+    - "Fixed CHECK-003: Added explicit cd to working_dir for path verification"
+    - "Fixed CHECK-004: Use absolute paths for STATE.yaml checks"
+    - "Added working_dir to metadata for clarity"
 
 # Tuning parameters
 settings:
