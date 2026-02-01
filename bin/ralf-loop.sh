@@ -32,7 +32,7 @@ while true; do
 
     # Pull latest before each run
     echo -e "${BLUE}→ Pulling latest from GitHub...${NC}"
-    git pull origin $(git branch --show-current) 2>/dev/null || true
+    git pull origin "$(git branch --show-current)" 2>/dev/null || true
     echo ""
 
     # Run RALF with the prompt
@@ -40,7 +40,7 @@ while true; do
     echo ""
 
     # The classic Ralph technique: cat prompt | claude -p
-    if ! cat ralf.md | claude -p --dangerously-skip-permissions; then
+    if ! claude -p --dangerously-skip-permissions < ralf.md; then
         echo -e "${RED}✗ RALF execution failed${NC}"
         echo "Waiting 30 seconds before retry..."
         sleep 30
@@ -57,7 +57,7 @@ while true; do
         git commit -m "ralf: [$(date +%Y%m%d-%H%M%S)] autonomous improvements" || true
 
         echo -e "${BLUE}→ Pushing to GitHub...${NC}"
-        git push origin $(git branch --show-current) 2>/dev/null || echo "Push failed, will retry"
+        git push origin "$(git branch --show-current)" 2>/dev/null || echo "Push failed, will retry"
     fi
 
     echo ""

@@ -39,7 +39,9 @@ backlog:
       problem: "STATE.yaml drifts from reality - plans marked 'planned' when work is complete"
       impact: "Prevents duplicate tasks, keeps roadmap accurate"
       effort_minutes: 45
-      status: "pending"
+      status: "completed"
+      completed_at: "2026-02-01T02:23:02Z"
+      completed_by: "TASK-1769911101"
       file: ".autonomous/tasks/improvements/IMP-1769903001-auto-sync-roadmap-state.md"
 
     - id: "IMP-1769903002"
@@ -54,7 +56,10 @@ backlog:
       problem: "Pre-execution research is optional but consistently proves valuable"
       impact: "Prevents duplicate work, validates assumptions"
       effort_minutes: 35
-      status: "pending"
+      status: "completed"
+      completed_at: "2026-02-01T02:25:00Z"
+      completed_by: "TASK-1769908000"
+      validation_note: "Caught duplicate TASK-1769912002 immediately - proved value"
       file: ".autonomous/tasks/improvements/IMP-1769903002-mandatory-pre-execution-research.md"
 
     - id: "IMP-1769903003"
@@ -67,7 +72,10 @@ backlog:
       problem: "Duplicate tasks created due to stale state or similar keywords"
       impact: "Saves time, prevents wasted effort"
       effort_minutes: 50
-      status: "pending"
+      status: "completed"
+      completed_at: "2026-02-01T02:10:12Z"
+      completed_by: "TASK-1769911100"
+      validation_note: "Caught duplicate TASK-1769912002 in Run 39 - immediate validation"
       file: ".autonomous/tasks/improvements/IMP-1769903003-duplicate-task-detection.md"
 
   # ===========================================================================
@@ -84,7 +92,10 @@ backlog:
       problem: "Plans reference non-existent code or describe already-resolved issues"
       impact: "Prevents wasted effort on invalid plans"
       effort_minutes: 40
-      status: "pending"
+      status: "completed"
+      completed_at: "2026-02-01T02:31:00Z"
+      completed_by: "TASK-1769913001"
+      validation_note: "4 validation checks implemented: file existence, staleness, dependencies, age"
       file: ".autonomous/tasks/improvements/IMP-1769903004-plan-validation-before-execution.md"
 
     - id: "IMP-1769903005"

@@ -53,7 +53,7 @@ echo ""
 # Function to check if a port is in use
 check_port() {
     local port=$1
-    if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1; then
+    if lsof -Pi :"$port" -sTCP:LISTEN -t >/dev/null 2>&1; then
         return 0
     else
         return 1
@@ -124,13 +124,13 @@ echo -e "   ${BLUE}curl http://localhost:8000/agents${NC}           # List all a
 echo -e "   ${BLUE}tail -f /tmp/blackbox5-api.log${NC}              # View API logs"
 echo ""
 
-if [ ! -z "${API_PID:-}" ]; then
+if [ -n "${API_PID:-}" ]; then
     echo -e "${YELLOW}Press Ctrl+C to stop the API server, or run:${NC}"
     echo -e "   ${BLUE}kill $API_PID${NC}"
     echo ""
 
     # Handle graceful shutdown
-    trap "echo -e '${YELLOW}🛑 Stopping Blackbox5...${NC}'; kill $API_PID 2>/dev/null; echo -e '${GREEN}✅ Done${NC}'; exit 0" SIGINT SIGTERM
+    trap 'echo -e "${YELLOW}🛑 Stopping Blackbox5...${NC}"; kill $API_PID 2>/dev/null; echo -e "${GREEN}✅ Done${NC}"; exit 0' SIGINT SIGTERM
 
     # Keep script running
     wait

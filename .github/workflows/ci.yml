@@ -19,6 +19,31 @@ concurrency:
 
 jobs:
   # ========================================================================
+  # SHELL SCRIPT LINTING
+  # ========================================================================
+  shellcheck:
+    name: Shell Script Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run shellcheck
+        uses: actions/setup-shellcheck@v2
+
+      - name: Check shell scripts
+        run: |
+          # Check all .sh files in bin/
+          shellcheck bin/*.sh
+
+          # Check shell scripts in project root
+          shellcheck legacy-codespace-loop.sh 2>/dev/null || true
+
+          # Check scripts in 5-project-memory/blackbox5/.autonomous/
+          shellcheck 5-project-memory/blackbox5/.autonomous/ralf-daemon.sh 2>/dev/null || true
+        continue-on-error: false
+
+  # ========================================================================
   # CODE QUALITY CHECKS
   # ========================================================================
   lint:

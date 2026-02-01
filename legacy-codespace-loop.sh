@@ -31,7 +31,7 @@ while true; do
     export RALF_ENGINE_DIR="$ENGINE_DIR"
     export RALF_BLACKBOX5_DIR="/workspaces/blackbox5"
 
-    if cat "$PROMPT_FILE" | claude -p --dangerously-skip-permissions 2>&1 | tee -a "$SESSION_LOG"; then
+    if claude -p --dangerously-skip-permissions < "$PROMPT_FILE" 2>&1 | tee -a "$SESSION_LOG"; then
         echo "RALF cycle completed"
     else
         echo "RALF cycle had issues, continuing..."
