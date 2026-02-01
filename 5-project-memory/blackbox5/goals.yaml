@@ -168,7 +168,7 @@ improvement_goals:
 data_goals:
   - id: DG-001
     name: "Capture Actionable Learnings"
-    description: "Every run must produce at least one actionable insight"
+    description: "Every run must produce at least one actionable insight with concrete action_item"
     priority: high
     status: active
     required_data:
@@ -176,7 +176,9 @@ data_goals:
       - "What was hard (to fix)"
       - "What would we do differently (to improve)"
       - "Patterns detected (to analyze)"
+      - "Action item (mandatory - concrete task to create)"
     storage: "runs/run-*/LEARNINGS.md"
+    format: "Structured YAML with action_item field (see .templates/tasks/LEARNINGS.md.template)"
 
   - id: DG-002
     name: "Track Decision Rationale"
@@ -211,6 +213,9 @@ review_schedule:
     frequency: "every 5 runs"
     next_due: "2026-02-05"
     last_completed: null
+    trigger_condition: "current_loop % 5 == 0"
+    auto_trigger: true
+    process_documentation: "operations/.docs/first-principles-guide.md"
 
   monthly_goal_review:
     frequency: "monthly"
@@ -221,6 +226,25 @@ review_schedule:
     frequency: "quarterly"
     next_due: "2026-04-01"
     last_completed: null
+
+improvement_pipeline:
+  status: "active"
+  pipeline_definition: "operations/improvement-pipeline.yaml"
+  guide: "operations/.docs/improvement-pipeline-guide.md"
+  template: ".templates/tasks/LEARNINGS.md.template"
+  queue_path: ".autonomous/tasks/improvements/"
+
+  metrics:
+    target_application_rate: 50
+    target_actionable_learnings: 80
+    current_application_rate: 2
+    current_actionable_learnings: 20
+
+  process:
+    learning_capture: "Every run - LEARNINGS.md with action_item"
+    review_cycle: "Every 5 runs - First principles review"
+    task_creation: "High impact learnings → IMP-*.md files"
+    validation: "Before/after metrics comparison"
 
 # =============================================================================
 # GOAL HIERARCHY
