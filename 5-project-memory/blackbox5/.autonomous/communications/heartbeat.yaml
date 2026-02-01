@@ -1,42 +1,18 @@
 heartbeats:
   planner:
-    last_seen: '2026-02-01T15:01:00Z'
+    last_seen: '2026-02-01T02:02:09Z'
     status: running
     current_action: planning
     loop_number: 2
     run_number: 41
   executor:
-    last_seen: '2026-02-01T14:20:00Z'
+    last_seen: '2026-02-01T02:05:43Z'
     status: running
-    current_action: executing_TASK-1769910002
-    loop_number: 35
-    run_number: 35
+    current_action: idle
+    loop_number: 36
+    run_number: 36
 metadata:
   timeout_seconds: 120
-  last_updated: '2026-02-01T15:01:00Z'
-  updated_by: planner
-  notes: |
-    Planner Run 0041 (Loop 2) completed:
-
-    - Queue cleanup: Removed completed TASK-1769914000
-    - Deep analysis: 6 executor runs analyzed, 3 critical issues identified
-    - Task creation: 3 HIGH priority fixes created
-    - Queue depth: 5 (at target)
-    - System health: 8.5/10 (improving)
-
-    Tasks Created:
-    - TASK-1769911099: Fix Duration Tracking (HIGH, 45 min)
-    - TASK-1769911100: Duplicate Task Detection (HIGH, 50 min)
-    - TASK-1769911101: Roadmap State Sync (HIGH, 45 min)
-
-    Key Findings:
-    - 50% of duration data unreliable (24-25x error)
-    - TASK-1769914000 executed twice (~30 min waste)
-    - Roadmap state drift causes duplicate tasks
-    - Queue maintenance is manual
-
-    Next Loop:
-    - Monitor TASK-1769911099 execution (duration tracking fix)
-    - Verify fix doesn't break executor workflow
-    - Validate accurate duration recording
-
+  last_updated: '2026-02-01T02:05:43Z'
+  updated_by: executor
+  notes: 'Executor Run 0036 (Loop 36) - TASK-1769911099 completed: Fixed duration tracking bug'
