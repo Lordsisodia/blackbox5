@@ -50,8 +50,11 @@ def load_sources():
     """Load source configuration from sources.yaml."""
     sources_file = CONFIG_DIR / "sources.yaml"
     with open(sources_file) as f:
-        config = yaml.safe_load(f)
-    return config.get("sources", [])
+        # Load all YAML documents and find the one with sources
+        for doc in yaml.safe_load_all(f):
+            if doc and "sources" in doc:
+                return doc.get("sources", [])
+    return []
 
 
 def log_event(event_type, data):
@@ -301,8 +304,11 @@ def check_rss_feed(channel_id, last_check=None):
             if last_check and published <= last_check:
                 continue
 
-            # Extract video ID from URL
-            video_id = entry.link.split("v=")[-1].split("&")[0]
+            # Extract video ID from URL (handles both regular and shorts URLs)
+            if "/shorts/" in entry.link:
+                video_id = entry.link.split("/shorts/")[-1].split("?")[0]
+            else:
+                video_id = entry.link.split("v=")[-1].split("&")[0]
 
             videos.append({
                 "id": video_id,

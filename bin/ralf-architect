@@ -31,7 +31,7 @@ fi
 
 PROJECT_DIR="${RALF_PROJECT_DIR:-$BASE_DIR/5-project-memory/blackbox5}"
 ENGINE_DIR="${RALF_ENGINE_DIR:-$BASE_DIR/2-engine/.autonomous}"
-PROMPT_FILE="$ENGINE_DIR/prompts/system/architect/variations/v1-architecture-review.md"
+PROMPT_FILE="$ENGINE_DIR/prompts/system/architect/variations/v3-ralf-integrated.md"
 COMM_DIR="$PROJECT_DIR/.autonomous/communications"
 RUNS_DIR="$PROJECT_DIR/runs/architect"
 
