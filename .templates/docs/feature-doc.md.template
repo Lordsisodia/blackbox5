@@ -1,0 +1,54 @@
+# Feature Documentation: {{title}}
+
+**Task ID:** {{task_id}}
+**Status:** {{status}}
+**Type:** {{type}}
+**Priority:** {{priority}}
+
+---
+
+## Summary
+
+{{what_was_done}}
+
+---
+
+## Approach
+
+{{approach}}
+
+---
+
+## Files Modified
+
+{{files_modified}}
+
+---
+
+## Impact
+
+### Immediate
+{{impact_immediate}}
+
+### Short-Term
+{{impact_short_term}}
+
+### Long-Term
+{{impact_long_term}}
+
+---
+
+## Success Criteria
+
+### Must-Have (Completed)
+{{success_criteria_must_have}}
+
+---
+
+## Key Decisions
+
+{{decisions}}
+
+---
+
+*This documentation was automatically generated from task completion output.*
