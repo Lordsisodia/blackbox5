@@ -521,7 +521,7 @@ risks:
 
 improvement_metrics:
   runs_completed: 49
-  learnings_captured: 49
+  learnings_captured: 80
   first_principles_reviews: 0
 
   review_schedule:
@@ -529,13 +529,14 @@ improvement_metrics:
     last_review_run: null
     next_review_run: 50
     auto_trigger: true
-    current_loop: 44
+    current_loop: 46
 
   improvements:
-    proposed: 1
-    approved: 1
+    proposed: 11
+    approved: 11
     applied: 1
     rejected: 0
+    backlog: 10
 
   by_category:
     skills:
@@ -543,11 +544,14 @@ improvement_metrics:
       refined: 0
       removed: 0
     process:
-      changes: 3
+      proposed: 4
+      applied: 0
     guidance:
-      changes: 1
+      proposed: 4
+      applied: 0
     infrastructure:
-      changes: 1
+      proposed: 2
+      applied: 0
 
   velocity_trends:
     task_completion_time: "stable"
