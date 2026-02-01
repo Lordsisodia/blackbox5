@@ -19,28 +19,6 @@ queue:
     added_at: '2026-02-01T08:05:00Z'
     status: pending
 
-  - id: TASK-1769910001
-    type: implement
-    title: Create executor run monitoring dashboard
-    priority: medium
-    estimated_minutes: 40
-    context_level: 3
-    approach: |
-      Create a monitoring dashboard for tracking executor runs and metrics.
-      Include: success rate, skill usage, average completion time, common failure patterns.
-      Use YAML format for easy parsing and updates.
-    files_to_modify:
-      - operations/executor-dashboard.yaml
-      - operations/.docs/executor-monitoring-guide.md
-    acceptance_criteria:
-      - Dashboard YAML created with key metrics
-      - Historical data from last 20 runs
-      - Automated metric calculation
-      - Documentation for using dashboard
-    dependencies: []
-    added_at: '2026-02-01T09:05:00Z'
-    completed_at: '2026-02-01T11:40:00Z'
-    status: completed
 
   - id: TASK-1769910002
     type: analyze
@@ -64,53 +42,28 @@ queue:
     added_at: '2026-02-01T09:10:00Z'
     status: pending
 
-  - id: TASK-1769911000
+
+  - id: TASK-1769915000
     type: implement
-    title: Lower skill confidence threshold from 80% to 70%
-    priority: high
-    estimated_minutes: 25
+    title: Add Shellcheck to CI/CD Pipeline
+    priority: low
+    estimated_minutes: 40
     context_level: 2
     approach: |
-      Lower the skill confidence threshold from 80% to 70% to enable actual skill invocations.
-      Update operations/skill-selection.yaml and ralf-executor.md if needed.
-      Document the threshold change rationale.
+      Integrate shellcheck into CI/CD pipeline to catch shell script syntax errors.
+      Add shellcheck job to ci.yml, fix any warnings in bin/ scripts,
+      create shell script standards documentation.
     files_to_modify:
-      - operations/skill-selection.yaml
-      - 2-engine/.autonomous/prompts/ralf-executor.md
-      - operations/skill-metrics.yaml
+      - .github/workflows/ci.yml
+      - bin/*.sh
+      - operations/.docs/shell-script-standards.md
     acceptance_criteria:
-      - Threshold updated from 80% to 70%
-      - All relevant files updated
-      - Change rationale documented
-      - Verified in next executor run
-    dependencies:
-      - TASK-1769910000
-    added_at: '2026-02-01T10:05:00Z'
-    completed_at: '2026-02-01T10:50:00Z'
-    status: completed
-
-  - id: TASK-1769911001
-    type: implement
-    title: Implement TDD testing guide from IMP-1769903006
-    priority: medium
-    estimated_minutes: 45
-    context_level: 3
-    approach: |
-      Implement TDD testing guide improvement from backlog.
-      Create testing-guidelines.yaml and testing-guide.md.
-      Update task completion template with testing section.
-    files_to_modify:
-      - operations/testing-guidelines.yaml
-      - operations/.docs/testing-guide.md
-      - .templates/tasks/task-completion.md.template
-      - operations/improvement-backlog.yaml
-    acceptance_criteria:
-      - Testing guidelines YAML created
-      - Testing guide documentation created
-      - Task template updated with testing section
-      - IMP-1769903006 marked complete
+      - Shellcheck integrated into CI/CD
+      - All bin/ scripts pass shellcheck
+      - Shell script standards documented
+      - IMP-1769903008 marked complete
     dependencies: []
-    added_at: '2026-02-01T10:05:00Z'
+    added_at: '2026-02-01T12:20:00Z'
     status: pending
 
   - id: TASK-1769912000
@@ -136,33 +89,35 @@ queue:
     added_at: '2026-02-01T11:15:00Z'
     status: pending
 
-  - id: TASK-1769913000
+
+  - id: TASK-1769914000
     type: implement
-    title: Create task acceptance criteria template
+    title: Create improvement metrics dashboard
     priority: medium
-    estimated_minutes: 30
-    context_level: 2
+    estimated_minutes: 50
+    context_level: 3
     approach: |
-      Create a task acceptance criteria template to improve task scope clarity.
-      Based on IMP-1769903009 from improvement backlog.
-      Update task-specification.md.template with acceptance criteria section.
+      Create a dashboard to track improvement metrics and visualize the
+      learning-to-improvement pipeline effectiveness.
+      Integrate with existing executor dashboard.
     files_to_modify:
-      - .templates/tasks/task-acceptance-criteria.md.template
-      - .templates/tasks/task-specification.md.template
+      - operations/improvement-metrics.yaml
+      - operations/.docs/improvement-metrics-guide.md
+      - operations/executor-dashboard.yaml
       - operations/improvement-backlog.yaml
     acceptance_criteria:
-      - Task acceptance criteria template created
-      - Task specification template updated
-      - IMP-1769903009 marked complete
-      - Documentation for using template created
+      - Improvement metrics dashboard YAML created
+      - Tracks learnings → improvements conversion rate
+      - Shows improvement effectiveness over time
+      - Integrated with executor dashboard
+      - IMP-1769903010 marked complete
     dependencies: []
-    added_at: '2026-02-01T11:20:00Z'
-    completed_at: '2026-02-01T11:30:00Z'
-    status: completed
+    added_at: '2026-02-01T12:10:00Z'
+    status: pending
 
 metadata:
-  last_updated: '2026-02-01T11:45:00Z'
+  last_updated: '2026-02-01T12:25:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 4
-  last_completed: TASK-1769910001
+  current_depth: 5
+  last_completed: TASK-1769911001
