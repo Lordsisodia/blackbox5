@@ -1,0 +1,223 @@
+# BlackBox5 Root Layout
+# =============================================================================
+# Purpose: Machine-readable map of current root structure
+# Updated: 2026-02-02
+# Status: Active - needs cleanup
+# =============================================================================
+
+meta:
+  project: blackbox5
+  version: "5.0.0"
+  last_updated: "2026-02-02"
+  total_root_items: 28
+  status: "needs_cleanup"
+
+# =============================================================================
+# ROOT LEVEL ITEMS
+# =============================================================================
+
+root_items:
+  # --- Dot folders (hidden) ---
+  - name: ".analysis"
+    type: folder
+    purpose: "Analysis workspace"
+    status: active
+    notes: "Contains analysis outputs"
+
+  - name: ".archived"
+    type: folder
+    purpose: "Archived items"
+    status: active
+    notes: "Old/deprecated content"
+
+  - name: ".autonomous"
+    type: folder
+    purpose: "Agent data (DEPRECATED)"
+    status: deprecated
+    action: "Delete - superseded by autonomous/"
+    issue: "Duplicate of autonomous/ folder"
+
+  - name: ".docs"
+    type: folder
+    purpose: "Documentation templates"
+    status: active
+
+  - name: ".templates"
+    type: folder
+    purpose: "File templates"
+    status: active
+
+  # --- Regular folders ---
+  - name: "architecture"
+    type: folder
+    purpose: "Architecture documentation"
+    status: active
+    created: "2026-02-02"
+    contains:
+      - decisions/
+      - knowledge/
+      - context/
+      - plans/
+
+  - name: "autonomous"
+    type: folder
+    purpose: "Project-specific agent data"
+    status: active
+    contains:
+      - tasks/
+      - communications/
+      - runs/
+      - context/
+
+  - name: "decisions"
+    type: folder
+    purpose: "Decision records"
+    status: active
+    contains:
+      - infrastructure/
+      - scope/
+      - technical/
+    note: "Architectural decisions moved to architecture/decisions/"
+
+  - name: "knowledge"
+    type: folder
+    purpose: "Knowledge base"
+    status: active
+    contains:
+      - analysis/
+      - architecture/  # Moved to architecture/knowledge/
+      - codebase/
+      - frameworks/
+      - research/
+
+  - name: "memory"
+    type: folder
+    purpose: "Project memory"
+    status: active
+
+  - name: "operations"
+    type: folder
+    purpose: "Operations docs"
+    status: active
+    contains:
+      - agents/
+      - architecture/  # Empty - consider removing
+      - dashboard/
+      - workflows/
+
+  - name: "plans"
+    type: folder
+    purpose: "Project plans"
+    status: active
+    contains:
+      - features/
+      - prds/
+      - briefs/
+
+  - name: "project"
+    type: folder
+    purpose: "Project metadata"
+    status: active
+
+  - name: "runs"
+    type: folder
+    purpose: "Run history"
+    status: active
+    contains:
+      - planner/
+      - executor/
+      - timeline/
+
+  - name: "tasks"
+    type: folder
+    purpose: "Legacy tasks (DEPRECATED)"
+    status: deprecated
+    action: "Consolidate into autonomous/tasks/manual/"
+    issue: "Duplicate task system"
+
+  # --- Root files ---
+  - name: "_NAMING.md"
+    type: file
+    purpose: "Naming conventions"
+    status: active
+
+  - name: "ACTIVE.md"
+    type: file
+    purpose: "Current work dashboard"
+    status: active
+
+  - name: "ARCHITECTURE_DECISIONS.md"
+    type: file
+    purpose: "Architecture decisions (moving)"
+    status: migrating
+    action: "Consolidate into architecture/ADR.md"
+
+  - name: "goals.yaml"
+    type: file
+    purpose: "Project goals"
+    status: active
+
+  - name: "MAP.yaml"
+    type: file
+    purpose: "Complete file map"
+    status: active
+
+  - name: "README.md"
+    type: file
+    purpose: "Project overview"
+    status: active
+
+  - name: "STATE.yaml"
+    type: file
+    purpose: "Project state"
+    status: active
+
+# =============================================================================
+# OUTSIDE PROJECT MEMORY (Engine)
+# =============================================================================
+
+engine:
+  path: "2-engine/.autonomous"
+  type: folder
+  purpose: "RALF engine infrastructure"
+  status: needs_rename
+  action: "Rename to autonomous-core/"
+  contains:
+    - prompts/
+    - skills/
+    - lib/
+    - config/
+
+# =============================================================================
+# KNOWN ISSUES
+# =============================================================================
+
+issues:
+  - id: ARCH-001
+    description: "Duplicate .autonomous folders"
+    locations:
+      - root/.autonomous
+      - root/autonomous
+    severity: high
+
+  - id: ARCH-002
+    description: "Legacy task system"
+    locations:
+      - root/tasks/
+    severity: medium
+
+  - id: ARCH-003
+    description: "Engine folder misnamed"
+    locations:
+      - 2-engine/.autonomous
+    severity: medium
+
+  - id: ARCH-004
+    description: "Scattered architecture docs"
+    locations:
+      - ARCHITECTURE_DECISIONS.md
+      - decisions/architectural/
+      - knowledge/architecture/
+    severity: low
+    status: resolved
+    resolution: "Consolidated into architecture/ folder"

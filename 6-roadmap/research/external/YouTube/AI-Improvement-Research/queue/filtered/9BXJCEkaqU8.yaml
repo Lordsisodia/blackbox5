@@ -1,0 +1,32 @@
+video_id: 9BXJCEkaqU8
+title: OpenAI is going to lose to...
+creator: Rasmus
+creator_slug: rasmus
+url: https://youtube.com/watch?v=9BXJCEkaqU8
+priority: critical
+status: filtered
+queued_at: '2026-02-02T03:26:36.807574'
+source_path: data/sources/rasmus/videos/9BXJCEkaqU8.yaml
+ranking:
+  relevance: 10
+  importance: 60
+  value: 0
+  composite: 23.5
+decision:
+  should_process: false
+  method: rank_v2
+  score: 25
+  threshold: 45
+ranking_v2:
+  actionability: 15
+  specificity: 0
+  depth: 0
+  creator: 10
+  clickbait_penalty: 0
+  base_score: 25
+  final_score: 25
+  threshold: 45
+  should_process: false
+  ranked_at: '2026-02-02T03:48:00.550082'
+  version: '2.0'
+filtered_at: '2026-02-02T03:48:00.553279'

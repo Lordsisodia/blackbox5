@@ -4,7 +4,7 @@ creator: David Ondrej
 creator_slug: david_ondrej
 url: https://youtube.com/watch?v=vzF7Hj-JmZQ
 priority: critical
-status: pending
+status: filtered
 queued_at: '2026-02-02T00:30:18.837131'
 source_path: data/sources/david_ondrej/videos/vzF7Hj-JmZQ.yaml
 ranking:
@@ -13,6 +13,20 @@ ranking:
   value: 10
   composite: 31.5
 decision:
-  should_process: true
-  tier: 1
-  reason: meets_threshold
+  should_process: false
+  method: rank_v2
+  score: 35
+  threshold: 45
+ranking_v2:
+  actionability: 20
+  specificity: 5
+  depth: 0
+  creator: 10
+  clickbait_penalty: 0
+  base_score: 35
+  final_score: 35
+  threshold: 45
+  should_process: false
+  ranked_at: '2026-02-02T03:48:00.027428'
+  version: '2.0'
+filtered_at: '2026-02-02T03:48:00.031443'

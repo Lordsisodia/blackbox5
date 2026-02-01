@@ -1,0 +1,32 @@
+video_id: yAO28HOS5x4
+title: My Complete Tech & Tool Stack (Everything)
+creator: Rasmus
+creator_slug: rasmus
+url: https://youtube.com/watch?v=yAO28HOS5x4
+priority: critical
+status: filtered
+queued_at: '2026-02-02T03:26:13.399744'
+source_path: data/sources/rasmus/videos/yAO28HOS5x4.yaml
+ranking:
+  relevance: 10
+  importance: 73
+  value: 0
+  composite: 28.0
+decision:
+  should_process: false
+  method: rank_v2
+  score: 25
+  threshold: 45
+ranking_v2:
+  actionability: 15
+  specificity: 0
+  depth: 0
+  creator: 10
+  clickbait_penalty: 0
+  base_score: 25
+  final_score: 25
+  threshold: 45
+  should_process: false
+  ranked_at: '2026-02-02T03:48:00.692959'
+  version: '2.0'
+filtered_at: '2026-02-02T03:48:00.696138'

@@ -15,5 +15,18 @@ ranking:
   composite: 60.9
 decision:
   should_process: true
-  tier: 1
-  reason: meets_threshold
+  method: rank_v2
+  score: 75
+  threshold: 45
+ranking_v2:
+  actionability: 40
+  specificity: 30
+  depth: 0
+  creator: 10
+  clickbait_penalty: 5
+  base_score: 80
+  final_score: 75
+  threshold: 45
+  should_process: true
+  ranked_at: '2026-02-02T03:47:59.918104'
+  version: '2.0'
