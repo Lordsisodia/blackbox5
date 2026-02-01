@@ -37,6 +37,15 @@
 
 ---
 
+## Skill Usage for This Task (REQUIRED)
+
+**Applicable skills:** [list skills checked or 'None']
+**Skill invoked:** [skill name or 'None']
+**Confidence:** [percentage if calculated, or N/A]
+**Rationale:** [why skill was or wasn't used]
+
+---
+
 ## Execution Log
 
 ### Step 1: [Action taken]
@@ -58,6 +67,8 @@
 
 - [ ] Pre-execution research completed
 - [ ] Duplicate check performed
+- [ ] Skill evaluation completed (Step 2.5)
+- [ ] "Skill Usage for This Task" section filled out
 - [ ] All target files read before modification
 - [ ] Code imports/validates successfully
 - [ ] Integration with existing system verified
