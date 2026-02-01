@@ -1,0 +1,21 @@
+loop:
+  number: 99
+  agent: planner
+  timestamp_start: "2026-02-01T16:15:47Z"
+  timestamp_end: null
+  duration_seconds: null
+
+state:
+  active_tasks_count: 0
+  completed_tasks_count: 0
+  executor_status: "unknown"
+  queue_depth: 0
+
+actions_taken: []
+discoveries: []
+questions_answered: []
+tasks_created: []
+next_steps: []
+blockers: []
+
+notes: "Loop initialized, awaiting completion..."

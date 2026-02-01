@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  ralf-planner:
+    image: debian:bookworm-slim
+    container_name: ralf-planner
+    env_file: .env
+    environment:
+      - RALF_MODE=plan
+    volumes:
+      - .:/app/blackbox5
+      - /root/.claude:/root/.claude
+    working_dir: /app/blackbox5
+    command: >
+      bash -c "
+        apt-get update -qq &&
+        apt-get install -y -qq curl git tmux python3 netcat-openbsd &&
+        curl -fsSL https://claude.ai/install | sh &&
+        while true; do
+          bin/ralf-planner-v2 2>&1 | tee -a /tmp/planner.log
+          sleep 5
+        done
+      "
+    restart: unless-stopped
+    mem_limit: 2g
+
+  ralf-executor:
+    image: debian:bookworm-slim
+    container_name: ralf-executor
+    env_file: .env
+    environment:
+      - RALF_MODE=execute
+    volumes:
+      - .:/app/blackbox5
+      - /root/.claude:/root/.claude
+    working_dir: /app/blackbox5
+    command: >
+      bash -c "
+        apt-get update -qq &&
+        apt-get install -y -qq curl git tmux python3 netcat-openbsd &&
+        curl -fsSL https://claude.ai/install | sh &&
+        while true; do
+          bin/ralf-executor-v2 2>&1 | tee -a /tmp/executor.log
+          sleep 5
+        done
+      "
+    restart: unless-stopped
+    mem_limit: 2g
+
+  keepalive:
+    image: python:3.11-slim
+    container_name: ralf-keepalive
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "
+        pip install flask -q &&
+        echo 'from flask import Flask; import datetime; app = Flask(__name__); app.route(\"/\")(lambda: f\"RALF OK - {datetime.datetime.utcnow().isoformat()}\"); app.run(host=\"0.0.0.0\", port=8080)' > server.py &&
+        python server.py
+      "
+    restart: unless-stopped
+    mem_limit: 256m
