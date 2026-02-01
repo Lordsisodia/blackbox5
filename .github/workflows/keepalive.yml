@@ -1,0 +1,16 @@
+name: Keep Codespace Alive
+
+on:
+  schedule:
+    # Run every 25 minutes
+    - cron: '*/25 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Codespace
+        run: |
+          curl -s https://legacy-agent-self-improver-pxpw94pwprgcq6p-8080.app.github.dev || true
+          echo "Ping sent at $(date)"
