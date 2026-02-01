@@ -67,12 +67,54 @@ success() {
     echo -e "${CYAN}[$timestamp]${NC} ✅ ${GREEN}SUCCESS${NC} $*" | tee -a "$LOG_FILE"
 }
 
-# Initialize run directory
+# Initialize run directory and tracking
 init_run() {
     RUN_COUNTER=$((RUN_COUNTER + 1))
     local run_dir="$RUNS_DIR/run-$(printf %04d $RUN_COUNTER)"
     mkdir -p "$run_dir"
     export RALF_RUN_DIR="$run_dir"
+    export RALF_LOOP_NUMBER="$RUN_COUNTER"
+
+    # Create loop metadata file for tracking
+    local tracking_dir="$PROJECT_DIR/.autonomous/planner-tracking"
+    local loop_file="$tracking_dir/loops/loop-$(printf %04d $RUN_COUNTER)-metadata.yaml"
+    local today=$(date -u +%Y-%m-%d)
+    local now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+    cat > "$loop_file" << EOF
+loop:
+  number: $RUN_COUNTER
+  timestamp_start: "$now"
+  timestamp_end: null
+  duration_seconds: null
+
+state:
+  active_tasks_count: 0
+  completed_tasks_count: 0
+  executor_status: "unknown"
+  queue_depth: 0
+
+actions_taken: []
+discoveries: []
+questions_answered: []
+tasks_created: []
+next_steps: []
+blockers: []
+
+notes: "Loop initialized, awaiting completion..."
+EOF
+
+    # Append to daily timeline
+    local timeline_file="$tracking_dir/timeline/$today.md"
+    if [[ ! -f "$timeline_file" ]]; then
+        echo "# Timeline - $today" > "$timeline_file"
+        echo "" >> "$timeline_file"
+        echo "## Planner Activity" >> "$timeline_file"
+        echo "" >> "$timeline_file"
+    fi
+
+    echo "- **$(date -u +%H:%M:%S)** - Loop $RUN_COUNTER started" >> "$timeline_file"
+
     echo "$run_dir"
 }
 
@@ -223,6 +265,9 @@ main() {
     mkdir -p "$RUNS_DIR"
     mkdir -p "$COMM_DIR"
     mkdir -p "$PROJECT_DIR/knowledge/analysis"
+    mkdir -p "$PROJECT_DIR/.autonomous/planner-tracking/loops"
+    mkdir -p "$PROJECT_DIR/.autonomous/planner-tracking/timeline"
+    mkdir -p "$PROJECT_DIR/.autonomous/planner-tracking/assets"
 
     success "✨ Ready for iterations"
     echo ""
