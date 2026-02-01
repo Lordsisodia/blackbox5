@@ -52,6 +52,29 @@ check_deps() {
     fi
 }
 
+# Start keep-alive server
+start_keepalive() {
+    log "Starting keep-alive server..."
+
+    if [[ -f /tmp/ralf-keepalive.pid ]]; then
+        local pid=$(cat /tmp/ralf-keepalive.pid)
+        if kill -0 $pid 2>/dev/null; then
+            warn "Keep-alive server already running"
+            return
+        fi
+    fi
+
+    "$SCRIPT_DIR/ralf-keepalive" start > /dev/null 2>&1 &
+    sleep 2
+
+    # Get the codespace URL for UptimeRobot
+    if [[ -n "${CODESPACE_NAME:-}" ]]; then
+        local url="https://${CODESPACE_NAME}-8080.app.github.dev"
+        success "Keep-alive server should be accessible at: $url"
+        log "Add this URL to UptimeRobot with 5-minute intervals"
+    fi
+}
+
 # Start Planner v2
 start_planner() {
     log "Starting RALF-Planner v2..."
@@ -206,6 +229,7 @@ attach_session() {
 case "${1:-start}" in
     start)
         check_deps
+        start_keepalive
         start_planner
         start_executor
         echo ""
@@ -214,6 +238,10 @@ case "${1:-start}" in
         log "Attach to Planner: ralf-dual-v2 attach planner"
         log "Attach to Executor: ralf-dual-v2 attach executor"
         log "Stop: ralf-dual-v2 stop"
+        if [[ -n "${CODESPACE_NAME:-}" ]]; then
+            warn "IMPORTANT: Add this URL to UptimeRobot to prevent sleep:"
+            log "https://${CODESPACE_NAME}-8080.app.github.dev"
+        fi
         ;;
     stop)
         stop_agents

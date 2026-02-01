@@ -1,0 +1,115 @@
+#!/bin/bash
+#
+# RALF Keep-Alive Server
+# Purpose: Simple HTTP server to respond to keep-alive pings from UptimeRobot
+# This prevents GitHub Codespace from sleeping
+#
+
+set -euo pipefail
+
+PORT="${RALF_KEEPALIVE_PORT:-8080}"
+LOG_FILE="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}/.autonomous/keepalive.log"
+
+# Colors
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+log() { echo -e "${BLUE}[KEEPALIVE]${NC} $*" | tee -a "$LOG_FILE"; }
+success() { echo -e "${GREEN}[OK]${NC} $*" | tee -a "$LOG_FILE"; }
+
+# Simple HTTP response
+respond() {
+    local status="$1"
+    local body="$2"
+    local length=${#body}
+    echo -e "HTTP/1.1 $status\r\nContent-Type: text/plain\r\nContent-Length: $length\r\nConnection: close\r\n\r\n$body"
+}
+
+# Start the keep-alive server
+start_server() {
+    log "Starting keep-alive server on port $PORT..."
+    log "This will keep the GitHub Codespace awake"
+
+    # Check if already running
+    if lsof -Pi :$PORT -sTCP:LISTEN -t >/dev/null 2>&1; then
+        log "Port $PORT already in use - server may already be running"
+        return 0
+    fi
+
+    # Create log directory if needed
+    mkdir -p "$(dirname "$LOG_FILE")"
+
+    # Start netcat listener in background
+    while true; do
+        {
+            respond "200 OK" "RALF Keep-Alive OK - $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+        } | nc -l -p $PORT -q 1 2>/dev/null || true
+    done &
+
+    local pid=$!
+    echo $pid > /tmp/ralf-keepalive.pid
+
+    sleep 1
+
+    if kill -0 $pid 2>/dev/null; then
+        success "Keep-alive server running on port $PORT (PID: $pid)"
+        log "UptimeRobot should ping: http://$(hostname -I | awk '{print $1}'):$PORT"
+        return 0
+    else
+        log "ERROR: Failed to start keep-alive server"
+        return 1
+    fi
+}
+
+# Stop the server
+stop_server() {
+    if [[ -f /tmp/ralf-keepalive.pid ]]; then
+        local pid=$(cat /tmp/ralf-keepalive.pid)
+        if kill -0 $pid 2>/dev/null; then
+            kill $pid 2>/dev/null || true
+            log "Keep-alive server stopped (PID: $pid)"
+        fi
+        rm -f /tmp/ralf-keepalive.pid
+    else
+        log "No keep-alive server running"
+    fi
+}
+
+# Show status
+status() {
+    if [[ -f /tmp/ralf-keepalive.pid ]]; then
+        local pid=$(cat /tmp/ralf-keepalive.pid)
+        if kill -0 $pid 2>/dev/null; then
+            success "Keep-alive server is RUNNING (PID: $pid, Port: $PORT)"
+            log "Ping URL: http://$(hostname -I | awk '{print $1}'):$PORT"
+        else
+            log "Keep-alive server is STOPPED (stale PID file)"
+        fi
+    else
+        log "Keep-alive server is STOPPED"
+    fi
+}
+
+# Main command handler
+case "${1:-start}" in
+    start)
+        start_server
+        ;;
+    stop)
+        stop_server
+        ;;
+    restart)
+        stop_server
+        sleep 1
+        start_server
+        ;;
+    status)
+        status
+        ;;
+    *)
+        echo "Usage: ralf-keepalive [start|stop|restart|status]"
+        exit 1
+        ;;
+esac
