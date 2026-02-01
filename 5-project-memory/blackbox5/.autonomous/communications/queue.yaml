@@ -1,29 +1,85 @@
 queue:
-  - id: TASK-1769895001
-    type: analyze
-    title: Optimize LEGACY.md operational procedures
-    priority: medium
-    estimated_minutes: 40
-    context_level: 3
+  - id: TASK-1769911099
+    type: fix
+    title: Fix Duration Tracking in Executor Metadata
+    priority: high
+    estimated_minutes: 45
+    context_level: 2
     approach: |
-      Analyze LEGACY.md for friction points and inefficiencies.
-      Focus on skill discovery, quality gates, and run initialization.
-      Create specific recommendations for optimization.
+      Fix critical bug where executor metadata records wall-clock elapsed time
+      instead of actual work time. Capture completion timestamp at task completion,
+      not at metadata read time. Add duration validation (> 4 hours warning).
     files_to_modify:
-      - knowledge/analysis/legacy-md-optimization.md
+      - 2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md
+      - .templates/runs/executor-metadata.yaml.template
     acceptance_criteria:
-      - Analysis document created
-      - At least 3 friction points identified
-      - Concrete optimization recommendations provided
+      - Executor updates timestamp_end at actual task completion
+      - Duration calculated as completion_time - start_time
+      - Duration validation added (> 4 hours flagged)
+      - Tested with 3+ tasks for accuracy
+      - IMP-1769903011 marked complete
     dependencies: []
-    added_at: '2026-02-01T08:05:00Z'
+    added_at: '2026-02-01T14:50:00Z'
     status: pending
+    improvement: IMP-1769903011
 
+  - id: TASK-1769911100
+    type: implement
+    title: Implement Duplicate Task Detection System
+    priority: high
+    estimated_minutes: 50
+    context_level: 2
+    approach: |
+      Create duplicate detection system to prevent redundant work.
+      Keyword similarity matching (80% threshold), searches active/ and completed/
+      directories. Integrated into Planner task creation and Executor task claiming.
+    files_to_modify:
+      - 2-engine/.autonomous/lib/duplicate_detector.py
+      - 2-engine/.autonomous/prompts/system/planner/variations/v2-legacy-based.md
+      - 2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md
+      - operations/.docs/duplicate-detection-guide.md
+    acceptance_criteria:
+      - Duplicate detection library created
+      - Keyword similarity matching implemented (80% threshold)
+      - Integrated into Planner and Executor workflows
+      - Warning logged when potential duplicate detected
+      - Tested with TASK-1769914000 double-execution scenario
+      - IMP-1769903003 marked complete
+    dependencies: []
+    added_at: '2026-02-01T14:55:00Z'
+    status: pending
+    improvement: IMP-1769903003
+
+  - id: TASK-1769911101
+    type: implement
+    title: Implement Automatic Roadmap State Synchronization
+    priority: high
+    estimated_minutes: 45
+    context_level: 2
+    approach: |
+      Implement automatic sync between task completion and STATE.yaml.
+      Post-task-completion hook updates plan status, unblocks dependents,
+      updates next_action. Prevents roadmap drift.
+    files_to_modify:
+      - 2-engine/.autonomous/lib/roadmap_sync.py
+      - 2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md
+      - operations/.docs/roadmap-sync-guide.md
+    acceptance_criteria:
+      - Roadmap sync library created
+      - Plan status auto-updates on task completion
+      - Dependent plans auto-unblocked
+      - next_action auto-updated
+      - Tested with 2+ plan completions
+      - IMP-1769903001 marked complete
+    dependencies: []
+    added_at: '2026-02-01T14:55:00Z'
+    status: pending
+    improvement: IMP-1769903001
 
   - id: TASK-1769910002
     type: analyze
     title: Analyze task completion time trends
-    priority: low
+    priority: medium
     estimated_minutes: 35
     context_level: 2
     approach: |
@@ -38,10 +94,10 @@ queue:
       - Trends identified and documented
       - Estimation accuracy calculated
       - Guidelines for future estimations provided
-    dependencies: []
+    dependencies:
+      - TASK-1769911099  # Requires accurate duration data
     added_at: '2026-02-01T09:10:00Z'
     status: pending
-
 
   - id: TASK-1769915000
     type: implement
@@ -66,34 +122,18 @@ queue:
     added_at: '2026-02-01T12:20:00Z'
     status: pending
 
-  - id: TASK-1769914000
-    type: implement
-    title: Create improvement metrics dashboard
-    priority: medium
-    estimated_minutes: 50
-    context_level: 3
-    approach: |
-      Create a dashboard to track improvement metrics and visualize the
-      learning-to-improvement pipeline effectiveness.
-      Integrate with existing executor dashboard.
-    files_to_modify:
-      - operations/improvement-metrics.yaml
-      - operations/.docs/improvement-metrics-guide.md
-      - operations/executor-dashboard.yaml
-      - operations/improvement-backlog.yaml
-    acceptance_criteria:
-      - Improvement metrics dashboard YAML created
-      - Tracks learnings → improvements conversion rate
-      - Shows improvement effectiveness over time
-      - Integrated with executor dashboard
-      - IMP-1769903010 marked complete
-    dependencies: []
-    added_at: '2026-02-01T12:10:00Z'
-    status: pending
-
 metadata:
-  last_updated: '2026-02-01T14:00:00Z'
+  last_updated: '2026-02-01T15:00:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 4
-  last_completed: TASK-1769912000
+  current_depth: 5
+  last_completed: TASK-1769914000
+  notes: |
+    Planner Run 0041 updates:
+    - Removed TASK-1769914000 (completed, events confirmed)
+    - Created TASK-1769911099: Fix duration tracking (HIGH priority)
+    - Created TASK-1769911100: Duplicate task detection (HIGH priority)
+    - Created TASK-1769911101: Roadmap state sync (HIGH priority)
+    - Queue now at target depth: 5 tasks
+    - All new tasks address critical systemic issues
+    - TASK-1769910002 now depends on TASK-1769911099 (needs accurate data)
