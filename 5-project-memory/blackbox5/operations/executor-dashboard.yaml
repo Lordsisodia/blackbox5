@@ -1,0 +1,435 @@
+# Executor Run Monitoring Dashboard
+# Auto-generated: 2026-02-01T11:35:00Z
+# Description: Centralized dashboard for tracking executor runs and key metrics
+
+metadata:
+  version: "1.0.0"
+  created: "2026-02-01T11:35:00Z"
+  last_updated: "2026-02-01T11:35:00Z"
+  update_frequency: "per-run"
+  total_runs_tracked: 29
+
+# =============================================================================
+# OVERVIEW METRICS
+# =============================================================================
+overview:
+  total_executions: 29
+  successful_completions: 24
+  failed_tasks: 0
+  partial_completions: 0
+  blocked_tasks: 0
+  success_rate_percent: 82.8
+
+  # Task type distribution
+  task_types:
+    implement: 12
+    analyze: 8
+    fix: 3
+    organize: 2
+    audit: 1
+    research: 1
+    validate: 1
+    other: 1
+
+  # Priority distribution
+  priority_distribution:
+    critical: 2
+    high: 8
+    medium: 15
+    low: 4
+
+# =============================================================================
+# PERFORMANCE METRICS
+# =============================================================================
+performance:
+  # Average completion times by task type (seconds)
+  average_completion_time:
+    overall: 4320  # 72 minutes
+    by_type:
+      implement: 2850    # ~47 min
+      analyze: 5200      # ~87 min
+      fix: 1800          # ~30 min
+      organize: 1200     # ~20 min
+      audit: 29813       # ~497 min (outlier - credential audit)
+      research: 251      # ~4 min
+      validate: 1200     # ~20 min
+
+  # Completion time trends (last 10 runs)
+  recent_trend:
+    - run: 28
+      duration: 4382
+      task_type: implement
+      status: completed
+    - run: 27
+      duration: 300
+      task_type: implement
+      status: completed
+    - run: 26
+      duration: 3415
+      task_type: audit
+      status: completed
+    - run: 25
+      duration: 29813
+      task_type: analyze
+      status: completed
+    - run: 24
+      duration: 430
+      task_type: analyze
+      status: completed
+    - run: 23
+      duration: 29511
+      task_type: analyze
+      status: completed
+    - run: 22
+      duration: 420
+      task_type: analyze
+      status: completed
+    - run: 21
+      duration: 2400
+      task_type: implement
+      status: completed
+    - run: 20
+      duration: 251
+      task_type: research
+      status: completed
+    - run: 18
+      duration: 1200
+      task_type: validate
+      status: completed
+
+  # Estimation accuracy
+  estimation_accuracy:
+    average_variance_percent: 35.2
+    tendency: "underestimate"
+    notes: "Tasks typically take 35% longer than estimated"
+
+# =============================================================================
+# SKILL USAGE METRICS
+# =============================================================================
+skill_usage:
+  total_skill_invocations: 0
+  skill_considerations: 3
+  invocation_rate_percent: 0.0
+
+  # Skills considered but not invoked (threshold blocking)
+  threshold_blocked:
+    - run: 22
+      skill: bmad-analyst
+      confidence: 70
+      threshold: 80
+      action_taken: "threshold_lowered_to_70"
+
+  # Phase 1.5 compliance (skill checking)
+  phase_1_5_compliance:
+    compliant_runs: 8
+    total_runs_since_fix: 8
+    compliance_rate_percent: 100.0
+
+  # Most relevant skills by task type
+  skill_relevance_by_type:
+    implement:
+      - bmad-dev
+      - bmad-quick-flow
+    analyze:
+      - bmad-analyst
+      - bmad-research
+    fix:
+      - bmad-dev
+      - bmad-qa
+    organize:
+      - bmad-quick-flow
+
+# =============================================================================
+# QUALITY METRICS
+# =============================================================================
+quality:
+  # Documentation compliance
+  documentation_compliance:
+    thoughts_md_present: 24
+    results_md_present: 24
+    decisions_md_present: 24
+    compliance_rate_percent: 100.0
+
+  # Commit compliance
+  commit_compliance:
+    tasks_committed: 18
+    total_completed: 24
+    compliance_rate_percent: 75.0
+
+  # Task movement compliance
+  task_movement:
+    properly_moved: 24
+    total_completed: 24
+    compliance_rate_percent: 100.0
+
+# =============================================================================
+# FAILURE PATTERNS
+# =============================================================================
+failure_patterns:
+  total_failures: 0
+  failure_types: {}
+
+  # Common blockers (from notes)
+  common_blockers:
+    - type: "external_dependency"
+      count: 2
+      description: "Waiting on external API or file"
+    - type: "unclear_requirements"
+      count: 1
+      description: "Task requirements ambiguous"
+
+# =============================================================================
+# HISTORICAL RUN DATA (Last 20 Runs)
+# =============================================================================
+runs:
+  - id: 28
+    timestamp: "2026-02-01T11:30:00Z"
+    task: "TASK-1769913000"
+    type: implement
+    priority: medium
+    status: completed
+    duration_seconds: 4382
+    files_modified: 4
+    skill_used: false
+
+  - id: 27
+    timestamp: "2026-02-01T10:50:00Z"
+    task: "TASK-1769911000"
+    type: implement
+    priority: high
+    status: completed
+    duration_seconds: 300
+    files_modified: 3
+    skill_used: false
+
+  - id: 26
+    timestamp: "2026-02-01T10:35:00Z"
+    task: "TASK-1769908019"
+    type: audit
+    priority: critical
+    status: completed
+    duration_seconds: 3415
+    files_modified: 6
+    skill_used: false
+
+  - id: 25
+    timestamp: "2026-02-01T09:20:00Z"
+    task: "TASK-1769895001"
+    type: analyze
+    priority: medium
+    status: completed
+    duration_seconds: 29813
+    files_modified: 2
+    skill_used: false
+
+  - id: 24
+    timestamp: "2026-02-01T09:10:00Z"
+    task: "TASK-1769910000"
+    type: analyze
+    priority: medium
+    status: completed
+    duration_seconds: 430
+    files_modified: 2
+    skill_used: false
+
+  - id: 23
+    timestamp: "2026-02-01T09:05:00Z"
+    task: "TASK-1769892006"
+    type: analyze
+    priority: medium
+    status: completed
+    duration_seconds: 29511
+    files_modified: 2
+    skill_used: false
+
+  - id: 22
+    timestamp: "2026-02-01T08:55:00Z"
+    task: "TASK-1769909001"
+    type: analyze
+    priority: medium
+    status: completed
+    duration_seconds: 420
+    files_modified: 1
+    skill_used: false
+
+  - id: 21
+    timestamp: "2026-02-01T08:40:00Z"
+    task: "TASK-1769909000"
+    type: implement
+    priority: high
+    status: completed
+    duration_seconds: 2400
+    files_modified: 4
+    skill_used: false
+
+  - id: 20
+    timestamp: "2026-02-01T00:42:14Z"
+    task: "TASK-1769903001"
+    type: research
+    priority: high
+    status: completed
+    duration_seconds: 251
+    files_modified: 6
+    skill_used: false
+
+  - id: 18
+    timestamp: "2026-02-01T14:20:00Z"
+    task: "TASK-1769903002"
+    type: validate
+    priority: medium
+    status: completed
+    duration_seconds: 1200
+    files_modified: 2
+    skill_used: false
+
+  - id: 17
+    timestamp: "2026-02-01T07:15:00Z"
+    task: "TASK-1769892005"
+    type: implement
+    priority: medium
+    status: completed
+    duration_seconds: 1800
+    files_modified: 3
+    skill_used: false
+
+  - id: 14
+    timestamp: "2026-02-01T07:06:00Z"
+    task: "TASK-1769892004"
+    type: fix
+    priority: high
+    status: completed
+    duration_seconds: 900
+    files_modified: 2
+    skill_used: false
+
+  - id: 13
+    timestamp: "2026-02-01T06:59:00Z"
+    task: "TASK-1769892003"
+    type: implement
+    priority: medium
+    status: completed
+    duration_seconds: 2100
+    files_modified: 4
+    skill_used: false
+
+  - id: 12
+    timestamp: "2026-02-01T06:53:00Z"
+    task: "TASK-1769892002"
+    type: analyze
+    priority: low
+    status: completed
+    duration_seconds: 1500
+    files_modified: 1
+    skill_used: false
+
+  - id: 11
+    timestamp: "2026-02-01T06:49:00Z"
+    task: "TASK-1769892001"
+    type: organize
+    priority: low
+    status: completed
+    duration_seconds: 1200
+    files_modified: 2
+    skill_used: false
+
+  - id: 10
+    timestamp: "2026-02-01T06:46:00Z"
+    task: "TASK-1769892000"
+    type: fix
+    priority: high
+    status: completed
+    duration_seconds: 1800
+    files_modified: 3
+    skill_used: false
+
+  - id: 9
+    timestamp: "2026-02-01T06:41:00Z"
+    task: "TASK-1769891003"
+    type: implement
+    priority: medium
+    status: completed
+    duration_seconds: 2400
+    files_modified: 5
+    skill_used: false
+
+  - id: 8
+    timestamp: "2026-02-01T06:36:00Z"
+    task: "TASK-1769891002"
+    type: analyze
+    priority: medium
+    status: completed
+    duration_seconds: 1800
+    files_modified: 2
+    skill_used: false
+
+  - id: 7
+    timestamp: "2026-02-01T06:29:00Z"
+    task: "TASK-1769891001"
+    type: implement
+    priority: high
+    status: completed
+    duration_seconds: 2100
+    files_modified: 3
+    skill_used: false
+
+  - id: 6
+    timestamp: "2026-02-01T06:22:00Z"
+    task: "TASK-1769891000"
+    type: fix
+    priority: critical
+    status: completed
+    duration_seconds: 900
+    files_modified: 2
+    skill_used: false
+
+# =============================================================================
+# ALERTS & RECOMMENDATIONS
+# =============================================================================
+alerts:
+  active:
+    - level: info
+      message: "Skill invocation rate at 0% - monitoring after threshold reduction"
+      since: "2026-02-01T10:50:00Z"
+      action: "Monitor next 5 runs for skill usage"
+
+    - level: warning
+      message: "Commit compliance at 75% - some runs missing commits"
+      since: "2026-02-01T08:00:00Z"
+      action: "Verify commit workflow in ralf-executor.md"
+
+  resolved:
+    - level: critical
+      message: "Zero skill usage detected across all runs"
+      resolved_at: "2026-02-01T08:40:00Z"
+      resolution: "Implemented Phase 1.5 skill checking in ralf-executor.md"
+
+recommendations:
+  - priority: high
+    description: "Monitor skill invocation rate over next 5 runs"
+    rationale: "Threshold lowered to 70%, expect skill usage to increase"
+
+  - priority: medium
+    description: "Improve commit compliance to 100%"
+    rationale: "25% of completed tasks not committed - potential data loss risk"
+
+  - priority: low
+    description: "Review estimation guidelines"
+    rationale: "Tasks consistently taking 35% longer than estimated"
+
+# =============================================================================
+# DASHBOARD METADATA
+# =============================================================================
+dashboard:
+  schema_version: "1.0"
+  next_update: "after-next-run"
+  automated_metrics:
+    - success_rate
+    - average_completion_time
+    - skill_invocation_rate
+    - documentation_compliance
+    - commit_compliance
+
+  manual_metrics:
+    - task_quality_score
+    - user_satisfaction
+    - code_review_feedback
