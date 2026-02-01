@@ -13,6 +13,70 @@ metadata:
     tier_3: 6  # Filtered
 
 ---
+# Source Types:
+# - channel: Regular YouTube channel (RSS feed monitoring)
+# - playlist: YouTube playlist (one-time or periodic scrape)
+
+---
+# PLAYLISTS - User-curated collections
+playlists:
+  - name: "User Playlist 1"
+    slug: user_playlist_1
+    type: playlist
+    url: "https://www.youtube.com/playlist?list=PLwyznWCpE24cAkiNEU6EZJ0-v_8jBi0kl"
+    tier: 1
+    areas:
+      - ai-engineering
+    topics:
+      - user-curated
+    trust_level: high
+    actionability: high
+    active: true
+    added_date: 2026-02-02
+
+  - name: "User Playlist 2"
+    slug: user_playlist_2
+    type: playlist
+    url: "https://www.youtube.com/playlist?list=PLwyznWCpE24coqgKhqgQPnS8i7seZlD0L"
+    tier: 1
+    areas:
+      - ai-engineering
+    topics:
+      - user-curated
+    trust_level: high
+    actionability: high
+    active: true
+    added_date: 2026-02-02
+
+  - name: "User Playlist 3"
+    slug: user_playlist_3
+    type: playlist
+    url: "https://www.youtube.com/playlist?list=PLwyznWCpE24dZWyjdZuEM57s9W7IHFYp-"
+    tier: 1
+    areas:
+      - ai-engineering
+    topics:
+      - user-curated
+    trust_level: high
+    actionability: high
+    active: true
+    added_date: 2026-02-02
+
+  - name: "User Playlist 4"
+    slug: user_playlist_4
+    type: playlist
+    url: "https://www.youtube.com/playlist?list=PLwyznWCpE24dtHHVJf0YDByECNrP43Srf"
+    tier: 1
+    areas:
+      - ai-engineering
+    topics:
+      - user-curated
+    trust_level: high
+    actionability: high
+    active: true
+    added_date: 2026-02-02
+
+---
 # TIER 1 - Gold Standard (Must Watch All)
 sources:
   - name: "David Ondrej"

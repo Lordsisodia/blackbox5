@@ -1,0 +1,18 @@
+video_id: AzTuegk3RqA
+title: The secret to life from an AI Entrepreneur
+creator: David Ondrej
+creator_slug: david_ondrej
+url: https://youtube.com/watch?v=AzTuegk3RqA
+priority: critical
+status: pending
+queued_at: '2026-02-02T00:30:30.850836'
+source_path: data/sources/david_ondrej/videos/AzTuegk3RqA.yaml
+ranking:
+  relevance: 10
+  importance: 65
+  value: 10
+  composite: 29.2
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

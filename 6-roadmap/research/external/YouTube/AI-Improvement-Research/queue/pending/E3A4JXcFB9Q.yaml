@@ -1,0 +1,18 @@
+video_id: E3A4JXcFB9Q
+title: Learn anything in 2026 with these tools
+creator: David Ondrej
+creator_slug: david_ondrej
+url: https://youtube.com/watch?v=E3A4JXcFB9Q
+priority: critical
+status: pending
+queued_at: '2026-02-02T00:29:44.198922'
+source_path: data/sources/david_ondrej/videos/E3A4JXcFB9Q.yaml
+ranking:
+  relevance: 25
+  importance: 65
+  value: 25
+  composite: 39.0
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

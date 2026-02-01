@@ -1,0 +1,98 @@
+source:
+  type: youtube
+  id: AzTuegk3RqA
+  url: https://youtube.com/watch?v=AzTuegk3RqA
+  title: The secret to life from an AI Entrepreneur
+  description: 'Wanna scale your AI business? Go here: https://davidondrej.typeform.com/scale
+
+
+    Video Editors, I''m hiring! Apply here: https://www.vectal.ai/jobs
+
+
+    Follow me on Instagram - https://www.instagram.com/davidondrej1/
+
+    Follow me on Twitter - https://x.com/DavidOndrej1
+
+
+    AgentZero: https://github.com/agent0ai/agent-zero
+
+
+    Host your n8n agents on Hostinger: https://www.hostinger.com/david
+
+
+    Subscribe if you''re serious about AI.
+
+
+    Describe the video
+
+
+    www.vectal.ai'
+  channel: David Ondrej
+  channel_id: UCPGrgwfbkjTIgPoOh2q1BAg
+  published_at: '20260116'
+  duration: 28
+  view_count: 6471
+  like_count: 248
+  thumbnail: https://i.ytimg.com/vi/AzTuegk3RqA/hq2.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAAlAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYRiBWKGUwDw==&rs=AOn4CLBFkXoiTnux56-3gSyZBvBntfOxYg
+creator:
+  name: David Ondrej
+  slug: david_ondrej
+  handle: '@DavidOndrej'
+  tier: 1
+  areas:
+  - ai-engineering
+  - ai-agents
+  topics:
+  - ai-systems
+  - agent-architecture
+  - deep-technical
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T00:30:30.848253'
+  collected_at: '2026-02-02T00:30:30.848260'
+  collected_by: ingest.py
+transcript:
+  full_text: If there was an actual secret of life, [music] it would be not quitting.
+    No matter what it is, a business, your [music] fitness journey, if you simply
+    do not quit, that is already half the battle. In entrepreneurship, especially,
+    if you just start and then never quit, doesn't matter if it takes you 5 years,
+    10 years, 15 years. Sooner or later, you will figure it out. If you're doing something
+    [music] every day, you're trying to improve, if you're constantly learning, and
+    if you're not quitting, then nothing can defeat
+  segments:
+  - start: 00:00:00
+    text: If there was an actual secret of life,
+  - start: 00:00:01
+    text: '[music] it would be not quitting. No'
+  - start: 00:00:04
+    text: matter what it is, a business, your
+  - start: 00:00:06
+    text: '[music] fitness journey, if you simply'
+  - start: 00:00:08
+    text: do not quit, that is already half the
+  - start: 00:00:10
+    text: battle. In entrepreneurship, especially,
+  - start: 00:00:12
+    text: if you just start and then never quit,
+  - start: 00:00:15
+    text: doesn't matter if it takes you 5 years,
+  - start: 00:00:16
+    text: 10 years, 15 years. Sooner or later, you
+  - start: 00:00:19
+    text: will figure it out. If you're doing
+  - start: 00:00:20
+    text: something [music] every day, you're
+  - start: 00:00:22
+    text: trying to improve, if you're constantly
+  - start: 00:00:23
+    text: learning, and if you're not quitting,
+  - start: 00:00:25
+    text: then nothing can defeat
+  segment_count: 14
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

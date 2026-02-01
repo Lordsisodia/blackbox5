@@ -156,7 +156,65 @@ docker logs -f ralf-planner &
 docker logs -f ralf-executor &
 ```
 
-## Connecting to Agents
+## Connecting to the Server
+
+### Quick Connect
+```bash
+# Using the SSH key generated during setup
+ssh -i ~/.ssh/ralf_hetzner root@77.42.66.40
+```
+
+### Server Details
+- **IP Address:** 77.42.66.40
+- **Location:** Helsinki (hel1)
+- **Type:** CX23 (4GB RAM, 2 vCPUs)
+- **OS:** Ubuntu 22.04
+- **User:** root (primary), ralf (agent user)
+
+### Repository Location on Server
+```bash
+# Main repository
+/opt/ralf
+
+# Blackbox5 code
+/opt/ralf/5-project-memory/blackbox5
+
+# Agent runs (planner)
+/opt/ralf/5-project-memory/blackbox5/runs/planner/
+
+# Agent runs (executor)
+/opt/ralf/5-project-memory/blackbox5/runs/executor/
+```
+
+### Checking Agent Status
+```bash
+# View tmux sessions (agents run in tmux)
+tmux ls
+
+# Attach to planner session
+tmux attach -t ralf-planner
+
+# Attach to executor session
+tmux attach -t ralf-executor
+
+# View logs
+tail -f /tmp/planner.log
+tail -f /tmp/executor.log
+```
+
+### GitHub Authentication
+The server is configured with SSH key for GitHub:
+```bash
+# Test GitHub connection
+ssh -T git@github.com
+
+# Git config is set for ralf user
+su - ralf
+cd /opt/ralf
+git status
+```
+
+## Connecting to Agents (Docker - Legacy)
 
 ### SSH Directly
 ```bash

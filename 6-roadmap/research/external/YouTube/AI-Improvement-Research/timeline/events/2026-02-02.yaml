@@ -40,3 +40,112 @@ events:
   source: David Ondrej
   video_id: https://www.youtube.com/shorts/AzTuegk3RqA
   error: Failed to get metadata
+- timestamp: '2026-02-02T00:29:44.201541'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: E3A4JXcFB9Q
+  title: Learn anything in 2026 with these tools
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:29:50.037875'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: EvBwh75Nk68
+  title: Unlock Ancient wisdom from this book
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:29:56.391668'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: KzGpwJMxaTc
+  title: What's the best AI Business Model?
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:30:02.184796'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: CfN7l4ahOHI
+  title: He raised $2,000,000, how to compete?
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:30:10.383847'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: VTPC8rs5jig
+  title: Should you fear AI?
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:30:18.840961'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: vzF7Hj-JmZQ
+  title: how to get 100 paying customers from reddit with zero marketing budget
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:30:24.289487'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: JqLCHjaIaM8
+  title: how to use open source models without breaking the bank
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:30:30.855300'
+  type: video_discovered
+  source: David Ondrej
+  source_slug: david_ondrej
+  video_id: AzTuegk3RqA
+  title: The secret to life from an AI Entrepreneur
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T00:30:33.878329'
+  type: ingest_completed
+  sources_checked: 1
+  videos_found: 8
+  videos_downloaded: 8
+- timestamp: '2026-02-02T00:47:03.810131'
+  type: video_ranked
+  video_id: vzF7Hj-JmZQ
+  composite_score: 31.5
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.822022'
+  type: video_ranked
+  video_id: EvBwh75Nk68
+  composite_score: 38.2
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.833799'
+  type: video_ranked
+  video_id: AzTuegk3RqA
+  composite_score: 29.2
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.846726'
+  type: video_ranked
+  video_id: VTPC8rs5jig
+  composite_score: 30.0
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.859626'
+  type: video_ranked
+  video_id: KzGpwJMxaTc
+  composite_score: 40.0
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.872210'
+  type: video_ranked
+  video_id: E3A4JXcFB9Q
+  composite_score: 39.0
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.885331'
+  type: video_ranked
+  video_id: JqLCHjaIaM8
+  composite_score: 33.5
+  should_process: true
+- timestamp: '2026-02-02T00:47:03.900168'
+  type: video_ranked
+  video_id: CfN7l4ahOHI
+  composite_score: 40.0
+  should_process: true

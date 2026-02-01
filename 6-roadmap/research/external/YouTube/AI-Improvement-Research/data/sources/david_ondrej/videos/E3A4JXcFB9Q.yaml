@@ -1,0 +1,94 @@
+source:
+  type: youtube
+  id: E3A4JXcFB9Q
+  url: https://youtube.com/watch?v=E3A4JXcFB9Q
+  title: Learn anything in 2026 with these tools
+  description: 'Wanna learn how to code with AI? Go here: https://www.skool.com/new-society
+
+
+
+    Learn about the best AI Business models here - https://www.youtube.com/watch?v=Ta5g-OxjPO4
+
+
+    Follow me on Instagram - https://www.instagram.com/davidondrej1/
+
+    Follow me on Twitter - https://x.com/DavidOndrej1
+
+
+    AgentZero: https://github.com/agent0ai/agent-zero
+
+
+    Host your n8n agents on Hostinger: https://www.hostinger.com/david
+
+
+    Subscribe if you''re serious about AI.
+
+
+    Describe the video
+
+
+    www.vectal.ai'
+  channel: David Ondrej
+  channel_id: UCPGrgwfbkjTIgPoOh2q1BAg
+  published_at: '20260201'
+  duration: 19
+  view_count: 872
+  like_count: 31
+  thumbnail: https://i.ytimg.com/vi/E3A4JXcFB9Q/hq2.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAAlAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYTiBhKGUwDw==&rs=AOn4CLBtMim8Unr4-_z1Ev4dFhRErHGBKw
+creator:
+  name: David Ondrej
+  slug: david_ondrej
+  handle: '@DavidOndrej'
+  tier: 1
+  areas:
+  - ai-engineering
+  - ai-agents
+  topics:
+  - ai-systems
+  - agent-architecture
+  - deep-technical
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T00:29:44.195945'
+  collected_at: '2026-02-02T00:29:44.195956'
+  collected_by: ingest.py
+transcript:
+  full_text: Learning without AI is crazy. It's so slow. You can ask it personalized
+    questions. It's even simpler than that. Even if you're not building or programming
+    AI, just using it to learn and using it to answer your questions daily and solve
+    problems. The average person either goes to Google or, you know, goes to YouTube
+    and watches video. You can ask JGBD perplexity vectoral and get an answer within
+    seconds and it's probably going to be the right
+  segments:
+  - start: 00:00:00
+    text: Learning without AI is crazy. It's so
+  - start: 00:00:02
+    text: slow. You can ask it personalized
+  - start: 00:00:03
+    text: questions. It's even simpler than that.
+  - start: 00:00:04
+    text: Even if you're not building or
+  - start: 00:00:06
+    text: programming AI, just using it to learn
+  - start: 00:00:07
+    text: and using it to answer your questions
+  - start: 00:00:09
+    text: daily and solve problems. The average
+  - start: 00:00:10
+    text: person either goes to Google or, you
+  - start: 00:00:12
+    text: know, goes to YouTube and watches video.
+  - start: 00:00:14
+    text: You can ask JGBD perplexity vectoral and
+  - start: 00:00:16
+    text: get an answer within seconds and it's
+  - start: 00:00:17
+    text: probably going to be the right
+  segment_count: 12
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

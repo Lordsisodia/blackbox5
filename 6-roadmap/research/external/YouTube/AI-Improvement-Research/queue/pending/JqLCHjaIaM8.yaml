@@ -1,0 +1,18 @@
+video_id: JqLCHjaIaM8
+title: how to use open source models without breaking the bank
+creator: David Ondrej
+creator_slug: david_ondrej
+url: https://youtube.com/watch?v=JqLCHjaIaM8
+priority: critical
+status: pending
+queued_at: '2026-02-02T00:30:24.284360'
+source_path: data/sources/david_ondrej/videos/JqLCHjaIaM8.yaml
+ranking:
+  relevance: 5
+  importance: 75
+  value: 15
+  composite: 33.5
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

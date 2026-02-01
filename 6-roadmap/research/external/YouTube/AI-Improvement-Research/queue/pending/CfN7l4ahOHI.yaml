@@ -1,0 +1,18 @@
+video_id: CfN7l4ahOHI
+title: He raised $2,000,000, how to compete?
+creator: David Ondrej
+creator_slug: david_ondrej
+url: https://youtube.com/watch?v=CfN7l4ahOHI
+priority: critical
+status: pending
+queued_at: '2026-02-02T00:30:02.181168'
+source_path: data/sources/david_ondrej/videos/CfN7l4ahOHI.yaml
+ranking:
+  relevance: 15
+  importance: 75
+  value: 25
+  composite: 40.0
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

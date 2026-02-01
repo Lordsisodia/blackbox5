@@ -49,12 +49,20 @@ QUEUE_DIR = BASE_DIR / "queue"
 def load_sources():
     """Load source configuration from sources.yaml."""
     sources_file = CONFIG_DIR / "sources.yaml"
+    all_sources = []
     with open(sources_file) as f:
-        # Load all YAML documents and find the one with sources
         for doc in yaml.safe_load_all(f):
             if doc and "sources" in doc:
-                return doc.get("sources", [])
-    return []
+                # Mark channel sources
+                for source in doc.get("sources", []):
+                    source["source_type"] = "channel"
+                    all_sources.append(source)
+            if doc and "playlists" in doc:
+                # Mark playlist sources
+                for playlist in doc.get("playlists", []):
+                    playlist["source_type"] = "playlist"
+                    all_sources.append(playlist)
+    return all_sources
 
 
 def log_event(event_type, data):
@@ -400,38 +408,95 @@ def save_video_data(source, metadata, transcript, segments):
     return output_file
 
 
+def get_playlist_videos(playlist_url):
+    """Extract all video IDs from a YouTube playlist using yt-dlp."""
+    print(f"   Extracting playlist videos...")
+    cmd = [
+        "yt-dlp",
+        "--flat-playlist",
+        "--print", "%(id)s",
+        "--print", "%(title)s",
+        "--print", "%(duration)s",
+        playlist_url
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    if result.returncode != 0:
+        print(f"   ❌ Failed to extract playlist: {result.stderr}")
+        return []
+
+    lines = result.stdout.strip().split("\n")
+    videos = []
+
+    # Parse output (id, title, duration in groups of 3)
+    for i in range(0, len(lines) - 2, 3):
+        video_id = lines[i].strip()
+        title = lines[i + 1].strip() if i + 1 < len(lines) else ""
+        duration = lines[i + 2].strip() if i + 2 < len(lines) else "0"
+
+        if video_id:
+            videos.append({
+                "id": video_id,
+                "title": title,
+                "url": f"https://youtube.com/watch?v={video_id}",
+                "published_at": "",  # Playlists don't give us this
+                "duration": int(duration) if duration.isdigit() else 0
+            })
+
+    return videos
+
+
 def process_source(source, dry_run=False):
-    """Process a single source - check RSS and download new videos."""
+    """Process a single source - check RSS or playlist and download new videos."""
+    source_type = source.get("source_type", "channel")
+
     print(f"\n{'='*60}")
-    print(f"Processing: {source['name']} (Tier {source['tier']})")
-    print(f"Handle: {source['handle']}")
-    print(f"Areas: {', '.join(source.get('areas', []))}")
-    print(f"{'='*60}")
+    print(f"Processing: {source['name']} (Tier {source['tier']}, Type: {source_type})")
 
-    # Get channel ID
-    channel_id = source.get("channel_id")
-    if not channel_id:
-        channel_id = get_channel_id_from_handle(source['handle'])
+    if source_type == "playlist":
+        print(f"URL: {source['url']}")
+        print(f"Areas: {', '.join(source.get('areas', []))}")
+        print(f"{'='*60}")
 
-    if not channel_id:
-        print(f"❌ Could not get channel ID for {source['name']}")
-        log_event("source_error", {
-            "source": source["name"],
-            "error": "Could not get channel ID"
-        })
-        return []
+        # Get videos from playlist
+        new_videos = get_playlist_videos(source['url'])
 
-    print(f"Channel ID: {channel_id}")
+        if not new_videos:
+            print("No videos found in playlist.")
+            return []
 
-    # Check RSS for new videos
-    print("Checking RSS feed...")
-    new_videos = check_rss_feed(channel_id)
+        print(f"Found {len(new_videos)} video(s) in playlist")
 
-    if not new_videos:
-        print("No new videos found.")
-        return []
+    else:
+        # Channel source - use RSS
+        print(f"Handle: {source.get('handle', 'N/A')}")
+        print(f"Areas: {', '.join(source.get('areas', []))}")
+        print(f"{'='*60}")
 
-    print(f"Found {len(new_videos)} new video(s)")
+        # Get channel ID
+        channel_id = source.get("channel_id")
+        if not channel_id and source.get('handle'):
+            channel_id = get_channel_id_from_handle(source['handle'])
+
+        if not channel_id:
+            print(f"❌ Could not get channel ID for {source['name']}")
+            log_event("source_error", {
+                "source": source["name"],
+                "error": "Could not get channel ID"
+            })
+            return []
+
+        print(f"Channel ID: {channel_id}")
+
+        # Check RSS for new videos
+        print("Checking RSS feed...")
+        new_videos = check_rss_feed(channel_id)
+
+        if not new_videos:
+            print("No new videos found.")
+            return []
+
+        print(f"Found {len(new_videos)} new video(s)")
 
     processed = []
     priority = get_priority_for_tier(source["tier"])
