@@ -148,25 +148,37 @@ messages:
 │   ├── heartbeat.yaml      # Health checks
 │   └── protocol.yaml       # Rules and configuration
 │
-├── planner/                # Planner agent
-│   ├── ralf-planner.sh     # Main loop script
-│   ├── skills/             # Planner-specific skills
-│   │   ├── codebase-analysis.sh
-│   │   ├── pattern-recognition.sh
-│   │   ├── task-generation.sh
-│   │   └── reorganization-planning.sh
-│   └── runs/               # Planner's run logs
-│       ├── run-001/
-│       ├── run-002/
-│       └── ...
+├── runs/                   # Unified runtime directory
+│   ├── planner/            # Planner run logs
+│   │   ├── run-0001/
+│   │   │   ├── THOUGHTS.md
+│   │   │   ├── RESULTS.md
+│   │   │   ├── DECISIONS.md
+│   │   │   └── metadata.yaml   # Loop tracking (agent, timestamps, actions)
+│   │   └── ...
+│   ├── executor/           # Executor run logs
+│   │   ├── run-0001/
+│   │   │   ├── THOUGHTS.md
+│   │   │   ├── RESULTS.md
+│   │   │   ├── DECISIONS.md
+│   │   │   └── metadata.yaml   # Loop tracking (agent, timestamps, actions)
+│   │   └── ...
+│   ├── timeline/           # Shared chronological timeline
+│   │   └── YYYY-MM-DD.md   # All agent activity for the day
+│   └── assets/             # Shared research and analysis
+│       └── research-[topic]-[timestamp].md
 │
-├── executor/               # Executor agent
+├── planner/                # Planner agent scripts
+│   ├── ralf-planner.sh     # Main loop script
+│   └── skills/             # Planner-specific skills
+│       ├── codebase-analysis.sh
+│       ├── pattern-recognition.sh
+│       ├── task-generation.sh
+│       └── reorganization-planning.sh
+│
+├── executor/               # Executor agent scripts
 │   ├── ralf-executor.sh    # Main loop script
-│   ├── skills/             # Execution skills
-│   └── runs/               # Executor's run logs
-│       ├── run-001/
-│       ├── run-002/
-│       └── ...
+│   └── skills/             # Execution skills
 │
 ├── shared/                 # Common resources
 │   ├── skills/             # Shared skills (git-commit, state-management)

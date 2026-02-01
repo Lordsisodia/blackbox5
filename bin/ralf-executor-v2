@@ -82,12 +82,52 @@ spinner() {
     printf "    \b\b\b\b"
 }
 
-# Initialize run directory
+# Initialize run directory and tracking
 init_run() {
     RUN_COUNTER=$((RUN_COUNTER + 1))
     local run_dir="$RUNS_DIR/run-$(printf %04d $RUN_COUNTER)"
     mkdir -p "$run_dir"
     export RALF_RUN_DIR="$run_dir"
+    export RALF_LOOP_NUMBER="$RUN_COUNTER"
+
+    # Create metadata.yaml file for tracking (co-located with run)
+    local now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+    cat > "$run_dir/metadata.yaml" << EOF
+loop:
+  number: $RUN_COUNTER
+  agent: executor
+  timestamp_start: "$now"
+  timestamp_end: null
+  duration_seconds: null
+
+state:
+  task_claimed: null
+  task_status: "pending"  # pending, in_progress, completed, failed
+  files_modified: []
+  commit_hash: null
+
+actions_taken: []
+discoveries: []
+questions_asked: []
+next_steps: []
+blockers: []
+
+notes: "Loop initialized, awaiting completion..."
+EOF
+
+    # Append to daily timeline (shared across agents)
+    local today=$(date -u +%Y-%m-%d)
+    local timeline_file="$PROJECT_DIR/runs/timeline/$today.md"
+    if [[ ! -f "$timeline_file" ]]; then
+        echo "# Timeline - $today" > "$timeline_file"
+        echo "" >> "$timeline_file"
+        echo "## Agent Activity" >> "$timeline_file"
+        echo "" >> "$timeline_file"
+    fi
+
+    echo "- **$(date -u +%H:%M:%S)** - Executor Loop $RUN_COUNTER started" >> "$timeline_file"
+
     echo "$run_dir"
 }
 
@@ -187,8 +227,9 @@ Execute ONE execution iteration:
 2. If task available: Claim it, execute it, document it, commit it, move to completed/
 3. If no tasks: Find work - check feedback/, analyze runs/, organize insights/
 4. Write your THOUGHTS.md, RESULTS.md, DECISIONS.md to the run directory
-5. Update events.yaml and heartbeat.yaml
-6. Signal completion (COMPLETE, RETRY, BLOCKED, FAILED, or PARTIAL)
+5. Update metadata.yaml in your run directory with loop results
+6. Update events.yaml and heartbeat.yaml
+7. Signal completion (COMPLETE, RETRY, BLOCKED, FAILED, or PARTIAL)
 
 Do not loop - this is one iteration. The bash script will handle the loop.
 EOF
@@ -223,6 +264,8 @@ main() {
     # Create directories
     mkdir -p "$RUNS_DIR"
     mkdir -p "$COMM_DIR"
+    mkdir -p "$PROJECT_DIR/runs/timeline"
+    mkdir -p "$PROJECT_DIR/runs/assets"
 
     success "✨ Ready for iterations"
     echo ""

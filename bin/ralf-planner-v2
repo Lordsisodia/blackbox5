@@ -75,15 +75,13 @@ init_run() {
     export RALF_RUN_DIR="$run_dir"
     export RALF_LOOP_NUMBER="$RUN_COUNTER"
 
-    # Create loop metadata file for tracking
-    local tracking_dir="$PROJECT_DIR/.autonomous/planner-tracking"
-    local loop_file="$tracking_dir/loops/loop-$(printf %04d $RUN_COUNTER)-metadata.yaml"
-    local today=$(date -u +%Y-%m-%d)
+    # Create metadata.yaml file for tracking (co-located with run)
     local now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-    cat > "$loop_file" << EOF
+    cat > "$run_dir/metadata.yaml" << EOF
 loop:
   number: $RUN_COUNTER
+  agent: planner
   timestamp_start: "$now"
   timestamp_end: null
   duration_seconds: null
@@ -104,16 +102,17 @@ blockers: []
 notes: "Loop initialized, awaiting completion..."
 EOF
 
-    # Append to daily timeline
-    local timeline_file="$tracking_dir/timeline/$today.md"
+    # Append to daily timeline (shared across agents)
+    local today=$(date -u +%Y-%m-%d)
+    local timeline_file="$PROJECT_DIR/runs/timeline/$today.md"
     if [[ ! -f "$timeline_file" ]]; then
         echo "# Timeline - $today" > "$timeline_file"
         echo "" >> "$timeline_file"
-        echo "## Planner Activity" >> "$timeline_file"
+        echo "## Agent Activity" >> "$timeline_file"
         echo "" >> "$timeline_file"
     fi
 
-    echo "- **$(date -u +%H:%M:%S)** - Loop $RUN_COUNTER started" >> "$timeline_file"
+    echo "- **$(date -u +%H:%M:%S)** - Planner Loop $RUN_COUNTER started" >> "$timeline_file"
 
     echo "$run_dir"
 }
@@ -208,8 +207,9 @@ Execute ONE planning iteration:
 2. Decide what action to take (plan tasks, answer questions, analyze, or review)
 3. Update queue.yaml, chat-log.yaml, or knowledge/analysis/ as needed
 4. Write your THOUGHTS.md, RESULTS.md, DECISIONS.md to the run directory
-5. Update heartbeat.yaml
-6. Signal completion
+5. Update metadata.yaml in your run directory with loop results
+6. Update heartbeat.yaml
+7. Signal completion
 
 Do not loop - this is one iteration. The bash script will handle the loop.
 EOF
@@ -265,9 +265,8 @@ main() {
     mkdir -p "$RUNS_DIR"
     mkdir -p "$COMM_DIR"
     mkdir -p "$PROJECT_DIR/knowledge/analysis"
-    mkdir -p "$PROJECT_DIR/.autonomous/planner-tracking/loops"
-    mkdir -p "$PROJECT_DIR/.autonomous/planner-tracking/timeline"
-    mkdir -p "$PROJECT_DIR/.autonomous/planner-tracking/assets"
+    mkdir -p "$PROJECT_DIR/runs/timeline"
+    mkdir -p "$PROJECT_DIR/runs/assets"
 
     success "✨ Ready for iterations"
     echo ""

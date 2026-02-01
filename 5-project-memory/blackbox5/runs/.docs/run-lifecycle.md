@@ -36,6 +36,7 @@ Runs that are currently being executed by RALF-Executor. These runs are in progr
 - RESULTS.md (outcomes)
 - LEARNINGS.md (insights captured)
 - ASSUMPTIONS.md (assumptions made)
+- metadata.yaml (loop tracking: agent type, timestamps, actions, discoveries)
 - State files (JSON/YAML)
 
 ---
@@ -159,7 +160,34 @@ Runs that have been analyzed and are preserved for historical reference. These r
 | DECISIONS.md | Required | Required | Required |
 | LEARNINGS.md | Optional | Required | Required |
 | ASSUMPTIONS.md | Optional | Optional | Optional |
+| metadata.yaml | Required | Required | Required |
 | State files | Required | Required | Required |
+
+### metadata.yaml Schema
+
+```yaml
+loop:
+  number: integer          # Loop sequence number
+  agent: string           # "planner" or "executor"
+  timestamp_start: ISO8601
+  timestamp_end: ISO8601
+  duration_seconds: integer
+
+state:
+  # Agent-specific state fields
+  # Planner: active_tasks_count, completed_tasks_count, executor_status, queue_depth
+  # Executor: task_claimed, task_status, files_modified, commit_hash
+
+actions_taken: []
+discoveries: []
+questions_answered: []   # Planner
+questions_asked: []      # Executor
+tasks_created: []        # Planner
+next_steps: []
+blockers: []
+
+notes: string
+```
 
 ---
 
