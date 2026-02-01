@@ -1,29 +1,4 @@
 queue:
-  - id: TASK-1769892006
-    type: analyze
-    title: Audit documentation freshness
-    priority: medium
-    estimated_minutes: 35
-    context_level: 2
-    approach: |
-      Audit all documentation to identify stale content.
-      Check all .md files in .docs/, decisions/, knowledge/ for:
-      1. Last modified date (>30 days = stale)
-      2. Reference count (0 references = orphaned)
-      3. Outdated content patterns
-      Create operations/documentation-audit.yaml with findings.
-    files_to_modify:
-      - operations/documentation-audit.yaml
-      - knowledge/analysis/documentation-freshness-20260201.md
-    acceptance_criteria:
-      - Documentation audit YAML created
-      - All stale docs identified (>30 days)
-      - Orphaned docs flagged
-      - Recommendations for doc maintenance
-    dependencies: []
-    added_at: '2026-02-01T06:00:00Z'
-    status: pending
-
   - id: TASK-1769895001
     type: analyze
     title: Optimize LEGACY.md operational procedures
@@ -42,31 +17,6 @@ queue:
       - Concrete optimization recommendations provided
     dependencies: []
     added_at: '2026-02-01T08:05:00Z'
-    status: pending
-
-  - id: TASK-1769910000
-    type: analyze
-    title: Validate skill system recovery metrics
-    priority: high
-    estimated_minutes: 30
-    context_level: 2
-    approach: |
-      Monitor and validate skill system recovery after TASK-1769909000 fix.
-      Analyze executor runs 0021-0025 for skill usage patterns.
-      Compare against baseline (0% usage) and target (50% usage).
-      Update skill-metrics.yaml with recovery data.
-    files_to_modify:
-      - operations/skill-metrics.yaml
-      - knowledge/analysis/skill-system-recovery-20260201.md
-    acceptance_criteria:
-      - Runs 0021-0025 analyzed for skill usage
-      - Skill invocation rate calculated
-      - Recovery metrics documented
-      - Recommendations for further improvements provided
-    dependencies:
-      - TASK-1769909000
-      - TASK-1769909001
-    added_at: '2026-02-01T09:00:00Z'
     status: pending
 
   - id: TASK-1769910001
@@ -113,9 +63,57 @@ queue:
     added_at: '2026-02-01T09:10:00Z'
     status: pending
 
+  - id: TASK-1769911000
+    type: implement
+    title: Lower skill confidence threshold from 80% to 70%
+    priority: high
+    estimated_minutes: 25
+    context_level: 2
+    approach: |
+      Lower the skill confidence threshold from 80% to 70% to enable actual skill invocations.
+      Update operations/skill-selection.yaml and ralf-executor.md if needed.
+      Document the threshold change rationale.
+    files_to_modify:
+      - operations/skill-selection.yaml
+      - 2-engine/.autonomous/prompts/ralf-executor.md
+      - operations/skill-metrics.yaml
+    acceptance_criteria:
+      - Threshold updated from 80% to 70%
+      - All relevant files updated
+      - Change rationale documented
+      - Verified in next executor run
+    dependencies:
+      - TASK-1769910000
+    added_at: '2026-02-01T10:05:00Z'
+    status: pending
+
+  - id: TASK-1769911001
+    type: implement
+    title: Implement TDD testing guide from IMP-1769903006
+    priority: medium
+    estimated_minutes: 45
+    context_level: 3
+    approach: |
+      Implement TDD testing guide improvement from backlog.
+      Create testing-guidelines.yaml and testing-guide.md.
+      Update task completion template with testing section.
+    files_to_modify:
+      - operations/testing-guidelines.yaml
+      - operations/.docs/testing-guide.md
+      - .templates/tasks/task-completion.md.template
+      - operations/improvement-backlog.yaml
+    acceptance_criteria:
+      - Testing guidelines YAML created
+      - Testing guide documentation created
+      - Task template updated with testing section
+      - IMP-1769903006 marked complete
+    dependencies: []
+    added_at: '2026-02-01T10:05:00Z'
+    status: pending
+
 metadata:
-  last_updated: '2026-02-01T09:15:00Z'
+  last_updated: '2026-02-01T10:05:00Z'
   updated_by: planner
   queue_depth_target: 5
   current_depth: 5
-  last_completed: TASK-1769909001
+  last_completed: TASK-1769910000

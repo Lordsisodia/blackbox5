@@ -1,0 +1,318 @@
+# Quality Gates by Task Type
+# =============================================================================
+# Purpose: Task-type specific quality checklists for RALF-Executor
+# Created: 2026-02-01
+# Updated: 2026-02-01
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "2026-02-01"
+  description: "Task-specific quality gates to ensure consistent completion standards"
+  source: "TASK-1769895001 - LEGACY.md optimization analysis"
+
+# =============================================================================
+# UNIVERSAL GATES (Apply to all task types)
+# =============================================================================
+
+universal_gates:
+  - id: UG-001
+    name: "Pre-Execution Research Completed"
+    description: "Duplicate check and context gathering done"
+    check: "THOUGHTS.md contains ## Pre-Execution Research section"
+    required: true
+
+  - id: UG-002
+    name: "Files Read Before Modification"
+    description: "All target files read before changes"
+    check: "THOUGHTS.md lists files read"
+    required: true
+
+  - id: UG-003
+    name: "Documentation Complete"
+    description: "THOUGHTS.md, RESULTS.md, DECISIONS.md exist and non-empty"
+    check: "All 3 files present in run directory"
+    required: true
+
+  - id: UG-004
+    name: "Task Tracked"
+    description: "Task ID recorded in RESULTS.md"
+    check: "RESULTS.md contains Task: [TASK-ID]"
+    required: true
+
+  - id: UG-005
+    name: "Changes Committed"
+    description: "Work committed to repository"
+    check: "Git commit exists for changes"
+    required: true
+
+# =============================================================================
+# TASK-TYPE SPECIFIC GATES
+# =============================================================================
+
+task_types:
+
+  # ===========================================================================
+  # IMPLEMENT - New feature development
+  # ===========================================================================
+  implement:
+    description: "Implementation and feature development tasks"
+    triggers: ["implement", "create", "build", "develop", "add"]
+
+    gates:
+      - id: IMP-001
+        name: "Requirements Understood"
+        description: "Acceptance criteria reviewed and understood"
+        check: "THOUGHTS.md references acceptance criteria"
+        required: true
+
+      - id: IMP-002
+        name: "Code Follows Conventions"
+        description: "Implementation matches project patterns"
+        check: "Code reviewed against existing patterns"
+        required: true
+
+      - id: IMP-003
+        name: "Integration Verified"
+        description: "Code works with existing system"
+        check: "No breaking changes introduced"
+        required: true
+
+      - id: IMP-004
+        name: "Tests Considered"
+        description: "Tests written if applicable"
+        check: "Tests exist or N/A documented"
+        required: false
+
+      - id: IMP-005
+        name: "Documentation Updated"
+        description: "Relevant docs updated for new feature"
+        check: "Documentation changes committed"
+        required: false
+
+  # ===========================================================================
+  # ANALYZE - Research and analysis tasks
+  # ===========================================================================
+  analyze:
+    description: "Research, analysis, and investigation tasks"
+    triggers: ["analyze", "research", "investigate", "audit", "review"]
+
+    gates:
+      - id: ANA-001
+        name: "Sources Documented"
+        description: "All sources and files analyzed are listed"
+        check: "THOUGHTS.md contains file/source list"
+        required: true
+
+      - id: ANA-002
+        name: "Findings Clear"
+        description: "Analysis results are clearly stated"
+        check: "THOUGHTS.md has clear findings/conclusions"
+        required: true
+
+      - id: ANA-003
+        name: "Evidence Provided"
+        description: "Claims backed by data or examples"
+        check: "Specific examples cited in analysis"
+        required: true
+
+      - id: ANA-004
+        name: "Recommendations Actionable"
+        description: "Recommendations have clear implementation path"
+        check: "Each recommendation has specific action"
+        required: false
+
+      - id: ANA-005
+        name: "Confidence Stated"
+        description: "Confidence level for findings documented"
+        check: "Confidence level mentioned in DECISIONS.md or THOUGHTS.md"
+        required: false
+
+  # ===========================================================================
+  # FIX - Bug fixes and corrections
+  # ===========================================================================
+  fix:
+    description: "Bug fixes and error corrections"
+    triggers: ["fix", "bug", "error", "correct", "repair"]
+
+    gates:
+      - id: FIX-001
+        name: "Root Cause Identified"
+        description: "Underlying cause documented, not just symptom"
+        check: "THOUGHTS.md explains root cause"
+        required: true
+
+      - id: FIX-002
+        name: "Fix Validated"
+        description: "Fix resolves the issue"
+        check: "Validation performed and documented"
+        required: true
+
+      - id: FIX-003
+        name: "No Regressions"
+        description: "Fix doesn't break existing functionality"
+        check: "Related functionality tested"
+        required: true
+
+      - id: FIX-004
+        name: "Test Case Considered"
+        description: "Test added to prevent recurrence"
+        check: "Test added or reason documented why not"
+        required: false
+
+  # ===========================================================================
+  # REFACTOR - Code restructuring
+  # ===========================================================================
+  refactor:
+    description: "Code refactoring and restructuring"
+    triggers: ["refactor", "restructure", "clean", "optimize"]
+
+    gates:
+      - id: REF-001
+        name: "Behavior Preserved"
+        description: "Refactoring doesn't change functionality"
+        check: "Before/after comparison documented"
+        required: true
+
+      - id: REF-002
+        name: "Improvement Justified"
+        description: "Clear benefit from refactoring"
+        check: "THOUGHTS.md explains improvement"
+        required: true
+
+      - id: REF-003
+        name: "Tests Pass"
+        description: "All existing tests still pass"
+        check: "Test results documented"
+        required: true
+
+  # ===========================================================================
+  # ORGANIZE - File and structure organization
+  # ===========================================================================
+  organize:
+    description: "File organization and structural changes"
+    triggers: ["organize", "structure", "move", "rename", "cleanup"]
+
+    gates:
+      - id: ORG-001
+        name: "Structure Clear"
+        description: "New structure is logical and documented"
+        check: "THOUGHTS.md explains organization rationale"
+        required: true
+
+      - id: ORG-002
+        name: "References Updated"
+        description: "All references to moved files updated"
+        check: "Grep confirms no broken references"
+        required: true
+
+      - id: ORG-003
+        name: "Backup Considered"
+        description: "Important files backed up before move"
+        check: "Git provides history or explicit backup made"
+        required: false
+
+  # ===========================================================================
+  # DOCUMENT - Documentation tasks
+  # ===========================================================================
+  document:
+    description: "Documentation creation and updates"
+    triggers: ["document", "doc", "readme", "guide"]
+
+    gates:
+      - id: DOC-001
+        name: "Content Complete"
+        description: "All required sections present"
+        check: "Document has all required sections"
+        required: true
+
+      - id: DOC-002
+        name: "Examples Provided"
+        description: "Concrete examples where applicable"
+        check: "Examples section present or N/A"
+        required: false
+
+      - id: DOC-003
+        name: "Links Valid"
+        description: "All internal links work"
+        check: "Link validation performed"
+        required: false
+
+# =============================================================================
+# QUALITY GATE USAGE
+# =============================================================================
+
+usage:
+  selection:
+    description: "How to select appropriate quality gates"
+    steps:
+      - "Identify task type from task file or description"
+      - "Match against trigger keywords above"
+      - "Apply universal gates + task-specific gates"
+      - "Mark each gate as checked/passed in RESULTS.md"
+
+  documentation:
+    description: "How to document quality gate completion"
+    template: |
+      ## Quality Gates
+
+      ### Universal Gates
+      - [ ] UG-001: Pre-Execution Research Completed
+      - [ ] UG-002: Files Read Before Modification
+      - [ ] UG-003: Documentation Complete
+      - [ ] UG-004: Task Tracked
+      - [ ] UG-005: Changes Committed
+
+      ### Task-Specific Gates
+      - [ ] [GATE-ID]: [Gate Name] - [Status: PASSED/FAILED/N/A]
+
+  metrics:
+    description: "Track quality gate adherence over time"
+    tracking:
+      - metric: "universal_adherence_rate"
+        target: ">= 95%"
+      - metric: "task_specific_adherence_rate"
+        target: ">= 90%"
+      - metric: "required_gates_passed_rate"
+        target: "100%"
+
+# =============================================================================
+# INTEGRATION WITH RALF-EXECUTOR
+# =============================================================================
+
+integration:
+  phase: "Phase 2.3 - Validation Checklist"
+  location_in_prompt: "ralf-executor.md line 225-233"
+  replacement: |
+    #### Step 2.3: Validation Checklist
+
+    Before marking complete, check task type and apply appropriate gates:
+
+    1. **Universal Gates** (all tasks):
+       {{universal_gates}}
+
+    2. **Task-Specific Gates**:
+       - Read task type from task file
+       - Apply gates from quality-gates.yaml for that type
+       - Mark each as checked/passed/N/A
+
+    3. **Document in RESULTS.md**:
+       ```markdown
+       ## Quality Gates
+       - [ ] UG-001: Pre-Execution Research - PASSED
+       - [ ] IMP-001: Requirements Understood - PASSED
+       - [ ] IMP-002: Code Follows Conventions - PASSED
+       ```
+
+# =============================================================================
+# CHANGE LOG
+# =============================================================================
+
+changelog:
+  - date: "2026-02-01"
+    version: "1.0.0"
+    changes:
+      - "Initial creation from TASK-1769895001 analysis"
+      - "Defined 5 universal gates applicable to all tasks"
+      - "Defined task-specific gates for 6 task types"
+      - "Added usage documentation and integration guide"
