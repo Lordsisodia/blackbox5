@@ -618,19 +618,23 @@ recovery_metrics:
     compliance_rate: "75%"
 
   threshold_analysis:
-    current_threshold: 80
-    recommended_threshold: 70
-    threshold_hits: 1
+    previous_threshold: 80
+    current_threshold: 70
+    threshold_changed_at: "2026-02-01T10:45:00Z"
+    change_task_id: "TASK-1769911000"
+    threshold_hits_before_change: 1
       - run: "0022"
         skill: "bmad-analyst"
         confidence: 70
         would_have_invoked_at_70: true
 
   recommendations:
-    - priority: "high"
+    - priority: "completed"
       action: "Lower confidence threshold from 80% to 70%"
-      rationale: "Would have enabled 1 skill invocation in analyzed runs"
+      rationale: "APPLIED - Would have enabled 1 skill invocation in analyzed runs"
       expected_impact: "33% invocation rate"
+      completed_at: "2026-02-01T10:45:00Z"
+      task_id: "TASK-1769911000"
     - priority: "medium"
       action: "Implement forced skill matching for clear task types"
       rationale: "Analysis tasks should always use bmad-analyst"
@@ -727,4 +731,4 @@ metadata:
   total_tasks_tracked: 4
   calculation_frequency: "weekly"
   next_calculation_due: "2026-02-08T09:00:00Z"
-  last_updated: "2026-02-01T09:10:00Z"
+  last_updated: "2026-02-01T10:45:00Z"

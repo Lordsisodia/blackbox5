@@ -19,11 +19,11 @@
 #   v
 # Check skill-usage.yaml for applicable skills
 #   |
-#   +---> Match found with >80% confidence? ---> YES ---> Invoke skill
+#   +---> Match found with >70% confidence? ---> YES ---> Invoke skill
 #   |                                           |
 #   |                                           NO
 #   |                                           |
-#   +---> No match or <80% confidence? ---------> Proceed with standard execution
+#   +---> No match or <70% confidence? ---------> Proceed with standard execution
 #   |
 #   v
 # Document decision in THOUGHTS.md
@@ -157,8 +157,8 @@ confidence_calculation:
                  (complexity_fit * 0.20) +
                  (historical_success * 0.10)
 
-  threshold: 80
-  threshold_notes: "Only invoke skill if confidence >= 80%"
+  threshold: 70
+  threshold_notes: "Only invoke skill if confidence >= 70%"
 
 # ============================================================================
 # Fallback Behavior
