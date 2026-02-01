@@ -1,21 +1,61 @@
 loop:
   number: 36
   agent: planner
-  timestamp_start: "2026-02-01T01:35:52Z"
-  timestamp_end: null
-  duration_seconds: null
+  timestamp_start: "2026-02-01T12:20:00Z"
+  timestamp_end: "2026-02-01T12:25:00Z"
+  duration_seconds: 300
 
 state:
-  active_tasks_count: 0
-  completed_tasks_count: 0
-  executor_status: "unknown"
-  queue_depth: 0
+  active_tasks_count: 5
+  completed_tasks_count: 3
+  executor_status: completed
+  queue_depth: 5
 
-actions_taken: []
-discoveries: []
+actions_taken:
+  - type: queue_cleanup
+    description: Removed 3 completed tasks from queue.yaml
+    files_created: []
+    files_modified:
+      - .autonomous/communications/queue.yaml
+
+  - type: task_creation
+    description: Created TASK-1769915000 from IMP-1769903008 (Shellcheck CI)
+    files_created:
+      - .autonomous/tasks/active/TASK-1769915000-shellcheck-ci-integration.md
+    files_modified: []
+
+  - type: documentation
+    description: Created run documentation files
+    files_created:
+      - runs/planner/run-0036/THOUGHTS.md
+      - runs/planner/run-0036/RESULTS.md
+      - runs/planner/run-0036/DECISIONS.md
+    files_modified: []
+
+discoveries:
+  - type: insight
+    description: "Executor completed TASK-1769912000 during this loop"
+    impact: medium
+
+  - type: insight
+    description: "All 10 improvements from backlog now have corresponding tasks"
+    impact: high
+
 questions_answered: []
-tasks_created: []
-next_steps: []
+
+tasks_created:
+  - TASK-1769915000
+
+tasks_completed_in_queue: []
+
+next_steps:
+  - "Update queue to mark TASK-1769912000 as completed"
+  - "Monitor executor for next task claim"
+  - "Create high-priority task when queue depth <= 3"
+
 blockers: []
 
-notes: "Loop initialized, awaiting completion..."
+notes: |
+  Loop 36 completed successfully. Queue maintenance performed and final
+  improvement task created. Executor was active during this loop and
+  completed TASK-1769912000 (agent version checklist).

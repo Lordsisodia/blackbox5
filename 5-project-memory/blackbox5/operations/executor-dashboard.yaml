@@ -383,6 +383,41 @@ runs:
     skill_used: false
 
 # =============================================================================
+# IMPROVEMENT METRICS INTEGRATION
+# =============================================================================
+improvement_metrics:
+  linked_dashboard: "operations/improvement-metrics.yaml"
+  last_sync: "2026-02-01T14:00:00Z"
+
+  pipeline_overview:
+    learnings_captured: 80
+    improvements_created: 10
+    tasks_created: 10
+    improvements_completed: 4
+
+  conversion_rates:
+    learning_to_improvement: 12.5
+    improvement_to_task: 100.0
+    task_to_completion: 40.0
+
+  backlog_status:
+    high_priority_pending: 3
+    medium_priority_pending: 2
+    low_priority_pending: 1
+    total_pending: 6
+
+  recent_completions:
+    - improvement: "IMP-1769903007"
+      task: "TASK-1769912000"
+      completed_at: "2026-02-01T13:30:00Z"
+      title: "Create Agent Version Setup Checklist"
+
+    - improvement: "IMP-1769903006"
+      task: "TASK-1769911001"
+      completed_at: "2026-02-01T12:00:00Z"
+      title: "Create TDD and Testing Patterns Guide"
+
+# =============================================================================
 # ALERTS & RECOMMENDATIONS
 # =============================================================================
 alerts:
@@ -396,6 +431,11 @@ alerts:
       message: "Commit compliance at 75% - some runs missing commits"
       since: "2026-02-01T08:00:00Z"
       action: "Verify commit workflow in ralf-executor.md"
+
+    - level: info
+      message: "Improvement metrics dashboard now available"
+      since: "2026-02-01T14:00:00Z"
+      action: "Review at operations/improvement-metrics.yaml"
 
   resolved:
     - level: critical
@@ -411,6 +451,10 @@ recommendations:
   - priority: medium
     description: "Improve commit compliance to 100%"
     rationale: "25% of completed tasks not committed - potential data loss risk"
+
+  - priority: medium
+    description: "Focus on high priority improvements (0% complete)"
+    rationale: "3 high priority process improvements pending"
 
   - priority: low
     description: "Review estimation guidelines"

@@ -66,30 +66,6 @@ queue:
     added_at: '2026-02-01T12:20:00Z'
     status: pending
 
-  - id: TASK-1769912000
-    type: implement
-    title: Create agent version setup checklist
-    priority: medium
-    estimated_minutes: 35
-    context_level: 2
-    approach: |
-      Create comprehensive checklist for setting up new agent versions.
-      Analyze existing agent structures (2.2, 2.3, 2.4) to identify all components.
-      Create setup script and integrate into agent creation workflow.
-    files_to_modify:
-      - .docs/agent-version-checklist.md
-      - 2-engine/.autonomous/scripts/create-agent-version.sh
-      - 2-engine/.autonomous/workflows/agent-creation.yaml
-    acceptance_criteria:
-      - Checklist covers all agent components
-      - Setup script automates checklist
-      - Documentation complete
-      - IMP-1769903007 marked complete
-    dependencies: []
-    added_at: '2026-02-01T11:15:00Z'
-    status: pending
-
-
   - id: TASK-1769914000
     type: implement
     title: Create improvement metrics dashboard
@@ -116,8 +92,8 @@ queue:
     status: pending
 
 metadata:
-  last_updated: '2026-02-01T12:25:00Z'
+  last_updated: '2026-02-01T14:00:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 5
-  last_completed: TASK-1769911001
+  current_depth: 4
+  last_completed: TASK-1769912000

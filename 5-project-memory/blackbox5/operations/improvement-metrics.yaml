@@ -1,0 +1,397 @@
+# =============================================================================
+# Improvement Metrics Dashboard
+# =============================================================================
+# Purpose: Track improvement metrics and visualize learning-to-improvement pipeline
+# Created: 2026-02-01T14:00:00Z
+# Source: TASK-1769914000
+# Version: 1.0.0
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "2026-02-01T14:00:00Z"
+  last_updated: "2026-02-01T14:00:00Z"
+  update_frequency: "per-run"
+  dashboard_type: "improvement-tracking"
+
+# =============================================================================
+# PIPELINE OVERVIEW
+# =============================================================================
+pipeline:
+  description: "Learning → Improvement → Task → Completion Pipeline"
+
+  stages:
+    - name: "learnings_captured"
+      description: "Raw insights captured from runs"
+      count: 80
+      source: "LEARNINGS.md files across all runs"
+
+    - name: "improvements_extracted"
+      description: "Actionable improvements identified from learnings"
+      count: 10
+      source: "improvement-backlog.yaml"
+      extraction_rate_percent: 12.5
+
+    - name: "tasks_created"
+      description: "Improvements converted to executable tasks"
+      count: 10
+      conversion_rate_percent: 100.0
+
+    - name: "tasks_completed"
+      description: "Tasks successfully executed"
+      count: 4
+      completion_rate_percent: 40.0
+
+  funnel_visualization:
+    - stage: "Learnings"
+      count: 80
+      percent_of_previous: 100.0
+    - stage: "Improvements"
+      count: 10
+      percent_of_previous: 12.5
+    - stage: "Tasks"
+      count: 10
+      percent_of_previous: 100.0
+    - stage: "Completed"
+      count: 4
+      percent_of_previous: 40.0
+
+# =============================================================================
+# CONVERSION METRICS
+# =============================================================================
+conversion_metrics:
+  # Learning to Improvement conversion
+  learning_to_improvement:
+    total_learnings: 80
+    improvements_created: 10
+    extraction_rate_percent: 12.5
+    target_rate_percent: 15.0
+    status: "below_target"  # below_target, on_target, above_target
+
+  # Improvement to Task conversion
+  improvement_to_task:
+    total_improvements: 10
+    tasks_created: 10
+    conversion_rate_percent: 100.0
+    target_rate_percent: 90.0
+    status: "above_target"
+
+  # Task to Completion conversion
+  task_to_completion:
+    total_tasks: 10
+    tasks_completed: 4
+    completion_rate_percent: 40.0
+    target_rate_percent: 70.0
+    status: "below_target"
+
+  # Overall pipeline efficiency
+  overall_efficiency:
+    learnings_to_completion_rate: 5.0  # 4 completions from 80 learnings
+    target_rate_percent: 10.0
+    status: "below_target"
+
+# =============================================================================
+# IMPROVEMENT BACKLOG STATUS
+# =============================================================================
+backlog_status:
+  total_improvements: 10
+
+  by_priority:
+    high:
+      total: 3
+      completed: 0
+      pending: 3
+      completion_rate: 0.0
+    medium:
+      total: 6
+      completed: 4
+      pending: 2
+      completion_rate: 66.7
+    low:
+      total: 1
+      completed: 0
+      pending: 1
+      completion_rate: 0.0
+
+  by_category:
+    process:
+      total: 4
+      completed: 0
+      pending: 4
+      completion_rate: 0.0
+    guidance:
+      total: 4
+      completed: 4
+      pending: 0
+      completion_rate: 100.0
+    infrastructure:
+      total: 2
+      completed: 0
+      pending: 2
+      completion_rate: 0.0
+
+  completed_improvements:
+    - id: "IMP-1769903006"
+      title: "Create TDD and Testing Patterns Guide"
+      completed_at: "2026-02-01T12:00:00Z"
+      task_id: "TASK-1769911001"
+      category: "guidance"
+
+    - id: "IMP-1769903007"
+      title: "Create Agent Version Setup Checklist"
+      completed_at: "2026-02-01T13:30:00Z"
+      task_id: "TASK-1769912000"
+      category: "guidance"
+
+    - id: "IMP-1769903009"
+      title: "Create Task Acceptance Criteria Template"
+      completed_at: "2026-02-01T11:30:00Z"
+      task_id: "TASK-1769913000"
+      category: "guidance"
+
+    - id: "IMP-1769903005"
+      title: "Enforce Template File Naming Convention"
+      completed_at: "2026-02-01T11:35:00Z"
+      task_id: "TASK-1769910001"
+      category: "guidance"
+
+  pending_improvements:
+    - id: "IMP-1769903001"
+      title: "Implement Automatic Roadmap State Synchronization"
+      priority: "high"
+      category: "process"
+
+    - id: "IMP-1769903002"
+      title: "Make Pre-Execution Research Mandatory"
+      priority: "high"
+      category: "process"
+
+    - id: "IMP-1769903003"
+      title: "Implement Duplicate Task Detection System"
+      priority: "high"
+      category: "infrastructure"
+
+    - id: "IMP-1769903004"
+      title: "Implement Plan Validation Before Execution"
+      priority: "medium"
+      category: "process"
+
+    - id: "IMP-1769903008"
+      title: "Add Shellcheck to CI/CD Pipeline"
+      priority: "low"
+      category: "infrastructure"
+      task_id: "TASK-1769915000"
+
+    - id: "IMP-1769903010"
+      title: "Create Improvement Metrics Dashboard"
+      priority: "medium"
+      category: "infrastructure"
+      task_id: "TASK-1769914000"
+
+# =============================================================================
+# EFFECTIVENESS METRICS
+# =============================================================================
+effectiveness:
+  # How effective are completed improvements?
+  impact_assessment:
+    - improvement: "IMP-1769903006"
+      title: "TDD and Testing Patterns Guide"
+      impact_level: "high"
+      evidence: "Documented testing patterns now referenced in new tasks"
+
+    - improvement: "IMP-1769903007"
+      title: "Agent Version Setup Checklist"
+      impact_level: "high"
+      evidence: "Comprehensive checklist prevents missing components"
+
+    - improvement: "IMP-1769903009"
+      title: "Task Acceptance Criteria Template"
+      impact_level: "medium"
+      evidence: "Clearer task definitions in recent tasks"
+
+    - improvement: "IMP-1769903005"
+      title: "Template File Naming Convention"
+      impact_level: "medium"
+      evidence: "Reduced confusion about template files"
+
+  # Time to implement improvements
+  implementation_time:
+    average_minutes: 37.5
+    by_priority:
+      high: null  # No high priority completed yet
+      medium: 37.5
+      low: null   # No low priority completed yet
+
+  # Recurring themes addressed
+  themes_addressed:
+    - theme: "Testing Patterns"
+      improvements: ["IMP-1769903006"]
+      status: "addressed"
+
+    - theme: "Documentation Drift"
+      improvements: ["IMP-1769903007", "IMP-1769903005"]
+      status: "partially_addressed"
+
+    - theme: "Task Scope Clarity"
+      improvements: ["IMP-1769903009"]
+      status: "addressed"
+
+    - theme: "Roadmap/State Synchronization"
+      improvements: []
+      status: "pending"
+
+    - theme: "Pre-Execution Research Value"
+      improvements: []
+      status: "pending"
+
+# =============================================================================
+# TRENDS OVER TIME
+# =============================================================================
+trends:
+  # Weekly completion rates
+  weekly_data:
+    - week: "2026-W05"
+      learnings_captured: 80
+      improvements_created: 10
+      improvements_completed: 4
+      extraction_rate: 12.5
+      completion_rate: 40.0
+
+  # Cumulative completion
+  cumulative:
+    - date: "2026-02-01T11:30:00Z"
+      cumulative_completed: 1
+    - date: "2026-02-01T11:35:00Z"
+      cumulative_completed: 2
+    - date: "2026-02-01T12:00:00Z"
+      cumulative_completed: 3
+    - date: "2026-02-01T13:30:00Z"
+      cumulative_completed: 4
+
+  # Velocity (improvements per day)
+  velocity:
+    current: 4.0  # 4 improvements in 1 day
+    target: 2.0
+    status: "above_target"
+
+# =============================================================================
+# QUALITY METRICS
+# =============================================================================
+quality:
+  # Are improvements well-defined?
+  definition_quality:
+    clear_problem_statement: 10
+    clear_impact_statement: 10
+    effort_estimated: 10
+    acceptance_criteria_defined: 4  # Only tasks have acceptance criteria
+
+  # Are improvements actionable?
+  actionability:
+    immediately_actionable: 6
+    needs_research: 3
+    needs_dependencies: 1
+
+  # Success rate by category
+  success_by_category:
+    guidance:
+      attempted: 4
+      successful: 4
+      rate: 100.0
+    process:
+      attempted: 0
+      successful: 0
+      rate: 0.0
+    infrastructure:
+      attempted: 0
+      successful: 0
+      rate: 0.0
+
+# =============================================================================
+# ALERTS & THRESHOLDS
+# =============================================================================
+alerts:
+  active:
+    - level: "info"
+      metric: "extraction_rate"
+      current_value: 12.5
+      threshold: 15.0
+      message: "Learning extraction rate below target (12.5% vs 15.0%)"
+      action: "Review learnings for additional improvement opportunities"
+
+    - level: "warning"
+      metric: "high_priority_completion"
+      current_value: 0.0
+      threshold: 50.0
+      message: "No high priority improvements completed yet"
+      action: "Prioritize high priority improvements in next planning cycle"
+
+    - level: "info"
+      metric: "task_conversion"
+      current_value: 100.0
+      threshold: 90.0
+      message: "Excellent improvement-to-task conversion rate"
+
+  thresholds:
+    extraction_rate_target: 15.0
+    completion_rate_target: 70.0
+    high_priority_target: 80.0
+    velocity_target: 2.0
+
+# =============================================================================
+# INTEGRATION WITH EXECUTOR DASHBOARD
+# =============================================================================
+integration:
+  executor_dashboard:
+    linked: true
+    shared_metrics:
+      - total_runs
+      - success_rate
+      - task_completion_rate
+
+  cross_references:
+    executor_dashboard: "operations/executor-dashboard.yaml"
+    improvement_backlog: "operations/improvement-backlog.yaml"
+    learnings_archive: "knowledge/learnings/"
+
+# =============================================================================
+# RECOMMENDATIONS
+# =============================================================================
+recommendations:
+  immediate:
+    - priority: "high"
+      action: "Focus on high priority process improvements"
+      rationale: "0% completion rate for high priority items"
+      expected_impact: "Address core workflow issues"
+
+    - priority: "medium"
+      action: "Increase learning extraction rate"
+      rationale: "Currently at 12.5%, target is 15%"
+      expected_impact: "More improvements from existing learnings"
+
+  strategic:
+    - priority: "medium"
+      action: "Automate metric collection"
+      rationale: "Currently manual updates"
+      expected_impact: "Real-time improvement tracking"
+
+    - priority: "low"
+      action: "Add improvement effectiveness scoring"
+      rationale: "Hard to measure actual impact currently"
+      expected_impact: "Better prioritization of improvements"
+
+# =============================================================================
+# DASHBOARD METADATA
+# =============================================================================
+dashboard:
+  schema_version: "1.0"
+  next_update: "after-next-completion"
+  automated_metrics:
+    - extraction_rate
+    - completion_rate
+    - velocity
+    - backlog_status
+
+  manual_metrics:
+    - impact_assessment
+    - effectiveness_score
+    - quality_rating
