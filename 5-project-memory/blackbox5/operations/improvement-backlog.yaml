@@ -110,7 +110,9 @@ backlog:
       problem: "Testing patterns learned individually but not documented"
       impact: "Improves code quality, catches issues early"
       effort_minutes: 45
-      status: "pending"
+      status: "completed"
+      completed_at: "2026-02-01T12:00:00Z"
+      completed_by: "TASK-1769911001"
       file: ".autonomous/tasks/improvements/IMP-1769903006-tdd-testing-guide.md"
 
     - id: "IMP-1769903007"

@@ -69,6 +69,60 @@ FILL_ME
 **Notes on skill performance:**
 [Observations about what worked well or didn't]
 
+## Testing Section
+
+<!--
+Reference: operations/testing-guidelines.yaml
+           operations/.docs/testing-guide.md
+-->
+
+### Test-Driven Development (TDD)
+
+**Did you follow TDD for this task?**
+- [ ] Yes - Wrote tests before implementation
+- [ ] Partial - Some tests written during/after
+- [ ] No - Tests not applicable for this task type
+
+### Tests Written
+
+**Unit Tests:**
+- [ ] Unit tests created for new functions/classes
+- [ ] Test file: [path to test file]
+- [ ] Coverage: [percentage or "N/A"]
+
+**Integration Tests:**
+- [ ] Integration tests created for component interactions
+- [ ] Test file: [path to test file]
+- [ ] Systems tested: [list systems]
+
+**End-to-End Tests:**
+- [ ] E2E tests created for complete workflows
+- [ ] Test file: [path to test file]
+- [ ] Workflow tested: [description]
+
+### Test Execution
+
+**Before Commit:**
+- [ ] All new tests pass
+- [ ] Existing tests still pass
+- [ ] No test failures ignored
+- [ ] Tests run in: [local CI / manual / other]
+
+**Test Commands Used:**
+```bash
+# Example: python3 -m unittest test_module -v
+# Example: pytest tests/ -v
+FILL_ME or N/A
+```
+
+### Testing Checklist
+
+- [ ] Happy path tested
+- [ ] Edge cases tested
+- [ ] Error conditions tested
+- [ ] Async code tested (if applicable)
+- [ ] Mocked external dependencies (if applicable)
+
 ## Verification Checklist
 
 - [ ] Tests pass

@@ -39,7 +39,8 @@ queue:
       - Documentation for using dashboard
     dependencies: []
     added_at: '2026-02-01T09:05:00Z'
-    status: pending
+    completed_at: '2026-02-01T11:40:00Z'
+    status: completed
 
   - id: TASK-1769910002
     type: analyze
@@ -156,11 +157,12 @@ queue:
       - Documentation for using template created
     dependencies: []
     added_at: '2026-02-01T11:20:00Z'
-    status: pending
+    completed_at: '2026-02-01T11:30:00Z'
+    status: completed
 
 metadata:
-  last_updated: '2026-02-01T11:20:00Z'
+  last_updated: '2026-02-01T11:45:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 6
-  last_completed: TASK-1769911000
+  current_depth: 4
+  last_completed: TASK-1769910001
