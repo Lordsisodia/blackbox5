@@ -1,16 +1,18 @@
-# Agent Heartbeats
-# Written by: Both agents
-# Read by: Both agents
-
 heartbeats:
   planner:
-    last_seen: null
-    status: idle|running|sleeping|error
-    current_action: null
-    pid: null
+    last_seen: '2026-02-01T12:35:11Z'
+    status: running
+    current_action: planning
+    loop_number: 8
+    run_number: 50
   executor:
-    last_seen: null
-    status: idle|running|executing|error
-    current_action: null
-    current_task: null
-    pid: null
+    last_seen: '2026-02-01T15:50:01Z'
+    status: running
+    current_action: executing_TASK-1769916001
+    loop_number: 47
+    run_number: 47
+metadata:
+  timeout_seconds: 120
+  last_updated: '2026-02-01T15:50:01Z'
+  updated_by: executor
+  notes: 'Executor Run 0047 - TASK-1769916001 Started'

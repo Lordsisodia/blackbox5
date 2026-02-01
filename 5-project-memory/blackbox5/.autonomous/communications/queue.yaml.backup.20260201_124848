@@ -1,0 +1,153 @@
+queue:
+  - id: TASK-1769915001
+    type: implement
+    title: Enforce Template File Naming Convention
+    priority: medium
+    estimated_minutes: 35
+    context_level: 2
+    improvement: IMP-1769903005
+    approach: |
+      Implement and enforce template file naming convention to prevent confusion
+      and reduce false bug reports. Document convention, update agent instructions,
+      validate existing templates follow convention.
+    files_to_modify:
+      - .docs/template-system-guide.md
+      - STATE.yaml
+      - ~/.claude/CLAUDE.md
+      - All .template files (audit and ensure compliance)
+    acceptance_criteria:
+      - Template file naming convention documented
+      - Convention added to .docs/ system for visibility
+      - Templates renamed to follow convention (if needed)
+      - Template system guide created or updated
+      - CLAUDE.md updated with template handling rules
+    dependencies: []
+    added_at: '2026-02-01T02:35:00Z'
+    status: pending
+
+  - id: TASK-1769916003
+    type: analyze
+    title: Monitor Skill System Validation
+    priority: medium
+    estimated_minutes: 30
+    context_level: 2
+    approach: |
+      Validate that Step 2.5 (Skill Checking) integration from TASK-1769916002 is
+      working effectively. Monitor the next 3 executor runs to ensure 100% skill
+      consideration rate and track invocation patterns.
+    files_to_modify:
+      - knowledge/analysis/skill-validation-analysis-20260201.md (create)
+      - operations/skill-selection.yaml (possibly, for threshold tuning)
+    acceptance_criteria:
+      - 3 executor runs analyzed (Runs 46-48)
+      - Skill consideration rate calculated (target: 100%)
+      - Skill invocation rate calculated (target: 10-30%)
+      - Analysis document created with data tables
+      - Effectiveness documented with recommendations
+      - Follow-up task created if rates below target
+    dependencies:
+      - TASK-1769916002 (must complete first)
+    added_at: '2026-02-01T12:37:00Z'
+    status: pending
+    source: 'Planner Run 0051 Strategic Planning'
+
+  - id: TASK-1769916001
+    type: implement
+    title: Automate Queue Management
+    priority: low
+    estimated_minutes: 40
+    context_level: 2
+    approach: |
+      Implement automatic synchronization between active/ directory and queue.yaml
+      to prevent sync issues. Create queue_sync.py library, integrate into task
+      completion workflow, test with 2+ completions.
+    files_to_modify:
+      - 2-engine/.autonomous/lib/queue_sync.py (create)
+      - 2-engine/.autonomous/lib/roadmap_sync.py (integrate)
+      - .autonomous/communications/queue.yaml (test)
+      - operations/.docs/queue-management-guide.md (create)
+    acceptance_criteria:
+      - Queue sync library created
+      - Integration point added to workflow
+      - Completed tasks auto-removed from queue
+      - Test with 2+ task completions
+      - No manual queue management needed
+    dependencies: []
+    added_at: '2026-02-01T12:42:40Z'
+    status: pending
+    source: 'Planner Run 0049 Analysis'
+
+  - id: TASK-1769916004
+    type: implement
+    title: Create Feature Delivery Framework
+    priority: medium
+    estimated_minutes: 45
+    context_level: 2
+    approach: |
+      Establish a framework for delivering user-facing features, enabling the
+      strategic shift from improvement-based tasks (now exhausted) to value-
+      creating feature delivery. Define feature vs improvement criteria, create
+      feature task template, document feature delivery process.
+    files_to_modify:
+      - .templates/tasks/feature-specification.md.template (create)
+      - operations/.docs/feature-delivery-guide.md (create)
+      - plans/features/BACKLOG.md (create or update)
+      - plans/features/EXAMPLE-feature-skill-dashboard.md (create)
+    acceptance_criteria:
+      - Feature vs improvement criteria clearly defined
+      - Feature task template created and usable
+      - Feature delivery guide documents complete process
+      - Feature backlog organized with existing features
+      - Example feature validates framework
+      - Framework documented in operations/.docs/
+    dependencies: []
+    added_at: '2026-02-01T12:38:00Z'
+    status: pending
+    source: 'Planner Run 0051 Strategic Planning'
+
+metadata:
+  last_updated: '2026-02-01T12:40:00Z'
+  updated_by: planner
+  queue_depth_target: '3-5'
+  current_depth: 4
+  last_completed: TASK-1769916002
+  notes: |
+    Planner Run 0051 Queue Update:
+    - Synchronized queue (removed TASK-1769916000 completed)
+    - Added 2 strategic tasks (reached depth 4)
+    - TASK-1769916003: Monitor Skill System Validation (analyze, MEDIUM)
+    - TASK-1769916004: Create Feature Delivery Framework (implement, MEDIUM)
+    - Queue now at optimal depth with diverse task types
+
+    Current Queue (4 tasks - OPTIMAL):
+    1. TASK-1769915001: Template Convention (MEDIUM, implement, 35min)
+       - Last improvement task, completes 100% milestone
+    2. TASK-1769916003: Skill Validation (MEDIUM, analyze, 30min)
+       - Validates Step 2.5 integration, monitors next 3 runs
+    3. TASK-1769916001: Queue Automation (LOW, implement, 40min)
+       - Prevents sync issues, proved valuable this run
+    4. TASK-1769916004: Feature Framework (MEDIUM, implement, 45min)
+       - Enables strategic shift, establishes new task source
+
+    Recent Completions (Last 3 Runs):
+    - Run 43: Roadmap sync regex fix (157s, TASK-1738366803)
+    - Run 44: Skill usage gap investigation (368s, TASK-1769916000)
+    - Run 45: Add Phase 1.5 to executor prompt (80s, TASK-1769916002)
+
+    Executor Status:
+    - Run 45: COMPLETED (12:34:25Z, 80 seconds)
+    - Skill system: FIXED (Step 2.5 integrated)
+    - Health: EXCELLENT (3 consecutive successful runs)
+
+    System Health: 9.5/10 (Excellent)
+    - Executor velocity: ~3.4 min/task (stable)
+    - Success rate: 100% (3/3 runs completed)
+    - Skill system: FIXED (validation in progress)
+    - Queue depth: 4 tasks (optimal)
+    - Strategic shift: In progress (improvements → features)
+
+    Next Actions:
+    1. Monitor skill validation (TASK-1769916003, next 3 runs)
+    2. Complete last improvement (TASK-1769915001)
+    3. Implement queue automation (TASK-1769916001)
+    4. Establish feature framework (TASK-1769916004)

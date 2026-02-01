@@ -1,0 +1,216 @@
+# FEATURE-XXX: [Feature Name]
+
+**Status:** FILL_ME (planned/active/completed)
+**Priority:** FILL_ME (critical/high/medium/low)
+**Type:** feature
+**Estimated:** FILL_MINUTES minutes
+
+---
+
+## User Value
+
+**Who benefits:** [Target user or system component]
+**What problem does it solve:** [Clear problem statement]
+**What value does it create:** [Measurable benefit]
+
+**Example:**
+- Who: BlackBox5 users (RALF agents)
+- Problem: Cannot collaborate on complex tasks
+- Value: Enables multi-agent task distribution, 3x throughput improvement
+
+---
+
+## Feature Scope
+
+**MVP (Minimum Viable Product):**
+- [ ] [Core capability 1 - essential for value]
+- [ ] [Core capability 2 - essential for value]
+- [ ] [Core capability 3 - essential for value]
+
+**Future Enhancements (out of scope for this feature):**
+- [ ] [Enhancement 1 - can be added later]
+- [ ] [Enhancement 2 - can be added later]
+
+**Scope Boundaries:**
+- **IN SCOPE:** [What this feature delivers]
+- **OUT OF SCOPE:** [What's explicitly excluded]
+
+---
+
+## Context & Background
+
+**Why this feature matters:**
+- [Business/strategic reason 1]
+- [Business/strategic reason 2]
+
+**Related Features:**
+- [Previous feature that this builds on]
+- [Future feature that depends on this]
+
+**Current State:**
+- [Description of current state before feature]
+
+**Desired State:**
+- [Description of state after feature completion]
+
+---
+
+## Success Criteria
+
+### Must-Have (Required for completion)
+- [ ] [Criterion 1 - Specific, testable, measurable]
+- [ ] [Criterion 2 - Specific, testable, measurable]
+- [ ] [Criterion 3 - Specific, testable, measurable]
+
+### Should-Have (Important but not blocking)
+- [ ] [Criterion 4 - Important but not MVP-critical]
+
+### Nice-to-Have (If time permits)
+- [ ] [Criterion 5 - Enhancement opportunity]
+
+### Verification Method
+- [ ] Manual testing: [describe test approach]
+- [ ] Integration testing: [describe test approach]
+- [ ] Documentation review: [describe review approach]
+
+---
+
+## Technical Approach
+
+### Implementation Plan
+
+**Phase 1: [Phase Name]**
+- [ ] [Step 1.1]
+- [ ] [Step 1.2]
+
+**Phase 2: [Phase Name]**
+- [ ] [Step 2.1]
+- [ ] [Step 2.2]
+
+**Phase 3: [Phase Name]**
+- [ ] [Step 3.1]
+- [ ] [Step 3.2]
+
+### Architecture & Design
+
+**Key Components:**
+- [Component 1]: [Description]
+- [Component 2]: [Description]
+- [Component 3]: [Description]
+
+**Integration Points:**
+- [System 1]: [Integration approach]
+- [System 2]: [Integration approach]
+
+**Data Flow (if applicable):**
+```
+[Component A] → [Component B] → [Component C]
+```
+
+---
+
+## Dependencies
+
+### Requires (Prerequisites)
+- [ ] [Dependency 1 - must complete before starting]
+- [ ] [Dependency 2 - must complete before starting]
+
+### Blocks (Dependents)
+- [Feature/Task 1]: [Reason this blocks them]
+- [Feature/Task 2]: [Reason this blocks them]
+
+### External Dependencies
+- [ ] [Library/Service 1]: [Version/requirement]
+- [ ] [Library/Service 2]: [Version/requirement]
+
+---
+
+## Rollout Plan
+
+### Testing Strategy
+**Unit Tests:**
+- [Test 1]: [Description]
+- [Test 2]: [Description]
+
+**Integration Tests:**
+- [Test 1]: [Description]
+- [Test 2]: [Description]
+
+**User Acceptance Tests:**
+- [Test 1]: [Description]
+- [Test 2]: [Description]
+
+### Deployment Strategy
+- **Deployment Method:** [rolling/blue-green/canary/other]
+- **Rollback Plan:** [How to undo if issues arise]
+- **Monitoring:** [What metrics to track post-deployment]
+
+---
+
+## Files to Modify
+
+### New Files (Create)
+- `path/to/new/file1`: [Description]
+- `path/to/new/file2`: [Description]
+
+### Existing Files (Modify)
+- `path/to/existing/file1`: [Change description]
+- `path/to/existing/file2`: [Change description]
+
+---
+
+## Risk Assessment
+
+### Technical Risks
+| Risk | Impact | Probability | Mitigation |
+|------|--------|-------------|------------|
+| [Risk 1] | High/Med/Low | High/Med/Low | [Mitigation strategy] |
+| [Risk 2] | High/Med/Low | High/Med/Low | [Mitigation strategy] |
+
+### Operational Risks
+| Risk | Impact | Probability | Mitigation |
+|------|--------|-------------|------------|
+| [Risk 1] | High/Med/Low | High/Med/Low | [Mitigation strategy] |
+
+---
+
+## Effort Estimation
+
+**Estimated Breakdown:**
+- Design: X minutes
+- Implementation: X minutes
+- Testing: X minutes
+- Documentation: X minutes
+- **Total:** X minutes (~X hours)
+
+**Complexity Factors:**
+- [ ] Integration complexity (low/med/high)
+- [ ] Technical uncertainty (low/med/high)
+- [ ] Dependencies (low/med/high)
+
+---
+
+## Dates
+
+**Created:** FILL_ME
+**Started:** FILL_ME
+**Completed:** FILL_ME
+
+---
+
+## Notes
+
+**Strategic Value:** [Why this feature matters long-term]
+
+**Success Metrics:**
+- [Metric 1]: [Target value]
+- [Metric 2]: [Target value]
+
+**Open Questions:**
+- [Question 1]: [Proposed answer or TBD]
+- [Question 2]: [Proposed answer or TBD]
+
+**Learnings (to be filled after completion):**
+- [What went well]
+- [What could be improved]
+- [Recommendations for future features]
