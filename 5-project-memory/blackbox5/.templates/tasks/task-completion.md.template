@@ -41,3 +41,23 @@ FILL_ME
 - [ ] Code reviewed
 - [ ] Changes committed
 - [ ] Skill usage updated (if applicable)
+
+## Roadmap Sync
+
+<!-- AUTOMATIC - DO NOT MODIFY MANUALLY -->
+**Roadmap State Sync:**
+- [ ] STATE.yaml updated automatically via task-completion.yaml workflow
+- [ ] Plan status synchronized (planned → completed)
+- [ ] Dependent plans unblocked
+- [ ] next_action updated
+
+**If sync fails:**
+1. Run manual sync: `python3 lib/roadmap_sync.py --state STATE.yaml --sync-completion -t TASK-XXX`
+2. Or update STATE.yaml manually:
+   - Set plan status to "completed"
+   - Add completed_at timestamp
+   - Update next_action to next priority
+
+<!--
+SYNC_COMMAND: python3 ${RALF_ENGINE_DIR}/lib/roadmap_sync.py --state ${RALF_PROJECT_DIR}/STATE.yaml --sync-completion -t TASK-XXX -r success
+-->

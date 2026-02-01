@@ -1,83 +1,88 @@
-# Decisions - TASK-1769892001
+# Decisions - TASK-1769905000
 
-## Manual vs Automated Tracking
+## Python Library vs Bash Scripts
 
-**Context:** Needed to decide between immediate automation or manual tracking for the initial implementation.
+**Context:** Needed to choose between Python library or bash scripts for roadmap synchronization.
 
-**Selected:** Manual tracking initially
-
-**Rationale:**
-- Simple to implement and understand
-- No automation complexity
-- Allows for pattern discovery before automation
-- Can add automated tracking in future iteration once patterns are understood
-
-**Reversibility:** HIGH - Can add automation layer later without changing data format
-
-## YAML vs Database
-
-**Context:** Needed to choose between YAML files or a database for storing skill usage.
-
-**Selected:** YAML format
+**Selected:** Python library with bash fallback
 
 **Rationale:**
-- Human readable and editable
-- Version control friendly (diffable)
-- No database dependencies
-- Parseable by tools like yq for analysis
-- Consistent with other BlackBox5 configuration files
+- Python provides robust YAML parsing and manipulation
+- Easier to maintain and extend complex logic
+- Type hints and dataclasses for better code clarity
+- Can be imported as a module or run as CLI
+- Bash fallback provided for minimal environments
 
-**Reversibility:** MEDIUM - Could migrate to database later if scale requires it
+**Reversibility:** MEDIUM - Could rewrite in pure bash if Python unavailable, but would lose functionality
 
-## Skill Categories
+## Flexible YAML Parsing
 
-**Context:** Needed to organize 31 skills into logical groups.
+**Context:** STATE.yaml has formatting issues that cause YAML parsing errors.
 
-**Selected:** 10 categories
-- development: 3 skills (plan, implement, review)
-- testing: 2 skills (test, testing-patterns)
-- analysis: 2 skills (research, analyze)
-- documentation: 1 skill (document)
-- bmad: 10 skills (plan, research, implement, review, ux, architect, pm, qa, sm, tea)
-- n8n: 6 skills (workflow-patterns, code-javascript, code-python, expression-syntax, validation-expert, node-configuration)
-- git: 1 skill (git-workflows)
-- product: 1 skill (feedback-triage)
-- siso: 2 skills (tasks-cli, supabase-operations)
-- integration: 1 skill (notion-mcp)
+**Selected:** Implement flexible parsing that handles errors gracefully
 
 **Rationale:**
-- BMAD skills separated due to large count (10)
-- n8n skills grouped together as they're related
-- Core skills (development, testing, analysis) separated for clarity
-- SISO-specific tools in their own category
+- STATE.yaml is manually maintained and may have formatting issues
+- Critical functionality shouldn't fail due to non-critical formatting
+- Logs warnings but continues with partial state
+- Can still perform basic operations even with parsing issues
 
-**Reversibility:** HIGH - Can reorganize categories based on usage patterns
+**Reversibility:** HIGH - Can remove flexible parsing once STATE.yaml is fixed
 
-## Initial Skill Set
+## Workflow Trigger Design
 
-**Context:** Needed to decide how many skills to include initially.
+**Context:** Needed to decide how the sync workflow triggers.
 
-**Selected:** 31 skills covering all current system capabilities
-
-**Rationale:**
-- Include all BMAD skills (10) as they're actively used
-- Include all n8n skills (6) as they're specialized
-- Include core development skills (plan, implement, review, test)
-- Include analysis and documentation skills
-- Include SISO-specific and integration skills
-
-**Reversibility:** HIGH - Can add or remove skills based on actual usage
-
-## Effectiveness Score Calculation
-
-**Context:** Needed a simple metric for skill effectiveness.
-
-**Selected:** effectiveness_score = success_count / usage_count
+**Selected:** Event-driven triggers (task.completed, task.partial, task.failed)
 
 **Rationale:**
-- Simple to understand and calculate
-- Range 0.0-1.0 (0% to 100% success rate)
-- Clear indicator of skill reliability
-- Can be enhanced with additional factors later
+- Automatic sync on task completion prevents drift
+- Also handles partial completion and failures
+- Manual trigger available for edge cases
+- Consistent with event-driven architecture
 
-**Reversibility:** HIGH - Can add weighting factors or change formula based on data
+**Reversibility:** HIGH - Can change trigger mechanism if needed
+
+## Plan Indexing Strategy
+
+**Context:** Needed to efficiently find and update plans in STATE.yaml.
+
+**Selected:** Recursive indexing with Plan dataclass
+
+**Rationale:**
+- STATE.yaml has nested structure (sections, subsections)
+- Recursive indexing finds plans at any depth
+- Plan dataclass provides type safety
+- Reverse dependency mapping enables fast unblocking
+- Cache in memory during sync operations
+
+**Reversibility:** MEDIUM - Could use different indexing strategy if structure changes significantly
+
+## Sync Scope
+
+**Context:** Decided what operations the sync should perform.
+
+**Selected:** Three-phase sync (status update, unblock dependents, update next_action)
+
+**Rationale:**
+- Status update: Mark plan as completed
+- Unblock dependents: Enable plans waiting on this completion
+- Update next_action: Point to next priority work
+- These three operations prevent most state drift issues
+
+**Reversibility:** HIGH - Can add more sync operations (timestamps, metrics, etc.) later
+
+## Error Handling Strategy
+
+**Context:** Needed to handle potential failures during sync.
+
+**Selected:** Graceful degradation with detailed logging
+
+**Rationale:**
+- Sync failure shouldn't fail the task completion
+- Log errors for investigation
+- Notify planner of manual intervention needs
+- Continue with other operations even if one fails
+- Return detailed SyncResult with changes, errors, warnings
+
+**Reversibility:** HIGH - Can make sync blocking if strict consistency required

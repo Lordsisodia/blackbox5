@@ -520,16 +520,16 @@ risks:
 # =============================================================================
 
 improvement_metrics:
-  runs_completed: 49
+  runs_completed: 50
   learnings_captured: 80
-  first_principles_reviews: 0
+  first_principles_reviews: 1
 
   review_schedule:
     every_n_runs: 5
-    last_review_run: null
-    next_review_run: 50
+    last_review_run: 50
+    next_review_run: 55
     auto_trigger: true
-    current_loop: 46
+    current_loop: 50
 
   improvements:
     proposed: 11
@@ -559,8 +559,14 @@ improvement_metrics:
     rework_required: "stable"
     context_efficiency: "stable"
 
-  last_review: null
-  next_review_due: "2026-02-05"
+  last_review:
+    run: 50
+    date: "2026-02-01T14:50:00Z"
+    document: "knowledge/analysis/first-principles-review-50.md"
+    patterns_identified: 4
+    decisions_made: 3
+    improvements_prioritized: 3
+  next_review_due: "2026-02-01"
   review_interval_runs: 5
 
 # =============================================================================

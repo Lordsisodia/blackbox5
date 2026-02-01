@@ -1,52 +1,85 @@
-# Results - TASK-1769892001
+# Results - TASK-1769905000
 
-**Task:** TASK-1769892001
+**Task:** TASK-1769905000
 **Status:** completed
 
 ## What Was Done
 
-Created a comprehensive skill usage tracking system for the BlackBox5 autonomous system.
+Implemented automatic roadmap state synchronization to prevent drift between documented state and actual state.
 
 ### Files Created
 
-1. **operations/skill-usage.yaml**
-   - 31 skills tracked across 10 categories
-   - Schema: name, category, description, usage_count, last_used, success_count, failure_count, avg_execution_time_ms, triggers, effectiveness_score
-   - Categories: development (3), testing (2), analysis (2), documentation (1), bmad (10), n8n (6), git (1), product (1), siso (2), integration (1)
-   - Metadata section with totals and category counts
-   - Usage tracking instructions in comments
+1. **2-engine/.autonomous/lib/roadmap_sync.py** (650 lines)
+   - RoadmapSync class with full synchronization functionality
+   - Methods: update_plan_status(), unblock_dependents(), update_next_action(), sync_task_completion()
+   - Flexible YAML parsing to handle formatting issues
+   - CLI interface for manual operations
+   - Helper methods: get_blocked_plans(), get_ready_plans(), get_plan_status()
+   - Comprehensive error handling and logging
 
-2. **operations/.docs/skill-tracking-guide.md**
-   - Quick reference for updating after skill use
-   - Schema reference with field descriptions
-   - Category breakdown table
-   - Instructions for adding new skills
-   - Analysis queries using yq
-   - Integration with run completion checklist
-   - Monthly and quarterly review process
-   - Decision log and future improvements
+2. **2-engine/.autonomous/workflows/task-completion.yaml**
+   - Workflow definition with 4 steps:
+     1. Validate task completion
+     2. Sync roadmap state (calls roadmap_sync.py)
+     3. Log sync event to events.yaml
+     4. Handle sync failures
+   - Event triggers: task.completed, task.partial, task.failed
+   - Fallback bash script for environments without Python
 
 ### Files Modified
 
 1. **.templates/tasks/task-completion.md.template**
-   - Added "Skill usage updated (if applicable)" to verification checklist
+   - Added "Roadmap Sync" section with automatic sync checklist
+   - Included manual sync fallback instructions
+   - Added SYNC_COMMAND comment for automation reference
 
 ## Validation
 
-- [x] operations/skill-usage.yaml created with proper schema
-- [x] 31 skills documented with triggers and categories
-- [x] operations/.docs/skill-tracking-guide.md created with complete documentation
-- [x] Template updated with skill tracking reminder
-- [x] YAML validates without errors
+- [x] Library created with update_plan_status(), unblock_dependents(), update_next_action()
+- [x] Library imports successfully and CLI works
+- [x] Task completion workflow created with proper triggers
+- [x] Template updated with roadmap sync section
+- [x] All acceptance criteria met
 
 ## Files Modified
 
 | File | Change |
 |------|--------|
-| operations/skill-usage.yaml | Created skill tracking system |
-| operations/.docs/skill-tracking-guide.md | Created documentation |
-| .templates/tasks/task-completion.md.template | Added skill tracking checkbox |
+| 2-engine/.autonomous/lib/roadmap_sync.py | Created roadmap sync library (650 lines) |
+| 2-engine/.autonomous/workflows/task-completion.yaml | Created task completion workflow |
+| .templates/tasks/task-completion.md.template | Added roadmap sync section |
 
-## Notes
+## Integration Points
 
-This system enables data-driven skill optimization as specified in goals.yaml IG-004. Future iterations could include automated tracking via skill invocation wrapper and dashboard visualization.
+The implementation integrates with:
+- STATE.yaml - Updates plan status, unblocks dependents, updates next_action
+- events.yaml - Logs sync events for audit trail
+- Task completion workflow - Triggers automatically on task completion
+- RALF executor - Can call sync via CLI or Python API
+
+## Usage
+
+### Automatic (via workflow)
+Task completion automatically triggers sync via task-completion.yaml workflow.
+
+### Manual (CLI)
+```bash
+# Full sync after task completion
+python3 lib/roadmap_sync.py --state STATE.yaml --sync-completion -t TASK-XXX -r success
+
+# Update just the status
+python3 lib/roadmap_sync.py --state STATE.yaml --task-id TASK-XXX --status completed
+
+# List blocked/ready plans
+python3 lib/roadmap_sync.py --state STATE.yaml --list-blocked
+python3 lib/roadmap_sync.py --state STATE.yaml --list-ready
+```
+
+### Python API
+```python
+from roadmap_sync import RoadmapSync
+
+sync = RoadmapSync("STATE.yaml")
+result = sync.sync_task_completion("TASK-XXX", "success")
+print(f"Changes: {result.changes_made}")
+```

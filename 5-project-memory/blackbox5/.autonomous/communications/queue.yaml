@@ -168,9 +168,34 @@ queue:
     added_at: '2026-02-01T14:05:00Z'
     status: pending
 
+  - id: TASK-1769908000
+    type: implement
+    title: Make pre-execution research mandatory
+    priority: high
+    estimated_minutes: 35
+    context_level: 2
+    approach: |
+      Make pre-execution research a mandatory step for all task types.
+      Update RALF executor prompt to require research phase.
+      Add research findings template to THOUGHTS.md.template.
+      Integrate duplicate detection into research phase.
+    files_to_modify:
+      - 2-engine/.autonomous/prompts/ralf-executor.md
+      - 2-engine/.autonomous/workflows/task-execution.yaml
+      - .templates/tasks/THOUGHTS.md.template
+    acceptance_criteria:
+      - Research phase added to all task execution paths
+      - Template updated with research section
+      - Duplicate detection integrated
+      - Validation prevents skipping research
+      - Tested with 3+ tasks
+    dependencies: []
+    added_at: '2026-02-01T14:30:00Z'
+    status: pending
+
 metadata:
-  last_updated: '2026-02-01T14:05:00Z'
+  last_updated: '2026-02-01T14:30:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 5
-  last_completed: TASK-1769902000
+  current_depth: 6
+  last_completed: TASK-1769903002

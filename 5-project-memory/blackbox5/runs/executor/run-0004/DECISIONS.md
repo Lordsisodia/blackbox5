@@ -1,84 +1,95 @@
-# Decisions - TASK-1769892005
+# Decisions - TASK-1769908000
 
-## YAML vs Markdown for Project Map
+## Creating New Files vs Modifying Existing
 
-**Context:** Needed to choose the primary format for the project relationship map.
+**Context:** The task specified files to modify, but they didn't exist.
 
-**Selected:** Both YAML (machine-readable) and Markdown (human-readable)
-
-**Rationale:**
-- YAML for programmatic access by Planner/Executor agents
-- Markdown for human review and understanding
-- YAML can be parsed by tools like yq for analysis
-- Markdown provides narrative context that YAML cannot
-
-**Reversibility:** HIGH - Can generate one from the other if needed
-
-## Project Scope
-
-**Context:** Needed to decide which projects to include in the map.
-
-**Selected:** All 5 projects in the ecosystem
-- blackbox5 (this project)
-- siso-internal
-- 2-engine
-- team-entrepreneurship-memory
-- 6-roadmap
+**Selected:** Create new files from scratch
 
 **Rationale:**
-- Complete picture of ecosystem
-- Even low-priority projects may have dependencies
-- Template and management folders excluded (not active projects)
+- Files didn't exist, so modification was impossible
+- Creating new files follows the same pattern as other RALF components
+- New files can be designed with the mandatory research concept from the start
+- No risk of breaking existing functionality
 
-**Reversibility:** HIGH - Can add/remove projects as ecosystem evolves
+**Reversibility:** HIGH - Files can be removed or modified if needed
 
-## Relationship Type Definitions
+---
 
-**Context:** Needed to categorize the types of relationships between projects.
+## Workflow Structure: Phases vs Linear Steps
 
-**Selected:** 5 relationship types
-1. shared-config - Files shared across projects (CLAUDE.md)
-2. ralf-integration - Engine connects to all project memories
-3. pattern-replication - One project copies patterns from another
-4. feedback-loop - Improvements flow between projects
-5. cross-reference - Documentation references multiple projects
+**Context:** Needed to decide how to structure the task-execution workflow.
+
+**Selected:** Three distinct phases (research, execution, completion)
 
 **Rationale:**
-- Covers all observed relationship patterns
-- Clear distinction between dependency types
-- Helps identify risk levels
+- Phases make the separation between research and execution explicit
+- Each phase can have required/optional status
+- Easier to add validation gates between phases
+- Follows software development lifecycle pattern
 
-**Reversibility:** HIGH - Can add new relationship types as discovered
+**Reversibility:** MEDIUM - Could refactor to linear steps if needed
 
-## Context Gathering Heuristics
+---
 
-**Context:** Needed to provide actionable guidance for agents.
+## Validation Rules Location
 
-**Selected:** Three heuristics based on task type
-1. If BMAD commands involved → Read 2-engine/routes.yaml
-2. If project structure involved → Reference siso-internal
-3. If documentation involved → Check all .docs/ folders
+**Context:** Needed to decide where to define validation rules for research.
 
-**Rationale:**
-- Simple rules that cover common scenarios
-- Based on actual patterns found in codebase
-- Easy to remember and apply
-
-**Reversibility:** HIGH - Can refine based on usage patterns
-
-## Risk Assessment
-
-**Context:** Needed to identify potential issues from cross-project dependencies.
-
-**Selected:** 4 risk areas with severity levels
-1. CLAUDE.md Changes (HIGH) - Universal impact
-2. Engine Updates (HIGH) - Breaks all projects
-3. Path References (MEDIUM) - Structure changes break references
-4. Skill Dependencies (MEDIUM) - Skills may reference non-existent files
+**Selected:** Dedicated validation_rules section in workflow YAML
 
 **Rationale:**
-- Focus on highest-impact risks
-- Provide specific mitigation strategies
-- Aligns with goals.yaml IG-003 objectives
+- Centralizes all validation logic
+- Rules can be referenced by name
+- Easy to add/remove/modify rules
+- Can be parsed programmatically
 
-**Reversibility:** N/A - Risk assessment is informational
+**Reversibility:** HIGH - Rules could be moved to separate file
+
+---
+
+## Execution Gate Implementation
+
+**Context:** Needed to ensure research cannot be skipped.
+
+**Selected:** Explicit execution_gate with condition check
+
+**Rationale:**
+- Clear gate that blocks execution without research
+- Condition is explicit and auditable
+- Can log when gate blocks execution
+- Provides clear error message
+
+**Reversibility:** MEDIUM - Gate logic could be moved to validation rules
+
+---
+
+## Template Design: Mandatory Section Placement
+
+**Context:** Needed to decide where to place research section in THOUGHTS.md.template.
+
+**Selected:** At the top, immediately after task description
+
+**Rationale:**
+- Research must be done first, so it appears first
+- Makes it impossible to miss
+- Sets the tone for the entire document
+- Follows the actual execution flow
+
+**Reversibility:** HIGH - Section order can be changed
+
+---
+
+## Duplicate Detection Scope
+
+**Context:** Needed to define how thorough duplicate detection should be.
+
+**Selected:** Check completed/ directories and recent commits (2 weeks)
+
+**Rationale:**
+- completed/ directories contain all finished work
+- 2 weeks of commits catches recent work not yet archived
+- Not too broad (would be slow) or too narrow (would miss things)
+- Can be adjusted based on task type
+
+**Reversibility:** HIGH - Search scope can be modified

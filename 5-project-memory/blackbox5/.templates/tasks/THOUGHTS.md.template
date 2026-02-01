@@ -1,0 +1,69 @@
+# Thoughts - [TASK-ID]
+
+## Task
+[TASK-ID]: [Task Title]
+
+---
+
+## Pre-Execution Research (REQUIRED)
+
+### Duplicate Check
+- [ ] Checked completed/ for similar tasks
+- [ ] Checked recent commits (2 weeks)
+- [ ] Result: [No duplicates found / Potential duplicate: TASK-XXX]
+
+**Similar tasks found (if any):**
+- None
+
+### Context Gathered
+**Files read:**
+- [List all files read before making changes]
+
+**Key findings:**
+- [Important discoveries about existing code/state]
+
+**Dependencies identified:**
+- [List of dependencies]
+
+### Risk Assessment
+- **Integration risks:** [low/medium/high]
+- **Unknowns:** [What needs clarification]
+- **Blockers:** [none / list]
+
+---
+
+## Approach
+[What you plan to do and why]
+
+---
+
+## Execution Log
+
+### Step 1: [Action taken]
+[Details of what was done]
+
+### Step 2: [Action taken]
+[Details of what was done]
+
+---
+
+## Challenges & Resolution
+
+### Challenge 1: [Description]
+**Resolution:** [How it was solved]
+
+---
+
+## Validation
+
+- [ ] Pre-execution research completed
+- [ ] Duplicate check performed
+- [ ] All target files read before modification
+- [ ] Code imports/validates successfully
+- [ ] Integration with existing system verified
+- [ ] Tests pass (if applicable)
+
+---
+
+## Notes
+[Any additional notes for future reference]
