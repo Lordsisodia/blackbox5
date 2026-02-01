@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """
-Deep Research - Stage 1: Intelligent Ingestion
+AI Improvement Research - Stage 1: Intelligent Ingestion
 Downloads video metadata and transcripts, organized by creator
+
+New structure:
+- data/sources/{creator_slug}/videos/{video_id}.yaml  (raw data)
+- timeline/events/YYYY-MM-DD.yaml                      (event log)
+- queue/pending/{video_id}.yaml                        (processing queue)
 """
 
 import argparse
@@ -30,17 +35,72 @@ except ImportError:
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data"
 CONFIG_DIR = BASE_DIR / "config"
+TIMELINE_DIR = BASE_DIR / "timeline"
+QUEUE_DIR = BASE_DIR / "queue"
 
-# Ensure data directory exists
-DATA_DIR.mkdir(parents=True, exist_ok=True)
+# Ensure directories exist
+(DATA_DIR / "sources").mkdir(parents=True, exist_ok=True)
+(TIMELINE_DIR / "events").mkdir(parents=True, exist_ok=True)
+(QUEUE_DIR / "pending").mkdir(parents=True, exist_ok=True)
+(QUEUE_DIR / "processing").mkdir(parents=True, exist_ok=True)
+(QUEUE_DIR / "completed").mkdir(parents=True, exist_ok=True)
 
 
-def load_creators():
-    """Load creator configuration."""
-    creators_file = CONFIG_DIR / "creators.yaml"
-    with open(creators_file) as f:
+def load_sources():
+    """Load source configuration from sources.yaml."""
+    sources_file = CONFIG_DIR / "sources.yaml"
+    with open(sources_file) as f:
         config = yaml.safe_load(f)
-    return config.get("creators", [])
+    return config.get("sources", [])
+
+
+def log_event(event_type, data):
+    """Log an event to the timeline."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    events_file = TIMELINE_DIR / "events" / f"{today}.yaml"
+
+    # Load existing events or create new
+    if events_file.exists():
+        with open(events_file) as f:
+            events_data = yaml.safe_load(f) or {}
+    else:
+        events_data = {"date": today, "events": []}
+
+    # Add new event
+    event = {
+        "timestamp": datetime.now().isoformat(),
+        "type": event_type,
+        **data
+    }
+    events_data["events"].append(event)
+
+    # Save events
+    with open(events_file, "w") as f:
+        yaml.dump(events_data, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+
+    return event
+
+
+def add_to_queue(video_id, creator, metadata, priority="normal"):
+    """Add a video to the processing queue."""
+    queue_file = QUEUE_DIR / "pending" / f"{video_id}.yaml"
+
+    queue_entry = {
+        "video_id": video_id,
+        "title": metadata.get("title", ""),
+        "creator": creator.get("name", ""),
+        "creator_slug": get_creator_slug(creator.get("name", "")),
+        "url": metadata.get("url", ""),
+        "priority": priority,
+        "status": "pending",
+        "queued_at": datetime.now().isoformat(),
+        "source_path": f"data/sources/{get_creator_slug(creator.get('name', ''))}/videos/{video_id}.yaml"
+    }
+
+    with open(queue_file, "w") as f:
+        yaml.dump(queue_entry, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+
+    return queue_file
 
 
 def get_channel_id_from_handle(handle):
@@ -262,23 +322,36 @@ def get_creator_slug(creator_name):
     return creator_name.lower().replace(" ", "_").replace("(", "").replace(")", "").replace(".", "")
 
 
-def save_video_data(creator, metadata, transcript, segments):
-    """Save video data organized by creator."""
-    creator_slug = get_creator_slug(creator["name"])
+def get_priority_for_tier(tier):
+    """Get queue priority based on creator tier."""
+    tier_priorities = {
+        1: "critical",   # Tier 1 = must watch
+        2: "high",       # Tier 2 = high quality
+        3: "normal"      # Tier 3 = filtered
+    }
+    return tier_priorities.get(tier, "normal")
+
+
+def save_video_data(source, metadata, transcript, segments):
+    """Save video data organized by creator in new structure."""
+    creator_slug = source.get("slug") or get_creator_slug(source["name"])
     video_id = metadata["id"]
 
     # Create creator directories
-    creator_dir = DATA_DIR / "by_creator" / creator_slug
+    creator_dir = DATA_DIR / "sources" / creator_slug
     videos_dir = creator_dir / "videos"
     videos_dir.mkdir(parents=True, exist_ok=True)
 
-    # Build complete video record
+    # Build complete video record with new schema
     video_data = {
-        "video": {
+        "source": {
+            "type": "youtube",
             "id": video_id,
             "url": metadata["url"],
             "title": metadata["title"],
             "description": metadata["description"],
+            "channel": metadata["channel"],
+            "channel_id": metadata["channel_id"],
             "published_at": metadata["published_at"],
             "duration": metadata["duration"],
             "view_count": metadata["view_count"],
@@ -286,15 +359,18 @@ def save_video_data(creator, metadata, transcript, segments):
             "thumbnail": metadata["thumbnail"],
         },
         "creator": {
-            "name": creator["name"],
-            "handle": creator["handle"],
-            "tier": creator["tier"],
-            "focus_areas": creator.get("focus_areas", []),
+            "name": source["name"],
+            "slug": creator_slug,
+            "handle": source["handle"],
+            "tier": source["tier"],
+            "areas": source.get("areas", []),
+            "topics": source.get("topics", []),
         },
-        "source": {
-            "discovered_via": "vip_rss",
+        "collection": {
+            "discovered_via": "rss",
             "discovered_at": datetime.now().isoformat(),
-            "processed_at": datetime.now().isoformat(),
+            "collected_at": datetime.now().isoformat(),
+            "collected_by": "ingest.py",
         },
         "transcript": {
             "full_text": transcript,
@@ -304,9 +380,9 @@ def save_video_data(creator, metadata, transcript, segments):
             "is_auto_generated": True,
         },
         "processing": {
-            "stage": "ingested",  # ingested | classified | extracted | reported
+            "stage": "ingested",  # ingested | queued | extracting | extracted | synthesized
             "stages_completed": ["ingest"],
-            "next_stage": "classify",
+            "next_stage": "extract",
         }
     }
 
@@ -318,18 +394,25 @@ def save_video_data(creator, metadata, transcript, segments):
     return output_file
 
 
-def process_creator(creator, dry_run=False):
-    """Process a single creator - check RSS and download new videos."""
+def process_source(source, dry_run=False):
+    """Process a single source - check RSS and download new videos."""
     print(f"\n{'='*60}")
-    print(f"Processing: {creator['name']} (Tier {creator['tier']})")
-    print(f"Handle: {creator['handle']}")
-    print(f"Focus: {', '.join(creator.get('focus_areas', []))}")
+    print(f"Processing: {source['name']} (Tier {source['tier']})")
+    print(f"Handle: {source['handle']}")
+    print(f"Areas: {', '.join(source.get('areas', []))}")
     print(f"{'='*60}")
 
     # Get channel ID
-    channel_id = get_channel_id_from_handle(creator['handle'])
+    channel_id = source.get("channel_id")
     if not channel_id:
-        print(f"❌ Could not get channel ID for {creator['name']}")
+        channel_id = get_channel_id_from_handle(source['handle'])
+
+    if not channel_id:
+        print(f"❌ Could not get channel ID for {source['name']}")
+        log_event("source_error", {
+            "source": source["name"],
+            "error": "Could not get channel ID"
+        })
         return []
 
     print(f"Channel ID: {channel_id}")
@@ -345,6 +428,7 @@ def process_creator(creator, dry_run=False):
     print(f"Found {len(new_videos)} new video(s)")
 
     processed = []
+    priority = get_priority_for_tier(source["tier"])
 
     for video in new_videos:
         print(f"\n📹 {video['title'][:60]}...")
@@ -356,8 +440,8 @@ def process_creator(creator, dry_run=False):
             continue
 
         # Check if already processed
-        creator_slug = get_creator_slug(creator["name"])
-        existing = DATA_DIR / "by_creator" / creator_slug / "videos" / f"{video['id']}.yaml"
+        creator_slug = source.get("slug") or get_creator_slug(source["name"])
+        existing = DATA_DIR / "sources" / creator_slug / "videos" / f"{video['id']}.yaml"
         if existing.exists():
             print("   Already processed, skipping")
             continue
@@ -367,6 +451,11 @@ def process_creator(creator, dry_run=False):
         metadata = get_video_metadata(video['id'])
         if not metadata:
             print("   ❌ Failed to get metadata")
+            log_event("video_error", {
+                "source": source["name"],
+                "video_id": video["id"],
+                "error": "Failed to get metadata"
+            })
             continue
 
         # Download transcript
@@ -381,12 +470,27 @@ def process_creator(creator, dry_run=False):
         print(f"   ✓ Transcript: {len(segments)} segments, {len(transcript)} chars")
 
         # Save data
-        output_file = save_video_data(creator, metadata, transcript, segments)
+        output_file = save_video_data(source, metadata, transcript, segments)
         print(f"   ✓ Saved: {output_file.relative_to(BASE_DIR)}")
+
+        # Add to queue
+        queue_file = add_to_queue(video['id'], source, metadata, priority)
+        print(f"   ✓ Queued: {queue_file.relative_to(BASE_DIR)} (priority: {priority})")
+
+        # Log event
+        log_event("video_discovered", {
+            "source": source["name"],
+            "source_slug": creator_slug,
+            "video_id": video["id"],
+            "title": video["title"][:100],
+            "priority": priority,
+            "has_transcript": len(transcript) > 0
+        })
 
         processed.append({
             "video": video,
             "file": output_file,
+            "queue_file": queue_file,
             "has_transcript": len(transcript) > 0,
         })
 
@@ -400,16 +504,17 @@ def process_creator(creator, dry_run=False):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Ingest YouTube videos from VIP creators")
-    parser.add_argument("--creator", help="Process specific creator by name")
-    parser.add_argument("--tier", type=int, help="Process only creators of this tier")
+    parser = argparse.ArgumentParser(description="Ingest YouTube videos from configured sources")
+    parser.add_argument("--source", help="Process specific source by name")
+    parser.add_argument("--tier", type=int, help="Process only sources of this tier")
     parser.add_argument("--dry-run", action="store_true", help="Check RSS without downloading")
     parser.add_argument("--url", help="Process single YouTube URL (manual mode)")
+    parser.add_argument("--all", action="store_true", help="Process all configured sources")
 
     args = parser.parse_args()
 
-    # Load creators
-    creators = load_creators()
+    # Load sources
+    sources = load_sources()
 
     if args.url:
         # Manual URL mode
@@ -417,36 +522,53 @@ def main():
         # TODO: Implement manual URL processing
         return
 
-    # Filter creators
-    to_process = creators
+    # Filter sources
+    to_process = sources
 
-    if args.creator:
-        to_process = [c for c in creators if args.creator.lower() in c['name'].lower()]
+    if args.source:
+        to_process = [s for s in sources if args.source.lower() in s['name'].lower()]
         if not to_process:
-            print(f"Creator '{args.creator}' not found")
+            print(f"Source '{args.source}' not found")
             return
 
     if args.tier:
-        to_process = [c for c in to_process if c['tier'] == args.tier]
+        to_process = [s for s in to_process if s['tier'] == args.tier]
 
-    print(f"\nProcessing {len(to_process)} creator(s)")
+    if not args.all and not args.source and not args.tier:
+        print("Use --all to process all sources, or --source/--tier to filter")
+        print(f"Configured sources: {len(sources)}")
+        print(f"  Tier 1: {len([s for s in sources if s['tier'] == 1])}")
+        print(f"  Tier 2: {len([s for s in sources if s['tier'] == 2])}")
+        print(f"  Tier 3: {len([s for s in sources if s['tier'] == 3])}")
+        return
+
+    print(f"\nProcessing {len(to_process)} source(s)")
     if args.dry_run:
         print("[DRY RUN MODE - no downloads]")
 
-    # Process each creator
+    # Process each source
     all_processed = []
-    for creator in to_process:
-        processed = process_creator(creator, dry_run=args.dry_run)
+    for source in to_process:
+        processed = process_source(source, dry_run=args.dry_run)
         all_processed.extend(processed)
 
     # Summary
     print(f"\n{'='*60}")
     print("SUMMARY")
     print(f"{'='*60}")
-    print(f"Creators checked: {len(to_process)}")
+    print(f"Sources checked: {len(to_process)}")
     print(f"Videos found: {len(all_processed)}")
     if not args.dry_run:
         print(f"Videos downloaded: {sum(1 for v in all_processed if v.get('has_transcript', False))}")
+        print(f"Videos queued: {len(all_processed)}")
+
+    # Log completion event
+    if not args.dry_run and all_processed:
+        log_event("ingest_completed", {
+            "sources_checked": len(to_process),
+            "videos_found": len(all_processed),
+            "videos_downloaded": sum(1 for v in all_processed if v.get('has_transcript', False))
+        })
 
 
 if __name__ == "__main__":
