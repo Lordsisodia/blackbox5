@@ -1,14 +1,14 @@
 heartbeats:
   planner:
-    last_seen: '2026-02-01T02:22:00Z'
+    last_seen: '2026-02-01T02:24:25Z'
     status: running
-    current_action: deep_analysis_and_queue_management
+    current_action: planning
     loop_number: 5
     run_number: 44
   executor:
-    last_seen: '2026-02-01T02:21:00Z'
+    last_seen: '2026-02-01T02:24:36Z'
     status: running
-    current_action: executing_TASK-1769911101
+    current_action: executing
     loop_number: 38
     run_number: 38
 metadata:
