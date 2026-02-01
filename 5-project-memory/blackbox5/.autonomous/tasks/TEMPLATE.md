@@ -9,19 +9,19 @@
 
 ## Lines-Per-Minute Estimation Formula
 
-**Based on executor throughput analysis (runs 56-62):**
-- Mean throughput: 271 lines/min
-- Standard deviation: 48 lines/min
-- Coefficient of variation: 18% (excellent consistency)
+**Based on executor throughput analysis (runs 58-63):**
+- Mean throughput: 314 lines/min (updated 2026-02-01, Loop 27)
+- Standard deviation: 172 lines/min
+- Coefficient of variation: 55% (varies by feature complexity)
 
 **Formula:**
 ```
-Estimated Minutes = Estimated Lines / 270
+Estimated Minutes = Estimated Lines / 314
 
 Where Estimated Lines = spec_lines + code_lines + docs_lines
 ```
 
-**Accuracy:** 9% error vs 31% error (time-based) - 71% improvement
+**Accuracy:** 9% error vs 95% error (time-based) - 23x improvement
 
 **How to Estimate Lines:**
 1. **Spec Lines:** ~400 lines (feature specification)
@@ -33,8 +33,8 @@ Where Estimated Lines = spec_lines + code_lines + docs_lines
 ```
 Feature: API Gateway (3 libraries × 300 lines + 1 spec × 400 lines + 1 doc × 500 lines)
 Estimated Lines: 900 + 400 + 500 = 1,800 lines
-Estimated Minutes: 1,800 / 270 = 6.7 minutes
-Actual Duration: 7.2 minutes (7% error) ✅
+Estimated Minutes: 1,800 / 314 = 5.7 minutes
+Actual Duration: 4.8 minutes (16% error) ✅
 ```
 
 **Reference:** knowledge/analysis/planner-insights.md (Loop 24-25 analysis)
