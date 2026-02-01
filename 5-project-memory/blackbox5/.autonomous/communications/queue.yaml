@@ -44,144 +44,78 @@ queue:
     added_at: '2026-02-01T08:05:00Z'
     status: pending
 
-  - id: TASK-1769899001
-    type: implement
-    title: Create skill selection guidance framework
+  - id: TASK-1769910000
+    type: analyze
+    title: Validate skill system recovery metrics
     priority: high
-    estimated_minutes: 35
+    estimated_minutes: 30
     context_level: 2
     approach: |
-      Add skill selection guidance to ~/.claude/CLAUDE.md.
-      Document when to check for skills, selection process, domain-to-skill mapping.
-      Reference operations/skill-usage.yaml and operations/skill-metrics.yaml.
+      Monitor and validate skill system recovery after TASK-1769909000 fix.
+      Analyze executor runs 0021-0025 for skill usage patterns.
+      Compare against baseline (0% usage) and target (50% usage).
+      Update skill-metrics.yaml with recovery data.
     files_to_modify:
-      - ~/.claude/CLAUDE.md
+      - operations/skill-metrics.yaml
+      - knowledge/analysis/skill-system-recovery-20260201.md
     acceptance_criteria:
-      - New "When to Use Skills" section added to CLAUDE.md
-      - Skill selection process documented
-      - Domain-to-skill mapping provided
-      - Confidence threshold defined (>80%)
-      - Examples of skill invocation patterns included
+      - Runs 0021-0025 analyzed for skill usage
+      - Skill invocation rate calculated
+      - Recovery metrics documented
+      - Recommendations for further improvements provided
     dependencies:
-      - TASK-1769892001
-      - TASK-1769896000
-    added_at: '2026-02-01T10:05:00Z'
+      - TASK-1769909000
+      - TASK-1769909001
+    added_at: '2026-02-01T09:00:00Z'
     status: pending
 
-
-
-
-  - id: TASK-1769905000
+  - id: TASK-1769910001
     type: implement
-    title: Implement automatic roadmap state synchronization
-    priority: high
-    estimated_minutes: 45
-    context_level: 3
-    approach: |
-      Implement automatic synchronization between task completion and roadmap STATE.yaml.
-      Create lib/roadmap_sync.py library, add hook to task completion workflow,
-      implement auto-unblock for dependent plans, update next_action logic.
-      Test with sample task completion.
-    files_to_modify:
-      - 2-engine/.autonomous/lib/roadmap_sync.py
-      - 2-engine/.autonomous/workflows/task-completion.yaml
-      - .templates/tasks/task-completion.md.template
-    acceptance_criteria:
-      - Library created with update_plan_status(), unblock_dependents(), update_next_action()
-      - Task completion automatically triggers sync
-      - Tested with at least 2 plan completions
-      - Documentation updated
-    dependencies: []
-    added_at: '2026-02-01T14:05:00Z'
-    status: pending
-
-  - id: TASK-1769908000
-    type: implement
-    title: Make pre-execution research mandatory
-    priority: high
-    estimated_minutes: 35
-    context_level: 2
-    approach: |
-      Make pre-execution research a mandatory step for all task types.
-      Update RALF executor prompt to require research phase.
-      Add research findings template to THOUGHTS.md.template.
-      Integrate duplicate detection into research phase.
-    files_to_modify:
-      - 2-engine/.autonomous/prompts/ralf-executor.md
-      - 2-engine/.autonomous/workflows/task-execution.yaml
-      - .templates/tasks/THOUGHTS.md.template
-    acceptance_criteria:
-      - Research phase added to all task execution paths
-      - Template updated with research section
-      - Duplicate detection integrated
-      - Validation prevents skipping research
-      - Tested with 3+ tasks
-    dependencies: []
-    added_at: '2026-02-01T14:30:00Z'
-    status: pending
-
-  - id: TASK-1769909000
-    type: implement
-    title: Bridge skill documentation to execution gap
-    priority: critical
+    title: Create executor run monitoring dashboard
+    priority: medium
     estimated_minutes: 40
     context_level: 3
     approach: |
-      Critical finding from TASK-1769903001: Zero skill usage across 5 runs despite
-      31 skills documented. Bridge the gap between skill documentation and execution.
-
-      1. Update RALF executor prompt with explicit skill-checking workflow
-      2. Add skill invocation decision tree to task execution flow
-      3. Create skill-selection.yaml with decision criteria
-      4. Add skill usage validation to task completion checklist
-      5. Test with 3 tasks requiring different skills
+      Create a monitoring dashboard for tracking executor runs and metrics.
+      Include: success rate, skill usage, average completion time, common failure patterns.
+      Use YAML format for easy parsing and updates.
     files_to_modify:
-      - 2-engine/.autonomous/prompts/ralf-executor.md
-      - operations/skill-selection.yaml
-      - .templates/tasks/task-completion.md.template
-      - operations/skill-metrics.yaml
+      - operations/executor-dashboard.yaml
+      - operations/.docs/executor-monitoring-guide.md
     acceptance_criteria:
-      - Executor prompt updated with skill-checking workflow
-      - Skill selection decision tree documented
-      - Skill usage validation added to completion checklist
-      - At least 3 skills invoked in test tasks
-      - Skill effectiveness metrics updated with usage data
-    dependencies:
-      - TASK-1769903001
-    added_at: '2026-02-01T07:50:00Z'
+      - Dashboard YAML created with key metrics
+      - Historical data from last 20 runs
+      - Automated metric calculation
+      - Documentation for using dashboard
+    dependencies: []
+    added_at: '2026-02-01T09:05:00Z'
     status: pending
 
-  - id: TASK-1769909001
+  - id: TASK-1769910002
     type: analyze
-    title: Analyze executor decision patterns
-    priority: high
+    title: Analyze task completion time trends
+    priority: low
     estimated_minutes: 35
     context_level: 2
     approach: |
-      Analyze executor THOUGHTS.md files from recent runs to understand
-      decision-making patterns. Identify why skills are not being invoked
-      despite clear documentation. Look for:
-      1. Task type classification accuracy
-      2. Skill keyword detection patterns
-      3. Confidence threshold application
-      4. Alternative approaches taken instead of skills
-
-      Document findings and recommend executor prompt improvements.
+      Analyze task completion times across recent runs to identify trends.
+      Look for: task types that take longer, common bottlenecks, estimation accuracy.
+      Provide recommendations for better time estimation.
     files_to_modify:
-      - knowledge/analysis/executor-decision-patterns-20260201.md
-      - 2-engine/.autonomous/prompts/ralf-executor.md
+      - knowledge/analysis/task-completion-trends-20260201.md
+      - operations/estimation-guidelines.yaml
     acceptance_criteria:
-      - 5+ executor runs analyzed
-      - Decision patterns documented
-      - Root cause for skill non-usage identified
-      - Executor prompt improvement recommendations provided
+      - 20+ tasks analyzed for completion time
+      - Trends identified and documented
+      - Estimation accuracy calculated
+      - Guidelines for future estimations provided
     dependencies: []
-    added_at: '2026-02-01T07:55:00Z'
+    added_at: '2026-02-01T09:10:00Z'
     status: pending
 
 metadata:
-  last_updated: '2026-02-01T07:55:00Z'
+  last_updated: '2026-02-01T09:15:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 8
-  last_completed: TASK-1769903001
+  current_depth: 5
+  last_completed: TASK-1769909001
