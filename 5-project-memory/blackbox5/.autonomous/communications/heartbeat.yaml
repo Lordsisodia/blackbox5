@@ -1,12 +1,12 @@
 heartbeats:
   planner:
-    last_seen: '2026-02-01T07:35:00Z'
+    last_seen: '2026-02-01T00:42:26Z'
     status: running
     current_action: planning
   executor:
-    last_seen: '2026-02-01T07:35:00Z'
-    status: idle
-    current_action: completed_TASK-1769908000
+    last_seen: '2026-02-01T07:45:00Z'
+    status: completed
+    current_action: TASK-1769903001
 metadata:
   timeout_seconds: 120
-  last_updated: '2026-02-01T07:35:00Z'
+  last_updated: '2026-02-01T07:45:00Z'

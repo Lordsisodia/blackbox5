@@ -37,7 +37,19 @@ RUNS_DIR="$PROJECT_DIR/runs/executor"
 
 # Logging
 LOG_FILE="$PROJECT_DIR/.autonomous/executor-v2.log"
-RUN_COUNTER=0
+
+# Initialize run counter from highest existing run (for persistence across restarts)
+init_run_counter() {
+    local highest=0
+    if [[ -d "$RUNS_DIR" ]]; then
+        # Use sed to remove leading zeros to avoid octal interpretation
+        highest=$(ls -1 "$RUNS_DIR" 2>/dev/null | grep -E '^run-[0-9]+$' | sed 's/run-//' | sed 's/^0*//' | sort -n | tail -1 || echo "0")
+        # Handle case where all runs are 0000
+        [[ -z "$highest" ]] && highest=0
+    fi
+    echo "$highest"
+}
+RUN_COUNTER=$(init_run_counter)
 
 # Colors
 BLUE='\033[0;34m'
