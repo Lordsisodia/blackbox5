@@ -1,0 +1,18 @@
+video_id: T4ZVPYUKFQ8
+title: GPT-5.1 is a Big Deal for Devs
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=T4ZVPYUKFQ8
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:33:41.981783'
+source_path: data/sources/vrsen/videos/T4ZVPYUKFQ8.yaml
+ranking:
+  relevance: 20
+  importance: 65
+  value: 28
+  composite: 39.0
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

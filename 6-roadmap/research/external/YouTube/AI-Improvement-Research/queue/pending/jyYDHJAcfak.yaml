@@ -1,0 +1,18 @@
+video_id: jyYDHJAcfak
+title: I Gave One MCP Agent 2,000 Tools (Here’s What Broke)
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=jyYDHJAcfak
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:32:39.977270'
+source_path: data/sources/vrsen/videos/jyYDHJAcfak.yaml
+ranking:
+  relevance: 90
+  importance: 60
+  value: 41
+  composite: 59.9
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

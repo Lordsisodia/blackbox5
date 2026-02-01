@@ -1,0 +1,18 @@
+video_id: bao8Fu13IP8
+title: This NEW Shadcn UI updates is game changer
+creator: Rasmus
+creator_slug: rasmus
+url: https://youtube.com/watch?v=bao8Fu13IP8
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:26:45.019939'
+source_path: data/sources/rasmus/videos/bao8Fu13IP8.yaml
+ranking:
+  relevance: 10
+  importance: 65
+  value: 0
+  composite: 25.2
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

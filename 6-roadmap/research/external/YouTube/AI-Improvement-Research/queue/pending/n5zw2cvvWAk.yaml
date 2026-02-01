@@ -1,0 +1,19 @@
+video_id: n5zw2cvvWAk
+title: Gemini in Chrome is INCREDIBLE! Google's Agentic AI Can Automate ANY Browser
+  Task!
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=n5zw2cvvWAk
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:28:50.061149'
+source_path: data/sources/in_the_world_of_ai/videos/n5zw2cvvWAk.yaml
+ranking:
+  relevance: 75
+  importance: 75
+  value: 23
+  composite: 54.2
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

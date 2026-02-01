@@ -1,0 +1,18 @@
+video_id: D4ImbDGFgIM
+title: The end of MCP for ai agents?
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=D4ImbDGFgIM
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:34:05.669780'
+source_path: data/sources/vrsen/videos/D4ImbDGFgIM.yaml
+ranking:
+  relevance: 80
+  importance: 75
+  value: 21
+  composite: 54.6
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

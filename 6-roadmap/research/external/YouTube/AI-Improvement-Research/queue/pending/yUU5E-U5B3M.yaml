@@ -1,0 +1,18 @@
+video_id: yUU5E-U5B3M
+title: 'Gemini Cowork: AI Operating System That Automates Your Life! (Opensource)'
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=yUU5E-U5B3M
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:30:15.464127'
+source_path: data/sources/in_the_world_of_ai/videos/yUU5E-U5B3M.yaml
+ranking:
+  relevance: 90
+  importance: 70
+  value: 38
+  composite: 62.2
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

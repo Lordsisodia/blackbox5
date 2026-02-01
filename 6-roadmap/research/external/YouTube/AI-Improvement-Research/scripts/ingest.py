@@ -375,7 +375,7 @@ def save_video_data(source, metadata, transcript, segments):
         "creator": {
             "name": source["name"],
             "slug": creator_slug,
-            "handle": source["handle"],
+            "handle": source.get("handle", "@unknown"),
             "tier": source["tier"],
             "areas": source.get("areas", []),
             "topics": source.get("topics", []),

@@ -1,0 +1,18 @@
+video_id: 2QQNTWTsFaw
+title: I built a b2b SAAS app
+creator: Rasmus
+creator_slug: rasmus
+url: https://youtube.com/watch?v=2QQNTWTsFaw
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:26:54.268579'
+source_path: data/sources/rasmus/videos/2QQNTWTsFaw.yaml
+ranking:
+  relevance: 15
+  importance: 60
+  value: 18
+  composite: 31.9
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

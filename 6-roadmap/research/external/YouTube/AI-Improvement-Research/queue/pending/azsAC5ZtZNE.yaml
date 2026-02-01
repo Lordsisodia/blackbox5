@@ -1,0 +1,18 @@
+video_id: azsAC5ZtZNE
+title: Ship Your First Vertical AI Agent (& Make It Reusable)
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=azsAC5ZtZNE
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:34:18.015444'
+source_path: data/sources/vrsen/videos/azsAC5ZtZNE.yaml
+ranking:
+  relevance: 35
+  importance: 60
+  value: 46
+  composite: 48.2
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

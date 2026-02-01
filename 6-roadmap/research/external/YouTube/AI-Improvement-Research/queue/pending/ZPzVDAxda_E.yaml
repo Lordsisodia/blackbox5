@@ -1,0 +1,18 @@
+video_id: ZPzVDAxda_E
+title: 'GPT-5.2 vs 5.1 Agents: Real Work Test'
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=ZPzVDAxda_E
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:32:27.928196'
+source_path: data/sources/vrsen/videos/ZPzVDAxda_E.yaml
+ranking:
+  relevance: 60
+  importance: 60
+  value: 31
+  composite: 48.4
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

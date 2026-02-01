@@ -1,0 +1,389 @@
+source:
+  type: youtube
+  id: IHFsW-5_2R0
+  url: https://youtube.com/watch?v=IHFsW-5_2R0
+  title: React has changed forever
+  description: "In this video, we cover React 19 and the latest updates across the\
+    \ React ecosystem from new hooks like use, useActionState, and useTransition to\
+    \ improvements in Suspense and the introduction of the new Activity component.\n\
+    \n⚛️ React 19 demo repo: https://rasmic.link/react-19-demo\n\nMy Links:\n\U0001F310\
+    \ My Site: https://rasmic.link/site\n\U0001F3ED My product studio: https://rasmic.link/fabrika\n\
+    ⚡ Nextjs Starter Kit: https://rasmic.link/next-starter\n⚛️ React Starter kit:\
+    \ https://rasmic.link/react-starter\n\nSocials:\n\U0001F426 Follow me on X: https://rasmic.link/x\n\
+    \U0001F4AC Join my Discord: https://rasmic.link/discord\n▶️ Subscribe to my second\
+    \ channel: https://rasmic.link/more-micky\n\nTools I use: \n\U0001F4DA Programming\
+    \ courses: https://rasmic.link/scrimba\n\U0001F3A5 Recording Software: https://rasmic.link/screen-studio"
+  channel: Ras Mic
+  channel_id: UCBX__dPYqDFqAN4QcWbnUbw
+  published_at: '20251118'
+  duration: 671
+  view_count: 4975
+  like_count: 215
+  thumbnail: https://i.ytimg.com/vi/IHFsW-5_2R0/maxresdefault.jpg
+creator:
+  name: Rasmus
+  slug: rasmus
+  handle: '@rasmic'
+  tier: 1
+  areas:
+  - ai-engineering
+  - coding-tools
+  topics:
+  - ai-development
+  - technical-deep-dives
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:27:32.526415'
+  collected_at: '2026-02-02T03:27:32.526425'
+  collected_by: ingest.py
+transcript:
+  full_text: React 19 changed everything. The mental model of React that we once had
+    requires a little bit of change, a little bit of shift as React moves toward the
+    server. A lot of people are referring to React as async React. In today's video,
+    I'm going to be sharing with you the two big changes that apply to us developers
+    when we're building web applications using React. So, let's get straight into
+    the video. I built a simple demo app to show us some of these React 19 changes.
+    suspense plus use hook and the activity component. Let's start with the activity
+    component. So what is the activity component? And the best way I can explain it
+    to you by showing you a demo. You have a tab here that is being rendered using
+    the activity component and you have a tab here that's being rendered using conditionals.
+    So here's one thing I want you to check. So in the selection of the all tab, I'm
+    going to type Michael in all posts. Now, if I'm conditionally rendering this,
+    when I click on active and I go back, what I filled in the input should disappear.
+    But what the activity component does is it maintains the state when I'm on the
+    other tab. But if I do this here where I type in Michael and I click on active
+    and I go back to all, I lose that state. So to summarize, what the activity component
+    allows you to do is to preserve component state during a transition. And the code
+    for this is pretty simple. You're going to import activity from React. I also
+    have a use state here to set the active tab. I have tab one as the active tab.
+    So you see these two buttons right here. These are the tabs [music] I have right
+    here. If I scroll down all and active. So these are the tabs. And now here's how
+    you use the activity component. [music] In the activity component you have mode.
+    And then you can specify if the current tab that I've wrapped, if the current
+    content that I've wrapped should be visible or hidden. Right? So in this case,
+    I have this use state that controls which tab is selected. Uh the default tab
+    is tab one. But if I click on the second tab, tab two, then we're going to set
+    that to active. And basically what this does is it checks if active tab is tab
+    one, then this activity is [music] visible. If it's not tab one, this is hidden,
+    right? So, pretty simple. All I do is wrap the components with the activity component.
+    And then in mode, I specify whether it's visible or hidden. [music] And here's
+    what's cool about activity. Whatever state is in the activity bounds, when it
+    switches from visible to hidden, that state is maintained. That is why I can type
+    some numbers here, click all, go back to active, that state is preserved. So,
+    some key takeaways about activity. State preservation. Activity keeps components
+    alive in the background, maintaining their state. Better UX. Users don't lose
+    their place, focus, or typed content when navigating. When to use perfect for
+    tabs, wizards, multi-step forms, or any UI where you want to preserve state between
+    views. Performance avoids expensive reinitialization of components on every view
+    switch. The activity component is necessary for us to know. Because this is available
+    in React, you can use this in Tanstack start, Nex.js, Remix, React Start, whatever
+    React meta framework you use, the activity component is available. And you can
+    see [music] here in the tab that doesn't use the activity component. I'm basically
+    conditionally rendering and this does not preserve the state. So now let's talk
+    about suspense plus the use hook. Gone are the days where you're going to be using
+    use effect to fetch data in your React apps. I'm going to show you how to fetch
+    data using use and suspense in React. Let's look at the code. So I have this suspense
+    page [music] and in this suspense page I have a page called data page where I
+    get posts [music] and this get post is a function that basically reads from a
+    database uh 10 posts and then [music] returns success true and the post and then
+    I get post promise. But what do I do with this promise? How do I get the contents
+    from the promise? I take postpromise [music] and what I do is I'm going to show
+    you right here. I pass postpromise [music] to this component called data content.
+    If I click on data content, [music] I'm going to see this is a component right
+    here. And in this component, I receive the post promises. This is a promise. And
+    then how I get the data out of the promise is I'm using use [music] from React.
+    Now, here's what's cool about use. Use is a React API that lets you read the value
+    of a resource like a promise or context. So you give it a promise, a context.
+    Use can pull the data that I can then use to render on my component. So this is
+    how simple it is to use use. I basically get the promise, right? In this case,
+    get post. I don't await it. I get the promise. I then pass that post promise to
+    the to the component, right? Which this component will probably render the data.
+    And in data component what I essentially do I'll zoom in so you guys can see clear.
+    In data content what I'm going to do is I'm going to pass this promise [music]
+    to use and it unwraps the promise and then I can get that data and render [music]
+    that data. Now here's one thing that's very important. Notice how the component
+    that I pass the promise to is wrapped by the suspense component. And this is very
+    important because what happens is as follows. When I refresh this page, notice
+    how I have a skeleton and after a few seconds, the data shows. What the suspense
+    boundary does is until the data has been unwrapped from the promise, it's going
+    to show that loading skeleton. So you see that I see a loading skeleton for a
+    bit and then I see my data. So I can use suspense with promises, use, and suspense.
+    I have a clean way of fetching data. But wait, there's more to React 19.2 to that
+    I want to show you. We have a simple form here where we can create a post. So,
+    I'm going to type in Michael and I'm going to say please subscribe. You should
+    subscribe if you haven't already. I'm going to click create post. [music] And
+    you see the post popped up. But I want to show you again how this interaction
+    goes. When I click create post, [music] you see that the button was grayed out
+    for a second. It was disabled for a second until the post populated. And once
+    the post populated, I'm able to create another post. How are we doing this using
+    React 19.2? Let's go back to [music] the suspense page. You're going to see a
+    data form component. And I'm just going to enter it here. And in the data form
+    component, I [music] have this new hook called use action state. Again, this comes
+    from React. This is React 19.2. [music] And use action state gives me state form
+    action and is pending. So I see I have a simple form right here. I'm passing in
+    the action form action. [music] And what form action is basically doing is firing
+    off this create post. This create post is the function that allows me to write
+    a post into the database. So if I open this right here, you'll see this is use
+    server right here. So this is a server action. And basically what create post
+    does is it it gets the title in the body, checks if they exist, and then inserts
+    it in the DB and then we revalidate the page. So, make sure that the data is refreshed.
+    That's how if I go back to the form and I create a new post, you see that the
+    post pops up right away. The revalidate path [music] function allows me to do
+    that. And then, not only have I passed in create post, but I've also passed in
+    null. And if we look at the docs, essentially what null is, it's the initial state.
+    And because this is a form, I expect you to fill it out. So, the initial state
+    is null. And so basically all I have to do to make this form work using use action
+    state is I pass the form action to action. And we saw basically how create post
+    works. It's going to get the title and the body from the form. You see form data
+    get title form data get body right? I get that from these inputs right here. The
+    state basically allows me to check if any errors have occurred. Like for example,
+    if I go back to the form and if I type in the title and I hit create post, you
+    see title and body are required. I get that from [music] state and is pending
+    basically lets me know that the request is still pending. It hasn't been complete
+    yet. And if it's not complete, the button should be disabled. Now, if I were to
+    make this a bit slower for us to see this, what I'm going to do is right here,
+    I'm going to add a promise. Let's make it a bit long, right? I'm going to save
+    this and let's submit this form again. So, I'm going to hit create post. Notice
+    how this is grayed out. So I can't click, I can't do, you know, I can't create
+    another post. I have to wait for this request to resolve because is pending is
+    still true. [music] And that makes it disabled. And then you see the contents
+    are updated. So use action state. Another great hook, especially with forms. But
+    here's another cool thing I'd like to show you with React 19. Watch when I delete
+    these posts how it grays out for a second, request is firing, and then I can delete
+    another one. How am I doing this using React 19? If I go back to data content,
+    you see I'm using use to [music] unwrap the data. And then I pass the data to
+    again a new hook from React 19 called use optimistic. [music] And use optimistic
+    basically allows me to manage the state of my optimistic updates. [music] So I
+    pass the data into use optimistic. So the most up-to-date state of my data and
+    then I pass in what the optimistic update looks like. In this case, what we're
+    doing is we're deleting posts. So I'm going to use filter to filter out the post
+    that's going to get deleted. So in doing so, I now get the optimistic post. So
+    this is what I'll be rendering on the JSX. And then I have remove optimistic post.
+    This is going to be used in my handle delete function. And in my handle delete
+    function, you see another thing here called star transition that comes from the
+    use transition hook. And one of the reasons why I'm using use transition here
+    is so I can get the pending state. So in start transition I call remove optimistic
+    post and then I actually call the delete post function which if I click here it's
+    basically [music] deleting it from the DB. Right? Pretty simple stuff. But this
+    start transition allows me to have this is pending which I can then pass into
+    the JSX into the class name to gray out the posts. So here I can again create
+    a bunch of posts. I can do that. You see like I see the updates instantly [music]
+    and then I can delete these posts. The is pending allows me to make sure that
+    no other action happens until everything's deleted. And ladies and gents, with
+    these new React 19 primitives, you can build beautiful [music] user experiences.
+    Now here's the thing. I tried to use as many of the new React 19 features that
+    we got. You don't have to use all of these, but I wanted to show you how these
+    all work together. But that is pretty much it, ladies and gents, for this video.
+    Make sure to like, comment, subscribe, hit the notification bell. If you want
+    to play with the repo, the link will be in the description down below. Thank you
+    so much for watching. Let me know what you want to see in the comments down below.
+    Like, comment, subscribe. Again, I'll see you in the next one. Peace.
+  segments:
+  - start: 00:00:00
+    text: React 19 changed everything. The mental
+  - start: 00:00:02
+    text: model of React that we once had requires
+  - start: 00:00:05
+    text: a little bit of change, a little bit of
+  - start: 00:00:06
+    text: shift as React moves toward the server.
+  - start: 00:00:09
+    text: A lot of people are referring to React
+  - start: 00:00:11
+    text: as async React. In today's video, I'm
+  - start: 00:00:13
+    text: going to be sharing with you the two big
+  - start: 00:00:14
+    text: changes that apply to us developers when
+  - start: 00:00:17
+    text: we're building web applications using
+  - start: 00:00:20
+    text: React. So, let's get straight into the
+  - start: 00:00:22
+    text: video. I built a simple demo app to show
+  - start: 00:00:25
+    text: us some of these React 19 changes.
+  - start: 00:00:28
+    text: suspense plus use hook and the activity
+  - start: 00:00:30
+    text: component. Let's start with the activity
+  - start: 00:00:33
+    text: component. So what is the activity
+  - start: 00:00:34
+    text: component? And the best way I can
+  - start: 00:00:36
+    text: explain it to you by showing you a demo.
+  - start: 00:00:38
+    text: You have a tab here that is being
+  - start: 00:00:40
+    text: rendered using the activity component
+  - start: 00:00:42
+    text: and you have a tab here that's being
+  - start: 00:00:44
+    text: rendered using conditionals. So here's
+  - start: 00:00:46
+    text: one thing I want you to check. So in the
+  - start: 00:00:49
+    text: selection of the all tab, I'm going to
+  - start: 00:00:51
+    text: type Michael in all posts. Now, if I'm
+  - start: 00:00:54
+    text: conditionally rendering this, when I
+  - start: 00:00:56
+    text: click on active and I go back, what I
+  - start: 00:00:59
+    text: filled in the input should disappear.
+  - start: 00:01:01
+    text: But what the activity component does is
+  - start: 00:01:03
+    text: it maintains the state when I'm on the
+  - start: 00:01:06
+    text: other tab. But if I do this here where I
+  - start: 00:01:08
+    text: type in Michael and I click on active
+  - start: 00:01:10
+    text: and I go back to all, I lose that state.
+  - start: 00:01:13
+    text: So to summarize, what the activity
+  - start: 00:01:15
+    text: component allows you to do is to
+  - start: 00:01:17
+    text: preserve component state during a
+  - start: 00:01:19
+    text: transition. And the code for this is
+  - start: 00:01:21
+    text: pretty simple. You're going to import
+  - start: 00:01:23
+    text: activity from React. I also have a use
+  - start: 00:01:25
+    text: state here to set the active tab. I have
+  - start: 00:01:28
+    text: tab one as the active tab. So you see
+  - start: 00:01:30
+    text: these two buttons right here. These are
+  - start: 00:01:32
+    text: the tabs [music] I have right here. If I
+  - start: 00:01:33
+    text: scroll down all and active. So these are
+  - start: 00:01:37
+    text: the tabs. And now here's how you use the
+  - start: 00:01:40
+    text: activity component. [music] In the
+  - start: 00:01:42
+    text: activity component you have mode. And
+  - start: 00:01:44
+    text: then you can specify if the current tab
+  - start: 00:01:48
+    text: that I've wrapped, if the current
+  - start: 00:01:49
+    text: content that I've wrapped should be
+  - start: 00:01:51
+    text: visible or hidden. Right? So in this
+  - start: 00:01:53
+    text: case, I have this use state that
+  - start: 00:01:55
+    text: controls which tab is selected. Uh the
+  - start: 00:01:58
+    text: default tab is tab one. But if I click
+  - start: 00:02:00
+    text: on the second tab, tab two, then we're
+  - start: 00:02:02
+    text: going to set that to active. And
+  - start: 00:02:05
+    text: basically what this does is it checks if
+  - start: 00:02:07
+    text: active tab is tab one, then this
+  - start: 00:02:09
+    text: activity is [music] visible. If it's not
+  - start: 00:02:12
+    text: tab one, this is hidden, right? So,
+  - start: 00:02:14
+    text: pretty simple. All I do is wrap the
+  - start: 00:02:17
+    text: components with the activity component.
+  - start: 00:02:19
+    text: And then in mode, I specify whether it's
+  - start: 00:02:22
+    text: visible or hidden. [music] And here's
+  - start: 00:02:24
+    text: what's cool about activity. Whatever
+  - start: 00:02:26
+    text: state is in the activity bounds, when it
+  - start: 00:02:29
+    text: switches from visible to hidden, that
+  - start: 00:02:31
+    text: state is maintained. That is why I can
+  - start: 00:02:34
+    text: type some numbers here, click all, go
+  - start: 00:02:37
+    text: back to active, that state is preserved.
+  - start: 00:02:40
+    text: So, some key takeaways about activity.
+  - start: 00:02:42
+    text: State preservation. Activity keeps
+  - start: 00:02:44
+    text: components alive in the background,
+  - start: 00:02:45
+    text: maintaining their state. Better UX.
+  - start: 00:02:47
+    text: Users don't lose their place, focus, or
+  - start: 00:02:49
+    text: typed content when navigating. When to
+  - start: 00:02:51
+    text: use perfect for tabs, wizards,
+  - start: 00:02:53
+    text: multi-step forms, or any UI where you
+  - start: 00:02:56
+    text: want to preserve state between views.
+  - start: 00:02:58
+    text: Performance avoids expensive
+  - start: 00:03:00
+    text: reinitialization of components on every
+  - start: 00:03:03
+    text: view switch. The activity component is
+  - start: 00:03:05
+    text: necessary for us to know. Because this
+  - start: 00:03:07
+    text: is available in React, you can use this
+  - start: 00:03:08
+    text: in Tanstack start, Nex.js, Remix, React
+  - start: 00:03:11
+    text: Start, whatever React meta framework you
+  - start: 00:03:13
+    text: use, the activity component is
+  - start: 00:03:15
+    text: available. And you can see [music] here
+  - start: 00:03:16
+    text: in the tab that doesn't use the activity
+  - start: 00:03:18
+    text: component. I'm basically conditionally
+  - start: 00:03:20
+    text: rendering and this does not preserve the
+  - start: 00:03:22
+    text: state. So now let's talk about suspense
+  - start: 00:03:25
+    text: plus the use hook. Gone are the days
+  - start: 00:03:28
+    text: where you're going to be using use
+  - start: 00:03:30
+    text: effect to fetch data in your React apps.
+  - start: 00:03:33
+    text: I'm going to show you how to fetch data
+  - start: 00:03:34
+    text: using use and suspense in React. Let's
+  - start: 00:03:38
+    text: look at the code. So I have this
+  - start: 00:03:40
+    text: suspense page [music] and in this
+  - start: 00:03:42
+    text: suspense page I have a page called data
+  - start: 00:03:44
+    text: page where I get posts [music] and this
+  segment_count: 297
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

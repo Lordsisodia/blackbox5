@@ -1,0 +1,19 @@
+video_id: xxppO2ws-J8
+title: 'Zenflow: First-Ever AI Software Engineer Running Autonomously Building Apps
+  and Software!'
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=xxppO2ws-J8
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:29:51.954764'
+source_path: data/sources/in_the_world_of_ai/videos/xxppO2ws-J8.yaml
+ranking:
+  relevance: 95
+  importance: 70
+  value: 41
+  composite: 64.7
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

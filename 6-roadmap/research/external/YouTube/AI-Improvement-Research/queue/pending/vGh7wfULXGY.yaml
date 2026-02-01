@@ -1,0 +1,18 @@
+video_id: vGh7wfULXGY
+title: Antigravity AgentKit Supercharges Your AI 100x
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=vGh7wfULXGY
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:30:29.703191'
+source_path: data/sources/in_the_world_of_ai/videos/vGh7wfULXGY.yaml
+ranking:
+  relevance: 95
+  importance: 70
+  value: 41
+  composite: 64.7
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

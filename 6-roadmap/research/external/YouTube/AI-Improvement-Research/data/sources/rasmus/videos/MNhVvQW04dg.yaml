@@ -1,0 +1,345 @@
+source:
+  type: youtube
+  id: MNhVvQW04dg
+  url: https://youtube.com/watch?v=MNhVvQW04dg
+  title: 'Claude Opus 4.5: The only model you need'
+  description: "Anthropic really out did themselves. Let's talk about the greatest\
+    \ coding model to ever exist, Claude Opus 4.5\n\nMy Links:\n\U0001F310 My Site:\
+    \ https://rasmic.link/site\n\U0001F3ED My product studio: https://rasmic.link/fabrika\n\
+    ⚡ Nextjs Starter Kit: https://rasmic.link/next-starter\n⚛️ React Starter kit:\
+    \ https://rasmic.link/react-starter\n\nSocials:\n\U0001F426 Follow me on X: https://rasmic.link/x\n\
+    \U0001F4AC Join my Discord: https://rasmic.link/discord\n▶️ Subscribe to my second\
+    \ channel: https://rasmic.link/more-micky\n\nTools I use: \n\U0001F310 Framer\
+    \ (use RASMIC for 2 months free of Framer Pro): https://rasmic.link/framer\n\U0001F4DA\
+    \ Programming courses: https://rasmic.link/scrimba\n\U0001F3A5 Recording Software:\
+    \ https://rasmic.link/screen-studio"
+  channel: Ras Mic
+  channel_id: UCBX__dPYqDFqAN4QcWbnUbw
+  published_at: '20251128'
+  duration: 445
+  view_count: 13028
+  like_count: 508
+  thumbnail: https://i.ytimg.com/vi_webp/MNhVvQW04dg/maxresdefault.webp
+creator:
+  name: Rasmus
+  slug: rasmus
+  handle: '@rasmic'
+  tier: 1
+  areas:
+  - ai-engineering
+  - coding-tools
+  topics:
+  - ai-development
+  - technical-deep-dives
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:27:10.672816'
+  collected_at: '2026-02-02T03:27:10.672824'
+  collected_by: ingest.py
+transcript:
+  full_text: Just a couple days ago, we were all talking about how amazing Gemini
+    3 Pro was at everything, even at programming. But 3 days ago, Enthropic said,
+    "This is what I'm about to drop." And they dropped Opus 4.5, which by far, ladies
+    and gents, in the last 3 days I've been using it, is the best coding model I've
+    ever had to use. There are some cons I will talk about at the very end. But my
+    goodness, out of all the models that exist, this by far is the best one. So, in
+    this video, we're going to talk about the model, the pricing, how to best use
+    it, the project I was using it with, and my personal experience, and I have some
+    tips and tricks to share with you to make sure you get the best out of this model.
+    So, sit back, relax, let's get into it. Cloud [snorts] Opus 4.5. This launched
+    November 24th, 2025. Now, when it comes to the benchmarks, especially the ones
+    that matter to us developers, it is kicking butt. It is winning. The only benchmarks
+    I think it's losing on is graduate level reasoning, visual reasoning, and multilingual
+    Q&A, which you and I don't care for, right? Because if you're watching this, you're
+    looking to build software. You're either a developer or you're someone who uses
+    AI tools to build software or you're both. And in that case, this stuff doesn't
+    really matter to us. But everything else, the tool calling is by far, in my opinion,
+    the best. Even though I enjoyed Gemini 3 Pro, there were times I noticed it mess
+    up with its tool calling. Opus 4.5, in my humble opinion, seems to be the best.
+    Now, in terms of pricing, it's $5 per million tokens in, $25 per million tokens
+    out. In terms of comparison with the previous Opus 4.1, this is 66% cheaper than
+    the Opus 4.1 model. Now, obviously, this isn't the cheapest model, but I will
+    say this, this is a bang for your buck. This is the best ROI. like you are getting
+    a great model at a cheaper price compared to 4.1 cuz 4.1 was astronomically expensive.
+    Most of you know the project I'm working on bird terminal which is what I call
+    the trading terminal for the AI age or the Bloomberg for Gen Z's. And there were
+    a couple issues I had with the chart page and even with the workflow system I
+    had built and I'm just going to show you the PR. This is the one that Opus cooked.
+    Mind you, these were three prompts, right? And you see this giant PR with all
+    these file changes. It got it all at once. The reason why I'm saying three prompts,
+    there was a couple things I had to clear for it. And this is what I like about
+    OPOS 4.5. It's one of those models where if your prompt is clear and you give
+    it the resources, meaning I attached docs a couple of times, like I gave it the
+    specific docs that needed to ingest, it did it expeditiously. I hope that's a
+    word, expeditiously well. And what I mean by my workflows is it's this feature
+    basically you have this node style environment where you can drag a trigger, right?
+    So in this case, I have a time trigger and I can specify, okay, 9:45 a.m. we'll
+    make this reoccurring. So, every single day, we can make this weekly, we I'll
+    make this daily. You're going to buy 10 shares of the Coinbase stock, right? And
+    all I do is save this workflow and that's it. I even have a web hook one where
+    you can trigger this via web hook. So, if I save this workflow and I click here,
+    this is the web hook I would fire to and this trade would trigger. Now, I had
+    built this feature out, but there were some quirks and some kinks that I was just
+    too lazy to figure out. So, I gave it to Opus 4.5 and in one shot fixed it. It
+    worked. And my day job at Convex, I've also been working on a Stripe component,
+    something that a lot of people have been asking for. And if you're not familiar
+    with Convex components, they're basically blocks of code that work with Convex
+    projects that give you some sort of functionality. For example, let's say you
+    wanted to build an AI agent. You're probably going to scaffold the same code.
+    Like the structure of the code is generally going to be the same. So, instead
+    of writing the same thing again and again, you have an AI agent component. And
+    we also have a polar one, autumn one, but a lot of people have been asking for
+    stripe and I was working on that. And I had already built a component out myself.
+    But I gave it to Opus45 to check for any edge cases I had missed for. And Opus
+    caught four things that I had slipped. And not only did it correct them, but it
+    wrote tests. It built me an example app using the component. And not even lying,
+    the code was actually pretty good. Like there was minimal cleanup that I had to
+    do. By now, I hope you're convinced that Opus 4.5, if you haven't given it a shot,
+    you might as well cuz arguably there is no one who could tell you that there is
+    a model that's better than 4.5 right now. Now, there are some cons to this model
+    or some shortfallings I've seen. Number one, it is sort of eager. If you guys
+    remember, I don't know if it was Claude Sonnet 3.1 or one of the early models.
+    Um, it was a very eager model. like you ask it to fix one thing, it would go do
+    front-end changes, it would rewrite your database, and it was just a terrible
+    experience. Now, I'm not saying Opus 4.5 does that all the time, but I've noticed
+    it has a tendency sometimes to go above and beyond. It feels like an excited junior
+    developer wants to prove himself or herself to you. So, there is that tendency
+    with Opus 45. I've noticed it a couple times. So, just make sure you're not just
+    accepting randomly that you actually review the code it generates. Now, I've been
+    using Opus 45 a lot on cursor. Actually, mainly on cursor. And one thing I've
+    realized is when the context window reaches about 70%, it starts to not get as
+    good. So, if I were you, the moment I I see 70% context window reached on cursor
+    or whatever tool you're using, I would just open a new tab and start again. Realistically,
+    I would cut off at 50%. Because you don't want to dump too much context. You don't
+    want to pollute the context, per se. And another thing that I found extremely
+    useful is if you give it the right documentation, code snippets, like we would
+    do this with other models before, but I am telling you, every time I've given
+    it documentation, it's followed it to the tea. And this is even internal docs
+    or docs that I've created or code snippets that I've written, giving it has resulted
+    in much better outputs. So, if you haven't already, what are you doing? Check
+    out this model. It is exceptional. It is amazing. It is decently fast. like it's
+    not composer fast, but it's decently fast. And I've even seen people maybe combine
+    different models if the price is too high. What you can do is you can use it to
+    plan and then use composer to write the code. Either way, I'm 4.5 p. This is the
+    best model for coding. I haven't used anything else. The results are amazing and
+    I hope you enjoyed this video. I want to do a video on how to use 4.5 when designing
+    uh your web apps because I will say the one weakness I did notice is it's not
+    the best with design. Although if you attach a screenshot of a site that you like
+    and pass it um in the prompt, it's actually pretty good at mimicking existing
+    design systems. So that's, you know, a free tip I'll give you right there. You
+    take a screenshot of a page that you like. Let's say you like the enthropic page
+    here. You like the colors and the font. I would p I would take a screenshot of
+    this, pass it into the in the into the chat and say match the colors, the fonts,
+    um, and change the global.css file. It actually crushes, right? So, maybe I'll
+    do another video talking about this. Let me know in the comments down below. Thank
+    you so much for watching. Make sure to like, comment, subscribe, and I will see
+    you in the next one. Peace.
+  segments:
+  - start: 00:00:00
+    text: Just a couple days ago, we were all
+  - start: 00:00:01
+    text: talking about how amazing Gemini 3 Pro
+  - start: 00:00:04
+    text: was at everything, even at programming.
+  - start: 00:00:06
+    text: But 3 days ago, Enthropic said, "This is
+  - start: 00:00:08
+    text: what I'm about to drop." And they
+  - start: 00:00:10
+    text: dropped Opus 4.5, which by far, ladies
+  - start: 00:00:13
+    text: and gents, in the last 3 days I've been
+  - start: 00:00:15
+    text: using it, is the best coding model I've
+  - start: 00:00:18
+    text: ever had to use. There are some cons I
+  - start: 00:00:20
+    text: will talk about at the very end. But my
+  - start: 00:00:22
+    text: goodness, out of all the models that
+  - start: 00:00:24
+    text: exist, this by far is the best one. So,
+  - start: 00:00:28
+    text: in this video, we're going to talk about
+  - start: 00:00:29
+    text: the model, the pricing, how to best use
+  - start: 00:00:31
+    text: it, the project I was using it with, and
+  - start: 00:00:33
+    text: my personal experience, and I have some
+  - start: 00:00:34
+    text: tips and tricks to share with you to
+  - start: 00:00:36
+    text: make sure you get the best out of this
+  - start: 00:00:37
+    text: model. So, sit back, relax, let's get
+  - start: 00:00:39
+    text: into it. Cloud [snorts] Opus 4.5. This
+  - start: 00:00:42
+    text: launched November 24th, 2025. Now, when
+  - start: 00:00:46
+    text: it comes to the benchmarks, especially
+  - start: 00:00:48
+    text: the ones that matter to us developers,
+  - start: 00:00:50
+    text: it is kicking butt. It is winning. The
+  - start: 00:00:54
+    text: only benchmarks I think it's losing on
+  - start: 00:00:56
+    text: is graduate level reasoning, visual
+  - start: 00:00:58
+    text: reasoning, and multilingual Q&A, which
+  - start: 00:01:00
+    text: you and I don't care for, right? Because
+  - start: 00:01:02
+    text: if you're watching this, you're looking
+  - start: 00:01:03
+    text: to build software. You're either a
+  - start: 00:01:05
+    text: developer or you're someone who uses AI
+  - start: 00:01:07
+    text: tools to build software or you're both.
+  - start: 00:01:09
+    text: And in that case, this stuff doesn't
+  - start: 00:01:11
+    text: really matter to us. But everything
+  - start: 00:01:13
+    text: else, the tool calling is by far, in my
+  - start: 00:01:15
+    text: opinion, the best. Even though I enjoyed
+  - start: 00:01:17
+    text: Gemini 3 Pro, there were times I noticed
+  - start: 00:01:19
+    text: it mess up with its tool calling. Opus
+  - start: 00:01:22
+    text: 4.5, in my humble opinion, seems to be
+  - start: 00:01:25
+    text: the best. Now, in terms of pricing, it's
+  - start: 00:01:27
+    text: $5 per million tokens in, $25 per
+  - start: 00:01:30
+    text: million tokens out. In terms of
+  - start: 00:01:32
+    text: comparison with the previous Opus 4.1,
+  - start: 00:01:35
+    text: this is 66%
+  - start: 00:01:37
+    text: cheaper than the Opus 4.1 model. Now,
+  - start: 00:01:40
+    text: obviously, this isn't the cheapest
+  - start: 00:01:41
+    text: model, but I will say this, this is a
+  - start: 00:01:44
+    text: bang for your buck. This is the best
+  - start: 00:01:46
+    text: ROI. like you are getting a great model
+  - start: 00:01:49
+    text: at a cheaper price compared to 4.1 cuz
+  - start: 00:01:52
+    text: 4.1 was astronomically expensive. Most
+  - start: 00:01:54
+    text: of you know the project I'm working on
+  - start: 00:01:56
+    text: bird terminal which is what I call the
+  - start: 00:01:58
+    text: trading terminal for the AI age or the
+  - start: 00:02:01
+    text: Bloomberg for Gen Z's. And there were a
+  - start: 00:02:04
+    text: couple issues I had with the chart page
+  - start: 00:02:07
+    text: and even with the workflow system I had
+  - start: 00:02:09
+    text: built and I'm just going to show you the
+  - start: 00:02:12
+    text: PR. This is the one that Opus cooked.
+  - start: 00:02:17
+    text: Mind you, these were three prompts,
+  - start: 00:02:19
+    text: right? And you see this giant PR with
+  - start: 00:02:21
+    text: all these file changes. It got it all at
+  - start: 00:02:25
+    text: once. The reason why I'm saying three
+  - start: 00:02:27
+    text: prompts, there was a couple things I had
+  - start: 00:02:29
+    text: to clear for it. And this is what I like
+  - start: 00:02:30
+    text: about OPOS 4.5. It's one of those models
+  - start: 00:02:33
+    text: where if your prompt is clear and you
+  - start: 00:02:35
+    text: give it the resources, meaning I
+  - start: 00:02:37
+    text: attached docs a couple of times, like I
+  - start: 00:02:39
+    text: gave it the specific docs that needed to
+  - start: 00:02:41
+    text: ingest, it did it expeditiously. I hope
+  - start: 00:02:44
+    text: that's a word, expeditiously well. And
+  - start: 00:02:47
+    text: what I mean by my workflows is it's this
+  - start: 00:02:49
+    text: feature basically you have this node
+  - start: 00:02:51
+    text: style environment where you can drag a
+  - start: 00:02:53
+    text: trigger, right? So in this case, I have
+  - start: 00:02:55
+    text: a time trigger and I can specify, okay,
+  - start: 00:02:57
+    text: 9:45 a.m. we'll make this reoccurring.
+  - start: 00:03:00
+    text: So, every single day, we can make this
+  - start: 00:03:02
+    text: weekly, we I'll make this daily. You're
+  - start: 00:03:04
+    text: going to buy 10 shares of the Coinbase
+  - start: 00:03:08
+    text: stock, right? And all I do is save this
+  - start: 00:03:10
+    text: workflow and that's it. I even have a
+  - start: 00:03:13
+    text: web hook one where you can trigger this
+  - start: 00:03:16
+    text: via web hook. So, if I save this
+  - start: 00:03:18
+    text: workflow and I click here, this is the
+  - start: 00:03:21
+    text: web hook I would fire to and this trade
+  - start: 00:03:23
+    text: would trigger. Now, I had built this
+  - start: 00:03:26
+    text: feature out, but there were some quirks
+  - start: 00:03:27
+    text: and some kinks that I was just too lazy
+  - start: 00:03:29
+    text: to figure out. So, I gave it to Opus 4.5
+  - start: 00:03:32
+    text: and in one shot fixed it. It worked. And
+  - start: 00:03:35
+    text: my day job at Convex, I've also been
+  - start: 00:03:37
+    text: working on a Stripe component, something
+  - start: 00:03:38
+    text: that a lot of people have been asking
+  - start: 00:03:40
+    text: for. And if you're not familiar with
+  - start: 00:03:41
+    text: Convex components, they're basically
+  - start: 00:03:43
+    text: blocks of code that work with Convex
+  - start: 00:03:45
+    text: projects that give you some sort of
+  - start: 00:03:47
+    text: functionality. For example, let's say
+  segment_count: 202
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

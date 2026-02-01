@@ -1,0 +1,344 @@
+source:
+  type: youtube
+  id: TJkxAJS34CQ
+  url: https://youtube.com/watch?v=TJkxAJS34CQ
+  title: Ralph Wiggum killed programming
+  description: "In this video, I'm going to be showing you how I run the ralph wiggum\
+    \ loop using my setup with claude code or opencode.\n\nMy Ralph Wiggum setup:\
+    \ https://github.com/michaelshimeles/ralphy\n\nMy Links:\n\U0001F310 My Site:\
+    \ https://rasmic.link/site\n\U0001F3ED My product studio: https://rasmic.link/fabrika\n\
+    ⚡ Nextjs Starter Kit: https://rasmic.link/next-starter\n⚛️ React Starter kit:\
+    \ https://rasmic.link/react-starter\n\nSocials:\n\U0001F426 Follow me on X: https://rasmic.link/x\n\
+    \U0001F4AC Join my Discord: https://rasmic.link/discord\n▶️ Subscribe to my second\
+    \ channel: https://rasmic.link/more-micky\n\nTools I use: \n\U0001F310 Framer\
+    \ (use RASMIC for 2 months free of Framer Pro): https://rasmic.link/framer\n\U0001F4DA\
+    \ Programming courses: https://rasmic.link/scrimba\n\U0001F4F8 My Camera: https://rasmic.link/camera\n\
+    \U0001F4FA Screen Recording Software: https://rasmic.link/screen-studio"
+  channel: Ras Mic
+  channel_id: UCBX__dPYqDFqAN4QcWbnUbw
+  published_at: '20260116'
+  duration: 436
+  view_count: 15652
+  like_count: 655
+  thumbnail: https://i.ytimg.com/vi/TJkxAJS34CQ/maxresdefault.jpg
+creator:
+  name: Rasmus
+  slug: rasmus
+  handle: '@rasmic'
+  tier: 1
+  areas:
+  - ai-engineering
+  - coding-tools
+  topics:
+  - ai-development
+  - technical-deep-dives
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:26:28.671858'
+  collected_at: '2026-02-02T03:26:28.671866'
+  collected_by: ingest.py
+transcript:
+  full_text: Who the heck is Ralph Wigum? It's all everyone is talking about. I was
+    on vacation for the last two weeks enjoying the beautiful Ethiopia, the sun, the
+    food, the people, family. It was a great time. But the last week and a half, all
+    everyone's talking about is Ralph. And I thought Ralph was a character from Simpsons.
+    But really, what it is is it's a robust way to let AI autonomously build applications.
+    And in this video, not only am I going to show you how it works, but I'm also
+    going to show you my setup. 2026 is going to be a fun year. Sit back, relax, let's
+    get into it. So, when building an application with AI, we've sort of been following
+    this flow this last, I would say, year and some change where we have an idea and
+    we're going to break down that idea into a list of features, right? And it's in
+    such a way that each feature when it's complete is going to be some sort of finished
+    product. Now, a smart way of going about this when building with AI is to have
+    some sort of feedback loop for the AI to recognize whether a feature is complete
+    or not. And that's where we include a test, right? So, I'll build feature one
+    and then I'll ask the AI to build test one. And if test one passes, we move on
+    to feature two. And then test two passes feature three. And at some point, we'll
+    reach a finished product. But here's the thing. This setup has a lot of human
+    involvement. And although for most people this is better than writing code by
+    hand, um there should be a better way, a more autonomous way, a way for AI to
+    continuously run through and build said application. And that's where Ralph comes
+    in. The question that Ralph solves is what if instead of manually prompting each
+    feature, AI can continuously build out the features until it's done. So when someone
+    asks you what Ralph is, Ralph is essentially a technique for running AI coding
+    agents in a loop. Now, Enthropic has a plugin that you use, which is their official
+    Ralph plugin. And the way you would set it up is /plugins, and then you can search
+    for Ralph. I already have it installed. So, you can see it here, the Ralph plugin
+    installed. You can use the Ralph plugin that's set up in Claude Code. But to be
+    honest with you, it's actually not the best iteration. The actual developer who
+    came up with the concept of Ralph Wiggum is not pro the way Claude Code has the
+    plug-in set up. But how does Ralph work? It's as simple as this. You're going
+    to need a prd and then you're going to need a progress.txt file. These two files
+    are quintessential. What's going to happen then is we're going to be running whether
+    it be claude or open code or whatever agent in a loop. And in each loop, what
+    the agent is going to do is it's going to review the prd.md file. It's going to
+    review what features it has to build. It's going to build those features. And
+    then it's going to document the work it's done in the progress.txt file. And then
+    it's going to continue that loop again and again and again until the prd file
+    is complete until all the features are fully built up. So step by step, how do
+    we run Ralph? We create a plan and save it as prd.mmd. I'm going to show you an
+    example. We're going to create a progress.txt file. And I want you to realize
+    this. The prd defines the end state. The progress file tracks what's done. Claude
+    reads both on each loop iteration, finds the next unchecked item, implements it,
+    and updates the progress. We're going to create a simple Ralph.sh script. I'm
+    going to show you the one I have working right now. I'm continuing to iterate
+    this. And another thing I would highly suggest is you customize it to your liking.
+    So, I used Cloud Codes plan mode to build this PRDMD. And essentially what I wanted
+    to build was an Apple reminder style to-do app. And as you can see, it has an
+    overview, the features, but really the most important part was the implementation
+    steps. It created four or five phases, sorry, each in a to-do list style. And
+    then I created a progress.txt file. And this originally was empty. But then I
+    ran my Ralph loop and the agent essentially after every checkpoint, after every
+    single to-do list item was fulfilled, it would document all the changes, all the
+    code it made. The progress.txt txt file is exactly that, the progress checkpoint
+    where the agent can check where it left off. So let's say you end the loop and
+    you rerun the loop, then the agent knows exactly what the last thing it is it
+    worked on and it can continue off that versus having to rebuild everything again.
+    Here is my Ralph script. And here's the thing, I used AI to write this. I did
+    not write this by hand. I worked with Claude code to make sure it's exactly to
+    my liking. Now, here's how my setup works. I basically call Ralph.sh and then
+    I have a couple flags. If I just run it as it is, there's a couple things that
+    are going to go on in the background. After every feature, the claw agent is going
+    to write tests. It's going to run the test and check that the test pass. And then
+    it's going to run a llinter. Um, the benefits of TypeScript, type safety comes
+    in clutch. And then once those things pass, then it moves on to the next step.
+    But if I want to it to just continue to build features, not test, not lint, I
+    can then do ralph.shfast. And this essentially makes it so there's no tests and
+    no linting. And now I told you um I built an application using this. The application's
+    done. You can see when running the Ralph loop, it says looking at the PRD, I can
+    see all the tasks are marked complete with X. Let me verify by checking each phase.
+    It checks each phase and then it says the tasks are complete. And you can see
+    that it it also does like a calculation of how much my Ralph loop cost me. In
+    this case, because it barely did anything, it costs a fraction of a penny, which
+    is fantastic. And all I had to do in order to run this Ralph loop is again I I
+    will have this linked in the description down below. I had my Ralph.sh file in
+    the codebase I was working on. I used plan mode to create a prd and then I created
+    a progress.txt file. The culmination of all those things allows us to have the
+    Ralph Wiggum setup where we can have agents autonomously building applications.
+    Now, where are the shortcomings? The one thing I've started to realize after running
+    Ralph a couple of times is your plan matters a lot. How detailed, how precise,
+    and how particular you are in your plan will dictate the level of quality that
+    the agent gives out. We're finally reaching a time where the models are really
+    good at writing code, but the tools surrounding the models, which is in our control,
+    really determine whether the software is valuable and cool versus some AI slot
+    trash. So, the plan matters, the direction matters, the taste matters, and truth
+    be told, I'm pretty impressed that in one shot, it basically built. Again, this
+    is a simple to-do list app, so it's nothing crazy, nothing fancy, but again, I
+    didn't interrupt. I didn't give it suggestions. I created that plan. I ran the
+    Ralph command and all this was built and it feels pretty nice. It feels pretty
+    instant. I have a lot of thoughts. I have a lot of strategies. I have a lot of
+    ideas that I'm going to share. This is my first video coming back from vacation.
+    So, make sure you're subscribed if you aren't subscribed cuz 2026 is going to
+    be a big year for us. We're going to cover a lot of topics. We're going to build
+    a lot of projects and God willing, we're going to make some money to take care
+    of our family. I've been Ross. You've been awesome. Make sure to like, comment,
+    subscribe. I'll see you in the next one.
+  segments:
+  - start: 00:00:00
+    text: Who the heck is Ralph Wigum? It's all
+  - start: 00:00:02
+    text: everyone is talking about. I was on
+  - start: 00:00:04
+    text: vacation for the last two weeks enjoying
+  - start: 00:00:06
+    text: the beautiful Ethiopia, the sun, the
+  - start: 00:00:08
+    text: food, the people, family. It was a great
+  - start: 00:00:11
+    text: time. But the last week and a half, all
+  - start: 00:00:14
+    text: everyone's talking about is Ralph. And I
+  - start: 00:00:16
+    text: thought Ralph was a character from
+  - start: 00:00:17
+    text: Simpsons. But really, what it is is it's
+  - start: 00:00:20
+    text: a robust way to let AI autonomously
+  - start: 00:00:23
+    text: build applications. And in this video,
+  - start: 00:00:25
+    text: not only am I going to show you how it
+  - start: 00:00:26
+    text: works, but I'm also going to show you my
+  - start: 00:00:29
+    text: setup. 2026 is going to be a fun year.
+  - start: 00:00:31
+    text: Sit back, relax, let's get into it. So,
+  - start: 00:00:33
+    text: when building an application with AI,
+  - start: 00:00:36
+    text: we've sort of been following this flow
+  - start: 00:00:38
+    text: this last, I would say, year and some
+  - start: 00:00:40
+    text: change where we have an idea and we're
+  - start: 00:00:42
+    text: going to break down that idea into a
+  - start: 00:00:44
+    text: list of features, right? And it's in
+  - start: 00:00:47
+    text: such a way that each feature when it's
+  - start: 00:00:49
+    text: complete is going to be some sort of
+  - start: 00:00:51
+    text: finished product. Now, a smart way of
+  - start: 00:00:53
+    text: going about this when building with AI
+  - start: 00:00:55
+    text: is to have some sort of feedback loop
+  - start: 00:00:57
+    text: for the AI to recognize whether a
+  - start: 00:01:00
+    text: feature is complete or not. And that's
+  - start: 00:01:02
+    text: where we include a test, right? So, I'll
+  - start: 00:01:04
+    text: build feature one and then I'll ask the
+  - start: 00:01:05
+    text: AI to build test one. And if test one
+  - start: 00:01:08
+    text: passes, we move on to feature two. And
+  - start: 00:01:10
+    text: then test two passes feature three. And
+  - start: 00:01:12
+    text: at some point, we'll reach a finished
+  - start: 00:01:14
+    text: product. But here's the thing. This
+  - start: 00:01:16
+    text: setup has a lot of human involvement.
+  - start: 00:01:19
+    text: And although for most people this is
+  - start: 00:01:21
+    text: better than writing code by hand, um
+  - start: 00:01:23
+    text: there should be a better way, a more
+  - start: 00:01:25
+    text: autonomous way, a way for AI to
+  - start: 00:01:28
+    text: continuously run through and build said
+  - start: 00:01:31
+    text: application. And that's where Ralph
+  - start: 00:01:33
+    text: comes in. The question that Ralph solves
+  - start: 00:01:35
+    text: is what if instead of manually prompting
+  - start: 00:01:38
+    text: each feature, AI can continuously build
+  - start: 00:01:40
+    text: out the features until it's done. So
+  - start: 00:01:42
+    text: when someone asks you what Ralph is,
+  - start: 00:01:44
+    text: Ralph is essentially a technique for
+  - start: 00:01:46
+    text: running AI coding agents in a loop. Now,
+  - start: 00:01:48
+    text: Enthropic has a plugin that you use,
+  - start: 00:01:50
+    text: which is their official Ralph plugin.
+  - start: 00:01:53
+    text: And the way you would set it up is
+  - start: 00:01:54
+    text: /plugins, and then you can search for
+  - start: 00:01:57
+    text: Ralph. I already have it installed. So,
+  - start: 00:02:00
+    text: you can see it here, the Ralph plugin
+  - start: 00:02:01
+    text: installed. You can use the Ralph plugin
+  - start: 00:02:04
+    text: that's set up in Claude Code. But to be
+  - start: 00:02:06
+    text: honest with you, it's actually not the
+  - start: 00:02:08
+    text: best iteration. The actual developer who
+  - start: 00:02:11
+    text: came up with the concept of Ralph Wiggum
+  - start: 00:02:13
+    text: is not pro the way Claude Code has the
+  - start: 00:02:16
+    text: plug-in set up. But how does Ralph work?
+  - start: 00:02:18
+    text: It's as simple as this. You're going to
+  - start: 00:02:20
+    text: need a prd
+  - start: 00:02:22
+    text: and then you're going to need a
+  - start: 00:02:23
+    text: progress.txt file. These two files are
+  - start: 00:02:26
+    text: quintessential. What's going to happen
+  - start: 00:02:27
+    text: then is we're going to be running
+  - start: 00:02:28
+    text: whether it be claude or open code or
+  - start: 00:02:30
+    text: whatever agent in a loop. And in each
+  - start: 00:02:33
+    text: loop, what the agent is going to do is
+  - start: 00:02:35
+    text: it's going to review the prd.md file.
+  - start: 00:02:37
+    text: It's going to review what features it
+  - start: 00:02:39
+    text: has to build. It's going to build those
+  - start: 00:02:41
+    text: features. And then it's going to
+  - start: 00:02:43
+    text: document the work it's done in the
+  - start: 00:02:45
+    text: progress.txt file. And then it's going
+  - start: 00:02:47
+    text: to continue that loop again and again
+  - start: 00:02:50
+    text: and again until the prd file is complete
+  - start: 00:02:53
+    text: until all the features are fully built
+  - start: 00:02:56
+    text: up. So step by step, how do we run
+  - start: 00:02:58
+    text: Ralph? We create a plan and save it as
+  - start: 00:03:00
+    text: prd.mmd. I'm going to show you an
+  - start: 00:03:01
+    text: example. We're going to create a
+  - start: 00:03:03
+    text: progress.txt file. And I want you to
+  - start: 00:03:06
+    text: realize this. The prd defines the end
+  - start: 00:03:08
+    text: state. The progress file tracks what's
+  - start: 00:03:10
+    text: done. Claude reads both on each loop
+  - start: 00:03:12
+    text: iteration, finds the next unchecked
+  - start: 00:03:14
+    text: item, implements it, and updates the
+  - start: 00:03:16
+    text: progress. We're going to create a simple
+  - start: 00:03:18
+    text: Ralph.sh script. I'm going to show you
+  - start: 00:03:20
+    text: the one I have working right now. I'm
+  - start: 00:03:22
+    text: continuing to iterate this. And another
+  - start: 00:03:24
+    text: thing I would highly suggest is you
+  - start: 00:03:26
+    text: customize it to your liking. So, I used
+  - start: 00:03:28
+    text: Cloud Codes plan mode to build this
+  - start: 00:03:30
+    text: PRDMD. And essentially what I wanted to
+  - start: 00:03:33
+    text: build was an Apple reminder style to-do
+  - start: 00:03:36
+    text: app. And as you can see, it has an
+  segment_count: 201
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

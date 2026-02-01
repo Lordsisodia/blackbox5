@@ -1,0 +1,18 @@
+video_id: 7ad_1mC-zCk
+title: Anthropic Just Made Code‑Execution Agents Easy (But Dangerous)
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=7ad_1mC-zCk
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:33:16.763307'
+source_path: data/sources/vrsen/videos/7ad_1mC-zCk.yaml
+ranking:
+  relevance: 70
+  importance: 60
+  value: 54
+  composite: 60.1
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

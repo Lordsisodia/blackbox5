@@ -1,0 +1,415 @@
+source:
+  type: youtube
+  id: 9BXJCEkaqU8
+  url: https://youtube.com/watch?v=9BXJCEkaqU8
+  title: OpenAI is going to lose to...
+  description: "In this video, I'll share why I believe Google will win the AI race.\
+    \ This is a different style video so I hope you enjoy it.\n\nMy Links:\n\U0001F310\
+    \ My Site: https://rasmic.link/site\n\U0001F3ED My product studio: https://rasmic.link/fabrika\n\
+    ⚡ Nextjs Starter Kit: https://rasmic.link/next-starter\n⚛️ React Starter kit:\
+    \ https://rasmic.link/react-starter\n\nSocials:\n\U0001F426 Follow me on X: https://rasmic.link/x\n\
+    \U0001F4AC Join my Discord: https://rasmic.link/discord\n▶️ Subscribe to my second\
+    \ channel: https://rasmic.link/more-micky\n\nTools I use: \n\U0001F310 Framer\
+    \ (use RASMIC for 2 months free of Framer Pro): https://rasmic.link/framer\n\U0001F4DA\
+    \ Programming courses: https://rasmic.link/scrimba\n\U0001F4F8 My Camera: https://rasmic.link/camera\n\
+    \U0001F4FA Screen Recording Software: https://rasmic.link/screen-studio"
+  channel: Ras Mic
+  channel_id: UCBX__dPYqDFqAN4QcWbnUbw
+  published_at: '20251217'
+  duration: 768
+  view_count: 5890
+  like_count: 239
+  thumbnail: https://i.ytimg.com/vi_webp/9BXJCEkaqU8/maxresdefault.webp
+creator:
+  name: Rasmus
+  slug: rasmus
+  handle: '@rasmic'
+  tier: 1
+  areas:
+  - ai-engineering
+  - coding-tools
+  topics:
+  - ai-development
+  - technical-deep-dives
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:26:36.792545'
+  collected_at: '2026-02-02T03:26:36.792553'
+  collected_by: ingest.py
+transcript:
+  full_text: We're at a point in the AI race where the big dogs have sort of been
+    solidified. Not to say that a new company can't arise and compete, but things
+    are pretty solidified in terms of who are the big competitors in the AI space
+    fighting for that number one spot. Today's video is a little different because
+    I want to present to you a case study where I personally believe Google is going
+    to be the winner of the AI race. Now, in recording this video, I want to be completely
+    honest. I don't own any Google stock. I probably should, but I don't. With that
+    out of the way, let's get straight into the video. [snorts] I'm going to be sharing
+    with you again why I think Google's going to win the AI race. But first, let's
+    talk about the different verticals that I think are important to capture victory
+    in this AI race. You have the companies that manufacture the chips. First, we
+    have Nvidia. And let's be honest, Nvidia is winning. The founders are winning,
+    the stockholders are winning, the employees are winning. Nvidia has a comfortable
+    lead when it comes to chip manufacturing. And they also have a lot of partnerships
+    and they also have the government support which is key when it comes to this whole
+    AI race. And then you have the companies that are serving inference that are doing
+    inference and you have Grock with a Q cerebrous Amazon and Microsoft also partake
+    in this. And these companies basically are serving you the AI models via API.
+    If you've used the enthropic API, anthropics API in my opinion is terrible. Most
+    startups that I've worked at, actually all startups that I've worked at have either
+    used Amazon or Microsoft, particularly Amazon Bedrock to have access to these
+    models, right? And basically what these inference companies do is they architect
+    these hardware setups in order for you to have fast inference, right? So speed
+    and reliability is the game here. And then you have the models themselves, right?
+    And this is where a lot of competition exists. You have OpenAI, Enthropic, Meta,
+    Deep Sea, Kimmy. You have Mistl and all these different labs. We know that the
+    big dogs really competing are OpenAI, Anthropic, and Google. I definitely think
+    Meta can catch up. I wouldn't put it past Z. Z is the same guy. If you remember,
+    Instagram was just pictures and videos, right? It was first just pictures, then
+    they added videos, and then the boy Zucks tried to buy Snapchat, and Snapchat
+    said no. And he did what every mafia boss would do. He punched them in the throat,
+    copied their feature, and I have, listen, I have kids in my church who think Instagram
+    invented stories, not Snapchat, legitimately, right? This is so I wouldn't put
+    it past Zuck. Yes, the llama models kind of suck. They're nowhere to be found.
+    But in my opinion, when you look at Zuck's history, he's a mob boss. The the guy
+    just knows how to punch companies in the face and do things better than them,
+    right? So like you look at the WhatsApp acquisition, you look at him buying Instagram,
+    the guy is a genius. So I wouldn't put it past him, but right now it's OpenAI,
+    Anthropic, and Google. And then interface, meaning the chat interface or the UI,
+    the UX that people are using in order to interact with these models, right? OpenAI
+    having Chad GBT. Um the interface itself very popular amongst normies and even
+    us developers. And then you have Enthropics, uh Claude.com. I'll be honest, I
+    barely use it. Um, not like it breaks. Chat Gvt breaks too. They both suck. This
+    is why I use T3 chat. My boy Theo's product. You should check it out if you at
+    all use any of the models for developers. Both open a and anthropic are in the
+    space. They develop not only models for developers, but also developer tooling,
+    right? For like codec cli, cloud code, right? So, they're very much in the developer
+    space. And then you have media, right? Image gen, videogen models. I don't think
+    any of them have video gen models that are public yet, but media image gen models,
+    open AI is in the space. So you see all these different verticals and we see Open
+    AAI has their hands in four verticals here. Um, Enthropic really in three, but
+    none of them have their hands in every vertical. But this is where Google is different
+    cuz if we look at Google Jensen, the three women that watch my videos, one of
+    them being my mom, by the way, hi mom if you're watching this. Thanks for watching
+    my videos. If you look at this right here, Google is involved in everything. Google
+    makes their own chips, TPUs. Google has their own inference. They have their own
+    cloud, Vert.Ex AI. You can you can use all the different models like anthropic
+    open AI through I don't know about OpenAI, but I know you can use entropic models
+    through Vert.Ex. They have their own model, Gemini 3, which is arguably in the
+    top two, top three. They have their own interface, the AI studio and Google search.
+    Now, here's the thing. I didn't really think about this. If you asked me a couple
+    days ago, a couple weeks ago, what is the biggest consumer used AI and I would
+    have said Chad GBT. But I watched a video of Theos and he made me realize Chad
+    GBT does not have the biggest user product for AI. It's actually search. It's
+    actually Google. If I search what do Christians believe about Jesus, I'm gonna
+    No, not DS chat. Look, DS chat is pretty good, too. But right here, we're focused
+    on Google. So, if I search on Google, notice the first thing that pops up is AI
+    overview. This is the most used AI feature. This is the most consumer used AI.
+    And then you see Jesus Christ as the son of God, both fully divine, fully human,
+    the promised messiah who came to save humanity from their sin in the crucifixion
+    and resurrection, offering eternal life to believers. And then, and that he will
+    return to judge the world. So, this is the most used AI consumer product. So AI
+    Studio, you have search and then you have AI Studio. And this is where Nano Banana
+    and all the other Google stuff you can use. It is terrible. The user experience
+    is terrible. It's slow. It's buggy. And then you have for devs anti-gravity, which
+    is basically their cursor/ uh whatchamacallit their cursor/winsurf competitor.
+    It's an IDE. I'm pretty sure it's a fork of VS Code. By the way, all the models
+    are free on anti-gravity. What's funny though is even though all the models are
+    free because it's pretty bad. A lot of people are not using it. A lot of devs
+    are not using it, but they're in that arena as well. And then when it comes to
+    media, they have Nano Banana Pro, which is by far the best image gen model. So
+    you see that Google is the only company that has their hand in every vertical
+    listed here. And not only do they have their hand in every vertical listed here,
+    ladies and gents, they also have all the money in the world. Google has all the
+    money. They're public and they're profitable. They actually make money. All these
+    companies I I can't confidently say about Nvidia. Actually, why don't we just
+    search the web? Is Nvidia profitable? I'm not even sure. Okay, so Nvidia is profitable.
+    So out of and then Amazon and Microsoft will not consider them. But every other
+    company, OpenAI, Anthropic, Deepc, Kimmy, like uh most of these companies, I don't
+    want to say every other company, but most of these companies are not profitable.
+    Google has all the money in the world. They have literally GDP level money. They
+    have one the best talent, right? They have their hand in every pot. Google is
+    pretty much set up to kick butt. They're they're pretty much set up to win everywhere.
+    Now, here's the thing. I just mentioned to you that anti-gravity sucks. AI Studio
+    sucks. So, why am I confident that Google win? Well, here's the thing. Particularly
+    with anti-gravity, I actually want to talk about anti-gravity for a second. They
+    launched anti-gravity and a lot of people were like, a lot of my favorite dev
+    YouTubers and people I respect on Twitter were like, "Yo, this is pretty cheeks."
+    Like, it's not pretty good. And here's one thing I realized. There's three types
+    of releases in the Silicon Valley company YC raised money VC backed land. There's
+    for the love of the game drops, right? Love of the game and then you have the
+    make shareholders happy and then there is customers, right? You do it for your
+    customers. You do it for your squad. Now, here's the thing. For the love of the
+    game, drops are usually like when you when a company does something open source,
+    like a big company like Google, they, you know, announce something open source,
+    some sort of like thing that's going to help developers and stuff. This is for
+    the love of the game, right? There is some benefit to it, but generally there
+    are companies that do this and the main reason is for the love of the game. And
+    then you have drops to make the shareholders happy, right? For example, GPT 5.2
+    is a great example. The model is just not good. But Gemini dropped, Google dropped
+    all these things. Nano Banana dropped, and I'm sure the OpenAI team was like,
+    "Dang, they're cooking. It looks bad. Let's drop a new model. It might not be
+    the best, but it looks good for the shareholders." So, there are things that you
+    do to make the shareholders happy. And then third, you do certain things for the
+    customers. In my opinion, anti-gravity was more of a number two. The reason why
+    it's okay for them to do a number two is because they can turn the number two
+    into number three. Meaning, I don't know if you guys know this, but anti-gravity
+    sort of stems from Google's aqua hire of Windsurf. They basically bought the Windsurf
+    leadership team and took some of the Windsurf code. So, the there's no doubt that
+    that team is capable of building something really good, but in my opinion, they
+    rush the launch to make shareholders happy. And this is one thing you got to understand.
+    Google is capable of building good products or or let's say they're not. Let's
+    say they're terrible and they're not. They got the money to buy out anybody. Now,
+    if I was Google, I would buy out T3 chat. I would buy out, you know, maybe a cursor,
+    right? Well, they bought out Windsor, right? So, they don't have to do that. But
+    I'm saying they have the talent and if the talent's not capable enough, they have
+    the money, right? So, Google is in a position where if the leadership is smart,
+    they essentially can take over every single sphere. There's also another thing
+    I have to mention. What Google owns? They own search. They own the most popular
+    browser, the gateway to the internet. And they own YouTube. So they got all the
+    juicy data in the world. All the vlog data, all the Mr. Beast videos, all the
+    Ross Mike videos. You should like, comment, subscribe so the AI can continue to
+    scrape these videos. They have all this data. They got all this money. They have
+    their hand every singlewhere like in every single vertical. They also have great
+    talent and not to get political, but the current administration seems to be very
+    fond of big tech companies, right? The America and China are in this arms race
+    and the American government is willing to support a lot of the big dogs so that
+    they can succeed so America can stay on top so that the land of the free and the
+    home of the brave can continue to stay on top. By the way, I'm Canadian. Don't
+    get your feelings hurt. I've pretty much glazed Google for the last what eight
+    nine 10 minutes. There's one thing Google's known for. I don't know if you're
+    familiar with this little known site called Killed by Google. But Google has this
+    um behavior of just killing products. Right now, in one hand, it's not a bad idea
+    to like, you know, just let go of things that might not be working, but like dang,
+    like look at this. Like I'm scrolling. I'm scrolling. I'm scrolling. Right? So,
+    it's it's one of those things where it's hard to say, "Oh, Google's going to stick
+    to every vertical because they're very known to kill something that they feel
+    is not working." But sincerely speaking, what can defeat Google? What can stop
+    Google? In my humble opinion, there's two parties. Number one is themselves, right?
+    Google can stop Google. Whether it's bad leadership or bad direction, bad vision,
+    that is very much possible, right? The giants can be slayed. And number two is
+    the government. Although the current administration is favorable, that doesn't
+    mean the same administration is going to continue on the next term, right? And
+    Google is almost kind of a monopoly, right? So what happens if the government
+    deems it as a monopoly and starts to break it up or they are stopped from doing
+    a certain acquisition, right? So in my opinion, Google has their own self as ops
+    and the government potentially, well, the current administration is favorable.
+    And at the end of the day, it doesn't mean they're solid. It doesn't mean OpenAIthropic
+    or any of these big dogs or some new company can't come and knock them in the
+    face. But what I'm saying is Google has a good lead, a steady lead. They've acquired
+    great talent from Open AI, from Windsurf, and all these different other startups.
+    And in my humble opinion, if I were to invest in one company saying that this
+    is the one that's going to win the AI race, it would be Google. I hope you enjoyed
+    this video. I hope you enjoyed this case study. Let me know if you want to watch
+    more of these. I know it's a little bit different, but we got to try new stuff.
+    Make sure to like, comment, subscribe, hit the notification bell. Thank you so
+    much for watching. I'll see you in the next one.
+  segments:
+  - start: 00:00:00
+    text: We're at a point in the AI race where
+  - start: 00:00:01
+    text: the big dogs have sort of been
+  - start: 00:00:02
+    text: solidified. Not to say that a new
+  - start: 00:00:04
+    text: company can't arise and compete, but
+  - start: 00:00:06
+    text: things are pretty solidified in terms of
+  - start: 00:00:08
+    text: who are the big competitors in the AI
+  - start: 00:00:10
+    text: space fighting for that number one spot.
+  - start: 00:00:12
+    text: Today's video is a little different
+  - start: 00:00:13
+    text: because I want to present to you a case
+  - start: 00:00:15
+    text: study where I personally believe Google
+  - start: 00:00:16
+    text: is going to be the winner of the AI
+  - start: 00:00:18
+    text: race. Now, in recording this video, I
+  - start: 00:00:20
+    text: want to be completely honest. I don't
+  - start: 00:00:21
+    text: own any Google stock. I probably should,
+  - start: 00:00:23
+    text: but I don't. With that out of the way,
+  - start: 00:00:25
+    text: let's get straight into the video.
+  - start: 00:00:27
+    text: '[snorts] I''m going to be sharing with'
+  - start: 00:00:28
+    text: you again why I think Google's going to
+  - start: 00:00:29
+    text: win the AI race. But first, let's talk
+  - start: 00:00:31
+    text: about the different verticals that I
+  - start: 00:00:33
+    text: think are important to capture victory
+  - start: 00:00:36
+    text: in this AI race. You have the companies
+  - start: 00:00:38
+    text: that manufacture the chips. First, we
+  - start: 00:00:40
+    text: have Nvidia. And let's be honest, Nvidia
+  - start: 00:00:42
+    text: is winning. The founders are winning,
+  - start: 00:00:44
+    text: the stockholders are winning, the
+  - start: 00:00:45
+    text: employees are winning. Nvidia has a
+  - start: 00:00:48
+    text: comfortable lead when it comes to chip
+  - start: 00:00:50
+    text: manufacturing. And they also have a lot
+  - start: 00:00:52
+    text: of partnerships and they also have the
+  - start: 00:00:54
+    text: government support which is key when it
+  - start: 00:00:56
+    text: comes to this whole AI race. And then
+  - start: 00:00:58
+    text: you have the companies that are serving
+  - start: 00:01:00
+    text: inference that are doing inference and
+  - start: 00:01:01
+    text: you have Grock with a Q cerebrous Amazon
+  - start: 00:01:04
+    text: and Microsoft also partake in this. And
+  - start: 00:01:06
+    text: these companies basically are serving
+  - start: 00:01:08
+    text: you the AI models via API. If you've
+  - start: 00:01:11
+    text: used the enthropic API, anthropics API
+  - start: 00:01:15
+    text: in my opinion is terrible. Most startups
+  - start: 00:01:17
+    text: that I've worked at, actually all
+  - start: 00:01:18
+    text: startups that I've worked at have either
+  - start: 00:01:20
+    text: used Amazon or Microsoft, particularly
+  - start: 00:01:22
+    text: Amazon Bedrock to have access to these
+  - start: 00:01:25
+    text: models, right? And basically what these
+  - start: 00:01:27
+    text: inference companies do is they architect
+  - start: 00:01:29
+    text: these hardware setups in order for you
+  - start: 00:01:30
+    text: to have fast inference, right? So speed
+  - start: 00:01:33
+    text: and reliability is the game here. And
+  - start: 00:01:35
+    text: then you have the models themselves,
+  - start: 00:01:37
+    text: right? And this is where a lot of
+  - start: 00:01:38
+    text: competition exists. You have OpenAI,
+  - start: 00:01:40
+    text: Enthropic, Meta, Deep Sea, Kimmy. You
+  - start: 00:01:43
+    text: have Mistl and all these different labs.
+  - start: 00:01:46
+    text: We know that the big dogs really
+  - start: 00:01:47
+    text: competing are OpenAI, Anthropic, and
+  - start: 00:01:49
+    text: Google. I definitely think Meta can
+  - start: 00:01:51
+    text: catch up. I wouldn't put it past Z. Z is
+  - start: 00:01:55
+    text: the same guy. If you remember, Instagram
+  - start: 00:01:57
+    text: was just pictures and videos, right? It
+  - start: 00:01:59
+    text: was first just pictures, then they added
+  - start: 00:02:00
+    text: videos, and then the boy Zucks tried to
+  - start: 00:02:02
+    text: buy Snapchat, and Snapchat said no. And
+  - start: 00:02:05
+    text: he did what every mafia boss would do.
+  - start: 00:02:07
+    text: He punched them in the throat, copied
+  - start: 00:02:09
+    text: their feature, and I have, listen, I
+  - start: 00:02:12
+    text: have kids in my church who think
+  - start: 00:02:14
+    text: Instagram invented stories, not
+  - start: 00:02:16
+    text: Snapchat, legitimately, right? This is
+  - start: 00:02:19
+    text: so I wouldn't put it past Zuck. Yes, the
+  - start: 00:02:21
+    text: llama models kind of suck. They're
+  - start: 00:02:23
+    text: nowhere to be found. But in my opinion,
+  - start: 00:02:25
+    text: when you look at Zuck's history, he's a
+  - start: 00:02:27
+    text: mob boss. The the guy just knows how to
+  - start: 00:02:29
+    text: punch companies in the face and do
+  - start: 00:02:31
+    text: things better than them, right? So like
+  - start: 00:02:33
+    text: you look at the WhatsApp acquisition,
+  - start: 00:02:35
+    text: you look at him buying Instagram, the
+  - start: 00:02:37
+    text: guy is a genius. So I wouldn't put it
+  - start: 00:02:39
+    text: past him, but right now it's OpenAI,
+  - start: 00:02:41
+    text: Anthropic, and Google. And then
+  - start: 00:02:43
+    text: interface, meaning the chat interface or
+  - start: 00:02:46
+    text: the UI, the UX that people are using in
+  - start: 00:02:49
+    text: order to interact with these models,
+  - start: 00:02:50
+    text: right? OpenAI having Chad GBT. Um the
+  - start: 00:02:53
+    text: interface itself very popular amongst
+  - start: 00:02:56
+    text: normies and even us developers. And then
+  - start: 00:02:58
+    text: you have Enthropics, uh Claude.com. I'll
+  - start: 00:03:01
+    text: be honest, I barely use it. Um, not like
+  - start: 00:03:03
+    text: it breaks. Chat Gvt breaks too. They
+  - start: 00:03:05
+    text: both suck. This is why I use T3 chat. My
+  - start: 00:03:07
+    text: boy Theo's product. You should check it
+  - start: 00:03:09
+    text: out if you at all use any of the models
+  - start: 00:03:11
+    text: for developers. Both open a and
+  - start: 00:03:13
+    text: anthropic are in the space. They develop
+  - start: 00:03:15
+    text: not only models for developers, but also
+  - start: 00:03:18
+    text: developer tooling, right? For like codec
+  - start: 00:03:20
+    text: cli, cloud code, right? So, they're very
+  - start: 00:03:22
+    text: much in the developer space. And then
+  - start: 00:03:24
+    text: you have media, right? Image gen,
+  segment_count: 351
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

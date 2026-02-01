@@ -149,3 +149,607 @@ events:
   video_id: CfN7l4ahOHI
   composite_score: 40.0
   should_process: true
+- timestamp: '2026-02-02T03:25:53.764203'
+  type: video_discovered
+  source: User Playlist 1
+  source_slug: user_playlist_1
+  video_id: yk088BCn4Vk
+  title: Cline is dead. And OpenAI killed it.
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:07.866423'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: FsDYk0WqBt0
+  title: An MCP & Skills masterclass
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:13.406371'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: yAO28HOS5x4
+  title: My Complete Tech & Tool Stack (Everything)
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:20.204073'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: cdIJ92Tx20Y
+  title: I fixed Ralph. Meet Ralphy
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:28.691041'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: TJkxAJS34CQ
+  title: Ralph Wiggum killed programming
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:36.815040'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: 9BXJCEkaqU8
+  title: OpenAI is going to lose to...
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:45.027663'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: bao8Fu13IP8
+  title: This NEW Shadcn UI updates is game changer
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:26:54.277730'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: 2QQNTWTsFaw
+  title: I built a b2b SAAS app
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:02.473711'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: 2Fj3WewGRow
+  title: Build polished web apps using these UI libraries
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:10.693268'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: MNhVvQW04dg
+  title: 'Claude Opus 4.5: The only model you need'
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:18.738423'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: -6mJF5wsLrU
+  title: What I would build using Nano Banana Pro
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:25.107473'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: hswNmY8gWbE
+  title: Tanstack Start overview (by a nextjs fanboy)
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:32.551763'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: IHFsW-5_2R0
+  title: React has changed forever
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:39.179116'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: rcoWiea0RQc
+  title: I'd build this, if crypto wasn't a scam
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:45.274283'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: Otca9BlhVGA
+  title: It's time to build mobile apps (here's the formula)
+  priority: critical
+  has_transcript: true
+- timestamp: '2026-02-02T03:27:57.925831'
+  type: video_discovered
+  source: Rasmus
+  source_slug: rasmus
+  video_id: f7tPJhiCLss
+  title: How I build compliant software (for boomer companies)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:28:13.795891'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: hq2CHQksLXg
+  title: 'Epic Mode: NEW Toolkit Ends Vibe Coding! 100x Better Than Vibe Coding (Full
+    Tutorial)'
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:28:25.522361'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: FBK3Bpsql8I
+  title: Antigravity + Stitch Just Became UNSTOPPABLE! Build Anything FOR FREE!
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:28:37.566500'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: zZi2_ZZPI7Q
+  title: 'Manus 1.6: AI Super Agent That Can DO ANYTHING! The Clawdbot KILLER!'
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:28:50.072825'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: n5zw2cvvWAk
+  title: Gemini in Chrome is INCREDIBLE! Google's Agentic AI Can Automate ANY Browser
+    Task!
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:29:02.629246'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: w-kFe24zZIE
+  title: 'Kimi K2.5: The GREATEST Opensource AI Model That Beats Opus 4.5 and Gemini
+    3 (Fully Tested)'
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:29:14.547528'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: 0lVt3nKmyFk
+  title: Gemini 3.5 Is Google's Greatest Model Ever! Most Powerful AI EVER! (Tested)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:29:27.306059'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: W15UztbGEJw
+  title: ClawdBot The 24/7 AI Agent Employee That Can Automate Your Life!
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:29:40.217820'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: bUycTrxNas0
+  title: The Greatest AI Design System I've Ever Used! (Pencil.dev)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:29:51.968269'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: xxppO2ws-J8
+  title: 'Zenflow: First-Ever AI Software Engineer Running Autonomously Building Apps
+    and Software!'
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:30:03.602298'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: dzDVt3-MTRk
+  title: Antigravity + Opencode IS INCREDIBLE! Best AI Coding Workflow Solves EVERYTHING!
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:30:15.478460'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: yUU5E-U5B3M
+  title: 'Gemini Cowork: AI Operating System That Automates Your Life! (Opensource)'
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:30:29.717263'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: vGh7wfULXGY
+  title: Antigravity AgentKit Supercharges Your AI 100x
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:30:41.593232'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: 62XRkJD0kRI
+  title: Gemini Whisk Designer Is INSANE! Build Beautiful Websites and Apps In Minutes
+    FOR FREE!
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:30:53.997276'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: rsHYx6IJmx0
+  title: Gemini Agent Mode Upgraded! Powerful Autonomous AI Coding Agent Can Build
+    ANYTHING & IS FULLY FREE!
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:31:07.193253'
+  type: video_discovered
+  source: In the World of AI
+  source_slug: in_the_world_of_ai
+  video_id: TuIU3tVf7R0
+  title: How to Use Google's Antigravity Better than 99% of People
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:31:26.060559'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: OsSFIlDmPTk
+  title: The Easiest Way to Build AI Skills
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:31:38.478722'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: _LjRHdtmPMM
+  title: Save Code Once, Reuse It as a Skill
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:31:50.060278'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: gtz08vvqKF8
+  title: AI agency is a TRAP - I'm shutting it down
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:32:03.634382'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: 1-pmY-b8Nos
+  title: Stop Adding Tools. Save Code as Skills
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:32:15.015702'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: tTZ4yDY4adg
+  title: MCP Is Dead (Here’s the Skills Replacement)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:32:27.944953'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: ZPzVDAxda_E
+  title: 'GPT-5.2 vs 5.1 Agents: Real Work Test'
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:32:39.994979'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: jyYDHJAcfak
+  title: I Gave One MCP Agent 2,000 Tools (Here’s What Broke)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:32:52.503249'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: lxJNEtu4QPU
+  title: How We Trained an AI Agent on $2 5M Process
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:33:05.191178'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: n7t4dqZ4r9k
+  title: 100% AI Generated UGC Ads (Full Process)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:33:16.781075'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: 7ad_1mC-zCk
+  title: Anthropic Just Made Code‑Execution Agents Easy (But Dangerous)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:33:29.941053'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: X4NjNCSiqjs
+  title: I Built This AI UGC Ad Agent From a $2.5M Playbook
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:33:42.000555'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: T4ZVPYUKFQ8
+  title: GPT-5.1 is a Big Deal for Devs
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:33:54.263935'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: Fg8VHXr-WVM
+  title: Convert Any MCP Server to Code Execution (Template)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:34:05.689961'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: D4ImbDGFgIM
+  title: The end of MCP for ai agents?
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:34:18.034647'
+  type: video_discovered
+  source: VRSEN
+  source_slug: vrsen
+  video_id: azsAC5ZtZNE
+  title: Ship Your First Vertical AI Agent (& Make It Reusable)
+  priority: critical
+  has_transcript: false
+- timestamp: '2026-02-02T03:34:22.762463'
+  type: ingest_completed
+  sources_checked: 12
+  videos_found: 46
+  videos_downloaded: 15
+- timestamp: '2026-02-02T03:34:57.191364'
+  type: video_ranked
+  video_id: TJkxAJS34CQ
+  composite_score: 43.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.242100'
+  type: video_ranked
+  video_id: cdIJ92Tx20Y
+  composite_score: 31.0
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.278027'
+  type: video_ranked
+  video_id: vGh7wfULXGY
+  composite_score: 64.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.313768'
+  type: video_ranked
+  video_id: lxJNEtu4QPU
+  composite_score: 28.8
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.351796'
+  type: video_ranked
+  video_id: xxppO2ws-J8
+  composite_score: 64.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.389948'
+  type: video_ranked
+  video_id: TuIU3tVf7R0
+  composite_score: 63.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.444327'
+  type: video_ranked
+  video_id: FsDYk0WqBt0
+  composite_score: 33.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.485427'
+  type: video_ranked
+  video_id: zZi2_ZZPI7Q
+  composite_score: 65.5
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.526556'
+  type: video_ranked
+  video_id: tTZ4yDY4adg
+  composite_score: 62.3
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.585596'
+  type: video_ranked
+  video_id: Otca9BlhVGA
+  composite_score: 29.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.625717'
+  type: video_ranked
+  video_id: f7tPJhiCLss
+  composite_score: 26.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.665544'
+  type: video_ranked
+  video_id: _LjRHdtmPMM
+  composite_score: 40.8
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.707561'
+  type: video_ranked
+  video_id: rsHYx6IJmx0
+  composite_score: 64.5
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.764843'
+  type: video_ranked
+  video_id: 2QQNTWTsFaw
+  composite_score: 31.9
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.804685'
+  type: video_ranked
+  video_id: T4ZVPYUKFQ8
+  composite_score: 39.0
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.845622'
+  type: video_ranked
+  video_id: n5zw2cvvWAk
+  composite_score: 54.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.885581'
+  type: video_ranked
+  video_id: 1-pmY-b8Nos
+  composite_score: 40.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.946183'
+  type: video_ranked
+  video_id: hswNmY8gWbE
+  composite_score: 25.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:57.987831'
+  type: video_ranked
+  video_id: jyYDHJAcfak
+  composite_score: 59.9
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.029744'
+  type: video_ranked
+  video_id: W15UztbGEJw
+  composite_score: 72.8
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.088276'
+  type: video_ranked
+  video_id: 9BXJCEkaqU8
+  composite_score: 23.5
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.130830'
+  type: video_ranked
+  video_id: w-kFe24zZIE
+  composite_score: 64.5
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.188070'
+  type: video_ranked
+  video_id: IHFsW-5_2R0
+  composite_score: 23.5
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.230496'
+  type: video_ranked
+  video_id: 7ad_1mC-zCk
+  composite_score: 60.1
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.273859'
+  type: video_ranked
+  video_id: 62XRkJD0kRI
+  composite_score: 60.9
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.316280'
+  type: video_ranked
+  video_id: gtz08vvqKF8
+  composite_score: 32.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.373698'
+  type: video_ranked
+  video_id: 2Fj3WewGRow
+  composite_score: 29.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.418454'
+  type: video_ranked
+  video_id: hq2CHQksLXg
+  composite_score: 72.7
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.475879'
+  type: video_ranked
+  video_id: -6mJF5wsLrU
+  composite_score: 27.9
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.519565'
+  type: video_ranked
+  video_id: n7t4dqZ4r9k
+  composite_score: 36.0
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.565496'
+  type: video_ranked
+  video_id: yUU5E-U5B3M
+  composite_score: 62.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.624255'
+  type: video_ranked
+  video_id: bao8Fu13IP8
+  composite_score: 25.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.670461'
+  type: video_ranked
+  video_id: bUycTrxNas0
+  composite_score: 62.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.715862'
+  type: video_ranked
+  video_id: X4NjNCSiqjs
+  composite_score: 65.8
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.777134'
+  type: video_ranked
+  video_id: rcoWiea0RQc
+  composite_score: 27.9
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.823167'
+  type: video_ranked
+  video_id: azsAC5ZtZNE
+  composite_score: 48.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.870538'
+  type: video_ranked
+  video_id: 0lVt3nKmyFk
+  composite_score: 61.1
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.938690'
+  type: video_ranked
+  video_id: yAO28HOS5x4
+  composite_score: 28.0
+  should_process: true
+- timestamp: '2026-02-02T03:34:58.984807'
+  type: video_ranked
+  video_id: OsSFIlDmPTk
+  composite_score: 42.0
+  should_process: true
+- timestamp: '2026-02-02T03:34:59.032507'
+  type: video_ranked
+  video_id: Fg8VHXr-WVM
+  composite_score: 54.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:59.080057'
+  type: video_ranked
+  video_id: dzDVt3-MTRk
+  composite_score: 62.4
+  should_process: true
+- timestamp: '2026-02-02T03:34:59.141309'
+  type: video_ranked
+  video_id: MNhVvQW04dg
+  composite_score: 25.2
+  should_process: true
+- timestamp: '2026-02-02T03:34:59.190094'
+  type: video_ranked
+  video_id: FBK3Bpsql8I
+  composite_score: 80.0
+  should_process: true
+- timestamp: '2026-02-02T03:34:59.238003'
+  type: video_ranked
+  video_id: D4ImbDGFgIM
+  composite_score: 54.6
+  should_process: true
+- timestamp: '2026-02-02T03:34:59.286491'
+  type: video_ranked
+  video_id: ZPzVDAxda_E
+  composite_score: 48.4
+  should_process: true

@@ -1,0 +1,18 @@
+video_id: dzDVt3-MTRk
+title: Antigravity + Opencode IS INCREDIBLE! Best AI Coding Workflow Solves EVERYTHING!
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=dzDVt3-MTRk
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:30:03.569278'
+source_path: data/sources/in_the_world_of_ai/videos/dzDVt3-MTRk.yaml
+ranking:
+  relevance: 95
+  importance: 75
+  value: 31
+  composite: 62.4
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

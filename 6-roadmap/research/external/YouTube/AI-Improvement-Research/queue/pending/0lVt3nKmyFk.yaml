@@ -1,0 +1,18 @@
+video_id: 0lVt3nKmyFk
+title: Gemini 3.5 Is Google's Greatest Model Ever! Most Powerful AI EVER! (Tested)
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=0lVt3nKmyFk
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:29:14.535455'
+source_path: data/sources/in_the_world_of_ai/videos/0lVt3nKmyFk.yaml
+ranking:
+  relevance: 85
+  importance: 75
+  value: 34
+  composite: 61.1
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

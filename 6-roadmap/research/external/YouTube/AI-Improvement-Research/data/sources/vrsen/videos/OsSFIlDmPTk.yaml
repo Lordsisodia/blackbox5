@@ -1,0 +1,51 @@
+source:
+  type: youtube
+  id: OsSFIlDmPTk
+  url: https://youtube.com/watch?v=OsSFIlDmPTk
+  title: The Easiest Way to Build AI Skills
+  description: 'Original video: https://youtu.be/tTZ4yDY4adg
+
+
+    About:
+
+    This video shows a real production example of AI agent skills already in use,
+    using ChatGPT and Claude as practical references. It explains how skills follow
+    a strict, reusable structure and are built from real working code rather than
+    abstract instructions. The agent reads existing skill definitions, pulls context
+    from documentation and repositories, and generates new skills for specific workflows.
+    This approach allows agents to reuse proven solutions, work more efficiently,
+    and avoid rebuilding the same logic from scratch every time.'
+  channel: Arseny Shatokhin
+  channel_id: UCSv4qL8vmoSH7GaPjuqRiCQ
+  published_at: '20260122'
+  duration: 87
+  view_count: 1568
+  like_count: 29
+  thumbnail: https://i.ytimg.com/vi/OsSFIlDmPTk/maxresdefault.jpg
+creator:
+  name: VRSEN
+  slug: vrsen
+  handle: '@vrsen'
+  tier: 1
+  areas:
+  - ai-engineering
+  - ai-agents
+  topics:
+  - autonomous-systems
+  - agent-architecture
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:31:26.043261'
+  collected_at: '2026-02-02T03:31:26.043285'
+  collected_by: ingest.py
+transcript:
+  full_text: ''
+  segments: []
+  segment_count: 0
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

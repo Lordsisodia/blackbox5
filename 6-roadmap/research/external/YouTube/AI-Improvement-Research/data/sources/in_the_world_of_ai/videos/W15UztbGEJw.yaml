@@ -1,0 +1,76 @@
+source:
+  type: youtube
+  id: W15UztbGEJw
+  url: https://youtube.com/watch?v=W15UztbGEJw
+  title: ClawdBot The 24/7 AI Agent Employee That Can Automate Your Life!
+  description: "Ever wished you had a personal AI assistant that could work 24/7,\
+    \ handle your tasks, and actually make decisions for you? Meet Clawdbot—an open-source\
+    \ AI agent you can deploy on your own hardware or VPS to automate practically\
+    \ anything. From clearing your inbox, sending emails, managing your calendar,\
+    \ checking you in for flights, to even running autonomous trading experiments,\
+    \ Clawdbot is like having a personal AI employee that never sleeps!\n\n\U0001F517\
+    \ My Links:\nSponsor a Video or Do a Demo of Your Product, Contact me: intheworldzofai@gmail.com\n\
+    \U0001F525 Become a Patron (Private Discord): https://patreon.com/WorldofAi\n\U0001F9E0\
+    \ Follow me on Twitter: https://twitter.com/intheworldofai \n\U0001F6A8 Subscribe\
+    \ To The SECOND Channel: https://www.youtube.com/@UCYwLV1gDwzGbg7jXQ52bVnQ \n\U0001F469\
+    \U0001F3FB‍\U0001F3EB Learn to code with Scrimba – from fullstack to AI https://scrimba.com/?via=worldofai\
+    \ (20% OFF)\n\U0001F6A8 Subscribe To The FREE AI Newsletter For Regular AI Updates:\
+    \ https://intheworldofai.com/\n\U0001F47E Join the World of AI Discord! : https://discord.gg/NPf8FCn4cD\n\
+    \nSomething coming soon :) https://www.skool.com/worldofai-automation\n\n[Must\
+    \ Watch]:\nRalph Loop TUI IS INCREDIBLE! Makes Claude Code 100x More Powerful\
+    \ and Autonomous!: https://youtu.be/pzBSYMCrYMk\nZenflow: First-Ever AI Software\
+    \ Engineer Running Autonomously Building Apps and Software!: https://youtu.be/xxppO2ws-J8\n\
+    Claude Code NEW Update IS HUGE! Sub Agents, Claude Ultra, LSPs, & MORE!: https://youtu.be/8izATKqcF-8\n\
+    \n\U0001F4CC LINKS & RESOURCES\nWebsite: https://clawd.bot/\nSetup Docs: https://docs.clawd.bot/start/wizard\n\
+    Docs: https://docs.clawd.bot/\nFree Amazon Setup: https://aws.amazon.com/\n\n\
+    In this video, we’ll cover:\nHow Clawdbot can automate daily tasks from WhatsApp,\
+    \ Telegram, or other chat apps \U0001F4F1\nSetting up Clawdbot on your own hardware\
+    \ (Mac Mini, PC, or VPS) \U0001F4BB\nReal examples of Clawdbot running autonomous\
+    \ workflows and even making trades \U0001F4B0\nSecurity considerations and why\
+    \ sandboxing is important \U0001F512\nTips for safely testing Clawdbot with personal\
+    \ or demo accounts ✅\n\nWhether you want a personal productivity boost or want\
+    \ to explore autonomous AI agents, this video shows you exactly what Clawdbot\
+    \ can do and how to get started.\n\nFeatures:\n24/7 autonomous AI agent\nWorks\
+    \ with multiple chat platforms (WhatsApp, Telegram, iMessage, Discord, etc.)\n\
+    Automates emails, calendar, reminders, and more\nCan execute custom workflows\
+    \ and even trade assets\nFully open-source and self-hosted for privacy and control\n\
+    \nTags (split by commas):\nClawdbot, AI assistant, autonomous AI, open source\
+    \ AI, AI agent, personal AI, automation, productivity AI, AI trading bot, WhatsApp\
+    \ AI, Telegram AI, iMessage AI, Discord AI, Mac Mini AI, AI workflow, AI automation,\
+    \ AI tools, AI experiments, 24/7 AI, AI for business, AI personal assistant\n\n\
+    Hashtags:\n#Clawdbot #AIassistant #Automation #OpenSourceAI #AIAgent #ProductivityAI\
+    \ #AITools #PersonalAI #AIWorkflow #AITrading #AIExperiments #MacMiniAI #WhatsAppAI\
+    \ #TelegramAI \U0001F916\U0001F4BC\U0001F4C8"
+  channel: WorldofAI
+  channel_id: UC2WmuBuFq6gL08QYG-JjXKw
+  published_at: '20260126'
+  duration: 575
+  view_count: 31541
+  like_count: 591
+  thumbnail: https://i.ytimg.com/vi_webp/W15UztbGEJw/maxresdefault.webp
+creator:
+  name: In the World of AI
+  slug: in_the_world_of_ai
+  handle: '@intheworldofai'
+  tier: 1
+  areas:
+  - ai-news
+  topics:
+  - model-releases
+  - industry-updates
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:29:27.289918'
+  collected_at: '2026-02-02T03:29:27.289938'
+  collected_by: ingest.py
+transcript:
+  full_text: ''
+  segments: []
+  segment_count: 0
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

@@ -1,0 +1,18 @@
+video_id: W15UztbGEJw
+title: ClawdBot The 24/7 AI Agent Employee That Can Automate Your Life!
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=W15UztbGEJw
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:29:27.292969'
+source_path: data/sources/in_the_world_of_ai/videos/W15UztbGEJw.yaml
+ranking:
+  relevance: 100
+  importance: 75
+  value: 54
+  composite: 72.8
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

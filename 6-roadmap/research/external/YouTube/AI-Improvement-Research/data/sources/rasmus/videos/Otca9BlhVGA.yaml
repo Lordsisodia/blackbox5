@@ -1,0 +1,390 @@
+source:
+  type: youtube
+  id: Otca9BlhVGA
+  url: https://youtube.com/watch?v=Otca9BlhVGA
+  title: It's time to build mobile apps (here's the formula)
+  description: "In this video, I share the formula to build really popping mobile\
+    \ apps. From building it to marketing it, I'm sharing all the sauce you need to\
+    \ cook.\n\nMy Links:\n\U0001F310 My Site: https://rasmic.link/site\n\U0001F3ED\
+    \ My product studio: https://rasmic.link/fabrika\n⚡ Nextjs Starter Kit: https://rasmic.link/next-starter\n\
+    ⚛️ React Starter kit: https://rasmic.link/react-starter\n\nSocials:\n\U0001F426\
+    \ Follow me on X: https://rasmic.link/x\n\U0001F4AC Join my Discord: https://rasmic.link/discord\n\
+    ▶️ Subscribe to my second channel: https://rasmic.link/more-micky\n\nTools I use:\
+    \ \n\U0001F4DA Programming courses: https://rasmic.link/scrimba\n\U0001F3A5 Recording\
+    \ Software: https://rasmic.link/screen-studio"
+  channel: Ras Mic
+  channel_id: UCBX__dPYqDFqAN4QcWbnUbw
+  published_at: '20251110'
+  duration: 624
+  view_count: 36173
+  like_count: 1992
+  thumbnail: https://i.ytimg.com/vi_webp/Otca9BlhVGA/maxresdefault.webp
+creator:
+  name: Rasmus
+  slug: rasmus
+  handle: '@rasmic'
+  tier: 1
+  areas:
+  - ai-engineering
+  - coding-tools
+  topics:
+  - ai-development
+  - technical-deep-dives
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:27:45.249501'
+  collected_at: '2026-02-02T03:27:45.249509'
+  collected_by: ingest.py
+transcript:
+  full_text: It seems like every single day on Twitter, I see someone making money
+    with a mobile app. And I ask myself, how are they building it? How are they marketing
+    it? How is this whole machine working? Cuz some people just seem to be pumping
+    these things [music] out like hotcakes. I did the research. I found the answers.
+    I myself have started doing this as well, and I'm going to be sharing with you
+    the insider sauce in today's video. So, sit back, relax, get your popcorn. Let's
+    get into it. Honestly, the formula is pretty simple. When it comes to building
+    mobile apps, [music] we just need to build it. We need to market it. And the combination
+    of these two hopefully leads to some money. Now, first thing, let's talk about
+    building a mobile app. I [music] think mobile is a lot more difficult compared
+    to web in a sense where the web ecosystem is so rich and the web is so open, right?
+    You literally deploy your site and it's available for everyone. But with mobile,
+    you have two places you care about. iOS and Android. Now, I'm going to be honest.
+    If you're building an app and your focus is maximizing money, you can kind of
+    throw Android out the window. I know, I know everybody loves Android. All of you
+    guys love Android. But the truth of the matter is most paying people, most paying
+    customers, people who are willing to pay for apps use iOSes use iPhone. Now, that
+    may say something about people who own iPhones, but at the end of the day, we're
+    here to maximize shareholder value. And in order to do that, I would say the biggest
+    focus for your mobile app should be iOS. Now, what tech stack should you use?
+    I know again we always talk about tech stack on this channel, but what tech stack
+    would I use? I'm using React Native because React Native allows me to build for
+    both. Even though, yes, I told you to focus on iOS. What I mean is the experience,
+    the look, the feel. [music] You should 100% optimize for iOS. Now, there's going
+    to be someone in the comments saying, "Oh, what about Android users?" Yes, you
+    could do that, too. But I'm assuming we're we're thinking about moving really
+    fast so we can go to market really quickly. I would focus on iOS. So React Native
+    and then I would use Expo. This is going to help me build the app, deploy the
+    app, and all that other nonsense. I'll be honest, Expo is a lifesaver because
+    Apple is really hard to deal with all the build steps and the certificates and
+    all that stuff. Expo really makes it easy. If you want to deploy your app, all
+    you have to do is run this command and then you just follow the steps, right?
+    So React Native is what I'm using to build the app. Expo is what I'm using it
+    to package it and deploy it. You can think of Expo like Nex.js. Honestly, they
+    have their own router as well. It's pretty awesome. Now for the back end, I'm
+    using Convex. And the reason why I'm using Convex is mobile apps. The experiences
+    have to be good. They have to feel fluid. They got to feel fast. And in order
+    to achieve this, you're going to need a supercharged backend in a real-time database.
+    Now for Oth, you can use whatever you want to use. Clerk, work OS, you want to
+    use better off. Make your pick, right? Whatever is easiest for you to ship with
+    and move with. This is what I'd use to build an app. Now, recently I saw this
+    tweet that said, "Genzie's putting themselves in timeout and calling it healing.
+    No phone, no TV, no music, no food, just silence. They're calling it raw dogging
+    boredom. 15 minutes of sitting completely zero distractions. You get the gist,
+    right? So, I saw this tweet [music] and then what I decided to do is like, oh,
+    I'm just going to quickly build an app that allows you to do this." So, you can
+    see the app here. It's called Timeout. I have O set up and for O I just used Clerk
+    just to get started quickly. So you see me I'm creating an account. Uh I'm [music]
+    just going to click continue here and then literally all like I have a mini onboarding
+    explaining what the timeout up does. Click start timeout. I begin and then it
+    does 15 minutes, right? That's what the trend is about. So, I have the timeout
+    going and I built this feature where like let's say I go to Twitter because I
+    have issues and I can't focus. And if I go back to the app, it tells me you peaked.
+    Try again. I can then click on history and I can see my streaks. So far, I haven't
+    completed a 15-minute timeout session. Right? So, the reason why I bring this
+    up is [music] when you're building your app, it's very important to sort of be
+    locked in with the trends, right? And this sort of goes into marketing. [music]
+    In order to build a successful BTOC app, your marketing has to be on point. And
+    this is the one place you're going to focus. I know most of you are going to hate
+    this, but Tik Tok, ladies and gents, [music] is where it's at. Tik Tok is so influential
+    and so powerful. I knew it was powerful because my wife uses it as a search engine.
+    She wants to find out if a place is good or she's looking for a specific product.
+    She's not going to Google like us devs or [music] Chad GBT or Perplexity or whatever
+    you nerds are using nowadays. They're going on Tik Tok. Gents, ladies, [music]
+    the people, the normies are going on Tik Tok. So, when you're building your app,
+    if you don't have any ideas, might I suggest doom scrolling on Tik Tok a little
+    bit and calling it research? Now, here's the funny part. For most of us, the building
+    isn't actually the difficult part. It's the marketing. So, what how do I go about
+    marketing my app? First things first is I would download Tik Tok and sort of see
+    what's going on, what's trending. But here is the secret sauce. If you're not
+    a Tik Tok user, if you're not into brain rock content, if you don't understand
+    internet culture, find someone who does, right? There's no point in you downloading
+    Tik Tok and you're confused and you don't know what's going on and you don't even
+    know what Cap Cut is. If you don't know, if you're not trying to learn, I would
+    highly suggest you work with somebody who does. For example, I don't know if you
+    guys have ever noticed, I never really promoted it, but I run a product studio
+    called Fabrica. And this product studio, we build people's [music] products, whether
+    it be AI products, web, mobile apps, every vertical, we've [music] built it. And
+    you know, praise the Lord Jesus. Thank you, Lord. It's been pretty successful.
+    We've had a great year. [music] And guess what? When it started, I was by myself.
+    I then partnered with my friend Muso. Reason being is there were things he was
+    good at that I didn't want to do and there were things I was good at that he didn't
+    want to do right he's great with logistics business sales now I could do those
+    things I rather not I rather be focused on the tech and building things so him
+    and I have complimenting skills and because two heads are better than one the
+    product studio started to grow now we have a full-time developer we have a full-time
+    editor hi Ken >> okay >> and the reason why I'm sharing this with you is if this
+    is not you if creating content if recording videos If all this stuff is not you,
+    if Tik Tok is not you, I'm sure you have a cousin who's deranged [music] and all
+    he or she does is scroll on Tik Tok. This is their time to shine. Partner up with
+    them, work with them. You build, they create content. Now, I can already hear
+    some of you nerds saying, "Why not web apps? Why does it have to be mobile? I
+    can just push to Verscell and deploy a web app pretty quickly." Cuz most of the
+    normies don't care for web apps. It's just true. They're on Tik Tok. They see
+    uh some UGC video of someone using an app. They see the app. They go on the app
+    store. They download the app and they use it. That's what the normies are doing.
+    Again, if you're building a B2B SAS, yes, stick to the web. Watch the other videos.
+    But this is for my people looking to build mobile apps that people are going to
+    use. Now, while I was in SF, I met two awesome guys who are the founder of this
+    app called Kandle. They're both Convex customers. Kendall [music] is built using
+    Convex. Parth and Alex. and their app Candle, if I'm not mistaken, has hundreds
+    of thousands of users [music] and they're doing insane levels of monthly recurring
+    revenue. And this is their strategy. It's three people, three or four people max.
+    They obviously build an awesome app. If I'm not mistaken, their tech stack is
+    React Native, Expo, and Convex. And when I was speaking with them, they told me
+    every single day, one person from the team has to create a Tik Tok video. And
+    ladies and gents, that's their strategy. Now, mind you, these guys are very creative.
+    They're very smart. They're good at creating content. They created the right app,
+    the right demographic. They hit a lot of these key points. Now, how do we get
+    to that point? You get to that point by just shooting. You just get to that point
+    by throwing as many threes from the three-point line. And at some point, one of
+    them's going to hit. At some point, you're going to start learning from your failures.
+    And [music] failed experience becomes experience that leads to success. I'm not
+    going to lie, that was a quotable. But I say that to say it would be very wise
+    to build a very simple template for yourself. Make a simple text stack that allows
+    you to ship. Deploy a couple of apps. Get one of your brain rock cousins or siblings
+    to record Tik Tok videos. And this, ladies and gents, is your million-doll operation.
+    And this is what we started to do at my product studio. We're starting to build
+    our own apps. We have one called Altoia that's launching soon. It's a travel app.
+    And literally, this is our formula. We build the app. [music] We market the app
+    on socials, Tik Tok, Instagram. We keep doing both until the checks start flying.
+    Again, my boy Jack, look at this tweet. [music] He's hit 5K already with his app.
+    And this is the strat. He built an app for couples, right? And [music] there's
+    something about picking the right niche that also matters. I've noticed that the
+    couple niche is booming right now. Everybody's making apps for couples. And Jack
+    did that. And I think in like what 15 days [music] he said he hit 5K MR. nothing
+    special. He has a tech stack that he uses. He [music] uses Tik Tok and Instagram
+    to create content. It does help that yes, he is [music] uh an influencer on Twitter,
+    right? 61K followers. But I'm telling you this, Twitter is not the demographic
+    you want to focus on. Most of the people that are following you, that are following
+    me, are devs. They're going to see your app and be like, "Duh, I can build this."
+    And that's true. I can build the app that he's selling as well. But really what's
+    helping him scale his app and what's going to take him even further is when [music]
+    he starts crushing it on Tik Tok and Instagram. Now some of you might say we are
+    adding to the Brain Rod economy. We are creating Brain Rod apps [music] and the
+    type of app you create is completely up to you. I want to encourage you to create
+    apps of value. Uh but also, you know, you got to gamify it. You got to see the
+    trends. You got to know what's going on. I don't know about you, but at the end
+    of the day, shoot or shoot. I've given you the formula. Use this video as inspiration
+    to get in and start [music] building some apps. Start partnering with people.
+    Start shipping. Don't just watch people do it. You do it yourself. I hope you
+    enjoyed this video. Make sure to like, comment, subscribe, hit the notification
+    bell. I'll see you in the next one. [music] and peace.
+  segments:
+  - start: 00:00:00
+    text: It seems like every single day on
+  - start: 00:00:01
+    text: Twitter, I see someone making money with
+  - start: 00:00:03
+    text: a mobile app. And I ask myself, how are
+  - start: 00:00:06
+    text: they building it? How are they marketing
+  - start: 00:00:07
+    text: it? How is this whole machine working?
+  - start: 00:00:09
+    text: Cuz some people just seem to be pumping
+  - start: 00:00:11
+    text: these things [music] out like hotcakes.
+  - start: 00:00:13
+    text: I did the research. I found the answers.
+  - start: 00:00:16
+    text: I myself have started doing this as
+  - start: 00:00:17
+    text: well, and I'm going to be sharing with
+  - start: 00:00:19
+    text: you the insider sauce in today's video.
+  - start: 00:00:21
+    text: So, sit back, relax, get your popcorn.
+  - start: 00:00:24
+    text: Let's get into it. Honestly, the formula
+  - start: 00:00:26
+    text: is pretty simple. When it comes to
+  - start: 00:00:28
+    text: building mobile apps, [music] we just
+  - start: 00:00:29
+    text: need to build it. We need to market it.
+  - start: 00:00:31
+    text: And the combination of these two
+  - start: 00:00:33
+    text: hopefully leads to some money. Now,
+  - start: 00:00:35
+    text: first thing, let's talk about building a
+  - start: 00:00:38
+    text: mobile app. I [music] think mobile is a
+  - start: 00:00:40
+    text: lot more difficult compared to web in a
+  - start: 00:00:42
+    text: sense where the web ecosystem is so rich
+  - start: 00:00:45
+    text: and the web is so open, right? You
+  - start: 00:00:47
+    text: literally deploy your site and it's
+  - start: 00:00:49
+    text: available for everyone. But with mobile,
+  - start: 00:00:50
+    text: you have two places you care about. iOS
+  - start: 00:00:52
+    text: and Android. Now, I'm going to be
+  - start: 00:00:54
+    text: honest. If you're building an app and
+  - start: 00:00:55
+    text: your focus is maximizing money, you can
+  - start: 00:00:59
+    text: kind of throw Android out the window. I
+  - start: 00:01:00
+    text: know, I know everybody loves Android.
+  - start: 00:01:03
+    text: All of you guys love Android. But the
+  - start: 00:01:05
+    text: truth of the matter is most paying
+  - start: 00:01:07
+    text: people, most paying customers, people
+  - start: 00:01:09
+    text: who are willing to pay for apps use
+  - start: 00:01:11
+    text: iOSes use iPhone. Now, that may say
+  - start: 00:01:14
+    text: something about people who own iPhones,
+  - start: 00:01:16
+    text: but at the end of the day, we're here to
+  - start: 00:01:18
+    text: maximize shareholder value. And in order
+  - start: 00:01:21
+    text: to do that, I would say the biggest
+  - start: 00:01:22
+    text: focus for your mobile app should be iOS.
+  - start: 00:01:26
+    text: Now, what tech stack should you use? I
+  - start: 00:01:27
+    text: know again we always talk about tech
+  - start: 00:01:30
+    text: stack on this channel, but what tech
+  - start: 00:01:31
+    text: stack would I use? I'm using React
+  - start: 00:01:33
+    text: Native because React Native allows me to
+  - start: 00:01:35
+    text: build for both. Even though, yes, I told
+  - start: 00:01:37
+    text: you to focus on iOS. What I mean is the
+  - start: 00:01:39
+    text: experience, the look, the feel. [music]
+  - start: 00:01:41
+    text: You should 100% optimize for iOS. Now,
+  - start: 00:01:44
+    text: there's going to be someone in the
+  - start: 00:01:45
+    text: comments saying, "Oh, what about Android
+  - start: 00:01:46
+    text: users?" Yes, you could do that, too. But
+  - start: 00:01:48
+    text: I'm assuming we're we're thinking about
+  - start: 00:01:50
+    text: moving really fast so we can go to
+  - start: 00:01:52
+    text: market really quickly. I would focus on
+  - start: 00:01:54
+    text: iOS. So React Native and then I would
+  - start: 00:01:57
+    text: use Expo. This is going to help me build
+  - start: 00:02:00
+    text: the app, deploy the app, and all that
+  - start: 00:02:02
+    text: other nonsense. I'll be honest, Expo is
+  - start: 00:02:04
+    text: a lifesaver because Apple is really hard
+  - start: 00:02:06
+    text: to deal with all the build steps and the
+  - start: 00:02:08
+    text: certificates and all that stuff. Expo
+  - start: 00:02:10
+    text: really makes it easy. If you want to
+  - start: 00:02:12
+    text: deploy your app, all you have to do is
+  - start: 00:02:14
+    text: run this command and then you just
+  - start: 00:02:15
+    text: follow the steps, right? So React Native
+  - start: 00:02:18
+    text: is what I'm using to build the app. Expo
+  - start: 00:02:19
+    text: is what I'm using it to package it and
+  - start: 00:02:21
+    text: deploy it. You can think of Expo like
+  - start: 00:02:23
+    text: Nex.js. Honestly, they have their own
+  - start: 00:02:25
+    text: router as well. It's pretty awesome. Now
+  - start: 00:02:26
+    text: for the back end, I'm using Convex. And
+  - start: 00:02:28
+    text: the reason why I'm using Convex is
+  - start: 00:02:30
+    text: mobile apps. The experiences have to be
+  - start: 00:02:33
+    text: good. They have to feel fluid. They got
+  - start: 00:02:35
+    text: to feel fast. And in order to achieve
+  - start: 00:02:36
+    text: this, you're going to need a
+  - start: 00:02:38
+    text: supercharged backend in a real-time
+  - start: 00:02:40
+    text: database. Now for Oth, you can use
+  - start: 00:02:42
+    text: whatever you want to use. Clerk, work
+  - start: 00:02:43
+    text: OS, you want to use better off. Make
+  - start: 00:02:45
+    text: your pick, right? Whatever is easiest
+  - start: 00:02:47
+    text: for you to ship with and move with. This
+  - start: 00:02:49
+    text: is what I'd use to build an app. Now,
+  - start: 00:02:51
+    text: recently I saw this tweet that said,
+  - start: 00:02:52
+    text: '"Genzie''s putting themselves in timeout'
+  - start: 00:02:54
+    text: and calling it healing. No phone, no TV,
+  - start: 00:02:57
+    text: no music, no food, just silence. They're
+  - start: 00:02:59
+    text: calling it raw dogging boredom. 15
+  - start: 00:03:02
+    text: minutes of sitting completely zero
+  - start: 00:03:04
+    text: distractions. You get the gist, right?
+  - start: 00:03:06
+    text: So, I saw this tweet [music] and then
+  - start: 00:03:08
+    text: what I decided to do is like, oh, I'm
+  - start: 00:03:10
+    text: just going to quickly build an app that
+  - start: 00:03:11
+    text: allows you to do this."
+  - start: 00:03:14
+    text: So, you can see the app here. It's
+  - start: 00:03:15
+    text: called Timeout. I have O set up and for
+  - start: 00:03:18
+    text: O I just used Clerk just to get started
+  - start: 00:03:20
+    text: quickly. So you see me I'm creating an
+  segment_count: 303
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

@@ -1,0 +1,18 @@
+video_id: X4NjNCSiqjs
+title: I Built This AI UGC Ad Agent From a $2.5M Playbook
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=X4NjNCSiqjs
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:33:29.923146'
+source_path: data/sources/vrsen/videos/X4NjNCSiqjs.yaml
+ranking:
+  relevance: 80
+  importance: 60
+  value: 62
+  composite: 65.8
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

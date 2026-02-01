@@ -1,0 +1,51 @@
+source:
+  type: youtube
+  id: gtz08vvqKF8
+  url: https://youtube.com/watch?v=gtz08vvqKF8
+  title: AI agency is a TRAP - I'm shutting it down
+  description: "About Vertical AI Agents - https://youtu.be/azsAC5ZtZNE?si=13dXVxbsSu3c7Z6E\n\
+    Podcast with JP - https://youtu.be/fbdTB3LjgGI?si=lEKvkbtUJwzMZeG0&t=40\n\n\U0001F4E4\
+    \ Performance based appointments on autopilot (for businesses): https://www.appointlify.ai\n\
+    \n\U0001F680 Try out our platform to deploy your agents to production: https://agencii.ai\n\
+    \nTimestamps:\n00:00 - Intro\n00:40 - My AI Agency: 3 Years to 80k/Month\n02:14\
+    \ - Reason 1\n04:03 - Reason 2\n05:53 - What I'm Doing Next (Quick Demo)\n07:42\
+    \ - What I'm Doing Next\n10:47 - How My Productized System Actually Works\n15:42\
+    \ - What I'd Do If I Started Over in 2026 \n\nAbout:\nI ran an AI agency to $80k/month\
+    \ and shut it down because the margins were brutal. This video shows you the real\
+    \ numbers behind the AI agency model, why it gets worse as AI gets better, and\
+    \ the exact productized system we built that tripled our profit margins with less\
+    \ manual work."
+  channel: Arseny Shatokhin
+  channel_id: UCSv4qL8vmoSH7GaPjuqRiCQ
+  published_at: '20260120'
+  duration: 1063
+  view_count: 5977
+  like_count: 233
+  thumbnail: https://i.ytimg.com/vi/gtz08vvqKF8/maxresdefault.jpg
+creator:
+  name: VRSEN
+  slug: vrsen
+  handle: '@vrsen'
+  tier: 1
+  areas:
+  - ai-engineering
+  - ai-agents
+  topics:
+  - autonomous-systems
+  - agent-architecture
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:31:50.041610'
+  collected_at: '2026-02-02T03:31:50.041637'
+  collected_by: ingest.py
+transcript:
+  full_text: ''
+  segments: []
+  segment_count: 0
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

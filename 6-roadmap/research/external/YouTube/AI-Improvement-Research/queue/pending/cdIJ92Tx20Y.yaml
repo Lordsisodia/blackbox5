@@ -1,0 +1,18 @@
+video_id: cdIJ92Tx20Y
+title: I fixed Ralph. Meet Ralphy
+creator: Rasmus
+creator_slug: rasmus
+url: https://youtube.com/watch?v=cdIJ92Tx20Y
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:26:20.197178'
+source_path: data/sources/rasmus/videos/cdIJ92Tx20Y.yaml
+ranking:
+  relevance: 10
+  importance: 70
+  value: 10
+  composite: 31.0
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

@@ -161,6 +161,34 @@ improvement_goals:
       - "Faster onboarding to new projects"
       - "Fewer 'where is X' questions"
 
+  # --- Architecture Goals ---
+  - id: IG-006
+    name: "Restructure BlackBox5 Architecture for Clarity"
+    description: "Clean up scattered .autonomous folders, establish clear separation of concerns, make layout intuitive for AI agents"
+    category: architecture
+    target_file: "~/.blackbox5/"
+    priority: critical
+    status: active
+    current_issues:
+      - "7 .autonomous folders scattered throughout"
+      - "Unclear separation between engine and project data"
+      - "Legacy task system coexists with new task system"
+      - "Root .autonomous purpose unclear"
+      - "Agents confused about where things belong"
+    improvement_ideas:
+      - "Rename 2-engine/.autonomous to autonomous-core"
+      - "Consolidate all project data in blackbox5/autonomous/"
+      - "Delete obsolete .autonomous folders"
+      - "Create clear migration plan"
+      - "Document new architecture"
+      - "Use Architect agent to iteratively improve"
+    success_criteria:
+      - "Only 2 autonomous locations: autonomous-core and project/autonomous"
+      - "All agents work without path confusion"
+      - "New developers understand structure in 5 minutes"
+      - "No duplicate or obsolete folders"
+      - "Clear separation: engine vs project data"
+
 # =============================================================================
 # DATA COLLECTION GOALS - Ensuring we capture the right data
 # =============================================================================

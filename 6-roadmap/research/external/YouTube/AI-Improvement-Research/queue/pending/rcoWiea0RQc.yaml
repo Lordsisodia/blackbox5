@@ -1,0 +1,18 @@
+video_id: rcoWiea0RQc
+title: I'd build this, if crypto wasn't a scam
+creator: Rasmus
+creator_slug: rasmus
+url: https://youtube.com/watch?v=rcoWiea0RQc
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:27:39.168935'
+source_path: data/sources/rasmus/videos/rcoWiea0RQc.yaml
+ranking:
+  relevance: 15
+  importance: 60
+  value: 8
+  composite: 27.9
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

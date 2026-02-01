@@ -1,0 +1,18 @@
+video_id: TuIU3tVf7R0
+title: How to Use Google's Antigravity Better than 99% of People
+creator: In the World of AI
+creator_slug: in_the_world_of_ai
+url: https://youtube.com/watch?v=TuIU3tVf7R0
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:31:07.175641'
+source_path: data/sources/in_the_world_of_ai/videos/TuIU3tVf7R0.yaml
+ranking:
+  relevance: 95
+  importance: 75
+  value: 33
+  composite: 63.2
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

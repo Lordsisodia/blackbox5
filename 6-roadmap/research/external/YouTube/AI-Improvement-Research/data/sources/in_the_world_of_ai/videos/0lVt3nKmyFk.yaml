@@ -1,0 +1,70 @@
+source:
+  type: youtube
+  id: 0lVt3nKmyFk
+  url: https://youtube.com/watch?v=0lVt3nKmyFk
+  title: Gemini 3.5 Is Google's Greatest Model Ever! Most Powerful AI EVER! (Tested)
+  description: "\U0001F517 Try PostHog for free: https://go.posthog.com/worldofai\n\
+    All-in-one product analytics, session replay, feature flags, A/B testing, and\
+    \ more. Setup takes minutes — no credit card required!\n\nGoogle’s Gemini 3.5\
+    \ might just be the most powerful AI model we’ve ever seen! In this video, I put\
+    \ it to the test across coding, 3D, music, and more, and the results are absolutely\
+    \ insane. From frontend to backend, this AI handles everything with speed and\
+    \ precision that feels next-level.\n\n\U0001F517 My Links:\nSponsor a Video or\
+    \ Do a Demo of Your Product, Contact me: intheworldzofai@gmail.com\n\U0001F525\
+    \ Become a Patron (Private Discord): https://patreon.com/WorldofAi\n\U0001F9E0\
+    \ Follow me on Twitter: https://twitter.com/intheworldofai \n\U0001F6A8 Subscribe\
+    \ To The SECOND Channel: https://www.youtube.com/@UCYwLV1gDwzGbg7jXQ52bVnQ \n\U0001F469\
+    \U0001F3FB‍\U0001F3EB Learn to code with Scrimba – from fullstack to AI https://scrimba.com/?via=worldofai\
+    \ (20% OFF)\n\U0001F6A8 Subscribe To The FREE AI Newsletter For Regular AI Updates:\
+    \ https://intheworldofai.com/\n\U0001F47E Join the World of AI Discord! : https://discord.gg/NPf8FCn4cD\n\
+    \nSomething coming soon :) https://www.skool.com/worldofai-automation\n\n[Must\
+    \ Watch]:\nRalph Loop TUI IS INCREDIBLE! Makes Claude Code 100x More Powerful\
+    \ and Autonomous!: https://youtu.be/pzBSYMCrYMk\nZenflow: First-Ever AI Software\
+    \ Engineer Running Autonomously Building Apps and Software!: https://youtu.be/xxppO2ws-J8\n\
+    Claude Code NEW Update IS HUGE! Sub Agents, Claude Ultra, LSPs, & MORE!: https://youtu.be/8izATKqcF-8\n\
+    \n\U0001F4CC LINKS & RESOURCES\nhttps://x.com/chetaslua\nhttps://x.com/synthwavedd\n\
+    https://x.com/synthwavedd\nhttps://codepen.io/jules064/pen/xbOrpJz\nhttps://aistudio.google.com/u/1/prompts/new_chat?pli=1\n\
+    \n\U0001F4A1 What you’ll see in this video:\nGemini 3.5 generating complex code\
+    \ in one-shot\nStunning 3D designs created entirely by AI\nMusic composition and\
+    \ creative outputs from a single prompt\nHow it compares to other top AI models\
+    \ like GPT-5.1, Claude Opus, and DeepSeek V4\nIf you’re curious about the future\
+    \ of AI and Google’s cutting-edge advancements, this is a must-watch!\n\nDon’t\
+    \ forget to like, comment, and subscribe for more AI breakthroughs.\n\nTags (split\
+    \ by commas):\nGemini 3.5, Google AI, AI breakthroughs, GPT-5.1, Claude Opus,\
+    \ DeepSeek V4, AI coding, AI music, AI 3D, advanced AI, AI demo, AI technology,\
+    \ AI animation, AI one-shot coding, AI productivity, AI tools, AI testing, AI\
+    \ model, AI future, AI experiments\n\nHashtags:\n#Gemini3_5 #GoogleAI #AI #ArtificialIntelligence\
+    \ #DeepThink #AIcoding #AI3D #AIMusic #NextGenAI #AIbreakthrough"
+  channel: WorldofAI
+  channel_id: UC2WmuBuFq6gL08QYG-JjXKw
+  published_at: '20260127'
+  duration: 649
+  view_count: 46038
+  like_count: 1040
+  thumbnail: https://i.ytimg.com/vi_webp/0lVt3nKmyFk/maxresdefault.webp
+creator:
+  name: In the World of AI
+  slug: in_the_world_of_ai
+  handle: '@intheworldofai'
+  tier: 1
+  areas:
+  - ai-news
+  topics:
+  - model-releases
+  - industry-updates
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:29:14.532673'
+  collected_at: '2026-02-02T03:29:14.532694'
+  collected_by: ingest.py
+transcript:
+  full_text: ''
+  segments: []
+  segment_count: 0
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

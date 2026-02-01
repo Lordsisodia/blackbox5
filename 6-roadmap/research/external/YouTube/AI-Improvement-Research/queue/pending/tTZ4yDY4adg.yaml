@@ -1,0 +1,18 @@
+video_id: tTZ4yDY4adg
+title: MCP Is Dead (Here’s the Skills Replacement)
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=tTZ4yDY4adg
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:32:14.999316'
+source_path: data/sources/vrsen/videos/tTZ4yDY4adg.yaml
+ranking:
+  relevance: 75
+  importance: 65
+  value: 52
+  composite: 62.3
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold

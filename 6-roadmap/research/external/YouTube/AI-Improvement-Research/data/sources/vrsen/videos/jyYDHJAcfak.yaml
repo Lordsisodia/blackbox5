@@ -1,0 +1,66 @@
+source:
+  type: youtube
+  id: jyYDHJAcfak
+  url: https://youtube.com/watch?v=jyYDHJAcfak
+  title: I Gave One MCP Agent 2,000 Tools (Here’s What Broke)
+  description: "\U0001F419 Our framework starter template: https://github.com/agency-ai-solutions/agency-starter-template/tree/main\n\
+    \n\U0001F4DC All scraped MCP servers: https://firebasestorage.googleapis.com/v0/b/vrsen-ai/o/public%2Fyoutube%2Fall_smithery_mcp_servers.json?alt=media&token=635ae0f2-1de0-4301-afeb-7b5eeefb0cca\n\
+    \n\U0001F41D Link to our framework: https://github.com/VRSEN/agency-swarm\n\n\U0001F468\
+    ‍\U0001F4BB If you're a developer / agency and want to build your own AI solutions,\
+    \ join our FREE Skool community. You'll find support on every step of the way:\
+    \ https://www.skool.com/agency-ai\n\n\U0001F680 Try out our platform when you’re\
+    \ ready to deploy your agents to production: https://agencii.ai \n\nTimestamps:\n\
+    00:00 - Intro\n01:25 - How It Works\n02:29 - Building the Agent\n10:11 - Testing\
+    \ the Agent\n15:48 - Creating Reusable Tools (76K to 8K tokens)\n18:38 - Production\
+    \ Recommendations\n\nAbout:\nIn this video I push AI agents to the limit by giving\
+    \ a single executive assistant agent access to *2,000+ MCP tools* — and letting\
+    \ it *discover, connect, and compose them programmatically* in real time. Instead\
+    \ of hard‑coding tools up front, we use *programmatic tool calling + progressive\
+    \ tool discovery* so the agent can generate its own code, search a massive MCP\
+    \ server library, and build custom workflows on the fly.\n\nYou’ll see how I:\n\
+    - Start from an *AI agent template* in Cursor and wire it for *MCP code execution*\n\
+    - Use a scraped library of *2,000+ MCP servers* (Notion, Gmail, Slack, etc.) as\
+    \ a searchable tool index\n- Let the agent *self‑connect* to Notion, Gmail, and\
+    \ Slack MCP servers with authentication\n- Have the agent *read real project data*\
+    \ and draft a client update email across multiple tools\n- Turn these ad‑hoc workflows\
+    \ into *reusable “skills”* (code files) to cut token usage by ~10x\n- Combine\
+    \ *programmatic tool calling for development* with *direct tool calling for production\
+    \ reliability*\n\nIf you’re building *production AI agents, AI assistants, or\
+    \ autonomous workflows* and want to understand where *MCP, tool discovery, and\
+    \ code‑based tool execution* actually make sense (and where they break), this\
+    \ video walks through the full process, trade‑offs, and a pattern you can start\
+    \ using today."
+  channel: Arseny Shatokhin
+  channel_id: UCSv4qL8vmoSH7GaPjuqRiCQ
+  published_at: '20251210'
+  duration: 1195
+  view_count: 2206
+  like_count: 57
+  thumbnail: https://i.ytimg.com/vi/jyYDHJAcfak/maxresdefault.jpg
+creator:
+  name: VRSEN
+  slug: vrsen
+  handle: '@vrsen'
+  tier: 1
+  areas:
+  - ai-engineering
+  - ai-agents
+  topics:
+  - autonomous-systems
+  - agent-architecture
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:32:39.974710'
+  collected_at: '2026-02-02T03:32:39.974735'
+  collected_by: ingest.py
+transcript:
+  full_text: ''
+  segments: []
+  segment_count: 0
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

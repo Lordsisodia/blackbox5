@@ -1,0 +1,57 @@
+source:
+  type: youtube
+  id: 7ad_1mC-zCk
+  url: https://youtube.com/watch?v=7ad_1mC-zCk
+  title: Anthropic Just Made Code‑Execution Agents Easy (But Dangerous)
+  description: "\U0001F4C4Anthropic's blog post: https://www.anthropic.com/engineering/advanced-tool-use\n\
+    \n\U0001F4BB Agency Starter Template: https://github.com/agency-ai-solutions/agency-starter-template\n\
+    \n\U0001F4FA The End of MCP video: https://youtu.be/D4ImbDGFgIM\n\n\U0001F4BC\
+    \ If you're a business owner, we can add $15,000 per month in profit or you pay\
+    \ nothing. Turn your business into a product company with AI: https://agents.vrsen.ai/\n\
+    \n\U0001F468‍\U0001F4BB If you're a developer / agency and want to build your\
+    \ own AI solutions, join our FREE Skool community. You'll find support on every\
+    \ step of the way: https://www.skool.com/agency-ai\n\n\U0001F41D Deploy agents\
+    \ in custom sandboxes without any infrastructure overhead. Focus on what matters\
+    \ most - building AI agents rather than deploying them: https://agencii.ai/\n\n\
+    \nTimestamps: \n00:00 - Intro\n01:25 - Anthropic's New Features\n09:08 - Why This\
+    \ is Dangerous\n11:30 - MCP Code Execution\n15:17 - Final Results\n\nAbout: \n\
+    Anthropic releases game-changing advanced tool use for AI agents. Explore how\
+    \ tool search, programmatic tool calling, and code-driven orchestration transform\
+    \ modern AI agents. See how these features reduce MCP tool bloat, cut token costs,\
+    \ improve accuracy, and enable scalable multi-step workflows. Includes a real\
+    \ implementation demo and essential safeguards for building reliable, production-ready\
+    \ agents."
+  channel: Arseny Shatokhin
+  channel_id: UCSv4qL8vmoSH7GaPjuqRiCQ
+  published_at: '20251128'
+  duration: 980
+  view_count: 4735
+  like_count: 107
+  thumbnail: https://i.ytimg.com/vi/7ad_1mC-zCk/maxresdefault.jpg
+creator:
+  name: VRSEN
+  slug: vrsen
+  handle: '@vrsen'
+  tier: 1
+  areas:
+  - ai-engineering
+  - ai-agents
+  topics:
+  - autonomous-systems
+  - agent-architecture
+collection:
+  discovered_via: rss
+  discovered_at: '2026-02-02T03:33:16.761247'
+  collected_at: '2026-02-02T03:33:16.761264'
+  collected_by: ingest.py
+transcript:
+  full_text: ''
+  segments: []
+  segment_count: 0
+  language: en
+  is_auto_generated: true
+processing:
+  stage: ingested
+  stages_completed:
+  - ingest
+  next_stage: extract

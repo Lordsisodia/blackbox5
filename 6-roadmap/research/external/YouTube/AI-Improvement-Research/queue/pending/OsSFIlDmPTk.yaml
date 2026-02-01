@@ -1,0 +1,18 @@
+video_id: OsSFIlDmPTk
+title: The Easiest Way to Build AI Skills
+creator: VRSEN
+creator_slug: vrsen
+url: https://youtube.com/watch?v=OsSFIlDmPTk
+priority: critical
+status: pending
+queued_at: '2026-02-02T03:31:26.044985'
+source_path: data/sources/vrsen/videos/OsSFIlDmPTk.yaml
+ranking:
+  relevance: 40
+  importance: 65
+  value: 23
+  composite: 42.0
+decision:
+  should_process: true
+  tier: 1
+  reason: meets_threshold
