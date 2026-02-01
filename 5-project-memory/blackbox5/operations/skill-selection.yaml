@@ -1,0 +1,253 @@
+# Skill Selection Framework
+# BlackBox5 - Operations
+#
+# Purpose: Guide skill selection during task execution to bridge the gap
+#          between documented skills and actual usage.
+#
+# Usage: Executors MUST check this file before starting Phase 2 (Execution)
+#        of any task. Follow the decision tree to determine if a skill
+#        should be invoked.
+#
+# Integration: Works alongside skill-usage.yaml and skill-metrics.yaml
+
+# ============================================================================
+# Quick Decision Tree
+# ============================================================================
+#
+# START: Read task file completely
+#   |
+#   v
+# Check skill-usage.yaml for applicable skills
+#   |
+#   +---> Match found with >80% confidence? ---> YES ---> Invoke skill
+#   |                                           |
+#   |                                           NO
+#   |                                           |
+#   +---> No match or <80% confidence? ---------> Proceed with standard execution
+#   |
+#   v
+# Document decision in THOUGHTS.md
+#   |
+#   v
+# END: Continue with Phase 2 (Execution)
+
+# ============================================================================
+# Domain-to-Skill Mapping
+# ============================================================================
+
+domain_mapping:
+  - domain: "Product Management"
+    keywords: ["PRD", "requirements", "feature definition", "roadmap", "user story", "epic"]
+    primary_skill: bmad-pm
+    confidence_threshold: 85
+    notes: "Use for any requirements gathering or feature planning work"
+
+  - domain: "Architecture & Design"
+    keywords: ["architecture", "design", "refactor", "integrate", "pattern", "scalability", "structure"]
+    primary_skill: bmad-architect
+    confidence_threshold: 90
+    notes: "Use for system design, major refactoring, integration planning"
+
+  - domain: "Research & Analysis"
+    keywords: ["research", "analyze", "investigate", "pattern", "audit", "study"]
+    primary_skill: bmad-analyst
+    confidence_threshold: 80
+    notes: "Use for data analysis, pattern identification, research tasks"
+
+  - domain: "Process & Coordination"
+    keywords: ["process", "sprint", "coordinate", "planning", "scrum", "facilitate"]
+    primary_skill: bmad-sm
+    confidence_threshold: 80
+    notes: "Use for process questions, coordination, sprint planning"
+
+  - domain: "UX & Design"
+    keywords: ["UI", "UX", "design", "user flow", "interface", "mockup", "wireframe"]
+    primary_skill: bmad-ux
+    confidence_threshold: 85
+    notes: "Use for UI/UX decisions, user flow design"
+
+  - domain: "Implementation"
+    keywords: ["implement", "code", "develop", "build", "create", "write"]
+    primary_skill: bmad-dev
+    confidence_threshold: 80
+    notes: "Use for coding tasks, implementation work, testing"
+
+  - domain: "Quality Assurance"
+    keywords: ["test", "quality", "QA", "validation", "verify", "bug"]
+    primary_skill: bmad-qa
+    confidence_threshold: 85
+    notes: "Use for testing strategy, test plans, quality questions"
+
+  - domain: "Complex Problem Solving"
+    keywords: ["Should we", "How should we", "best way", "optimize", "strategy"]
+    primary_skill: superintelligence-protocol
+    confidence_threshold: 90
+    notes: "Use for architecture questions, design decisions, complex problems"
+
+  - domain: "Continuous Improvement"
+    keywords: ["improve", "optimize", "refine", "iterate", "enhance"]
+    primary_skill: continuous-improvement
+    confidence_threshold: 85
+    notes: "Use when improving existing systems or processes"
+
+  - domain: "Web Research"
+    keywords: ["search", "current", "documentation", "external", "web"]
+    primary_skill: web-search
+    confidence_threshold: 80
+    notes: "Use for research requiring external information"
+
+  - domain: "Codebase Navigation"
+    keywords: ["find code", "explore", "understand structure", "navigate"]
+    primary_skill: codebase-navigation
+    confidence_threshold: 80
+    notes: "Use for exploring unfamiliar codebases or finding code"
+
+  - domain: "Database Operations"
+    keywords: ["supabase", "database", "RLS", "migration", "schema"]
+    primary_skill: supabase-operations
+    confidence_threshold: 85
+    notes: "Use for Supabase database operations"
+
+  - domain: "Git Operations"
+    keywords: ["commit", "git", "PR", "branch", "merge"]
+    primary_skill: git-commit
+    confidence_threshold: 95
+    notes: "Always use for git operations - high confidence"
+
+# ============================================================================
+# Skill Selection Process
+# ============================================================================
+
+selection_process:
+  step_1: "Read task file completely - understand objective and approach"
+  step_2: "Check skill-usage.yaml for skills with matching trigger_keywords"
+  step_3: "Match task type against domain_mapping above"
+  step_4: "Calculate confidence based on keyword overlap and task context"
+  step_5: "If confidence >= threshold, invoke the skill"
+  step_6: "If confidence < threshold, proceed with standard execution"
+  step_7: "Document decision in THOUGHTS.md under 'Skill Usage for This Task'"
+
+# ============================================================================
+# Confidence Calculation
+# ============================================================================
+
+confidence_calculation:
+  description: "Calculate confidence score (0-100%) for skill selection"
+
+  factors:
+    - factor: "Keyword match"
+      weight: 40
+      description: "Percentage of skill keywords present in task"
+
+    - factor: "Task type alignment"
+      weight: 30
+      description: "How well task type matches skill's intended use"
+
+    - factor: "Complexity fit"
+      weight: 20
+      description: "Whether task complexity warrants specialized skill"
+
+    - factor: "Historical success"
+      weight: 10
+      description: "Skill's track record from skill-metrics.yaml"
+
+  formula: |
+    confidence = (keyword_match * 0.40) +
+                 (type_alignment * 0.30) +
+                 (complexity_fit * 0.20) +
+                 (historical_success * 0.10)
+
+  threshold: 80
+  threshold_notes: "Only invoke skill if confidence >= 80%"
+
+# ============================================================================
+# Fallback Behavior
+# ============================================================================
+
+fallback:
+  when_no_skill_matches:
+    action: "Proceed with standard execution"
+    documentation: "Note in THOUGHTS.md: 'No applicable skill found'"
+
+  when_confidence_low:
+    action: "Proceed with standard execution"
+    documentation: "Note in THOUGHTS.md: 'Skill X considered but confidence too low (Y%)'"
+
+  when_multiple_skills_match:
+    action: "Select highest confidence skill or most specific match"
+    documentation: "Note in THOUGHTS.md: 'Multiple skills applicable, selected X because...'"
+
+  when_uncertain:
+    action: "Ask Planner via chat-log.yaml"
+    documentation: "Document question and response in THOUGHTS.md"
+
+# ============================================================================
+# Documentation Requirements
+# ============================================================================
+
+documentation:
+  in_thoughts_md:
+    - "## Skill Usage for This Task"
+    - "**Applicable skills:** [list or 'None']"
+    - "**Skill invoked:** [name or 'None']"
+    - "**Confidence:** [percentage if calculated]"
+    - "**Rationale:** [why skill was or wasn't used]"
+
+  in_results_md:
+    - "Note skill usage in validation section"
+    - "Update skill-metrics.yaml task_outcomes"
+
+  in_task_completion:
+    - "Fill out Skill Usage Tracking section"
+    - "Rate effectiveness if skill was used"
+
+# ============================================================================
+# Validation Checklist
+# ============================================================================
+
+validation:
+  before_execution:
+    - "Checked skill-usage.yaml for applicable skills"
+    - "Calculated confidence for any matches"
+    - "Documented decision in THOUGHTS.md"
+
+  after_execution:
+    - "Updated skill-metrics.yaml with task outcome"
+    - "Recorded skill effectiveness if used"
+    - "Noted any trigger accuracy issues"
+
+# ============================================================================
+# Examples
+# ============================================================================
+
+examples:
+  - scenario: "Task: Create PRD for user authentication"
+    skill_selected: "bmad-pm"
+    confidence: 95
+    rationale: "Task explicitly mentions PRD creation, matches bmad-pm triggers"
+
+  - scenario: "Task: How should we architect the caching layer?"
+    skill_selected: "superintelligence-protocol"
+    confidence: 90
+    rationale: "Question format 'How should we' + architecture = superintelligence-protocol"
+
+  - scenario: "Task: Fix typo in README"
+    skill_selected: "None"
+    confidence: N/A
+    rationale: "Simple task, no skill adds value, below complexity threshold"
+
+  - scenario: "Task: Implement n8n workflow for data sync"
+    skill_selected: "bmad-dev"
+    confidence: 85
+    rationale: "Implementation task with clear requirements, bmad-dev appropriate"
+
+# ============================================================================
+# Metadata
+# ============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "2026-02-01T08:00:00Z"
+  last_updated: "2026-02-01T08:00:00Z"
+  total_selections_tracked: 0
+  framework_status: "active"

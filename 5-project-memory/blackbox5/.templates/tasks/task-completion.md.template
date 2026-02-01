@@ -34,6 +34,41 @@ FILL_ME
 
 - FILL_ME
 
+## Skill Usage Tracking
+
+<!-- CRITICAL: This section MUST be filled out for every task -->
+
+### Skill Selection
+
+**Applicable skills identified:**
+- [ ] Checked operations/skill-usage.yaml
+- [ ] Reviewed operations/skill-selection.yaml
+- [ ] Skills considered: [list or "None applicable"]
+
+**Skill invocation decision:**
+- Skill invoked: [skill name or "None"]
+- Confidence level: [percentage or "N/A"]
+- Rationale: [why skill was or wasn't used]
+
+### Skill Effectiveness (if skill was used)
+
+**Effectiveness rating:** [1-5 scale]
+- 5 = Excellent - Exceeded expectations, perfect fit
+- 4 = Good - Met expectations, useful assistance
+- 3 = Acceptable - Some value, but not essential
+- 2 = Below Average - Limited value, could have done without
+- 1 = Poor - No value or hindered progress
+
+**Time impact:**
+- Estimated without skill: [minutes]
+- Actual with skill: [minutes]
+- Time saved/overhead: [minutes]
+
+**Would use again for similar task:** [Yes/No/Maybe]
+
+**Notes on skill performance:**
+[Observations about what worked well or didn't]
+
 ## Verification Checklist
 
 - [ ] Tests pass
