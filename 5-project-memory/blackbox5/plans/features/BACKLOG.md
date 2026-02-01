@@ -8,9 +8,9 @@
 
 ## Backlog Summary
 
-- **Planned:** 7 features
-- **Active:** 1 feature (F-004 in progress)
-- **Completed:** 5 features (F-001, F-005, F-006, F-007, F-004)
+- **Planned:** 5 features
+- **Active:** 1 feature (F-010 in progress)
+- **Completed:** 7 features (F-001, F-004, F-005, F-006, F-007, F-008, F-009)
 - **Total:** 12 features
 
 ---
@@ -125,9 +125,13 @@
 
 ---
 
-### F-008: Real-time Collaboration Dashboard
+### F-008:
+**Completed:** 2026-02-01 (Run 58)
+**Task:** TASK-1769954137
+**Lines Delivered:** ~1,490 lines (380 spec + 260 server + 420 UI + 430 docs)
+**Impact:** WebSocket server (260 lines), web dashboard UI (420 lines), real-time metrics and alerts Real-time Collaboration Dashboard
 
-**Status:** planned
+**Status:** completed ✅
 **Priority:** MEDIUM (Score: 4.0)
 **Estimated:** 150 minutes (~2.5 hours)
 **Value Score:** 7/10
@@ -159,9 +163,13 @@
 
 ---
 
-### F-009: Skill Marketplace & Discovery System
+### F-009:
+**Completed:** 2026-02-01 (Run 59)
+**Task:** TASK-1769955705
+**Lines Delivered:** ~2,280 lines (380 spec + 540 registry + 380 versioning + 460 recommender + 520 docs)
+**Impact:** Central skill registry (23 skills), semantic versioning, AI-powered recommendations (70% threshold), effectiveness tracking Skill Marketplace & Discovery System
 
-**Status:** planned
+**Status:** completed ✅
 **Priority:** MEDIUM (Score: 3.5)
 **Estimated:** 180 minutes (~3 hours)
 **Value Score:** 7/10

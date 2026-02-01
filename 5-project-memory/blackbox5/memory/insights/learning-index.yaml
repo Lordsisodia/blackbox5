@@ -1,0 +1,132 @@
+# Learning Index - RALF Knowledge Base & Learning Engine
+# Central index of all learnings extracted from task runs
+# Format: YAML for easy parsing and human readability
+#
+# This file is auto-populated by the learning_extractor.py library
+# Manual edits should follow the same structure
+
+# ==============================================================================
+# Metadata
+# ==============================================================================
+metadata:
+  version: "1.0.0"
+  created: "2026-02-01T14:42:30Z"
+  last_updated: "2026-02-01T14:42:30Z"
+  total_learnings: 0
+  last_task_id: "UNKNOWN"
+
+# ==============================================================================
+# Learnings
+# ==============================================================================
+# Each learning represents a lesson learned from a task run
+# Fields:
+#   - learning_id: Unique identifier (TASK-XXX-LEARNING-N)
+#   - task_id: Source task ID
+#   - task_title: Title of the source task
+#   - feature_id: Related feature ID (if applicable)
+#   - timestamp: When the learning was extracted
+#   - source_file: THOUGHTS.md or DECISIONS.md
+#   - learning_type: pattern, decision, challenge, optimization, bugfix, insight
+#   - title: Short title
+#   - description: Full description
+#   - severity: critical, high, medium, low (for issues)
+#   - effectiveness: 0.0 to 1.0 (tracked over time)
+#   - frequency: recurring, occasional, one-time
+#   - category: technical, process, architectural, operational
+#   - tags: List of keywords
+#   - related_tasks: List of related task IDs
+#   - pattern: The pattern or issue identified
+#   - action_item: What action to take
+
+learnings: []
+
+# ==============================================================================
+# Patterns
+# ==============================================================================
+# Recurring patterns identified across multiple tasks
+# Fields:
+#   - pattern_id: Unique identifier
+#   - pattern_type: keyword, context, error_type, decision
+#   - description: Pattern description
+#   - frequency: How often this pattern occurs
+#   - related_tasks: Task IDs where this pattern appears
+#   - confidence: 0.0 to 1.0
+#   - keywords: List of keywords
+#   - applicability: broad, specific, niche
+
+patterns: []
+
+# ==============================================================================
+# Statistics
+# ==============================================================================
+statistics:
+  # Learning counts by type
+  by_type:
+    pattern: 0
+    decision: 0
+    challenge: 0
+    optimization: 0
+    bugfix: 0
+    insight: 0
+
+  # Learning counts by category
+  by_category:
+    technical: 0
+    process: 0
+    architectural: 0
+    operational: 0
+
+  # Learning counts by severity
+  by_severity:
+    critical: 0
+    high: 0
+    medium: 0
+    low: 0
+
+  # Effectiveness statistics
+  effectiveness:
+    average: null
+    min: null
+    max: null
+    total_tracked: 0
+
+  # Frequency statistics
+  frequency:
+    recurring: 0
+    occasional: 0
+    one_time: 0
+
+# ==============================================================================
+# Index Maintenance
+# ==============================================================================
+# This section tracks index maintenance operations
+maintenance:
+  last_rebuild: null
+  last_cleanup: null
+  last_effectiveness_update: null
+  total_rebuilds: 0
+
+# ==============================================================================
+# Notes
+# ==============================================================================
+notes: |
+  Learning Index Auto-Generated
+
+  This index is automatically populated by the learning_extractor.py library
+  after each task completion. Manual edits should maintain the YAML structure.
+
+  Index structure:
+  - learnings: Array of learning objects extracted from tasks
+  - patterns: Array of recurring patterns identified across tasks
+  - statistics: Aggregated statistics for quick querying
+  - maintenance: Index maintenance tracking
+
+  Usage:
+  - Query with knowledge_retriever.py: python3 -m knowledge_retriever search "import error"
+  - Find patterns with pattern_matcher.py: python3 -m pattern_matcher patterns
+  - Apply learnings with learning_applier.py: python3 -m learning_applier inject --task-id TASK-XXX --title "My Task"
+
+  Maintenance:
+  - Rebuild: python3 -m learning_extractor rebuild-index
+  - Cleanup: python3 -m learning_extractor cleanup-index
+  - Update effectiveness: python3 -m learning_applier update-effectiveness
