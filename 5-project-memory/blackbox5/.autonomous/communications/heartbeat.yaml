@@ -1,8 +1,8 @@
 heartbeats:
   planner:
-    last_seen: '2026-02-01T11:45:00Z'
+    last_seen: '2026-02-01T01:31:15Z'
     status: running
-    current_action: completed_loop_34
+    current_action: planning
   executor:
     last_seen: '2026-02-01T12:05:00Z'
     status: running
