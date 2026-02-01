@@ -945,3 +945,9 @@ events:
 metadata:
   last_event_id: 133
   last_updated: '2026-02-01T13:30:00Z'
+
+- id: 134
+  timestamp: '2026-02-01T01:49:49Z'
+  type: started
+  task_id: TASK-1769914000
+  data: null
