@@ -6,9 +6,9 @@ heartbeats:
     loop_number: 15
     run_number: 63
   executor:
-    last_seen: '2026-02-01T13:51:00Z'
+    last_seen: '2026-02-01T14:00:04Z'
     status: running
-    current_action: executing_TASK-1769952152
+    current_action: "idle - Run 55 completed (F-006 User Preferences)"
     loop_number: 55
     run_number: 55
 metadata:
