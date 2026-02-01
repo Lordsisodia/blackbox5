@@ -276,8 +276,12 @@ folders:
         contents: []
 
 # =============================================================================
-# TEMPLATES - 26 templates for consistent documentation
+# TEMPLATES - 31 templates for consistent documentation
 # =============================================================================
+# Naming Convention: [name].[ext].template (e.g., epic.md.template)
+# Usage: Copy template to target location, remove .template suffix, fill FILL_ME
+# Documentation: .docs/template-system-guide.md
+# Rule: Never edit .template files directly - they are patterns, not production
 
 templates:
   root:
@@ -321,11 +325,24 @@ templates:
       - "metadata.yaml.template"
   tasks:
     path: ".templates/tasks/"
-    count: 3
+    count: 6
     files:
       - "task-specification.md.template"
       - "task-context-bundle.md.template"
       - "task-completion.md.template"
+      - "task-acceptance-criteria.md.template"
+      - "THOUGHTS.md.template"
+      - "LEARNINGS.md.template"
+  agents:
+    path: ".templates/agents/"
+    count: 1
+    files:
+      - "agent-version.md.template"
+  reviews:
+    path: ".templates/reviews/"
+    count: 1
+    files:
+      - "first-principles-review.md.template"
 
 # =============================================================================
 # DOCUMENTATION - .docs/ folders (AI-managed documentation)
@@ -339,8 +356,12 @@ docs:
         purpose: "10 key patterns from siso-internal"
       - "ai-template-usage-guide.md"
         purpose: "How AI agents should use templates"
+      - "template-system-guide.md"
+        purpose: "Template naming conventions and system documentation"
       - "dot-docs-system.md"
         purpose: "Specification for .docs/ system"
+      - "learning-extraction-guide.md"
+        purpose: "How to extract learnings from runs"
       - "migration-plan.md"
         purpose: "4-phase migration plan"
 
