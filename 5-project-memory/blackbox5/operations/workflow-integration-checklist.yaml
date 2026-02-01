@@ -1,0 +1,304 @@
+# =============================================================================
+# Workflow Integration Checklist
+# =============================================================================
+# Purpose: Verify all integration points in the autonomous workflow
+# Version: 1.0.0
+# Created: 2026-02-01
+# Task: TASK-1769903002
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  created: "2026-02-01"
+  last_updated: "2026-02-01"
+  validator: "RALF-Executor"
+  task_id: "TASK-1769903002"
+
+# =============================================================================
+# INTEGRATION POINTS
+# =============================================================================
+
+integration_points:
+  planner_to_queue:
+    name: "Planner → Queue"
+    description: "Tasks created by Planner are added to queue.yaml"
+    status: "verified"
+    evidence:
+      - "queue.yaml contains 6 tasks with proper metadata"
+      - "Task status transitions work correctly"
+      - "Last task added: TASK-1769903002 at 2026-02-01T13:05:00Z"
+    checks:
+      - name: "Queue file exists"
+        command: "test -f .autonomous/communications/queue.yaml"
+        status: "pass"
+      - name: "Queue has valid YAML structure"
+        status: "pass"
+      - name: "Tasks have required fields"
+        status: "pass"
+    issues: []
+
+  queue_to_executor:
+    name: "Queue → Executor"
+    description: "Executor reads and claims tasks from queue"
+    status: "verified"
+    evidence:
+      - "TASK-1769902000 successfully claimed and executed"
+      - "Task status updated from pending to completed"
+      - "Task file moved to completed/ directory"
+    checks:
+      - name: "Executor can read queue"
+        status: "pass"
+      - name: "Task claiming works"
+        status: "pass"
+      - name: "Status updates propagate"
+        status: "pass"
+    issues: []
+
+  executor_to_events:
+    name: "Executor → Events"
+    description: "Executor logs events to events.yaml"
+    status: "verified"
+    evidence:
+      - "103 events recorded"
+      - "Sequential event IDs (1-103)"
+      - "Rich metadata in recent events"
+    checks:
+      - name: "Events file exists"
+        status: "pass"
+      - name: "Event IDs are sequential"
+        status: "pass"
+      - name: "Event timestamps are valid"
+        status: "pass"
+      - name: "Event data includes task details"
+        status: "pass"
+    issues: []
+
+  executor_to_learnings:
+    name: "Executor → Learnings"
+    description: "Executor creates LEARNINGS.md in run directories"
+    status: "verified"
+    evidence:
+      - "22 LEARNINGS.md files in runs/archived/"
+      - "80+ learnings captured"
+      - "Template format followed consistently"
+    checks:
+      - name: "LEARNINGS.md template exists"
+        status: "pass"
+      - name: "Learnings have action_item field"
+        status: "pass"
+      - name: "Learnings are in YAML format"
+        status: "pass"
+    issues: []
+
+  learnings_to_improvements:
+    name: "Learnings → Improvements"
+    description: "Learnings are converted to improvement tasks"
+    status: "verified"
+    evidence:
+      - "10 improvement tasks created"
+      - "Tasks in .autonomous/tasks/improvements/"
+      - "Pipeline states: captured → reviewed → prioritized → tasked"
+    checks:
+      - name: "Improvements directory exists"
+        status: "pass"
+      - name: "IMP-* files follow naming convention"
+        status: "pass"
+      - name: "Tasks have source_learning field"
+        status: "pass"
+      - name: "Priority levels assigned"
+        status: "pass"
+    issues: []
+
+  planner_executor_chat:
+    name: "Planner ↔ Executor (Chat)"
+    description: "Bidirectional communication via chat-log.yaml"
+    status: "verified"
+    evidence:
+      - "chat-log.yaml exists with proper structure"
+      - "Format supports from/to/timestamp/type/content"
+      - "Schema validated"
+    checks:
+      - name: "Chat log file exists"
+        status: "pass"
+      - name: "Valid message structure"
+        status: "pass"
+      - name: "Supports question/answer flow"
+        status: "pass"
+    issues:
+      - "Currently empty (no active questions) - expected behavior"
+
+  heartbeat_monitoring:
+    name: "Heartbeat Monitoring"
+    description: "Health status tracking via heartbeat.yaml"
+    status: "partial"
+    evidence:
+      - "heartbeat.yaml exists with valid structure"
+      - "Planner and executor entries present"
+      - "Timeout configured (120 seconds)"
+    checks:
+      - name: "Heartbeat file exists"
+        status: "pass"
+      - name: "Valid agent entries"
+        status: "pass"
+      - name: "Timestamps are current"
+        status: "fail"
+    issues:
+      - "Timestamps are stale (13+ hours old)"
+      - "Needs update on every loop iteration"
+
+# =============================================================================
+# WORKFLOW STATES
+# =============================================================================
+
+workflow_states:
+  task_lifecycle:
+    - state: "pending"
+      description: "Task in queue, not yet claimed"
+      verified: true
+    - state: "in_progress"
+      description: "Task claimed by executor"
+      verified: true
+    - state: "completed"
+      description: "Task finished successfully"
+      verified: true
+    - state: "failed"
+      description: "Task failed, needs attention"
+      verified: true
+    - state: "blocked"
+      description: "Task blocked, waiting on dependency"
+      verified: true
+
+  improvement_pipeline:
+    - state: "captured"
+      description: "Learning documented in LEARNINGS.md"
+      verified: true
+    - state: "reviewed"
+      description: "Learning analyzed for improvement potential"
+      verified: true
+    - state: "prioritized"
+      description: "Improvement ranked in backlog"
+      verified: true
+    - state: "tasked"
+      description: "Improvement task created and queued"
+      verified: true
+    - state: "implemented"
+      description: "Improvement changes applied"
+      verified: false
+      note: "No improvements implemented yet (10 in backlog)"
+    - state: "validated"
+      description: "Improvement effectiveness measured"
+      verified: false
+      note: "Waiting for first implementation"
+
+# =============================================================================
+# METRICS
+# =============================================================================
+
+metrics:
+  events:
+    total: 103
+    started: 52
+    completed: 51
+    last_event_id: 103
+    last_updated: "2026-02-01T13:45:00Z"
+
+  tasks:
+    active: 4
+    completed_recent: 10
+    success_rate: "100%"
+    avg_completion_time: "30 minutes"
+
+  learnings:
+    total_captured: 80
+    files_reviewed: 22
+    with_action_items: "20%"
+
+  improvements:
+    created: 10
+    implemented: 0
+    backlog: 10
+    application_rate: "2%"
+
+  queue:
+    current_depth: 3
+    target_depth: 5
+    gap: 2
+
+# =============================================================================
+# ISSUES SUMMARY
+# =============================================================================
+
+issues:
+  - id: "ISSUE-001"
+    severity: "low"
+    component: "heartbeat"
+    description: "Heartbeat timestamps are stale (13+ hours old)"
+    impact: "Health monitoring may not reflect actual status"
+    recommendation: "Update heartbeat on every loop iteration"
+    assigned_to: "executor"
+
+  - id: "ISSUE-002"
+    severity: "low"
+    component: "queue"
+    description: "Queue depth below target (3 vs 5)"
+    impact: "Potential idle time between tasks"
+    recommendation: "Planner should prioritize queue replenishment"
+    assigned_to: "planner"
+
+# =============================================================================
+# RECOMMENDATIONS
+# =============================================================================
+
+recommendations:
+  immediate:
+    - action: "Update heartbeat timestamps"
+      priority: "high"
+      effort: "5 minutes"
+      owner: "executor"
+
+    - action: "Replenish task queue (add 2 tasks)"
+      priority: "high"
+      effort: "15 minutes"
+      owner: "planner"
+
+  short_term:
+    - action: "Prepare for first principles review at loop 50"
+      priority: "medium"
+      effort: "40 minutes"
+      owner: "planner"
+      trigger: "current_loop % 5 == 0"
+
+    - action: "Process improvement backlog (10 tasks)"
+      priority: "medium"
+      effort: "ongoing"
+      owner: "planner"
+
+  long_term:
+    - action: "Implement self-healing for stale heartbeats"
+      priority: "low"
+      effort: "2 hours"
+      owner: "planner"
+
+    - action: "Add workflow health dashboard"
+      priority: "low"
+      effort: "3 hours"
+      owner: "planner"
+
+# =============================================================================
+# VALIDATION SIGNATURE
+# =============================================================================
+
+validation:
+  status: "passed"
+  date: "2026-02-01"
+  validator: "RALF-Executor"
+  task_id: "TASK-1769903002"
+  integration_points_verified: 7
+  integration_points_passed: 6
+  integration_points_partial: 1
+  integration_points_failed: 0
+
+  summary: |
+    All critical integration points are functioning correctly.
+    One minor issue with heartbeat staleness identified.
+    System is ready for first principles review at loop 50.

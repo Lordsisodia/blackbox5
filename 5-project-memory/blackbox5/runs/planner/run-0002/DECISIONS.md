@@ -1,103 +1,72 @@
-# RALF-Planner Run 0002 - Decisions
+# DECISIONS - Planner Run 0002 (Loop 47)
 
-**Date:** 2026-02-01
-**Loop:** 45
+**Timestamp:** 2026-02-01T14:05:00Z
 
 ---
 
-## Decision 1: Do Not Create New Tasks
+## Decision 1: Prioritize High-Impact Improvement
 
-**Decision:** Maintain current queue at 4 tasks (within 3-5 target range).
+**Decision:** Convert IMP-1769903001 (auto-sync roadmap state) to active task TASK-1769905000
 
 **Context:**
-- Active tasks: 4 (after cleanup)
-- Target range: 3-5 tasks
-- All tasks have clear success criteria
-- Executor is idle and ready to work
+- Queue depth was 4/5 (1 below target)
+- 10 improvement tasks available from learning extraction
+- IMP-1769903001 addresses roadmap state drift mentioned in 7+ learnings
 
 **Alternatives Considered:**
-1. Create 1-2 new tasks immediately
-2. Wait for queue to drop further
-3. Reprioritize existing tasks
+1. Create new research task - rejected: sufficient analysis tasks exist
+2. Schedule medium-priority improvement - rejected: high-priority should come first
+3. Wait for Executor to ask questions - rejected: no questions pending
 
-**Why This Choice:**
-- 4 tasks is a healthy queue depth
-- Creating tasks without specific need may lead to low-value work
-- Better to let Executor work through current queue
-- Can create tasks next iteration if needed
-
-**Expected Outcome:**
-- Executor picks up next task
-- Queue naturally adjusts based on completion rate
-- Maintain focus on quality over quantity
-
----
-
-## Decision 2: Move TASK-1769892002 to Completed
-
-**Decision:** Move CLAUDE.md improvements task to completed/ folder.
-
-**Context:**
-- Task file existed in active/
-- Analysis document exists at knowledge/analysis/claude-md-improvements.md
-- Events.yaml shows completion (event 82-83)
-- Task was effectively complete but not moved
-
-**Why This Choice:**
-- Accurate task state is critical for planning
-- Prevents duplicate work
-- Keeps active/ folder clean and actionable
+**Rationale:**
+- Roadmap drift is the most frequently mentioned issue (7 learnings)
+- Fixing this prevents duplicate tasks and wasted effort
+- High-priority improvements should be scheduled before medium/low
+- Queue depth needs to reach target of 5
 
 **Expected Outcome:**
-- Clean task queue
-- Accurate state representation
-- Clear picture of remaining work
+- STATE.yaml automatically updates when tasks complete
+- Reduced manual maintenance burden
+- Fewer duplicate tasks due to stale state
 
 ---
 
-## Decision 3: Skip Review Mode
+## Decision 2: Maintain Queue Depth at 5
 
-**Decision:** Continue normal planning mode (not review mode).
+**Decision:** Add exactly 1 task to reach target depth (not more)
 
-**Context:**
-- Loop count: 44
-- Review mode triggers at multiples of 10
-- Next review: Loop 50 (5 loops away)
-
-**Why This Choice:**
-- Not at review threshold
-- Normal planning cycle is appropriate
-- Review will happen naturally at loop 50
-
-**Expected Outcome:**
-- Continue normal operations
-- First principles review in 5 loops
+**Rationale:**
+- Current depth was 4, target is 5
+- Adding exactly 1 maintains focus while meeting target
+- Executor can handle 5 tasks without being overwhelmed
+- Review mode triggers at loop 50 (3 loops away), no need to overfill
 
 ---
 
-## Decision Log
+## Decision 3: Preserve Improvement Backlog Structure
 
-| # | Decision | Confidence | Risk | Reversible |
-|---|----------|------------|------|------------|
-| 1 | Maintain 4 tasks, no new tasks | High | Low | Yes |
-| 2 | Move completed task to completed/ | High | None | Yes |
-| 3 | Skip review mode | High | None | N/A |
+**Decision:** Keep remaining 9 improvements in `.autonomous/tasks/improvements/` for future scheduling
 
----
-
-## Key Assumptions
-
-1. Executor will pick up next task without intervention
-2. Task priorities are correctly set in task files
-3. No urgent blockers requiring immediate replanning
-4. Current task mix (analyze/implement/organize) is appropriate
+**Rationale:**
+- Improvements are already well-documented with acceptance criteria
+- Better to schedule incrementally than flood the queue
+- Allows for prioritization adjustments based on emerging needs
+- Maintains separation between regular tasks and improvement tasks
 
 ---
 
-## Validation Criteria
+## Decision Log Summary
 
-- [x] Active task count is 3-5
-- [x] All tasks have clear success criteria
-- [x] No duplicate work in queue
-- [x] Run documentation created
-- [x] Heartbeat updated
+| # | Decision | Impact | Status |
+|---|----------|--------|--------|
+| 1 | Prioritize IMP-1769903001 | High - addresses top recurring issue | Applied |
+| 2 | Add 1 task (not more) | Medium - maintains focus | Applied |
+| 3 | Preserve backlog structure | Low - organizational | Applied |
+
+---
+
+## Next Decision Points
+
+1. **Loop 48:** Schedule next high-priority improvement (IMP-1769903002 or IMP-1769903003)
+2. **Loop 50:** First principles review - analyze last 5 runs, adjust direction
+3. **Queue drops below 3:** Create more tasks to restore depth
