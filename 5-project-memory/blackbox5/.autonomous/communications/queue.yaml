@@ -85,7 +85,8 @@ queue:
     dependencies:
       - TASK-1769910000
     added_at: '2026-02-01T10:05:00Z'
-    status: pending
+    completed_at: '2026-02-01T10:50:00Z'
+    status: completed
 
   - id: TASK-1769911001
     type: implement
@@ -134,9 +135,32 @@ queue:
     added_at: '2026-02-01T11:15:00Z'
     status: pending
 
+  - id: TASK-1769913000
+    type: implement
+    title: Create task acceptance criteria template
+    priority: medium
+    estimated_minutes: 30
+    context_level: 2
+    approach: |
+      Create a task acceptance criteria template to improve task scope clarity.
+      Based on IMP-1769903009 from improvement backlog.
+      Update task-specification.md.template with acceptance criteria section.
+    files_to_modify:
+      - .templates/tasks/task-acceptance-criteria.md.template
+      - .templates/tasks/task-specification.md.template
+      - operations/improvement-backlog.yaml
+    acceptance_criteria:
+      - Task acceptance criteria template created
+      - Task specification template updated
+      - IMP-1769903009 marked complete
+      - Documentation for using template created
+    dependencies: []
+    added_at: '2026-02-01T11:20:00Z'
+    status: pending
+
 metadata:
-  last_updated: '2026-02-01T11:15:00Z'
+  last_updated: '2026-02-01T11:20:00Z'
   updated_by: planner
   queue_depth_target: 5
-  current_depth: 5
-  last_completed: TASK-1769895001
+  current_depth: 6
+  last_completed: TASK-1769911000

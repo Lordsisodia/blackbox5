@@ -1,0 +1,77 @@
+# Acceptance Criteria: [TASK-ID]
+
+## Definition of Done
+
+<!-- These criteria MUST all be met for the task to be considered complete -->
+
+### Functional Criteria
+- [ ] **Primary objective achieved:** [Brief description of main goal]
+- [ ] **All success criteria met:** [List specific measurable outcomes]
+- [ ] **Edge cases handled:** [List any edge cases addressed]
+
+### Quality Criteria
+- [ ] **Code quality:** Follows project standards, no obvious issues
+- [ ] **Documentation:** Updated where necessary
+- [ ] **Testing:** Appropriate tests written and passing
+- [ ] **Integration:** Works with existing system
+
+### Process Criteria
+- [ ] **Pre-execution validation:** Completed (duplicates checked, paths verified)
+- [ ] **Changes committed:** All work committed with descriptive messages
+- [ ] **Task file updated:** Status changed to completed
+- [ ] **Run documented:** THOUGHTS.md, RESULTS.md, DECISIONS.md created
+
+---
+
+## Task-Type Specific Criteria
+
+### For "implement" Tasks
+- [ ] Feature works as specified
+- [ ] No regressions in existing functionality
+- [ ] Configuration updated if needed
+- [ ] Examples provided if applicable
+
+### For "fix" Tasks
+- [ ] Bug is resolved
+- [ ] Root cause addressed (not just symptoms)
+- [ ] Fix verified with test case
+- [ ] No new issues introduced
+
+### For "refactor" Tasks
+- [ ] Behavior preserved (no functional changes)
+- [ ] Code is cleaner/more maintainable
+- [ ] Tests still pass
+- [ ] Performance not degraded
+
+### For "analyze" Tasks
+- [ ] Analysis is thorough and accurate
+- [ ] Findings are documented
+- [ ] Recommendations are actionable
+- [ ] Sources/references cited
+
+### For "organize" Tasks
+- [ ] Organization is logical and consistent
+- [ ] All items properly categorized
+- [ ] No items lost or duplicated
+- [ ] Documentation reflects new structure
+
+---
+
+## Verification Steps
+
+<!-- How to verify this task is complete -->
+
+1. **Step 1:** [Specific verification action]
+2. **Step 2:** [Specific verification action]
+3. **Step 3:** [Specific verification action]
+
+---
+
+## Sign-Off
+
+**Completed by:** [Name/ID]
+**Completed at:** [Timestamp]
+**Verified by:** [Name/ID or "Self-verified"]
+
+**Final Notes:**
+[Any important notes about completion]

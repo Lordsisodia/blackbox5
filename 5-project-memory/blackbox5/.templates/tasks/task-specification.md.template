@@ -27,9 +27,26 @@ FILL_ME
 
 ## Acceptance Criteria
 
-- [ ] FILL_ME
-- [ ] FILL_ME
-- [ ] FILL_ME
+<!-- Use SMART criteria: Specific, Measurable, Achievable, Relevant, Time-bound -->
+<!-- See: .templates/tasks/task-acceptance-criteria.md.template for detailed guidance -->
+
+### Must-Have (Required for completion)
+- [ ] FILL_ME - [Specific, testable criterion]
+- [ ] FILL_ME - [Specific, testable criterion]
+- [ ] FILL_ME - [Specific, testable criterion]
+
+### Should-Have (Important but not blocking)
+- [ ] FILL_ME - [Specific, testable criterion]
+
+### Nice-to-Have (If time permits)
+- [ ] FILL_ME - [Specific, testable criterion]
+
+### Verification Method
+<!-- How will we verify these criteria are met? -->
+- [ ] Manual testing: [describe]
+- [ ] Automated tests: [describe]
+- [ ] Code review: [describe]
+- [ ] Documentation review: [describe]
 
 ---
 
