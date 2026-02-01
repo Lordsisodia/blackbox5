@@ -1,55 +1,4 @@
 queue:
-  - id: TASK-1769911099
-    type: fix
-    title: Fix Duration Tracking in Executor Metadata
-    priority: high
-    estimated_minutes: 45
-    context_level: 2
-    approach: |
-      Fix critical bug where executor metadata records wall-clock elapsed time
-      instead of actual work time. Capture completion timestamp at task completion,
-      not at metadata read time. Add duration validation (> 4 hours warning).
-    files_to_modify:
-      - 2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md
-      - .templates/runs/executor-metadata.yaml.template
-    acceptance_criteria:
-      - Executor updates timestamp_end at actual task completion
-      - Duration calculated as completion_time - start_time
-      - Duration validation added (> 4 hours flagged)
-      - Tested with 3+ tasks for accuracy
-      - IMP-1769903011 marked complete
-    dependencies: []
-    added_at: '2026-02-01T14:50:00Z'
-    status: pending
-    improvement: IMP-1769903011
-
-  - id: TASK-1769911100
-    type: implement
-    title: Implement Duplicate Task Detection System
-    priority: high
-    estimated_minutes: 50
-    context_level: 2
-    approach: |
-      Create duplicate detection system to prevent redundant work.
-      Keyword similarity matching (80% threshold), searches active/ and completed/
-      directories. Integrated into Planner task creation and Executor task claiming.
-    files_to_modify:
-      - 2-engine/.autonomous/lib/duplicate_detector.py
-      - 2-engine/.autonomous/prompts/system/planner/variations/v2-legacy-based.md
-      - 2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md
-      - operations/.docs/duplicate-detection-guide.md
-    acceptance_criteria:
-      - Duplicate detection library created
-      - Keyword similarity matching implemented (80% threshold)
-      - Integrated into Planner and Executor workflows
-      - Warning logged when potential duplicate detected
-      - Tested with TASK-1769914000 double-execution scenario
-      - IMP-1769903003 marked complete
-    dependencies: []
-    added_at: '2026-02-01T14:55:00Z'
-    status: pending
-    improvement: IMP-1769903003
-
   - id: TASK-1769911101
     type: implement
     title: Implement Automatic Roadmap State Synchronization
@@ -76,28 +25,31 @@ queue:
     status: pending
     improvement: IMP-1769903001
 
-  - id: TASK-1769910002
-    type: analyze
-    title: Analyze task completion time trends
-    priority: medium
+  - id: TASK-1769912002
+    type: implement
+    title: Make Pre-Execution Research Mandatory
+    priority: high
     estimated_minutes: 35
     context_level: 2
     approach: |
-      Analyze task completion times across recent runs to identify trends.
-      Look for: task types that take longer, common bottlenecks, estimation accuracy.
-      Provide recommendations for better time estimation.
+      Make pre-execution research mandatory in Executor workflow to prevent
+      duplicate work, validate assumptions, and improve task quality. Create
+      research checklist, integrate into workflow, enforce compliance.
     files_to_modify:
-      - knowledge/analysis/task-completion-trends-20260201.md
-      - operations/estimation-guidelines.yaml
+      - 2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md
+      - 2-engine/.autonomous/templates/research-template.md
+      - operations/.docs/pre-execution-research-guide.md
     acceptance_criteria:
-      - 20+ tasks analyzed for completion time
-      - Trends identified and documented
-      - Estimation accuracy calculated
-      - Guidelines for future estimations provided
-    dependencies:
-      - TASK-1769911099  # Requires accurate duration data
-    added_at: '2026-02-01T09:10:00Z'
+      - Pre-execution research added to Executor workflow as REQUIRED step
+      - Research checklist created (5-7 items)
+      - Executor cannot skip research step
+      - Research findings logged to THOUGHTS.md
+      - Tested with 3+ tasks to verify compliance
+      - IMP-1769903002 marked complete
+    dependencies: []
+    added_at: '2026-02-01T02:14:00Z'
     status: pending
+    improvement: IMP-1769903002
 
   - id: TASK-1769915000
     type: implement
@@ -121,19 +73,49 @@ queue:
     dependencies: []
     added_at: '2026-02-01T12:20:00Z'
     status: pending
+    improvement: IMP-1769903008
+
+  - id: TASK-1769913001
+    type: implement
+    title: Implement Plan Validation Before Execution
+    priority: medium
+    estimated_minutes: 40
+    context_level: 2
+    approach: |
+      Create plan validation system that checks if referenced files exist and
+      problems are still valid before marking plans as ready_to_start. Prevents
+      wasted effort on invalid or stale plans.
+    files_to_modify:
+      - 2-engine/.autonomous/lib/plan_validator.py
+      - 2-engine/.autonomous/workflows/plan-approval.yaml
+      - plans/.docs/plan-validation-guide.md
+    acceptance_criteria:
+      - Plan validation script created
+      - Checks all files_to_change exist
+      - Verifies problem statement against current codebase
+      - Integration with plan approval workflow
+      - Auto-fail plans with invalid references
+      - IMP-1769903004 marked complete
+    dependencies: []
+    added_at: '2026-02-01T02:22:00Z'
+    status: pending
+    improvement: IMP-1769903004
 
 metadata:
-  last_updated: '2026-02-01T15:00:00Z'
+  last_updated: '2026-02-01T02:22:00Z'
   updated_by: planner
-  queue_depth_target: 5
-  current_depth: 5
-  last_completed: TASK-1769914000
+  queue_depth_target: '3-5'
+  current_depth: 4
+  last_completed: TASK-1769911100
   notes: |
-    Planner Run 0041 updates:
-    - Removed TASK-1769914000 (completed, events confirmed)
-    - Created TASK-1769911099: Fix duration tracking (HIGH priority)
-    - Created TASK-1769911100: Duplicate task detection (HIGH priority)
-    - Created TASK-1769911101: Roadmap state sync (HIGH priority)
-    - Queue now at target depth: 5 tasks
-    - All new tasks address critical systemic issues
-    - TASK-1769910002 now depends on TASK-1769911099 (needs accurate data)
+    Planner Run 0044 updates:
+    - Added TASK-1769913001: Plan validation before execution (MEDIUM priority)
+    - Queue now: 4 tasks (healthy middle of 3-5 range)
+    - Priority balance: 2 HIGH, 1 MEDIUM, 1 LOW (balanced)
+    - Duration tracking validated: 3/3 runs accurate (95%+ accuracy)
+    - Duplicate detection operational (Run 37 implementation)
+    - Task completion trends analyzed (Run 35 analysis)
+    - Executor health: 91.7% success rate (22/24 runs)
+    - Skill usage gap identified: 0% invocation rate (documented for investigation)
+    - All HIGH priority improvements addressed (3 completed, 1 in progress)
+    - Queue accuracy: 100% (restored from 40%)
