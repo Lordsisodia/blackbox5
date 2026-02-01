@@ -540,6 +540,106 @@ task_outcomes:
     would_use_again: true
     notes: "First task with skill selection framework. No skill invoked as task was straightforward documentation work. Framework successfully documented."
 
+  - task_id: "TASK-1769909001"
+    timestamp: "2026-02-01T08:55:00Z"
+    skill_used: null
+    task_type: "analyze"
+    duration_minutes: 35
+    outcome: "success"
+    quality_rating: 4
+    trigger_was_correct: false
+    would_use_again: false
+    notes: "bmad-analyst identified as applicable (70% confidence) but not invoked due to 80% threshold. Task was pattern analysis - skill would have added value."
+
+  - task_id: "TASK-1769892006"
+    timestamp: "2026-02-01T09:05:00Z"
+    skill_used: null
+    task_type: "analyze"
+    duration_minutes: 35
+    outcome: "success"
+    quality_rating: 4
+    trigger_was_correct: true
+    would_use_again: true
+    notes: "Documentation audit task. No applicable skill identified. Task completed successfully with standard executor workflow."
+
+  - task_id: "TASK-1769910000"
+    timestamp: "2026-02-01T09:10:00Z"
+    skill_used: null
+    task_type: "analyze"
+    duration_minutes: 30
+    outcome: "success"
+    quality_rating: 4
+    trigger_was_correct: false
+    would_use_again: false
+    notes: "Skill system recovery analysis. bmad-analyst applicable but confidence below threshold. Analysis completed successfully. RECOMMENDATION: Lower threshold to 70%."
+
+# ============================================================================
+# Recovery Metrics Tracking
+# ============================================================================
+
+recovery_metrics:
+  analysis_date: "2026-02-01T09:10:00Z"
+  runs_analyzed:
+    - run_id: "0020"
+      task_id: "TASK-1769903001"
+      skill_considered: false
+      skill_invoked: false
+      phase_1_5_compliance: false
+      notes: "Pre-fix run"
+    - run_id: "0021"
+      task_id: "TASK-1769909000"
+      skill_considered: true
+      skill_invoked: false
+      phase_1_5_compliance: true
+      notes: "First Phase 1.5 compliant run"
+    - run_id: "0022"
+      task_id: "TASK-1769909001"
+      skill_considered: true
+      skill_invoked: false
+      phase_1_5_compliance: true
+      applicable_skill: "bmad-analyst"
+      confidence: 70
+      threshold: 80
+      notes: "Skill identified but below threshold"
+    - run_id: "0023"
+      task_id: "TASK-1769892006"
+      skill_considered: true
+      skill_invoked: false
+      phase_1_5_compliance: true
+      notes: "No applicable skill"
+
+  summary:
+    total_runs_analyzed: 4
+    phase_1_5_compliant: 3
+    skills_considered: 3
+    skills_invoked: 0
+    consideration_rate: "100%"
+    invocation_rate: "0%"
+    compliance_rate: "75%"
+
+  threshold_analysis:
+    current_threshold: 80
+    recommended_threshold: 70
+    threshold_hits: 1
+      - run: "0022"
+        skill: "bmad-analyst"
+        confidence: 70
+        would_have_invoked_at_70: true
+
+  recommendations:
+    - priority: "high"
+      action: "Lower confidence threshold from 80% to 70%"
+      rationale: "Would have enabled 1 skill invocation in analyzed runs"
+      expected_impact: "33% invocation rate"
+    - priority: "medium"
+      action: "Implement forced skill matching for clear task types"
+      rationale: "Analysis tasks should always use bmad-analyst"
+      expected_impact: "Additional 25% invocation rate"
+    - priority: "medium"
+      action: "Track confidence calibration data"
+      rationale: "Need data to optimize threshold over time"
+      expected_impact: "Better threshold accuracy"
+
 # ============================================================================
 # Aggregated Analysis
 # ============================================================================
@@ -624,7 +724,7 @@ quality_rating_scale:
 metadata:
   created: "2026-02-01T09:00:00Z"
   version: "1.0.0"
-  total_tasks_tracked: 1
+  total_tasks_tracked: 4
   calculation_frequency: "weekly"
   next_calculation_due: "2026-02-08T09:00:00Z"
-  last_updated: "2026-02-01T08:00:00Z"
+  last_updated: "2026-02-01T09:10:00Z"
