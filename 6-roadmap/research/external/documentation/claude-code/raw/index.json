@@ -1,0 +1,69 @@
+{
+  "source": {
+    "name": "claude-code",
+    "display_name": "Claude Code Documentation",
+    "url": "https://code.claude.com/docs",
+    "discovered_at": "2026-02-03T23:30:00Z",
+    "discovered_via": "manual-fetch"
+  },
+  "routes": {
+    "tier_1": [
+      { "path": "/en/overview", "title": "Overview", "type": "guide", "fetched": true },
+      { "path": "/en/cli-reference", "title": "CLI Reference", "type": "reference", "fetched": true },
+      { "path": "/en/settings", "title": "Settings", "type": "reference", "fetched": true },
+      { "path": "/en/permissions", "title": "Permissions", "type": "reference", "fetched": true },
+      { "path": "/en/mcp", "title": "MCP", "type": "reference", "fetched": true },
+      { "path": "/en/common-workflows", "title": "Common Workflows", "type": "guide", "fetched": true }
+    ],
+    "tier_2": [
+      { "path": "/en/quickstart", "title": "Quickstart", "type": "guide", "fetched": false },
+      { "path": "/en/setup", "title": "Setup", "type": "guide", "fetched": false },
+      { "path": "/en/sub-agents", "title": "Sub-agents", "type": "guide", "fetched": false },
+      { "path": "/en/skills", "title": "Skills", "type": "guide", "fetched": false },
+      { "path": "/en/hooks", "title": "Hooks", "type": "guide", "fetched": false },
+      { "path": "/en/plugins", "title": "Plugins", "type": "guide", "fetched": false },
+      { "path": "/en/best-practices", "title": "Best Practices", "type": "guide", "fetched": false },
+      { "path": "/en/troubleshooting", "title": "Troubleshooting", "type": "guide", "fetched": false },
+      { "path": "/en/security", "title": "Security", "type": "guide", "fetched": false },
+      { "path": "/en/data-usage", "title": "Data Usage", "type": "guide", "fetched": false },
+      { "path": "/en/sandboxing", "title": "Sandboxing", "type": "guide", "fetched": false },
+      { "path": "/en/interactive-mode", "title": "Interactive Mode", "type": "guide", "fetched": false },
+      { "path": "/en/headless", "title": "Headless Mode", "type": "guide", "fetched": false },
+      { "path": "/en/vs-code", "title": "VS Code Extension", "type": "guide", "fetched": false },
+      { "path": "/en/jetbrains", "title": "JetBrains Plugin", "type": "guide", "fetched": false },
+      { "path": "/en/desktop", "title": "Desktop App", "type": "guide", "fetched": false },
+      { "path": "/en/chrome", "title": "Chrome Extension", "type": "guide", "fetched": false },
+      { "path": "/en/github-actions", "title": "GitHub Actions", "type": "guide", "fetched": false },
+      { "path": "/en/slack", "title": "Slack Integration", "type": "guide", "fetched": false },
+      { "path": "/en/authentication", "title": "Authentication", "type": "guide", "fetched": false }
+    ],
+    "tier_3": [
+      { "path": "/en/how-claude-code-works", "title": "How Claude Code Works", "type": "reference", "fetched": false },
+      { "path": "/en/features-overview", "title": "Features Overview", "type": "reference", "fetched": false },
+      { "path": "/en/costs", "title": "Costs", "type": "reference", "fetched": false },
+      { "path": "/en/model-config", "title": "Model Configuration", "type": "reference", "fetched": false },
+      { "path": "/en/amazon-bedrock", "title": "Amazon Bedrock", "type": "guide", "fetched": false },
+      { "path": "/en/google-vertex-ai", "title": "Google Vertex AI", "type": "guide", "fetched": false },
+      { "path": "/en/microsoft-foundry", "title": "Microsoft Foundry", "type": "guide", "fetched": false },
+      { "path": "/en/third-party-integrations", "title": "Third Party Integrations", "type": "guide", "fetched": false },
+      { "path": "/en/statusline", "title": "Status Line", "type": "reference", "fetched": false },
+      { "path": "/en/output-styles", "title": "Output Styles", "type": "reference", "fetched": false },
+      { "path": "/en/terminal-config", "title": "Terminal Configuration", "type": "guide", "fetched": false },
+      { "path": "/en/hooks-guide", "title": "Hooks Guide", "type": "guide", "fetched": false },
+      { "path": "/en/plugin-marketplaces", "title": "Plugin Marketplaces", "type": "guide", "fetched": false },
+      { "path": "/en/discover-plugins", "title": "Discover Plugins", "type": "guide", "fetched": false },
+      { "path": "/en/plugins-reference", "title": "Plugins Reference", "type": "reference", "fetched": false },
+      { "path": "/en/monitoring-usage", "title": "Monitoring Usage", "type": "guide", "fetched": false },
+      { "path": "/en/claude-code-on-the-web", "title": "Claude Code on the Web", "type": "guide", "fetched": false },
+      { "path": "/en/gitlab-ci-cd", "title": "GitLab CI/CD", "type": "guide", "fetched": false }
+    ]
+  },
+  "metadata": {
+    "total_routes": 44,
+    "site_generator": "custom",
+    "has_search": true,
+    "llms_txt": "https://code.claude.com/docs/llms.txt",
+    "documentation_index": "https://code.claude.com/docs/llms.txt"
+  },
+  "notes": "Discovered via manual fetch of CLI reference page. llms.txt mentioned as complete index."
+}
