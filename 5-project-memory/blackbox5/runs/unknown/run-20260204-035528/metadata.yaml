@@ -3,8 +3,8 @@ run:
   project: "blackbox5"
   agent: "unknown"
   timestamp_start: "2026-02-04T03:55:28+07:00"
-  timestamp_end: null
-  duration_seconds: null
+  timestamp_end: "2026-02-04T03:59:14+07:00"
+  duration_seconds: 226
 
 state:
   task_claimed: null
