@@ -1,0 +1,147 @@
+#!/bin/bash
+# bb5 - BlackBox5 Navigation CLI
+# Main entry point for goals/plans/tasks navigation and management
+#
+# Usage: bb5 [command] [options]
+
+set -e
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# =============================================================================
+# COMMAND DISPATCH
+# =============================================================================
+
+COMMAND="${1:-help}"
+shift || true
+
+case "$COMMAND" in
+    # Navigation commands
+    whereami)
+        "$SCRIPT_DIR/bb5-whereami" "$@"
+        ;;
+
+    # Goal commands
+    goal:list)
+        "$SCRIPT_DIR/bb5-goal" list "$@"
+        ;;
+    goal:show)
+        "$SCRIPT_DIR/bb5-goal" show "$@"
+        ;;
+
+    # Plan commands
+    plan:list)
+        "$SCRIPT_DIR/bb5-plan" list "$@"
+        ;;
+    plan:show)
+        "$SCRIPT_DIR/bb5-plan" show "$@"
+        ;;
+
+    # Task commands
+    task:list)
+        "$SCRIPT_DIR/bb5-task" list "$@"
+        ;;
+    task:show)
+        "$SCRIPT_DIR/bb5-task" show "$@"
+        ;;
+    task:current)
+        "$SCRIPT_DIR/bb5-task" current "$@"
+        ;;
+
+    # Hierarchy navigation
+    up)
+        "$SCRIPT_DIR/bb5-goto" up "$@"
+        ;;
+    down)
+        "$SCRIPT_DIR/bb5-goto" down "$@"
+        ;;
+    root)
+        "$SCRIPT_DIR/bb5-goto" root "$@"
+        ;;
+    goto)
+        "$SCRIPT_DIR/bb5-goto" goto "$@"
+        ;;
+
+    # Creation commands
+    goal:create)
+        "$SCRIPT_DIR/bb5-create" goal "$@"
+        ;;
+    plan:create)
+        "$SCRIPT_DIR/bb5-create" plan "$@"
+        ;;
+    task:create)
+        "$SCRIPT_DIR/bb5-create" task "$@"
+        ;;
+    subtask:create)
+        "$SCRIPT_DIR/bb5-create" subtask "$@"
+        ;;
+
+    # Linking commands
+    link:goal)
+        "$SCRIPT_DIR/bb5-link" goal "$@"
+        ;;
+    link:plan)
+        "$SCRIPT_DIR/bb5-link" plan "$@"
+        ;;
+    link:task)
+        "$SCRIPT_DIR/bb5-link" task "$@"
+        ;;
+
+    # Help
+    help|--help|-h)
+        cat << 'EOF'
+╔═══════════════════════════════════════════════════════════════╗
+║              BlackBox5 Navigation CLI (bb5)                   ║
+╚═══════════════════════════════════════════════════════════════╝
+
+NAVIGATION COMMANDS
+  bb5 whereami              Show current location in hierarchy
+  bb5 goal:list             List all active goals
+  bb5 goal:show [ID]        Show goal details and linked plans
+  bb5 plan:list             List all active plans
+  bb5 plan:show [ID]        Show plan details and linked tasks
+  bb5 task:list             List all active tasks
+  bb5 task:show [ID]        Show task details and subtasks
+  bb5 task:current          Show current task (from context)
+
+HIERARCHY NAVIGATION
+  bb5 up                    Go up one level (task→plan→goal)
+  bb5 down [ID]             Go down to specific child
+  bb5 root                  Go to project root
+  bb5 goto [ID]             Jump to specific item by ID
+
+CREATION COMMANDS
+  bb5 goal:create [NAME]    Create new goal from template
+  bb5 plan:create [NAME]    Create new plan from template
+  bb5 task:create [NAME]    Create new task from template
+  bb5 subtask:create [NAME] Create subtask under current task
+
+LINKING COMMANDS
+  bb5 link:goal [ID]        Link current item to goal
+  bb5 link:plan [ID]        Link current item to plan
+  bb5 link:task [ID]        Link current item to task
+
+EXAMPLES
+  bb5 whereami
+  bb5 goal:show IG-006
+  bb5 task:create "Fix navigation bug"
+  bb5 up
+  bb5 goto IG-006
+
+For more information, see:
+  ~/.blackbox5/UNIFIED-STRUCTURE.md
+EOF
+        ;;
+
+    *)
+        echo "Unknown command: $COMMAND"
+        echo ""
+        echo "Run 'bb5 help' for usage information"
+        exit 1
+        ;;
+esac

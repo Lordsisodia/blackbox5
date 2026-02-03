@@ -1,15 +1,15 @@
-# Duration Tracking Fix - Analysis and Implementation
+# Duration Tracking Analysis and Fix
 
-**Date:** 2026-02-01
-**Task:** TASK-1769911099
-**Improvement:** IMP-1769903011
+**Analysis Date:** 2026-02-01
+**Analysis Task:** Planner Loop 0040
+**Fix Task:** TASK-1769911099 / IMP-1769903011
 **Status:** ✅ Completed
 
 ---
 
 ## Executive Summary
 
-Fixed critical bug in executor metadata where task durations were recorded as wall-clock elapsed time instead of actual work time. The bug caused 50% of duration data to be unreliable with 24-25x error. Fix implemented by capturing completion timestamp immediately after task completion and storing it for later use in metadata update.
+Fixed critical bug in executor metadata where task durations were recorded as **wall-clock elapsed time** instead of **actual work time**. The bug caused 50% of duration data to be unreliable with 24-25x error.
 
 **Impact:** Enables accurate velocity tracking, trend analysis, and capacity planning.
 
@@ -24,7 +24,43 @@ Fixed critical bug in executor metadata where task durations were recorded as wa
 - Trend analysis meaningless
 - Estimation accuracy could not be measured
 
+### Evidence
+
+| Run | Task | Recorded Duration | Actual Duration | Error Factor |
+|-----|------|-------------------|-----------------|--------------|
+| 0031 | TASK-1769912000 | 43,000s (12hr) | ~30 min | 24x |
+| 0032 | TASK-1769914000 | 44,467s (12.4hr) | ~30 min | 25x |
+| 0034 | TASK-1769914000 | 43,728s (12.2hr) | ~30 min | 24x |
+
+**Pattern:** All three show ~12 hours for ~30 minute tasks.
+
 ### Root Cause
+
+**What's Happening:**
+```yaml
+# metadata.yaml at task creation
+loop:
+  timestamp_start: "2026-02-01T01:32:25Z"
+  timestamp_end: null
+  duration_seconds: null
+
+# Executor completes task in ~30 minutes
+# But timestamp_end NOT updated at completion!
+
+# metadata.yaml when later read
+loop:
+  timestamp_start: "2026-02-01T01:32:25Z"
+  timestamp_end: "2026-02-01T13:30:00Z"  # Current time, NOT completion time!
+  duration_seconds: 43000  # Calculated as (current - start) = 12 hours
+```
+
+**Why This Happens:**
+1. Task completes in ~30 minutes
+2. Executor writes THOUGHTS.md, RESULTS.md, DECISIONS.md
+3. Metadata file not updated with completion timestamp
+4. Duration calculation uses `current_time - start_time` instead of `completion_time - start_time`
+5. Result: Wall-clock elapsed time recorded instead of work time
+
 In `2-engine/.autonomous/prompts/system/executor/variations/v2-legacy-based.md`, the "Update Loop Metadata (REQUIRED)" section used:
 
 ```bash
@@ -34,15 +70,6 @@ timestamp_end: "$NOW"
 ```
 
 This captured the **current time** when metadata was being written, not the **completion time** when the task actually finished.
-
-### Example of Bug
-**Run 0031:**
-- Started: 2026-02-01T01:32:25Z
-- Task completed: ~2026-02-01T02:02:00Z (~30 minutes)
-- Metadata written: 2026-02-01T13:30:00Z (12 hours later)
-- Recorded duration: 43,000 seconds (~12 hours)
-- Actual duration: ~1,800 seconds (~30 minutes)
-- **Error: 24x**
 
 ---
 

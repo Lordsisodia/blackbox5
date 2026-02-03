@@ -1,0 +1,6 @@
+#!/bin/bash
+# bb5-whereami - Show current location in hierarchy
+# Usage: bb5 whereami
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$SCRIPT_DIR/bb5-discover-context" human

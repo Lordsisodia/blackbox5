@@ -1,7 +1,7 @@
-# CLAUDE.md Decision Framework Effectiveness Analysis
+# CLAUDE.md Decision Framework Analysis
 
 **Analysis Date:** 2026-02-01
-**Task:** TASK-1769897000
+**Tasks:** TASK-1738366800 (Initial Analysis), TASK-1769897000 (Effectiveness Review)
 **Analyst:** RALF-Executor
 **Source:** goals.yaml IG-001
 
@@ -9,37 +9,191 @@
 
 ## Executive Summary
 
-Analysis of `~/.claude/CLAUDE.md` decision framework and 7 recent executor runs reveals **strong framework adherence** with **4 opportunities for refinement**. The existing improvements from TASK-1738366800 provide a solid foundation. This analysis measures effectiveness against actual usage patterns.
+Analysis of `~/.claude/CLAUDE.md` decision framework reveals **strong framework adherence** with **4 specific improvement areas** that would reduce decision hesitation and context overflow exits. The current framework is well-structured but lacks specificity in key decision boundaries.
 
-**Key Finding:** The decision framework is being followed consistently, but context thresholds and sub-agent deployment rules show room for optimization based on observed behavior.
+**Key Finding:** The decision framework is being followed consistently, but context thresholds and sub-agent deployment rules show room for optimization based on observed behavior across 7 recent executor runs.
 
 ---
 
-## Methodology
+## Initial Analysis: 4 Improvement Areas
 
-### Data Sources
+### 1. Decision Framework Thresholds Need Quantification
+
+**Current State:**
+The "When to Just Do It" section uses vague time estimates:
+- "Clear bug fix (< 30 min)"
+- "Simple edit (< 10 min)"
+- "> 30 minutes of work"
+
+**Problem:** Time estimates are subjective and vary by context. Recent DECISIONS.md files show hesitation when tasks fall in the gray zone between categories.
+
+**Recommendation:** Replace time-based thresholds with **action-based criteria**:
+
+```markdown
+### When to Just Do It
+- Single file modification with clear scope
+- Documentation typo or formatting fix
+- Adding a log line or comment
+- Changing a configuration value
+- All target paths are known and exist
+
+### When to Create Formal Task
+- Requires reading >3 files to understand context
+- Modifies >2 files
+- Has external dependencies (APIs, databases)
+- Affects critical system paths
+- Requires validation/testing beyond syntax check
+```
+
+---
+
+### 2. Context Management Thresholds Need Tuning
+
+**Current State:**
+```markdown
+- **70% context usage:** Summarize THOUGHTS.md
+- **85% context usage:** Complete current task, exit with PARTIAL
+- **95% context usage:** Force checkpoint, exit immediately
+```
+
+**Problem:** The 70% threshold for summarization may be too aggressive. Recent runs show THOUGHTS.md summarization happening when substantial context remains.
+
+**Evidence from Run Patterns:**
+- No recent runs have hit 85% or 95% thresholds
+- Most tasks complete well below 70%
+- Summarization at 70% may discard useful context prematurely
+
+**Recommendation:** Adjust thresholds based on observed patterns:
+
+```markdown
+### Context Management
+
+**Conservative Mode (default):**
+- **75% context usage:** Summarize THOUGHTS.md (keep key decisions only)
+- **85% context usage:** Complete current subtask, exit with PARTIAL
+- **95% context usage:** Force checkpoint, exit immediately
+
+**Aggressive Mode (for complex tasks):**
+- **80% context usage:** Summarize THOUGHTS.md
+- **90% context usage:** Complete current subtask, exit with PARTIAL
+- **95% context usage:** Force checkpoint, exit immediately
+
+**When to use Aggressive Mode:**
+- Task involves >5 files
+- Task requires multi-step reasoning
+- Task is in unfamiliar domain
+```
+
+---
+
+### 3. Sub-Agent Deployment Rules Lack Specificity
+
+**Current State:**
+```markdown
+**ALWAYS spawn sub-agents for:**
+- Codebase exploration (finding files, patterns)
+- Context gathering (reading multiple files)
+- Research (investigating unknown areas)
+- Validation (reviewing your work)
+
+**NEVER spawn sub-agents for:**
+- Simple file reads (use Read tool directly)
+- Implementation work (do it yourself)
+- Known locations
+```
+
+**Problem:** "Codebase exploration" and "Context gathering" are vague. Recent runs show inconsistent sub-agent usage.
+
+**Evidence from Run Patterns:**
+- run-0003: Used direct reads instead of sub-agent for skill discovery (worked well)
+- run-0004: Direct file reads for project mapping (efficient)
+- No recent runs used sub-agents for exploration
+
+**Recommendation:** Add specific heuristics for sub-agent deployment:
+
+```markdown
+### Sub-Agent Deployment Rules
+
+**ALWAYS spawn sub-agents when:**
+- Searching across >15 files
+- Need to find files by content (not just name)
+- Investigating error patterns in logs
+- Cross-project context gathering (>2 projects)
+- Time estimate for manual search >5 minutes
+
+**USE JUDGMENT (consider context cost):**
+- 3-10 files to examine → Direct reads with Glob/Grep
+- Known directory structure → Direct navigation
+- Simple pattern matching → Grep directly
+
+**NEVER spawn sub-agents for:**
+- <3 file reads
+- Files at known paths
+- Implementation work
+- Single-purpose validation
+```
+
+---
+
+### 4. Stop Conditions Need Prioritization
+
+**Current State:** 7 stop conditions listed without priority:
+1. Unclear Requirements
+2. Scope Creep
+3. Blocked
+4. High Risk
+5. Context Overflow
+6. Contradiction
+7. No Clear Path
+
+**Problem:** When multiple conditions apply, it's unclear which takes precedence. Recent DECISIONS.md files don't reference stop conditions explicitly.
+
+**Recommendation:** Add prioritization and explicit trigger examples:
+
+```markdown
+## Stop Conditions
+
+**STOP immediately (do not proceed):**
+| Priority | Condition | Trigger Example |
+|----------|-----------|-----------------|
+| 1 | **Contradiction** | Task says "use JWT" but codebase uses sessions |
+| 2 | **Context Overflow** | At 95% with work remaining |
+| 3 | **Blocked** | External API down, missing credentials |
+
+**PAUSE and ask user:**
+| Priority | Condition | Trigger Example |
+|----------|-----------|-----------------|
+| 4 | **Unclear Requirements** | Success criteria missing or ambiguous |
+| 5 | **No Clear Path** | >2 valid approaches, uncertain which is best |
+| 6 | **High Risk** | Change affects >5 critical files |
+
+**PAUSE and reassess:**
+| Priority | Condition | Trigger Example |
+|----------|-----------|-----------------|
+| 7 | **Scope Creep** | Task growing beyond original intent |
+
+**Exit Strategy:**
+- Priority 1-3: Exit immediately with BLOCKED status
+- Priority 4-6: Ask user via chat-log.yaml, wait for response
+- Priority 7: Document scope change, ask if continue
+```
+
+---
+
+## Effectiveness Analysis: 7 Recent Runs
+
+### Methodology
+
+**Data Sources:**
 1. **~/.claude/CLAUDE.md** - Current decision framework (lines 246-292)
 2. **7 Recent Executor Runs** (run-0001 through run-0007)
 3. **DECISIONS.md files** from each run
 4. **THOUGHTS.md files** from each run
 5. **goals.yaml IG-001** - Success criteria
 
-### Analysis Framework
-Evaluated 4 decision points from CLAUDE.md against actual run behavior:
-1. Just Do It vs Create Task
-2. Create Task vs Hand to RALF
-3. When to Ask User
-4. Sub-agent Deployment
+### Findings by Decision Point
 
----
-
-## Findings by Decision Point
-
-### 1. Just Do It vs Create Task
-
-**Framework Guidance:**
-- Just Do It: Clear bug fix (<30 min), simple edit (<10 min), documentation typo, single file change
-- Create Task: >30 minutes, multiple files, requires research, has dependencies
+#### 1. Just Do It vs Create Task
 
 **Observed Behavior:**
 | Run | Task Type | Files Modified | Decision Time | Framework Alignment |
@@ -56,15 +210,9 @@ Evaluated 4 decision points from CLAUDE.md against actual run behavior:
 - Time estimates not explicitly referenced in decisions
 - File count and scope were primary decision factors
 
-**Evidence:**
-> "Task involves creating new files with proper structure → Create formal task" (run-0003 THOUGHTS.md)
-
 ---
 
-### 2. Create Task vs Hand to RALF
-
-**Framework Guidance:**
-- Hand to RALF: Task queue empty, requires continuous iteration, long-running improvement, fits autonomous loop pattern
+#### 2. Create Task vs Hand to RALF
 
 **Observed Behavior:**
 - All 7 runs were executed by RALF-Executor (autonomous execution)
@@ -78,10 +226,7 @@ Evaluated 4 decision points from CLAUDE.md against actual run behavior:
 
 ---
 
-### 3. When to Ask User
-
-**Framework Guidance:**
-Ask user when: Unclear requirements, scope creep, external dependency blocked, high-risk change, uncertain about approach
+#### 3. When to Ask User
 
 **Observed Behavior:**
 - **0 instances** of asking user across 7 runs
@@ -98,11 +243,7 @@ Ask user when: Unclear requirements, scope creep, external dependency blocked, h
 
 ---
 
-### 4. Sub-Agent Deployment
-
-**Framework Guidance:**
-- **ALWAYS spawn:** Codebase exploration, context gathering, research, validation
-- **NEVER spawn:** Simple file reads, implementation work, known locations
+#### 4. Sub-Agent Deployment
 
 **Observed Behavior:**
 | Run | Sub-Agent Usage | Files Read Directly | Pattern |
@@ -124,12 +265,7 @@ Ask user when: Unclear requirements, scope creep, external dependency blocked, h
 
 ---
 
-## Context Threshold Analysis
-
-**Framework Guidance:**
-- 70%: Summarize THOUGHTS.md
-- 85%: Complete current task, exit with PARTIAL
-- 95%: Force checkpoint, exit immediately
+### Context Threshold Analysis
 
 **Observed Behavior:**
 - **0 runs** exceeded 70% context usage
@@ -146,44 +282,13 @@ Ask user when: Unclear requirements, scope creep, external dependency blocked, h
 
 ---
 
-## Comparison with Prior Analysis (TASK-1738366800)
+## Refined Recommendations
 
-### Improvements Already Addressed
-The previous analysis (claude-md-improvements.md) identified 4 areas:
-
-1. **Decision Framework Thresholds** - ✅ Action-based criteria proposed
-2. **Context Management Thresholds** - ⚠️ Conservative/Aggressive modes proposed
-3. **Sub-Agent Deployment Rules** - ⚠️ Specific heuristics proposed
-4. **Stop Condition Prioritization** - ✅ Priority table proposed
-
-### New Insights from This Analysis
-
-1. **Sub-Agent Guidance Overreach**
-   - Current: "ALWAYS spawn for exploration"
-   - Reality: Direct reads more efficient for <15 files
-   - Gap: No file count threshold in guidance
-
-2. **Missing: "When to Use Skills"**
-   - Skills available but no selection guidance in CLAUDE.md
-   - Recent runs didn't invoke skills despite availability
-   - Opportunity: Add skill selection criteria
-
-3. **Task Initiation Speed**
-   - Average: 2-3 minutes from task read to first action
-   - Target from prior analysis: <2 minutes
-   - Gap: Room for improvement
-
----
-
-## Specific Improvement Recommendations
+Based on both analyses, here are the consolidated recommendations:
 
 ### 1. Refine Sub-Agent Deployment Threshold
 
-**Current:**
-```markdown
-**ALWAYS spawn sub-agents for:**
-- Codebase exploration (finding files, patterns)
-```
+**Current:** "ALWAYS spawn for codebase exploration"
 
 **Recommended:**
 ```markdown
@@ -307,5 +412,6 @@ The CLAUDE.md decision framework is **functioning effectively** with minor optim
 
 ---
 
-**Analysis Complete:** 2026-02-01T09:30:00Z
+**Initial Analysis:** 2026-02-01T08:15:00Z
+**Effectiveness Review:** 2026-02-01T09:30:00Z
 **Next Review:** After 10 additional runs with metrics tracking

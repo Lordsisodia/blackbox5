@@ -1,9 +1,9 @@
 # BlackBox5 Project Memory
 
-**Project**: BlackBox5 - Autonomous Agent Framework  
-**Version**: 5.0.0  
-**Status**: Active Development  
-**Created**: 2026-01-20  
+**Project**: BlackBox5 - Autonomous Agent Framework
+**Version**: 5.0.0
+**Status**: Active Development
+**Created**: 2026-01-20
 
 ---
 
@@ -12,6 +12,18 @@
 This directory contains the project memory for **BlackBox5**, the next-generation autonomous agent system with hierarchical memory, multi-agent orchestration, and self-improvement capabilities.
 
 BlackBox5 serves as the AI agent framework powering SISO Internal operations, enabling AI agents to work autonomously on complex software engineering tasks with minimal human intervention.
+
+---
+
+## Quick Stats
+
+| Metric | Value |
+|--------|-------|
+| Project Status | active |
+| Current Phase | Ready for Development |
+| Active Tasks | Check `tasks/active/` |
+| Total Runs | 40+ completed |
+| Templates | 26 available |
 
 ---
 
@@ -53,6 +65,12 @@ blackbox5/
 │   ├── working/       # Working task folders
 │   └── backlog/       # Backlogged tasks
 │
+├── runs/              # RALF execution sessions
+│   ├── unknown/       # Default agent runs
+│   │   └── completed/ # Archived runs
+│   ├── planner/       # Planner agent runs
+│   └── executor/      # Executor agent runs
+│
 └── operations/        # System operations
     ├── agents/        # Agent memory
     ├── architecture/  # Architecture validation
@@ -67,13 +85,11 @@ blackbox5/
 | File | Purpose |
 |------|---------|
 | `STATE.yaml` | Single source of truth - tasks, features, decisions |
-| `ACTIVE.md` | Dashboard of current work |
-| `WORK-LOG.md` | Chronological activity log |
+| `README.md` | This file - project overview and navigation |
 | `timeline.yaml` | Milestones and timeline |
 | `feature_backlog.yaml` | Pending features |
 | `test_results.yaml` | Test outcomes |
-| `_NAMING.md` | Naming conventions |
-| `QUERIES.md` | Common queries for AI agents |
+| `Ralf-context.md` | Project context for RALF agents |
 
 ---
 
@@ -81,7 +97,6 @@ blackbox5/
 
 ### Current State
 - [STATE.yaml](./STATE.yaml) - Single source of truth
-- [ACTIVE.md](./ACTIVE.md) - Dashboard of current work
 - [Project Context](./project/context.yaml) - Goals, constraints, current progress
 
 ### Active Work
@@ -103,26 +118,51 @@ blackbox5/
 
 ---
 
+## Run Structure
+
+RALF runs are organized in `runs/` with the following lifecycle:
+
+```
+runs/
+├── unknown/           # Default agent runs
+│   └── completed/     # 38 archived runs
+├── planner/           # Planner agent runs
+└── executor/          # Executor agent runs
+```
+
+Each run folder contains:
+- `.hook_initialized` - Marker file (timestamp)
+- `.ralf-metadata` - Run metadata (YAML)
+- `metadata.yaml` - Extended run metadata
+- `THOUGHTS.md` - Agent reasoning & analysis
+- `DECISIONS.md` - Decisions made during run
+- `RESULTS.md` - Run outcomes & metrics
+
+### Run Lifecycle
+1. **Initialization** - Session start hook creates run folder
+2. **Execution** - Agent works on task, updates THOUGHTS.md
+3. **Completion** - Stop hook finalizes and archives run
+
+---
+
 ## Project Status
 
-### Project Memory Reorganization: 75% Complete
+### Project Memory Reorganization: 100% Complete
 
 **Completed**:
 - 26 templates created in `.templates/`
-- 8 root state files (STATE.yaml, ACTIVE.md, WORK-LOG.md, etc.)
-- 6-folder structure implemented (removed deprecated domains/)
-- `.docs/` folders created in each main folder
+- 8 root state files (STATE.yaml, timeline.yaml, etc.)
+- 6-folder structure implemented
 - 40 tasks migrated from RALF-Core
-- 45+ runs archived to `.archived/runs/`
-
-**In Progress**:
-- Phase 4: Integration and documentation
+- 45+ runs archived
+- Cleanup loop established
 
 **Architecture**:
 - 6-Folder Structure: project/, plans/, decisions/, knowledge/, tasks/, operations/
 - Question-based organization (WHO, WHAT, WHY, HOW)
 - STATE.yaml as single source of truth
 - Template-driven documentation
+- RALF run isolation in runs/
 
 ---
 
@@ -171,4 +211,4 @@ Research documentation is in `knowledge/frameworks/` and `knowledge/research/`.
 
 ---
 
-*Last updated: 2026-01-30*
+*Last updated: 2026-02-04*
