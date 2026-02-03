@@ -1,0 +1,42 @@
+name: Mirror YouTube Research to Standalone Repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '6-roadmap/research/external/YouTube/AI-Improvement-Research/**'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout BlackBox5
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to standalone repo
+        env:
+          TARGET_REPO: ${{ secrets.YOUTUBE_RESEARCH_REPO }}
+          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          # Configure git
+          git config user.name "Mirror Bot"
+          git config user.email "bot@blackbox5.local"
+
+          # Create a temporary branch with just the folder
+          git subtree split --prefix=6-roadmap/research/external/YouTube/AI-Improvement-Research -b youtube-research-temp
+
+          # Push to standalone repo
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${TARGET_REPO}.git youtube-research-temp:main --force
+
+          # Clean up
+          git branch -D youtube-research-temp
+
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "✅ Mirrored YouTube Research to standalone repo"
+          echo "Commit: ${{ github.sha }}"
+          echo "Time: $(date)"

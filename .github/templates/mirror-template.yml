@@ -1,0 +1,52 @@
+# TEMPLATE: Mirror BlackBox5 Folder to Standalone Repo
+#
+# Instructions:
+# 1. Copy this file to .github/workflows/mirror-{folder-name}.yml
+# 2. Replace PLACEHOLDER values below
+# 3. Create GitHub secret for the target repo
+# 4. Commit and push
+#
+# Example folders to mirror:
+# - skills/ → standalone skills repo
+# - 5-project-memory/ → standalone memory repo
+# - 2-engine/agents/ → standalone agents repo
+# - etc.
+
+name: Mirror FOLDER_NAME to Standalone Repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'FOLDER_PATH/**'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout BlackBox5
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to standalone repo
+        env:
+          TARGET_REPO: ${{ secrets.TARGET_REPO_SECRET_NAME }}
+          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          git config user.name "Mirror Bot"
+          git config user.email "bot@blackbox5.local"
+
+          # Split the folder into a temporary branch
+          git subtree split --prefix=FOLDER_PATH -b temp-branch
+
+          # Push to standalone repo
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${TARGET_REPO}.git temp-branch:main --force
+
+          # Clean up
+          git branch -D temp-branch
+
+      - name: Notify
+        if: success()
+        run: echo "✅ Mirrored FOLDER_NAME to standalone repo"
