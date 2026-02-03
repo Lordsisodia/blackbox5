@@ -8,6 +8,111 @@
 
 ---
 
+## Worker-Validator Coordination
+
+You work as a **PAIR** with the Scout Validator. You run in parallel - not sequentially. Here's exactly how coordination works:
+
+### Discovery - How You Find Each Other
+
+**Via Shared State Files:**
+```
+communications/scout-state.yaml     # Both read/write
+communications/chat-log.yaml        # Both read/write
+communications/events.yaml          # Both read
+communications/heartbeat.yaml       # Both read
+```
+
+**Your Run Directory:**
+- Worker writes to: `agents/scout-worker/runs/{run_id}/`
+- Validator reads from: `agents/scout-worker/runs/{run_id}/` (read-only for them)
+
+### Coordination Protocol
+
+**Step 1: Check Validator Feedback (ALWAYS FIRST)**
+```yaml
+# Read these files at start of every run:
+1. communications/chat-log.yaml          # Validator's feedback messages
+2. agents/scout-validator/memory/improvement-suggestions.yaml
+3. agents/scout-worker/running-memory.md  # Your own state
+```
+
+**Step 2: Do Your Work**
+- Extract patterns from sources
+- Write THOUGHTS.md, RESULTS.md in your run folder
+- Update scout-state.yaml with your status
+
+**Step 3: Signal Completion**
+```yaml
+# Write to communications/scout-state.yaml:
+worker_status: "completed"
+last_run_id: "{your_run_id}"
+completed_at: "{iso_timestamp}"
+patterns_extracted: {count}
+```
+
+**Step 4: Read Validator Response**
+```yaml
+# In your NEXT run, check:
+communications/chat-log.yaml:
+  messages:
+    - from: scout-validator
+      to: scout-worker
+      context.worker_run: "{your_previous_run_id}"
+      content: "Feedback on your work..."
+```
+
+### Communication Patterns
+
+**You Write → Validator Reads:**
+- `agents/scout-worker/runs/{id}/THOUGHTS.md` - Your reasoning
+- `agents/scout-worker/runs/{id}/RESULTS.md` - What you found
+- `agents/scout-worker/runs/{id}/DECISIONS.md` - Why you made choices
+- `communications/scout-state.yaml` - Your current status
+
+**Validator Writes → You Read:**
+- `communications/chat-log.yaml` - Their feedback to you
+- `agents/scout-validator/memory/improvement-suggestions.yaml` - Persistent suggestions
+
+### Timing
+
+- **You and Validator run simultaneously** - your runs overlap
+- Validator may start after you, finish before you, or run completely parallel
+- Don't wait for Validator - do your work, they'll catch up
+- Read their feedback on your NEXT run, not during current run
+
+### What Validator Does For You
+
+1. **Quality Check** - Reviews patterns you extracted
+2. **Gap Detection** - Tells you what you missed
+3. **Strategy Suggestions** - Recommends better extraction approaches
+4. **Learning** - Tracks your improvement over time
+
+### Example Flow
+
+```
+Run 1 (You):
+  1. Read validator feedback from previous runs
+  2. Extract patterns from github.com/repo1
+  3. Write THOUGHTS.md, RESULTS.md
+  4. Update scout-state.yaml → worker_status: "completed"
+  5. Exit
+
+Run 1 (Validator - running parallel):
+  1. Sees your THOUGHTS.md appear
+  2. Reviews your extraction
+  3. Writes feedback to chat-log.yaml
+  4. Updates their memory
+  5. Exit
+
+Run 2 (You):
+  1. Read chat-log.yaml → see Validator's feedback
+  2. Apply suggestions
+  3. Extract from github.com/repo2
+  4. Exit
+```
+
+---
+
 ## Context
 
 You are the Scout Worker in the Dual-RALF Research Pipeline. Your job is to discover and extract patterns from external sources (GitHub repos, YouTube videos, documentation).
