@@ -1,39 +1,88 @@
 #!/bin/bash
-# RALF Stop Hook
+# RALF Stop Hook - Self-Discovering Version
 # Validates completion, syncs queue, commits, and archives run folder
 # This is a COMMAND hook - runs bash directly, zero LLM tokens
 #
 # Triggered by: Stop event in .claude/settings.json
 # Purpose: Enforce run completion and archive (Phase 7 of 7-phase execution flow)
 #
-# Usage: Automatically triggered when Claude Code session ends
+# This hook is INTELLIGENT - it discovers configuration from filesystem,
+# not environment variables. This makes it robust and self-contained.
 
 set -e
 
 # =============================================================================
-# CONFIGURATION - Detect from environment or use defaults
+# SELF-DISCOVERY: Find project root from hook location
 # =============================================================================
 
-PROJECT_NAME="${RALF_PROJECT_NAME:-blackbox5}"
-AGENT_TYPE="${RALF_AGENT_TYPE:-unknown}"
-RUN_ID="${RALF_RUN_ID:-unknown}"
-RUN_DIR="${RALF_RUN_DIR:-}"
+# Hook knows where it lives
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# Project root directory
-if [ -n "$RALF_PROJECT_ROOT" ]; then
-    PROJECT_ROOT="$RALF_PROJECT_ROOT"
-elif [ -n "$CLAUDE_CODE_ROOT" ]; then
-    PROJECT_ROOT="$CLAUDE_CODE_ROOT"
-else
-    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+# Discover project memory
+PROJECT_MEMORY_DIR="$PROJECT_ROOT/5-project-memory"
+if [ ! -d "$PROJECT_MEMORY_DIR" ]; then
+    echo "[RALF-STOP] ERROR: Project memory not found at $PROJECT_MEMORY_DIR"
+    exit 1
 fi
 
-# Determine paths
-PROJECT_MEMORY_DIR="$PROJECT_ROOT/5-project-memory/$PROJECT_NAME"
-COMMUNICATIONS_DIR="$PROJECT_ROOT/2-engine/.autonomous/communications"
+# Use first available project (or blackbox5 as default)
+PROJECT_NAME="blackbox5"
+PROJECT_DIR="$PROJECT_MEMORY_DIR/$PROJECT_NAME"
 
-# Colors for output
+if [ ! -d "$PROJECT_DIR" ]; then
+    PROJECT_NAME=$(ls -1 "$PROJECT_MEMORY_DIR" | head -1)
+    PROJECT_DIR="$PROJECT_MEMORY_DIR/$PROJECT_NAME"
+fi
+
+# =============================================================================
+# DISCOVER RUN: Find the most recent run folder
+# =============================================================================
+
+# Look for runs in unknown/ (where SessionStart creates them)
+RUNS_DIR="$PROJECT_DIR/runs"
+RUN_DIR=""
+RUN_ID=""
+AGENT_TYPE="unknown"
+
+# Try to find run from environment first (for backward compatibility)
+if [ -n "$RALF_RUN_DIR" ] && [ -d "$RALF_RUN_DIR" ]; then
+    RUN_DIR="$RALF_RUN_DIR"
+    RUN_ID="${RALF_RUN_ID:-unknown}"
+    AGENT_TYPE="${RALF_AGENT_TYPE:-unknown}"
+else
+    # Self-discover: find most recent run folder
+    # Check all agent type directories
+    for agent_dir in "$RUNS_DIR"/*; do
+        [ -d "$agent_dir" ] || continue
+
+        # Find most recent run in this agent directory
+        for run_dir in "$agent_dir"/run-*; do
+            [ -d "$run_dir" ] || continue
+
+            # Check if this run has a .hook_initialized marker (not yet archived)
+            if [ -f "$run_dir/.hook_initialized" ]; then
+                # Get modification time and track most recent
+                mtime=$(stat -f "%m" "$run_dir/.hook_initialized" 2>/dev/null || stat -c "%Y" "$run_dir/.hook_initialized" 2>/dev/null || echo "0")
+                if [ -z "$RUN_DIR" ] || [ "$mtime" -gt "$last_mtime" 2>/dev/null ]; then
+                    RUN_DIR="$run_dir"
+                    last_mtime="$mtime"
+                    AGENT_TYPE=$(basename "$agent_dir")
+                fi
+            fi
+        done
+    done
+
+    # Extract RUN_ID from directory name
+    if [ -n "$RUN_DIR" ]; then
+        RUN_ID=$(basename "$RUN_DIR")
+    fi
+fi
+
+# =============================================================================
+# COLORS & LOGGING
+# =============================================================================
+
 if [ -t 1 ]; then
     BLUE='\033[0;34m'
     GREEN='\033[0;32m'
@@ -63,14 +112,37 @@ log_info() { echo -e "${CYAN}[RALF-STOP]${NC} $1"; }
 log "Stop hook fired - Phase 7: Archive"
 
 if [ -z "$RUN_DIR" ] || [ ! -d "$RUN_DIR" ]; then
-    log_warning "RUN_DIR not set or doesn't exist: $RUN_DIR"
-    log_info "Skipping archive - no run folder to process"
+    log_warning "No run folder found to process"
+    log_info "Skipping archive - session may have been a quick check"
     exit 0
 fi
 
 if [ "$RUN_ID" = "unknown" ]; then
-    log_warning "RUN_ID not set, cannot archive properly"
+    log_warning "Could not determine RUN_ID"
     exit 0
+fi
+
+log_info "Discovered run: $RUN_ID (agent: $AGENT_TYPE)"
+
+# =============================================================================
+# READ METADATA - Load context from .ralf-metadata if available
+# =============================================================================
+
+METADATA_FILE="$RUN_DIR/.ralf-metadata"
+if [ -f "$METADATA_FILE" ]; then
+    log "Loading metadata from .ralf-metadata..."
+    # Source the metadata file for easy access to variables
+    # This gives us: run_id, timestamp, project, agent_type, git_branch, git_commit
+    while IFS=': ' read -r key value; do
+        # Skip comments and empty lines
+        [[ "$key" =~ ^#.*$ ]] && continue
+        [[ -z "$key" ]] && continue
+        # Clean up key and value
+        key=$(echo "$key" | tr -d ' ' | tr '-' '_')
+        value=$(echo "$value" | sed 's/^[ "]*//;s/[ "]*$//')
+        # Export as variable
+        export "meta_$key=$value" 2>/dev/null || true
+    done < "$METADATA_FILE"
 fi
 
 # =============================================================================
@@ -135,25 +207,56 @@ if [ -f "$RUN_DIR/metadata.yaml" ]; then
     log_success "Metadata updated"
 fi
 
+# Update .ralf-metadata with completion info
+cat >> "$RUN_DIR/.ralf-metadata" << EOF
+
+# Completion Info (added by stop hook)
+completion:
+  timestamp: "$COMPLETION_TIME"
+  status: archived
+EOF
+
 # =============================================================================
 # PHASE 7.3: SYNC QUEUE (if executor completed a task)
 # =============================================================================
 
 log "Phase 7.3: Syncing queue..."
 
+COMMUNICATIONS_DIR="$PROJECT_DIR/.autonomous/agents/communications"
 QUEUE_FILE="$COMMUNICATIONS_DIR/queue.yaml"
 EVENTS_FILE="$COMMUNICATIONS_DIR/events.yaml"
 
-if [ "$AGENT_TYPE" = "executor" ] && [ -f "$QUEUE_FILE" ]; then
-    # Find task claimed by this run
+# Determine actual agent type from metadata or file content
+ACTUAL_AGENT_TYPE="$AGENT_TYPE"
+if [ -f "$RUN_DIR/THOUGHTS.md" ]; then
+    # Try to detect agent type from THOUGHTS.md content
+    if grep -q "Agent: executor" "$RUN_DIR/THOUGHTS.md" 2>/dev/null; then
+        ACTUAL_AGENT_TYPE="executor"
+    elif grep -q "Agent: planner" "$RUN_DIR/THOUGHTS.md" 2>/dev/null; then
+        ACTUAL_AGENT_TYPE="planner"
+    elif grep -q "Agent: architect" "$RUN_DIR/THOUGHTS.md" 2>/dev/null; then
+        ACTUAL_AGENT_TYPE="architect"
+    fi
+fi
+
+if [ "$ACTUAL_AGENT_TYPE" = "executor" ] && [ -f "$QUEUE_FILE" ]; then
+    log "Executor run detected - checking for completed task..."
+
+    # Find task claimed by this run (search by RUN_ID in claimed_by field)
     CURRENT_TASK=$(awk -F': ' -v run_id="$RUN_ID" '
-        /^  - task_id: / { task_id = $2 }
-        /^    claimed_by: / { claimed_by = $2; gsub(/"/, "", claimed_by) }
-        claimed_by == run_id { print task_id; exit }
+        /^  - task_id: / { task_id = $2; gsub(/"/, "", task_id) }
+        /^    claimed_by: / {
+            claimed_by = $2
+            gsub(/"/, "", claimed_by)
+            if (claimed_by == run_id) {
+                print task_id
+                exit
+            }
+        }
     ' "$QUEUE_FILE" 2>/dev/null || echo "")
 
     if [ -n "$CURRENT_TASK" ]; then
-        log "Found in-progress task: $CURRENT_TASK"
+        log "Found task claimed by this run: $CURRENT_TASK"
 
         # Mark task as completed in events
         if [ -f "$EVENTS_FILE" ]; then
@@ -171,7 +274,9 @@ EOF
         # Update queue.yaml - set task status to completed
         awk -F': ' -v task_id="$CURRENT_TASK" -v timestamp="$COMPLETION_TIME" '
             /^  - task_id: / {
-                in_target_task = ($2 == task_id)
+                current_task = $2
+                gsub(/"/, "", current_task)
+                in_target_task = (current_task == task_id)
             }
             in_target_task && /^    status: / {
                 print "    status: completed"
@@ -184,8 +289,8 @@ EOF
         log_success "Task status updated to 'completed' in queue.yaml"
 
         # Move task from active/ to completed/
-        TASK_ACTIVE_DIR="$PROJECT_MEMORY_DIR/tasks/active/$CURRENT_TASK"
-        TASK_COMPLETED_DIR="$PROJECT_MEMORY_DIR/tasks/completed/$CURRENT_TASK"
+        TASK_ACTIVE_DIR="$PROJECT_DIR/tasks/active/$CURRENT_TASK"
+        TASK_COMPLETED_DIR="$PROJECT_DIR/tasks/completed/$CURRENT_TASK"
 
         if [ -d "$TASK_ACTIVE_DIR" ]; then
             mkdir -p "$(dirname "$TASK_COMPLETED_DIR")"
@@ -194,7 +299,7 @@ EOF
         fi
 
         # Archive task working directory
-        TASK_WORKING_DIR="$PROJECT_MEMORY_DIR/tasks/working/$CURRENT_TASK/$RUN_ID"
+        TASK_WORKING_DIR="$PROJECT_DIR/tasks/working/$CURRENT_TASK/$RUN_ID"
         if [ -d "$TASK_WORKING_DIR" ]; then
             mkdir -p "$TASK_COMPLETED_DIR/working"
             mv "$TASK_WORKING_DIR" "$TASK_COMPLETED_DIR/working/"
@@ -204,7 +309,7 @@ EOF
         log_info "No active task found for this run"
     fi
 else
-    log_info "Skipping queue sync (not executor or no queue file)"
+    log_info "Skipping queue sync (agent: $ACTUAL_AGENT_TYPE)"
 fi
 
 # =============================================================================
@@ -222,7 +327,7 @@ if [ -d "$PROJECT_ROOT/.git" ]; then
         git add -A 2>/dev/null || true
 
         # Create commit message
-        COMMIT_MSG="ralf: [$RUN_ID] [$AGENT_TYPE] - run completion
+        COMMIT_MSG="ralf: [$RUN_ID] [$ACTUAL_AGENT_TYPE] - run completion
 
 - Phase 7: Archive completed
 - Validation: passed
@@ -255,8 +360,8 @@ fi
 
 log "Phase 7.5: Archiving run folder..."
 
-# Create completed directory
-COMPLETED_DIR="$PROJECT_MEMORY_DIR/runs/$AGENT_TYPE/completed"
+# Create completed directory using the actual agent type
+COMPLETED_DIR="$PROJECT_DIR/runs/$ACTUAL_AGENT_TYPE/completed"
 mkdir -p "$COMPLETED_DIR"
 
 # Move run folder to completed
@@ -283,7 +388,7 @@ echo ""
 echo "═══════════════════════════════════════════════════════════════"
 echo "  RALF Run Completed & Archived"
 echo "  Project: ${PROJECT_NAME}"
-echo "  Agent: ${AGENT_TYPE}"
+echo "  Agent: ${ACTUAL_AGENT_TYPE}"
 echo "  Run: ${RUN_ID}"
 echo "  Location: ${ARCHIVE_DIR/#$HOME/~}"
 echo "═══════════════════════════════════════════════════════════════"

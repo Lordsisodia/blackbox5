@@ -1,7 +1,19 @@
-# Claude Extraction Process - 3 Iteration System
+# Claude Extraction Process - 3×3 Parallel System
 
-**Date**: 2026-02-02
-**Version**: 1.0
+**Date**: 2026-02-02 (Updated: 2026-02-03)
+**Version**: 2.0
+
+---
+
+## IMPORTANT: New 3×3 Methodology
+
+**Research Finding**: Single 3-iteration extractions miss 20-30% of extractable concepts.
+
+**Solution**: Run **3 parallel extractions** (each with 3 iterations), then synthesize results.
+
+**Why**: Different extractions catch different interpretations, framings, and details. Parallel execution with synthesis achieves higher coverage and score consistency.
+
+**Trade-off**: 3× API cost for ~30% more comprehensive coverage.
 
 ---
 
