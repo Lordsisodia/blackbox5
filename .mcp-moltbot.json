@@ -1,17 +1,22 @@
 {
   "mcpServers": {
-    "moltbot-vps": {
-      "type": "sse",
-      "url": "http://77.42.66.40:18789/sse"
-    },
     "ralf-vps": {
       "type": "stdio",
       "command": "ssh",
       "args": [
-        "-i", "~/.ssh/ralf_hetzner",
+        "-i",
+        "~/.ssh/ralf_hetzner",
         "root@77.42.66.40",
-        "python3", "-c",
+        "python3",
+        "-c",
         "import json, sys, subprocess; exec(open('/opt/ralf/mcp-server.py').read())"
+      ]
+    },
+    "moltbot-vps": {
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py"
       ]
     }
   }

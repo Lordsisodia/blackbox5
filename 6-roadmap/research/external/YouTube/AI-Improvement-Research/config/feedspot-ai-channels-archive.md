@@ -532,6 +532,101 @@
 
 ---
 
+## Data Science Channels (Additional from FeedSpot)
+
+### 74. Harrison Kinsley - sentdex (Data Science List)
+- **Handle:** @sentdex
+- **Subscribers:** 1.4M
+- **Twitter:** 90K
+- **Email:** ****@gmail.com
+- **Website:** https://pythonprogramming.net
+- **Description:** Python Programming tutorials, going further than just the basics. Learn about machine learning, finance, data analysis, robotics, web development, game development and more.
+- **Type:** Python, ML, finance, robotics
+- **Note:** Also listed in main AI list
+
+### 75. DataCamp
+- **Subscribers:** 201K
+- **Facebook:** 1.2M
+- **Twitter:** 105.9K
+- **Email:** ****@datacamp.com
+- **Description:** Helps companies answer their most challenging questions by making better use of data. Users acquire and maintain data fluency on the world's most advanced data fluency platform.
+- **Type:** Data science education, platform
+
+### 76. Data Science Dojo
+- **Subscribers:** 118K
+- **Facebook:** 51.5K
+- **Twitter:** 154.9K
+- **Instagram:** 53.5K
+- **Email:** ****@datasciencedojo.com
+- **Description:** Tutorials, community talks, and courses on data science and data engineering.
+- **Type:** Data science, data engineering
+
+### 77. 365 Data Science
+- **Subscribers:** 365K
+- **Facebook:** 47.2K
+- **Twitter:** 6.6K
+- **Email:** ****@365datascience.com
+- **Description:** Come to work every day to solve the biggest problem in data science.
+- **Type:** Data science education
+
+### 78. Plumbers of Data Science
+- **Subscribers:** 245K
+- **Facebook:** 1.1K
+- **Twitter:** 5.8K
+- **Instagram:** 1.7K
+- **Email:** ****@gmail.com
+- **Description:** Helps you get into data engineering, the plumbing of data science. Building up big data platforms.
+- **Type:** Data engineering
+
+### 79. Data School
+- **Subscribers:** 260K
+- **Facebook:** 7K
+- **Twitter:** 23.5K
+- **Email:** ****@dataschool.io
+- **Description:** Trying to launch your career in data science, and wants to help you reach that goal!
+- **Type:** Data science career
+
+### 80. Data Professor - Chanin Nantasenamat
+- **Subscribers:** 217K
+- **Facebook:** 3.5K
+- **Twitter:** 29.8K
+- **Instagram:** 2K
+- **Email:** ****@mahidol.edu
+- **Description:** Helps students and interested individuals learn about data science and how it can be used to make sense of data. Delivers explainer videos, practical tutorials, Q&A.
+- **Type:** Data science education
+
+### 81. Data Science Tutorials
+- **Subscribers:** 69K
+- **Description:** Goes through R for programming and statistical analysis. R is preferred for statisticians and researchers because of easy syntax and depth of analysis packages.
+- **Type:** R programming, statistics
+
+### 82. Data Science by Arpan Gupta (IIT Roorkee)
+- **Subscribers:** 6.2K
+- **Email:** ****@gmail.com
+- **Description:** R & Python course covering Introduction to R & Python programming/data science/machine learning. For those wanting to learn R/Python for ML, statistics, data analytics, business analytics.
+- **Type:** R, Python, data science
+
+### 83. The Semicolon
+- **Subscribers:** 25.6K
+- **Facebook:** 3.1K
+- **Email:** ****@gmail.com
+- **Description:** Simple explanations of complex topics like Machine Learning, Deep Learning, Data Analytics, Python, STL in C++.
+- **Type:** ML, DL, Python, C++
+
+### 84. MyStudy
+- **Subscribers:** 13.9K
+- **Email:** ****@gmail.com
+- **Description:** Channel for machine learning, Python pandas, and Data science.
+- **Type:** ML, pandas, data science
+
+### 85. The Data Incubator
+- **Subscribers:** 7.5K
+- **Email:** ****@thedataincubator.com
+- **Description:** Data science education.
+- **Type:** Data science education
+
+---
+
 ## Summary Statistics
 
 - **Total Channels Documented:** 73+
