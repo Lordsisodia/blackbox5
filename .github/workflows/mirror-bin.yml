@@ -18,7 +18,7 @@ jobs:
 
       - name: Push to siso-cli repo
         env:
-          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
