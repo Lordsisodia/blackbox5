@@ -20,6 +20,9 @@ except ImportError:
 
 def discover_from_llms_txt(base_url: str) -> dict:
     """Discover routes from llms.txt index file"""
+    # Ensure base_url ends with / for proper urljoin
+    if not base_url.endswith('/'):
+        base_url += '/'
     llms_url = urljoin(base_url, "llms.txt")
 
     try:
@@ -32,34 +35,27 @@ def discover_from_llms_txt(base_url: str) -> dict:
     content = response.text
     routes = []
 
-    # Parse markdown table format
-    lines = content.split('\n')
-    in_table = False
+    # Parse markdown list format: - [Title](url): description
+    for line in content.split('\n'):
+        line = line.strip()
+        if line.startswith('- ['):
+            # Extract markdown link: [Title](URL)
+            match = re.search(r'- \[([^\]]+)\]\(([^)]+)\)(?::\s*(.+))?', line)
+            if match:
+                title = match.group(1)
+                url = match.group(2)
+                description = match.group(3) if match.group(3) else ""
 
-    for line in lines:
-        # Look for table rows with URLs
-        if '|' in line and 'http' in line:
-            parts = [p.strip() for p in line.split('|')]
-            for part in parts:
-                if 'http' in part:
-                    # Extract URL from markdown link or plain URL
-                    url_match = re.search(r'\[([^\]]+)\]\(([^)]+)\)', part)
-                    if url_match:
-                        title = url_match.group(1)
-                        url = url_match.group(2)
-                    else:
-                        url = part.strip()
-                        title = ""
-
-                    if url.startswith('http'):
-                        parsed = urlparse(url)
-                        path = parsed.path.replace('.md', '')
-                        routes.append({
-                            "path": path,
-                            "title": title,
-                            "url": url,
-                            "type": "guide" if "guide" in path.lower() else "reference"
-                        })
+                if url.startswith('http'):
+                    parsed = urlparse(url)
+                    path = parsed.path.replace('.md', '')
+                    routes.append({
+                        "path": path,
+                        "title": title,
+                        "description": description,
+                        "url": url,
+                        "type": "guide" if "guide" in description.lower() or "how" in title.lower() else "reference"
+                    })
 
     return {
         "source": {
@@ -173,8 +169,12 @@ def main():
     else:
         result = discover_from_sitemap(args.url)
 
-    if result is None or result['metadata']['total_routes'] == 0:
-        print("Error: Could not discover any routes")
+    if result is None:
+        print("Error: Discovery failed")
+        sys.exit(1)
+
+    if result['metadata']['total_routes'] == 0:
+        print("Warning: No routes discovered")
         sys.exit(1)
 
     # Add metadata

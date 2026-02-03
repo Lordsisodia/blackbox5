@@ -76,7 +76,7 @@ sources:
         - /en/llm-gateway
         - /en/network-config
     priority: high
-    notes: "Official Anthropic documentation for Claude Code. 53 total pages, 6 fetched (11%)."
+    notes: "Official Anthropic documentation for Claude Code. All 53 pages fetched."
 
 # Categories for organization
 categories:

@@ -15,49 +15,59 @@ import sys
 
 try:
     import requests
-    from bs4 import BeautifulSoup
 except ImportError:
-    print("Error: Required libraries missing.")
-    print("Install with: pip install requests beautifulsoup4")
+    print("Error: requests library required. Install with: pip install requests")
     sys.exit(1)
 
 
 def html_to_markdown(html: str, url: str) -> str:
-    """Convert HTML content to markdown"""
-    soup = BeautifulSoup(html, 'html.parser')
+    """Convert HTML content to markdown (basic implementation)"""
+    import re
 
-    # Remove script and style elements
-    for script in soup(["script", "style", "nav", "footer"]):
-        script.decompose()
+    # Remove script and style tags and their content
+    html = re.sub(r'<script[^>]*>.*?</script>', '', html, flags=re.DOTALL | re.IGNORECASE)
+    html = re.sub(r'<style[^>]*>.*?</style>', '', html, flags=re.DOTALL | re.IGNORECASE)
 
-    # Try to find main content area
-    main_content = None
+    # Try to extract main content
+    # Look for common content containers
+    main_match = re.search(r'<main[^>]*>(.*?)</main>', html, re.DOTALL | re.IGNORECASE)
+    if main_match:
+        html = main_match.group(1)
+    else:
+        article_match = re.search(r'<article[^>]*>(.*?)</article>', html, re.DOTALL | re.IGNORECASE)
+        if article_match:
+            html = article_match.group(1)
 
-    # Common content selectors
-    selectors = [
-        'main',
-        'article',
-        '[role="main"]',
-        '.content',
-        '.documentation',
-        '.docs-content',
-        '#content',
-        '.markdown-body'
-    ]
+    # Convert common HTML elements to markdown
+    # Headers
+    html = re.sub(r'<h1[^>]*>(.*?)</h1>', r'# \1', html, flags=re.DOTALL | re.IGNORECASE)
+    html = re.sub(r'<h2[^>]*>(.*?)</h2>', r'## \1', html, flags=re.DOTALL | re.IGNORECASE)
+    html = re.sub(r'<h3[^>]*>(.*?)</h3>', r'### \1', html, flags=re.DOTALL | re.IGNORECASE)
+    html = re.sub(r'<h4[^>]*>(.*?)</h4>', r'#### \1', html, flags=re.DOTALL | re.IGNORECASE)
 
-    for selector in selectors:
-        main_content = soup.select_one(selector)
-        if main_content:
-            break
+    # Code blocks
+    html = re.sub(r'<pre[^>]*><code[^>]*>(.*?)</code></pre>', r'```\n\1\n```', html, flags=re.DOTALL | re.IGNORECASE)
+    html = re.sub(r'<code[^>]*>(.*?)</code>', r'`\1`', html, flags=re.DOTALL | re.IGNORECASE)
 
-    if not main_content:
-        main_content = soup.find('body') or soup
+    # Links
+    html = re.sub(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', r'[\2](\1)', html, flags=re.DOTALL | re.IGNORECASE)
 
-    # Extract text with basic formatting
-    text = main_content.get_text(separator='\n', strip=True)
+    # Bold/italic
+    html = re.sub(r'<strong[^>]*>(.*?)</strong>', r'**\1**', html, flags=re.DOTALL | re.IGNORECASE)
+    html = re.sub(r'<em[^>]*>(.*?)</em>', r'*\1*', html, flags=re.DOTALL | re.IGNORECASE)
 
-    # Clean up excessive whitespace
-    lines = [line.strip() for line in text.split('\n') if line.strip()]
+    # Lists
+    html = re.sub(r'<li[^>]*>(.*?)</li>', r'- \1', html, flags=re.DOTALL | re.IGNORECASE)
+
+    # Remove remaining HTML tags
+    html = re.sub(r'<[^>]+>', '', html)
+
+    # Decode HTML entities
+    import html as html_module
+    html = html_module.unescape(html)
+
+    # Clean up whitespace
+    lines = [line.strip() for line in html.split('\n') if line.strip()]
     text = '\n\n'.join(lines)
 
     return text

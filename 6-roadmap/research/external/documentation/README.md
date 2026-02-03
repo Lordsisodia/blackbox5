@@ -14,7 +14,7 @@ Provide agents with structured, searchable access to key external documentation 
 
 | Source | Description | Status | Pages |
 |--------|-------------|--------|-------|
-| `claude-code/` | Claude Code official documentation | Active | 6/53 (11%) |
+| `claude-code/` | Claude Code official documentation | Active | 53/53 (100%) |
 
 ## Adding New Documentation
 

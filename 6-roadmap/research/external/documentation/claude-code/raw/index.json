@@ -1,78 +1,444 @@
 {
   "source": {
     "name": "claude-code",
-    "display_name": "Claude Code Documentation",
-    "url": "https://code.claude.com/docs",
-    "discovered_at": "2026-02-03T23:30:00Z",
+    "base_url": "https://code.claude.com/docs/",
+    "discovered_at": "2026-02-04T00:52:48.521339",
     "discovered_via": "llms.txt"
   },
   "routes": {
     "tier_1": [
-      { "path": "/en/overview", "title": "Overview", "type": "guide", "fetched": true },
-      { "path": "/en/cli-reference", "title": "CLI Reference", "type": "reference", "fetched": true },
-      { "path": "/en/settings", "title": "Settings", "type": "reference", "fetched": true },
-      { "path": "/en/permissions", "title": "Permissions", "type": "reference", "fetched": true },
-      { "path": "/en/mcp", "title": "MCP", "type": "reference", "fetched": true },
-      { "path": "/en/common-workflows", "title": "Common Workflows", "type": "guide", "fetched": true },
-      { "path": "/en/quickstart", "title": "Quickstart", "type": "guide", "fetched": false },
-      { "path": "/en/setup", "title": "Setup", "type": "guide", "fetched": false }
+      {
+        "path": "/docs/en/cli-reference",
+        "title": "CLI reference",
+        "description": "Complete reference for Claude Code command-line interface, including commands and flags.",
+        "url": "https://code.claude.com/docs/en/cli-reference.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/common-workflows",
+        "title": "Common workflows",
+        "description": "Step-by-step guides for exploring codebases, fixing bugs, refactoring, testing, and other everyday tasks with Claude Code.",
+        "url": "https://code.claude.com/docs/en/common-workflows.md",
+        "type": "guide",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/features-overview",
+        "title": "Extend Claude Code",
+        "description": "Understand when to use CLAUDE.md, Skills, subagents, hooks, MCP, and plugins.",
+        "url": "https://code.claude.com/docs/en/features-overview.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/mcp",
+        "title": "Connect Claude Code to tools via MCP",
+        "description": "Learn how to connect Claude Code to your tools with the Model Context Protocol.",
+        "url": "https://code.claude.com/docs/en/mcp.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/overview",
+        "title": "Claude Code overview",
+        "description": "Learn about Claude Code, Anthropic's agentic coding tool that lives in your terminal and helps you turn ideas into code faster than ever before.",
+        "url": "https://code.claude.com/docs/en/overview.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/permissions",
+        "title": "Configure permissions",
+        "description": "Control what Claude Code can access and do with fine-grained permission rules, modes, and managed policies.",
+        "url": "https://code.claude.com/docs/en/permissions.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/quickstart",
+        "title": "Quickstart",
+        "description": "Welcome to Claude Code!",
+        "url": "https://code.claude.com/docs/en/quickstart.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/docs/en/settings",
+        "title": "Claude Code settings",
+        "description": "Configure Claude Code with global and project-level settings, and environment variables.",
+        "url": "https://code.claude.com/docs/en/settings.md",
+        "type": "reference",
+        "tier": 1
+      }
     ],
     "tier_2": [
-      { "path": "/en/sub-agents", "title": "Sub-agents", "type": "guide", "fetched": false },
-      { "path": "/en/skills", "title": "Skills", "type": "guide", "fetched": false },
-      { "path": "/en/hooks", "title": "Hooks", "type": "reference", "fetched": false },
-      { "path": "/en/hooks-guide", "title": "Hooks Guide", "type": "guide", "fetched": false },
-      { "path": "/en/plugins", "title": "Plugins", "type": "guide", "fetched": false },
-      { "path": "/en/plugins-reference", "title": "Plugins Reference", "type": "reference", "fetched": false },
-      { "path": "/en/discover-plugins", "title": "Discover Plugins", "type": "guide", "fetched": false },
-      { "path": "/en/plugin-marketplaces", "title": "Plugin Marketplaces", "type": "guide", "fetched": false },
-      { "path": "/en/best-practices", "title": "Best Practices", "type": "guide", "fetched": false },
-      { "path": "/en/troubleshooting", "title": "Troubleshooting", "type": "guide", "fetched": false },
-      { "path": "/en/security", "title": "Security", "type": "guide", "fetched": false },
-      { "path": "/en/data-usage", "title": "Data Usage", "type": "guide", "fetched": false },
-      { "path": "/en/sandboxing", "title": "Sandboxing", "type": "guide", "fetched": false },
-      { "path": "/en/interactive-mode", "title": "Interactive Mode", "type": "guide", "fetched": false },
-      { "path": "/en/headless", "title": "Headless Mode", "type": "guide", "fetched": false },
-      { "path": "/en/vs-code", "title": "VS Code Extension", "type": "guide", "fetched": false },
-      { "path": "/en/jetbrains", "title": "JetBrains Plugin", "type": "guide", "fetched": false },
-      { "path": "/en/desktop", "title": "Desktop App", "type": "guide", "fetched": false },
-      { "path": "/en/chrome", "title": "Chrome Extension", "type": "guide", "fetched": false },
-      { "path": "/en/github-actions", "title": "GitHub Actions", "type": "guide", "fetched": false },
-      { "path": "/en/gitlab-ci-cd", "title": "GitLab CI/CD", "type": "guide", "fetched": false },
-      { "path": "/en/slack", "title": "Slack Integration", "type": "guide", "fetched": false },
-      { "path": "/en/authentication", "title": "Authentication", "type": "guide", "fetched": false },
-      { "path": "/en/memory", "title": "Memory", "type": "guide", "fetched": false },
-      { "path": "/en/checkpointing", "title": "Checkpointing", "type": "guide", "fetched": false }
+      {
+        "path": "/docs/en/authentication",
+        "title": "Authentication",
+        "description": "Learn how to configure user authentication and credential management for Claude Code in your organization.",
+        "url": "https://code.claude.com/docs/en/authentication.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/best-practices",
+        "title": "Best Practices for Claude Code",
+        "description": "Tips and patterns for getting the most out of Claude Code, from configuring your environment to scaling across parallel sessions.",
+        "url": "https://code.claude.com/docs/en/best-practices.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/chrome",
+        "title": "Use Claude Code with Chrome (beta)",
+        "description": "Connect Claude Code to your browser to test web apps, debug with console logs, and automate browser tasks.",
+        "url": "https://code.claude.com/docs/en/chrome.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/desktop",
+        "title": "Claude Code on desktop",
+        "description": "Run Claude Code tasks locally or on secure cloud infrastructure with the Claude desktop app",
+        "url": "https://code.claude.com/docs/en/desktop.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/discover-plugins",
+        "title": "Discover and install prebuilt plugins through marketplaces",
+        "description": "Find and install plugins from marketplaces to extend Claude Code with new commands, agents, and capabilities.",
+        "url": "https://code.claude.com/docs/en/discover-plugins.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/github-actions",
+        "title": "Claude Code GitHub Actions",
+        "description": "Learn about integrating Claude Code into your development workflow with Claude Code GitHub Actions",
+        "url": "https://code.claude.com/docs/en/github-actions.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/hooks",
+        "title": "Hooks reference",
+        "description": "Reference for Claude Code hook events, configuration schema, JSON input/output formats, exit codes, async hooks, prompt hooks, and MCP tool hooks.",
+        "url": "https://code.claude.com/docs/en/hooks.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/hooks-guide",
+        "title": "Automate workflows with hooks",
+        "description": "Run shell commands automatically when Claude Code edits files, finishes tasks, or needs input. Format code, send notifications, validate commands, and enforce project rules.",
+        "url": "https://code.claude.com/docs/en/hooks-guide.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/jetbrains",
+        "title": "JetBrains IDEs",
+        "description": "Use Claude Code with JetBrains IDEs including IntelliJ, PyCharm, WebStorm, and more",
+        "url": "https://code.claude.com/docs/en/jetbrains.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/memory",
+        "title": "Manage Claude's memory",
+        "description": "Learn how to manage Claude Code's memory across sessions with different memory locations and best practices.",
+        "url": "https://code.claude.com/docs/en/memory.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/plugins",
+        "title": "Create plugins",
+        "description": "Create custom plugins to extend Claude Code with skills, agents, hooks, and MCP servers.",
+        "url": "https://code.claude.com/docs/en/plugins.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/plugins-reference",
+        "title": "Plugins reference",
+        "description": "Complete technical reference for Claude Code plugin system, including schemas, CLI commands, and component specifications.",
+        "url": "https://code.claude.com/docs/en/plugins-reference.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/security",
+        "title": "Security",
+        "description": "Learn about Claude Code's security safeguards and best practices for safe usage.",
+        "url": "https://code.claude.com/docs/en/security.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/skills",
+        "title": "Extend Claude with skills",
+        "description": "Create, manage, and share skills to extend Claude's capabilities in Claude Code. Includes custom slash commands.",
+        "url": "https://code.claude.com/docs/en/skills.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/slack",
+        "title": "Claude Code in Slack",
+        "description": "Delegate coding tasks directly from your Slack workspace",
+        "url": "https://code.claude.com/docs/en/slack.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/docs/en/sub-agents",
+        "title": "Create custom subagents",
+        "description": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management.",
+        "url": "https://code.claude.com/docs/en/sub-agents.md",
+        "type": "reference",
+        "tier": 2
+      }
     ],
     "tier_3": [
-      { "path": "/en/how-claude-code-works", "title": "How Claude Code Works", "type": "reference", "fetched": false },
-      { "path": "/en/features-overview", "title": "Features Overview", "type": "reference", "fetched": false },
-      { "path": "/en/costs", "title": "Costs", "type": "reference", "fetched": false },
-      { "path": "/en/model-config", "title": "Model Configuration", "type": "reference", "fetched": false },
-      { "path": "/en/amazon-bedrock", "title": "Amazon Bedrock", "type": "guide", "fetched": false },
-      { "path": "/en/google-vertex-ai", "title": "Google Vertex AI", "type": "guide", "fetched": false },
-      { "path": "/en/microsoft-foundry", "title": "Microsoft Foundry", "type": "guide", "fetched": false },
-      { "path": "/en/third-party-integrations", "title": "Third Party Integrations", "type": "guide", "fetched": false },
-      { "path": "/en/statusline", "title": "Status Line", "type": "reference", "fetched": false },
-      { "path": "/en/output-styles", "title": "Output Styles", "type": "reference", "fetched": false },
-      { "path": "/en/terminal-config", "title": "Terminal Configuration", "type": "guide", "fetched": false },
-      { "path": "/en/keybindings", "title": "Keybindings", "type": "guide", "fetched": false },
-      { "path": "/en/monitoring-usage", "title": "Monitoring Usage", "type": "guide", "fetched": false },
-      { "path": "/en/analytics", "title": "Analytics", "type": "guide", "fetched": false },
-      { "path": "/en/claude-code-on-the-web", "title": "Claude Code on the Web", "type": "guide", "fetched": false },
-      { "path": "/en/changelog", "title": "Changelog", "type": "reference", "fetched": false },
-      { "path": "/en/devcontainer", "title": "Dev Container", "type": "guide", "fetched": false },
-      { "path": "/en/legal-and-compliance", "title": "Legal and Compliance", "type": "reference", "fetched": false },
-      { "path": "/en/llm-gateway", "title": "LLM Gateway", "type": "reference", "fetched": false },
-      { "path": "/en/network-config", "title": "Network Configuration", "type": "reference", "fetched": false }
+      {
+        "path": "/docs/en/amazon-bedrock",
+        "title": "Claude Code on Amazon Bedrock",
+        "description": "Learn about configuring Claude Code through Amazon Bedrock, including setup, IAM configuration, and troubleshooting.",
+        "url": "https://code.claude.com/docs/en/amazon-bedrock.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/analytics",
+        "title": "Track team usage with analytics",
+        "description": "View Claude Code usage metrics, track adoption, and measure engineering velocity in the analytics dashboard.",
+        "url": "https://code.claude.com/docs/en/analytics.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/changelog",
+        "title": "Changelog",
+        "description": "",
+        "url": "https://code.claude.com/docs/en/changelog.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/checkpointing",
+        "title": "Checkpointing",
+        "description": "Automatically track and rewind Claude's edits to quickly recover from unwanted changes.",
+        "url": "https://code.claude.com/docs/en/checkpointing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/claude-code-on-the-web",
+        "title": "Claude Code on the web",
+        "description": "Run Claude Code tasks asynchronously on secure cloud infrastructure",
+        "url": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/costs",
+        "title": "Manage costs effectively",
+        "description": "Track token usage, set team spend limits, and reduce Claude Code costs with context management, model selection, extended thinking settings, and preprocessing hooks.",
+        "url": "https://code.claude.com/docs/en/costs.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/data-usage",
+        "title": "Data usage",
+        "description": "Learn about Anthropic's data usage policies for Claude",
+        "url": "https://code.claude.com/docs/en/data-usage.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/devcontainer",
+        "title": "Development containers",
+        "description": "Learn about the Claude Code development container for teams that need consistent, secure environments.",
+        "url": "https://code.claude.com/docs/en/devcontainer.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/gitlab-ci-cd",
+        "title": "Claude Code GitLab CI/CD",
+        "description": "Learn about integrating Claude Code into your development workflow with GitLab CI/CD",
+        "url": "https://code.claude.com/docs/en/gitlab-ci-cd.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/google-vertex-ai",
+        "title": "Claude Code on Google Vertex AI",
+        "description": "Learn about configuring Claude Code through Google Vertex AI, including setup, IAM configuration, and troubleshooting.",
+        "url": "https://code.claude.com/docs/en/google-vertex-ai.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/headless",
+        "title": "Run Claude Code programmatically",
+        "description": "Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript.",
+        "url": "https://code.claude.com/docs/en/headless.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/how-claude-code-works",
+        "title": "How Claude Code works",
+        "description": "Understand the agentic loop, built-in tools, and how Claude Code interacts with your project.",
+        "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
+        "type": "guide",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/interactive-mode",
+        "title": "Interactive mode",
+        "description": "Complete reference for keyboard shortcuts, input modes, and interactive features in Claude Code sessions.",
+        "url": "https://code.claude.com/docs/en/interactive-mode.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/keybindings",
+        "title": "Customize keyboard shortcuts",
+        "description": "Customize keyboard shortcuts in Claude Code with a keybindings configuration file.",
+        "url": "https://code.claude.com/docs/en/keybindings.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/legal-and-compliance",
+        "title": "Legal and compliance",
+        "description": "Legal agreements, compliance certifications, and security information for Claude Code.",
+        "url": "https://code.claude.com/docs/en/legal-and-compliance.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/llm-gateway",
+        "title": "LLM gateway configuration",
+        "description": "Learn how to configure Claude Code to work with LLM gateway solutions. Covers gateway requirements, authentication configuration, model selection, and provider-specific endpoint setup.",
+        "url": "https://code.claude.com/docs/en/llm-gateway.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/microsoft-foundry",
+        "title": "Claude Code on Microsoft Foundry",
+        "description": "Learn about configuring Claude Code through Microsoft Foundry, including setup, configuration, and troubleshooting.",
+        "url": "https://code.claude.com/docs/en/microsoft-foundry.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/model-config",
+        "title": "Model configuration",
+        "description": "Learn about the Claude Code model configuration, including model aliases like `opusplan`",
+        "url": "https://code.claude.com/docs/en/model-config.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/monitoring-usage",
+        "title": "Monitoring",
+        "description": "Learn how to enable and configure OpenTelemetry for Claude Code.",
+        "url": "https://code.claude.com/docs/en/monitoring-usage.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/network-config",
+        "title": "Enterprise network configuration",
+        "description": "Configure Claude Code for enterprise environments with proxy servers, custom Certificate Authorities (CA), and mutual Transport Layer Security (mTLS) authentication.",
+        "url": "https://code.claude.com/docs/en/network-config.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/output-styles",
+        "title": "Output styles",
+        "description": "Adapt Claude Code for uses beyond software engineering",
+        "url": "https://code.claude.com/docs/en/output-styles.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/plugin-marketplaces",
+        "title": "Create and distribute a plugin marketplace",
+        "description": "Build and host plugin marketplaces to distribute Claude Code extensions across teams and communities.",
+        "url": "https://code.claude.com/docs/en/plugin-marketplaces.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/sandboxing",
+        "title": "Sandboxing",
+        "description": "Learn how Claude Code's sandboxed bash tool provides filesystem and network isolation for safer, more autonomous agent execution.",
+        "url": "https://code.claude.com/docs/en/sandboxing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/setup",
+        "title": "Set up Claude Code",
+        "description": "Install, authenticate, and start using Claude Code on your development machine.",
+        "url": "https://code.claude.com/docs/en/setup.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/statusline",
+        "title": "Status line configuration",
+        "description": "Create a custom status line for Claude Code to display contextual information",
+        "url": "https://code.claude.com/docs/en/statusline.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/terminal-config",
+        "title": "Optimize your terminal setup",
+        "description": "Claude Code works best when your terminal is properly configured. Follow these guidelines to optimize your experience.",
+        "url": "https://code.claude.com/docs/en/terminal-config.md",
+        "type": "guide",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/third-party-integrations",
+        "title": "Enterprise deployment overview",
+        "description": "Learn how Claude Code can integrate with various third-party services and infrastructure to meet enterprise deployment requirements.",
+        "url": "https://code.claude.com/docs/en/third-party-integrations.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/troubleshooting",
+        "title": "Troubleshooting",
+        "description": "Discover solutions to common issues with Claude Code installation and usage.",
+        "url": "https://code.claude.com/docs/en/troubleshooting.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/docs/en/vs-code",
+        "title": "Use Claude Code in VS Code",
+        "description": "Install and configure the Claude Code extension for VS Code. Get AI coding assistance with inline diffs, @-mentions, plan review, and keyboard shortcuts.",
+        "url": "https://code.claude.com/docs/en/vs-code.md",
+        "type": "reference",
+        "tier": 3
+      }
     ]
   },
   "metadata": {
     "total_routes": 53,
-    "site_generator": "custom",
-    "has_search": true,
-    "llms_txt": "https://code.claude.com/docs/llms.txt",
-    "documentation_index": "https://code.claude.com/docs/llms.txt"
-  },
-  "notes": "Complete list discovered from llms.txt. 53 total pages. 6 fetched (11%)."
+    "llms_txt": "https://code.claude.com/docs/llms.txt"
+  }
 }

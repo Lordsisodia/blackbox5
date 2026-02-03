@@ -56,8 +56,8 @@ Claude Code is an agentic coding tool that lives in your terminal and helps you 
 ## Status
 
 - **Last synced**: 2026-02-03
-- **Pages fetched**: 6 of 53
-- **Completeness**: 11%
+- **Pages fetched**: 53 of 53
+- **Completeness**: 100%
 
 ## Quick Access
 
