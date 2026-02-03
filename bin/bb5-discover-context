@@ -159,7 +159,9 @@ else
             if [ -n "$PARENT_PLAN" ]; then
                 echo "  Plan: $PARENT_PLAN"
             fi
-            echo "  ${CURRENT_TYPE^}: $CURRENT_ID"
+            # Capitalize first letter of type
+            TYPE_CAP=$(echo "$CURRENT_TYPE" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
+            echo "  $TYPE_CAP: $CURRENT_ID"
             echo ""
         fi
 
