@@ -20,27 +20,23 @@ jobs:
 
       - name: Push to standalone repo
         env:
-          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          GH_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
-          # Debug: Check if token is set (masked)
-          if [ -z "$MIRROR_TOKEN" ]; then
-            echo "ERROR: MIRROR_TOKEN is not set!"
-            exit 1
-          fi
-          echo "MIRROR_TOKEN is set (length: ${#MIRROR_TOKEN})"
-
           # Configure git
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
 
-          # Remove any existing credential helpers
-          git config --unset-all http.https://github.com/.extraheader || true
-
           # Create a temporary branch with just the folder
           git subtree split --prefix=6-roadmap/research/external/YouTube/AI-Improvement-Research -b youtube-research-temp
 
-          # Push to standalone repo using MIRROR_TOKEN
-          git push https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/youtube-ai-research.git youtube-research-temp:main --force
+          # Setup gh CLI authentication
+          echo "$GH_TOKEN" | gh auth login --with-token
+
+          # Get authenticated URL using gh CLI
+          REMOTE_URL=$(gh repo view lordsisodia/youtube-ai-research --json url -q '.url' | sed 's|https://|https://x-access-token:'"$GH_TOKEN"'@|')
+
+          # Push to standalone repo
+          git push "$REMOTE_URL" youtube-research-temp:main --force
 
           # Clean up
           git branch -D youtube-research-temp
