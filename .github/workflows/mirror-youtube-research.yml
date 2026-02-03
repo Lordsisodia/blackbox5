@@ -22,9 +22,19 @@ jobs:
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
+          # Debug: Check if token is set (masked)
+          if [ -z "$MIRROR_TOKEN" ]; then
+            echo "ERROR: MIRROR_TOKEN is not set!"
+            exit 1
+          fi
+          echo "MIRROR_TOKEN is set (length: ${#MIRROR_TOKEN})"
+
           # Configure git
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
+
+          # Remove any existing credential helpers
+          git config --unset-all http.https://github.com/.extraheader || true
 
           # Create a temporary branch with just the folder
           git subtree split --prefix=6-roadmap/research/external/YouTube/AI-Improvement-Research -b youtube-research-temp
