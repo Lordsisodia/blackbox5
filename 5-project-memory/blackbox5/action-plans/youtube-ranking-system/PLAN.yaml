@@ -1,0 +1,244 @@
+---
+id: "PLAN-YT-RANK-001"
+title: "YouTube Channel Ranking System - Full Implementation"
+slug: "youtube-ranking-system"
+status: "active"
+stage: "04-active"
+
+# Metadata
+created_at: "2026-02-04T02:30:00Z"
+created_by: "claude"
+updated_at: "2026-02-04T02:30:00Z"
+
+# Classification
+category: "feature"
+domain: "tools"
+priority: "high"
+
+# Relationships
+depends_on: []
+blocks: []
+blocked_by: []
+relates_to: []
+parent_improvement: null
+
+# Tasks
+related_tasks:
+  - "TASK-YT-RANK-001"
+  - "TASK-YT-RANK-002"
+  - "TASK-YT-RANK-003"
+  - "TASK-YT-RANK-004"
+  - "TASK-YT-RANK-005"
+  - "TASK-YT-RANK-006"
+  - "TASK-YT-RANK-007"
+  - "TASK-YT-RANK-008"
+  - "TASK-YT-RANK-009"
+  - "TASK-YT-RANK-010"
+  - "TASK-YT-RANK-011"
+  - "TASK-YT-RANK-012"
+
+# Effort Tracking
+estimated_hours: 16
+actual_hours: 0
+progress: 0.0
+
+# Review
+review_status: "not-reviewed"
+reviewed_by: null
+reviewed_at: null
+approval_notes: null
+
+# Tags
+tags:
+  - "youtube"
+  - "ranking"
+  - "leaderboard"
+  - "analytics"
+  - "scoring"
+
+# Links
+proposal_link: null
+research_link: "6-roadmap/research/external/YouTube/AI-Improvement-Research/docs/RANKING_SYSTEM_DESIGN.md"
+design_link: "6-roadmap/research/external/YouTube/AI-Improvement-Research/docs/RANKING_SYSTEM_DESIGN.md"
+plan_link: "5-project-memory/blackbox5/action-plans/youtube-ranking-system/PLAN.yaml"
+active_link: null
+completion_link: null
+
+# Git Integration
+git_branch: null
+git_pr: null
+
+# Custom Metadata
+metadata:
+  total_phases: 4
+  current_phase: 1
+  channels_to_rank: 362
+---
+
+# Implementation Plan: YouTube Channel Ranking System
+
+## Overview
+
+Build a complete ELO-style/benchmark ranking system for 362+ YouTube channels to determine which creators provide the most educational value. The system will calculate composite scores from multiple dimensions (knowledge density, engagement, consistency, quality, impact, novelty) and generate tier-based leaderboards.
+
+## Success Criteria
+
+- [ ] All 362+ channels have calculated scores
+- [ ] Leaderboard generated with S/A/B/C/D tiers
+- [ ] Category-specific rankings (Data Science, ML/AI, Programming, etc.)
+- [ ] Trending detection (rising/falling channels)
+- [ ] Static HTML dashboard generated
+- [ ] Daily automated recalculation via GitHub Actions
+
+## Task Breakdown
+
+### Phase 1: Core Scoring Engine (4 hours)
+
+**TASK-YT-RANK-001: Create channel scoring module**
+- [ ] Implement `scripts/scoring/engine.py` with composite scoring algorithm
+- [ ] Define scoring weights (Knowledge 25%, Engagement 20%, Consistency 20%, Quality 15%, Impact 15%, Novelty 5%)
+- [ ] Create normalization functions for each metric
+- [ ] Add unit tests for scoring functions
+
+**TASK-YT-RANK-002: Build data aggregation pipeline**
+- [ ] Implement `scripts/scoring/aggregate.py` to collect video metrics per channel
+- [ ] Calculate channel-level statistics (avg views, upload frequency, total videos)
+- [ ] Store aggregated data in `database/channel_metrics.json`
+- [ ] Handle missing data gracefully
+
+**TASK-YT-RANK-003: Implement tier classification**
+- [ ] Create tier assignment logic (S: 90-100, A: 80-89, B: 70-79, C: 60-69, D: <60)
+- [ ] Build `scripts/scoring/tiers.py` for classification
+- [ ] Add tier distribution analysis
+
+### Phase 2: Advanced Metrics (4 hours)
+
+**TASK-YT-RANK-004: Calculate engagement quality scores**
+- [ ] Implement engagement rate calculation (likes/views, comments/views)
+- [ ] Add view velocity tracking (views per hour since upload)
+- [ ] Create subscriber conversion metrics
+- [ ] Store in `database/engagement_scores.json`
+
+**TASK-YT-RANK-005: Calculate consistency scores**
+- [ ] Analyze upload regularity (std dev of intervals)
+- [ ] Measure quality consistency over time
+- [ ] Factor in channel longevity and total output
+- [ ] Store in `database/consistency_scores.json`
+
+**TASK-YT-RANK-006: Calculate knowledge density (basic)**
+- [ ] Implement transcript word count / duration ratio
+- [ ] Add technical term density estimation (keyword matching)
+- [ ] Create code snippet detection in descriptions
+- [ ] Store in `database/knowledge_scores.json`
+
+### Phase 3: Ranking & Leaderboard Generation (4 hours)
+
+**TASK-YT-RANK-007: Build ranking calculator**
+- [ ] Implement `scripts/ranking/calculate.py` to combine all scores
+- [ ] Calculate overall composite scores for each channel
+- [ ] Generate rankings (overall + per-category)
+- [ ] Store results in `database/channel_rankings.json`
+
+**TASK-YT-RANK-008: Create category classification**
+- [ ] Build `scripts/ranking/categories.py` to classify channels
+- [ ] Define category mappings (Data Science, ML/AI, Programming, Web Dev, etc.)
+- [ ] Handle multi-category channels
+- [ ] Store category assignments
+
+**TASK-YT-RANK-009: Implement trending detection**
+- [ ] Calculate score changes over time
+- [ ] Identify rising/falling channels
+- [ ] Detect new entrants and breakthrough creators
+- [ ] Store trend data in `database/trends.json`
+
+**TASK-YT-RANK-010: Generate leaderboard reports**
+- [ ] Build `scripts/reports/leaderboard.py`
+- [ ] Create markdown reports with tables
+- [ ] Generate top 100 overall
+- [ ] Generate category-specific leaderboards
+- [ ] Add trending section
+- [ ] Save to `reports/leaderboards/`
+
+### Phase 4: Dashboard & Automation (4 hours)
+
+**TASK-YT-RANK-011: Build HTML dashboard**
+- [ ] Create `scripts/dashboard/generate.py`
+- [ ] Generate static HTML with CSS styling
+- [ ] Add interactive sorting/filtering (vanilla JS)
+- [ ] Create channel detail cards
+- [ ] Add comparison visualization
+- [ ] Output to `dashboard/index.html`
+
+**TASK-YT-RANK-012: Setup GitHub Actions automation**
+- [ ] Create `.github/workflows/rank-channels.yml`
+- [ ] Schedule daily ranking recalculation
+- [ ] Auto-commit leaderboard updates
+- [ ] Add notification on significant rank changes
+- [ ] Test workflow end-to-end
+
+## Dependencies
+
+### External Dependencies
+- yt-dlp (already installed)
+- Python 3.11+ (available)
+- GitHub Actions (configured)
+
+### Internal Dependencies
+- Existing video database in `database/videos.json`
+- Channel metadata in `config/sources.yaml`
+- Mirror workflow already operational
+
+## Resource Requirements
+
+### People
+- Claude (primary implementer)
+- User (review and approval)
+
+### Tools and Infrastructure
+- Existing YouTube scraper infrastructure
+- GitHub Actions runners (free tier)
+- JSON file storage (no database needed)
+
+## Timeline
+
+### Milestone 1: Core Engine Complete - Day 1
+All scoring functions implemented and tested
+
+### Milestone 2: All Metrics Calculated - Day 2
+All 362+ channels have complete scores
+
+### Milestone 3: Leaderboard Live - Day 3
+First leaderboard generated and published
+
+### Milestone 4: Dashboard & Automation - Day 4
+HTML dashboard live, daily automation running
+
+**Total Estimated Hours:** 16
+
+## Definition of Done
+
+This improvement is complete when:
+- [ ] All 12 tasks implemented and tested
+- [ ] 362+ channels have calculated scores
+- [ ] Leaderboard reports generated in `reports/leaderboards/`
+- [ ] HTML dashboard accessible at `dashboard/index.html`
+- [ ] GitHub Actions workflow running daily
+- [ ] Documentation updated
+- [ ] No critical bugs remain
+
+## Readiness Checklist
+
+Before moving to active:
+- [x] All tasks broken down into actionable items
+- [x] All dependencies resolved
+- [x] Resources allocated
+- [x] Timeline estimated
+- [x] Design approved (see RANKING_SYSTEM_DESIGN.md)
+
+## Next Steps
+
+1. Start TASK-YT-RANK-001: Create channel scoring module
+2. Implement sequentially through all phases
+3. Test each component before moving to next
+4. Generate first leaderboard by end of Phase 3
+5. Deploy automation in Phase 4
