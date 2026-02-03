@@ -7,8 +7,8 @@ run:
   project: "blackbox5"
   agent: "unknown"
   timestamp_start: "2026-02-03T23:22:36+07:00"
-  timestamp_end: null
-  duration_seconds: null
+  timestamp_end: "2026-02-03T23:53:08+07:00"
+  duration_seconds: 1832
 
 state:
   active_tasks_count: 0
