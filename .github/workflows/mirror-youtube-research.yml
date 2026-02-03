@@ -20,7 +20,7 @@ jobs:
 
       - name: Push to standalone repo
         env:
-          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
           # Configure git
           git config user.name "Mirror Bot"
@@ -29,8 +29,8 @@ jobs:
           # Create a temporary branch with just the folder
           git subtree split --prefix=6-roadmap/research/external/YouTube/AI-Improvement-Research -b youtube-research-temp
 
-          # Push to standalone repo
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/lordsisodia/youtube-ai-research.git youtube-research-temp:main --force
+          # Push to standalone repo using MIRROR_TOKEN
+          git push https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/youtube-ai-research.git youtube-research-temp:main --force
 
           # Clean up
           git branch -D youtube-research-temp
