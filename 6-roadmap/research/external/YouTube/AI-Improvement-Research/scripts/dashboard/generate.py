@@ -13,6 +13,7 @@ Creates an interactive static HTML dashboard with:
 import json
 from pathlib import Path
 from datetime import datetime
+from string import Template
 
 
 HTML_TEMPLATE = '''<!DOCTYPE html>
@@ -358,24 +359,24 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         <header>
             <h1>🏆 YouTube Channel Leaderboard</h1>
             <p class="subtitle">AI/ML & Programming Education Rankings</p>
-            <p class="meta">Generated: {generated_at} | {total_channels} channels ranked</p>
+            <p class="meta">Generated: ${generated_at} | ${total_channels} channels ranked</p>
         </header>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value">{total_channels}</div>
+                <div class="stat-value">${total_channels}</div>
                 <div class="stat-label">Total Channels</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" style="color: var(--tier-s)">{tier_s_count}</div>
+                <div class="stat-value" style="color: var(--tier-s)">${tier_s_count}</div>
                 <div class="stat-label">S-Tier Channels</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" style="color: var(--tier-a)">{tier_a_count}</div>
+                <div class="stat-value" style="color: var(--tier-a)">${tier_a_count}</div>
                 <div class="stat-label">A-Tier Channels</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" style="color: var(--accent-blue)">{top_score:.1f}</div>
+                <div class="stat-value" style="color: var(--accent-blue)">${top_score}</div>
                 <div class="stat-label">Top Score</div>
             </div>
         </div>
@@ -383,7 +384,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         <div class="tier-distribution">
             <h3>Tier Distribution</h3>
             <div class="tier-bar">
-                {tier_bar}
+                ${tier_bar}
             </div>
         </div>
 
@@ -404,7 +405,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                 <label for="category-filter">Category:</label>
                 <select id="category-filter">
                     <option value="all">All Categories</option>
-                    {category_options}
+                    ${category_options}
                 </select>
             </div>
             <div class="filter-group">
@@ -437,7 +438,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                     </tr>
                 </thead>
                 <tbody>
-                    {table_rows}
+                    ${table_rows}
                 </tbody>
             </table>
         </div>
@@ -480,7 +481,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                     aVal = parseInt(a.cells[0].textContent);
                     bVal = parseInt(b.cells[0].textContent);
                 } else if (column === 'tier') {
-                    const tierOrder = {{'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1}};
+                    const tierOrder = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1};
                     aVal = tierOrder[a.cells[1].textContent.trim()] || 0;
                     bVal = tierOrder[b.cells[1].textContent.trim()] || 0;
                 } else if (column === 'score') {
@@ -522,8 +523,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         searchInput.addEventListener('input', filterTable);
     </script>
 </body>
-</html>
-'''
+</html>'''
 
 
 def generate_tier_bar(tier_counts, total):
@@ -582,15 +582,17 @@ def generate_table_rows(rankings):
         categories = channel.get('categories', [])
         primary_category = categories[0] if categories else 'programming'
 
+        score_class = 'high' if channel['overall_score'] >= 80 else 'medium' if channel['overall_score'] >= 60 else 'low'
+
         rows.append(f'''
             <tr data-category="{primary_category}">
                 <td>#{i}</td>
                 <td><span class="tier-badge tier-{tier.lower()}">{tier}</span></td>
-                <td><span class="channel-name">{channel['channel_name']}</span></td>
+                <td><span class="channel-name">{channel["channel_name"]}</span></td>
                 <td>
-                    <strong>{channel['overall_score']:.1f}</strong>
+                    <strong>{channel["overall_score"]:.1f}</strong>
                     <div class="score-bar">
-                        <div class="score-fill {'high' if channel['overall_score'] >= 80 else 'medium' if channel['overall_score'] >= 60 else 'low'}" style="width: {channel['overall_score']}%"></div>
+                        <div class="score-fill {score_class}" style="width: {channel["overall_score"]}%"></div>
                     </div>
                 </td>
                 <td><span class="trend trend-{trend}">{trend_icon}</span></td>
@@ -625,13 +627,14 @@ def generate_dashboard(rankings_path, output_path):
         'cybersecurity': 'Cybersecurity'
     }
 
-    # Generate HTML
-    html = HTML_TEMPLATE.format(
+    # Use string.Template for safe substitution
+    template = Template(HTML_TEMPLATE)
+    html = template.substitute(
         generated_at=datetime.now().strftime('%Y-%m-%d %H:%M UTC'),
         total_channels=total,
         tier_s_count=tier_counts.get('S', 0),
         tier_a_count=tier_counts.get('A', 0),
-        top_score=top_score,
+        top_score=f"{top_score:.1f}",
         tier_bar=generate_tier_bar(tier_counts, total),
         category_options=generate_category_options(categories),
         table_rows=generate_table_rows(rankings)

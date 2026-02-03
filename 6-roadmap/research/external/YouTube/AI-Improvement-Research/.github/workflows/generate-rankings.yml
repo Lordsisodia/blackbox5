@@ -27,6 +27,11 @@ jobs:
           cd scripts
           python3 generate_rankings.py
 
+      - name: Generate dashboard
+        run: |
+          cd scripts
+          python3 dashboard/generate.py
+
       - name: Commit changes
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
@@ -40,7 +45,7 @@ jobs:
           git config user.email "bot@example.com"
 
           # Add changes
-          git add database/channel_rankings.json reports/leaderboards/
+          git add database/channel_rankings.json reports/leaderboards/ dashboard/
           git diff --staged --quiet || git commit -m "rankings: $(date -u '+%Y-%m-%d %H:%M UTC')"
 
           # Push using token
