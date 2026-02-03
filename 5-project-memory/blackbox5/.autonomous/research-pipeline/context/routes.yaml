@@ -1,0 +1,37 @@
+routes:
+  # Agent directories
+  scout_worker: "agents/scout-worker"
+  scout_validator: "agents/scout-validator"
+  analyst_worker: "agents/analyst-worker"
+  analyst_validator: "agents/analyst-validator"
+  planner_worker: "agents/planner-worker"
+  planner_validator: "agents/planner-validator"
+
+  # Communication
+  communications: "communications"
+  queue: "communications/queue.yaml"
+  events: "communications/events.yaml"
+  chat_log: "communications/chat-log.yaml"
+  heartbeat: "communications/heartbeat.yaml"
+  protocol: "communications/protocol.yaml"
+
+  # Data
+  data_patterns: "data/patterns"
+  data_analysis: "data/analysis"
+  data_tasks: "data/tasks"
+
+  # Logs
+  logs_scout: "logs/scout"
+  logs_analyst: "logs/analyst"
+  logs_planner: "logs/planner"
+  logs_pipeline: "logs/pipeline"
+
+  # Operations
+  operations: "operations"
+  skill_usage: "operations/skill-usage.yaml"
+  token_usage: "operations/token-usage.yaml"
+
+  # Templates
+  templates: ".templates"
+  templates_runs: ".templates/runs"
+  templates_communications: ".templates/communications"

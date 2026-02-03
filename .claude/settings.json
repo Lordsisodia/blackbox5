@@ -20,6 +20,17 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/shaansisodia/.blackbox5/bin/ralf-post-tool-hook.sh"
+          }
+        ]
+      }
     ]
   }
 }

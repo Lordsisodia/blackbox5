@@ -1,19 +1,36 @@
-# Documentation for `1-docs`
+# Blackbox5 Documentation
 
-This directory contains documentation and resources for the **1-docs** component.
+This directory contains documentation for the Blackbox5 ecosystem.
 
 ## Purpose
 
-<!-- Add the purpose of this directory here -->
+Centralized documentation for understanding, developing, and operating Blackbox5 components.
 
 ## Contents
 
-<!-- List and describe the contents of this directory -->
+| Directory | Description |
+|-----------|-------------|
+| `moltbot/` | Moltbot (Claudebot) research and documentation |
+
+## Moltbot Documentation
+
+**Location:** `moltbot/`
+
+Comprehensive research into Moltbot, previously known as Claudebot:
+
+- **[README.md](moltbot/README.md)** - Overview and architecture
+- **[ARCHITECTURE.md](moltbot/ARCHITECTURE.md)** - Deep dive into system components
+- **[RESEARCH-LOG.md](moltbot/RESEARCH-LOG.md)** - Research notes and findings
+- **[OPENCLAW-RESEARCH.md](moltbot/OPENCLAW-RESEARCH.md)** - OpenClaw framework details
+- **[MCP-PROTOCOL.md](moltbot/MCP-PROTOCOL.md)** - MCP protocol implementation
+- **[TELEGRAM-BOT.md](moltbot/TELEGRAM-BOT.md)** - Telegram Bot integration
+- **[FILE-REFERENCE.md](moltbot/FILE-REFERENCE.md)** - Complete file reference
 
 ## Related Documentation
 
-<!-- Add links to related documentation -->
+- `/docs/moltbot-ralf-architecture.md` - Original architecture doc
+- `/2-engine/.autonomous/vps-deployment/` - Deployment scripts
 
 ## Notes
 
-<!-- Add any additional notes -->
+Documentation follows the research-then-document pattern. Each major component should have its own subdirectory in `.docs/`.

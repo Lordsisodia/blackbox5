@@ -1,0 +1,49 @@
+heartbeats:
+  scout-worker:
+    last_seen: '{TIMESTAMP}'
+    status: {status}
+    current_action: "{ACTION}"
+    run_number: {NUM}
+    tokens_used: {COUNT}
+    tokens_budget: {COUNT}
+
+  scout-validator:
+    last_seen: '{TIMESTAMP}'
+    status: {status}
+    current_action: "{ACTION}"
+    run_number: {NUM}
+
+  analyst-worker:
+    last_seen: '{TIMESTAMP}'
+    status: {status}
+    current_action: "{ACTION}"
+    run_number: {NUM}
+    tokens_used: {COUNT}
+    tokens_budget: {COUNT}
+
+  analyst-validator:
+    last_seen: '{TIMESTAMP}'
+    status: {status}
+    current_action: "{ACTION}"
+    run_number: {NUM}
+
+  planner-worker:
+    last_seen: '{TIMESTAMP}'
+    status: {status}
+    current_action: "{ACTION}"
+    run_number: {NUM}
+    tokens_used: {COUNT}
+    tokens_budget: {COUNT}
+
+  planner-validator:
+    last_seen: '{TIMESTAMP}'
+    status: {status}
+    current_action: "{ACTION}"
+    run_number: {NUM}
+
+metadata:
+  timeout_seconds: 120
+  last_updated: '{TIMESTAMP}'
+  healthy_agents: {COUNT}
+  warning_agents: {COUNT}
+  failed_agents: {COUNT}

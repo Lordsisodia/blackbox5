@@ -1,0 +1,23 @@
+scout:
+  phase: extraction
+  status: {idle|scanning|extracting|complete|error}
+
+  current_run:
+    run_id: {RUN_ID|null}
+    source_url: {URL|null}
+    start_time: {TIMESTAMP|null}
+    tokens_used: {COUNT}
+    tokens_budget: 3000
+
+  queue:
+    pending_sources: {COUNT}
+    in_progress: {COUNT}
+    completed_today: {COUNT}
+    failed_today: {COUNT}
+
+  patterns:
+    extracted_today: {COUNT}
+    awaiting_analysis: {COUNT}
+
+  last_updated: {TIMESTAMP}
+  updated_by: {AGENT_NAME}

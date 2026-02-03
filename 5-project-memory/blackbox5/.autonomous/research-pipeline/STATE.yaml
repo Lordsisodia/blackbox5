@@ -1,0 +1,37 @@
+pipeline:
+  version: "1.0.0"
+  status: initializing
+  last_updated: "2026-02-04"
+
+phases:
+  scout:
+    status: initializing
+    worker_status: idle
+    validator_status: idle
+    queue_depth: 0
+
+  analyst:
+    status: initializing
+    worker_status: idle
+    validator_status: idle
+    queue_depth: 0
+
+  planner:
+    status: initializing
+    worker_status: idle
+    validator_status: idle
+    queue_depth: 0
+
+metrics:
+  sources_scanned_total: 0
+  patterns_extracted_total: 0
+  analyses_completed_total: 0
+  tasks_created_total: 0
+
+current_run:
+  active_agents: 0
+  total_agents: 6
+
+notes: |
+  Pipeline initialization complete.
+  Ready to start agents.
