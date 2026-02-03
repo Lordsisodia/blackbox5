@@ -22,10 +22,24 @@ jobs:
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
+          # Remove checkout credentials
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote remove origin || true
+
+          # Configure git
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
+
+          # Create a temporary branch with just the folder
           git subtree split --prefix=6-roadmap/research -b research-temp
-          git push https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/siso-research-bank.git research-temp:main --force
+
+          # Setup remote with token
+          git remote add target "https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/siso-research-bank.git"
+
+          # Push to standalone repo
+          git push target research-temp:main --force
+
+          # Clean up
           git branch -D research-temp
 
       - name: Notify

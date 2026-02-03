@@ -22,10 +22,24 @@ jobs:
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
+          # Remove checkout credentials
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote remove origin || true
+
+          # Configure git
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
+
+          # Create a temporary branch with just the folder
           git subtree split --prefix=2-engine -b engine-temp
-          git push https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/siso-engine.git engine-temp:main --force
+
+          # Setup remote with token
+          git remote add target "https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/siso-engine.git"
+
+          # Push to standalone repo
+          git push target engine-temp:main --force
+
+          # Clean up
           git branch -D engine-temp
 
       - name: Notify
