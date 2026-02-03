@@ -16,3 +16,8 @@ paths:
   project_root: "/Users/shaansisodia/.blackbox5"
   project_memory: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
   run_dir: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/unknown/run-20260204-062042"
+
+# Completion Info (added by stop hook)
+completion:
+  timestamp: "2026-02-04T06:29:49+07:00"
+  status: archived
