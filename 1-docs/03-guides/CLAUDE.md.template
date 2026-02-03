@@ -1,9 +1,15 @@
+---
+name: SISO Claude Configuration
+version: 2.0.0
+device: [YOUR_DEVICE]
+last_synced: [DATE]
+includes:
+  - [BLACKBOX5_PATH]/1-docs/03-guides/OUTPUT_STYLE.md
+---
+
 # SISO Claude Configuration
 
-Device: shaans-MacBook-Pro.local
-Last synced: Thu Nov 20 18:16:29 WITA 2025
-
-IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
+**ALSO READ:** `OUTPUT_STYLE.md` for communication rules (high signal, low noise)
 
 ---
 
