@@ -1,0 +1,154 @@
+# Core Goals
+# =============================================================================
+# Purpose: Perpetual goals that drive the autonomous system
+# Status: Always active, never complete
+# Updated: 2026-02-02
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "2026-02-02"
+  review_cycle: "weekly"
+  type: "perpetual"
+
+# =============================================================================
+# CORE GOALS
+# =============================================================================
+
+core_goals:
+  - id: CG-001
+    name: "Continuous Self-Improvement"
+    description: "The agent must continuously improve its own capabilities, processes, and effectiveness"
+    priority: critical
+    status: active
+
+    success_criteria:
+      - "Learning captured from every run"
+      - "First principles review every 5 runs"
+      - "At least 1 improvement applied per review cycle"
+
+    # Rolling 30-day metrics
+    metrics:
+      - name: "learnings_captured"
+        target: ">= 5 per week"
+        current: 7
+        trend: "improving"
+        last_updated: "2026-02-02"
+
+      - name: "improvements_applied"
+        target: ">= 1 per week"
+        current: 2
+        trend: "stable"
+        last_updated: "2026-02-02"
+
+      - name: "first_principles_reviews"
+        target: ">= 1 per 5 runs"
+        current: 1
+        trend: "stable"
+        last_updated: "2026-02-02"
+
+    # Timeline of major improvements
+    timeline:
+      - date: "2026-01-15"
+        event: "Added skill effectiveness tracking"
+        linked_task: "TASK-1769903001"
+        impact: "Can now measure which skills actually help"
+
+      - date: "2026-02-01"
+        event: "Restructured .autonomous folder"
+        linked_task: "TASK-XXXX"
+        impact: "Clearer separation of concerns"
+
+    # Active improvement initiatives
+    active_initiatives:
+      - "IG-001: Improve CLAUDE.md Effectiveness"
+      - "IG-002: Improve LEGACY.md Operational Efficiency"
+
+  - id: CG-002
+    name: "Ship Features Autonomously"
+    description: "Complete tasks from backlog to production without human intervention"
+    priority: critical
+    status: active
+
+    success_criteria:
+      - "Task completion rate > 90%"
+      - "Zero commits to main/master"
+      - "All quality gates passed"
+
+    metrics:
+      - name: "task_completion_rate"
+        target: ">= 90%"
+        current: 85
+        trend: "improving"
+        last_updated: "2026-02-02"
+
+      - name: "commits_to_main"
+        target: "0"
+        current: 0
+        trend: "stable"
+        last_updated: "2026-02-02"
+
+      - name: "quality_gate_pass_rate"
+        target: ">= 95%"
+        current: 92
+        trend: "improving"
+        last_updated: "2026-02-02"
+
+    timeline:
+      - date: "2026-01-20"
+        event: "Implemented pre-execution validation"
+        linked_task: "TASK-1769892004"
+        impact: "Reduced errors by 30%"
+
+    active_initiatives:
+      - "IG-003: Improve System Flow and Code Mapping"
+      - "IG-004: Optimize Skill Usage and Efficiency"
+
+  - id: CG-003
+    name: "Maintain System Integrity"
+    description: "Never break existing functionality, always validate before committing"
+    priority: critical
+    status: active
+
+    success_criteria:
+      - "All assumptions validated before acting"
+      - "Tests passing before commit"
+      - "No destructive operations without confirmation"
+
+    metrics:
+      - name: "assumptions_validated"
+        target: "100%"
+        current: 95
+        trend: "improving"
+        last_updated: "2026-02-02"
+
+      - name: "test_pass_rate"
+        target: ">= 98%"
+        current: 97
+        trend: "stable"
+        last_updated: "2026-02-02"
+
+      - name: "destructive_ops_without_confirmation"
+        target: "0"
+        current: 0
+        trend: "stable"
+        last_updated: "2026-02-02"
+
+    timeline:
+      - date: "2026-01-10"
+        event: "Added branch safety checks"
+        linked_task: "TASK-1738300000"
+        impact: "Prevented 3 accidental main commits"
+
+    active_initiatives:
+      - "IG-005: Improve Documentation Quality and Utility"
+      - "IG-006: Restructure BlackBox5 Architecture"
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# Core goals are perpetual - they never complete.
+# Progress is measured via rolling metrics, not completion percentage.
+# Each core goal has active improvement initiatives (linked IG goals).
+# Weekly review: Are metrics trending in right direction?

@@ -1,0 +1,66 @@
+# Source Configuration Template
+# Copy this file and update for your topic
+
+topic:
+  name: "Topic Name"
+  description: "Brief description of what this topic covers"
+  created_at: "YYYY-MM-DD"
+
+# Source tiers determine processing priority
+tiers:
+  tier_1:
+    name: "Must Watch"
+    description: "Critical sources - process immediately"
+    auto_process: true
+    priority: critical
+    sources: []
+      # Example:
+      # - name: "Source Name"
+      #   id: "source-id"
+      #   url: "https://..."
+      #   rss: "https://.../feed"
+      #   areas: ["area1", "area2"]
+
+  tier_2:
+    name: "High Quality"
+    description: "Reliable sources - process normally"
+    auto_process: true
+    priority: high
+    sources: []
+
+  tier_3:
+    name: "Filtered"
+    description: "Review before processing"
+    auto_process: false
+    priority: medium
+    sources: []
+
+# Classification areas for extracted content
+areas:
+  - id: "area-id"
+    name: "Area Name"
+    description: "What this area covers"
+    keywords: ["keyword1", "keyword2"]
+
+# Topics for granular classification
+topics:
+  - id: "topic-id"
+    name: "Topic Name"
+    description: "What this topic covers"
+    related_areas: ["area-id"]
+    keywords: ["keyword1", "keyword2"]
+
+# Ranking criteria
+ranking:
+  novelty:
+    weight: 0.3
+    description: "How new is this information?"
+  actionability:
+    weight: 0.3
+    description: "Can we act on this?"
+  relevance:
+    weight: 0.25
+    description: "How relevant to our work?"
+  authority:
+    weight: 0.15
+    description: "Source credibility"

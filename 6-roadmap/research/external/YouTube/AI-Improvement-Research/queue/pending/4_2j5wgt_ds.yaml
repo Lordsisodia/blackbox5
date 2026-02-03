@@ -1,0 +1,17 @@
+video_id: 4_2j5wgt_ds
+title: 'Claude Code Task System: ANTI-HYPE Agentic Coding (Advanced)'
+creator: IndyDevDan
+creator_slug: indydevdan
+url: https://youtube.com/watch?v=4_2j5wgt_ds
+priority: critical
+status: extracted
+queued_at: '2026-02-03T23:21:34.444164'
+source_path: data/sources/indydevdan/videos/4_2j5wgt_ds.yaml
+extracted_at: '2026-02-03T23:22:11.972233'
+output_paths:
+- output/claude-code/4_2j5wgt_ds_Claude-Code-Task-System-ANTI-HYPE-Agentic-Coding-A.md
+- output/ai-agents/4_2j5wgt_ds_Claude-Code-Task-System-ANTI-HYPE-Agentic-Coding-A.md
+- output/voice-ai/4_2j5wgt_ds_Claude-Code-Task-System-ANTI-HYPE-Agentic-Coding-A.md
+- output/llm-engineering/4_2j5wgt_ds_Claude-Code-Task-System-ANTI-HYPE-Agentic-Coding-A.md
+- output/deployment/4_2j5wgt_ds_Claude-Code-Task-System-ANTI-HYPE-Agentic-Coding-A.md
+- output/business-automation/4_2j5wgt_ds_Claude-Code-Task-System-ANTI-HYPE-Agentic-Coding-A.md

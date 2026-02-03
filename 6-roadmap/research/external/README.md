@@ -15,6 +15,7 @@ Research documents gathered from external sources and analysis.
 
 ## Subdirectories
 
+- `documentation/` - External documentation (API docs, SDKs, specs)
 - `Reddit/` - Reddit research data
 - `Twitter/` - Twitter research data
 - `YouTube/` - YouTube research data

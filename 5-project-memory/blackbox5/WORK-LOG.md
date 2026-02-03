@@ -1,5 +1,137 @@
 # Work Log
 
+## 2026-02-02
+
+### Phase 1: Run Folder Initialization with Hook Enforcement
+
+**Time:** ~2 hours
+**Agent:** Claude
+**Task:** TASK-1769978192
+
+#### Analysis
+
+Analyzed 146 runs across planner (80) and executor (66) to determine actual file usage:
+
+| File | Usage Rate | Decision |
+|------|------------|----------|
+| THOUGHTS.md | 100% | Keep separate |
+| RESULTS.md | 99% | Keep separate |
+| DECISIONS.md | 97% | Keep separate |
+| metadata.yaml | 76% | Keep |
+| LEARNINGS.md | 13% | Merge into metadata |
+| ASSUMPTIONS.md | 12% | Merge into metadata |
+
+#### Changes Made
+
+1. **Simplified Run Structure**
+   - Reduced from 6 files to 4 files per run
+   - Merged low-usage files (LEARNINGS, ASSUMPTIONS) into metadata.yaml
+   - Kept high-usage files separate (THOUGHTS, RESULTS, DECISIONS)
+
+2. **Created SessionStart Hook**
+   - `.claude/settings.json` - Hook configuration
+   - `bin/ralf-session-start-hook.sh` - Run folder creation and templates
+   - COMMAND type hook (bash, not LLM) - zero tokens, 100% reliable
+
+3. **Hook Features**
+   - Project-aware: Uses `RALF_PROJECT_NAME` to determine correct project memory
+   - Creates run folder: `5-project-memory/{project}/runs/{agent}/run-YYYYMMDD-HHMMSS/`
+   - Generates 4 template files: THOUGHTS.md, RESULTS.md, DECISIONS.md, metadata.yaml
+   - Exports environment variables: RALF_RUN_DIR, RALF_RUN_ID, RALF_AGENT_TYPE, RALF_PROJECT_NAME
+   - Idempotent: Won't overwrite existing files
+   - Git-aware: Captures branch and commit in metadata
+   - Creates `.hook_initialized` marker file
+
+4. **Testing Results**
+   - ✅ Hook creates all 4 files correctly
+   - ✅ Files have proper content with project/agent info
+   - ✅ Idempotent: Second run doesn't recreate files
+   - ✅ Works for both planner and executor agent types
+   - ✅ Git info captured correctly (branch: main, commit: 22a4f8a)
+
+5. **Documentation**
+   - Updated timeline.yaml with analysis event
+   - Updated TASK-1769978192 with decisions
+   - Created this work log entry
+
+#### Files Created
+
+| File | Purpose |
+|------|---------|
+| `.claude/settings.json` | Hook configuration |
+| `bin/ralf-session-start-hook.sh` | Run initialization hook |
+
+#### Phase 2 Complete: Updated Executor Prompt + Dynamic Context System
+
+**Changes to `2-engine/.autonomous/prompts/ralf-executor.md`:**
+
+1. **Added 7-Phase Flow Reference**
+   - Documented all 7 phases with executor's role in each
+   - Clarified which phases are hook-enforced vs executor-driven
+   - Added Phase 4: Task Folder Creation section
+
+2. **Updated Environment Variables Section**
+   - Added table format for clarity
+   - Documented all RALF_* variables
+   - Emphasized `$RALF_RUN_DIR` for documentation
+
+3. **Updated Documentation Instructions**
+   - All docs now reference `$RALF_RUN_DIR/`
+   - Templates include project/agent info
+   - Consistent header format across files
+
+4. **Added Phase 4: Task Folder Creation**
+   - Instructions for complex tasks
+   - Template for README.md, TASK-CONTEXT.md, ACTIVE-CONTEXT.md
+   - Working directory structure: `tasks/working/[TASK-ID]/[RUN-ID]/`
+
+**New: Dynamic Prompt Context System**
+
+Created self-updating context system where agents modify documents that feed into subsequent prompts:
+
+1. **Prompt Builder** (`bin/ralf-build-prompt.sh`)
+   - Concatenates multiple context files into prompt
+   - Supports both .md and .yaml files
+   - Agent-type aware (planner/executor/architect)
+
+2. **Context Files Created:**
+   - `project-structure.md` - Where everything lives
+   - `architecture/map.md` - System architecture
+   - `decisions/active.md` - Active architectural decisions
+   - `learnings/recent.md` - Recent discoveries
+
+3. **How It Works:**
+   ```
+   Run N:     Agent loads prompt with context files
+              ↓
+              Agent executes task
+              ↓
+              Agent updates architecture/map.md (if architecture changed)
+              ↓
+   Run N+1:   Agent loads prompt with UPDATED context
+              ↓
+              Agent has new architecture info automatically
+   ```
+
+4. **Key Insight:** YAML files CAN be included in prompts - LLM reads them as structured text
+
+**Files Created:**
+- `bin/ralf-build-prompt.sh` - Dynamic prompt builder
+- `project-structure.md` - Project organization map
+- `architecture/map.md` - System architecture
+- `decisions/active.md` - Active decisions
+- `learnings/recent.md` - Recent learnings
+
+#### Next Steps
+
+- Phase 3: Task selection logic
+- Phase 4: Task folder creation (implementation)
+- Phase 5: Context & Execution
+- Phase 6: Logging & Completion
+- Phase 7: Archive (Stop hook)
+
+---
+
 ## 2026-02-01
 
 ### Fixed YAML Agent Import Paths + Completed Roadmap Plans

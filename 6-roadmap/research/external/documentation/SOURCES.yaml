@@ -1,0 +1,46 @@
+# Documentation Sources Registry
+# Central registry of all external documentation sources
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-02-03"
+  total_sources: 0
+
+sources: []
+  # Example entry:
+  # - name: claude-code
+  #   display_name: Claude Code Documentation
+  #   url: https://docs.anthropic.com/claude-code
+  #   type: official-docs
+  #   category: ai-tools
+  #   status: active
+  #   last_synced: null
+  #   version: null
+  #   local_path: claude-code/
+  #   sync_strategy:
+  #     tier_1:
+  #       - /getting-started
+  #       - /mcp/overview
+  #     tier_2:
+  #       - /advanced/*
+  #     tier_3:
+  #       - /troubleshooting/*
+  #   priority: high
+  #   notes: "Official Anthropic documentation for Claude Code"
+
+# Categories for organization
+categories:
+  - ai-tools
+  - api-reference
+  - frameworks
+  - protocols
+  - sdks
+  - specifications
+
+# Source types
+types:
+  - official-docs      # Official documentation
+  - api-reference      # API reference docs
+  - github-repo        # GitHub-hosted docs
+  - specification      # Technical specifications
+  - community          # Community-maintained

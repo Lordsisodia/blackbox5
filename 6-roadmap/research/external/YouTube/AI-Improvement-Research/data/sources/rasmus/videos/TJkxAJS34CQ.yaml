@@ -338,7 +338,9 @@ transcript:
   language: en
   is_auto_generated: true
 processing:
-  stage: ingested
+  stage: extracted
   stages_completed:
   - ingest
-  next_stage: extract
+  - extract
+  next_stage: complete
+  extracted_at: '2026-02-02T07:25:36.515345'

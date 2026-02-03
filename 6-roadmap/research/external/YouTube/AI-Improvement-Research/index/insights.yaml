@@ -1,0 +1,70 @@
+insights:
+- id: FsDYk0WqBt0-000
+  video_id: FsDYk0WqBt0
+  type: insight
+  importance: medium
+  content: MCP servers provide tool access; Skills provide workflow logic and domain
+    expertise. They are complementary, not replacements.
+  topics: &id001
+  - mcp
+  - claude_code
+  - business_automation
+  tools:
+  - MCP (Model Context Protocol)
+  - Anthropic Skills
+  extracted_at: '2026-02-02T07:41:03.806007'
+- id: FsDYk0WqBt0-001
+  video_id: FsDYk0WqBt0
+  type: insight
+  importance: high
+  content: 'Skills use progressive disclosure with three levels: (1) YAML name/description
+    preloaded into system prompt, (2) full skill.md loaded when relevant, (3) referenced
+    files loaded only when specifically needed.'
+  topics: *id001
+  tools:
+  - MCP (Model Context Protocol)
+  - Anthropic Skills
+  extracted_at: '2026-02-02T07:41:03.806011'
+- id: FsDYk0WqBt0-002
+  video_id: FsDYk0WqBt0
+  type: insight
+  importance: medium
+  content: MCP instructions should cover 'how to use the server correctly'; Skills
+    instructions cover 'how to use them for a given purpose or in multi-server workflows'.
+  topics: *id001
+  tools:
+  - MCP (Model Context Protocol)
+  - Anthropic Skills
+  extracted_at: '2026-02-02T07:41:03.806014'
+- id: FsDYk0WqBt0-003
+  video_id: FsDYk0WqBt0
+  type: insight
+  importance: medium
+  content: A single skill can coordinate multiple MCP servers, and multiple skills
+    can enhance a single MCP server.
+  topics: *id001
+  tools:
+  - MCP (Model Context Protocol)
+  - Anthropic Skills
+  extracted_at: '2026-02-02T07:41:03.806016'
+- id: FsDYk0WqBt0-004
+  video_id: FsDYk0WqBt0
+  type: insight
+  importance: medium
+  content: Conflicting instructions between MCP servers and Skills (e.g., JSON vs
+    markdown output) cause Claude to guess—let MCP handle connectivity, Skills handle
+    presentation and workflow logic.
+  topics: *id001
+  tools:
+  - MCP (Model Context Protocol)
+  - Anthropic Skills
+  extracted_at: '2026-02-02T07:41:03.806018'
+- id: FsDYk0WqBt0-fw-MCP-+-Skills-Archite
+  video_id: FsDYk0WqBt0
+  type: framework
+  importance: high
+  content: 'MCP + Skills Architecture: Two-layer system where MCP provides raw tool
+    access and Skills provide structured workflow execution'
+  topics: *id001
+  tools: []
+  extracted_at: '2026-02-02T07:41:03.806021'

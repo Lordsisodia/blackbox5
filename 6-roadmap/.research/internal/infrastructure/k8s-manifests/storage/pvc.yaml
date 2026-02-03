@@ -1,0 +1,73 @@
+# Persistent Volume Claims for Blackbox5
+# Shared storage for code, runs, and logs
+
+---
+# Shared code repository (ReadWriteMany)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: blackbox5-code-pvc
+  namespace: blackbox5-storage
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: hcloud-volumes-rwx
+  resources:
+    requests:
+      storage: 100Gi
+---
+# RALF runs directory (ReadWriteMany)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ralf-runs-pvc
+  namespace: blackbox5-storage
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: hcloud-volumes-rwx
+  resources:
+    requests:
+      storage: 50Gi
+---
+# Logs directory (ReadWriteMany)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ralf-logs-pvc
+  namespace: blackbox5-storage
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: hcloud-volumes-rwx
+  resources:
+    requests:
+      storage: 20Gi
+---
+# Project memory (ReadWriteMany)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: project-memory-pvc
+  namespace: blackbox5-storage
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: hcloud-volumes-rwx
+  resources:
+    requests:
+      storage: 30Gi
+---
+# MCP cache (ReadWriteOnce)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mcp-cache-pvc
+  namespace: blackbox5-storage
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: hcloud-volumes
+  resources:
+    requests:
+      storage: 10Gi

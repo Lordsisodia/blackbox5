@@ -1,0 +1,102 @@
+# Goal: Improve LEGACY.md Operational Efficiency
+# =============================================================================
+goal_id: IG-002
+name: "Improve LEGACY.md Operational Efficiency"
+description: "Streamline the operational procedures to reduce friction and improve execution speed"
+
+meta:
+  created: "2026-01-15"
+  target_completion: "2026-03-01"
+  owner: "executor-agent"
+  priority: high
+  status: not_started
+  category: process
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-002-1
+    name: "Analyze current operational friction"
+    description: "Identify bottlenecks in the current LEGACY.md procedures"
+    weight: 30
+    status: not_started
+
+    acceptance_criteria:
+      - "Documented 5+ friction points"
+      - "Measured time spent on each phase"
+      - "Identified redundant steps"
+
+    linked_tasks: []
+
+  - id: SG-002-2
+    name: "Optimize skill discovery and selection"
+    description: "Make skill discovery faster and more accurate"
+    weight: 40
+    status: not_started
+
+    acceptance_criteria:
+      - "Cached frequently used skills"
+      - "Improved skill trigger accuracy"
+      - "Reduced skill selection time by 50%"
+
+    linked_tasks: []
+
+  - id: SG-002-3
+    name: "Streamline quality gates"
+    description: "Make quality checks faster without sacrificing rigor"
+    weight: 30
+    status: not_started
+
+    acceptance_criteria:
+      - "Quality gate checklists per task type"
+      - "Automated validation where possible"
+      - "Reduced gate time by 30%"
+
+    linked_tasks: []
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 0
+  last_updated: "2026-01-15"
+
+  by_sub_goal:
+    SG-002-1: 0
+    SG-002-2: 0
+    SG-002-3: 0
+
+  summary:
+    total_tasks: 0
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions: []
+  learnings: []
+  related_goals:
+    - IG-001  # CLAUDE.md improvements
+
+  parent_goal: CG-001
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  Current issues identified:
+  - Skill discovery may be too slow
+  - Quality gates could be more specific
+  - Run initialization takes time
+
+  Target file: LEGACY.md operational procedures
+
+  Success means faster, smoother execution.

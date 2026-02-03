@@ -137,6 +137,23 @@ events:
     description: "Reorganized all 23 skills to folder-based structure with SKILL.md format"
     impact: "high"
     related_items:
+      - "M-006"
+
+  - date: "2026-02-02"
+    type: "analysis"
+    title: "Run Structure Analysis Complete"
+    description: "Analyzed 146 runs to determine actual file usage. THOUGHTS.md (100%), RESULTS.md (99%), DECISIONS.md (97%), metadata.yaml (76%), LEARNINGS.md (13%), ASSUMPTIONS.md (12%)"
+    impact: "high"
+    related_items:
+      - "TASK-1769978192"
+
+  - date: "2026-02-02"
+    type: "decision"
+    title: "Simplified Run Structure Adopted"
+    description: "Decision: Keep THOUGHTS.md, RESULTS.md, DECISIONS.md separate (high usage). Merge LEARNINGS and ASSUMPTIONS into metadata.yaml (low usage). Use SessionStart hook for enforcement."
+    impact: "high"
+    related_items:
+      - "DEC-2026-02-02-run-structure-simplification"
       - "skills-migration-2026-02-01"
 
 # =============================================================================

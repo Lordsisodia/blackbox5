@@ -1,0 +1,46 @@
+tools:
+  MCP (Model Context Protocol):
+    mentions: 1
+    videos:
+    - FsDYk0WqBt0
+    first_seen: '2026-02-02T07:41:03.807826'
+    last_seen: '2026-02-02T07:41:03.807829'
+    description: Protocol for connecting AI agents to external tools, data sources,
+      and APIs
+    categories: &id001
+    - mcp
+    - claude_code
+    - business_automation
+  Anthropic Skills:
+    mentions: 1
+    videos:
+    - FsDYk0WqBt0
+    first_seen: '2026-02-02T07:41:03.807831'
+    last_seen: '2026-02-02T07:41:03.807834'
+    description: Structured workflow definitions with progressive disclosure for Claude
+      Code/Desktop
+    categories: *id001
+  Grapile:
+    mentions: 1
+    videos:
+    - FsDYk0WqBt0
+    first_seen: '2026-02-02T07:41:03.807836'
+    last_seen: '2026-02-02T07:41:03.807838'
+    description: AI-powered code review tool
+    categories: *id001
+  Claude Code:
+    mentions: 1
+    videos:
+    - FsDYk0WqBt0
+    first_seen: '2026-02-02T07:41:03.807839'
+    last_seen: '2026-02-02T07:41:03.807842'
+    description: Anthropic's CLI coding agent
+    categories: *id001
+  Daytona:
+    mentions: 1
+    videos:
+    - FsDYk0WqBt0
+    first_seen: '2026-02-02T07:41:03.807843'
+    last_seen: '2026-02-02T07:41:03.807845'
+    description: Development sandbox platform
+    categories: *id001

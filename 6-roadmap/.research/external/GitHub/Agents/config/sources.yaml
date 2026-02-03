@@ -1,0 +1,146 @@
+# AI Agents GitHub Repository Configuration
+
+topic:
+  name: "AI Agents"
+  description: "AI agent frameworks, tools, and platforms"
+  created_at: "2026-02-03"
+
+# Repository tiers determine processing priority
+tiers:
+  tier_1:
+    name: "Core Frameworks"
+    description: "Major agent frameworks - process immediately"
+    auto_process: true
+    priority: critical
+    sources: []
+      # Examples to add:
+      # - name: "AutoGen"
+      #   owner: "microsoft"
+      #   repo: "autogen"
+      #   url: "https://github.com/microsoft/autogen"
+      #   areas: ["agent-frameworks", "multi-agent"]
+      #   topics: ["autogen", "orchestration"]
+      #
+      # - name: "CrewAI"
+      #   owner: "crewAIInc"
+      #   repo: "crewAI"
+      #   url: "https://github.com/crewAIInc/crewAI"
+      #   areas: ["agent-frameworks"]
+      #   topics: ["crewai", "workflow"]
+      #
+      # - name: "LangGraph"
+      #   owner: "langchain-ai"
+      #   repo: "langgraph"
+      #   url: "https://github.com/langchain-ai/langgraph"
+      #   areas: ["agent-frameworks", "orchestration"]
+      #   topics: ["langchain", "langgraph", "workflow"]
+
+  tier_2:
+    name: "Popular Tools"
+    description: "Widely used tools and integrations"
+    auto_process: true
+    priority: high
+    sources: []
+      # Examples to add:
+      # - name: "LlamaIndex"
+      #   owner: "run-llama"
+      #   repo: "llama_index"
+      #   areas: ["rag", "data-frameworks"]
+      #   topics: ["llamaindex", "rag"]
+      #
+      # - name: "Composio"
+      #   owner: "ComposioHQ"
+      #   repo: "composio"
+      #   areas: ["tools", "integrations"]
+      #   topics: ["tools", "integrations"]
+
+  tier_3:
+    name: "Emerging"
+    description: "New or experimental repositories"
+    auto_process: false
+    priority: medium
+    sources: []
+
+# Classification areas for extracted content
+areas:
+  - id: "agent-frameworks"
+    name: "Agent Frameworks"
+    description: "Core frameworks for building AI agents"
+    keywords: ["agent", "framework", "sdk"]
+
+  - id: "multi-agent"
+    name: "Multi-Agent Systems"
+    description: "Frameworks for multi-agent orchestration"
+    keywords: ["multi-agent", "orchestration", "swarm"]
+
+  - id: "mcp-servers"
+    name: "MCP Servers"
+    description: "Model Context Protocol server implementations"
+    keywords: ["mcp", "model-context-protocol", "server"]
+
+  - id: "tools"
+    name: "Agent Tools"
+    description: "Tools and capabilities for agents"
+    keywords: ["tools", "capabilities", "functions"]
+
+  - id: "platforms"
+    name: "Hosted Platforms"
+    description: "Cloud platforms for deploying agents"
+    keywords: ["platform", "cloud", "hosted", "deployment"]
+
+  - id: "rag"
+    name: "RAG Frameworks"
+    description: "Retrieval-Augmented Generation systems"
+    keywords: ["rag", "retrieval", "embedding", "vector"]
+
+# Topics for granular classification
+topics:
+  - id: "autogen"
+    name: "AutoGen"
+    related_areas: ["agent-frameworks", "multi-agent"]
+    keywords: ["autogen", "microsoft"]
+
+  - id: "crewai"
+    name: "CrewAI"
+    related_areas: ["agent-frameworks"]
+    keywords: ["crewai", "crew"]
+
+  - id: "langgraph"
+    name: "LangGraph"
+    related_areas: ["agent-frameworks", "orchestration"]
+    keywords: ["langgraph", "langchain", "graph"]
+
+  - id: "llamaindex"
+    name: "LlamaIndex"
+    related_areas: ["rag", "data-frameworks"]
+    keywords: ["llamaindex", "rag", "indexing"]
+
+  - id: "mcp"
+    name: "Model Context Protocol"
+    related_areas: ["mcp-servers", "tools"]
+    keywords: ["mcp", "model-context-protocol", "anthropic"]
+
+  - id: "autonomous"
+    name: "Autonomous Agents"
+    related_areas: ["agent-frameworks"]
+    keywords: ["autonomous", "self-improving", "auto-gpt"]
+
+  - id: "workflow"
+    name: "Workflow Orchestration"
+    related_areas: ["multi-agent", "orchestration"]
+    keywords: ["workflow", "pipeline", "orchestration"]
+
+# Ranking criteria
+ranking:
+  novelty:
+    weight: 0.3
+    description: "How new is this feature/capability?"
+  actionability:
+    weight: 0.3
+    description: "Can we adopt or learn from this?"
+  relevance:
+    weight: 0.25
+    description: "How relevant to our agent work?"
+  authority:
+    weight: 0.15
+    description: "Source credibility (stars, maintainers)"

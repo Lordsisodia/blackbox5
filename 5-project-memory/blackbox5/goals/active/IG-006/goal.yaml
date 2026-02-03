@@ -1,0 +1,120 @@
+# Goal: Restructure BlackBox5 Architecture
+# =============================================================================
+goal_id: IG-006
+name: "Restructure BlackBox5 Architecture for Clarity"
+description: "Clean up scattered .autonomous folders, establish clear separation of concerns, make layout intuitive for AI agents"
+
+meta:
+  created: "2026-02-01"
+  target_completion: "2026-02-15"
+  owner: "architect-agent"
+  priority: critical
+  status: in_progress
+  category: architecture
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-006-1
+    name: "Consolidate .autonomous folders"
+    description: "Move all agent runtime data to .autonomous/, project data to root"
+    weight: 40
+    status: in_progress
+
+    acceptance_criteria:
+      - "All runs in .autonomous/agents/{planner,executor,architect}/runs/"
+      - "All tasks in root tasks/"
+      - "Goals in root goals/"
+      - "No duplicate folders"
+      - "Scripts updated to use new paths"
+
+    linked_tasks:
+      - TASK-001
+      - TASK-002
+      - TASK-003
+
+  - id: SG-006-2
+    name: "Document new architecture"
+    description: "Create README files explaining the structure"
+    weight: 30
+    status: completed
+
+    acceptance_criteria:
+      - "goals/README.md explains goal system"
+      - ".autonomous/README.md explains agent data"
+      - "tasks/TEMPLATE.md for new tasks"
+      - "Architecture decision records updated"
+
+    linked_tasks:
+      - TASK-GOALS-001
+
+  - id: SG-006-3
+    name: "Migrate and validate"
+    description: "Move legacy data, clean up empty folders, verify nothing broken"
+    weight: 30
+    status: in_progress
+
+    acceptance_criteria:
+      - "All 120 tasks migrated to root tasks/"
+      - "Empty folders deleted"
+      - "No broken references"
+      - "Agents can find their data"
+
+    linked_tasks:
+      - TASK-001
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 65
+  last_updated: "2026-02-02"
+
+  by_sub_goal:
+    SG-006-1: 85
+    SG-006-2: 100
+    SG-006-3: 10
+
+  summary:
+    total_tasks: 6
+    completed_tasks: 3
+    in_progress_tasks: 2
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions:
+    - DEC-2026-01-31-agent-context-architecture
+
+  learnings: []
+
+  related_goals:
+    - IG-005  # Documentation Quality
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  Major restructuring in progress. Key decisions:
+  - Keep .autonomous/ as dot-folder (sorts to top, hidden)
+  - Organize by agent type (planner, executor, architect)
+  - Move tasks to root (you wanted them there)
+  - Move goals to root (project-level, not agent-level)
+
+  Challenges encountered:
+  - Had to consolidate three task systems into one
+  - Runs were scattered across 5 locations
+  - Empty folders everywhere
+
+  Architecture principles established:
+  1. Runtime data in .autonomous/
+  2. Project management at root
+  3. Clear separation by agent type
+  4. No duplicate systems

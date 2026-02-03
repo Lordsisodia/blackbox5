@@ -1,0 +1,76 @@
+# Goal: Optimize Skill Usage and Efficiency
+# =============================================================================
+goal_id: IG-004
+name: "Optimize Skill Usage and Efficiency"
+description: "Make skills more effective, remove unused, add missing skills"
+
+meta:
+  created: "2026-01-20"
+  target_completion: "2026-03-15"
+  owner: "executor-agent"
+  priority: medium
+  status: not_started
+  category: skills
+
+sub_goals:
+  - id: SG-004-1
+    name: "Audit current skills"
+    description: "Analyze which skills are used and which are effective"
+    weight: 30
+    status: not_started
+    acceptance_criteria:
+      - "Usage frequency tracked for all skills"
+      - "Identified redundant skills"
+      - "Found gaps in skill coverage"
+    linked_tasks: []
+
+  - id: SG-004-2
+    name: "Consolidate and improve"
+    description: "Merge similar skills, improve triggers"
+    weight: 40
+    status: not_started
+    acceptance_criteria:
+      - "Similar skills consolidated"
+      - "Trigger accuracy improved"
+      - "False positive rate reduced"
+    linked_tasks: []
+
+  - id: SG-004-3
+    name: "Add missing skills"
+    description: "Create skills for underrepresented task types"
+    weight: 30
+    status: not_started
+    acceptance_criteria:
+      - "Skills added for common tasks"
+      - "Coverage gaps filled"
+      - "Higher skill hit rate"
+    linked_tasks: []
+
+progress:
+  percentage: 0
+  last_updated: "2026-01-20"
+  by_sub_goal:
+    SG-004-1: 0
+    SG-004-2: 0
+    SG-004-3: 0
+  summary:
+    total_tasks: 0
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+links:
+  decisions: []
+  learnings: []
+  related_goals: []
+  parent_goal: CG-002
+
+notes: |
+  Current issues:
+  - Some skills may be redundant
+  - Skill triggers may need tuning
+  - Missing skills for common tasks
+
+  Target: ~/.blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/
+
+  Success means skills actually help complete tasks faster.

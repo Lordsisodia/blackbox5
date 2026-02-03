@@ -1,0 +1,103 @@
+# Goal: Improve CLAUDE.md Effectiveness
+# =============================================================================
+goal_id: IG-001
+name: "Improve CLAUDE.md Effectiveness"
+description: "Refine the core instructions to make decision-making faster and more accurate"
+
+meta:
+  created: "2026-01-15"
+  target_completion: "2026-03-01"
+  owner: "planner-agent"
+  priority: high
+  status: not_started
+  category: guidance
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-001-1
+    name: "Analyze current decision patterns"
+    description: "Review past runs to identify where CLAUDE.md could be clearer"
+    weight: 30
+    status: not_started
+
+    acceptance_criteria:
+      - "Identified 5+ instances of hesitation or confusion"
+      - "Documented specific sections causing delays"
+      - "Measured average decision time"
+
+    linked_tasks: []
+
+  - id: SG-001-2
+    name: "Refine decision framework"
+    description: "Make the decision framework more specific with examples"
+    weight: 40
+    status: not_started
+
+    acceptance_criteria:
+      - "Added specific examples for each decision type"
+      - "Clarified sub-agent deployment rules"
+      - "Tuned context management thresholds"
+
+    linked_tasks: []
+
+  - id: SG-001-3
+    name: "Validate improvements"
+    description: "Test refined CLAUDE.md on real tasks"
+    weight: 30
+    status: not_started
+
+    acceptance_criteria:
+      - "Faster task initiation (measured)"
+      - "Fewer context overflow exits"
+      - "More appropriate sub-agent usage"
+
+    linked_tasks: []
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 0
+  last_updated: "2026-01-15"
+
+  by_sub_goal:
+    SG-001-1: 0
+    SG-001-2: 0
+    SG-001-3: 0
+
+  summary:
+    total_tasks: 0
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions: []
+  learnings: []
+  related_goals:
+    - IG-002  # LEGACY.md improvements
+
+  # Parent core goal
+  parent_goal: CG-001
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  Current issues identified:
+  - Decision framework could be more specific
+  - Context management thresholds may need tuning
+  - Sub-agent deployment rules could be clearer
+
+  Target file: ~/.claude/CLAUDE.md
+
+  Success means faster, more confident decision-making.

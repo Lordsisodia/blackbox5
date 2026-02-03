@@ -1,0 +1,14 @@
+# AI Improvement Research - Python Dependencies
+
+# Core dependencies
+pyyaml>=6.0
+feedparser>=6.0.10
+
+# YouTube transcript extraction
+youtube-transcript-api>=0.6.0
+
+# AI Ranking (GLM API via OpenAI SDK)
+openai>=1.0.0
+
+# Alternative: yt-dlp (usually installed system-wide)
+# yt-dlp>=2023.12.30

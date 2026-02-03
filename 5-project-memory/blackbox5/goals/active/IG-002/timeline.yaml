@@ -1,0 +1,12 @@
+# Goal Timeline: IG-002
+# =============================================================================
+goal_id: IG-002
+name: "Improve LEGACY.md Operational Efficiency"
+
+events:
+  - timestamp: "2026-01-15T10:00:00Z"
+    type: goal_created
+    description: "Identified need for smoother operational procedures"
+    progress_delta: 0
+
+# Waiting to be started

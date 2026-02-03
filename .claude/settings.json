@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/shaansisodia/.blackbox5/bin/ralf-session-start-hook.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/shaansisodia/.blackbox5/bin/ralf-stop-hook.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

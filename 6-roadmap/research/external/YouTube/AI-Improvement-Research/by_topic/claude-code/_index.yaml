@@ -1,0 +1,18 @@
+topic: claude_code
+name: Claude Code
+description: Content about Claude Code
+total_videos: 1
+total_insights: 0
+tools_covered:
+- MCP (Model Context Protocol)
+- Anthropic Skills
+- Grapile
+- Claude Code
+- Daytona
+videos:
+- id: FsDYk0WqBt0
+  title: An MCP & Skills masterclass
+  importance: medium
+  extracted_at: '2026-02-02T07:41:03.803355'
+  file: 2026-02-02_FsDYk0WqBt0.md
+last_updated: '2026-02-02T07:41:03.803364'

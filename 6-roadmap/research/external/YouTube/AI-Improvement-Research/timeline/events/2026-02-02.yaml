@@ -753,3 +753,12 @@ events:
   video_id: ZPzVDAxda_E
   composite_score: 48.4
   should_process: true
+- timestamp: '2026-02-02T07:25:36.556538'
+  type: video_extracted
+  video_id: TJkxAJS34CQ
+  title: Ralph Wiggum killed programming
+  creator: Rasmus
+  topics:
+  - claude_code
+  tools_count: 5
+  insights_count: 8

@@ -4,7 +4,7 @@ creator: Rasmus
 creator_slug: rasmus
 url: https://youtube.com/watch?v=TJkxAJS34CQ
 priority: critical
-status: pending
+status: extracted
 queued_at: '2026-02-02T03:26:28.683497'
 source_path: data/sources/rasmus/videos/TJkxAJS34CQ.yaml
 ranking:
@@ -29,3 +29,6 @@ ranking_v2:
   should_process: true
   ranked_at: '2026-02-02T03:48:00.399911'
   version: '2.0'
+extracted_at: '2026-02-02T07:25:36.497876'
+output_paths:
+- output/claude-code/TJkxAJS34CQ_Ralph-Wiggum-killed-programming.md
