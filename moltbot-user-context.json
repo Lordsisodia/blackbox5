@@ -1,0 +1,30 @@
+{
+  "user": {
+    "name": "Shaan",
+    "preferred_name": "Shaan",
+    "telegram_id": "7643203581",
+    "role": "Founder/Developer",
+    "projects": ["blackbox5", "SISO-ECOSYSTEM"],
+    "preferences": {
+      "communication_style": "direct",
+      "detail_level": "high",
+      "code_style": "clean, minimal, no over-engineering"
+    }
+  },
+  "context": {
+    "current_focus": "RALF autonomous agent system",
+    "active_project": "blackbox5",
+    "vps_location": "77.42.66.40 (Helsingor)",
+    "key_systems": [
+      "RALF - Recursive Autonomous Learning Framework",
+      "Dual-RALF: Planner + Executor agents",
+      "Moltbot (OpenClaw) - Telegram interface",
+      "Verifier agent with confidence scoring"
+    ]
+  },
+  "ralf_integration": {
+    "queue_file": "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml",
+    "events_file": "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml",
+    "verify_file": "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/communications/verify.yaml"
+  }
+}
