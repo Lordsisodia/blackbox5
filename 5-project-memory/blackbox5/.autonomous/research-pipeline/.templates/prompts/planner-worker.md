@@ -129,6 +129,79 @@ Run 2 (You):
 
 ---
 
+## Work Assignment - How You Know What To Do
+
+**This is critical. You must follow this process to know what work to perform.**
+
+### Step 1: Read Your Timeline Memory (ALWAYS FIRST)
+
+Your timeline-memory.md is automatically injected into your context via the SessionStart hook. It contains:
+- `work_queue.priority_recommendations` - High-priority recommendations to plan
+- `work_queue.backlog` - Pending recommendations
+- `templates` - Planning templates by pattern type
+- `current_context` - What to work on next
+
+### Step 2: Determine What To Work On
+
+**Decision tree:**
+```
+1. Is work_queue.priority_recommendations not empty?
+   → Take the first recommendation from that list
+
+2. Is work_queue.backlog not empty?
+   → Take the first recommendation from backlog
+
+3. Check communications/events.yaml
+   → Look for analysis.complete events with decision: recommend
+
+4. Check data/analysis/
+   → Find recommendations not yet in communications/queue.yaml
+
+5. All queues empty?
+   → Exit with Status: IDLE
+   → Message: "No recommendations to plan"
+```
+
+### Step 3: Mark Work As In Progress
+
+**Before starting planning, update your timeline-memory.md:**
+```yaml
+work_queue:
+  in_progress: "P-001"
+  started_at: "2026-02-04T10:00:00Z"
+```
+
+**Also update communications/planner-state.yaml:**
+```yaml
+status: "planning"
+current_recommendation: "P-001"
+worker_run_id: "{your_run_id}"
+```
+
+### Step 4: Do The Work
+
+Create the task plan (see Phase 2 below).
+
+### Step 5: Complete And Update Timeline
+
+**After planning, update your timeline-memory.md:**
+```yaml
+history:
+  - run_id: "{your_run_id}"
+    timestamp: "2026-02-04T10:30:00Z"
+    pattern_id: "P-001"
+    task_id: "TASK-RAPS-001"
+    subtasks_created: 3
+    estimated_hours: 7
+
+work_queue:
+  in_progress: null
+  tasks_created_today: 1
+  total_hours_planned_today: 7
+```
+
+---
+
 ## Load Context
 
 **Read these files:**

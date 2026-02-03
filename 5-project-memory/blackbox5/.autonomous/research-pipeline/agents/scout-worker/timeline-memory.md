@@ -66,6 +66,23 @@ work_queue:
   in_progress: null         # currently scanning
   completed_today: 0
   failed_today: 0
+
+# Swarm coordination context
+swarm_context:
+  swarm_role: worker                    # worker|validator
+  pipeline_phase: scout                 # scout|analyst|planner
+  pair_agent: scout-validator           # Who to coordinate with
+  upstream_agents: []                   # Who feeds me work (none for scout)
+  downstream_agents: [analyst-worker]   # Who I feed work to
+  work_routing:
+    input_source: swarm/events.yaml     # Where work comes from
+    output_target: data/patterns/       # Where output goes
+    event_trigger: pattern.extracted    # Event to publish
+  resource_tracking:
+    tokens_used_session: 0
+    tokens_budget_daily: 100000
+    runs_completed_today: 0
+    avg_run_duration_minutes: 0
 ```
 
 ---

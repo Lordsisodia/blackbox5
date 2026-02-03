@@ -134,6 +134,79 @@ Run 2 (You):
 
 ---
 
+## Work Assignment - How You Know What To Do
+
+**This is critical. You must follow this process to know what work to perform.**
+
+### Step 1: Read Your Timeline Memory (ALWAYS FIRST)
+
+Your timeline-memory.md is automatically injected into your context via the SessionStart hook. It contains:
+- `work_queue.priority_patterns` - High-priority patterns to analyze
+- `work_queue.backlog` - Pending patterns
+- `scoring_model` - Your calibrated scoring model
+- `current_context` - What to work on next
+
+### Step 2: Determine What To Work On
+
+**Decision tree:**
+```
+1. Is work_queue.priority_patterns not empty?
+   → Take the first pattern from that list
+
+2. Is work_queue.backlog not empty?
+   → Take the first pattern from backlog
+
+3. Check communications/events.yaml
+   → Look for pattern.extracted events
+   → Find patterns not yet analyzed
+
+4. Check data/patterns/
+   → Find patterns without matching analysis in data/analysis/
+
+5. All queues empty?
+   → Exit with Status: IDLE
+   → Message: "No patterns to analyze"
+```
+
+### Step 3: Mark Work As In Progress
+
+**Before starting analysis, update your timeline-memory.md:**
+```yaml
+work_queue:
+  in_progress: "P-001"
+  started_at: "2026-02-04T10:00:00Z"
+```
+
+**Also update communications/analyst-state.yaml:**
+```yaml
+status: "analyzing"
+current_pattern: "P-001"
+worker_run_id: "{your_run_id}"
+```
+
+### Step 4: Do The Work
+
+Analyze the pattern (see Phase 2 below).
+
+### Step 5: Complete And Update Timeline
+
+**After analysis, update your timeline-memory.md:**
+```yaml
+history:
+  - run_id: "{your_run_id}"
+    timestamp: "2026-02-04T10:30:00Z"
+    pattern_id: "P-001"
+    decision: "recommend"
+    confidence: 0.85
+
+work_queue:
+  in_progress: null
+  completed_today: 1
+  recommendations_made_today: 1
+```
+
+---
+
 ## Load Context
 
 **Read these files first:**

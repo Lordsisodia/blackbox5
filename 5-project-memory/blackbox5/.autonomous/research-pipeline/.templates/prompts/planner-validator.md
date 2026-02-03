@@ -160,6 +160,80 @@ Run 2 (Worker):
 
 ---
 
+## Work Assignment - How You Know What To Validate
+
+**This is critical. You must follow this process to know what work to validate.**
+
+### Step 1: Read Your Timeline Memory (ALWAYS FIRST)
+
+Your timeline-memory.md is automatically injected into your context via the SessionStart hook. It contains:
+- `current_context.monitoring_worker_run` - Specific worker run to check
+- `plan_quality` - Quality metrics and trends
+- `strategy_effectiveness` - What works by pattern type
+- `worker_patterns` - Patterns in Worker's planning behavior
+
+### Step 2: Determine What To Validate
+
+**Decision tree:**
+```
+1. Is current_context.monitoring_worker_run set?
+   → Validate that specific worker run
+
+2. Check planner-worker's timeline-memory.md
+   → Find their current work_queue.in_progress
+   → Validate what they're currently planning
+
+3. Check communications/queue.yaml
+   → Find newest task entry
+   → Validate that plan
+
+4. Check communications/events.yaml
+   → Look for task.created events
+   → Validate the most recent task
+
+5. Nothing to validate?
+   → Exit with Status: IDLE
+   → Message: "No worker plans to validate"
+```
+
+### Step 3: Read Worker's Plan
+
+**Read these files (READ-ONLY):**
+```
+agents/planner-worker/runs/{run_id}/THOUGHTS.md
+agents/planner-worker/runs/{run_id}/RESULTS.md
+communications/queue.yaml
+tasks/active/TASK-RAPS-{id}/TASK-RAPS-{id}.md
+```
+
+### Step 4: Validate And Provide Feedback
+
+**Check:**
+- Subtask atomicity and clarity
+- Hour estimate realism
+- Dependency correctness
+- Acceptance criteria testability
+
+**Write feedback to communications/chat-log.yaml**
+
+### Step 5: Update Your Timeline
+
+**After validation, update your timeline-memory.md:**
+```yaml
+validation_history:
+  - run_id: "{your_run_id}"
+    timestamp: "2026-02-04T10:30:00Z"
+    worker_run_id: "{worker_run_id}"
+    task_id: "TASK-RAPS-001"
+    plan_quality: 0.90
+    feedback_given: 2
+
+current_context:
+  monitoring_worker_run: null  # Clear after validation
+```
+
+---
+
 ## Load Context
 
 **Read these files:**

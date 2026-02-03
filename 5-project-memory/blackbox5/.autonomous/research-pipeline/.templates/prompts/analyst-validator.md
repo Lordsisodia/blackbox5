@@ -157,6 +157,79 @@ Run 2 (Worker):
 
 ---
 
+## Work Assignment - How You Know What To Validate
+
+**This is critical. You must follow this process to know what work to validate.**
+
+### Step 1: Read Your Timeline Memory (ALWAYS FIRST)
+
+Your timeline-memory.md is automatically injected into your context via the SessionStart hook. It contains:
+- `current_context.monitoring_worker_run` - Specific worker run to check
+- `model_accuracy` - Prediction accuracy history
+- `bias_tracking` - Known biases to watch for
+- `worker_patterns` - Patterns in Worker's scoring behavior
+
+### Step 2: Determine What To Validate
+
+**Decision tree:**
+```
+1. Is current_context.monitoring_worker_run set?
+   → Validate that specific worker run
+
+2. Check analyst-worker's timeline-memory.md
+   → Find their current work_queue.in_progress
+   → Validate what they're currently analyzing
+
+3. Check data/analysis/ directory
+   → Find newest analysis file
+   → Validate that analysis
+
+4. Check communications/events.yaml
+   → Look for analysis.complete events
+   → Validate the most recent analysis
+
+5. Nothing to validate?
+   → Exit with Status: IDLE
+   → Message: "No worker analysis to validate"
+```
+
+### Step 3: Read Worker's Analysis
+
+**Read these files (READ-ONLY):**
+```
+agents/analyst-worker/runs/{run_id}/THOUGHTS.md
+agents/analyst-worker/runs/{run_id}/RESULTS.md
+data/analysis/{pattern_id}.yaml
+```
+
+### Step 4: Validate And Provide Feedback
+
+**Check:**
+- Scoring accuracy against historical data
+- Bias detection (consistent over/under-estimation)
+- Decision justification
+- Model calibration
+
+**Write feedback to communications/chat-log.yaml**
+
+### Step 5: Update Your Timeline
+
+**After validation, update your timeline-memory.md:**
+```yaml
+validation_history:
+  - run_id: "{your_run_id}"
+    timestamp: "2026-02-04T10:30:00Z"
+    worker_run_id: "{worker_run_id}"
+    pattern_id: "P-001"
+    scoring_accuracy: 0.90
+    feedback_given: 1
+
+current_context:
+  monitoring_worker_run: null  # Clear after validation
+```
+
+---
+
 ## Load Context
 
 **Read these files:**

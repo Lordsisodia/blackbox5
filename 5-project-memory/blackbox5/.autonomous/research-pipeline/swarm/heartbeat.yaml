@@ -1,0 +1,79 @@
+swarm_heartbeat:
+  version: "1.0.0"
+  timestamp: "2026-02-04T10:00:00Z"
+  active_agents: 6
+  healthy_agents: 6
+  status: healthy  # healthy, warning, critical
+
+agents:
+  scout-worker:
+    status: idle  # healthy, warning, critical, idle
+    last_seen: "2026-02-04T00:00:00Z"
+    current_work: null
+    run_id: null
+    loop_number: 0
+    tokens_used_session: 0
+    work_completed_today: 0
+    location: "agents/scout-worker/"
+
+  scout-validator:
+    status: idle
+    last_seen: "2026-02-04T00:00:00Z"
+    monitoring: null
+    validations_today: 0
+    feedback_given_today: 0
+    location: "agents/scout-validator/"
+
+  analyst-worker:
+    status: idle
+    last_seen: "2026-02-04T00:00:00Z"
+    current_work: null
+    run_id: null
+    loop_number: 0
+    tokens_used_session: 0
+    work_completed_today: 0
+    location: "agents/analyst-worker/"
+
+  analyst-validator:
+    status: idle
+    last_seen: "2026-02-04T00:00:00Z"
+    monitoring: null
+    validations_today: 0
+    feedback_given_today: 0
+    location: "agents/analyst-validator/"
+
+  planner-worker:
+    status: idle
+    last_seen: "2026-02-04T00:00:00Z"
+    current_work: null
+    run_id: null
+    loop_number: 0
+    tokens_used_session: 0
+    work_completed_today: 0
+    location: "agents/planner-worker/"
+
+  planner-validator:
+    status: idle
+    last_seen: "2026-02-04T00:00:00Z"
+    monitoring: null
+    validations_today: 0
+    feedback_given_today: 0
+    location: "agents/planner-validator/"
+
+swarm_metrics:
+  total_patterns_extracted: 0
+  total_patterns_analyzed: 0
+  total_tasks_created: 0
+  pipeline_bottleneck: null  # scout|analyst|planner|null
+  queue_health: healthy  # healthy, warning, critical
+  avg_coordination_score: 0.0  # 0-1 scale
+
+health_thresholds:
+  warning:
+    max_queue_depth: 15
+    min_processing_rate: 1.0
+    max_idle_time_minutes: 30
+  critical:
+    max_queue_depth: 25
+    min_processing_rate: 0.5
+    max_idle_time_minutes: 60
