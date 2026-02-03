@@ -2,17 +2,18 @@
 # STATE.yaml - Single Source of Truth for blackbox5
 # =============================================================================
 # Purpose: Definitive map of the entire project memory structure
-# Updated: 2026-01-31T23:00:00Z
+# Updated: 2026-02-04T06:00:00Z
 # Updated By: Claude
 # =============================================================================
 
 project:
   name: blackbox5
-  version: "5.0.0"
+  version: "5.1.0"
   description: "Global AI Infrastructure for multi-agent orchestration"
   status: "active"
-  last_updated: "2026-02-02T14:16:32Z"
+  last_updated: "2026-02-04T06:00:00Z"
   updated_by: "Claude"
+  structure_version: "unified-1.0"
 
 # =============================================================================
 # ROOT FILES - Start here for project state
@@ -63,7 +64,11 @@ root_files:
   goals:
     file: "goals.yaml"
     purpose: "Autonomous agent goals and improvement targets"
-    updated: "2026-02-01"
+    updated: "2026-02-04"
+  unified_structure:
+    file: "UNIFIED-STRUCTURE.md"
+    purpose: "Unified hierarchy documentation (GOALS→PLANS→TASKS→SUBTASKS)"
+    updated: "2026-02-04"
 
 # =============================================================================
 # FOLDER STRUCTURE - 6-Folder Organization (by question type)

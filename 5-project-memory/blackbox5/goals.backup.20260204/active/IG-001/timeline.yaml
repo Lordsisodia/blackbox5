@@ -1,0 +1,14 @@
+# Goal Timeline: IG-001
+# =============================================================================
+goal_id: IG-001
+name: "Improve CLAUDE.md Effectiveness"
+
+events:
+  - timestamp: "2026-01-15T10:00:00Z"
+    type: goal_created
+    description: "Identified need for clearer decision framework"
+    linked_decision: null
+    progress_delta: 0
+
+# Waiting to be started
+# Next: Begin SG-001-1: Analyze current decision patterns

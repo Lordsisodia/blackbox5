@@ -1,0 +1,24 @@
+queue:
+  - task_id: TASK-RAPS-{ID}
+    pattern_id: P-{ID}
+    source: "{SOURCE_URL}"
+    title: "{TASK_TITLE}"
+    priority: {high|medium|low}
+    priority_score: {SCORE}
+    estimated_hours: {HOURS}
+    estimated_complexity: {low|medium|high}
+    value_score: {SCORE}
+    status: pending  # pending, in_progress, completed, failed
+    created_at: "{TIMESTAMP}"
+    planned_by: {AGENT_NAME}-{RUN_ID}
+    notes: |
+      {Detailed implementation notes}
+
+metadata:
+  last_updated: "{TIMESTAMP}"
+  updated_by: {AGENT_NAME}
+  queue_depth_target: 3-5
+  current_depth: {COUNT}
+  last_completed: {TASK_ID|null}
+  notes: |
+    {Pipeline state notes}

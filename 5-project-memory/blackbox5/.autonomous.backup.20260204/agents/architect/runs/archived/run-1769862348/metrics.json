@@ -1,0 +1,16 @@
+{
+  "loop": 42,
+  "start_time": "2026-01-31T12:25:48Z",
+  "end_time": "2026-01-31T12:29:28Z",
+  "duration_seconds": 219,
+  "model": "GLM-4.7",
+  "task_id": "unknown",
+  "task_status": "UNKNOWN",
+  "exit_code": 0,
+  "files_created":        6,
+  "results_exist": false,
+  "thoughts_exist": false,
+  "decisions_exist": false,
+  "assumptions_exist": false,
+  "learnings_exist": false
+}

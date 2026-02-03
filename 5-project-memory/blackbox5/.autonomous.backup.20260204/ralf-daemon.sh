@@ -1,0 +1,210 @@
+#!/bin/bash
+# RALF Non-Stop Autonomous Daemon
+# Runs continuously: execute tasks → analyze → improve → push → pull → repeat
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+ENGINE_DIR="$PROJECT_DIR/../../2-engine/.autonomous"
+BLACKBOX5_DIR="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
+
+# Change to blackbox5 root so Claude has access to everything
+cd "$BLACKBOX5_DIR"
+
+# Export for RALF to use
+export RALF_BLACKBOX5_DIR="$BLACKBOX5_DIR"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+log() {
+    echo -e "${BLUE}[$(date '+%H:%M:%S')]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+log_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+log_phase() {
+    echo -e "${CYAN}[PHASE]${NC} $1"
+}
+
+# Initialize
+echo ""
+echo "╔════════════════════════════════════════════════════════════╗"
+echo "║  RALF-CORE Autonomous Daemon                               ║"
+echo "║  Non-stop self-improvement mode                            ║"
+echo "╚════════════════════════════════════════════════════════════╝"
+echo ""
+log "Blackbox5 Root: $BLACKBOX5_DIR"
+log "Project: $PROJECT_DIR"
+log "Engine: $ENGINE_DIR"
+log "GitHub: https://github.com/Lordsisodia/blackbox5"
+echo ""
+
+# Verify setup
+if [ ! -d "$ENGINE_DIR" ]; then
+    log_error "Engine not found at $ENGINE_DIR"
+    exit 1
+fi
+
+if [ ! -f "$SCRIPT_DIR/routes.yaml" ]; then
+    log_error "routes.yaml not found"
+    exit 1
+fi
+
+# Ensure we're on correct branch (main or ralf/ feature branches)
+current_branch=$(git branch --show-current)
+if [[ "$current_branch" != "main" && ! "$current_branch" =~ ^ralf/ ]]; then
+    log "Switching to main branch..."
+    git checkout main || log_error "Failed to checkout main"
+fi
+
+CYCLE_COUNT=0
+
+while true; do
+    CYCLE_COUNT=$((CYCLE_COUNT + 1))
+    echo ""
+    log_phase "=== CYCLE $CYCLE_COUNT ==="
+    log "Time: $(date)"
+    echo ""
+
+    # 1. PULL LATEST
+    log_phase "1. Pulling latest from GitHub..."
+    if git pull origin main 2>/dev/null; then
+        log_success "Pulled latest changes"
+    else
+        log_error "Pull failed, continuing with local version"
+    fi
+
+    # 2. CHECK FOR PENDING TASKS
+    log_phase "2. Checking for pending tasks..."
+    PENDING_TASKS=$(find "$SCRIPT_DIR/tasks/active" -name "*.md" -type f ! -name "index.md" ! -name "TEMPLATE.md" 2>/dev/null | wc -l)
+
+    if [ "$PENDING_TASKS" -gt 0 ]; then
+        log "Found $PENDING_TASKS pending task(s)"
+
+        # Run RALF once (single iteration)
+        log_phase "3. Executing one task..."
+
+        export RALF_PROJECT_DIR="$PROJECT_DIR"
+        export RALF_ENGINE_DIR="$ENGINE_DIR"
+        export RALF_BLACKBOX5_DIR="$BLACKBOX5_DIR"
+        export RALF_DAEMON_MODE="true"
+
+        # Run with timeout to prevent hanging
+        if timeout 1800 "$ENGINE_DIR/shell/ralf-loop.sh" "$PROJECT_DIR" 2>&1 | tee -a "$SCRIPT_DIR/LOGS/daemon-$(date +%Y%m%d).log"; then
+            log_success "Task execution completed"
+        else
+            log_error "Task execution failed or timed out"
+        fi
+
+    else
+        log "No pending tasks found"
+        log_phase "3. First-principles analysis: What should I improve?"
+
+        # Create analysis task
+        ANALYSIS_TASK="$SCRIPT_DIR/tasks/active/RALF-$(date +%Y%m%d-%H%M%S)-analysis.md"
+        cat > "$ANALYSIS_TASK" << 'EOF'
+# RALF Analysis Task (Auto-Generated)
+
+**Status:** pending
+**Type:** first-principles-analysis
+**Priority:** high
+**Created:** $(date)
+
+## Goal
+You are RALF analyzing yourself. Determine what needs improvement.
+
+## Process
+
+### 1. Gather Data
+Read:
+- `feedback/incoming/` from all projects
+- Recent `runs/` in this project
+- `memory/insights/` past learnings
+- Engine code: `../../2-engine/.autonomous/`
+
+### 2. Analyze (First Principles)
+Ask:
+- What problem is RALF solving? (fundamental purpose)
+- What assumptions are we making?
+- What failure modes exist?
+- What would 10x better look like?
+
+### 3. Decide
+Either:
+- **A:** Create specific improvement task → `tasks/active/RALF-XXX.md`
+- **B:** Directly modify engine → edit files in `../../2-engine/.autonomous/`
+
+### 4. Execute
+- If A: Create detailed task, exit SUCCESS
+- If B: Implement improvement, test, commit
+
+## Success Criteria
+- Concrete improvement identified
+- Either task created OR engine modified
+- Changes committed
+EOF
+
+        log "Created analysis task: $(basename "$ANALYSIS_TASK")"
+        log "Will execute in next cycle..."
+        sleep 5
+        continue
+    fi
+
+    # 4. CHECK FOR CHANGES AND COMMIT
+    log_phase "4. Checking for changes..."
+
+    # Check engine changes
+    if ! git diff --quiet HEAD -- ../../2-engine/ 2>/dev/null; then
+        log "Engine changes detected"
+
+        git add ../../2-engine/
+        git commit -m "ralf: [$(date +%Y%m%d-%H%M%S)] autonomous engine improvements
+
+- Analyzed feedback and execution patterns
+- Identified improvement opportunity
+- Modified engine components
+- Tested changes
+
+Auto-generated by RALF-CORE daemon" || true
+    fi
+
+    # Check project memory changes
+    if ! git diff --quiet HEAD -- . 2>/dev/null; then
+        log "Project memory changes detected"
+
+        git add .
+        git commit -m "ralf: [$(date +%Y%m%d-%H%M%S)] project memory updates
+
+- Completed task execution
+- Documented learnings
+- Updated task status
+
+Auto-generated by RALF-CORE daemon" || true
+    fi
+
+    # 5. PUSH TO GITHUB
+    log_phase "5. Pushing to GitHub..."
+    if git push origin main 2>/dev/null; then
+        log_success "Pushed to GitHub"
+    else
+        log_error "Push failed, will retry next cycle"
+    fi
+
+    # 6. BRIEF PAUSE
+    log_phase "6. Cycle complete"
+    log "Sleeping 10 seconds before next cycle..."
+    echo ""
+    sleep 10
+done

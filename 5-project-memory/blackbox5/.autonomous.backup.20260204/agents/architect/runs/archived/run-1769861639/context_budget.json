@@ -1,0 +1,35 @@
+{
+  "config": {
+    "max_tokens": 200000,
+    "thresholds": {
+      "subagent": 40,
+      "warning": 70,
+      "critical": 85,
+      "hard_limit": 95
+    }
+  },
+  "current": {
+    "current_tokens": 87432,
+    "max_tokens": 200000,
+    "percentage": 43.7,
+    "threshold_triggered": null,
+    "action_taken": null,
+    "timestamp": "2026-01-31T12:31:00Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-01-31T12:30:00Z",
+      "tokens": 85000,
+      "percentage": 42.5,
+      "action": null
+    },
+    {
+      "timestamp": "2026-01-31T12:31:00Z",
+      "tokens": 87432,
+      "percentage": 43.7,
+      "action": null
+    }
+  ],
+  "loop": 38,
+  "run_dir": "/Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769861639"
+}

@@ -1,0 +1,10 @@
+# Goal Timeline: IG-005
+# =============================================================================
+goal_id: IG-005
+name: "Improve Documentation Quality and Utility"
+
+events:
+  - timestamp: "2026-01-20T10:00:00Z"
+    type: goal_created
+    description: "Documentation audit needs identified"
+    progress_delta: 0

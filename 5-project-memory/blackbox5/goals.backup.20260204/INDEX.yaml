@@ -1,0 +1,162 @@
+# Goals Index
+# =============================================================================
+# Auto-generated: Quick lookup for all goals
+# Generated: 2026-02-02
+# =============================================================================
+
+meta:
+  generated_at: "2026-02-02T11:00:00Z"
+  version: "1.0.0"
+  total_goals: 9
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+
+summary:
+  core: 3
+  active: 6
+  completed: 0
+  cancelled: 0
+
+by_priority:
+  critical:
+    - IG-006
+  high:
+    - IG-001
+    - IG-002
+  medium:
+    - IG-003
+    - IG-004
+    - IG-005
+
+by_status:
+  not_started:
+    - IG-001
+    - IG-002
+    - IG-003
+    - IG-004
+    - IG-005
+  in_progress:
+    - IG-006
+  completed: []
+  blocked: []
+
+# =============================================================================
+# CORE GOALS (Perpetual)
+# =============================================================================
+
+core_goals:
+  - id: CG-001
+    name: "Continuous Self-Improvement"
+    status: active
+    metrics_summary:
+      learnings_captured: 7/week (target: 5)
+      improvements_applied: 2/week (target: 1)
+      trend: "improving"
+    active_initiatives:
+      - IG-001
+      - IG-002
+
+  - id: CG-002
+    name: "Ship Features Autonomously"
+    status: active
+    metrics_summary:
+      task_completion_rate: 85% (target: 90%)
+      commits_to_main: 0 (target: 0)
+      trend: "improving"
+    active_initiatives:
+      - IG-003
+      - IG-004
+
+  - id: CG-003
+    name: "Maintain System Integrity"
+    status: active
+    metrics_summary:
+      assumptions_validated: 95% (target: 100%)
+      test_pass_rate: 97% (target: 98%)
+      trend: "stable"
+    active_initiatives:
+      - IG-005
+      - IG-006
+
+# =============================================================================
+# ACTIVE IMPROVEMENT GOALS
+# =============================================================================
+
+active_goals:
+  - id: IG-006
+    name: "Restructure BlackBox5 Architecture"
+    priority: critical
+    status: in_progress
+    progress: 65%
+    target_completion: "2026-02-15"
+    owner: architect-agent
+    sub_goals:
+      - SG-006-1: 85% (Consolidate folders)
+      - SG-006-2: 100% (Documentation - COMPLETE)
+      - SG-006-3: 10% (Migration)
+    summary: "Major restructuring nearly complete. Tasks migrated, goals system fully built."
+
+  - id: IG-001
+    name: "Improve CLAUDE.md Effectiveness"
+    priority: high
+    status: not_started
+    progress: 0%
+    summary: "Refine core instructions for faster decision-making"
+
+  - id: IG-002
+    name: "Improve LEGACY.md Operational Efficiency"
+    priority: high
+    status: not_started
+    progress: 0%
+    summary: "Streamline operational procedures"
+
+  - id: IG-003
+    name: "Improve System Flow and Code Mapping"
+    priority: medium
+    status: not_started
+    progress: 0%
+    summary: "Better cross-project awareness"
+
+  - id: IG-004
+    name: "Optimize Skill Usage and Efficiency"
+    priority: medium
+    status: not_started
+    progress: 0%
+    summary: "Make skills more effective"
+
+  - id: IG-005
+    name: "Improve Documentation Quality and Utility"
+    priority: medium
+    status: not_started
+    progress: 0%
+    summary: "Ensure docs are valuable and used"
+
+# =============================================================================
+# ATTENTION REQUIRED
+# =============================================================================
+
+needs_attention:
+  - goal: IG-006
+    reason: "Documentation complete, needs final validation"
+    action: "Complete SG-006-3: Final cleanup and validation"
+    urgency: medium
+
+  - goal: IG-004
+    reason: "No progress in 14 days"
+    action: "Review if still relevant or reprioritize"
+    urgency: low
+
+# =============================================================================
+# RECENTLY COMPLETED
+# =============================================================================
+
+recently_completed: []
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# This file is auto-generated from goals in core/ and active/
+# Last updated: 2026-02-02

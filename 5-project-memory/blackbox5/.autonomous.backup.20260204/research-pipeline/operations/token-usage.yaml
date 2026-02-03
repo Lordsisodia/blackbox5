@@ -1,0 +1,51 @@
+token_usage:
+  version: "1.0.0"
+  last_updated: "2026-02-04"
+
+daily_budget: 100000000  # 100M tokens
+
+agents:
+  scout_worker:
+    budget_per_run: 3000
+    runs_today: 0
+    tokens_used_today: 0
+    avg_tokens_per_run: 0
+
+  scout_validator:
+    budget_per_run: 1000
+    runs_today: 0
+    tokens_used_today: 0
+    avg_tokens_per_run: 0
+
+  analyst_worker:
+    budget_per_run: 4800
+    runs_today: 0
+    tokens_used_today: 0
+    avg_tokens_per_run: 0
+
+  analyst_validator:
+    budget_per_run: 1200
+    runs_today: 0
+    tokens_used_today: 0
+    avg_tokens_per_run: 0
+
+  planner_worker:
+    budget_per_run: 3600
+    runs_today: 0
+    tokens_used_today: 0
+    avg_tokens_per_run: 0
+
+  planner_validator:
+    budget_per_run: 600
+    runs_today: 0
+    tokens_used_today: 0
+    avg_tokens_per_run: 0
+
+totals:
+  total_used_today: 0
+  total_budget_today: 100000000
+  percentage_used: 0
+
+optimization_notes: |
+  Track token usage patterns here.
+  Identify opportunities to reduce usage.

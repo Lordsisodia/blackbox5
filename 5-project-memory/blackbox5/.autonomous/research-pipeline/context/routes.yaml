@@ -31,6 +31,13 @@ routes:
   skill_usage: "operations/skill-usage.yaml"
   token_usage: "operations/token-usage.yaml"
 
+  # Swarm (Global coordination)
+  swarm: "swarm"
+  swarm_heartbeat: "swarm/heartbeat.yaml"
+  swarm_events: "swarm/events.yaml"
+  swarm_state: "swarm/state.yaml"
+  swarm_ledger: "swarm/ledger.md"
+
   # Templates
   templates: ".templates"
   templates_runs: ".templates/runs"

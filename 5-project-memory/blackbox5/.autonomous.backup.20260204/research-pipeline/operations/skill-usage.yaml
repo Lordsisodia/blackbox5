@@ -1,0 +1,32 @@
+skill_usage:
+  version: "1.0.0"
+  last_updated: "2026-02-04"
+
+agents:
+  scout_worker:
+    skills_invoked: []
+    total_invocations: 0
+
+  scout_validator:
+    skills_invoked: []
+    total_invocations: 0
+
+  analyst_worker:
+    skills_invoked: []
+    total_invocations: 0
+
+  analyst_validator:
+    skills_invoked: []
+    total_invocations: 0
+
+  planner_worker:
+    skills_invoked: []
+    total_invocations: 0
+
+  planner_validator:
+    skills_invoked: []
+    total_invocations: 0
+
+skill_effectiveness:
+  # Track which skills work best for research pipeline
+  # Populated over time by validators
