@@ -1,0 +1,48 @@
+name: Generate Channel Rankings
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC
+  workflow_dispatch:      # Manual trigger
+
+jobs:
+  generate-rankings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+
+      - name: Generate rankings
+        run: |
+          cd scripts
+          python3 generate_rankings.py
+
+      - name: Commit changes
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          # Remove checkout credentials
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote remove origin || true
+
+          # Configure git
+          git config user.name "Ranking Bot"
+          git config user.email "bot@example.com"
+
+          # Add changes
+          git add database/channel_rankings.json reports/leaderboards/
+          git diff --staged --quiet || git commit -m "rankings: $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+          # Push using token
+          git remote add origin "https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/youtube-ai-research.git"
+          git push origin main

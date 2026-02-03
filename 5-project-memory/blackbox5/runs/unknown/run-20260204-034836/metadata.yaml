@@ -1,0 +1,20 @@
+run:
+  id: "run-20260204-034836"
+  project: "blackbox5"
+  agent: "unknown"
+  timestamp_start: "2026-02-04T03:48:36+07:00"
+  timestamp_end: null
+  duration_seconds: null
+
+state:
+  task_claimed: null
+  task_status: null
+  files_modified: []
+  commit_hash: null
+
+results:
+  status: "in_progress"
+  summary: ""
+  tasks_completed: []
+  tasks_created: []
+  blockers: []

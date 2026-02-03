@@ -1,0 +1,18 @@
+# RALF Run Metadata
+# This file is read by other hooks to understand the run context
+
+run:
+  id: "run-20260204-034830"
+  timestamp: "2026-02-04T03:48:30+07:00"
+  project: "blackbox5"
+  agent_type: "unknown"  # Will be updated by agent
+  status: initialized
+
+git:
+  branch: "main"
+  commit: "bf8f500"
+
+paths:
+  project_root: "/Users/shaansisodia/.blackbox5"
+  project_memory: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+  run_dir: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/unknown/run-20260204-034830"
