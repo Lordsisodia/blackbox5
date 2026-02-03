@@ -6,27 +6,55 @@ metadata:
   last_updated: "2026-02-03"
   total_sources: 0
 
-sources: []
-  # Example entry:
-  # - name: claude-code
-  #   display_name: Claude Code Documentation
-  #   url: https://docs.anthropic.com/claude-code
-  #   type: official-docs
-  #   category: ai-tools
-  #   status: active
-  #   last_synced: null
-  #   version: null
-  #   local_path: claude-code/
-  #   sync_strategy:
-  #     tier_1:
-  #       - /getting-started
-  #       - /mcp/overview
-  #     tier_2:
-  #       - /advanced/*
-  #     tier_3:
-  #       - /troubleshooting/*
-  #   priority: high
-  #   notes: "Official Anthropic documentation for Claude Code"
+sources:
+  - name: claude-code
+    display_name: Claude Code Documentation
+    url: https://code.claude.com/docs
+    type: official-docs
+    category: ai-tools
+    status: active
+    last_synced: "2026-02-03T23:50:00Z"
+    version: null
+    local_path: claude-code/
+    sync_strategy:
+      tier_1:
+        - /en/overview
+        - /en/cli-reference
+        - /en/settings
+        - /en/permissions
+        - /en/mcp
+        - /en/common-workflows
+      tier_2:
+        - /en/quickstart
+        - /en/setup
+        - /en/sub-agents
+        - /en/skills
+        - /en/hooks
+        - /en/plugins
+        - /en/best-practices
+        - /en/troubleshooting
+        - /en/security
+        - /en/data-usage
+        - /en/sandboxing
+        - /en/interactive-mode
+        - /en/headless
+        - /en/vs-code
+        - /en/jetbrains
+        - /en/desktop
+        - /en/chrome
+        - /en/github-actions
+        - /en/slack
+      tier_3:
+        - /en/how-claude-code-works
+        - /en/features-overview
+        - /en/costs
+        - /en/model-config
+        - /en/amazon-bedrock
+        - /en/google-vertex-ai
+        - /en/microsoft-foundry
+        - /en/third-party-integrations
+    priority: high
+    notes: "Official Anthropic documentation for Claude Code. 6 of 44 pages fetched (15%)."
 
 # Categories for organization
 categories:
