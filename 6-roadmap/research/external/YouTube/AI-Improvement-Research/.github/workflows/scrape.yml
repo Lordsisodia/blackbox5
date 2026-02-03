@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -30,9 +30,21 @@ jobs:
         run: python scripts/digest.py
 
       - name: Commit changes
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
+          # Remove checkout credentials
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote remove origin || true
+
+          # Configure git
           git config user.name "Scraper Bot"
           git config user.email "bot@example.com"
+
+          # Add changes
           git add database/ reports/
           git diff --staged --quiet || git commit -m "scrape: $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
+
+          # Push using token
+          git remote add origin "https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/youtube-ai-research.git"
+          git push origin main
