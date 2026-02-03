@@ -580,6 +580,682 @@ List of potential documentation sources to ingest, with research notes and ranki
   notes: "TypeScript ORM with SQL-like syntax. Lightweight alternative to Prisma."
   decision: "pending"
 
+# BATCH 3 - UI COMPONENT LIBRARIES (User Requested)
+
+- name: "Material UI (MUI)"
+  url: "https://mui.com/material-ui/getting-started"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Google's Material Design for React. Most popular React component library. 50+ components, theming system, enterprise adoption."
+  decision: "pending"
+
+- name: "Chakra UI"
+  url: "https://chakra-ui.com/getting-started"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Modular React component library. Accessibility-first, composable, style props. Popular for rapid prototyping."
+  decision: "pending"
+
+- name: "Ant Design"
+  url: "https://ant.design/docs/react/introduce"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Enterprise-class UI design language. 60+ components, mature ecosystem. Very popular in Asia, admin dashboards."
+  decision: "pending"
+
+- name: "Radix UI"
+  url: "https://www.radix-ui.com/docs/primitives/overview/introduction"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Unstyled, accessible UI primitives. Low-level building blocks. Shadcn UI is built on top of Radix."
+  decision: "pending"
+
+- name: "Headless UI"
+  url: "https://headlessui.com"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Unstyled accessible components from Tailwind Labs. Dropdowns, modals, tabs. Works with Tailwind CSS."
+  decision: "pending"
+
+- name: "React Aria"
+  url: "https://react-spectrum.adobe.com/react-aria"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Adobe's accessibility-first React hooks. Keyboard nav, screen readers, focus management. For building custom accessible components."
+  decision: "pending"
+
+- name: "NextUI"
+  url: "https://nextui.org/docs/guide/introduction"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Modern React UI library. Beautiful defaults, dark mode, Tailwind-based. Fast growing, aesthetic focus."
+  decision: "pending"
+
+- name: "Mantine"
+  url: "https://mantine.dev/getting-started"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Full-featured React components library. 100+ hooks, forms, notifications, modals. Includes devtools."
+  decision: "pending"
+
+- name: "Blueprint"
+  url: "https://blueprintjs.com/docs"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Palantir's React UI toolkit. Data-dense desktop apps, complex interfaces. Tables, trees, date inputs."
+  decision: "pending"
+
+- name: "Fluent UI"
+  url: "https://react.fluentui.dev"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Microsoft's design system. Office 365, Teams components. Enterprise focus, accessibility, cross-platform."
+  decision: "pending"
+
+- name: "Carbon Design System"
+  url: "https://carbondesignsystem.com"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "IBM's open source design system. Enterprise products, data visualization. React, Vue, Angular, Svelte."
+  decision: "pending"
+
+- name: "Semantic UI React"
+  url: "https://react.semantic-ui.com"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "jQuery-free React integration. Natural language class names. Mature but less actively maintained."
+  decision: "pending"
+
+- name: "Grommet"
+  url: "https://v2.grommet.io"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "HPE's React component library. Responsive, accessible, themeable. Data visualization, enterprise apps."
+  decision: "pending"
+
+- name: "PrimeReact"
+  url: "https://primereact.org"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "80+ React UI components. Premium themes, templates. Data tables, charts, file upload. Commercial options."
+  decision: "pending"
+
+- name: "React Bootstrap"
+  url: "https://react-bootstrap.github.io"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Bootstrap components rebuilt with React. Familiar Bootstrap classes, no jQuery. Good for Bootstrap users."
+  decision: "pending"
+
+- name: "Evergreen"
+  url: "https://evergreen.segment.com"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Segment's React UI framework. Enterprise-grade, composable. Less popular now but solid foundation."
+  decision: "pending"
+
+- name: "Theme UI"
+  url: "https://theme-ui.com/getting-started"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Themeable React design system. MDX-based, style objects. Good for content sites, blogs, Gatsby."
+  decision: "pending"
+
+- name: "Reach UI"
+  url: "https://reach.tech"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Accessible React component library. Focus on accessibility. Now in maintenance mode (use Radix instead)."
+  decision: "pending"
+
+- name: "ariakit"
+  url: "https://ariakit.org"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Toolkit for accessible web apps. Lower-level than Radix. Composable, unstyled, WAI-ARIA compliant."
+  decision: "pending"
+
+- name: "Park UI"
+  url: "https://park-ui.com"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Modern React components built on Ark UI. Copy-paste components, Panda CSS styling. Newer alternative to Shadcn."
+  decision: "pending"
+
+- name: "Ark UI"
+  url: "https://ark-ui.com"
+  category: "ui-library"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Headless UI components by Chakra UI team. Multi-framework (React, Vue, Solid). State machine based."
+  decision: "pending"
+
+# BATCH 4 - AI AGENT FRAMEWORKS (User Requested)
+
+- name: "LangGraph"
+  url: "https://langchain-ai.github.io/langgraph"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "LangChain's agent orchestration. Stateful multi-actor workflows, cycles, persistence. For building agent systems like RALF."
+  decision: "pending"
+
+- name: "AutoGPT"
+  url: "https://docs.agpt.co"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Autonomous GPT-4 experiments. Self-prompting AI agents that can execute tasks. OG autonomous agent framework."
+  decision: "pending"
+
+- name: "BabyAGI"
+  url: "https://github.com/yoheinakajima/babyagi"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Pioneering autonomous agent. Task creation, prioritization, execution loop. Simple but influential architecture."
+  decision: "pending"
+
+- name: "SuperAGI"
+  url: "https://superagi.com/docs"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Open source autonomous AI framework. GUI, action console, multiple vector DBs, performance monitoring."
+  decision: "pending"
+
+- name: "AgentGPT"
+  url: "https://docs.reworkd.ai"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Web-based AutoGPT. Browser interface for autonomous agents. Deployment platform, no coding required."
+  decision: "pending"
+
+- name: "Microsoft Semantic Kernel"
+  url: "https://learn.microsoft.com/semantic-kernel"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Microsoft's SDK for AI dev. Plugins, planners, memories. C#, Python, Java. Copilot stack foundation."
+  decision: "pending"
+
+- name: "Fixie"
+  url: "https://docs.fixie.ai"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "AI-powered conversational agents. Knowledge bases, function calling, deployment. Formerly Sidekick."
+  decision: "pending"
+
+- name: "Vercel AI SDK (already listed)"
+  url: "https://sdk.vercel.ai/docs"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "DUPLICATE - Already in list. React/Next.js streaming UI, AI core."
+  decision: "duplicate"
+
+- name: "Dify"
+  url: "https://docs.dify.ai"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "LLM app development platform. Visual prompt editor, RAG, agents, observability. Open source, self-hostable."
+  decision: "pending"
+
+- name: "Flowise"
+  url: "https://docs.flowiseai.com"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Drag-and-drop LLM flows builder. LangChain visual workflow. No-code/low-code AI agents."
+  decision: "pending"
+
+- name: "Langflow"
+  url: "https://docs.langflow.org"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Visual framework for LangChain. Experiment, prototype, deploy. DataStax project. Alternative to Flowise."
+  decision: "pending"
+
+- name: "Phidata"
+  url: "https://docs.phidata.com"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Build AI agents with memory, knowledge, tools. Python framework. Fast growing, simple API."
+  decision: "pending"
+
+- name: "ControlFlow"
+  url: "https://controlflow.ai"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Prefect's agent framework. Orchestrate AI workflows with Python. Task-based, observable."
+  decision: "pending"
+
+- name: "Smolagents"
+  url: "https://huggingface.co/docs/smolagents"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Hugging Face's tiny agent framework. Minimal code, maximum power. Code agents, tool calling."
+  decision: "pending"
+
+- name: "OpenAI Assistants API"
+  url: "https://platform.openai.com/docs/assistants"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "OpenAI's built-in agent system. Threads, messages, runs, tools. Persistent conversations, retrieval, code interpreter."
+  decision: "pending"
+
+- name: "MultiOn"
+  url: "https://docs.multion.ai"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "AI agents that can browse and interact with web. Web automation, data extraction, task completion."
+  decision: "pending"
+
+- name: "BrowseAI"
+  url: "https://www.browse.ai/docs"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "No-code web data extraction. Train robots in 2 minutes. Scraping, monitoring, workflows."
+  decision: "pending"
+
+- name: "n8n AI (already listed)"
+  url: "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain-agent"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "DUPLICATE - n8n already listed. Has LangChain agent nodes, AI workflows."
+  decision: "duplicate"
+
+- name: "Relevance AI"
+  url: "https://docs.relevanceai.com"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Build AI teams and agents. Multi-agent systems, tools, memory. No-code + API."
+  decision: "pending"
+
+- name: "Beam"
+  url: "https://docs.beam.cloud"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Serverless AI infrastructure. Deploy LLMs, fine-tuning, inference. GPU workloads made easy."
+  decision: "pending"
+
+- name: "Modal"
+  url: "https://modal.com/docs"
+  category: "agent-framework"
+  research_status: "pending"
+  llms_txt: null
+  sitemap: null
+  estimated_pages: null
+  ranking:
+    score: 0
+    relevance: 0
+    quality: 0
+    freshness: 0
+    automation: 0
+  notes: "Serverless compute for AI. Run Python in the cloud. Deploy LLMs, batch jobs, cron."
+  decision: "pending"
+
 # BATCH 2 - EXPANDED CANDIDATES (User Requested + New Ideas)
 
 ## AI/LLM Platforms & SDKs
