@@ -20,12 +20,12 @@ jobs:
 
       - name: Push to siso-engine repo
         env:
-          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
           git subtree split --prefix=2-engine -b engine-temp
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/lordsisodia/siso-engine.git engine-temp:main --force
+          git push https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/siso-engine.git engine-temp:main --force
           git branch -D engine-temp
 
       - name: Notify
