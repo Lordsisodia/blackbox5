@@ -10,6 +10,8 @@ on:
 jobs:
   mirror:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout BlackBox5
         uses: actions/checkout@v4
