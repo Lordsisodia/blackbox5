@@ -1,0 +1,31 @@
+name: Mirror BlackBox5 Memory to Standalone Repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '5-project-memory/blackbox5/**'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout BlackBox5
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to blackbox5-memory repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          git config user.name "Mirror Bot"
+          git config user.email "bot@blackbox5.local"
+          git subtree split --prefix=5-project-memory/blackbox5 -b memory-temp
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/lordsisodia/blackbox5-memory.git memory-temp:main --force
+          git branch -D memory-temp
+
+      - name: Notify
+        if: success()
+        run: echo "✅ Mirrored blackbox5 memory to standalone repo"

@@ -1,0 +1,31 @@
+name: Mirror CLI Tools to Standalone Repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bin/**'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout BlackBox5
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to siso-cli repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+        run: |
+          git config user.name "Mirror Bot"
+          git config user.email "bot@blackbox5.local"
+          git subtree split --prefix=bin -b bin-temp
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/lordsisodia/siso-cli.git bin-temp:main --force
+          git branch -D bin-temp
+
+      - name: Notify
+        if: success()
+        run: echo "✅ Mirrored bin/ to siso-cli repo"
