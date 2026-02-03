@@ -22,6 +22,10 @@ jobs:
         env:
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
+          # Remove checkout credentials
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote remove origin || true
+
           # Configure git
           git config user.name "Mirror Bot"
           git config user.email "bot@blackbox5.local"
@@ -29,8 +33,11 @@ jobs:
           # Create a temporary branch with just the folder
           git subtree split --prefix=6-roadmap/research/external/YouTube/AI-Improvement-Research -b youtube-research-temp
 
-          # Push using token in URL
-          git push "https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/youtube-ai-research.git" youtube-research-temp:main --force
+          # Setup remote with token
+          git remote add target "https://x-access-token:${MIRROR_TOKEN}@github.com/lordsisodia/youtube-ai-research.git"
+
+          # Push to standalone repo
+          git push target youtube-research-temp:main --force
 
           # Clean up
           git branch -D youtube-research-temp
