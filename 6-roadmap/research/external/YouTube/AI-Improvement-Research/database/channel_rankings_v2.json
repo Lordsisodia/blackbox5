@@ -1,0 +1,4373 @@
+{
+  "overall": [
+    {
+      "channel_id": "user_playlist_1",
+      "channel_name": "User Playlist 1",
+      "overall_score": 31.9,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 60.0,
+        "freshness": 30.0,
+        "tech_recency": 0.0,
+        "actionability": 0.7,
+        "duration_score": 81.7,
+        "consistency": 66.7
+      },
+      "siso_matches": [
+        "openai",
+        "agentic",
+        "claude code"
+      ],
+      "videos_scored": 3,
+      "top_videos": [
+        {
+          "video_id": "4_2j5wgt_ds",
+          "title": "Claude Code Task System: ANTI-HYPE Agentic Coding (Advanced)",
+          "siso_relevance": 100,
+          "upload_date": "20260202"
+        },
+        {
+          "video_id": "l94A53kIUB0",
+          "title": "Forget Ralph Loops: The New GSD Framework for Claude Code",
+          "siso_relevance": 60.0,
+          "upload_date": "20260128"
+        },
+        {
+          "video_id": "yk088BCn4Vk",
+          "title": "OpenAI is killing open-source\u2026 here\u2019s why",
+          "siso_relevance": 20.0,
+          "upload_date": "20260129"
+        }
+      ],
+      "metadata": {
+        "total_videos": 3,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.514143",
+      "categories": [
+        "programming"
+      ],
+      "slug": "user_playlist_1",
+      "overall_rank": 1,
+      "trend": "new",
+      "category_rank": 1,
+      "category": "programming"
+    },
+    {
+      "channel_id": "indydevdan",
+      "channel_name": "Indydevdan",
+      "overall_score": 28.7,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 62.0,
+        "freshness": 5.1,
+        "tech_recency": 5.9,
+        "actionability": 1.7,
+        "duration_score": 86.2,
+        "consistency": 86.0
+      },
+      "siso_matches": [
+        "prompt engineering",
+        "mcp",
+        "gpt-4",
+        "openai",
+        "agentic",
+        "ai agents",
+        "cursor",
+        "gpt-5",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "mKEq_YaJjPI",
+          "title": "How I build Agentic MCP Servers for Claude Code (Prompts CHANGE Everything)",
+          "siso_relevance": 100,
+          "upload_date": "20250602"
+        },
+        {
+          "video_id": "6wR6xblSays",
+          "title": "Agentic Coding ENDGAME: Build your Claude Code SDK Custom Agents",
+          "siso_relevance": 100,
+          "upload_date": "20250922"
+        },
+        {
+          "video_id": "XojxD7hfaD4",
+          "title": "5 Agent PATTERNS to SIMPLIFY Your Agentic Coding (Claude Code, Gemini CLI, MCP)",
+          "siso_relevance": 100,
+          "upload_date": "20250825"
+        },
+        {
+          "video_id": "tcZ3W8QYirQ",
+          "title": "GPT-5 Agentic Coding with Claude Code",
+          "siso_relevance": 100,
+          "upload_date": "20250811"
+        },
+        {
+          "video_id": "wFQ_i9XdkXU",
+          "title": "My TOP 6 Claude Code PRO tips for AI Coding (MCP + Agents)",
+          "siso_relevance": 100,
+          "upload_date": "20250317"
+        }
+      ],
+      "metadata": {
+        "total_videos": 182,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.525449",
+      "categories": [
+        "programming"
+      ],
+      "slug": "indydevdan",
+      "overall_rank": 2,
+      "trend": "new",
+      "category_rank": 2,
+      "category": "programming"
+    },
+    {
+      "channel_id": "andre_mikalsen",
+      "channel_name": "Andre Mikalsen",
+      "overall_score": 16.4,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 23.2,
+        "freshness": 12.7,
+        "tech_recency": 11.1,
+        "actionability": 0.8,
+        "duration_score": 40.8,
+        "consistency": 56.0
+      },
+      "siso_matches": [
+        "ai agent",
+        "vibe-coding",
+        "cursor",
+        "vibe coding"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "yYalfjya2Yg",
+          "title": "Cursor AI Tutorial (Vibe Coding for beginners)",
+          "siso_relevance": 80.0,
+          "upload_date": "20251127"
+        },
+        {
+          "video_id": "UB2mbqCM41A",
+          "title": "\ud83d\udd34 LIVE BUILD - Scheduled Triggers: Vibe Coding an AI Marketing Platform - Day 43...",
+          "siso_relevance": 40.0,
+          "upload_date": "20251209"
+        },
+        {
+          "video_id": "ByjjZPvNn-Y",
+          "title": "Vibe Coding - Creating the next level",
+          "siso_relevance": 40.0,
+          "upload_date": "20260202"
+        },
+        {
+          "video_id": "YPrHmG767XY",
+          "title": "Vibe Coding - Creating the next level",
+          "siso_relevance": 40.0,
+          "upload_date": "20260130"
+        },
+        {
+          "video_id": "uSyvAo4rI-o",
+          "title": "Vibe Coding - Creating the next level",
+          "siso_relevance": 40.0,
+          "upload_date": "20260128"
+        }
+      ],
+      "metadata": {
+        "total_videos": 82,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.540506",
+      "categories": [
+        "programming"
+      ],
+      "slug": "andre_mikalsen",
+      "overall_rank": 3,
+      "trend": "new",
+      "category_rank": 3,
+      "category": "programming"
+    },
+    {
+      "channel_id": "ai_code_king",
+      "channel_name": "Ai Code King",
+      "overall_score": 16.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 25.2,
+        "freshness": 18.2,
+        "tech_recency": 2.5,
+        "actionability": 2.4,
+        "duration_score": 41.4,
+        "consistency": 38.0
+      },
+      "siso_matches": [
+        "mcp",
+        "anthropic",
+        "openai",
+        "agentic",
+        "gpt-5",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "qBE4OVS6Nho",
+          "title": "Claude Code (New Lazy-MCP Loading): They FINALLY FIXED the BIGGEST ISSUE of CLAU...",
+          "siso_relevance": 100,
+          "upload_date": "20260116"
+        },
+        {
+          "video_id": "Qh6jg3FymXY",
+          "title": "Claude Code TASKS (New Upgrade): RIP Ralph Loops! Anthropic UPGRADED Claude Code...",
+          "siso_relevance": 100,
+          "upload_date": "20260123"
+        },
+        {
+          "video_id": "9Gv7eZemHrE",
+          "title": "Anthropic's Ralph Loop + Claude Code: Anthropic's new FRAMEWORK can run CLAUDE C...",
+          "siso_relevance": 100,
+          "upload_date": "20251228"
+        },
+        {
+          "video_id": "cyeg3A5FV8E",
+          "title": "Claude Code (New Upgrades): LSP, Theme, Terminal Setup, Plugins & More!",
+          "siso_relevance": 60.0,
+          "upload_date": "20260107"
+        },
+        {
+          "video_id": "uuV1DcvObsg",
+          "title": "Oh My OpenCode (5 SUPER Agent/MCP/Prompt Config): This makes OPENCODE - A BEAST!...",
+          "siso_relevance": 60.0,
+          "upload_date": "20251227"
+        }
+      ],
+      "metadata": {
+        "total_videos": 735,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.513568",
+      "categories": [
+        "machine_learning",
+        "programming"
+      ],
+      "slug": "ai_code_king",
+      "overall_rank": 4,
+      "trend": "new",
+      "category_rank": 4,
+      "category": "programming"
+    },
+    {
+      "channel_id": null,
+      "channel_name": "In the World of AI",
+      "overall_score": 14.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 18.8,
+        "freshness": 17.0,
+        "tech_recency": 2.5,
+        "actionability": 6.6,
+        "duration_score": 51.0,
+        "consistency": 36.0
+      },
+      "siso_matches": [
+        "mcp",
+        "vibe coding",
+        "anthropic",
+        "ai automation",
+        "agentic",
+        "ai agents",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "rMO_P4nnATI",
+          "title": "Deep Agent Builder: Easily Create AI Agents That Can Automate Anything! n8n Alte...",
+          "siso_relevance": 80.0,
+          "upload_date": "20251221"
+        },
+        {
+          "video_id": "vkQkQmvDz1M",
+          "title": "NEW MCP Toolkit Is PERFECT! Ultimate MCP Setup For AI Coding Assistants Fixed 90...",
+          "siso_relevance": 60.0,
+          "upload_date": "20251231"
+        },
+        {
+          "video_id": "hq2CHQksLXg",
+          "title": "Epic Mode: NEW Toolkit Ends Vibe Coding! 100x Better Than Vibe Coding (Full Tuto...",
+          "siso_relevance": 40.0,
+          "upload_date": "20260201"
+        },
+        {
+          "video_id": "rLu_3hpG0b8",
+          "title": "Gemini Conductor: NEW Google Toolkit Ends Vibe Coding! 100x Better Than Vibe Cod...",
+          "siso_relevance": 40.0,
+          "upload_date": "20251220"
+        },
+        {
+          "video_id": "iOYg8JSazvU",
+          "title": "Context Engineering: End of Vibe Coding! 100x Better Than Vibe Coding /w Inngest...",
+          "siso_relevance": 40.0,
+          "upload_date": "20251218"
+        }
+      ],
+      "metadata": {
+        "total_videos": 1017,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.507648",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "in_the_world_of_ai",
+      "overall_rank": 5,
+      "trend": "new",
+      "category_rank": 2,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": null,
+      "channel_name": "VRSEN",
+      "overall_score": 14.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 26.4,
+        "freshness": 5.2,
+        "tech_recency": 4.0,
+        "actionability": 4.9,
+        "duration_score": 56.0,
+        "consistency": 40.0
+      },
+      "siso_matches": [
+        "claude code",
+        "mcp",
+        "anthropic",
+        "openai",
+        "gpt-5",
+        "ai agent",
+        "ai agents"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "D4ImbDGFgIM",
+          "title": "The end of MCP for ai agents?",
+          "siso_relevance": 100,
+          "upload_date": "20251107"
+        },
+        {
+          "video_id": "ShYQdf5AsVs",
+          "title": "Talk to 100s Customers BEFORE Building AI Agents",
+          "siso_relevance": 80.0,
+          "upload_date": "20250812"
+        },
+        {
+          "video_id": "nqUFRCoB8iQ",
+          "title": "Stop Building AI Agents Wrong (Developers' #1 Mistake)",
+          "siso_relevance": 80.0,
+          "upload_date": "20250810"
+        },
+        {
+          "video_id": "fbdTB3LjgGI",
+          "title": "Stop Building AI Agents, Build AI Systems Instead (How he made 5.7M)",
+          "siso_relevance": 80.0,
+          "upload_date": "20250730"
+        },
+        {
+          "video_id": "_GJNxlpqziI",
+          "title": "Don't Build AI Agents Until You Watch This",
+          "siso_relevance": 80.0,
+          "upload_date": "20250719"
+        }
+      ],
+      "metadata": {
+        "total_videos": 144,
+        "subscriber_count": 0,
+        "last_upload": "20260122"
+      },
+      "calculated_at": "2026-02-04T04:16:24.522185",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "vrsen",
+      "overall_rank": 6,
+      "trend": "new",
+      "category_rank": 3,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "intheworldofai",
+      "channel_name": "Intheworldofai",
+      "overall_score": 14.0,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 18.8,
+        "freshness": 16.6,
+        "tech_recency": 2.5,
+        "actionability": 6.6,
+        "duration_score": 51.0,
+        "consistency": 36.0
+      },
+      "siso_matches": [
+        "mcp",
+        "vibe coding",
+        "anthropic",
+        "ai automation",
+        "agentic",
+        "ai agents",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "rMO_P4nnATI",
+          "title": "Deep Agent Builder: Easily Create AI Agents That Can Automate Anything! n8n Alte...",
+          "siso_relevance": 80.0,
+          "upload_date": "20251221"
+        },
+        {
+          "video_id": "vkQkQmvDz1M",
+          "title": "NEW MCP Toolkit Is PERFECT! Ultimate MCP Setup For AI Coding Assistants Fixed 90...",
+          "siso_relevance": 60.0,
+          "upload_date": "20251231"
+        },
+        {
+          "video_id": "hq2CHQksLXg",
+          "title": "Epic Mode: NEW Toolkit Ends Vibe Coding! 100x Better Than Vibe Coding (Full Tuto...",
+          "siso_relevance": 40.0,
+          "upload_date": "20260201"
+        },
+        {
+          "video_id": "rLu_3hpG0b8",
+          "title": "Gemini Conductor: NEW Google Toolkit Ends Vibe Coding! 100x Better Than Vibe Cod...",
+          "siso_relevance": 40.0,
+          "upload_date": "20251220"
+        },
+        {
+          "video_id": "iOYg8JSazvU",
+          "title": "Context Engineering: End of Vibe Coding! 100x Better Than Vibe Coding /w Inngest...",
+          "siso_relevance": 40.0,
+          "upload_date": "20251218"
+        }
+      ],
+      "metadata": {
+        "total_videos": 158,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.532396",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "intheworldofai",
+      "overall_rank": 7,
+      "trend": "new",
+      "category_rank": 4,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "greg_isenberg",
+      "channel_name": "Greg Isenberg",
+      "overall_score": 13.5,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 23.2,
+        "freshness": 10.1,
+        "tech_recency": 3.0,
+        "actionability": 3.7,
+        "duration_score": 77.7,
+        "consistency": 34.0
+      },
+      "siso_matches": [
+        "ai workflow",
+        "mcp",
+        "vibe coding",
+        "anthropic",
+        "openai",
+        "chatgpt",
+        "ai agents",
+        "cursor",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "8QN23ZThdRY",
+          "title": "Cursor AI Agents Work Like 10 Developers (Cursor VP Live Demo)",
+          "siso_relevance": 100,
+          "upload_date": "20250902"
+        },
+        {
+          "video_id": "li788UL1qyI",
+          "title": "Be a 10x Vibe Coder (Claude Code + Cursor + MCP)",
+          "siso_relevance": 100,
+          "upload_date": "20251201"
+        },
+        {
+          "video_id": "RpvQH0r0ecM",
+          "title": "\"Ralph Wiggum\" AI Agent will 10x Claude Code/Amp",
+          "siso_relevance": 100,
+          "upload_date": "20260108"
+        },
+        {
+          "video_id": "Xob-2a1OnvA",
+          "title": "Anthropic releases method to 10\u00d7 Claude Code / Opus 4.5",
+          "siso_relevance": 100,
+          "upload_date": "20251210"
+        },
+        {
+          "video_id": "iHyK-CW3ciI",
+          "title": "OpenAI Releases ChatGPT AI Agent Skills",
+          "siso_relevance": 80.0,
+          "upload_date": "20251222"
+        }
+      ],
+      "metadata": {
+        "total_videos": 537,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.520721",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "greg_isenberg",
+      "overall_rank": 8,
+      "trend": "new",
+      "category_rank": 5,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "ai_jason",
+      "channel_name": "Ai Jason",
+      "overall_score": 13.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 24.4,
+        "freshness": 1.5,
+        "tech_recency": 5.8,
+        "actionability": 4.8,
+        "duration_score": 68.3,
+        "consistency": 46.0
+      },
+      "siso_matches": [
+        "rag",
+        "mcp",
+        "vibe coding",
+        "openai",
+        "agentic",
+        "cursor",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "oAoigBWLZgE",
+          "title": "Those MCP totally 10x my Cursor workflow\u2026",
+          "siso_relevance": 100,
+          "upload_date": "20250221"
+        },
+        {
+          "video_id": "VKAq_PA_21U",
+          "title": "Build MCP business for vibe coder",
+          "siso_relevance": 60.0,
+          "upload_date": "20250520"
+        },
+        {
+          "video_id": "fJgFZRGO9AQ",
+          "title": "MCP = Next Big Opportunity? EASIST way to build your own MCP business",
+          "siso_relevance": 60.0,
+          "upload_date": "20250312"
+        },
+        {
+          "video_id": "824Fyh146_w",
+          "title": "Better than Cursor? Future Agentic Coding available today",
+          "siso_relevance": 80.0,
+          "upload_date": "20241113"
+        },
+        {
+          "video_id": "fG95XsBO5U4",
+          "title": "Why MCP is dead & How I vibe now",
+          "siso_relevance": 60.0,
+          "upload_date": "20260124"
+        }
+      ],
+      "metadata": {
+        "total_videos": 83,
+        "subscriber_count": 0,
+        "last_upload": "20260124"
+      },
+      "calculated_at": "2026-02-04T04:16:24.511577",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "ai_jason",
+      "overall_rank": 9,
+      "trend": "new",
+      "category_rank": 6,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "ai_labs",
+      "channel_name": "Ai Labs",
+      "overall_score": 12.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 20.4,
+        "freshness": 11.2,
+        "tech_recency": 1.0,
+        "actionability": 3.4,
+        "duration_score": 37.2,
+        "consistency": 30.0
+      },
+      "siso_matches": [
+        "mcp",
+        "anthropic",
+        "ai automation",
+        "openai",
+        "chatgpt",
+        "cursor",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "_Xbe7MQ2NxI",
+          "title": "Claude code vs Codex vs Cursor: Who gets the cake?",
+          "siso_relevance": 100,
+          "upload_date": "20251031"
+        },
+        {
+          "video_id": "WKy71aZHx20",
+          "title": "Cursor AI Just Got a Massive Upgrade Over Claude Code",
+          "siso_relevance": 100,
+          "upload_date": "20251022"
+        },
+        {
+          "video_id": "kRxdsv1ZY1E",
+          "title": "The Best MCP Servers of 2025",
+          "siso_relevance": 60.0,
+          "upload_date": "20251223"
+        },
+        {
+          "video_id": "EHDzlot7LKU",
+          "title": "The Last Claude Code Tutorial You'll Ever Need",
+          "siso_relevance": 60.0,
+          "upload_date": "20260104"
+        },
+        {
+          "video_id": "VGYsHicpp34",
+          "title": "5 Ways To Build Beautiful Websites Using Claude Code",
+          "siso_relevance": 60.0,
+          "upload_date": "20251217"
+        }
+      ],
+      "metadata": {
+        "total_videos": 196,
+        "subscriber_count": 0,
+        "last_upload": "20260131"
+      },
+      "calculated_at": "2026-02-04T04:16:24.541886",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "ai_labs",
+      "overall_rank": 10,
+      "trend": "new",
+      "category_rank": 7,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "bijan_bowen",
+      "channel_name": "Bijan Bowen",
+      "overall_score": 11.4,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 13.6,
+        "freshness": 14.4,
+        "tech_recency": 7.5,
+        "actionability": 2.8,
+        "duration_score": 89.3,
+        "consistency": 22.0
+      },
+      "siso_matches": [
+        "vibe coding",
+        "openai",
+        "chatgpt",
+        "agentic",
+        "cursor",
+        "gpt-5",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "mwDUYR8SjJs",
+          "title": "GPT-5.2-Codex vs Claude Code Opus 4.5 \u2013 Vibe Coding a Physical Product",
+          "siso_relevance": 100,
+          "upload_date": "20260101"
+        },
+        {
+          "video_id": "xYFcJT9XOIk",
+          "title": "Codex vs Claude Code vs Antigravity \u2013 Agentic Coding Comparison!",
+          "siso_relevance": 100,
+          "upload_date": "20260125"
+        },
+        {
+          "video_id": "-9ZQ3VRKXX8",
+          "title": "Vibe Coding an AI Game Benchmark Site with Emergent.sh \u2013 Full Build & Live Deplo...",
+          "siso_relevance": 40.0,
+          "upload_date": "20251208"
+        },
+        {
+          "video_id": "5b0KYeEj8kY",
+          "title": "GPT-5.2 Pro FULL Test \u2013 Hands-On With OpenAI\u2019s BEST Model!",
+          "siso_relevance": 40.0,
+          "upload_date": "20251217"
+        },
+        {
+          "video_id": "qDYj7B7BIV8",
+          "title": "GPT-5.2 Hands-On Testing \u2013 Is THIS OpenAI\u2019s Best Model?",
+          "siso_relevance": 40.0,
+          "upload_date": "20251211"
+        }
+      ],
+      "metadata": {
+        "total_videos": 311,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.538991",
+      "categories": [
+        "machine_learning",
+        "programming"
+      ],
+      "slug": "bijan_bowen",
+      "overall_rank": 11,
+      "trend": "new",
+      "category_rank": 5,
+      "category": "programming"
+    },
+    {
+      "channel_id": "theo",
+      "channel_name": "Theo",
+      "overall_score": 10.6,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 14.0,
+        "freshness": 16.4,
+        "tech_recency": 3.0,
+        "actionability": 0.0,
+        "duration_score": 81.3,
+        "consistency": 20.0
+      },
+      "siso_matches": [
+        "mcp",
+        "vibe coding",
+        "anthropic",
+        "openai",
+        "chatgpt",
+        "cursor",
+        "gpt-5",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "5DeqL844pH0",
+          "title": "Anthropic gave MCP to the Linux Foundation",
+          "siso_relevance": 100,
+          "upload_date": "20251211"
+        },
+        {
+          "video_id": "qKf9sgKFQLU",
+          "title": "OpenAI just dropped their Cursor killer",
+          "siso_relevance": 60.0,
+          "upload_date": "20260202"
+        },
+        {
+          "video_id": "ZINQTR6H5dI",
+          "title": "Anthropic study shows AI makes devs dumb",
+          "siso_relevance": 60.0,
+          "upload_date": "20260202"
+        },
+        {
+          "video_id": "xrio-BsgkqU",
+          "title": "Claude Code has a big problem",
+          "siso_relevance": 60.0,
+          "upload_date": "20260130"
+        },
+        {
+          "video_id": "gh6aFBnwQj4",
+          "title": "Anthropic just burned so much trust...",
+          "siso_relevance": 60.0,
+          "upload_date": "20260110"
+        }
+      ],
+      "metadata": {
+        "total_videos": 952,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.517281",
+      "categories": [
+        "machine_learning",
+        "ai_research"
+      ],
+      "slug": "theo",
+      "overall_rank": 12,
+      "trend": "new",
+      "category_rank": 1,
+      "category": "ai_research"
+    },
+    {
+      "channel_id": null,
+      "channel_name": "David Ondrej",
+      "overall_score": 10.4,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 11.2,
+        "freshness": 16.2,
+        "tech_recency": 3.5,
+        "actionability": 5.3,
+        "duration_score": 60.7,
+        "consistency": 18.0
+      },
+      "siso_matches": [
+        "vibe coding",
+        "anthropic",
+        "openai",
+        "ai agents",
+        "vibe-coding",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "Pqp4qJ5sS5g",
+          "title": "n8n Tutorial for 2026: How To Build AI Agents for FREE (step by step)",
+          "siso_relevance": 80.0,
+          "upload_date": "20260106"
+        },
+        {
+          "video_id": "XuSFUvUdvQA",
+          "title": "Anthropic\u2019s 7 Hour Claude Code Course in 27 Minutes",
+          "siso_relevance": 100,
+          "upload_date": "20260120"
+        },
+        {
+          "video_id": "pPRoAs8xh2o",
+          "title": "Put your AI Agents on a VPS\u2026 trust me",
+          "siso_relevance": 80.0,
+          "upload_date": "20251120"
+        },
+        {
+          "video_id": "smMC1W-Mjt4",
+          "title": "Claude Code is crazy good in 2026\u2026 just watch",
+          "siso_relevance": 60.0,
+          "upload_date": "20260104"
+        },
+        {
+          "video_id": "fOY0_WCR3eY",
+          "title": "Claude Code can now make videos, here\u2019s how",
+          "siso_relevance": 60.0,
+          "upload_date": "20260123"
+        }
+      ],
+      "metadata": {
+        "total_videos": 386,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.519007",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "david_ondrej",
+      "overall_rank": 13,
+      "trend": "new",
+      "category_rank": 10,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "aichievable",
+      "channel_name": "Aichievable",
+      "overall_score": 10.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 14.3,
+        "freshness": 15.7,
+        "tech_recency": 1.2,
+        "actionability": 0.2,
+        "duration_score": 71.9,
+        "consistency": 19.0
+      },
+      "siso_matches": [
+        "vibe coding",
+        "openai",
+        "chatgpt",
+        "context window",
+        "claude code"
+      ],
+      "videos_scored": 21,
+      "top_videos": [
+        {
+          "video_id": "wn1vIGErib0",
+          "title": "10x Your Context Window in Claude Code with This Simple Trick (I Built It in 30 ...",
+          "siso_relevance": 80.0,
+          "upload_date": "20260119"
+        },
+        {
+          "video_id": "M8gVL_eeQXs",
+          "title": "25 Claude Code Tips for Non-Programmers / Vibe-Coder - After 2000 Hours of Claud...",
+          "siso_relevance": 60.0,
+          "upload_date": "20260202"
+        },
+        {
+          "video_id": "JYqq8q6BQWk",
+          "title": "Claude Code Opus 4.5 vs GPT 5.2 Codex vs Gemini 3 Pro \u2013 Frontend UI Comparison (...",
+          "siso_relevance": 60.0,
+          "upload_date": "20260121"
+        },
+        {
+          "video_id": "3ArPlGNbcgs",
+          "title": "Claude Opus 4.5 vs GLM 4.7 \u2013 AI Vibe Coding Battle - This Will Be Controversial",
+          "siso_relevance": 40.0,
+          "upload_date": "20260103"
+        },
+        {
+          "video_id": "u-Xsxo4VK1k",
+          "title": "Kimi K2.5 vs ChatGPT 5.2 - 9 Comparison Tests - The result is striking! Kimi 2.5...",
+          "siso_relevance": 20.0,
+          "upload_date": "20260128"
+        }
+      ],
+      "metadata": {
+        "total_videos": 21,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.534960",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "aichievable",
+      "overall_rank": 14,
+      "trend": "new",
+      "category_rank": 11,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "matthew_berman",
+      "channel_name": "Matthew Berman",
+      "overall_score": 10.0,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 13.6,
+        "freshness": 15.4,
+        "tech_recency": 2.5,
+        "actionability": 0.7,
+        "duration_score": 54.2,
+        "consistency": 16.0
+      },
+      "siso_matches": [
+        "mcp",
+        "anthropic",
+        "gpt-5",
+        "openai",
+        "chatgpt",
+        "context window",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "GMQ58GUpcD0",
+          "title": "AI News: GPT-5.2, Devstral 2, Boom Superpower, MCP Nonprofit and more!",
+          "siso_relevance": 80.0,
+          "upload_date": "20251209"
+        },
+        {
+          "video_id": "ryQn-8qy6gA",
+          "title": "Anthropic is secretly winning...",
+          "siso_relevance": 60.0,
+          "upload_date": "20260123"
+        },
+        {
+          "video_id": "lQ0mtbFxzn8",
+          "title": "Anthropic just dropped Claude Cowork... (SO GOOD)",
+          "siso_relevance": 60.0,
+          "upload_date": "20260113"
+        },
+        {
+          "video_id": "Yft6PtJcu-M",
+          "title": "Anthropic is CUT THROAT for this",
+          "siso_relevance": 60.0,
+          "upload_date": "20260112"
+        },
+        {
+          "video_id": "pwmK46hhfwg",
+          "title": "What's going on with Claude Code?",
+          "siso_relevance": 60.0,
+          "upload_date": "20251231"
+        }
+      ],
+      "metadata": {
+        "total_videos": 512,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.527135",
+      "categories": [
+        "machine_learning",
+        "ai_research"
+      ],
+      "slug": "matthew_berman",
+      "overall_rank": 15,
+      "trend": "new",
+      "category_rank": 2,
+      "category": "ai_research"
+    },
+    {
+      "channel_id": "sean_kochel",
+      "channel_name": "Sean Kochel",
+      "overall_score": 9.9,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 14.4,
+        "freshness": 9.2,
+        "tech_recency": 2.5,
+        "actionability": 6.1,
+        "duration_score": 68.0,
+        "consistency": 22.0
+      },
+      "siso_matches": [
+        "claude code",
+        "mcp",
+        "vibe coding",
+        "vibe-coding",
+        "ai agent",
+        "ai agents"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "ynVfOd_ioDg",
+          "title": "The 15 HIDDEN Claude Code Rules That Will 10X Your Vibe Coding",
+          "siso_relevance": 100,
+          "upload_date": "20251210"
+        },
+        {
+          "video_id": "KdaclhjWGI8",
+          "title": "Claude Code + n8n = Easy AI Agent MVP?",
+          "siso_relevance": 100,
+          "upload_date": "20250918"
+        },
+        {
+          "video_id": "UcoFMDmmqV0",
+          "title": "Building advanced AI agents is easier than you think.",
+          "siso_relevance": 80.0,
+          "upload_date": "20251126"
+        },
+        {
+          "video_id": "2wYO6sdQ9xc",
+          "title": "9 MCP Servers That'll Make Vibe Coders Cry Tears Of Joy",
+          "siso_relevance": 60.0,
+          "upload_date": "20251007"
+        },
+        {
+          "video_id": "m3jiIowIi5I",
+          "title": "7 CLAUDE CODE Skills Every Beginner NEEDS To Master",
+          "siso_relevance": 60.0,
+          "upload_date": "20251223"
+        }
+      ],
+      "metadata": {
+        "total_videos": 115,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.530435",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "sean_kochel",
+      "overall_rank": 16,
+      "trend": "new",
+      "category_rank": 13,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "UCw0S0k8SYYsQJ8K0q7Z0XxA",
+      "channel_name": "AI Engineer",
+      "overall_score": 9.1,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 11.6,
+        "freshness": 12.2,
+        "tech_recency": 2.0,
+        "actionability": 4.8,
+        "duration_score": 68.7,
+        "consistency": 18.0
+      },
+      "siso_matches": [
+        "prompt engineering",
+        "claude code",
+        "mcp",
+        "rag",
+        "vibe coding",
+        "anthropic",
+        "openai",
+        "agentic",
+        "cursor",
+        "ai agent"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "CEvIs9y1uog",
+          "title": "Don't Build Agents, Build Skills Instead \u2013 Barry Zhang & Mahesh Murag, Anthropic",
+          "siso_relevance": 80.0,
+          "upload_date": "20251208"
+        },
+        {
+          "video_id": "VSdV-AdSlis",
+          "title": "Identity for AI Agents - Patrick Riley & Carlos Galan, Auth0",
+          "siso_relevance": 80.0,
+          "upload_date": "20260114"
+        },
+        {
+          "video_id": "96G7FLab8xc",
+          "title": "Your MCP Server is Bad (and you should feel bad) - Jeremiah Lowin, Prefect",
+          "siso_relevance": 60.0,
+          "upload_date": "20260112"
+        },
+        {
+          "video_id": "7Dtu2bilcFs",
+          "title": "2026: The Year The IDE Died \u2014 Steve Yegge & Gene Kim, Authors, Vibe Coding",
+          "siso_relevance": 40.0,
+          "upload_date": "20251206"
+        },
+        {
+          "video_id": "TqC1qOfiVcQ",
+          "title": "Claude Agent SDK [Full Workshop] \u2014 Thariq Shihipar, Anthropic",
+          "siso_relevance": 60.0,
+          "upload_date": "20260105"
+        }
+      ],
+      "metadata": {
+        "total_videos": 613,
+        "subscriber_count": 0,
+        "last_upload": "20260119"
+      },
+      "calculated_at": "2026-02-04T04:16:24.537117",
+      "categories": [
+        "machine_learning",
+        "programming",
+        "ai_research"
+      ],
+      "slug": "ai_engineer",
+      "overall_rank": 17,
+      "trend": "new",
+      "category_rank": 3,
+      "category": "ai_research"
+    },
+    {
+      "channel_id": "UCxQKHvKbmJyX8O6I7rY0XxA",
+      "channel_name": "Latent Space",
+      "overall_score": 9.0,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 13.2,
+        "freshness": 11.2,
+        "tech_recency": 3.2,
+        "actionability": 1.0,
+        "duration_score": 51.7,
+        "consistency": 16.0
+      },
+      "siso_matches": [
+        "mcp",
+        "rag",
+        "vibe coding",
+        "anthropic",
+        "gpt-4",
+        "openai",
+        "chatgpt",
+        "agentic",
+        "cursor",
+        "gpt-5"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "zuJyJP517Uw",
+          "title": "Steve Yegge's Vibe Coding Manifesto: Why Claude Code Isn't It & What Comes After...",
+          "siso_relevance": 100,
+          "upload_date": "20251226"
+        },
+        {
+          "video_id": "tSRqTerZrH8",
+          "title": "[State of Context Engineering] Agentic RAG, Context Rot, MCP, Subagents \u2014 Nina L...",
+          "siso_relevance": 100,
+          "upload_date": "20251231"
+        },
+        {
+          "video_id": "4JHXU1Cpcsc",
+          "title": "[State of RL/Reasoning] IMO/IOI Gold, OpenAI o3/GPT-5, and Cursor Composer \u2014 Ash...",
+          "siso_relevance": 80.0,
+          "upload_date": "20251230"
+        },
+        {
+          "video_id": "z6XWYCM3Q8s",
+          "title": "One Year of MCP \u2014\u00a0with David Soria Parria and AAIF leads from OpenAI, Goose, Lin...",
+          "siso_relevance": 80.0,
+          "upload_date": "20251228"
+        },
+        {
+          "video_id": "W2cBTVr8nxU",
+          "title": "\u26a1\ufe0f Prism: OpenAI's LaTeX \"Cursor for Scientists\" \u2014 Kevin Weil & Victor Powell, O...",
+          "siso_relevance": 60.0,
+          "upload_date": "20260127"
+        }
+      ],
+      "metadata": {
+        "total_videos": 721,
+        "subscriber_count": 0,
+        "last_upload": "20260128"
+      },
+      "calculated_at": "2026-02-04T04:16:24.509907",
+      "categories": [
+        "machine_learning",
+        "ai_research"
+      ],
+      "slug": "latent_space",
+      "overall_rank": 18,
+      "trend": "new",
+      "category_rank": 4,
+      "category": "ai_research"
+    },
+    {
+      "channel_id": "ai_grid",
+      "channel_name": "Ai Grid",
+      "overall_score": 7.9,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 7.6,
+        "freshness": 15.4,
+        "tech_recency": 4.5,
+        "actionability": 1.5,
+        "duration_score": 59.2,
+        "consistency": 6.0
+      },
+      "siso_matches": [
+        "openai",
+        "chatgpt",
+        "gpt-5",
+        "ai agent",
+        "ai agents"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "c9ov2HeuLQ8",
+          "title": "NVIDIA's New AI Agent Just Crossed the Line - The Age of AI Agents Begins (Nvidi...",
+          "siso_relevance": 80.0,
+          "upload_date": "20251221"
+        },
+        {
+          "video_id": "5G8CIcSppng",
+          "title": "OpenAI Released GPT-5.2 Is Not What You Think - You Should Be Concerned",
+          "siso_relevance": 40.0,
+          "upload_date": "20251212"
+        },
+        {
+          "video_id": "zphET-QsAJk",
+          "title": "DeepSeek V3.2: Gold Medals, Agents, and 30x Cheaper Than GPT-5",
+          "siso_relevance": 20.0,
+          "upload_date": "20251202"
+        },
+        {
+          "video_id": "5oEsC-lhhuM",
+          "title": "RIP OpenAI? Apple Dumps ChatGPT for Google Gemini!",
+          "siso_relevance": 40.0,
+          "upload_date": "20260120"
+        },
+        {
+          "video_id": "riFA8sFUMnQ",
+          "title": "This Test Was Built to Block AI \u2014 GPT-5 Finally Passed It",
+          "siso_relevance": 20.0,
+          "upload_date": "20260101"
+        }
+      ],
+      "metadata": {
+        "total_videos": 821,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.505290",
+      "categories": [
+        "machine_learning",
+        "ai_research"
+      ],
+      "slug": "ai_grid",
+      "overall_rank": 19,
+      "trend": "new",
+      "category_rank": 5,
+      "category": "ai_research"
+    },
+    {
+      "channel_id": null,
+      "channel_name": "Rasmus",
+      "overall_score": 6.7,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 9.6,
+        "freshness": 6.8,
+        "tech_recency": 1.5,
+        "actionability": 3.8,
+        "duration_score": 43.7,
+        "consistency": 16.0
+      },
+      "siso_matches": [
+        "ai workflow",
+        "claude code",
+        "mcp",
+        "openai",
+        "cursor",
+        "gpt-5",
+        "ai agent",
+        "ai agents"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "y_VPAERMhKI",
+          "title": "I built an app for AI Agents (Clawdbot / OpenClaw)",
+          "siso_relevance": 80.0,
+          "upload_date": "20260203"
+        },
+        {
+          "video_id": "uWZ-Yqj8nhw",
+          "title": "What The Heck Is MCP? | MCP Setup Tutorial",
+          "siso_relevance": 60.0,
+          "upload_date": "20250318"
+        },
+        {
+          "video_id": "FsDYk0WqBt0",
+          "title": "An MCP & Skills masterclass",
+          "siso_relevance": 60.0,
+          "upload_date": "20260129"
+        },
+        {
+          "video_id": "G1jZPyTgdOY",
+          "title": "The Claude Code & Gemini CLI Killer | Meet Amazon Q",
+          "siso_relevance": 60.0,
+          "upload_date": "20250704"
+        },
+        {
+          "video_id": "77snqcntze4",
+          "title": "Claude Code Is The Best AI Coding Agent",
+          "siso_relevance": 60.0,
+          "upload_date": "20250606"
+        }
+      ],
+      "metadata": {
+        "total_videos": 129,
+        "subscriber_count": 0,
+        "last_upload": "20260203"
+      },
+      "calculated_at": "2026-02-04T04:16:24.515291",
+      "categories": [
+        "machine_learning"
+      ],
+      "slug": "rasmus",
+      "overall_rank": 20,
+      "trend": "new",
+      "category_rank": 17,
+      "category": "machine_learning"
+    },
+    {
+      "channel_id": "networkchuck",
+      "channel_name": "Networkchuck",
+      "overall_score": 5.9,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 6.8,
+        "freshness": 11.7,
+        "tech_recency": 0.0,
+        "actionability": 0.6,
+        "duration_score": 42.6,
+        "consistency": 10.0
+      },
+      "siso_matches": [
+        "ai agents",
+        "chatgpt",
+        "ai agent",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "gEElEzKazYA",
+          "title": "N8n AI Agents are INSANE!!",
+          "siso_relevance": 80.0,
+          "upload_date": "20250922"
+        },
+        {
+          "video_id": "mQQgB6VK_m4",
+          "title": "I gave Claude Code a phone number #claudecode",
+          "siso_relevance": 60.0,
+          "upload_date": "20260130"
+        },
+        {
+          "video_id": "FEDiAHzS0zw",
+          "title": "Claude Code on your phone in 10 minutes",
+          "siso_relevance": 60.0,
+          "upload_date": "20260129"
+        },
+        {
+          "video_id": "cT22fTzotYc",
+          "title": "FREE Phone Calls with Claude Code",
+          "siso_relevance": 60.0,
+          "upload_date": "20260123"
+        },
+        {
+          "video_id": "p4M50NgC9qU",
+          "title": "n8n + Claude Code Is TOO Powerful",
+          "siso_relevance": 60.0,
+          "upload_date": "20251217"
+        }
+      ],
+      "metadata": {
+        "total_videos": 563,
+        "subscriber_count": 0,
+        "last_upload": "20260202"
+      },
+      "calculated_at": "2026-02-04T04:16:24.523857",
+      "categories": [
+        "machine_learning",
+        "devops",
+        "cybersecurity"
+      ],
+      "slug": "networkchuck",
+      "overall_rank": 21,
+      "trend": "new",
+      "category_rank": 1,
+      "category": "cybersecurity"
+    },
+    {
+      "channel_id": "fireship",
+      "channel_name": "Fireship",
+      "overall_score": 5.6,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 8.4,
+        "freshness": 6.1,
+        "tech_recency": 2.0,
+        "actionability": 1.1,
+        "duration_score": 30.0,
+        "consistency": 12.0
+      },
+      "siso_matches": [
+        "vibe coding",
+        "anthropic",
+        "openai",
+        "cursor",
+        "gpt-5",
+        "ai agent",
+        "ai agents"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "S6wc6yvoZLY",
+          "title": "AI agents are paying each other now\u2026",
+          "siso_relevance": 80.0,
+          "upload_date": "20251126"
+        },
+        {
+          "video_id": "PLKrSVuT-Dg",
+          "title": "How to make vibe coding not suck\u2026",
+          "siso_relevance": 40.0,
+          "upload_date": "20251014"
+        },
+        {
+          "video_id": "5JMiNsV7P3Y",
+          "title": "Anthropic just bought your favorite JS runtime...",
+          "siso_relevance": 60.0,
+          "upload_date": "20251205"
+        },
+        {
+          "video_id": "rEvEXQvo-F8",
+          "title": "OpenAI was dead\u2026 Then GPT-5.2 dropped",
+          "siso_relevance": 40.0,
+          "upload_date": "20251212"
+        },
+        {
+          "video_id": "gA6r7iVzP6M",
+          "title": "AWS just released its Cursor killer\u2026",
+          "siso_relevance": 40.0,
+          "upload_date": "20250716"
+        }
+      ],
+      "metadata": {
+        "total_videos": 783,
+        "subscriber_count": 0,
+        "last_upload": "20260130"
+      },
+      "calculated_at": "2026-02-04T04:16:24.529012",
+      "categories": [
+        "machine_learning",
+        "programming",
+        "web_development",
+        "ai_research"
+      ],
+      "slug": "fireship",
+      "overall_rank": 22,
+      "trend": "new",
+      "category_rank": 6,
+      "category": "ai_research"
+    },
+    {
+      "channel_id": "bijan_bowen_slow_test",
+      "channel_name": "Bijan Bowen Slow Test",
+      "overall_score": 4.2,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 4.0,
+        "freshness": 10.0,
+        "tech_recency": 0.0,
+        "actionability": 2.0,
+        "duration_score": 94.0,
+        "consistency": 0.0
+      },
+      "siso_matches": [
+        "chatgpt"
+      ],
+      "videos_scored": 5,
+      "top_videos": [
+        {
+          "video_id": "LFyiQF7aCWQ",
+          "title": "ChatGPT Images Hands-On Testing \u2013 INSANE Image Generation & Editing",
+          "siso_relevance": 20.0,
+          "upload_date": "20251216"
+        },
+        {
+          "video_id": "gaXXGDwV0d4",
+          "title": "GLM-4.7 vs MiniMax-M2.1 \u2013 Head-To-Head Testing!",
+          "siso_relevance": 0,
+          "upload_date": "20251227"
+        },
+        {
+          "video_id": "JhVlNGFyHz4",
+          "title": "Gemini 3 Flash Is INSANE \u2013 Testing Google\u2019s FASTEST Model!",
+          "siso_relevance": 0,
+          "upload_date": "20251217"
+        },
+        {
+          "video_id": "IeDQl4c5Gq8",
+          "title": "Devstral 2 First Look & Testing \u2013 Mistrals NEW Open Coding Models!",
+          "siso_relevance": 0,
+          "upload_date": "20251210"
+        },
+        {
+          "video_id": "4d38Jxp33w0",
+          "title": "Claude Opus 4.5 First Test \u2013 The BEST Coding Model Ever!",
+          "siso_relevance": 0,
+          "upload_date": "20251125"
+        }
+      ],
+      "metadata": {
+        "total_videos": 5,
+        "subscriber_count": 0,
+        "last_upload": "20251227"
+      },
+      "calculated_at": "2026-02-04T04:16:24.530961",
+      "categories": [
+        "programming"
+      ],
+      "slug": "bijan_bowen_slow_test",
+      "overall_rank": 23,
+      "trend": "new",
+      "category_rank": 8,
+      "category": "programming"
+    },
+    {
+      "channel_id": "misha_van_den_berg",
+      "channel_name": "Misha Van Den Berg",
+      "overall_score": 3.7,
+      "tier": "D",
+      "component_scores": {
+        "siso_relevance": 2.0,
+        "freshness": 5.4,
+        "tech_recency": 4.8,
+        "actionability": 3.2,
+        "duration_score": 60.8,
+        "consistency": 4.0
+      },
+      "siso_matches": [
+        "ai workflow",
+        "claude code"
+      ],
+      "videos_scored": 50,
+      "top_videos": [
+        {
+          "video_id": "8CWhPY8Ksko",
+          "title": "Is Claude Code Worth It for DevOps Engineers?",
+          "siso_relevance": 60.0,
+          "upload_date": "20250506"
+        },
+        {
+          "video_id": "fjoGZ90bOzw",
+          "title": "My Entire Neovim + Tmux + AI Workflow (2026 Update)",
+          "siso_relevance": 40.0,
+          "upload_date": "20260109"
+        },
+        {
+          "video_id": "cAD6QaJTVyw",
+          "title": "How To Learn Kubernetes in 2025",
+          "siso_relevance": 0,
+          "upload_date": "20250422"
+        },
+        {
+          "video_id": "6w65b8HWU8g",
+          "title": "How the Ralph Technique Works (Full Tutorial)",
+          "siso_relevance": 0,
+          "upload_date": "20260129"
+        },
+        {
+          "video_id": "9AKSLbfen6w",
+          "title": "Kubernetes Crash Course for Beginners | Hands-On Tutorial + First Deployment",
+          "siso_relevance": 0,
+          "upload_date": "20250602"
+        }
+      ],
+      "metadata": {
+        "total_videos": 151,
+        "subscriber_count": 0,
+        "last_upload": "20260129"
+      },
+      "calculated_at": "2026-02-04T04:16:24.533878",
+      "categories": [
+        "programming",
+        "devops"
+      ],
+      "slug": "misha_van_den_berg",
+      "overall_rank": 24,
+      "trend": "new",
+      "category_rank": 2,
+      "category": "devops"
+    }
+  ],
+  "by_category": {
+    "data_science": [],
+    "machine_learning": [
+      {
+        "channel_id": "ai_code_king",
+        "channel_name": "Ai Code King",
+        "overall_score": 16.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 25.2,
+          "freshness": 18.2,
+          "tech_recency": 2.5,
+          "actionability": 2.4,
+          "duration_score": 41.4,
+          "consistency": 38.0
+        },
+        "siso_matches": [
+          "mcp",
+          "anthropic",
+          "openai",
+          "agentic",
+          "gpt-5",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "qBE4OVS6Nho",
+            "title": "Claude Code (New Lazy-MCP Loading): They FINALLY FIXED the BIGGEST ISSUE of CLAU...",
+            "siso_relevance": 100,
+            "upload_date": "20260116"
+          },
+          {
+            "video_id": "Qh6jg3FymXY",
+            "title": "Claude Code TASKS (New Upgrade): RIP Ralph Loops! Anthropic UPGRADED Claude Code...",
+            "siso_relevance": 100,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "9Gv7eZemHrE",
+            "title": "Anthropic's Ralph Loop + Claude Code: Anthropic's new FRAMEWORK can run CLAUDE C...",
+            "siso_relevance": 100,
+            "upload_date": "20251228"
+          },
+          {
+            "video_id": "cyeg3A5FV8E",
+            "title": "Claude Code (New Upgrades): LSP, Theme, Terminal Setup, Plugins & More!",
+            "siso_relevance": 60.0,
+            "upload_date": "20260107"
+          },
+          {
+            "video_id": "uuV1DcvObsg",
+            "title": "Oh My OpenCode (5 SUPER Agent/MCP/Prompt Config): This makes OPENCODE - A BEAST!...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251227"
+          }
+        ],
+        "metadata": {
+          "total_videos": 735,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.513568",
+        "categories": [
+          "machine_learning",
+          "programming"
+        ],
+        "slug": "ai_code_king",
+        "overall_rank": 4,
+        "trend": "new",
+        "category_rank": 4,
+        "category": "programming"
+      },
+      {
+        "channel_id": null,
+        "channel_name": "In the World of AI",
+        "overall_score": 14.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 18.8,
+          "freshness": 17.0,
+          "tech_recency": 2.5,
+          "actionability": 6.6,
+          "duration_score": 51.0,
+          "consistency": 36.0
+        },
+        "siso_matches": [
+          "mcp",
+          "vibe coding",
+          "anthropic",
+          "ai automation",
+          "agentic",
+          "ai agents",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "rMO_P4nnATI",
+            "title": "Deep Agent Builder: Easily Create AI Agents That Can Automate Anything! n8n Alte...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251221"
+          },
+          {
+            "video_id": "vkQkQmvDz1M",
+            "title": "NEW MCP Toolkit Is PERFECT! Ultimate MCP Setup For AI Coding Assistants Fixed 90...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251231"
+          },
+          {
+            "video_id": "hq2CHQksLXg",
+            "title": "Epic Mode: NEW Toolkit Ends Vibe Coding! 100x Better Than Vibe Coding (Full Tuto...",
+            "siso_relevance": 40.0,
+            "upload_date": "20260201"
+          },
+          {
+            "video_id": "rLu_3hpG0b8",
+            "title": "Gemini Conductor: NEW Google Toolkit Ends Vibe Coding! 100x Better Than Vibe Cod...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251220"
+          },
+          {
+            "video_id": "iOYg8JSazvU",
+            "title": "Context Engineering: End of Vibe Coding! 100x Better Than Vibe Coding /w Inngest...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251218"
+          }
+        ],
+        "metadata": {
+          "total_videos": 1017,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.507648",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "in_the_world_of_ai",
+        "overall_rank": 5,
+        "trend": "new",
+        "category_rank": 2,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": null,
+        "channel_name": "VRSEN",
+        "overall_score": 14.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 26.4,
+          "freshness": 5.2,
+          "tech_recency": 4.0,
+          "actionability": 4.9,
+          "duration_score": 56.0,
+          "consistency": 40.0
+        },
+        "siso_matches": [
+          "claude code",
+          "mcp",
+          "anthropic",
+          "openai",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "D4ImbDGFgIM",
+            "title": "The end of MCP for ai agents?",
+            "siso_relevance": 100,
+            "upload_date": "20251107"
+          },
+          {
+            "video_id": "ShYQdf5AsVs",
+            "title": "Talk to 100s Customers BEFORE Building AI Agents",
+            "siso_relevance": 80.0,
+            "upload_date": "20250812"
+          },
+          {
+            "video_id": "nqUFRCoB8iQ",
+            "title": "Stop Building AI Agents Wrong (Developers' #1 Mistake)",
+            "siso_relevance": 80.0,
+            "upload_date": "20250810"
+          },
+          {
+            "video_id": "fbdTB3LjgGI",
+            "title": "Stop Building AI Agents, Build AI Systems Instead (How he made 5.7M)",
+            "siso_relevance": 80.0,
+            "upload_date": "20250730"
+          },
+          {
+            "video_id": "_GJNxlpqziI",
+            "title": "Don't Build AI Agents Until You Watch This",
+            "siso_relevance": 80.0,
+            "upload_date": "20250719"
+          }
+        ],
+        "metadata": {
+          "total_videos": 144,
+          "subscriber_count": 0,
+          "last_upload": "20260122"
+        },
+        "calculated_at": "2026-02-04T04:16:24.522185",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "vrsen",
+        "overall_rank": 6,
+        "trend": "new",
+        "category_rank": 3,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "intheworldofai",
+        "channel_name": "Intheworldofai",
+        "overall_score": 14.0,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 18.8,
+          "freshness": 16.6,
+          "tech_recency": 2.5,
+          "actionability": 6.6,
+          "duration_score": 51.0,
+          "consistency": 36.0
+        },
+        "siso_matches": [
+          "mcp",
+          "vibe coding",
+          "anthropic",
+          "ai automation",
+          "agentic",
+          "ai agents",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "rMO_P4nnATI",
+            "title": "Deep Agent Builder: Easily Create AI Agents That Can Automate Anything! n8n Alte...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251221"
+          },
+          {
+            "video_id": "vkQkQmvDz1M",
+            "title": "NEW MCP Toolkit Is PERFECT! Ultimate MCP Setup For AI Coding Assistants Fixed 90...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251231"
+          },
+          {
+            "video_id": "hq2CHQksLXg",
+            "title": "Epic Mode: NEW Toolkit Ends Vibe Coding! 100x Better Than Vibe Coding (Full Tuto...",
+            "siso_relevance": 40.0,
+            "upload_date": "20260201"
+          },
+          {
+            "video_id": "rLu_3hpG0b8",
+            "title": "Gemini Conductor: NEW Google Toolkit Ends Vibe Coding! 100x Better Than Vibe Cod...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251220"
+          },
+          {
+            "video_id": "iOYg8JSazvU",
+            "title": "Context Engineering: End of Vibe Coding! 100x Better Than Vibe Coding /w Inngest...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251218"
+          }
+        ],
+        "metadata": {
+          "total_videos": 158,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.532396",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "intheworldofai",
+        "overall_rank": 7,
+        "trend": "new",
+        "category_rank": 4,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "greg_isenberg",
+        "channel_name": "Greg Isenberg",
+        "overall_score": 13.5,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 23.2,
+          "freshness": 10.1,
+          "tech_recency": 3.0,
+          "actionability": 3.7,
+          "duration_score": 77.7,
+          "consistency": 34.0
+        },
+        "siso_matches": [
+          "ai workflow",
+          "mcp",
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "chatgpt",
+          "ai agents",
+          "cursor",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "8QN23ZThdRY",
+            "title": "Cursor AI Agents Work Like 10 Developers (Cursor VP Live Demo)",
+            "siso_relevance": 100,
+            "upload_date": "20250902"
+          },
+          {
+            "video_id": "li788UL1qyI",
+            "title": "Be a 10x Vibe Coder (Claude Code + Cursor + MCP)",
+            "siso_relevance": 100,
+            "upload_date": "20251201"
+          },
+          {
+            "video_id": "RpvQH0r0ecM",
+            "title": "\"Ralph Wiggum\" AI Agent will 10x Claude Code/Amp",
+            "siso_relevance": 100,
+            "upload_date": "20260108"
+          },
+          {
+            "video_id": "Xob-2a1OnvA",
+            "title": "Anthropic releases method to 10\u00d7 Claude Code / Opus 4.5",
+            "siso_relevance": 100,
+            "upload_date": "20251210"
+          },
+          {
+            "video_id": "iHyK-CW3ciI",
+            "title": "OpenAI Releases ChatGPT AI Agent Skills",
+            "siso_relevance": 80.0,
+            "upload_date": "20251222"
+          }
+        ],
+        "metadata": {
+          "total_videos": 537,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.520721",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "greg_isenberg",
+        "overall_rank": 8,
+        "trend": "new",
+        "category_rank": 5,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "ai_jason",
+        "channel_name": "Ai Jason",
+        "overall_score": 13.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 24.4,
+          "freshness": 1.5,
+          "tech_recency": 5.8,
+          "actionability": 4.8,
+          "duration_score": 68.3,
+          "consistency": 46.0
+        },
+        "siso_matches": [
+          "rag",
+          "mcp",
+          "vibe coding",
+          "openai",
+          "agentic",
+          "cursor",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "oAoigBWLZgE",
+            "title": "Those MCP totally 10x my Cursor workflow\u2026",
+            "siso_relevance": 100,
+            "upload_date": "20250221"
+          },
+          {
+            "video_id": "VKAq_PA_21U",
+            "title": "Build MCP business for vibe coder",
+            "siso_relevance": 60.0,
+            "upload_date": "20250520"
+          },
+          {
+            "video_id": "fJgFZRGO9AQ",
+            "title": "MCP = Next Big Opportunity? EASIST way to build your own MCP business",
+            "siso_relevance": 60.0,
+            "upload_date": "20250312"
+          },
+          {
+            "video_id": "824Fyh146_w",
+            "title": "Better than Cursor? Future Agentic Coding available today",
+            "siso_relevance": 80.0,
+            "upload_date": "20241113"
+          },
+          {
+            "video_id": "fG95XsBO5U4",
+            "title": "Why MCP is dead & How I vibe now",
+            "siso_relevance": 60.0,
+            "upload_date": "20260124"
+          }
+        ],
+        "metadata": {
+          "total_videos": 83,
+          "subscriber_count": 0,
+          "last_upload": "20260124"
+        },
+        "calculated_at": "2026-02-04T04:16:24.511577",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "ai_jason",
+        "overall_rank": 9,
+        "trend": "new",
+        "category_rank": 6,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "ai_labs",
+        "channel_name": "Ai Labs",
+        "overall_score": 12.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 20.4,
+          "freshness": 11.2,
+          "tech_recency": 1.0,
+          "actionability": 3.4,
+          "duration_score": 37.2,
+          "consistency": 30.0
+        },
+        "siso_matches": [
+          "mcp",
+          "anthropic",
+          "ai automation",
+          "openai",
+          "chatgpt",
+          "cursor",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "_Xbe7MQ2NxI",
+            "title": "Claude code vs Codex vs Cursor: Who gets the cake?",
+            "siso_relevance": 100,
+            "upload_date": "20251031"
+          },
+          {
+            "video_id": "WKy71aZHx20",
+            "title": "Cursor AI Just Got a Massive Upgrade Over Claude Code",
+            "siso_relevance": 100,
+            "upload_date": "20251022"
+          },
+          {
+            "video_id": "kRxdsv1ZY1E",
+            "title": "The Best MCP Servers of 2025",
+            "siso_relevance": 60.0,
+            "upload_date": "20251223"
+          },
+          {
+            "video_id": "EHDzlot7LKU",
+            "title": "The Last Claude Code Tutorial You'll Ever Need",
+            "siso_relevance": 60.0,
+            "upload_date": "20260104"
+          },
+          {
+            "video_id": "VGYsHicpp34",
+            "title": "5 Ways To Build Beautiful Websites Using Claude Code",
+            "siso_relevance": 60.0,
+            "upload_date": "20251217"
+          }
+        ],
+        "metadata": {
+          "total_videos": 196,
+          "subscriber_count": 0,
+          "last_upload": "20260131"
+        },
+        "calculated_at": "2026-02-04T04:16:24.541886",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "ai_labs",
+        "overall_rank": 10,
+        "trend": "new",
+        "category_rank": 7,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "bijan_bowen",
+        "channel_name": "Bijan Bowen",
+        "overall_score": 11.4,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 13.6,
+          "freshness": 14.4,
+          "tech_recency": 7.5,
+          "actionability": 2.8,
+          "duration_score": 89.3,
+          "consistency": 22.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "openai",
+          "chatgpt",
+          "agentic",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "mwDUYR8SjJs",
+            "title": "GPT-5.2-Codex vs Claude Code Opus 4.5 \u2013 Vibe Coding a Physical Product",
+            "siso_relevance": 100,
+            "upload_date": "20260101"
+          },
+          {
+            "video_id": "xYFcJT9XOIk",
+            "title": "Codex vs Claude Code vs Antigravity \u2013 Agentic Coding Comparison!",
+            "siso_relevance": 100,
+            "upload_date": "20260125"
+          },
+          {
+            "video_id": "-9ZQ3VRKXX8",
+            "title": "Vibe Coding an AI Game Benchmark Site with Emergent.sh \u2013 Full Build & Live Deplo...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251208"
+          },
+          {
+            "video_id": "5b0KYeEj8kY",
+            "title": "GPT-5.2 Pro FULL Test \u2013 Hands-On With OpenAI\u2019s BEST Model!",
+            "siso_relevance": 40.0,
+            "upload_date": "20251217"
+          },
+          {
+            "video_id": "qDYj7B7BIV8",
+            "title": "GPT-5.2 Hands-On Testing \u2013 Is THIS OpenAI\u2019s Best Model?",
+            "siso_relevance": 40.0,
+            "upload_date": "20251211"
+          }
+        ],
+        "metadata": {
+          "total_videos": 311,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.538991",
+        "categories": [
+          "machine_learning",
+          "programming"
+        ],
+        "slug": "bijan_bowen",
+        "overall_rank": 11,
+        "trend": "new",
+        "category_rank": 5,
+        "category": "programming"
+      },
+      {
+        "channel_id": "theo",
+        "channel_name": "Theo",
+        "overall_score": 10.6,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 14.0,
+          "freshness": 16.4,
+          "tech_recency": 3.0,
+          "actionability": 0.0,
+          "duration_score": 81.3,
+          "consistency": 20.0
+        },
+        "siso_matches": [
+          "mcp",
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "chatgpt",
+          "cursor",
+          "gpt-5",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "5DeqL844pH0",
+            "title": "Anthropic gave MCP to the Linux Foundation",
+            "siso_relevance": 100,
+            "upload_date": "20251211"
+          },
+          {
+            "video_id": "qKf9sgKFQLU",
+            "title": "OpenAI just dropped their Cursor killer",
+            "siso_relevance": 60.0,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "ZINQTR6H5dI",
+            "title": "Anthropic study shows AI makes devs dumb",
+            "siso_relevance": 60.0,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "xrio-BsgkqU",
+            "title": "Claude Code has a big problem",
+            "siso_relevance": 60.0,
+            "upload_date": "20260130"
+          },
+          {
+            "video_id": "gh6aFBnwQj4",
+            "title": "Anthropic just burned so much trust...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260110"
+          }
+        ],
+        "metadata": {
+          "total_videos": 952,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.517281",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "theo",
+        "overall_rank": 12,
+        "trend": "new",
+        "category_rank": 1,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": null,
+        "channel_name": "David Ondrej",
+        "overall_score": 10.4,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 11.2,
+          "freshness": 16.2,
+          "tech_recency": 3.5,
+          "actionability": 5.3,
+          "duration_score": 60.7,
+          "consistency": 18.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "ai agents",
+          "vibe-coding",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "Pqp4qJ5sS5g",
+            "title": "n8n Tutorial for 2026: How To Build AI Agents for FREE (step by step)",
+            "siso_relevance": 80.0,
+            "upload_date": "20260106"
+          },
+          {
+            "video_id": "XuSFUvUdvQA",
+            "title": "Anthropic\u2019s 7 Hour Claude Code Course in 27 Minutes",
+            "siso_relevance": 100,
+            "upload_date": "20260120"
+          },
+          {
+            "video_id": "pPRoAs8xh2o",
+            "title": "Put your AI Agents on a VPS\u2026 trust me",
+            "siso_relevance": 80.0,
+            "upload_date": "20251120"
+          },
+          {
+            "video_id": "smMC1W-Mjt4",
+            "title": "Claude Code is crazy good in 2026\u2026 just watch",
+            "siso_relevance": 60.0,
+            "upload_date": "20260104"
+          },
+          {
+            "video_id": "fOY0_WCR3eY",
+            "title": "Claude Code can now make videos, here\u2019s how",
+            "siso_relevance": 60.0,
+            "upload_date": "20260123"
+          }
+        ],
+        "metadata": {
+          "total_videos": 386,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.519007",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "david_ondrej",
+        "overall_rank": 13,
+        "trend": "new",
+        "category_rank": 10,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "aichievable",
+        "channel_name": "Aichievable",
+        "overall_score": 10.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 14.3,
+          "freshness": 15.7,
+          "tech_recency": 1.2,
+          "actionability": 0.2,
+          "duration_score": 71.9,
+          "consistency": 19.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "openai",
+          "chatgpt",
+          "context window",
+          "claude code"
+        ],
+        "videos_scored": 21,
+        "top_videos": [
+          {
+            "video_id": "wn1vIGErib0",
+            "title": "10x Your Context Window in Claude Code with This Simple Trick (I Built It in 30 ...",
+            "siso_relevance": 80.0,
+            "upload_date": "20260119"
+          },
+          {
+            "video_id": "M8gVL_eeQXs",
+            "title": "25 Claude Code Tips for Non-Programmers / Vibe-Coder - After 2000 Hours of Claud...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "JYqq8q6BQWk",
+            "title": "Claude Code Opus 4.5 vs GPT 5.2 Codex vs Gemini 3 Pro \u2013 Frontend UI Comparison (...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260121"
+          },
+          {
+            "video_id": "3ArPlGNbcgs",
+            "title": "Claude Opus 4.5 vs GLM 4.7 \u2013 AI Vibe Coding Battle - This Will Be Controversial",
+            "siso_relevance": 40.0,
+            "upload_date": "20260103"
+          },
+          {
+            "video_id": "u-Xsxo4VK1k",
+            "title": "Kimi K2.5 vs ChatGPT 5.2 - 9 Comparison Tests - The result is striking! Kimi 2.5...",
+            "siso_relevance": 20.0,
+            "upload_date": "20260128"
+          }
+        ],
+        "metadata": {
+          "total_videos": 21,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.534960",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "aichievable",
+        "overall_rank": 14,
+        "trend": "new",
+        "category_rank": 11,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "matthew_berman",
+        "channel_name": "Matthew Berman",
+        "overall_score": 10.0,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 13.6,
+          "freshness": 15.4,
+          "tech_recency": 2.5,
+          "actionability": 0.7,
+          "duration_score": 54.2,
+          "consistency": 16.0
+        },
+        "siso_matches": [
+          "mcp",
+          "anthropic",
+          "gpt-5",
+          "openai",
+          "chatgpt",
+          "context window",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "GMQ58GUpcD0",
+            "title": "AI News: GPT-5.2, Devstral 2, Boom Superpower, MCP Nonprofit and more!",
+            "siso_relevance": 80.0,
+            "upload_date": "20251209"
+          },
+          {
+            "video_id": "ryQn-8qy6gA",
+            "title": "Anthropic is secretly winning...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "lQ0mtbFxzn8",
+            "title": "Anthropic just dropped Claude Cowork... (SO GOOD)",
+            "siso_relevance": 60.0,
+            "upload_date": "20260113"
+          },
+          {
+            "video_id": "Yft6PtJcu-M",
+            "title": "Anthropic is CUT THROAT for this",
+            "siso_relevance": 60.0,
+            "upload_date": "20260112"
+          },
+          {
+            "video_id": "pwmK46hhfwg",
+            "title": "What's going on with Claude Code?",
+            "siso_relevance": 60.0,
+            "upload_date": "20251231"
+          }
+        ],
+        "metadata": {
+          "total_videos": 512,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.527135",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "matthew_berman",
+        "overall_rank": 15,
+        "trend": "new",
+        "category_rank": 2,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "sean_kochel",
+        "channel_name": "Sean Kochel",
+        "overall_score": 9.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 14.4,
+          "freshness": 9.2,
+          "tech_recency": 2.5,
+          "actionability": 6.1,
+          "duration_score": 68.0,
+          "consistency": 22.0
+        },
+        "siso_matches": [
+          "claude code",
+          "mcp",
+          "vibe coding",
+          "vibe-coding",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "ynVfOd_ioDg",
+            "title": "The 15 HIDDEN Claude Code Rules That Will 10X Your Vibe Coding",
+            "siso_relevance": 100,
+            "upload_date": "20251210"
+          },
+          {
+            "video_id": "KdaclhjWGI8",
+            "title": "Claude Code + n8n = Easy AI Agent MVP?",
+            "siso_relevance": 100,
+            "upload_date": "20250918"
+          },
+          {
+            "video_id": "UcoFMDmmqV0",
+            "title": "Building advanced AI agents is easier than you think.",
+            "siso_relevance": 80.0,
+            "upload_date": "20251126"
+          },
+          {
+            "video_id": "2wYO6sdQ9xc",
+            "title": "9 MCP Servers That'll Make Vibe Coders Cry Tears Of Joy",
+            "siso_relevance": 60.0,
+            "upload_date": "20251007"
+          },
+          {
+            "video_id": "m3jiIowIi5I",
+            "title": "7 CLAUDE CODE Skills Every Beginner NEEDS To Master",
+            "siso_relevance": 60.0,
+            "upload_date": "20251223"
+          }
+        ],
+        "metadata": {
+          "total_videos": 115,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.530435",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "sean_kochel",
+        "overall_rank": 16,
+        "trend": "new",
+        "category_rank": 13,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "UCw0S0k8SYYsQJ8K0q7Z0XxA",
+        "channel_name": "AI Engineer",
+        "overall_score": 9.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 11.6,
+          "freshness": 12.2,
+          "tech_recency": 2.0,
+          "actionability": 4.8,
+          "duration_score": 68.7,
+          "consistency": 18.0
+        },
+        "siso_matches": [
+          "prompt engineering",
+          "claude code",
+          "mcp",
+          "rag",
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "agentic",
+          "cursor",
+          "ai agent"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "CEvIs9y1uog",
+            "title": "Don't Build Agents, Build Skills Instead \u2013 Barry Zhang & Mahesh Murag, Anthropic",
+            "siso_relevance": 80.0,
+            "upload_date": "20251208"
+          },
+          {
+            "video_id": "VSdV-AdSlis",
+            "title": "Identity for AI Agents - Patrick Riley & Carlos Galan, Auth0",
+            "siso_relevance": 80.0,
+            "upload_date": "20260114"
+          },
+          {
+            "video_id": "96G7FLab8xc",
+            "title": "Your MCP Server is Bad (and you should feel bad) - Jeremiah Lowin, Prefect",
+            "siso_relevance": 60.0,
+            "upload_date": "20260112"
+          },
+          {
+            "video_id": "7Dtu2bilcFs",
+            "title": "2026: The Year The IDE Died \u2014 Steve Yegge & Gene Kim, Authors, Vibe Coding",
+            "siso_relevance": 40.0,
+            "upload_date": "20251206"
+          },
+          {
+            "video_id": "TqC1qOfiVcQ",
+            "title": "Claude Agent SDK [Full Workshop] \u2014 Thariq Shihipar, Anthropic",
+            "siso_relevance": 60.0,
+            "upload_date": "20260105"
+          }
+        ],
+        "metadata": {
+          "total_videos": 613,
+          "subscriber_count": 0,
+          "last_upload": "20260119"
+        },
+        "calculated_at": "2026-02-04T04:16:24.537117",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "ai_research"
+        ],
+        "slug": "ai_engineer",
+        "overall_rank": 17,
+        "trend": "new",
+        "category_rank": 3,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "UCxQKHvKbmJyX8O6I7rY0XxA",
+        "channel_name": "Latent Space",
+        "overall_score": 9.0,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 13.2,
+          "freshness": 11.2,
+          "tech_recency": 3.2,
+          "actionability": 1.0,
+          "duration_score": 51.7,
+          "consistency": 16.0
+        },
+        "siso_matches": [
+          "mcp",
+          "rag",
+          "vibe coding",
+          "anthropic",
+          "gpt-4",
+          "openai",
+          "chatgpt",
+          "agentic",
+          "cursor",
+          "gpt-5"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "zuJyJP517Uw",
+            "title": "Steve Yegge's Vibe Coding Manifesto: Why Claude Code Isn't It & What Comes After...",
+            "siso_relevance": 100,
+            "upload_date": "20251226"
+          },
+          {
+            "video_id": "tSRqTerZrH8",
+            "title": "[State of Context Engineering] Agentic RAG, Context Rot, MCP, Subagents \u2014 Nina L...",
+            "siso_relevance": 100,
+            "upload_date": "20251231"
+          },
+          {
+            "video_id": "4JHXU1Cpcsc",
+            "title": "[State of RL/Reasoning] IMO/IOI Gold, OpenAI o3/GPT-5, and Cursor Composer \u2014 Ash...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251230"
+          },
+          {
+            "video_id": "z6XWYCM3Q8s",
+            "title": "One Year of MCP \u2014\u00a0with David Soria Parria and AAIF leads from OpenAI, Goose, Lin...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251228"
+          },
+          {
+            "video_id": "W2cBTVr8nxU",
+            "title": "\u26a1\ufe0f Prism: OpenAI's LaTeX \"Cursor for Scientists\" \u2014 Kevin Weil & Victor Powell, O...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260127"
+          }
+        ],
+        "metadata": {
+          "total_videos": 721,
+          "subscriber_count": 0,
+          "last_upload": "20260128"
+        },
+        "calculated_at": "2026-02-04T04:16:24.509907",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "latent_space",
+        "overall_rank": 18,
+        "trend": "new",
+        "category_rank": 4,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "ai_grid",
+        "channel_name": "Ai Grid",
+        "overall_score": 7.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 7.6,
+          "freshness": 15.4,
+          "tech_recency": 4.5,
+          "actionability": 1.5,
+          "duration_score": 59.2,
+          "consistency": 6.0
+        },
+        "siso_matches": [
+          "openai",
+          "chatgpt",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "c9ov2HeuLQ8",
+            "title": "NVIDIA's New AI Agent Just Crossed the Line - The Age of AI Agents Begins (Nvidi...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251221"
+          },
+          {
+            "video_id": "5G8CIcSppng",
+            "title": "OpenAI Released GPT-5.2 Is Not What You Think - You Should Be Concerned",
+            "siso_relevance": 40.0,
+            "upload_date": "20251212"
+          },
+          {
+            "video_id": "zphET-QsAJk",
+            "title": "DeepSeek V3.2: Gold Medals, Agents, and 30x Cheaper Than GPT-5",
+            "siso_relevance": 20.0,
+            "upload_date": "20251202"
+          },
+          {
+            "video_id": "5oEsC-lhhuM",
+            "title": "RIP OpenAI? Apple Dumps ChatGPT for Google Gemini!",
+            "siso_relevance": 40.0,
+            "upload_date": "20260120"
+          },
+          {
+            "video_id": "riFA8sFUMnQ",
+            "title": "This Test Was Built to Block AI \u2014 GPT-5 Finally Passed It",
+            "siso_relevance": 20.0,
+            "upload_date": "20260101"
+          }
+        ],
+        "metadata": {
+          "total_videos": 821,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.505290",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "ai_grid",
+        "overall_rank": 19,
+        "trend": "new",
+        "category_rank": 5,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": null,
+        "channel_name": "Rasmus",
+        "overall_score": 6.7,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 9.6,
+          "freshness": 6.8,
+          "tech_recency": 1.5,
+          "actionability": 3.8,
+          "duration_score": 43.7,
+          "consistency": 16.0
+        },
+        "siso_matches": [
+          "ai workflow",
+          "claude code",
+          "mcp",
+          "openai",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "y_VPAERMhKI",
+            "title": "I built an app for AI Agents (Clawdbot / OpenClaw)",
+            "siso_relevance": 80.0,
+            "upload_date": "20260203"
+          },
+          {
+            "video_id": "uWZ-Yqj8nhw",
+            "title": "What The Heck Is MCP? | MCP Setup Tutorial",
+            "siso_relevance": 60.0,
+            "upload_date": "20250318"
+          },
+          {
+            "video_id": "FsDYk0WqBt0",
+            "title": "An MCP & Skills masterclass",
+            "siso_relevance": 60.0,
+            "upload_date": "20260129"
+          },
+          {
+            "video_id": "G1jZPyTgdOY",
+            "title": "The Claude Code & Gemini CLI Killer | Meet Amazon Q",
+            "siso_relevance": 60.0,
+            "upload_date": "20250704"
+          },
+          {
+            "video_id": "77snqcntze4",
+            "title": "Claude Code Is The Best AI Coding Agent",
+            "siso_relevance": 60.0,
+            "upload_date": "20250606"
+          }
+        ],
+        "metadata": {
+          "total_videos": 129,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.515291",
+        "categories": [
+          "machine_learning"
+        ],
+        "slug": "rasmus",
+        "overall_rank": 20,
+        "trend": "new",
+        "category_rank": 17,
+        "category": "machine_learning"
+      },
+      {
+        "channel_id": "networkchuck",
+        "channel_name": "Networkchuck",
+        "overall_score": 5.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 6.8,
+          "freshness": 11.7,
+          "tech_recency": 0.0,
+          "actionability": 0.6,
+          "duration_score": 42.6,
+          "consistency": 10.0
+        },
+        "siso_matches": [
+          "ai agents",
+          "chatgpt",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "gEElEzKazYA",
+            "title": "N8n AI Agents are INSANE!!",
+            "siso_relevance": 80.0,
+            "upload_date": "20250922"
+          },
+          {
+            "video_id": "mQQgB6VK_m4",
+            "title": "I gave Claude Code a phone number #claudecode",
+            "siso_relevance": 60.0,
+            "upload_date": "20260130"
+          },
+          {
+            "video_id": "FEDiAHzS0zw",
+            "title": "Claude Code on your phone in 10 minutes",
+            "siso_relevance": 60.0,
+            "upload_date": "20260129"
+          },
+          {
+            "video_id": "cT22fTzotYc",
+            "title": "FREE Phone Calls with Claude Code",
+            "siso_relevance": 60.0,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "p4M50NgC9qU",
+            "title": "n8n + Claude Code Is TOO Powerful",
+            "siso_relevance": 60.0,
+            "upload_date": "20251217"
+          }
+        ],
+        "metadata": {
+          "total_videos": 563,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.523857",
+        "categories": [
+          "machine_learning",
+          "devops",
+          "cybersecurity"
+        ],
+        "slug": "networkchuck",
+        "overall_rank": 21,
+        "trend": "new",
+        "category_rank": 1,
+        "category": "cybersecurity"
+      },
+      {
+        "channel_id": "fireship",
+        "channel_name": "Fireship",
+        "overall_score": 5.6,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 8.4,
+          "freshness": 6.1,
+          "tech_recency": 2.0,
+          "actionability": 1.1,
+          "duration_score": 30.0,
+          "consistency": 12.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "S6wc6yvoZLY",
+            "title": "AI agents are paying each other now\u2026",
+            "siso_relevance": 80.0,
+            "upload_date": "20251126"
+          },
+          {
+            "video_id": "PLKrSVuT-Dg",
+            "title": "How to make vibe coding not suck\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20251014"
+          },
+          {
+            "video_id": "5JMiNsV7P3Y",
+            "title": "Anthropic just bought your favorite JS runtime...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251205"
+          },
+          {
+            "video_id": "rEvEXQvo-F8",
+            "title": "OpenAI was dead\u2026 Then GPT-5.2 dropped",
+            "siso_relevance": 40.0,
+            "upload_date": "20251212"
+          },
+          {
+            "video_id": "gA6r7iVzP6M",
+            "title": "AWS just released its Cursor killer\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20250716"
+          }
+        ],
+        "metadata": {
+          "total_videos": 783,
+          "subscriber_count": 0,
+          "last_upload": "20260130"
+        },
+        "calculated_at": "2026-02-04T04:16:24.529012",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "web_development",
+          "ai_research"
+        ],
+        "slug": "fireship",
+        "overall_rank": 22,
+        "trend": "new",
+        "category_rank": 6,
+        "category": "ai_research"
+      }
+    ],
+    "programming": [
+      {
+        "channel_id": "user_playlist_1",
+        "channel_name": "User Playlist 1",
+        "overall_score": 31.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 60.0,
+          "freshness": 30.0,
+          "tech_recency": 0.0,
+          "actionability": 0.7,
+          "duration_score": 81.7,
+          "consistency": 66.7
+        },
+        "siso_matches": [
+          "openai",
+          "agentic",
+          "claude code"
+        ],
+        "videos_scored": 3,
+        "top_videos": [
+          {
+            "video_id": "4_2j5wgt_ds",
+            "title": "Claude Code Task System: ANTI-HYPE Agentic Coding (Advanced)",
+            "siso_relevance": 100,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "l94A53kIUB0",
+            "title": "Forget Ralph Loops: The New GSD Framework for Claude Code",
+            "siso_relevance": 60.0,
+            "upload_date": "20260128"
+          },
+          {
+            "video_id": "yk088BCn4Vk",
+            "title": "OpenAI is killing open-source\u2026 here\u2019s why",
+            "siso_relevance": 20.0,
+            "upload_date": "20260129"
+          }
+        ],
+        "metadata": {
+          "total_videos": 3,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.514143",
+        "categories": [
+          "programming"
+        ],
+        "slug": "user_playlist_1",
+        "overall_rank": 1,
+        "trend": "new",
+        "category_rank": 1,
+        "category": "programming"
+      },
+      {
+        "channel_id": "indydevdan",
+        "channel_name": "Indydevdan",
+        "overall_score": 28.7,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 62.0,
+          "freshness": 5.1,
+          "tech_recency": 5.9,
+          "actionability": 1.7,
+          "duration_score": 86.2,
+          "consistency": 86.0
+        },
+        "siso_matches": [
+          "prompt engineering",
+          "mcp",
+          "gpt-4",
+          "openai",
+          "agentic",
+          "ai agents",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "mKEq_YaJjPI",
+            "title": "How I build Agentic MCP Servers for Claude Code (Prompts CHANGE Everything)",
+            "siso_relevance": 100,
+            "upload_date": "20250602"
+          },
+          {
+            "video_id": "6wR6xblSays",
+            "title": "Agentic Coding ENDGAME: Build your Claude Code SDK Custom Agents",
+            "siso_relevance": 100,
+            "upload_date": "20250922"
+          },
+          {
+            "video_id": "XojxD7hfaD4",
+            "title": "5 Agent PATTERNS to SIMPLIFY Your Agentic Coding (Claude Code, Gemini CLI, MCP)",
+            "siso_relevance": 100,
+            "upload_date": "20250825"
+          },
+          {
+            "video_id": "tcZ3W8QYirQ",
+            "title": "GPT-5 Agentic Coding with Claude Code",
+            "siso_relevance": 100,
+            "upload_date": "20250811"
+          },
+          {
+            "video_id": "wFQ_i9XdkXU",
+            "title": "My TOP 6 Claude Code PRO tips for AI Coding (MCP + Agents)",
+            "siso_relevance": 100,
+            "upload_date": "20250317"
+          }
+        ],
+        "metadata": {
+          "total_videos": 182,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.525449",
+        "categories": [
+          "programming"
+        ],
+        "slug": "indydevdan",
+        "overall_rank": 2,
+        "trend": "new",
+        "category_rank": 2,
+        "category": "programming"
+      },
+      {
+        "channel_id": "andre_mikalsen",
+        "channel_name": "Andre Mikalsen",
+        "overall_score": 16.4,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 23.2,
+          "freshness": 12.7,
+          "tech_recency": 11.1,
+          "actionability": 0.8,
+          "duration_score": 40.8,
+          "consistency": 56.0
+        },
+        "siso_matches": [
+          "ai agent",
+          "vibe-coding",
+          "cursor",
+          "vibe coding"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "yYalfjya2Yg",
+            "title": "Cursor AI Tutorial (Vibe Coding for beginners)",
+            "siso_relevance": 80.0,
+            "upload_date": "20251127"
+          },
+          {
+            "video_id": "UB2mbqCM41A",
+            "title": "\ud83d\udd34 LIVE BUILD - Scheduled Triggers: Vibe Coding an AI Marketing Platform - Day 43...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251209"
+          },
+          {
+            "video_id": "ByjjZPvNn-Y",
+            "title": "Vibe Coding - Creating the next level",
+            "siso_relevance": 40.0,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "YPrHmG767XY",
+            "title": "Vibe Coding - Creating the next level",
+            "siso_relevance": 40.0,
+            "upload_date": "20260130"
+          },
+          {
+            "video_id": "uSyvAo4rI-o",
+            "title": "Vibe Coding - Creating the next level",
+            "siso_relevance": 40.0,
+            "upload_date": "20260128"
+          }
+        ],
+        "metadata": {
+          "total_videos": 82,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.540506",
+        "categories": [
+          "programming"
+        ],
+        "slug": "andre_mikalsen",
+        "overall_rank": 3,
+        "trend": "new",
+        "category_rank": 3,
+        "category": "programming"
+      },
+      {
+        "channel_id": "ai_code_king",
+        "channel_name": "Ai Code King",
+        "overall_score": 16.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 25.2,
+          "freshness": 18.2,
+          "tech_recency": 2.5,
+          "actionability": 2.4,
+          "duration_score": 41.4,
+          "consistency": 38.0
+        },
+        "siso_matches": [
+          "mcp",
+          "anthropic",
+          "openai",
+          "agentic",
+          "gpt-5",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "qBE4OVS6Nho",
+            "title": "Claude Code (New Lazy-MCP Loading): They FINALLY FIXED the BIGGEST ISSUE of CLAU...",
+            "siso_relevance": 100,
+            "upload_date": "20260116"
+          },
+          {
+            "video_id": "Qh6jg3FymXY",
+            "title": "Claude Code TASKS (New Upgrade): RIP Ralph Loops! Anthropic UPGRADED Claude Code...",
+            "siso_relevance": 100,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "9Gv7eZemHrE",
+            "title": "Anthropic's Ralph Loop + Claude Code: Anthropic's new FRAMEWORK can run CLAUDE C...",
+            "siso_relevance": 100,
+            "upload_date": "20251228"
+          },
+          {
+            "video_id": "cyeg3A5FV8E",
+            "title": "Claude Code (New Upgrades): LSP, Theme, Terminal Setup, Plugins & More!",
+            "siso_relevance": 60.0,
+            "upload_date": "20260107"
+          },
+          {
+            "video_id": "uuV1DcvObsg",
+            "title": "Oh My OpenCode (5 SUPER Agent/MCP/Prompt Config): This makes OPENCODE - A BEAST!...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251227"
+          }
+        ],
+        "metadata": {
+          "total_videos": 735,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.513568",
+        "categories": [
+          "machine_learning",
+          "programming"
+        ],
+        "slug": "ai_code_king",
+        "overall_rank": 4,
+        "trend": "new",
+        "category_rank": 4,
+        "category": "programming"
+      },
+      {
+        "channel_id": "bijan_bowen",
+        "channel_name": "Bijan Bowen",
+        "overall_score": 11.4,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 13.6,
+          "freshness": 14.4,
+          "tech_recency": 7.5,
+          "actionability": 2.8,
+          "duration_score": 89.3,
+          "consistency": 22.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "openai",
+          "chatgpt",
+          "agentic",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "mwDUYR8SjJs",
+            "title": "GPT-5.2-Codex vs Claude Code Opus 4.5 \u2013 Vibe Coding a Physical Product",
+            "siso_relevance": 100,
+            "upload_date": "20260101"
+          },
+          {
+            "video_id": "xYFcJT9XOIk",
+            "title": "Codex vs Claude Code vs Antigravity \u2013 Agentic Coding Comparison!",
+            "siso_relevance": 100,
+            "upload_date": "20260125"
+          },
+          {
+            "video_id": "-9ZQ3VRKXX8",
+            "title": "Vibe Coding an AI Game Benchmark Site with Emergent.sh \u2013 Full Build & Live Deplo...",
+            "siso_relevance": 40.0,
+            "upload_date": "20251208"
+          },
+          {
+            "video_id": "5b0KYeEj8kY",
+            "title": "GPT-5.2 Pro FULL Test \u2013 Hands-On With OpenAI\u2019s BEST Model!",
+            "siso_relevance": 40.0,
+            "upload_date": "20251217"
+          },
+          {
+            "video_id": "qDYj7B7BIV8",
+            "title": "GPT-5.2 Hands-On Testing \u2013 Is THIS OpenAI\u2019s Best Model?",
+            "siso_relevance": 40.0,
+            "upload_date": "20251211"
+          }
+        ],
+        "metadata": {
+          "total_videos": 311,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.538991",
+        "categories": [
+          "machine_learning",
+          "programming"
+        ],
+        "slug": "bijan_bowen",
+        "overall_rank": 11,
+        "trend": "new",
+        "category_rank": 5,
+        "category": "programming"
+      },
+      {
+        "channel_id": "UCw0S0k8SYYsQJ8K0q7Z0XxA",
+        "channel_name": "AI Engineer",
+        "overall_score": 9.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 11.6,
+          "freshness": 12.2,
+          "tech_recency": 2.0,
+          "actionability": 4.8,
+          "duration_score": 68.7,
+          "consistency": 18.0
+        },
+        "siso_matches": [
+          "prompt engineering",
+          "claude code",
+          "mcp",
+          "rag",
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "agentic",
+          "cursor",
+          "ai agent"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "CEvIs9y1uog",
+            "title": "Don't Build Agents, Build Skills Instead \u2013 Barry Zhang & Mahesh Murag, Anthropic",
+            "siso_relevance": 80.0,
+            "upload_date": "20251208"
+          },
+          {
+            "video_id": "VSdV-AdSlis",
+            "title": "Identity for AI Agents - Patrick Riley & Carlos Galan, Auth0",
+            "siso_relevance": 80.0,
+            "upload_date": "20260114"
+          },
+          {
+            "video_id": "96G7FLab8xc",
+            "title": "Your MCP Server is Bad (and you should feel bad) - Jeremiah Lowin, Prefect",
+            "siso_relevance": 60.0,
+            "upload_date": "20260112"
+          },
+          {
+            "video_id": "7Dtu2bilcFs",
+            "title": "2026: The Year The IDE Died \u2014 Steve Yegge & Gene Kim, Authors, Vibe Coding",
+            "siso_relevance": 40.0,
+            "upload_date": "20251206"
+          },
+          {
+            "video_id": "TqC1qOfiVcQ",
+            "title": "Claude Agent SDK [Full Workshop] \u2014 Thariq Shihipar, Anthropic",
+            "siso_relevance": 60.0,
+            "upload_date": "20260105"
+          }
+        ],
+        "metadata": {
+          "total_videos": 613,
+          "subscriber_count": 0,
+          "last_upload": "20260119"
+        },
+        "calculated_at": "2026-02-04T04:16:24.537117",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "ai_research"
+        ],
+        "slug": "ai_engineer",
+        "overall_rank": 17,
+        "trend": "new",
+        "category_rank": 3,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "fireship",
+        "channel_name": "Fireship",
+        "overall_score": 5.6,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 8.4,
+          "freshness": 6.1,
+          "tech_recency": 2.0,
+          "actionability": 1.1,
+          "duration_score": 30.0,
+          "consistency": 12.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "S6wc6yvoZLY",
+            "title": "AI agents are paying each other now\u2026",
+            "siso_relevance": 80.0,
+            "upload_date": "20251126"
+          },
+          {
+            "video_id": "PLKrSVuT-Dg",
+            "title": "How to make vibe coding not suck\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20251014"
+          },
+          {
+            "video_id": "5JMiNsV7P3Y",
+            "title": "Anthropic just bought your favorite JS runtime...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251205"
+          },
+          {
+            "video_id": "rEvEXQvo-F8",
+            "title": "OpenAI was dead\u2026 Then GPT-5.2 dropped",
+            "siso_relevance": 40.0,
+            "upload_date": "20251212"
+          },
+          {
+            "video_id": "gA6r7iVzP6M",
+            "title": "AWS just released its Cursor killer\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20250716"
+          }
+        ],
+        "metadata": {
+          "total_videos": 783,
+          "subscriber_count": 0,
+          "last_upload": "20260130"
+        },
+        "calculated_at": "2026-02-04T04:16:24.529012",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "web_development",
+          "ai_research"
+        ],
+        "slug": "fireship",
+        "overall_rank": 22,
+        "trend": "new",
+        "category_rank": 6,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "bijan_bowen_slow_test",
+        "channel_name": "Bijan Bowen Slow Test",
+        "overall_score": 4.2,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 4.0,
+          "freshness": 10.0,
+          "tech_recency": 0.0,
+          "actionability": 2.0,
+          "duration_score": 94.0,
+          "consistency": 0.0
+        },
+        "siso_matches": [
+          "chatgpt"
+        ],
+        "videos_scored": 5,
+        "top_videos": [
+          {
+            "video_id": "LFyiQF7aCWQ",
+            "title": "ChatGPT Images Hands-On Testing \u2013 INSANE Image Generation & Editing",
+            "siso_relevance": 20.0,
+            "upload_date": "20251216"
+          },
+          {
+            "video_id": "gaXXGDwV0d4",
+            "title": "GLM-4.7 vs MiniMax-M2.1 \u2013 Head-To-Head Testing!",
+            "siso_relevance": 0,
+            "upload_date": "20251227"
+          },
+          {
+            "video_id": "JhVlNGFyHz4",
+            "title": "Gemini 3 Flash Is INSANE \u2013 Testing Google\u2019s FASTEST Model!",
+            "siso_relevance": 0,
+            "upload_date": "20251217"
+          },
+          {
+            "video_id": "IeDQl4c5Gq8",
+            "title": "Devstral 2 First Look & Testing \u2013 Mistrals NEW Open Coding Models!",
+            "siso_relevance": 0,
+            "upload_date": "20251210"
+          },
+          {
+            "video_id": "4d38Jxp33w0",
+            "title": "Claude Opus 4.5 First Test \u2013 The BEST Coding Model Ever!",
+            "siso_relevance": 0,
+            "upload_date": "20251125"
+          }
+        ],
+        "metadata": {
+          "total_videos": 5,
+          "subscriber_count": 0,
+          "last_upload": "20251227"
+        },
+        "calculated_at": "2026-02-04T04:16:24.530961",
+        "categories": [
+          "programming"
+        ],
+        "slug": "bijan_bowen_slow_test",
+        "overall_rank": 23,
+        "trend": "new",
+        "category_rank": 8,
+        "category": "programming"
+      },
+      {
+        "channel_id": "misha_van_den_berg",
+        "channel_name": "Misha Van Den Berg",
+        "overall_score": 3.7,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 2.0,
+          "freshness": 5.4,
+          "tech_recency": 4.8,
+          "actionability": 3.2,
+          "duration_score": 60.8,
+          "consistency": 4.0
+        },
+        "siso_matches": [
+          "ai workflow",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "8CWhPY8Ksko",
+            "title": "Is Claude Code Worth It for DevOps Engineers?",
+            "siso_relevance": 60.0,
+            "upload_date": "20250506"
+          },
+          {
+            "video_id": "fjoGZ90bOzw",
+            "title": "My Entire Neovim + Tmux + AI Workflow (2026 Update)",
+            "siso_relevance": 40.0,
+            "upload_date": "20260109"
+          },
+          {
+            "video_id": "cAD6QaJTVyw",
+            "title": "How To Learn Kubernetes in 2025",
+            "siso_relevance": 0,
+            "upload_date": "20250422"
+          },
+          {
+            "video_id": "6w65b8HWU8g",
+            "title": "How the Ralph Technique Works (Full Tutorial)",
+            "siso_relevance": 0,
+            "upload_date": "20260129"
+          },
+          {
+            "video_id": "9AKSLbfen6w",
+            "title": "Kubernetes Crash Course for Beginners | Hands-On Tutorial + First Deployment",
+            "siso_relevance": 0,
+            "upload_date": "20250602"
+          }
+        ],
+        "metadata": {
+          "total_videos": 151,
+          "subscriber_count": 0,
+          "last_upload": "20260129"
+        },
+        "calculated_at": "2026-02-04T04:16:24.533878",
+        "categories": [
+          "programming",
+          "devops"
+        ],
+        "slug": "misha_van_den_berg",
+        "overall_rank": 24,
+        "trend": "new",
+        "category_rank": 2,
+        "category": "devops"
+      }
+    ],
+    "web_development": [
+      {
+        "channel_id": "fireship",
+        "channel_name": "Fireship",
+        "overall_score": 5.6,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 8.4,
+          "freshness": 6.1,
+          "tech_recency": 2.0,
+          "actionability": 1.1,
+          "duration_score": 30.0,
+          "consistency": 12.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "S6wc6yvoZLY",
+            "title": "AI agents are paying each other now\u2026",
+            "siso_relevance": 80.0,
+            "upload_date": "20251126"
+          },
+          {
+            "video_id": "PLKrSVuT-Dg",
+            "title": "How to make vibe coding not suck\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20251014"
+          },
+          {
+            "video_id": "5JMiNsV7P3Y",
+            "title": "Anthropic just bought your favorite JS runtime...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251205"
+          },
+          {
+            "video_id": "rEvEXQvo-F8",
+            "title": "OpenAI was dead\u2026 Then GPT-5.2 dropped",
+            "siso_relevance": 40.0,
+            "upload_date": "20251212"
+          },
+          {
+            "video_id": "gA6r7iVzP6M",
+            "title": "AWS just released its Cursor killer\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20250716"
+          }
+        ],
+        "metadata": {
+          "total_videos": 783,
+          "subscriber_count": 0,
+          "last_upload": "20260130"
+        },
+        "calculated_at": "2026-02-04T04:16:24.529012",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "web_development",
+          "ai_research"
+        ],
+        "slug": "fireship",
+        "overall_rank": 22,
+        "trend": "new",
+        "category_rank": 6,
+        "category": "ai_research"
+      }
+    ],
+    "ai_research": [
+      {
+        "channel_id": "theo",
+        "channel_name": "Theo",
+        "overall_score": 10.6,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 14.0,
+          "freshness": 16.4,
+          "tech_recency": 3.0,
+          "actionability": 0.0,
+          "duration_score": 81.3,
+          "consistency": 20.0
+        },
+        "siso_matches": [
+          "mcp",
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "chatgpt",
+          "cursor",
+          "gpt-5",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "5DeqL844pH0",
+            "title": "Anthropic gave MCP to the Linux Foundation",
+            "siso_relevance": 100,
+            "upload_date": "20251211"
+          },
+          {
+            "video_id": "qKf9sgKFQLU",
+            "title": "OpenAI just dropped their Cursor killer",
+            "siso_relevance": 60.0,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "ZINQTR6H5dI",
+            "title": "Anthropic study shows AI makes devs dumb",
+            "siso_relevance": 60.0,
+            "upload_date": "20260202"
+          },
+          {
+            "video_id": "xrio-BsgkqU",
+            "title": "Claude Code has a big problem",
+            "siso_relevance": 60.0,
+            "upload_date": "20260130"
+          },
+          {
+            "video_id": "gh6aFBnwQj4",
+            "title": "Anthropic just burned so much trust...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260110"
+          }
+        ],
+        "metadata": {
+          "total_videos": 952,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.517281",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "theo",
+        "overall_rank": 12,
+        "trend": "new",
+        "category_rank": 1,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "matthew_berman",
+        "channel_name": "Matthew Berman",
+        "overall_score": 10.0,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 13.6,
+          "freshness": 15.4,
+          "tech_recency": 2.5,
+          "actionability": 0.7,
+          "duration_score": 54.2,
+          "consistency": 16.0
+        },
+        "siso_matches": [
+          "mcp",
+          "anthropic",
+          "gpt-5",
+          "openai",
+          "chatgpt",
+          "context window",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "GMQ58GUpcD0",
+            "title": "AI News: GPT-5.2, Devstral 2, Boom Superpower, MCP Nonprofit and more!",
+            "siso_relevance": 80.0,
+            "upload_date": "20251209"
+          },
+          {
+            "video_id": "ryQn-8qy6gA",
+            "title": "Anthropic is secretly winning...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "lQ0mtbFxzn8",
+            "title": "Anthropic just dropped Claude Cowork... (SO GOOD)",
+            "siso_relevance": 60.0,
+            "upload_date": "20260113"
+          },
+          {
+            "video_id": "Yft6PtJcu-M",
+            "title": "Anthropic is CUT THROAT for this",
+            "siso_relevance": 60.0,
+            "upload_date": "20260112"
+          },
+          {
+            "video_id": "pwmK46hhfwg",
+            "title": "What's going on with Claude Code?",
+            "siso_relevance": 60.0,
+            "upload_date": "20251231"
+          }
+        ],
+        "metadata": {
+          "total_videos": 512,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.527135",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "matthew_berman",
+        "overall_rank": 15,
+        "trend": "new",
+        "category_rank": 2,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "UCw0S0k8SYYsQJ8K0q7Z0XxA",
+        "channel_name": "AI Engineer",
+        "overall_score": 9.1,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 11.6,
+          "freshness": 12.2,
+          "tech_recency": 2.0,
+          "actionability": 4.8,
+          "duration_score": 68.7,
+          "consistency": 18.0
+        },
+        "siso_matches": [
+          "prompt engineering",
+          "claude code",
+          "mcp",
+          "rag",
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "agentic",
+          "cursor",
+          "ai agent"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "CEvIs9y1uog",
+            "title": "Don't Build Agents, Build Skills Instead \u2013 Barry Zhang & Mahesh Murag, Anthropic",
+            "siso_relevance": 80.0,
+            "upload_date": "20251208"
+          },
+          {
+            "video_id": "VSdV-AdSlis",
+            "title": "Identity for AI Agents - Patrick Riley & Carlos Galan, Auth0",
+            "siso_relevance": 80.0,
+            "upload_date": "20260114"
+          },
+          {
+            "video_id": "96G7FLab8xc",
+            "title": "Your MCP Server is Bad (and you should feel bad) - Jeremiah Lowin, Prefect",
+            "siso_relevance": 60.0,
+            "upload_date": "20260112"
+          },
+          {
+            "video_id": "7Dtu2bilcFs",
+            "title": "2026: The Year The IDE Died \u2014 Steve Yegge & Gene Kim, Authors, Vibe Coding",
+            "siso_relevance": 40.0,
+            "upload_date": "20251206"
+          },
+          {
+            "video_id": "TqC1qOfiVcQ",
+            "title": "Claude Agent SDK [Full Workshop] \u2014 Thariq Shihipar, Anthropic",
+            "siso_relevance": 60.0,
+            "upload_date": "20260105"
+          }
+        ],
+        "metadata": {
+          "total_videos": 613,
+          "subscriber_count": 0,
+          "last_upload": "20260119"
+        },
+        "calculated_at": "2026-02-04T04:16:24.537117",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "ai_research"
+        ],
+        "slug": "ai_engineer",
+        "overall_rank": 17,
+        "trend": "new",
+        "category_rank": 3,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "UCxQKHvKbmJyX8O6I7rY0XxA",
+        "channel_name": "Latent Space",
+        "overall_score": 9.0,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 13.2,
+          "freshness": 11.2,
+          "tech_recency": 3.2,
+          "actionability": 1.0,
+          "duration_score": 51.7,
+          "consistency": 16.0
+        },
+        "siso_matches": [
+          "mcp",
+          "rag",
+          "vibe coding",
+          "anthropic",
+          "gpt-4",
+          "openai",
+          "chatgpt",
+          "agentic",
+          "cursor",
+          "gpt-5"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "zuJyJP517Uw",
+            "title": "Steve Yegge's Vibe Coding Manifesto: Why Claude Code Isn't It & What Comes After...",
+            "siso_relevance": 100,
+            "upload_date": "20251226"
+          },
+          {
+            "video_id": "tSRqTerZrH8",
+            "title": "[State of Context Engineering] Agentic RAG, Context Rot, MCP, Subagents \u2014 Nina L...",
+            "siso_relevance": 100,
+            "upload_date": "20251231"
+          },
+          {
+            "video_id": "4JHXU1Cpcsc",
+            "title": "[State of RL/Reasoning] IMO/IOI Gold, OpenAI o3/GPT-5, and Cursor Composer \u2014 Ash...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251230"
+          },
+          {
+            "video_id": "z6XWYCM3Q8s",
+            "title": "One Year of MCP \u2014\u00a0with David Soria Parria and AAIF leads from OpenAI, Goose, Lin...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251228"
+          },
+          {
+            "video_id": "W2cBTVr8nxU",
+            "title": "\u26a1\ufe0f Prism: OpenAI's LaTeX \"Cursor for Scientists\" \u2014 Kevin Weil & Victor Powell, O...",
+            "siso_relevance": 60.0,
+            "upload_date": "20260127"
+          }
+        ],
+        "metadata": {
+          "total_videos": 721,
+          "subscriber_count": 0,
+          "last_upload": "20260128"
+        },
+        "calculated_at": "2026-02-04T04:16:24.509907",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "latent_space",
+        "overall_rank": 18,
+        "trend": "new",
+        "category_rank": 4,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "ai_grid",
+        "channel_name": "Ai Grid",
+        "overall_score": 7.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 7.6,
+          "freshness": 15.4,
+          "tech_recency": 4.5,
+          "actionability": 1.5,
+          "duration_score": 59.2,
+          "consistency": 6.0
+        },
+        "siso_matches": [
+          "openai",
+          "chatgpt",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "c9ov2HeuLQ8",
+            "title": "NVIDIA's New AI Agent Just Crossed the Line - The Age of AI Agents Begins (Nvidi...",
+            "siso_relevance": 80.0,
+            "upload_date": "20251221"
+          },
+          {
+            "video_id": "5G8CIcSppng",
+            "title": "OpenAI Released GPT-5.2 Is Not What You Think - You Should Be Concerned",
+            "siso_relevance": 40.0,
+            "upload_date": "20251212"
+          },
+          {
+            "video_id": "zphET-QsAJk",
+            "title": "DeepSeek V3.2: Gold Medals, Agents, and 30x Cheaper Than GPT-5",
+            "siso_relevance": 20.0,
+            "upload_date": "20251202"
+          },
+          {
+            "video_id": "5oEsC-lhhuM",
+            "title": "RIP OpenAI? Apple Dumps ChatGPT for Google Gemini!",
+            "siso_relevance": 40.0,
+            "upload_date": "20260120"
+          },
+          {
+            "video_id": "riFA8sFUMnQ",
+            "title": "This Test Was Built to Block AI \u2014 GPT-5 Finally Passed It",
+            "siso_relevance": 20.0,
+            "upload_date": "20260101"
+          }
+        ],
+        "metadata": {
+          "total_videos": 821,
+          "subscriber_count": 0,
+          "last_upload": "20260203"
+        },
+        "calculated_at": "2026-02-04T04:16:24.505290",
+        "categories": [
+          "machine_learning",
+          "ai_research"
+        ],
+        "slug": "ai_grid",
+        "overall_rank": 19,
+        "trend": "new",
+        "category_rank": 5,
+        "category": "ai_research"
+      },
+      {
+        "channel_id": "fireship",
+        "channel_name": "Fireship",
+        "overall_score": 5.6,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 8.4,
+          "freshness": 6.1,
+          "tech_recency": 2.0,
+          "actionability": 1.1,
+          "duration_score": 30.0,
+          "consistency": 12.0
+        },
+        "siso_matches": [
+          "vibe coding",
+          "anthropic",
+          "openai",
+          "cursor",
+          "gpt-5",
+          "ai agent",
+          "ai agents"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "S6wc6yvoZLY",
+            "title": "AI agents are paying each other now\u2026",
+            "siso_relevance": 80.0,
+            "upload_date": "20251126"
+          },
+          {
+            "video_id": "PLKrSVuT-Dg",
+            "title": "How to make vibe coding not suck\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20251014"
+          },
+          {
+            "video_id": "5JMiNsV7P3Y",
+            "title": "Anthropic just bought your favorite JS runtime...",
+            "siso_relevance": 60.0,
+            "upload_date": "20251205"
+          },
+          {
+            "video_id": "rEvEXQvo-F8",
+            "title": "OpenAI was dead\u2026 Then GPT-5.2 dropped",
+            "siso_relevance": 40.0,
+            "upload_date": "20251212"
+          },
+          {
+            "video_id": "gA6r7iVzP6M",
+            "title": "AWS just released its Cursor killer\u2026",
+            "siso_relevance": 40.0,
+            "upload_date": "20250716"
+          }
+        ],
+        "metadata": {
+          "total_videos": 783,
+          "subscriber_count": 0,
+          "last_upload": "20260130"
+        },
+        "calculated_at": "2026-02-04T04:16:24.529012",
+        "categories": [
+          "machine_learning",
+          "programming",
+          "web_development",
+          "ai_research"
+        ],
+        "slug": "fireship",
+        "overall_rank": 22,
+        "trend": "new",
+        "category_rank": 6,
+        "category": "ai_research"
+      }
+    ],
+    "devops": [
+      {
+        "channel_id": "networkchuck",
+        "channel_name": "Networkchuck",
+        "overall_score": 5.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 6.8,
+          "freshness": 11.7,
+          "tech_recency": 0.0,
+          "actionability": 0.6,
+          "duration_score": 42.6,
+          "consistency": 10.0
+        },
+        "siso_matches": [
+          "ai agents",
+          "chatgpt",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "gEElEzKazYA",
+            "title": "N8n AI Agents are INSANE!!",
+            "siso_relevance": 80.0,
+            "upload_date": "20250922"
+          },
+          {
+            "video_id": "mQQgB6VK_m4",
+            "title": "I gave Claude Code a phone number #claudecode",
+            "siso_relevance": 60.0,
+            "upload_date": "20260130"
+          },
+          {
+            "video_id": "FEDiAHzS0zw",
+            "title": "Claude Code on your phone in 10 minutes",
+            "siso_relevance": 60.0,
+            "upload_date": "20260129"
+          },
+          {
+            "video_id": "cT22fTzotYc",
+            "title": "FREE Phone Calls with Claude Code",
+            "siso_relevance": 60.0,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "p4M50NgC9qU",
+            "title": "n8n + Claude Code Is TOO Powerful",
+            "siso_relevance": 60.0,
+            "upload_date": "20251217"
+          }
+        ],
+        "metadata": {
+          "total_videos": 563,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.523857",
+        "categories": [
+          "machine_learning",
+          "devops",
+          "cybersecurity"
+        ],
+        "slug": "networkchuck",
+        "overall_rank": 21,
+        "trend": "new",
+        "category_rank": 1,
+        "category": "cybersecurity"
+      },
+      {
+        "channel_id": "misha_van_den_berg",
+        "channel_name": "Misha Van Den Berg",
+        "overall_score": 3.7,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 2.0,
+          "freshness": 5.4,
+          "tech_recency": 4.8,
+          "actionability": 3.2,
+          "duration_score": 60.8,
+          "consistency": 4.0
+        },
+        "siso_matches": [
+          "ai workflow",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "8CWhPY8Ksko",
+            "title": "Is Claude Code Worth It for DevOps Engineers?",
+            "siso_relevance": 60.0,
+            "upload_date": "20250506"
+          },
+          {
+            "video_id": "fjoGZ90bOzw",
+            "title": "My Entire Neovim + Tmux + AI Workflow (2026 Update)",
+            "siso_relevance": 40.0,
+            "upload_date": "20260109"
+          },
+          {
+            "video_id": "cAD6QaJTVyw",
+            "title": "How To Learn Kubernetes in 2025",
+            "siso_relevance": 0,
+            "upload_date": "20250422"
+          },
+          {
+            "video_id": "6w65b8HWU8g",
+            "title": "How the Ralph Technique Works (Full Tutorial)",
+            "siso_relevance": 0,
+            "upload_date": "20260129"
+          },
+          {
+            "video_id": "9AKSLbfen6w",
+            "title": "Kubernetes Crash Course for Beginners | Hands-On Tutorial + First Deployment",
+            "siso_relevance": 0,
+            "upload_date": "20250602"
+          }
+        ],
+        "metadata": {
+          "total_videos": 151,
+          "subscriber_count": 0,
+          "last_upload": "20260129"
+        },
+        "calculated_at": "2026-02-04T04:16:24.533878",
+        "categories": [
+          "programming",
+          "devops"
+        ],
+        "slug": "misha_van_den_berg",
+        "overall_rank": 24,
+        "trend": "new",
+        "category_rank": 2,
+        "category": "devops"
+      }
+    ],
+    "career": [],
+    "mobile": [],
+    "python": [],
+    "cybersecurity": [
+      {
+        "channel_id": "networkchuck",
+        "channel_name": "Networkchuck",
+        "overall_score": 5.9,
+        "tier": "D",
+        "component_scores": {
+          "siso_relevance": 6.8,
+          "freshness": 11.7,
+          "tech_recency": 0.0,
+          "actionability": 0.6,
+          "duration_score": 42.6,
+          "consistency": 10.0
+        },
+        "siso_matches": [
+          "ai agents",
+          "chatgpt",
+          "ai agent",
+          "claude code"
+        ],
+        "videos_scored": 50,
+        "top_videos": [
+          {
+            "video_id": "gEElEzKazYA",
+            "title": "N8n AI Agents are INSANE!!",
+            "siso_relevance": 80.0,
+            "upload_date": "20250922"
+          },
+          {
+            "video_id": "mQQgB6VK_m4",
+            "title": "I gave Claude Code a phone number #claudecode",
+            "siso_relevance": 60.0,
+            "upload_date": "20260130"
+          },
+          {
+            "video_id": "FEDiAHzS0zw",
+            "title": "Claude Code on your phone in 10 minutes",
+            "siso_relevance": 60.0,
+            "upload_date": "20260129"
+          },
+          {
+            "video_id": "cT22fTzotYc",
+            "title": "FREE Phone Calls with Claude Code",
+            "siso_relevance": 60.0,
+            "upload_date": "20260123"
+          },
+          {
+            "video_id": "p4M50NgC9qU",
+            "title": "n8n + Claude Code Is TOO Powerful",
+            "siso_relevance": 60.0,
+            "upload_date": "20251217"
+          }
+        ],
+        "metadata": {
+          "total_videos": 563,
+          "subscriber_count": 0,
+          "last_upload": "20260202"
+        },
+        "calculated_at": "2026-02-04T04:16:24.523857",
+        "categories": [
+          "machine_learning",
+          "devops",
+          "cybersecurity"
+        ],
+        "slug": "networkchuck",
+        "overall_rank": 21,
+        "trend": "new",
+        "category_rank": 1,
+        "category": "cybersecurity"
+      }
+    ]
+  },
+  "generated_at": "2026-02-04T04:16:24.542305",
+  "total_channels": 24
+}
