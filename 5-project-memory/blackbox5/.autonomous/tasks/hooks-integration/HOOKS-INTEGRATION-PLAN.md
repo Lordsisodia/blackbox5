@@ -27,34 +27,34 @@ RALF has 20+ hooks including:
 
 ## Tasks
 
-| ID | Task | Priority | Status | Effort |
-|----|------|----------|--------|--------|
-| 001 | Pre-Tool-Use Security Hook | CRITICAL | pending | 1 day |
-| 002 | Enhance SessionStart | HIGH | pending | 2 days |
-| 003 | Standardize JSON Logging | HIGH | pending | 2 days |
-| 004 | Subagent Tracking Hooks | HIGH | pending | 3 days |
+| ID | Task | Priority | Status | Effort | File |
+|----|------|----------|--------|--------|------|
+| 202602032359 | Pre-Tool-Use Security Hook | CRITICAL | pending | 1 day | TASK-202602032359-pre-tool-use-security.md |
+| 20260203171821 | Enhance SessionStart | HIGH | pending | 2 days | TASK-20260203171821-enhance-session-start.md |
+| 20260203171822 | Standardize JSON Logging | HIGH | pending | 2 days | TASK-20260203171822-standardize-json-logging.md |
+| 20260203171823 | Subagent Tracking Hooks | HIGH | pending | 3 days | TASK-20260203171823-subagent-tracking-hooks.md |
 
 ## Implementation Order
 
 ### Phase 1: Security (Week 1)
-- TASK-001: Pre-Tool-Use Security Hook
-  - Block rm -rf
+- **TASK-202602032359**: Pre-Tool-Use Security Hook
+  - Block rm -rf commands
   - Block .env access
   - Test thoroughly
 
 ### Phase 2: Session Enhancement (Week 1-2)
-- TASK-002: Enhance SessionStart
+- **TASK-20260203171821**: Enhance SessionStart
   - Add git status
   - Add context file loading
   - Add additionalContext return
 
 ### Phase 3: Observability (Week 2-3)
-- TASK-003: Standardize JSON Logging
+- **TASK-20260203171822**: Standardize JSON Logging
   - Convert all hooks to JSON logging
   - Create log aggregation
 
 ### Phase 4: Agent Tracking (Week 3-4)
-- TASK-004: Subagent Tracking Hooks
+- **TASK-20260203171823**: Subagent Tracking Hooks
   - Create subagent_start
   - Create subagent_stop
   - Integrate with RALF agents
@@ -75,7 +75,7 @@ RALF has 20+ hooks including:
 
 Update this section as tasks complete:
 
-- [ ] TASK-001 complete
-- [ ] TASK-002 complete
-- [ ] TASK-003 complete
-- [ ] TASK-004 complete
+- [ ] TASK-202602032359 complete
+- [ ] TASK-20260203171821 complete
+- [ ] TASK-20260203171822 complete
+- [ ] TASK-20260203171823 complete

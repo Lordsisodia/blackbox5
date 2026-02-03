@@ -4,7 +4,7 @@
     "display_name": "Claude Code Documentation",
     "url": "https://code.claude.com/docs",
     "discovered_at": "2026-02-03T23:30:00Z",
-    "discovered_via": "manual-fetch"
+    "discovered_via": "llms.txt"
   },
   "routes": {
     "tier_1": [
@@ -13,15 +13,19 @@
       { "path": "/en/settings", "title": "Settings", "type": "reference", "fetched": true },
       { "path": "/en/permissions", "title": "Permissions", "type": "reference", "fetched": true },
       { "path": "/en/mcp", "title": "MCP", "type": "reference", "fetched": true },
-      { "path": "/en/common-workflows", "title": "Common Workflows", "type": "guide", "fetched": true }
+      { "path": "/en/common-workflows", "title": "Common Workflows", "type": "guide", "fetched": true },
+      { "path": "/en/quickstart", "title": "Quickstart", "type": "guide", "fetched": false },
+      { "path": "/en/setup", "title": "Setup", "type": "guide", "fetched": false }
     ],
     "tier_2": [
-      { "path": "/en/quickstart", "title": "Quickstart", "type": "guide", "fetched": false },
-      { "path": "/en/setup", "title": "Setup", "type": "guide", "fetched": false },
       { "path": "/en/sub-agents", "title": "Sub-agents", "type": "guide", "fetched": false },
       { "path": "/en/skills", "title": "Skills", "type": "guide", "fetched": false },
-      { "path": "/en/hooks", "title": "Hooks", "type": "guide", "fetched": false },
+      { "path": "/en/hooks", "title": "Hooks", "type": "reference", "fetched": false },
+      { "path": "/en/hooks-guide", "title": "Hooks Guide", "type": "guide", "fetched": false },
       { "path": "/en/plugins", "title": "Plugins", "type": "guide", "fetched": false },
+      { "path": "/en/plugins-reference", "title": "Plugins Reference", "type": "reference", "fetched": false },
+      { "path": "/en/discover-plugins", "title": "Discover Plugins", "type": "guide", "fetched": false },
+      { "path": "/en/plugin-marketplaces", "title": "Plugin Marketplaces", "type": "guide", "fetched": false },
       { "path": "/en/best-practices", "title": "Best Practices", "type": "guide", "fetched": false },
       { "path": "/en/troubleshooting", "title": "Troubleshooting", "type": "guide", "fetched": false },
       { "path": "/en/security", "title": "Security", "type": "guide", "fetched": false },
@@ -34,8 +38,11 @@
       { "path": "/en/desktop", "title": "Desktop App", "type": "guide", "fetched": false },
       { "path": "/en/chrome", "title": "Chrome Extension", "type": "guide", "fetched": false },
       { "path": "/en/github-actions", "title": "GitHub Actions", "type": "guide", "fetched": false },
+      { "path": "/en/gitlab-ci-cd", "title": "GitLab CI/CD", "type": "guide", "fetched": false },
       { "path": "/en/slack", "title": "Slack Integration", "type": "guide", "fetched": false },
-      { "path": "/en/authentication", "title": "Authentication", "type": "guide", "fetched": false }
+      { "path": "/en/authentication", "title": "Authentication", "type": "guide", "fetched": false },
+      { "path": "/en/memory", "title": "Memory", "type": "guide", "fetched": false },
+      { "path": "/en/checkpointing", "title": "Checkpointing", "type": "guide", "fetched": false }
     ],
     "tier_3": [
       { "path": "/en/how-claude-code-works", "title": "How Claude Code Works", "type": "reference", "fetched": false },
@@ -49,21 +56,23 @@
       { "path": "/en/statusline", "title": "Status Line", "type": "reference", "fetched": false },
       { "path": "/en/output-styles", "title": "Output Styles", "type": "reference", "fetched": false },
       { "path": "/en/terminal-config", "title": "Terminal Configuration", "type": "guide", "fetched": false },
-      { "path": "/en/hooks-guide", "title": "Hooks Guide", "type": "guide", "fetched": false },
-      { "path": "/en/plugin-marketplaces", "title": "Plugin Marketplaces", "type": "guide", "fetched": false },
-      { "path": "/en/discover-plugins", "title": "Discover Plugins", "type": "guide", "fetched": false },
-      { "path": "/en/plugins-reference", "title": "Plugins Reference", "type": "reference", "fetched": false },
+      { "path": "/en/keybindings", "title": "Keybindings", "type": "guide", "fetched": false },
       { "path": "/en/monitoring-usage", "title": "Monitoring Usage", "type": "guide", "fetched": false },
+      { "path": "/en/analytics", "title": "Analytics", "type": "guide", "fetched": false },
       { "path": "/en/claude-code-on-the-web", "title": "Claude Code on the Web", "type": "guide", "fetched": false },
-      { "path": "/en/gitlab-ci-cd", "title": "GitLab CI/CD", "type": "guide", "fetched": false }
+      { "path": "/en/changelog", "title": "Changelog", "type": "reference", "fetched": false },
+      { "path": "/en/devcontainer", "title": "Dev Container", "type": "guide", "fetched": false },
+      { "path": "/en/legal-and-compliance", "title": "Legal and Compliance", "type": "reference", "fetched": false },
+      { "path": "/en/llm-gateway", "title": "LLM Gateway", "type": "reference", "fetched": false },
+      { "path": "/en/network-config", "title": "Network Configuration", "type": "reference", "fetched": false }
     ]
   },
   "metadata": {
-    "total_routes": 44,
+    "total_routes": 53,
     "site_generator": "custom",
     "has_search": true,
     "llms_txt": "https://code.claude.com/docs/llms.txt",
     "documentation_index": "https://code.claude.com/docs/llms.txt"
   },
-  "notes": "Discovered via manual fetch of CLI reference page. llms.txt mentioned as complete index."
+  "notes": "Complete list discovered from llms.txt. 53 total pages. 6 fetched (11%)."
 }

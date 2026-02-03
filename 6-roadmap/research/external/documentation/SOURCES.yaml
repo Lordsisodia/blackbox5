@@ -24,13 +24,19 @@ sources:
         - /en/permissions
         - /en/mcp
         - /en/common-workflows
+        - /en/quickstart
+        - /en/setup
       tier_2:
         - /en/quickstart
         - /en/setup
         - /en/sub-agents
         - /en/skills
         - /en/hooks
+        - /en/hooks-guide
         - /en/plugins
+        - /en/plugins-reference
+        - /en/discover-plugins
+        - /en/plugin-marketplaces
         - /en/best-practices
         - /en/troubleshooting
         - /en/security
@@ -43,7 +49,11 @@ sources:
         - /en/desktop
         - /en/chrome
         - /en/github-actions
+        - /en/gitlab-ci-cd
         - /en/slack
+        - /en/authentication
+        - /en/memory
+        - /en/checkpointing
       tier_3:
         - /en/how-claude-code-works
         - /en/features-overview
@@ -53,8 +63,20 @@ sources:
         - /en/google-vertex-ai
         - /en/microsoft-foundry
         - /en/third-party-integrations
+        - /en/statusline
+        - /en/output-styles
+        - /en/terminal-config
+        - /en/keybindings
+        - /en/monitoring-usage
+        - /en/analytics
+        - /en/claude-code-on-the-web
+        - /en/changelog
+        - /en/devcontainer
+        - /en/legal-and-compliance
+        - /en/llm-gateway
+        - /en/network-config
     priority: high
-    notes: "Official Anthropic documentation for Claude Code. 6 of 44 pages fetched (15%)."
+    notes: "Official Anthropic documentation for Claude Code. 53 total pages, 6 fetched (11%)."
 
 # Categories for organization
 categories:

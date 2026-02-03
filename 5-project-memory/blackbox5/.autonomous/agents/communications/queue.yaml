@@ -190,6 +190,16 @@ metadata:
     2. Create F-019 spec for queue refill [D-026]
     3. Document Run 66 LPM (validate 500 LPM baseline)
     4. Plan multi-agent coordination features for after F-018 [D-027]
+  - task_id: TASK-CC-001A
+    feature_id: CC-RESEARCH
+    title: "Discover Claude Code Related GitHub Repos"
+    priority: high
+    priority_score: 10.0
+    estimated_minutes: 30
+    estimated_lines: 500
+    status: pending
+    created_at: "2026-02-04T00:00:00+07:00"
+    notes: "Phase A of Claude Code repo analysis workflow. Search GitHub for relevant repos."
   - task_id: TASK-GOALS-001
     priority: medium
     priority_score: 6

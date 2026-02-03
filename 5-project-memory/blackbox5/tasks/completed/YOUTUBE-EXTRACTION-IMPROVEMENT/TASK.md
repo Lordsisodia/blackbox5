@@ -26,12 +26,12 @@ This indicates that a single 3-iteration extraction misses significant content.
 
 ## Success Criteria
 
-- [ ] Document new 3x3 extraction process (3 parallel extractions × 3 iterations each)
-- [ ] Document consolidation/synthesis methodology
-- [ ] Create implementation script for the new process
-- [ ] Run test extraction on IndyDevDan video using new process
-- [ ] Compare coverage vs single 3-iteration extraction
-- [ ] Measure score consistency improvement
+- [x] Document new 3x3 extraction process (3 parallel extractions × 3 iterations each)
+- [x] Document consolidation/synthesis methodology
+- [x] Create implementation script for the new process
+- [x] Run test extraction on IndyDevDan video using new process
+- [x] Compare coverage vs single 3-iteration extraction
+- [ ] Measure score consistency improvement (pending full implementation)
 
 ---
 

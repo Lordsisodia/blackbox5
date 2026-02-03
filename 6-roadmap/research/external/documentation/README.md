@@ -12,9 +12,9 @@ Provide agents with structured, searchable access to key external documentation 
 
 ## Contents
 
-| Source | Description | Status |
-|--------|-------------|--------|
-| _None yet_ | Add documentation sources below | - |
+| Source | Description | Status | Pages |
+|--------|-------------|--------|-------|
+| `claude-code/` | Claude Code official documentation | Active | 6/53 (11%) |
 
 ## Adding New Documentation
 
