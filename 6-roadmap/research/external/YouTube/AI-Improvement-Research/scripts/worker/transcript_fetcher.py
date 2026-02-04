@@ -48,11 +48,12 @@ class TranscriptFetcher:
         self._rate_limit()
 
         try:
-            # Fetch transcript
-            transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+            # Fetch transcript (new API uses instance method)
+            ytt_api = YouTubeTranscriptApi()
+            transcript = ytt_api.fetch(video_id)
 
             # Combine all text segments
-            full_text = ' '.join(segment['text'] for segment in transcript_list)
+            full_text = ' '.join(segment.text for segment in transcript)
 
             # Clean up the text
             full_text = self._clean_transcript(full_text)

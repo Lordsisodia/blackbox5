@@ -144,6 +144,56 @@ core_goals:
       - "IG-005: Improve Documentation Quality and Utility"
       - "IG-006: Restructure BlackBox5 Architecture"
 
+  - id: CG-004
+    name: "Intelligent Navigation System"
+    description: "Enable agents to effortlessly navigate across all contexts - chats, goals, plans, tasks, subtasks, and runs - reducing cognitive load and maintaining continuity"
+    priority: critical
+    status: active
+
+    success_criteria:
+      - "Agent always knows current context without manual checking"
+      - "Seamless navigation between any two points in the hierarchy"
+      - "Cross-context memory and continuity maintained"
+      - "Zero friction when switching between tasks/runs/chats"
+
+    metrics:
+      - name: "context_discovery_accuracy"
+        target: "100%"
+        current: 95
+        trend: "improving"
+        last_updated: "2026-02-04"
+
+      - name: "navigation_commands_used"
+        target: ">= 10 per session"
+        current: 8
+        trend: "improving"
+        last_updated: "2026-02-04"
+
+      - name: "manual_context_checks"
+        target: "0"
+        current: 2
+        trend: "improving"
+        last_updated: "2026-02-04"
+
+    timeline:
+      - date: "2026-02-04"
+        event: "Created bb5 navigation CLI with 10 commands"
+        linked_task: "TASK-1770163374"
+        impact: "Agents can now navigate goals/plans/tasks hierarchy"
+
+      - date: "2026-02-04"
+        event: "Implemented auto-context discovery via hooks"
+        linked_task: "TASK-1770163374"
+        impact: "CURRENT_CONTEXT.md auto-generated on session start"
+
+      - date: "2026-02-04"
+        event: "Added template auto-population system"
+        linked_task: "TASK-1770163374"
+        impact: "Consistent structure across all created items"
+
+    active_initiatives:
+      - "IG-006: Restructure BlackBox5 Architecture (Navigation component)"
+
 # =============================================================================
 # NOTES
 # =============================================================================

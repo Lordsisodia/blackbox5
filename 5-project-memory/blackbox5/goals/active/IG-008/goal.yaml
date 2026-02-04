@@ -47,6 +47,9 @@ sub_goals:
     linked_plans:
       - PLAN-HINDSIGHT-001
 
+    linked_tasks:
+      - TASK-HINDSIGHT-001
+
   - id: SG-008-2
     name: "Build Memory Infrastructure"
     description: "Set up pgvector in PostgreSQL, extend Neo4j schema, implement embedding pipeline"
@@ -62,6 +65,9 @@ sub_goals:
 
     linked_plans:
       - PLAN-HINDSIGHT-001
+
+    linked_tasks:
+      - TASK-HINDSIGHT-002
 
   - id: SG-008-3
     name: "Implement RETAIN Operation"
@@ -82,6 +88,9 @@ sub_goals:
     linked_plans:
       - PLAN-HINDSIGHT-001
 
+    linked_tasks:
+      - TASK-HINDSIGHT-003
+
   - id: SG-008-4
     name: "Implement RECALL Operation"
     description: "Build multi-strategy retrieval system (semantic, keyword, graph, temporal) with RRF merging"
@@ -101,6 +110,9 @@ sub_goals:
     linked_plans:
       - PLAN-HINDSIGHT-001
 
+    linked_tasks:
+      - TASK-HINDSIGHT-004
+
   - id: SG-008-5
     name: "Implement REFLECT Operation"
     description: "Build preference-conditioned reasoning system with belief updating"
@@ -116,6 +128,9 @@ sub_goals:
 
     linked_plans:
       - PLAN-HINDSIGHT-001
+
+    linked_tasks:
+      - TASK-HINDSIGHT-005
 
   - id: SG-008-6
     name: "Integrate and Validate"
@@ -135,6 +150,9 @@ sub_goals:
     linked_plans:
       - PLAN-HINDSIGHT-001
 
+    linked_tasks:
+      - TASK-HINDSIGHT-006
+
 # =============================================================================
 # PROGRESS
 # =============================================================================
@@ -152,10 +170,18 @@ progress:
     SG-008-6: 0
 
   summary:
-    total_tasks: 0
+    total_tasks: 6
     completed_tasks: 0
     in_progress_tasks: 0
     blocked_tasks: 0
+
+  linked_tasks:
+    - TASK-HINDSIGHT-001
+    - TASK-HINDSIGHT-002
+    - TASK-HINDSIGHT-003
+    - TASK-HINDSIGHT-004
+    - TASK-HINDSIGHT-005
+    - TASK-HINDSIGHT-006
 
 # =============================================================================
 # LINKS

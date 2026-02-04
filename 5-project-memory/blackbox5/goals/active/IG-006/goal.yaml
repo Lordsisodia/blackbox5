@@ -51,9 +51,26 @@ sub_goals:
       - TASK-GOALS-001
 
   - id: SG-006-3
+    name: "Build Intelligent Navigation System"
+    description: "Create bb5 CLI, context discovery, template auto-population, and hooks for effortless agent navigation"
+    weight: 30
+    status: completed
+
+    acceptance_criteria:
+      - "bb5 CLI with 10+ navigation commands"
+      - "bb5-discover-context for automatic context detection"
+      - "Template auto-population with {{ID}}, {{NAME}}, {{DATE}} variables"
+      - "3 enhanced hooks (session-start, pre-tool, stop)"
+      - "CURRENT_CONTEXT.md auto-generated"
+      - "NAVIGATION-GUIDE.md documentation"
+
+    linked_tasks:
+      - TASK-1770163374
+
+  - id: SG-006-4
     name: "Migrate and validate"
     description: "Move legacy data, clean up empty folders, verify nothing broken"
-    weight: 30
+    weight: 20
     status: in_progress
 
     acceptance_criteria:
@@ -70,17 +87,18 @@ sub_goals:
 # =============================================================================
 
 progress:
-  percentage: 65
-  last_updated: "2026-02-02"
+  percentage: 75
+  last_updated: "2026-02-04"
 
   by_sub_goal:
     SG-006-1: 85
     SG-006-2: 100
-    SG-006-3: 10
+    SG-006-3: 100
+    SG-006-4: 10
 
   summary:
-    total_tasks: 6
-    completed_tasks: 3
+    total_tasks: 7
+    completed_tasks: 4
     in_progress_tasks: 2
     blocked_tasks: 0
 
