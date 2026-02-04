@@ -1,0 +1,32 @@
+scout_report:
+  id: SCOUT-20260204-124046
+  timestamp: '2026-02-04T12:40:46.715267'
+  scout_version: 1.0.0
+  summary:
+    total_opportunities: 1
+    high_impact: 0
+    quick_wins: 0
+    categories:
+      skills: 0
+      process: 0
+      documentation: 0
+      infrastructure: 1
+  opportunities:
+  - id: OPP-001
+    category: infrastructure
+    title: Failed to parse skill metrics
+    description: 'Error reading skill metrics: ''list'' object has no attribute ''items'''
+    evidence: '''list'' object has no attribute ''items'''
+    impact_score: 2
+    effort_score: 2
+    frequency_score: 1
+    suggested_action: Fix skill metrics YAML format
+    files_to_check:
+    - operations/skill-metrics.yaml
+    total_score: 5.0
+  patterns: []
+  quick_wins: []
+  recommendations:
+  - priority: 1
+    opportunity_id: OPP-001
+    rationale: High score (5.0) in infrastructure category

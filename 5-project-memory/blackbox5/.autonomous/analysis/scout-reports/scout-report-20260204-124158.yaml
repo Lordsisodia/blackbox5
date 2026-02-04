@@ -1,0 +1,33 @@
+scout_report:
+  id: SCOUT-20260204-124158
+  timestamp: '2026-02-04T12:41:58.033624'
+  scout_version: 1.0.0
+  summary:
+    total_opportunities: 1
+    high_impact: 1
+    quick_wins: 0
+    categories:
+      skills: 0
+      process: 0
+      documentation: 0
+      infrastructure: 1
+  opportunities:
+  - id: OPP-001
+    category: infrastructure
+    title: 23 skills have no effectiveness data
+    description: Skill metrics are not being populated automatically
+    evidence: skill-metrics.yaml shows 23 skills with null values
+    impact_score: 4
+    effort_score: 3
+    frequency_score: 3
+    suggested_action: Implement automatic skill metrics collection from task outcomes
+    files_to_check:
+    - operations/skill-metrics.yaml
+    - bin/collect-skill-metrics.py
+    total_score: 13.5
+  patterns: []
+  quick_wins: []
+  recommendations:
+  - priority: 1
+    opportunity_id: OPP-001
+    rationale: High score (13.5) in infrastructure category

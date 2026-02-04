@@ -1,6 +1,6 @@
 # TASK-ARCH-010: Implement Skill Metrics Collection
 
-**Status:** in_progress
+**Status:** completed
 **Priority:** MEDIUM
 **Created:** 2026-02-04
 **Estimated:** 60 minutes
@@ -17,11 +17,11 @@ Implement automatic population of `operations/skill-metrics.yaml` to measure ski
 
 ## Success Criteria
 
-- [ ] Create metrics collection mechanism
-- [ ] Track success/failure per skill
-- [ ] Track time efficiency per skill
-- [ ] Track trigger accuracy
-- [ ] Generate effectiveness reports
+- [x] Create metrics collection mechanism
+- [x] Track success/failure per skill
+- [x] Track time efficiency per skill
+- [x] Track trigger accuracy
+- [x] Generate effectiveness reports
 
 ---
 
