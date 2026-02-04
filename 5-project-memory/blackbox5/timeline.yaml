@@ -197,6 +197,59 @@ events:
 # PROGRESS METRICS
 # =============================================================================
 
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 5"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "5"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Goal Created: IG-009"
+    description: "New implementation goal created and activated"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 6"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "6"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Goal Created: IG-009"
+    description: "New implementation goal created and activated"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Goal Created: IG-009"
+    description: "New implementation goal created and activated"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+# =============================================================================
+
 progress:
   overall_completion: 85
   milestones_completed: 6
