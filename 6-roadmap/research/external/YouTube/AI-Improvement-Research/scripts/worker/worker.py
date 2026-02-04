@@ -6,6 +6,7 @@ Continuously fetches transcripts from the queue with rate limiting.
 Designed to run as a systemd service on a dedicated server.
 """
 
+import os
 import sys
 import time
 import signal
@@ -51,7 +52,9 @@ class TranscriptWorker:
         # Initialize components
         self.db = QueueDatabase()
         self.manager = QueueManager(self.db)
-        self.fetcher = TranscriptFetcher(output_dir, delay=request_delay)
+        # Check environment variable for Tor setting
+        use_tor = os.environ.get('USE_TOR', 'true').lower() != 'false'
+        self.fetcher = TranscriptFetcher(output_dir, delay=request_delay, use_tor=use_tor)
         self.rate_limiter = RateLimiter(
             state_file=state_dir / 'rate_limiter.json',
             daily_limit=daily_limit,

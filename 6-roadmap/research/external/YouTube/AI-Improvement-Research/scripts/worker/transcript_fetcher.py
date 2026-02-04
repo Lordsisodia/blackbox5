@@ -66,8 +66,11 @@ class TranscriptFetcher:
         self._rate_limit()
 
         try:
-            # Fetch transcript via Tor
-            ytt_api = YouTubeTranscriptApi(proxy_config=self.proxy_config)
+            # Fetch transcript (with or without Tor proxy)
+            if self.use_tor and self.proxy_config:
+                ytt_api = YouTubeTranscriptApi(proxy_config=self.proxy_config)
+            else:
+                ytt_api = YouTubeTranscriptApi()
             transcript = ytt_api.fetch(video_id)
 
             # Combine all text segments
