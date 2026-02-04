@@ -1,0 +1,189 @@
+extraction:
+  repo_name: "claude-code-templates"
+  repo_url: "https://github.com/davila7/claude-code-templates"
+  extracted_at: "2026-02-04T02:36:09Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-023343"
+
+metadata:
+  stars: 19399
+  last_commit: "2026-02-03"
+  languages: "py,js"
+  file_count: 5545
+
+structure: |
+  cli-tool/jest.config.js
+  cli-tool/templates/common/.mcp.json
+  cli-tool/templates/go/.mcp.json
+  cli-tool/templates/go/README.md
+  cli-tool/templates/javascript-typescript/.claude/commands/api-endpoint.md
+  cli-tool/templates/javascript-typescript/.claude/commands/debug.md
+  cli-tool/templates/javascript-typescript/.claude/commands/lint.md
+  cli-tool/templates/javascript-typescript/.claude/commands/npm-scripts.md
+  cli-tool/templates/javascript-typescript/.claude/commands/refactor.md
+  cli-tool/templates/javascript-typescript/.claude/commands/test.md
+  cli-tool/templates/javascript-typescript/.claude/commands/typescript-migrate.md
+  cli-tool/templates/javascript-typescript/CLAUDE.md
+  cli-tool/templates/javascript-typescript/.claude/settings.json
+  cli-tool/templates/javascript-typescript/examples/angular-app/.claude/commands/components.md
+  cli-tool/templates/javascript-typescript/examples/angular-app/.claude/commands/services.md
+  cli-tool/templates/javascript-typescript/examples/node-api/.claude/commands/api-endpoint.md
+  cli-tool/templates/javascript-typescript/examples/node-api/.claude/commands/database.md
+  cli-tool/templates/javascript-typescript/examples/node-api/.claude/commands/middleware.md
+  cli-tool/templates/javascript-typescript/examples/node-api/.claude/commands/route.md
+  cli-tool/templates/javascript-typescript/examples/node-api/CLAUDE.md
+  cli-tool/templates/javascript-typescript/examples/react-app/agents/react-performance-optimization.md
+  cli-tool/templates/javascript-typescript/examples/react-app/agents/react-state-management.md
+  cli-tool/templates/javascript-typescript/examples/react-app/.claude/commands/component.md
+  cli-tool/templates/javascript-typescript/examples/react-app/.claude/commands/hooks.md
+  cli-tool/templates/javascript-typescript/examples/react-app/.claude/commands/state-management.md
+  cli-tool/templates/javascript-typescript/examples/react-app/CLAUDE.md
+  cli-tool/templates/javascript-typescript/examples/vue-app/.claude/commands/components.md
+  cli-tool/templates/javascript-typescript/examples/vue-app/.claude/commands/composables.md
+  cli-tool/templates/javascript-typescript/.mcp.json
+  cli-tool/templates/javascript-typescript/README.md
+  cli-tool/templates/ruby/.claude/commands/model.md
+  cli-tool/templates/ruby/.claude/commands/test.md
+  cli-tool/templates/ruby/CLAUDE.md
+  cli-tool/templates/ruby/.claude/settings.json
+  cli-tool/templates/ruby/examples/rails-app/.claude/commands/authentication.md
+  cli-tool/templates/ruby/examples/rails-app/CLAUDE.md
+  cli-tool/templates/ruby/.mcp.json
+  cli-tool/templates/rust/.mcp.json
+  cli-tool/templates/rust/README.md
+  CODE_OF_CONDUCT.md
+  CONTRIBUTING.md
+  .env.example
+  .github/workflows/component-security-validation.yml
+  .github/workflows/discord-release-notification.yml
+  .github/workflows/publish-package.yml
+  .github/WORKFLOWS_REFERENCE.md
+  .github/workflows/update-json-data.yml
+  LICENSE
+  .mcp.json
+  vercel.json
+
+readme_summary: |
+  [![npm version](https://img.shields.io/npm/v/claude-code-templates.svg)](https://www.npmjs.com/package/claude-code-templates)
+  [![npm downloads](https://img.shields.io/npm/dt/claude-code-templates.svg)](https://www.npmjs.com/package/claude-code-templates)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+  [![Sponsored by Z.AI](https://img.shields.io/badge/Sponsored%20by-Z.AI-2563eb?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAyMkgyMkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+)](https://z.ai/subscribe?ic=8JVLJQFSKB&utm_source=github&utm_medium=badge&utm_campaign=readme)
+  [![Neon Open Source Program](https://img.shields.io/badge/Neon-Open%20Source%20Program-00E599?style=flat)](https://get.neon.com/4eCjZDz)
+  [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/daniavila)
+  [![GitHub stars](https://img.shields.io/github/stars/davila7/claude-code-templates.svg?style=social&label=Star)](https://github.com/davila7/claude-code-templates)
+  
+  <p align="center">
+    <a href="https://trendshift.io/repositories/15113" target="_blank">
+      <img src="https://trendshift.io/api/badge/repositories/15113" alt="davila7%2Fclaude-code-templates | Trendshift" style="width: 200px; height: 40px;" width="125" height="40"/>
+    </a>
+    <br />
+    <br />
+    <a href="https://vercel.com/oss">
+    <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://get.neon.com/4eCjZDz">
+    <img alt="Neon Open Source Program" src="https://img.shields.io/badge/Neon-Open%20Source%20Program-00E599?style=for-the-badge" />
+    </a>
+  </p>
+  
+  ---
+  
+  <div align="center">
+    <h3>🤝 Partnership</h3>
+    <p>
+      <strong>This project is sponsored by <a href="https://z.ai" target="_blank">Z.AI</a></strong><br/>
+      Supporting Claude Code Templates with the <strong>GLM CODING PLAN</strong>
+    </p>
+    <p>
+      <a href="https://z.ai/subscribe?ic=8JVLJQFSKB&utm_source=github&utm_medium=readme&utm_campaign=partnership" target="_blank">
+        <img src="https://img.shields.io/badge/Get%2010%25%20OFF-GLM%20Coding%20Plan-2563eb?style=for-the-badge" alt="GLM Coding Plan" />
+      </a>
+    </p>
+    <p>
+      <em>Top-tier coding performance powered by GLM-4.6 • Starting at $3/month</em><br/>
+      <em>Seamlessly integrates with Claude Code, Cursor, Cline & 10+ AI coding tools</em>
+    </p>
+    <p>
+      <code>npx claude-code-templates@latest --setting partnerships/glm-coding-plan --yes</code>
+    </p>
+  </div>
+  
+  ---
+  
+  # Claude Code Templates ([aitmpl.com](https://aitmpl.com))
+  
+  **Ready-to-use configurations for Anthropic's Claude Code.** A comprehensive collection of AI agents, custom commands, settings, hooks, external integrations (MCPs), and project templates to enhance your development workflow.
+  
+  ## Browse & Install Components and Templates
+  
+  **[Browse All Templates](https://aitmpl.com)** - Interactive web interface to explore and install 100+ agents, commands, settings, hooks, and MCPs.
+  
+  <img width="1049" height="855" alt="Screenshot 2025-08-19 at 08 09 24" src="https://github.com/user-attachments/assets/e3617410-9b1c-4731-87b7-a3858800b737" />
+  
+  ## 🚀 Quick Installation
+  
+  ```bash
+  # Install a complete development stack
+  npx claude-code-templates@latest --agent development-team/frontend-developer --command testing/generate-tests --mcp development/github-integration --yes
+  
+  # Browse and install interactively
+  npx claude-code-templates@latest
+  
+  # Install specific components
+  npx claude-code-templates@latest --agent development-tools/code-reviewer --yes
+  npx claude-code-templates@latest --command performance/optimize-bundle --yes
+  npx claude-code-templates@latest --setting performance/mcp-timeouts --yes
+  npx claude-code-templates@latest --hook git/pre-commit-validation --yes
+  npx claude-code-templates@latest --mcp database/postgresql-integration --yes
+  ```
+  
+  ## What You Get
+  
+  | Component | Description | Examples |
+  |-----------|-------------|----------|
+  | **🤖 Agents** | AI specialists for specific domains | Security auditor, React performance optimizer, database architect |
+  | **⚡ Commands** | Custom slash commands | `/generate-tests`, `/optimize-bundle`, `/check-security` |
+  | **🔌 MCPs** | External service integrations | GitHub, PostgreSQL, Stripe, AWS, OpenAI |
+  | **⚙️ Settings** | Claude Code configurations | Timeouts, memory settings, output styles |
+  | **🪝 Hooks** | Automation triggers | Pre-commit validation, post-completion actions |
+  | **🎨 Skills** | Reusable capabilities with progressive disclosure | PDF processing, Excel automation, custom workflows |
+  
+  ## 🛠️ Additional Tools
+  
+  Beyond the template catalog, Claude Code Templates includes powerful development tools:
+  
+  ### 📊 Claude Code Analytics
+  Monitor your AI-powered development sessions in real-time with live state detection and performance metrics.
+  
+  ```bash
+  npx claude-code-templates@latest --analytics
+  ```
+  
+  ### 💬 Conversation Monitor  
+  Mobile-optimized interface to view Claude responses in real-time with secure remote access.
+
+key_files:
+  - /.github/workflows/publish-package.yml
+  - /.github/workflows/update-json-data.yml
+  - /.github/workflows/discord-release-notification.yml
+  - /.github/workflows/component-security-validation.yml
+  - /.github/WORKFLOWS_REFERENCE.md
+  - /vercel.json
+  - /CODE_OF_CONDUCT.md
+  - /.mcp.json
+  - /CONTRIBUTING.md
+  - /cli-tool/templates/go/.mcp.json
+  - /cli-tool/templates/go/README.md
+  - /cli-tool/templates/ruby/.mcp.json
+  - /cli-tool/templates/ruby/examples/rails-app/.claude/commands/authentication.md
+  - /cli-tool/templates/ruby/examples/rails-app/CLAUDE.md
+  - /cli-tool/templates/ruby/.claude/commands/test.md
+  - /cli-tool/templates/ruby/.claude/commands/model.md
+  - /cli-tool/templates/ruby/.claude/settings.json
+  - /cli-tool/templates/ruby/CLAUDE.md
+  - /cli-tool/templates/rust/.mcp.json
+  - /cli-tool/templates/rust/README.md
+
+analysis_status: pending_analyzer

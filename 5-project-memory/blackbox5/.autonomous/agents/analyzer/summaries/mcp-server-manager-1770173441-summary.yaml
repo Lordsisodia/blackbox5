@@ -1,0 +1,30 @@
+assessment:
+  category: mcp
+  complexity: medium
+  key_concepts:
+  - mcp-servers
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: "# MCP Server Manager for Claude \U0001F39B\uFE0F"
+  recommended_action: immediate_review
+metrics:
+  file_count: 18
+  languages: py
+  pattern_matches:
+    agents: 0
+    automation: 2
+    claude: 11
+    hooks: 0
+    mcp: 25
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/mcp-server-manager-1770173441.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:53:33.187312Z'
+  repo_name: mcp-server-manager
+  repo_url: https://github.com/KalinYorgov/mcp-server-manager
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

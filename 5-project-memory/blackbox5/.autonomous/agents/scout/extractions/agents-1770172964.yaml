@@ -1,0 +1,190 @@
+extraction:
+  repo_name: "agents"
+  repo_url: "https://github.com/wshobson/agents"
+  extracted_at: "2026-02-04T02:42:45Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024045"
+
+metadata:
+  stars: 27689
+  last_commit: "2026-02-01"
+  languages: "py"
+  file_count: 497
+
+structure: |
+  .github/CODE_OF_CONDUCT.md
+  .github/CONTRIBUTING.md
+  .github/FUNDING.yml
+  .github/ISSUE_TEMPLATE/bug_report.yml
+  .github/ISSUE_TEMPLATE/config.yml
+  .github/ISSUE_TEMPLATE/feature_request.yml
+  .github/ISSUE_TEMPLATE/moderation_report.yml
+  .github/ISSUE_TEMPLATE/new_subagent.yml
+  LICENSE
+  plugins/accessibility-compliance/agents/ui-visual-validator.md
+  plugins/accessibility-compliance/commands/accessibility-audit.md
+  plugins/accessibility-compliance/skills/screen-reader-testing/SKILL.md
+  plugins/accessibility-compliance/skills/wcag-audit-patterns/SKILL.md
+  plugins/api-testing-observability/agents/api-documenter.md
+  plugins/api-testing-observability/commands/api-mock.md
+  plugins/arm-cortex-microcontrollers/agents/arm-cortex-expert.md
+  plugins/blockchain-web3/agents/blockchain-developer.md
+  plugins/blockchain-web3/skills/defi-protocol-templates/SKILL.md
+  plugins/blockchain-web3/skills/nft-standards/SKILL.md
+  plugins/blockchain-web3/skills/solidity-security/SKILL.md
+  plugins/blockchain-web3/skills/web3-testing/SKILL.md
+  plugins/business-analytics/agents/business-analyst.md
+  plugins/business-analytics/skills/data-storytelling/SKILL.md
+  plugins/business-analytics/skills/kpi-dashboard-design/SKILL.md
+  plugins/code-documentation/agents/code-reviewer.md
+  plugins/code-documentation/agents/docs-architect.md
+  plugins/code-documentation/agents/tutorial-engineer.md
+  plugins/code-documentation/commands/code-explain.md
+  plugins/code-documentation/commands/doc-generate.md
+  plugins/dependency-management/agents/legacy-modernizer.md
+  plugins/dependency-management/commands/deps-audit.md
+  plugins/deployment-validation/agents/cloud-architect.md
+  plugins/deployment-validation/commands/config-validate.md
+  plugins/frontend-mobile-development/agents/frontend-developer.md
+  plugins/frontend-mobile-development/agents/mobile-developer.md
+  plugins/frontend-mobile-development/commands/component-scaffold.md
+  plugins/frontend-mobile-development/skills/nextjs-app-router-patterns/SKILL.md
+  plugins/frontend-mobile-development/skills/react-native-architecture/SKILL.md
+  plugins/frontend-mobile-development/skills/react-state-management/SKILL.md
+  plugins/frontend-mobile-development/skills/tailwind-design-system/SKILL.md
+  plugins/functional-programming/agents/elixir-pro.md
+  plugins/functional-programming/agents/haskell-pro.md
+  plugins/jvm-languages/agents/csharp-pro.md
+  plugins/security-compliance/agents/security-auditor.md
+  plugins/security-compliance/commands/compliance-check.md
+  plugins/shell-scripting/agents/bash-pro.md
+  plugins/shell-scripting/agents/posix-shell-pro.md
+  plugins/shell-scripting/skills/bash-defensive-patterns/SKILL.md
+  plugins/shell-scripting/skills/bats-testing-patterns/SKILL.md
+  plugins/shell-scripting/skills/shellcheck-configuration/SKILL.md
+
+readme_summary: |
+  # Claude Code Plugins: Orchestration and Automation
+  
+  > **⚡ Updated for Opus 4.5, Sonnet 4.5 & Haiku 4.5** — Three-tier model strategy for optimal performance
+  
+  [![Run in Smithery](https://smithery.ai/badge/skills/wshobson)](https://smithery.ai/skills?ns=wshobson&utm_source=github&utm_medium=badge)
+  
+  > **🎯 Agent Skills Enabled** — 129 specialized skills extend Claude's capabilities across plugins with progressive disclosure
+  
+  A comprehensive production-ready system combining **108 specialized AI agents**, **15 multi-agent workflow orchestrators**, **129 agent skills**, and **72 development tools** organized into **72 focused, single-purpose plugins** for [Claude Code](https://docs.claude.com/en/docs/claude-code/overview).
+  
+  ## Overview
+  
+  This unified repository provides everything needed for intelligent automation and multi-agent orchestration across modern software development:
+  
+  - **72 Focused Plugins** - Granular, single-purpose plugins optimized for minimal token usage and composability
+  - **108 Specialized Agents** - Domain experts with deep knowledge across architecture, languages, infrastructure, quality, data/AI, documentation, business operations, and SEO
+  - **129 Agent Skills** - Modular knowledge packages with progressive disclosure for specialized expertise
+  - **15 Workflow Orchestrators** - Multi-agent coordination systems for complex operations like full-stack development, security hardening, ML pipelines, and incident response
+  - **72 Development Tools** - Optimized utilities including project scaffolding, security scanning, test automation, and infrastructure setup
+  
+  ### Key Features
+  
+  - **Granular Plugin Architecture**: 72 focused plugins optimized for minimal token usage
+  - **Comprehensive Tooling**: 72 development tools including test generation, scaffolding, and security scanning
+  - **100% Agent Coverage**: All plugins include specialized agents
+  - **Agent Skills**: 129 specialized skills following for progressive disclosure and token efficiency
+  - **Clear Organization**: 23 categories with 1-6 plugins each for easy discovery
+  - **Efficient Design**: Average 3.4 components per plugin (follows Anthropic's 2-8 pattern)
+  
+  ### How It Works
+  
+  Each plugin is completely isolated with its own agents, commands, and skills:
+  
+  - **Install only what you need** - Each plugin loads only its specific agents, commands, and skills
+  - **Minimal token usage** - No unnecessary resources loaded into context
+  - **Mix and match** - Compose multiple plugins for complex workflows
+  - **Clear boundaries** - Each plugin has a single, focused purpose
+  - **Progressive disclosure** - Skills load knowledge only when activated
+  
+  **Example**: Installing `python-development` loads 3 Python agents, 1 scaffolding tool, and makes 16 skills available (~1000 tokens), not the entire marketplace.
+  
+  ## Quick Start
+  
+  ### Step 1: Add the Marketplace
+  
+  Add this marketplace to Claude Code:
+  
+  ```bash
+  /plugin marketplace add wshobson/agents
+  ```
+  
+  This makes all 72 plugins available for installation, but **does not load any agents or tools** into your context.
+  
+  ### Step 2: Install Plugins
+  
+  Browse available plugins:
+  
+  ```bash
+  /plugin
+  ```
+  
+  Install the plugins you need:
+  
+  ```bash
+  # Essential development plugins
+  /plugin install python-development          # Python with 16 specialized skills
+  /plugin install javascript-typescript       # JS/TS with 4 specialized skills
+  /plugin install backend-development         # Backend APIs with 3 architecture skills
+  
+  # Infrastructure & operations
+  /plugin install kubernetes-operations       # K8s with 4 deployment skills
+  /plugin install cloud-infrastructure        # AWS/Azure/GCP with 4 cloud skills
+  
+  # Security & quality
+  /plugin install security-scanning           # SAST with security skill
+  /plugin install code-review-ai             # AI-powered code review
+  
+  # Full-stack orchestration
+  /plugin install full-stack-orchestration   # Multi-agent workflows
+  ```
+  
+  Each installed plugin loads **only its specific agents, commands, and skills** into Claude's context.
+  
+  ### Plugins vs Agents
+  
+  You install **plugins**, which bundle agents:
+  
+  | Plugin                  | Agents                                            |
+  | ----------------------- | ------------------------------------------------- |
+  | `comprehensive-review`  | architect-review, code-reviewer, security-auditor |
+  | `javascript-typescript` | javascript-pro, typescript-pro                    |
+  | `python-development`    | python-pro, django-pro, fastapi-pro               |
+  | `blockchain-web3`       | blockchain-developer                              |
+  
+  ```bash
+  # ❌ Wrong - can't install agents directly
+  /plugin install typescript-pro
+  
+  # ✅ Right - install the plugin
+  /plugin install javascript-typescript@claude-code-workflows
+
+key_files:
+  - /.github/FUNDING.yml
+  - /.github/CODE_OF_CONDUCT.md
+  - /.github/CONTRIBUTING.md
+  - /.github/ISSUE_TEMPLATE/new_subagent.yml
+  - /.github/ISSUE_TEMPLATE/bug_report.yml
+  - /.github/ISSUE_TEMPLATE/config.yml
+  - /.github/ISSUE_TEMPLATE/feature_request.yml
+  - /.github/ISSUE_TEMPLATE/moderation_report.yml
+  - /plugins/code-documentation/commands/doc-generate.md
+  - /plugins/code-documentation/commands/code-explain.md
+  - /plugins/code-documentation/agents/docs-architect.md
+  - /plugins/code-documentation/agents/code-reviewer.md
+  - /plugins/code-documentation/agents/tutorial-engineer.md
+  - /plugins/security-compliance/commands/compliance-check.md
+  - /plugins/security-compliance/agents/security-auditor.md
+  - /plugins/business-analytics/skills/kpi-dashboard-design/SKILL.md
+  - /plugins/business-analytics/skills/data-storytelling/SKILL.md
+  - /plugins/business-analytics/agents/business-analyst.md
+  - /plugins/dependency-management/commands/deps-audit.md
+  - /plugins/dependency-management/agents/legacy-modernizer.md
+
+analysis_status: pending_analyzer

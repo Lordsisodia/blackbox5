@@ -1,0 +1,155 @@
+extraction:
+  repo_name: "claude_agent_sdk_rust"
+  repo_url: "https://github.com/Wally869/claude_agent_sdk_rust"
+  extracted_at: "2026-02-04T02:44:05Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024045"
+
+metadata:
+  stars: 0
+  last_commit: "2025-10-24"
+  languages: "rs"
+  file_count: 32
+
+structure: |
+  Cargo.lock
+  Cargo.toml
+  docs/API_GUIDE.md
+  docs/USAGE_ENDPOINT.md
+  examples/basic.rs
+  examples/interactive.rs
+  examples/session_resume.rs
+  examples/usage_tracking.rs
+  examples/with_callbacks.rs
+  examples/with_options.rs
+  .gitignore
+  README.md
+  src/callbacks.rs
+  src/client.rs
+  src/error.rs
+  src/lib.rs
+  src/parser.rs
+  src/query.rs
+  src/transport/mod.rs
+  src/transport/subprocess.rs
+  src/types/agents.rs
+  src/types/content.rs
+  src/types/control.rs
+  src/types/hooks.rs
+  src/types/mcp.rs
+  src/types/messages.rs
+  src/types/mod.rs
+  src/types/options.rs
+  src/types/permissions.rs
+  src/types/usage.rs
+  tests/integration_test.rs
+  tests/test_pretooluse_hook.rs
+
+readme_summary: |
+  # Claude Agent SDK for Rust
+  
+  Rust SDK for building production-ready AI agents with Claude. Replicate the full feature set of the Python Claude Agent SDK with idiomatic Rust patterns.
+  
+  ## Overview
+  
+  The Claude Agent SDK enables you to build powerful AI agents using Claude Code's agent harness. This SDK wraps the Claude Code CLI, providing type-safe access to:
+  
+  - Automatic context management and compaction
+  - 20+ built-in tools (file operations, code execution, web search)
+  - Custom MCP (Model Context Protocol) tools
+  - Fine-grained permission controls
+  - Hook system for deterministic behavior
+  - Interactive bidirectional conversations
+  - Usage tracking and quota monitoring (Max Plan)
+  
+  ## Prerequisites
+  
+  - **Rust**: 1.70 or higher
+  - **Claude Code CLI**: 2.0.0 or higher
+  - **Node.js**: Required to install Claude Code
+  - **Authentication**: Claude subscription (Pro, Team, or Enterprise) or Anthropic API key
+  
+  ## Installation
+  
+  ### 1. Install Claude Code CLI
+  
+  ```bash
+  npm install -g @anthropic-ai/claude-code
+  ```
+  
+  Verify installation:
+  ```bash
+  claude -v
+  # Should output: 2.0.0 or higher
+  ```
+  
+  ### 2. Add SDK to Your Project
+  
+  ```toml
+  [dependencies]
+  claude-agent-sdk = "0.1"
+  tokio = { version = "1", features = ["full"] }
+  futures = "0.3"
+  ```
+  
+  ## Authentication Setup
+  
+  Claude Code supports multiple authentication methods:
+  
+  ### Option 1: Claude Subscription (Recommended)
+  
+  If you have a Claude Pro, Team, or Enterprise subscription:
+  
+  ```bash
+  claude setup-token
+  ```
+  
+  This will authenticate using your Claude subscription. No additional configuration needed!
+  
+  ### Option 2: API Key
+  
+  If you're using an Anthropic API key:
+  
+  1. Get your API key from https://console.anthropic.com/account/keys
+  2. Set the environment variable:
+  
+  **Linux/macOS:**
+  ```bash
+  export ANTHROPIC_API_KEY="sk-ant-..."
+  ```
+  
+  **Windows (PowerShell):**
+  ```powershell
+  $env:ANTHROPIC_API_KEY="sk-ant-..."
+  ```
+  
+  **Windows (Command Prompt):**
+  ```cmd
+  set ANTHROPIC_API_KEY=sk-ant-...
+  ```
+  
+  Verify authentication works:
+  ```bash
+  claude --print "Hello, Claude!"
+  ```
+  
+  ## Quick Start
+  
+  ### Simple Query
+  
+  ```rust
+  use claude_agent_sdk::{query, Message};
+  use futures::StreamExt;
+  
+  #[tokio::main]
+  async fn main() -> Result<(), Box<dyn std::error::Error>> {
+      let mut messages = query("What is 2 + 2?", None).await?;
+  
+      while let Some(msg) = messages.next().await {
+
+key_files:
+  - /docs/API_GUIDE.md
+  - /docs/USAGE_ENDPOINT.md
+  - /README.md
+
+analysis_status: pending_analyzer

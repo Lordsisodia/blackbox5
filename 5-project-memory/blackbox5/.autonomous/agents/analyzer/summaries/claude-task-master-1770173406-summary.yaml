@@ -1,0 +1,29 @@
+assessment:
+  category: mcp
+  complexity: high
+  key_concepts:
+  - mcp-servers
+  - claude-code
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: <a name="readme-top"></a>
+  recommended_action: immediate_review
+metrics:
+  file_count: 1253
+  languages: js
+  pattern_matches:
+    agents: 0
+    automation: 0
+    claude: 14
+    hooks: 0
+    mcp: 9
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-task-master-1770173406.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:53:06.073607Z'
+  repo_name: claude-task-master
+  repo_url: https://github.com/eyaltoledano/claude-task-master
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

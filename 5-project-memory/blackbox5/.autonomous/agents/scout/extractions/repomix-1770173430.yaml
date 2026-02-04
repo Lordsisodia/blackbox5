@@ -1,0 +1,190 @@
+extraction:
+  repo_name: "repomix"
+  repo_url: "https://github.com/yamadashy/repomix"
+  extracted_at: "2026-02-04T02:50:31Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024757"
+
+metadata:
+  stars: 0
+  last_commit: "2026-02-03"
+  languages: "ts"
+  file_count: 969
+
+structure: |
+  .github/actions/repomix/action.yml
+  .github/assets/github-like-sponsor-button.svg
+  .github/CODEOWNERS
+  .github/FUNDING.yml
+  .github/instructions/base.instructions.md
+  .github/ISSUE_TEMPLATE/01_feature_request.yml
+  .github/ISSUE_TEMPLATE/02_bug_report.yml
+  .github/ISSUE_TEMPLATE/config.yml
+  .github/pull_request_template.md
+  .github/releases/v0.1.x/v0.1.15.md
+  .github/releases/v0.1.x/v0.1.16.md
+  .github/releases/v0.1.x/v0.1.19.md
+  .github/releases/v0.1.x/v0.1.20.md
+  .github/releases/v0.1.x/v0.1.21.md
+  .github/releases/v0.1.x/v0.1.22.md
+  .github/releases/v0.1.x/v0.1.23.md
+  .github/releases/v0.1.x/v0.1.25.md
+  .github/releases/v0.1.x/v0.1.26.md
+  .github/releases/v0.1.x/v0.1.27.md
+  .github/releases/v0.1.x/v0.1.29.md
+  .github/releases/v0.1.x/v0.1.30.md
+  .github/releases/v0.1.x/v0.1.31.md
+  .github/releases/v0.1.x/v0.1.32.md
+  .github/releases/v0.1.x/v0.1.33.md
+  .github/releases/v0.1.x/v0.1.34.md
+  .github/releases/v0.1.x/v0.1.35.md
+  .github/releases/v0.1.x/v0.1.36.md
+  .github/releases/v0.1.x/v0.1.38.md
+  .github/releases/v0.1.x/v0.1.39.md
+  .github/releases/v0.1.x/v0.1.41.md
+  .github/releases/v0.1.x/v0.1.42.md
+  .github/releases/v0.1.x/v0.1.43.md
+  .github/releases/v0.1.x/v0.1.44.md
+  .github/releases/v0.1.x/v0.1.45.md
+  .github/workflows/autofix.yml
+  .github/workflows/benchmark.yml
+  .github/workflows/ci.yml
+  .github/workflows/claude-code-review.yml
+  .github/workflows/claude-issue-similar.yml
+  .github/workflows/claude-issue-triage.yml
+  .github/workflows/claude.yml
+  .github/workflows/codeql.yml
+  .github/workflows/docker.yml
+  .github/workflows/homebrew.yml
+  .github/workflows/npm-publish.yml
+  .github/workflows/pack-repository.yml
+  .github/workflows/pinact.yml
+  .github/workflows/schema-update.yml
+  .github/workflows/test-action.yml
+  .oxlintrc.json
+
+readme_summary: |
+  <div align="center" markdown="1">
+     <sup>Special thanks to:</sup>
+     <br>
+     <br>
+     <a href="https://go.warp.dev/repomix">
+        <img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/main/Github/Sponsor/Warp-Github-LG-01.png">
+     </a>
+  
+  ### [Warp, built for coding with multiple AI agents](https://go.warp.dev/repomix)
+  [Available for MacOS, Linux, & Windows](https://go.warp.dev/repomix)<br>
+  
+     <br>
+  
+     <a href="https://tuple.app/repomix">
+        <img alt="Tuple sponsorship" width="400" src="website/client/src/public/images/sponsors/tuple/github_repo_sponsorship.png">
+     </a>
+  
+  ### [Tuple, the premier screen sharing app for developers on macOS and Windows.](https://tuple.app/repomix)
+  
+  </div>
+  
+  
+  <hr />
+  
+  <div align="center">
+    <a href="https://repomix.com">
+      <img src="website/client/src/public/images/repomix-title.png" alt="Repomix" width="500" height="auto" />
+    </a>
+    <p align="center">
+      <b>Pack your codebase into AI-friendly formats</b>
+    </p>
+  </div>
+  
+  <p align="center">
+    <a href="https://repomix.com"><b>Use Repomix online! 👉 repomix.com</b></a><br>
+  </p>
+  
+  <p align="center">
+    Need discussion? Join us on <a href="https://discord.gg/wNYzTwZFku">Discord</a>!<br>
+    <i>Share your experience and tips</i><br>
+    <i>Stay updated on new features</i><br>
+    <i>Get help with configuration and usage</i><br>
+  </p>
+  
+  <hr />
+  
+  [![npm](https://img.shields.io/npm/v/repomix.svg?maxAge=1000)](https://www.npmjs.com/package/repomix)
+  [![npm](https://img.shields.io/npm/d18m/repomix)](https://www.npmjs.com/package/repomix)
+  [![Actions Status](https://github.com/yamadashy/repomix/actions/workflows/ci.yml/badge.svg)](https://github.com/yamadashy/repomix/actions?query=workflow%3A"ci")
+  [![codecov](https://codecov.io/github/yamadashy/repomix/graph/badge.svg)](https://codecov.io/github/yamadashy/repomix)
+  [![Sponsors](https://img.shields.io/github/sponsors/yamadashy?logo=github)](https://github.com/sponsors/yamadashy)
+  [![Discord](https://badgen.net/discord/online-members/wNYzTwZFku?icon=discord&label=discord)](https://discord.gg/wNYzTwZFku)
+  
+  [![DeepWiki](https://img.shields.io/badge/DeepWiki-yamadashy%2Frepomix-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEPtmUtyEzEQhtWTQyQLHNak2AB7ZnyXZMEjXMGeK/AIi+QuHrMnbChYY7MIh8g01fJoopFb0uhhEqqcbWTp06/uv1saEDv4O3n3dV60RfP947Mm9/SQc0ICFQgzfc4CYZoTPAswgSJCCUJUnAAoRHOAUOcATwbmVLWdGoH//PB8mnKqScAhsD0kYP3j/Yt5LPQe2KvcXmGvRHcDnpxfL2zOYJ1mFwrryWTz0advv1Ut4CJgf5uhDuDj5eUcAUoahrdY/56ebRWeraTjMt/00Sh3UDtjgHtQNHwcRGOC98BJEAEymycmYcWwOprTgcB6VZ5JK5TAJ+fXGLBm3FDAmn6oPPjR4rKCAoJCal2eAiQp2x0vxTPB3ALO2CRkwmDy5WohzBDwSEFKRwPbknEggCPB/imwrycgxX2NzoMCHhPkDwqYMr9tRcP5qNrMZHkVnOjRMWwLCcr8ohBVb1OMjxLwGCvjTikrsBOiA6fNyCrm8V1rP93iVPpwaE+gO0SsWmPiXB+jikdf6SizrT5qKasx5j8ABbHpFTx+vFXp9EnYQmLx02h1QTTrl6eDqxLnGjporxl3NL3agEvXdT0WmEost648sQOYAeJS9Q7bfUVoMGnjo4AZdUMQku50McDcMWcBPvr0SzbTAFDfvJqwLzgxwATnCgnp4wDl6Aa+Ax283gghmj+vj7feE2KBBRMW3FzOpLOADl0Isb5587h/U4gGvkt5v60Z1VLG8BhYjbzRwyQZemwAd6cCR5/XFWLYZRIMpX39AR0tjaGGiGzLVyhse5C9RKC6ai42ppWPKiBagOvaYk8lO7DajerabOZP46Lby5wKjw1HCRx7p9sVMOWGzb/vA1hwiWc6jm3MvQDTogQkiqIhJV0nBQBTU+3okKCFDy9WwferkHjtxib7t3xIUQtHxnIwtx4mpg26/HfwVNVDb4oI9RHmx5WGelRVlrtiw43zboCLaxv46AZeB3IlTkwouebTr1y2NjSpHz68WNFjHvupy3q8TFn3Hos2IAk4Ju5dCo8B3wP7VPr/FGaKiG+T+v+TQqIrOqMTL1VdWV1DdmcbO8KXBz6esmYWYKPwDL5b5FA1a0hwapHiom0r/cKaoqr+27/XcrS5UwSMbQAAAABJRU5ErkJggg==)](https://deepwiki.com/yamadashy/repomix)
+  <!-- DeepWiki badge generated by https://deepwiki.ryoppippi.com/ -->
+  
+  📦 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly file.  
+  It is perfect for when you need to feed your codebase to Large Language Models (LLMs) or other AI tools like Claude,
+  ChatGPT, DeepSeek, Perplexity, Gemini, Gemma, Llama, Grok, and more.
+  
+  Please consider sponsoring me.
+  
+  [![Sponsor](.github/assets/github-like-sponsor-button.svg)](https://github.com/sponsors/yamadashy)
+  
+  [![Sponsors](https://cdn.jsdelivr.net/gh/yamadashy/sponsor-list/sponsors/sponsors.png)](https://github.com/sponsors/yamadashy)
+  
+  ## 🏆 Open Source Awards Nomination
+  
+  We're honored! Repomix has been nominated for the **Powered by AI** category at the [JSNation Open Source Awards 2025](https://osawards.com/javascript/).
+  
+  This wouldn't have been possible without all of you using and supporting Repomix. Thank you!
+  
+  ## 🎉 New: Repomix Website & Discord Community!
+  
+  - Try Repomix in your browser at [repomix.com](https://repomix.com/)
+  - Join our [Discord Server](https://discord.gg/wNYzTwZFku) for support and discussion
+  
+  **We look forward to seeing you there!**
+  
+  ## 🌟 Features
+  
+  - **AI-Optimized**: Formats your codebase in a way that's easy for AI to understand and process.
+  - **Token Counting**: Provides token counts for each file and the entire repository, useful for LLM context limits.
+  - **Simple to Use**: You need just one command to pack your entire repository.
+  - **Customizable**: Easily configure what to include or exclude.
+  - **Git-Aware**: Automatically respects your `.gitignore`, `.ignore`, and `.repomixignore` files.
+  - **Security-Focused**: Incorporates [Secretlint](https://github.com/secretlint/secretlint) for robust security checks to detect and prevent inclusion of sensitive information.
+  - **Code Compression**: The `--compress` option uses [Tree-sitter](https://github.com/tree-sitter/tree-sitter) to extract key code elements, reducing token count while preserving structure.
+  
+  ## 🚀 Quick Start
+  
+  ### Using the CLI Tool `>_`
+  
+  You can try Repomix instantly in your project directory without installation:
+  
+  ```bash
+  npx repomix@latest
+  ```
+  
+  Or install globally for repeated use:
+
+key_files:
+  - /.oxlintrc.json
+  - /.github/instructions/base.instructions.md
+  - /.github/workflows/schema-update.yml
+  - /.github/workflows/codeql.yml
+  - /.github/workflows/homebrew.yml
+  - /.github/workflows/claude-code-review.yml
+  - /.github/workflows/docker.yml
+  - /.github/workflows/test-action.yml
+  - /.github/workflows/ci.yml
+  - /.github/workflows/benchmark.yml
+  - /.github/workflows/claude.yml
+  - /.github/workflows/claude-issue-triage.yml
+  - /.github/workflows/pinact.yml
+  - /.github/workflows/claude-issue-similar.yml
+  - /.github/workflows/npm-publish.yml
+  - /.github/workflows/autofix.yml
+  - /.github/workflows/pack-repository.yml
+  - /.github/actions/repomix/action.yml
+  - /.github/FUNDING.yml
+  - /.github/ISSUE_TEMPLATE/02_bug_report.yml
+
+analysis_status: pending_analyzer

@@ -1,0 +1,158 @@
+extraction:
+  repo_name: "claude-agent-sdk-demos"
+  repo_url: "https://github.com/anthropics/claude-agent-sdk-demos"
+  extracted_at: "2026-02-04T02:34:13Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-023343"
+
+metadata:
+  stars: 1341
+  last_commit: "2026-01-08"
+  languages: "ts,js,py"
+  file_count: 257
+
+structure: |
+  excel-demo/agent/CLAUDE.MD
+  excel-demo/agent/.claude/skills/xlsx/LICENSE.txt
+  excel-demo/agent/.claude/skills/xlsx/recalc.py
+  excel-demo/agent/.claude/skills/xlsx/SKILL.md
+  excel-demo/agent/README.md
+  excel-demo/agent/requirements.txt
+  excel-demo/assets/assets.d.ts
+  excel-demo/assets/entitlements.mac.plist
+  excel-demo/assets/icon.icns
+  excel-demo/assets/icon.ico
+  excel-demo/assets/icon.png
+  excel-demo/assets/icons/1024x1024.png
+  excel-demo/assets/icons/128x128.png
+  excel-demo/assets/icons/16x16.png
+  excel-demo/assets/icons/24x24.png
+  excel-demo/assets/icons/256x256.png
+  excel-demo/assets/icons/32x32.png
+  excel-demo/assets/icons/48x48.png
+  excel-demo/assets/icons/512x512.png
+  excel-demo/assets/icons/64x64.png
+  excel-demo/assets/icons/96x96.png
+  excel-demo/assets/icon.svg
+  excel-demo/.erb/configs/.eslintrc
+  excel-demo/.erb/configs/webpack.config.base.ts
+  excel-demo/.erb/configs/webpack.config.eslint.ts
+  excel-demo/.erb/configs/webpack.config.main.dev.ts
+  excel-demo/.erb/configs/webpack.config.main.prod.ts
+  excel-demo/.erb/configs/webpack.config.preload.dev.ts
+  excel-demo/.erb/configs/webpack.config.renderer.dev.dll.ts
+  excel-demo/.erb/configs/webpack.config.renderer.dev.ts
+  excel-demo/.erb/configs/webpack.config.renderer.prod.ts
+  excel-demo/.erb/configs/webpack.paths.ts
+  excel-demo/.erb/img/erb-banner.svg
+  excel-demo/.erb/img/erb-logo.png
+  excel-demo/.erb/img/palette-sponsor-banner.svg
+  excel-demo/.erb/mocks/fileMock.js
+  excel-demo/.erb/scripts/check-build-exists.ts
+  excel-demo/.erb/scripts/check-native-dep.ts
+  excel-demo/.erb/scripts/check-node-env.js
+  excel-demo/.erb/scripts/check-port-in-use.js
+  excel-demo/.erb/scripts/clean.js
+  excel-demo/.erb/scripts/delete-source-maps.js
+  excel-demo/.erb/scripts/electron-rebuild.js
+  excel-demo/.erb/scripts/.eslintrc
+  excel-demo/.erb/scripts/link-modules.ts
+  excel-demo/.erb/scripts/notarize.js
+  excel-demo/.eslintignore
+  excel-demo/.gitattributes
+  excel-demo/LICENSE
+  excel-demo/tsconfig.json
+
+readme_summary: |
+  # Claude Agent SDK Demos
+  
+  > ⚠️ **IMPORTANT**: These are demo applications by Anthropic. They are intended for local development only and should NOT be deployed to production or used at scale.
+  
+  This repository contains multiple demonstrations of the [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview), showcasing different ways to build AI-powered applications with Claude.
+  
+  ## Available Demos
+  
+  ### 📧 [Email Agent](./email-agent)
+  An in-development IMAP email assistant that can:
+  - Display your inbox
+  - Perform agentic search to find emails
+  - Provide AI-powered email assistance
+  
+  ### 📊 [Excel Demo](./excel-demo)
+  Demonstrations of working with spreadsheets and Excel files using Claude.
+  
+  ### 👋 [Hello World](./hello-world)
+  A simple getting-started example to help you understand the basics of the Claude Agent SDK.
+  
+  ### 🔬 [Research Agent](./research-agent)
+  A multi-agent research system that coordinates specialized subagents to research topics and generate comprehensive reports:
+  - Breaks research requests into subtopics
+  - Spawns parallel researcher agents to search the web
+  - Synthesizes findings into detailed reports
+  - Demonstrates detailed subagent activity tracking
+  
+  ## Quick Start
+  
+  Each demo has its own directory with dedicated setup instructions. Navigate to the specific demo folder and follow its README for setup and usage details.
+  
+  
+  ## Prerequisites
+  
+  - [Bun](https://bun.sh) runtime (or Node.js 18+)
+  - An Anthropic API key ([get one here](https://console.anthropic.com))
+  
+  ## Getting Started
+  
+  1. **Clone the repository**
+  ```bash
+  git clone https://github.com/anthropics/claude-agent-sdk-demos.git
+  cd claude-agent-sdk-demos
+  ```
+  
+  2. **Choose a demo and navigate to its directory**
+  ```bash
+  cd email-agent  # or excel-demo, or hello-world
+  ```
+  
+  3. **Follow the demo-specific README** for setup and usage instructions
+  
+  ## Resources
+  
+  - [Claude Agent SDK Documentation](https://docs.anthropic.com/en/docs/claude-code/sdk/sdk-overview)
+  - [API Reference](https://docs.anthropic.com/claude)
+  - [GitHub Issues](https://github.com/anthropics/claude-agent-sdk-demos/issues)
+  
+  ## Support
+  
+  These are demo applications provided as-is. For issues related to:
+  - **Claude Agent SDK**: [SDK Documentation](https://docs.anthropic.com/claude-code)
+  - **Demo Issues**: [GitHub Issues](https://github.com/anthropics/sdk-demos/issues)
+  - **API Questions**: [Anthropic Support](https://support.anthropic.com)
+  
+  ## License
+  
+  MIT - This is sample code for demonstration purposes.
+
+key_files:
+  - /excel-demo/agent/.claude/skills/xlsx/SKILL.md
+  - /excel-demo/agent/README.md
+  - /excel-demo/tsconfig.json
+  - /excel-demo/release/app/package.json
+  - /excel-demo/package.json
+  - /excel-demo/README.md
+  - /email-agent/UI_STATE_SYSTEM.md
+  - /email-agent/README_LISTENER.md
+  - /email-agent/CHANGELOG.md
+  - /email-agent/agent/.claude/skills/action-creator/SKILL.md
+  - /email-agent/agent/.claude/skills/listener-creator/SKILL.md
+  - /email-agent/agent/.claude/agents/inbox-searcher.md
+  - /email-agent/.releaserc.json
+  - /email-agent/ACTIONS_SPEC.md
+  - /email-agent/tsconfig.json
+  - /email-agent/LISTENERS_SPEC.md
+  - /email-agent/database/migrations/README.md
+  - /email-agent/package.json
+  - /email-agent/UI_STATE_COMPONENTS_SPEC.md
+  - /email-agent/recursive-code-generation.md
+
+analysis_status: pending_analyzer

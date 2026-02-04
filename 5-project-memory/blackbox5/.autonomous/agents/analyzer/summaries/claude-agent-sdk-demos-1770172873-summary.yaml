@@ -1,0 +1,29 @@
+assessment:
+  category: agents
+  complexity: high
+  key_concepts:
+  - agents
+  - claude-code
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Agent SDK Demos'
+  recommended_action: immediate_review
+metrics:
+  file_count: 257
+  languages: ts,js,py
+  pattern_matches:
+    agents: 19
+    automation: 0
+    claude: 14
+    hooks: 0
+    mcp: 0
+    skills: 0
+  stars: 1341
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-agent-sdk-demos-1770172873.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:51:49.954138Z'
+  repo_name: claude-agent-sdk-demos
+  repo_url: https://github.com/anthropics/claude-agent-sdk-demos
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

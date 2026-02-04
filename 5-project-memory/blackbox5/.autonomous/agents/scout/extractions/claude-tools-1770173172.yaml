@@ -1,0 +1,136 @@
+extraction:
+  repo_name: "claude-tools"
+  repo_url: "https://github.com/tarekziade/claude-tools"
+  extracted_at: "2026-02-04T02:46:13Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024448"
+
+metadata:
+  stars: 0
+  last_commit: "2025-12-18"
+  languages: "py"
+  file_count: 13
+
+structure: |
+  .claude/hooks/compact-traceback-logged.sh
+  .claude/hooks/compact-traceback.sh
+  CLAUDE.md
+  .claude/settings.json
+  ctools/__init__.py
+  ctools/trace_compactor.py
+  .gitignore
+  Makefile
+  pyproject.toml
+  README.md
+  tests/__init__.py
+  tests/test_cli.py
+  tests/test_trace_compactor.py
+
+readme_summary: |
+  # claude-tools
+  
+  Hooks and tools for Claude Code to enhance your development workflow.
+  
+  ## Overview
+  
+  A collection of utilities designed to integrate seamlessly with [Claude Code](https://code.claude.com), Anthropic's official CLI tool. These tools use Claude Code's powerful hooks system to automatically improve the quality of information sent to the AI.
+  
+  ### What are Claude Code Hooks?
+  
+  Claude Code hooks are user-defined shell commands that execute automatically at various points in Claude Code's lifecycle. They provide **deterministic control** over Claude Code's behavior by running actual code rather than relying on the LLM to choose to run them. Hooks can modify, approve, or block tool executions, add context, and automate workflows.
+  
+  ## Tools
+  
+  ### 🔧 Trace Compactor
+  
+  A dependency-free Python module that automatically detects Python tracebacks in your prompts and replaces them with compact summaries. This dramatically reduces token usage while preserving the essential debugging information Claude needs.
+  
+  **Perfect for:**
+  - Debugging sessions with large stack traces
+  - Reducing context window usage
+  - Preserving relevant frames while filtering noise
+  - Automatic deduplication of similar errors
+  
+  **Key features:**
+  - Detects traceback blocks with robust regex patterns
+  - Intelligently scores and prioritizes relevant stack frames
+  - Compacts aggressively (no file I/O, no locals) to reduce token size
+  - Deterministic fingerprinting for error deduplication
+  - Project-aware: prioritizes frames from your code over stdlib/site-packages
+  - Zero dependencies - pure Python implementation
+  
+  **Example transformation:**
+  
+  Before (250+ tokens):
+  ```
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1130, in _main
+      rv = self.invoke(ctx)
+    File "/usr/local/lib/python3.11/site-packages/click/core.py", line 1657, in invoke
+      return _process_result(sub_ctx.command.invoke(sub_ctx))
+    File "/home/user/myproject/api/handlers.py", line 45, in handle_request
+      result = process_data(payload)
+    File "/home/user/myproject/api/processor.py", line 123, in process_data
+      return data['items'][0]['value']
+  KeyError: 'value'
+  ```
+  
+  After (40 tokens):
+  ```
+  <COMPACT_PY_TRACEBACK fingerprint=a3f5d91b2c>
+  Exception: KeyError: 'value'
+  
+  Relevant frames:
+  - processor.py:123 in process_data → return data['items'][0]['value']
+  - handlers.py:45 in handle_request → result = process_data(payload)
+  </COMPACT_PY_TRACEBACK>
+  ```
+  
+  ## Installation
+  
+  ### From GitHub (Latest)
+  
+  ```bash
+  pip install git+https://github.com/tarekziade/claude-tools.git
+  ```
+  
+  ### From PyPI (Coming Soon)
+  
+  ```bash
+  pip install claude-tools
+  ```
+  
+  ### For Development
+  
+  ```bash
+  git clone https://github.com/tarekziade/claude-tools.git
+  cd claude-tools
+  pip install -e .
+  ```
+  
+  ## Usage
+  
+  ### As a Claude Code Hook (Recommended)
+  
+  The most powerful way to use the trace compactor is as a Claude Code hook that automatically processes tracebacks in **two places**:
+  1. **User prompts** - When you paste tracebacks
+  2. **Tool outputs** - When Claude runs Python scripts that fail
+  
+  **1. Install claude-tools:**
+  
+  ```bash
+  pip install git+https://github.com/tarekziade/claude-tools.git
+  ```
+  
+  **2. Configure BOTH hooks in your Claude settings:**
+  
+  Add to `~/.claude/settings.json` (global) or `.claude/settings.json` (project-specific):
+  
+  ```json
+
+key_files:
+  - /.claude/settings.json
+  - /CLAUDE.md
+  - /README.md
+
+analysis_status: pending_analyzer

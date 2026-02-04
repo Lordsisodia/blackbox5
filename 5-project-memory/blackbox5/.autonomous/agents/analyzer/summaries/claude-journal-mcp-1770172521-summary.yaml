@@ -1,0 +1,33 @@
+assessment:
+  category: hooks
+  complexity: medium
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - skills
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Journal - Claude Code Plugin'
+  recommended_action: immediate_review
+metrics:
+  file_count: 28
+  languages: py,js
+  pattern_matches:
+    agents: 4
+    automation: 2
+    claude: 15
+    hooks: 3
+    mcp: 8
+    skills: 5
+  stars: 4
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-journal-mcp-1770172521.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:52:50.276552Z'
+  repo_name: claude-journal-mcp
+  repo_url: https://github.com/chrismbryant/claude-journal-mcp
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

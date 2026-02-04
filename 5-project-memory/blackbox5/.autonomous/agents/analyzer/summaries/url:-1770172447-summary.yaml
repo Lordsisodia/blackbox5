@@ -1,0 +1,27 @@
+assessment:
+  category: general
+  complexity: low
+  key_concepts: []
+  relevance_score: 0.0
+insights:
+  integration_potential: low
+  primary_purpose: Unknown
+  recommended_action: archive
+metrics:
+  file_count: 0
+  languages: ''
+  pattern_matches:
+    agents: 0
+    automation: 0
+    claude: 0
+    hooks: 0
+    mcp: 0
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/url:-1770172447.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:54:04.771594Z'
+  repo_name: 'url:'
+  repo_url: 'url:'
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

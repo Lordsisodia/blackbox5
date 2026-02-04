@@ -1,0 +1,32 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Agent SDK for Python'
+  recommended_action: immediate_review
+metrics:
+  file_count: 85
+  languages: py
+  pattern_matches:
+    agents: 16
+    automation: 1
+    claude: 28
+    hooks: 1
+    mcp: 5
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-agent-sdk-python-1770173105.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:52:09.922635Z'
+  repo_name: claude-agent-sdk-python
+  repo_url: https://github.com/anthropics/claude-agent-sdk-python
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

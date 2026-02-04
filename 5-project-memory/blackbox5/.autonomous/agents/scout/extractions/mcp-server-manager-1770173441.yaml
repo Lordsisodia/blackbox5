@@ -1,0 +1,141 @@
+extraction:
+  repo_name: "mcp-server-manager"
+  repo_url: "https://github.com/KalinYorgov/mcp-server-manager"
+  extracted_at: "2026-02-04T02:50:42Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024757"
+
+metadata:
+  stars: 0
+  last_commit: "2025-09-11"
+  languages: "py"
+  file_count: 18
+
+structure: |
+  claude_mcp_detector.py
+  .github/workflows/tests.yml
+  .gitignore
+  INSTALL.md
+  install.sh
+  LICENSE
+  Makefile
+  MANIFEST.in
+  mcp_manager.py
+  pyproject.toml
+  README.md
+  requirements-dev.txt
+  requirements.txt
+  screenshots/detailed-view.png
+  screenshots/interactive-mode.png
+  screenshots/list-view.png
+  setup.py
+  tests/test_mcp_manager.py
+
+readme_summary: |
+  # MCP Server Manager for Claude 🎛️
+  
+  A powerful CLI tool to manage MCP (Model Context Protocol) servers across **Claude Desktop** and **Claude Code**. Enable, disable, and manage your MCP servers without losing configuration!
+  
+  ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+  ![License](https://img.shields.io/badge/license-MIT-green)
+  ![Claude Desktop](https://img.shields.io/badge/Claude%20Desktop-Compatible-purple)
+  ![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-orange)
+  
+  ## 🌟 Features
+  
+  - **🔍 Auto-detects** Claude Desktop and Claude Code installations
+  - **🎯 Manages servers across all configuration levels** (Desktop, User, Project, Local)
+  - **🎨 Color-coded display** - Different colors for different configuration sources
+  - **💾 Preserves configurations** when disabling servers
+  - **🔄 Interactive mode** for easy management
+  - **📁 Works in any project directory** after global installation
+  - **🔐 Automatic backups** before making changes
+  
+  ## 📸 Screenshots
+  
+  ### List View
+  ![MCP List View](screenshots/list-view.png)
+  *Shows all MCP servers with their status and configuration source*
+  
+  ### Interactive Mode
+  ![Interactive Mode](screenshots/interactive-mode.png)
+  *Toggle multiple servers easily with interactive selection*
+  
+  ### Detailed View
+  ![Detailed View](screenshots/detailed-view.png)
+  *Detailed configuration information for each server*
+  
+  ## 🚀 Quick Start
+  
+  ### 1. Clone the Repository
+  ```bash
+  git clone https://github.com/yourusername/mcp-server-manager.git
+  cd mcp-server-manager
+  ```
+  
+  ### 2. Install Globally (Recommended)
+  ```bash
+  # Automatic installation
+  chmod +x install.sh
+  ./install.sh
+  
+  # OR Manual installation
+  sudo cp mcp_manager.py /usr/local/bin/mcp-manager
+  sudo chmod +x /usr/local/bin/mcp-manager
+  sudo ln -s /usr/local/bin/mcp-manager /usr/local/bin/mcp
+  ```
+  
+  ### 3. Use from Any Project!
+  ```bash
+  cd /any/project/directory
+  mcp list  # See all MCP servers for this context
+  ```
+  
+  ## 🎮 Usage
+  
+  ### Basic Commands
+  
+  ```bash
+  # List all MCP servers
+  mcp list
+  
+  # Detailed view with configuration info
+  mcp list -d
+  
+  # Interactive mode (easiest way to manage servers)
+  mcp interactive
+  
+  # Toggle a specific server
+  mcp toggle github
+  
+  # Get help
+  mcp --help
+  ```
+  
+  ### Managing Servers by Application
+  
+  ```bash
+  # Manage only Claude Desktop servers
+  mcp --app desktop list
+  mcp --app desktop interactive
+  
+  # Manage only Claude Code servers
+  mcp --app code list
+  mcp --app code interactive
+  
+  # Auto-detect (default)
+  mcp list
+  ```
+  
+  ## 🎯 Interactive Mode
+  
+  The interactive mode is the easiest way to manage your servers:
+  
+  ```bash
+
+key_files:
+  - /.github/workflows/tests.yml
+  - /INSTALL.md
+  - /README.md
+
+analysis_status: pending_analyzer

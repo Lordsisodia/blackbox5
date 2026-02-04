@@ -1,0 +1,189 @@
+extraction:
+  repo_name: "Continuous-Claude-v3"
+  repo_url: "https://github.com/parcadei/Continuous-Claude-v3"
+  extracted_at: "2026-02-04T02:49:00Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024757"
+
+metadata:
+  stars: 0
+  last_commit: "2026-01-26"
+  languages: "py"
+  file_count: 942
+
+structure: |
+  proofs/category_test.lean
+  proofs/check_api.lean
+  proofs/check_axioms.lean
+  proofs/check_axioms_new.lean
+  proofs/check_dvd.lean
+  proofs/check_lemmas4.lean
+  proofs/check_lemmas.lean
+  proofs/check_padic2.lean
+  proofs/check_padic.lean
+  proofs/explore_kelly.lean
+  proofs/fix_apis2.lean
+  proofs/fix_apis.lean
+  proofs/nat_trans_test.lean
+  proofs/PSqAbelian.lean
+  proofs/p_squared_abelian.lean
+  proofs/search_apis2.lean
+  proofs/search_infDist.lean
+  proofs/search_lemmas.lean
+  proofs/search_mathlib2.lean
+  proofs/search_mathlib4.lean
+  proofs/search_more.lean
+  proofs/search_pow2.lean
+  proofs/search_triangle.lean
+  proofs/test_area_approach.lean
+  proofs/test_cast10.lean
+  proofs/test_cast11.lean
+  proofs/test_cast2.lean
+  proofs/test_cast4.lean
+  proofs/test_cast5.lean
+  proofs/test_cast6.lean
+  proofs/test_cast8.lean
+  proofs/test_cast9.lean
+  proofs/test_cast.lean
+  proofs/test_center.lean
+  proofs/test_col_helper.lean
+  proofs/test_collinear_affine3.lean
+  proofs/test_coord2.lean
+  proofs/test_coord3.lean
+  proofs/test_coord.lean
+  proofs/test_hook.lean
+  proofs/test_monsky_examples.lean
+  proofs/test_pair3.lean
+  proofs/test_pair5.lean
+  proofs/test_pair8.lean
+  proofs/test_pair9.lean
+  proofs/test_pythag_approach.lean
+  proofs/test_pythag.lean
+  proofs/test_wbtw.lean
+  proofs/wedderburn_little.lean
+  .tldrignore
+
+readme_summary: |
+  # Continuous Claude
+  
+  > A persistent, learning, multi-agent development environment built on Claude Code
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![Claude Code](https://img.shields.io/badge/Claude-Code-orange.svg)](https://claude.ai/code)
+  [![Skills](https://img.shields.io/badge/Skills-109-green.svg)](#skills-system)
+  [![Agents](https://img.shields.io/badge/Agents-32-purple.svg)](#agents-system)
+  [![Hooks](https://img.shields.io/badge/Hooks-30-blue.svg)](#hooks-system)
+  
+  **Continuous Claude** transforms Claude Code into a continuously learning system that maintains context across sessions, orchestrates specialized agents, and eliminates wasting tokens through intelligent code analysis.
+  
+  ## Table of Contents
+  
+  - [Why Continuous Claude?](#why-continuous-claude)
+  - [Design Principles](#design-principles)
+  - [How to Talk to Claude](#how-to-talk-to-claude)
+  - [Quick Start](#quick-start)
+  - [Architecture](#architecture)
+  - [Core Systems](#core-systems)
+    - [Skills (109)](#skills-system)
+    - [Agents (32)](#agents-system)
+    - [Hooks (30)](#hooks-system)
+    - [TLDR Code Analysis](#tldr-code-analysis)
+    - [Memory System](#memory-system)
+    - [Continuity System](#continuity-system)
+    - [Math System](#math-system)
+  - [Workflows](#workflows)
+  - [Installation](#installation)
+  - [Updating](#updating)
+  - [Configuration](#configuration)
+  - [Contributing](#contributing)
+  - [License](#license)
+  
+  ---
+  
+  ## Why Continuous Claude?
+  
+  Claude Code has a **compaction problem**: when context fills up, the system compacts your conversation, losing nuanced understanding and decisions made during the session.
+  
+  **Continuous Claude solves this with:**
+  
+  | Problem | Solution |
+  |---------|----------|
+  | Context loss on compaction | YAML handoffs - more token-efficient transfer |
+  | Starting fresh each session | Memory system recalls + daemon auto-extracts learnings |
+  | Reading entire files burns tokens | 5-layer code analysis + semantic index |
+  | Complex tasks need coordination | Meta-skills orchestrate agent workflows |
+  | Repeating workflows manually | 109 skills with natural language triggers |
+  
+  **The mantra: Compound, don't compact.** Extract learnings automatically, then start fresh with full context.
+  
+  ### Why "Continuous"? Why "Compounding"?
+  
+  The name is a pun. **Continuous** because Claude maintains state across sessions. **Compounding** because each session makes the system smarter—learnings accumulate like compound interest.
+  
+  ---
+  
+  ## Design Principles
+  
+  An agent is five things: **Prompt + Tools + Context + Memory + Model**.
+  
+  | Component | What We Optimize |
+  |-----------|------------------|
+  | **Prompt** | Skills inject relevant context; hooks add system reminders |
+  | **Tools** | TLDR reduces tokens; agents parallelize work |
+  | **Context** | Not just *what* Claude knows, but *how* it's provided |
+  | **Memory** | Daemon extracts learnings; recall surfaces them |
+  | **Model** | Becomes swappable when the other four are solid |
+  
+  ### Anti-Complexity
+  
+  We resist plugin sprawl. Every MCP, subscription, and tool you add promises improvement but risks breaking context, tools, or prompts through clashes.
+  
+  **Our approach:**
+  - **Time, not money** — No required paid services. Perplexity and NIA are optional, high-value-per-token.
+  - **Learn, don't accumulate** — A system that learns handles edge cases better than one that collects plugins.
+  - **Shift-left validation** — Hooks run pyright/ruff after edits, catching errors before tests.
+  
+  The failure modes of complex systems are structurally invisible until they happen. A learning, context-efficient system doesn't prevent all failures—but it recovers and improves.
+  
+  ---
+  
+  ## How to Talk to Claude
+  
+  **You don't need to memorize slash commands.** Just describe what you want naturally.
+  
+  ### The Skill Activation System
+  
+  When you send a message, a hook injects context that tells **Claude** which skills and agents are relevant. Claude infers from a rule-based system and decides which tools to use.
+  
+  ```
+  > "Fix the login bug in auth.py"
+  
+  🎯 SKILL ACTIVATION CHECK
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  ⚠️ CRITICAL SKILLS (REQUIRED):
+    → create_handoff
+
+key_files:
+  - /proofs/lake-manifest.json
+  - /CONTRIBUTING.md
+  - /docker/docker-compose.yml
+  - /docs/ARCHITECTURE.md
+  - /docs/workflows/README.md
+  - /docs/skills/help.md
+  - /docs/skills/README.md
+  - /docs/QUICKSTART.md
+  - /docs/hooks/README.md
+  - /docs/TLDR.md
+  - /docs/tools/memory.md
+  - /docs/tools/math.md
+  - /docs/tools/tldr.md
+  - /docs/tools/README.md
+  - /docs/agents/README.md
+  - /docs/README.md
+  - /docs/MULTI-SESSION-ARCHITECTURE.md
+  - /docs/skill-activation.md
+  - /opc/scripts/SCRIPTS.md
+  - /opc/scripts/README.md
+
+analysis_status: pending_analyzer

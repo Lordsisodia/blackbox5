@@ -1,0 +1,190 @@
+extraction:
+  repo_name: "awesome-claude-code-plugins"
+  repo_url: "https://github.com/ccplugins/awesome-claude-code-plugins"
+  extracted_at: "2026-02-04T02:45:40Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024448"
+
+metadata:
+  stars: 0
+  last_commit: "2025-10-14"
+  languages: "py"
+  file_count: 251
+
+structure: |
+  LICENSE
+  plugins/analyze-codebase/.claude-plugin/plugin.json
+  plugins/analyze-codebase/commands/analyze-codebase.md
+  plugins/angelos-symbo/agents/angelos-symbo.md
+  plugins/angelos-symbo/.claude-plugin/plugin.json
+  plugins/backend-architect/agents/backend-architect.md
+  plugins/backend-architect/.claude-plugin/plugin.json
+  plugins/code-reviewer/agents/code-reviewer.md
+  plugins/code-reviewer/.claude-plugin/plugin.json
+  plugins/commit/.claude-plugin/plugin.json
+  plugins/commit/commands/commit.md
+  plugins/content-creator/agents/content-creator.md
+  plugins/content-creator/.claude-plugin/plugin.json
+  plugins/context7-docs-fetcher/agents/context7-docs-fetcher.md
+  plugins/context7-docs-fetcher/.claude-plugin/plugin.json
+  plugins/create-pull-request/.claude-plugin/plugin.json
+  plugins/create-pull-request/commands/create-pull-request.md
+  plugins/data-privacy-engineer/agents/data-privacy-engineer.md
+  plugins/data-privacy-engineer/.claude-plugin/plugin.json
+  plugins/desktop-app-dev/agents/desktop-app-dev.md
+  plugins/desktop-app-dev/.claude-plugin/plugin.json
+  plugins/enterprise-integrator-architect/agents/enterprise-integrator-architect.md
+  plugins/enterprise-integrator-architect/.claude-plugin/plugin.json
+  plugins/infrastructure-maintainer/agents/infrastructure-maintainer.md
+  plugins/infrastructure-maintainer/.claude-plugin/plugin.json
+  plugins/joker/agents/joker.md
+  plugins/joker/.claude-plugin/plugin.json
+  plugins/legal-compliance-checker/agents/legal-compliance-checker.md
+  plugins/legal-compliance-checker/.claude-plugin/plugin.json
+  plugins/lyra/.claude-plugin/plugin.json
+  plugins/lyra/commands/lyra.md
+  plugins/onomastophes/agents/onomastophes.md
+  plugins/onomastophes/.claude-plugin/plugin.json
+  plugins/pr-review/.claude-plugin/plugin.json
+  plugins/pr-review/commands/pr-review.md
+  plugins/python-expert/agents/python-expert.md
+  plugins/python-expert/.claude-plugin/plugin.json
+  plugins/security-guidance/.claude-plugin/plugin.json
+  plugins/security-guidance/hooks/hooks.json
+  plugins/security-guidance/hooks/security_reminder_hook.py
+  plugins/support-responder/agents/support-responder.md
+  plugins/support-responder/.claude-plugin/plugin.json
+  plugins/ui-designer/agents/ui-designer.md
+  plugins/ui-designer/.claude-plugin/plugin.json
+  plugins/ultrathink/.claude-plugin/plugin.json
+  plugins/ultrathink/commands/ultrathink.md
+  plugins/unit-test-generator/agents/unit-test-generator.md
+  plugins/unit-test-generator/.claude-plugin/plugin.json
+  plugins/update-branch-name/.claude-plugin/plugin.json
+  plugins/update-branch-name/commands/update-branch-name.md
+
+readme_summary: |
+  # Awesome Claude Code Plugins [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+  
+  [![English](https://img.shields.io/badge/English-Click-yellow)](README.md)
+  [![简体中文](https://img.shields.io/badge/简体中文-点击查看-orange)](README-zh.md)
+  
+  Awesome Claude Code plugins — a curated list of slash commands, subagents, MCP servers, and hooks for Claude Code
+  
+  * [What is Claude Code Plugin?](#what-is-claude-code-plugin)
+  * [Use Cases](#use-cases)
+  * [Plugins](#plugins)
+      - [Official Claude Code Plugins](#official-claude-code-plugins)
+      - [Workflow Orchestration](#workflow-orchestration)
+      - [Automation DevOps](#automation-devops)
+      - [Business Sales](#business-sales)
+      - [Code Quality Testing](#code-quality-testing)
+      - [Data Analytics](#data-analytics)
+      - [Design UX](#design-ux)
+      - [Development Engineering](#development-engineering)
+      - [Documentation](#documentation)
+      - [Git Workflow](#git-workflow)
+      - [Marketing Growth](#marketing-growth)
+      - [Project & Product Management](#project--product-management)
+      - [Security, Compliance, & Legal](#security-compliance--legal)
+  * [Tutorials](#tutorials)
+  * [Contributing](#contributing)
+  
+  ## What is Claude Code Plugin?
+  
+  [Claude Code Plugin](https://docs.claude.com/en/docs/claude-code/plugins) is lightweight package that let you customize and share your Claude Code setup.
+   Each plugin can include any combination of:
+  
+  - **Slash Commands** — Custom shortcuts for frequent operations
+  - **Subagents** — Purpose-built agents for specialized dev tasks
+  - **MCP Servers** — Integrations to tools and data sources via the Model Context Protocol
+  - **Hooks** — Extensions that modify Claude Code’s behavior at key workflow points
+  
+  Install or disable them dynamically with the `/plugin` command — enabling you to keep your system context focused and lightweight.
+  
+  ## Use Cases
+  
+  - **Enforce Standards:** Ensure specific hooks or workflows run consistently across your team
+  - **Support Users:** Package slash commands that simplify your framework or SDK usage
+  - **Share Workflows:** Publish debugging setups, deployment scripts, or testing harnesses
+  - **Connect Tools:** Integrate internal systems securely through MCP servers
+  - **Bundle Customizations:** Combine multiple extensions for a cohesive developer experience
+  
+  ## Plugins
+  
+  
+  ### Official Claude Code Plugins
+  - [agent-sdk-dev](./plugins/agent-sdk-dev)
+  - [pr-review-toolkit](./plugins/pr-review-toolkit")
+  - [commit-commands](./plugins/commit-commands)
+  - [feature-dev](./plugins/feature-dev)
+  - [security-guidance](./plugins/security-guidance)
+  
+  ### Workflow Orchestration
+  - [angelos-symbo](./plugins/angelos-symbo)
+  - [ceo-quality-controller-agent](./plugins/ceo-quality-controller-agent)
+  - [claude-desktop-extension](./plugins/claude-desktop-extension)
+  - [lyra](./plugins/lyra)
+  - [model-context-protocol-mcp-expert](./plugins/model-context-protocol-mcp-expert)
+  - [problem-solver-specialist](./plugins/problem-solver-specialist)
+  - [studio-coach](./plugins/studio-coach)
+  - [ultrathink](./plugins/ultrathink)
+  
+  ### Automation DevOps
+  - [deployment-engineer](./plugins/deployment-engineer)
+  - [devops-automator](./plugins/devops-automator)
+  - [infrastructure-maintainer](./plugins/infrastructure-maintainer)
+  - [monitoring-observability-specialist](./plugins/monitoring-observability-specialist)
+  - [n8n-workflow-builder](./plugins/n8n-workflow-builder)
+  
+  ### Business Sales
+  - [b2b-project-shipper](./plugins/b2b-project-shipper)
+  - [customer-success-manager](./plugins/customer-success-manager)
+  - [enterprise-onboarding-specialist](./plugins/enterprise-onboarding-specialist)
+  - [finance-tracker](./plugins/finance-tracker)
+  - [pricing-packaging-specialist](./plugins/pricing-packaging-specialist)
+  - [product-sales-specialist](./plugins/product-sales-specialist)
+  - [support-responder](./plugins/support-responder)
+  - [technical-sales-engineer](./plugins/technical-sales-engineer)
+  
+  ### Code Quality Testing
+  - [api-tester](./plugins/api-tester)
+  - [bug-detective](./plugins/bug-detective)
+  - [code-review](./plugins/code-review)
+  - [code-review-assistant](./plugins/code-review-assistant)
+  - [code-reviewer](./plugins/code-reviewer)
+  - [database-performance-optimizer](./plugins/database-performance-optimizer)
+  - [debug-session](./plugins/debug-session)
+  - [debugger](./plugins/debugger)
+  - [double-check](./plugins/double-check)
+  - [optimize](./plugins/optimize)
+  - [performance-benchmarker](./plugins/performance-benchmarker)
+  - [refractor](./plugins/refractor)
+  - [test-file](./plugins/test-file)
+  - [test-results-analyzer](./plugins/test-results-analyzer)
+  - [test-writer-fixer](./plugins/test-writer-fixer)
+  - [unit-test-generator](./plugins/unit-test-generator)
+
+key_files:
+  - /plugins/unit-test-generator/agents/unit-test-generator.md
+  - /plugins/unit-test-generator/.claude-plugin/plugin.json
+  - /plugins/legal-compliance-checker/agents/legal-compliance-checker.md
+  - /plugins/legal-compliance-checker/.claude-plugin/plugin.json
+  - /plugins/angelos-symbo/agents/angelos-symbo.md
+  - /plugins/angelos-symbo/.claude-plugin/plugin.json
+  - /plugins/python-expert/agents/python-expert.md
+  - /plugins/python-expert/.claude-plugin/plugin.json
+  - /plugins/desktop-app-dev/agents/desktop-app-dev.md
+  - /plugins/desktop-app-dev/.claude-plugin/plugin.json
+  - /plugins/joker/agents/joker.md
+  - /plugins/joker/.claude-plugin/plugin.json
+  - /plugins/update-branch-name/commands/update-branch-name.md
+  - /plugins/update-branch-name/.claude-plugin/plugin.json
+  - /plugins/lyra/commands/lyra.md
+  - /plugins/lyra/.claude-plugin/plugin.json
+  - /plugins/data-privacy-engineer/agents/data-privacy-engineer.md
+  - /plugins/data-privacy-engineer/.claude-plugin/plugin.json
+  - /plugins/ultrathink/commands/ultrathink.md
+  - /plugins/ultrathink/.claude-plugin/plugin.json
+
+analysis_status: pending_analyzer

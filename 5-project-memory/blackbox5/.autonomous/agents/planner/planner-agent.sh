@@ -283,7 +283,7 @@ This repository has moderate relevance to Blackbox5.
 
 ## Related Resources
 
-- Source Summary: {summary_file}
+- Source Summary: $summary_file
 - Blackbox5 Architecture: 5-project-memory/blackbox5/.docs/blackbox5-architecture.md
 - Integration Guide: 1-docs/.docs/moltbot/HYBRID-INTEGRATION.md
 """

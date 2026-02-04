@@ -1,0 +1,189 @@
+extraction:
+  repo_name: "awesome-claude-code"
+  repo_url: "https://github.com/hesreallyhim/awesome-claude-code"
+  extracted_at: "2026-02-04T02:41:26Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024045"
+
+metadata:
+  stars: 22742
+  last_commit: "2026-02-04"
+  languages: "py"
+  file_count: 709
+
+structure: |
+  assets/badge-cat-all.svg
+  assets/badge-cat-claude-md.svg
+  assets/badge-check.svg
+  assets/badge-claude-code-flow.svg
+  assets/badge-claude-code-ide-el.svg
+  assets/badge-claude-swarm.svg
+  assets/badge-claudopro-directory.svg
+  assets/badge-comm.svg
+  assets/badge-container-use.svg
+  assets/badge-create-jtbd.svg
+  assets/badge-create-pull-request.svg
+  assets/badge-design-review-workflow.svg
+  assets/badge-happy-coder.svg
+  assets/badge-laravel-tall-stack-ai-development-starter-kit.svg
+  assets/badge-prime.svg
+  assets/badge-superclaude.svg
+  assets/badge-superpowers.svg
+  assets/badge-trail-of-bits-security-skills.svg
+  assets/badge-variation-3.svg
+  assets/badge-variation-5.svg
+  assets/badge-voicemode-mcp.svg
+  assets/card-clients.svg
+  assets/card-commands-light-anim-lineprint.svg
+  assets/card-custom.svg
+  assets/card-skills-light-anim-lineprint.svg
+  assets/desc-box-top-light-v4-vintage.svg
+  assets/entry-separator-light.svg
+  assets/header_alternative_clients.svg
+  assets/honorable-mentions-header-light.svg
+  assets/logo-light.svg
+  assets/placeholder-dark.svg
+  assets/section-divider-alt1.svg
+  assets/section-divider-alt3.svg
+  assets/section-divider-light-stamp.svg
+  assets/subheader_complete_sub.svg
+  assets/subheader_general_5.svg
+  assets/subheader_general_7.svg
+  assets/subheader_ralph_wiggum.svg
+  assets/toc-row-alternative-clients.svg
+  assets/toc-row-commands.svg
+  assets/toc-row-docs.svg
+  assets/toc-row-hooks.svg
+  assets/toc-row-skills-light.svg
+  assets/toc-row-workflows-light-anim-lineprint.svg
+  assets/toc-sub-ci.svg
+  assets/toc-sub-misc.svg
+  assets/toc-sub-monitors-light.svg
+  assets/toc-sub-ralph-wiggum.svg
+  assets/toc-sub-scaffolding-light.svg
+  pyproject.toml
+
+readme_summary: |
+  <!-- GENERATED FILE: do not edit directly -->
+  <h3 align="center">Pick Your Style:</h3>
+  <p align="center">
+  <a href="./"><img src="assets/badge-style-awesome.svg" alt="Awesome" height="28" style="border: 2px solid #cc3366; border-radius: 4px;"></a>
+  <a href="README_ALTERNATIVES/README_EXTRA.md"><img src="assets/badge-style-extra.svg" alt="Extra" height="28"></a>
+  <a href="README_ALTERNATIVES/README_CLASSIC.md"><img src="assets/badge-style-classic.svg" alt="Classic" height="28"></a>
+  <a href="README_ALTERNATIVES/README_FLAT_ALL_AZ.md"><img src="assets/badge-style-flat.svg" alt="Flat" height="28"></a>
+  </p>
+  
+  <p align="center">
+    <picture>
+      <img src="assets/awesome-claude-code-social-clawd-2.png" alt="Awesome Claude Code" width="600">
+    </picture>
+  </p>
+  
+  # Awesome Claude Code
+  
+  [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+  
+  > A curated list of slash-commands, CLAUDE.md files, CLI tools, and other resources for enhancing your [Claude Code](https://docs.anthropic.com/en/docs/claude-code) workflow.
+  
+  Claude Code is a CLI-based coding assistant from [Anthropic](https://www.anthropic.com/) that you can access in your terminal or IDE. This list helps the community share knowledge and best practices.
+  
+  <div align="center">
+  
+  <img src="assets/repo-ticker-awesome.svg" alt="Featured Claude Code Projects" width="100%">
+  
+  </div>
+  
+  
+  
+  ## Latest Additions
+  
+  - [ralph-wiggum-bdd](https://github.com/marcindulak/ralph-wiggum-bdd) by [marcindulak](https://github.com/marcindulak) - A standalone Bash script for Behavior-Driven Development with Ralph Wiggum Loop. In principle, while running unattended, the script can keep code and requirements in sync, but in practice it still requires interactive human supervision, so it supports both modes. The script is standalone and can be modified and committed into your project.
+  - [cc-devops-skills](https://github.com/akin-ozer/cc-devops-skills) by [akin-ozer](https://github.com/akin-ozer) - Immensely detailed set of skills for DevOps Engineers (or anyone who has to deploy code, really). Works with validations, generators, shell scripts and CLI tools to create high quality IaC code for about any platform you've ever struggled painfully to work with. Worth downloading even just as a source of documentation.
+  - [/prd-generator](https://github.com/dredozubov/prd-generator) by [Denis Redozubov](https://github.com/dredozubov) - A Claude Code plugin that generates comprehensive Product Requirements Documents (PRDs) from conversation context. Invoke `/create-prd` after discussing requirements and it produces a complete PRD with all standard sections including Executive Summary, User Stories, MVP Scope, Architecture, Success Criteria, and Implementation Phases.
+  - [Claude Session Restore](https://github.com/ZENG3LD/claude-session-restore) by [ZENG3LD](https://github.com/ZENG3LD) - Efficiently restore context from previous Claude Code sessions by analyzing session files and git history. Features multi-factor data collection across numerous Claude Code capacities with time-based filtering. Uses tail-based parsing for efficient handling of large session files up to 2GB. Includes both a CLI tool for manual analysis and a Claude Code skill for automatic session restoration.
+  - [Learn Claude Code](https://github.com/shareAI-lab/learn-claude-code) by [shareAI-Lab](https://github.com/shareAI-lab/) - A really interesting analysis of how coding agents like Claude Code are designed. It attempts to break an agent down into its fundamental parts and reconstruct it with minimal code. Great learning resource. Final product is a rudimentary agent with skills, sub-agents, and a todo-list in roughly a few hundred lines of Python.
+  - [AI Agent, AI Spy](https://youtu.be/0ANECpNdt-4) by [Whittaker & Tiwari](https://signalfoundation.org/) - Members from the Signal Foundation with some really great tips and tricks on how to turn your operating system into an instrument of total surveillance, and why some companies are doing this really awesome thing. [warning: YouTube link].
+  
+  
+  ## Contents
+  
+  - [Agent Skills 🤖](#agent-skills-)
+    - [General](#general)
+  - [Workflows & Knowledge Guides 🧠](#workflows--knowledge-guides-)
+    - [General](#general-1)
+    - [Ralph Wiggum](#ralph-wiggum)
+  - [Tooling 🧰](#tooling-)
+    - [General](#general-2)
+    - [IDE Integrations](#ide-integrations)
+    - [Usage Monitors](#usage-monitors)
+    - [Orchestrators](#orchestrators)
+  - [Status Lines 📊](#status-lines-)
+    - [General](#general-3)
+  - [Hooks 🪝](#hooks-)
+    - [General](#general-4)
+  - [Slash-Commands 🔪](#slash-commands-)
+    - [General](#general-5)
+    - [Version Control & Git](#version-control--git)
+    - [Code Analysis & Testing](#code-analysis--testing)
+    - [Context Loading & Priming](#context-loading--priming)
+    - [Documentation & Changelogs](#documentation--changelogs)
+    - [CI / Deployment](#ci--deployment)
+    - [Project & Task Management](#project--task-management)
+    - [Miscellaneous](#miscellaneous)
+  - [CLAUDE.md Files 📂](#claudemd-files-)
+    - [Language-Specific](#language-specific)
+    - [Domain-Specific](#domain-specific)
+    - [Project Scaffolding & MCP](#project-scaffolding--mcp)
+  - [Alternative Clients 📱](#alternative-clients-)
+    - [General](#general-6)
+  - [Official Documentation 🏛️](#official-documentation-%EF%B8%8F)
+    - [General](#general-7)
+  
+  ## Agent Skills 🤖
+  
+  > Agent skills are model-controlled configurations (files, scripts, resources, etc.) that enable Claude Code to perform specialized tasks requiring specific knowledge or capabilities.
+  
+  ### General
+  
+  - [AI Agent, AI Spy](https://youtu.be/0ANECpNdt-4) by [Whittaker & Tiwari](https://signalfoundation.org/) - Members from the Signal Foundation with some really great tips and tricks on how to turn your operating system into an instrument of total surveillance, and why some companies are doing this really awesome thing. [warning: YouTube link].
+  - [cc-devops-skills](https://github.com/akin-ozer/cc-devops-skills) by [akin-ozer](https://github.com/akin-ozer) - Immensely detailed set of skills for DevOps Engineers (or anyone who has to deploy code, really). Works with validations, generators, shell scripts and CLI tools to create high quality IaC code for about any platform you've ever struggled painfully to work with. Worth downloading even just as a source of documentation.
+  - [Claude Codex Settings](https://github.com/fcakyon/claude-codex-settings) by [fatih akyon](https://github.com/fcakyon) - A well-organized, well-written set of plugins covering core developer activities, such as working with common cloud platforms like GitHub, Azure, MongoDB, and popular services such as Tavily, Playwright, and more. Clear, not overly-opinionated, and compatible with a few other providers.
+  - [Claude Mountaineering Skills](https://github.com/dreamiurg/claude-mountaineering-skills) by [Dmytro Gaivoronsky](https://github.com/dreamiurg) - Claude Code skill that automates mountain route research for North American peaks. Aggregates data from 10+ mountaineering sources like Mountaineers.org, PeakBagger.com and SummitPost.com to generate detailed route beta reports with weather, avalanche conditions, and trip reports.
+  - [Codex Skill](https://github.com/skills-directory/skill-codex) by [klaudworks](https://github.com/klaudworks) - Enables users to prompt codex from claude code. Unlike the raw codex mcp server, this skill infers parameters such as model, reasoning effort, sandboxing from your prompt or asks you to specify them. It also simplifies continuing prior codex sessions so that codex can continue with the prior context.
+  - [Compound Engineering Plugin](https://github.com/EveryInc/compound-engineering-plugin) by [EveryInc](https://github.com/EveryInc) - A very pragmatic set of well-designed agents, skills, and commands, built around a discipline of turning past mistakes and errors into lessons and opportunities for future growth and improvement. Good documentation.
+  - [Context Engineering Kit](https://github.com/NeoLabHQ/context-engineering-kit) by [Vlad Goncharov](https://github.com/LeoVS09) - Hand-crafted collection of advanced context engineering techniques and patterns with minimal token footprint focused on improving agent result quality.
+  - [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) by [Affaan Mustafa](https://github.com/affaan-m/) - Top-notch, well-written resources covering "just about everything" from core engineering domains. What's nice about this "everything-" store is most of the resources have significant standalone value and unlike some all-encompassing frameworks, although you can opt in to the author's own specific workflow patterns if you choose, the individual resources offer exemplary patterns in (just about) every Claude Code feature you can find (apologies to the Output Styles devotees).
+  - [Superpowers](https://github.com/obra/superpowers) by [Jesse Vincent](https://github.com/obra) - A strong bundle of core competencies for software engineering, with good coverage of a large portion of the SDLC - from planning, reviewing, testing, debugging... Well written, well organized, and adaptable. The author refers to them as "superpowers", but many of them are just consolidating engineering best practices - which sometimes does feel like a superpower when working with Claude Code.
+  - [Trail of Bits Security Skills](https://github.com/trailofbits/skills) by [Trail of Bits](https://github.com/trailofbits) - A very professional collection of over a dozen security-focused skills for code auditing and vulnerability detection. Includes skills for static analysis with CodeQL and Semgrep, variant analysis across codebases, fix verification, and differential code review.
+  - [TÂCHES Claude Code Resources](https://github.com/glittercowboy/taches-cc-resources) by [TÂCHES](https://github.com/glittercowboy) - A well-balanced, "down-to-Earth" set of sub agents, skills, and commands,  that are well-organized, easy to read, and a healthy focus on "meta"-skills/agents, like "skill-auditor", hook creation, etc. - the kind of things you can adapt to your workflow, and not the other way around.
+  - [Web Assets Generator Skill](https://github.com/alonw0/web-asset-generator) by [Alon Wolenitz](https://github.com/alonw0) - Easily generate web assets from Claude Code including favicons, app icons (PWA), and social media meta images (Open Graph) for Facebook, Twitter, WhatsApp, and LinkedIn. Handles image resizing, text-to-image generation, emojis, and provides proper HTML meta tags.
+  
+  <br>
+  
+  ## Workflows & Knowledge Guides 🧠
+  
+  > A workflow is a tightly coupled set of Claude Code-native resources that facilitate specific projects
+
+key_files:
+  - /templates/README_CLASSIC.template.md
+  - /templates/footer.template.md
+  - /templates/README_EXTRA.template.md
+  - /templates/resource-overrides.yaml
+  - /templates/announcements.yaml
+  - /templates/README_AWESOME.template.md
+  - /templates/categories.yaml
+  - /.github/workflows/update-repo-ticker.yml
+  - /.github/workflows/validate-links.yml
+  - /.github/workflows/close-resource-pr.yml
+  - /.github/workflows/update-github-release-data.yml
+  - /.github/workflows/handle-resource-submission-commands.yml
+  - /.github/workflows/validate-new-issue.yml
+  - /.github/workflows/ci.yml
+  - /.github/workflows/check-repo-health.yml
+  - /.github/workflows/notify-on-merge.yml
+  - /.github/workflows/README.md
+  - /.github/ISSUE_TEMPLATE/repository-enhancement.yml
+  - /.github/ISSUE_TEMPLATE/recommend-resource.yml
+  - /.github/PULL_REQUEST_TEMPLATE.md
+
+analysis_status: pending_analyzer

@@ -1,0 +1,190 @@
+extraction:
+  repo_name: "turboclaude"
+  repo_url: "https://github.com/Epistates/turboclaude"
+  extracted_at: "2026-02-04T02:43:54Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024045"
+
+metadata:
+  stars: 0
+  last_commit: "2026-01-07"
+  languages: "rs"
+  file_count: 315
+
+structure: |
+  CHANGELOG.md
+  crates/turboclaude-integration-tests/Cargo.toml
+  crates/turboclaude-integration-tests/README.md
+  crates/turboclaude-integration-tests/src/lib.rs
+  crates/turboclaude-protocol/Cargo.toml
+  crates/turboclaude-protocol/README.md
+  crates/turboclaude-protocol/src/agent.rs
+  crates/turboclaude-protocol/src/content.rs
+  crates/turboclaude-protocol/src/error.rs
+  crates/turboclaude-protocol/src/hooks.rs
+  crates/turboclaude-protocol/src/lib.rs
+  crates/turboclaude-protocol/src/message.rs
+  crates/turboclaude-protocol/src/permissions.rs
+  crates/turboclaude-protocol/src/protocol.rs
+  crates/turboclaude-protocol/src/types.rs
+  crates/turboclaude-skills/Cargo.toml
+  crates/turboclaude-skills/examples/basic.rs
+  crates/turboclaude-skills/README.md
+  crates/turboclaude-skills/skills/git-helper/reference/branch-strategies.md
+  crates/turboclaude-skills/skills/git-helper/reference/commit-conventions.md
+  crates/turboclaude-skills/skills/git-helper/scripts/analyze_branches.py
+  crates/turboclaude-skills/skills/git-helper/scripts/commit_stats.sh
+  crates/turboclaude-skills/skills/git-helper/SKILL.md
+  crates/turboclaude-skills/skills/README.md
+  crates/turboclaude-skills/src/error.rs
+  crates/turboclaude-skills/src/executor.rs
+  crates/turboclaude-skills/src/lib.rs
+  crates/turboclaude-skills/src/matcher.rs
+  crates/turboclaude-skills/src/parser.rs
+  crates/turboclaude-skills/src/registry.rs
+  crates/turboclaude-skills/src/skill.rs
+  crates/turboclaude-skills/src/validation.rs
+  crates/turboclaude-skills/tests/executor_timeout_test.rs
+  crates/turboclaude-skills/tests/integration_test.rs
+  crates/turboclaude-transport/Cargo.toml
+  crates/turboclaude-transport/README.md
+  crates/turboclaude-transport/src/error.rs
+  crates/turboclaude-transport/src/http/client.rs
+  crates/turboclaude-transport/src/http/mod.rs
+  crates/turboclaude-transport/src/http/retry.rs
+  crates/turboclaude-transport/src/lib.rs
+  crates/turboclaude-transport/src/subprocess/cli.rs
+  crates/turboclaude-transport/src/subprocess/mod.rs
+  crates/turboclaude-transport/src/subprocess/process.rs
+  crates/turboclaude-transport/src/traits.rs
+  crates/turboclaude-transport/tests/http_transport_test.rs
+  .github/workflows/ci.yml
+  LICENSE
+  rules/builder-needs-try.yml
+  rules/needs-panic-docs.yml
+
+readme_summary: |
+  # TurboClaude
+  
+  **UNOFFICIAL SDK** - This is an unofficial, community-maintained Rust SDK for Anthropic's Claude API. It is not affiliated with or endorsed by Anthropic.
+  
+  **Maintained by:** [epistates](https://github.com/epistates)
+  
+  Rust SDK for Anthropic's Claude API that covers the same features as the official Python SDK.
+  
+  ## Quick Start
+  
+  ```bash
+  # Add to your Cargo.toml
+  [dependencies]
+  turboclaude = "0.2"
+  
+  # Set your API key
+  export ANTHROPIC_API_KEY=sk-ant-...
+  
+  # Run an example
+  cargo run --example basic
+  ```
+  
+  See `examples/` directory for usage examples.
+  
+  ## Which Crate Do I Need?
+  
+  Coming from Python? Here's the mapping to find the right TurboClaude crate:
+  
+  | Use Case | Python Package | Rust Crate | Purpose |
+  |----------|---|---|---|
+  | **Claude API Client** | `anthropic` | [`turboclaude`](./crates/turboclaude/README.md) | REST API client for Claude messages, batches, models |
+  | **Agent Framework** | `anthropic.agent` | [`turboclaudeagent`](./crates/turboclaudeagent/README.md) | Build interactive agents with hooks, permissions, routing |
+  | **Skills & Tools** | `anthropic.tools` | [`turboclaude-skills`](./crates/turboclaude-skills/README.md) | Dynamic skill registration and execution system |
+  | **Protocol Types** | (type definitions) | [`turboclaude-protocol`](./crates/turboclaude-protocol/README.md) | Shared message types, content blocks, tools |
+  | **Transport Layer** | (internal) | [`turboclaude-transport`](./crates/turboclaude-transport/README.md) | HTTP and subprocess transport abstractions |
+  | **Core Abstractions** | (internal) | [`turboclaude-core`](./crates/turboclaude-core/README.md) | Base traits, builders, error handling |
+  | **MCP Integration** | (via external) | [`turboclaude-mcp`](./crates/turboclaude-mcp/README.md) | Model Context Protocol adapter and factory |
+  
+  ### Examples by Use Case
+  
+  **Just need to send messages?**
+  ```toml
+  [dependencies]
+  turboclaude = "0.2"
+  ```
+  
+  **Building an AI agent with custom behavior?**
+  ```toml
+  [dependencies]
+  turboclaudeagent = "0.2"
+  turboclaude-skills = "0.2"
+  ```
+  
+  **Integrating with Model Context Protocol servers?**
+  ```toml
+  [dependencies]
+  turboclaude = { version = "0.2", features = ["mcp"] }
+  turboclaude-mcp = "0.2"
+  ```
+  
+  **Everything (AWS Bedrock, Vertex AI, all features)?**
+  ```toml
+  [dependencies]
+  turboclaude = { version = "0.2", features = ["bedrock", "vertex", "schema", "mcp", "trace"] }
+  turboclaudeagent = "0.2"
+  turboclaude-skills = "0.2"
+  ```
+  
+  ## Architecture Goals
+  
+  The SDK follows these design principles:
+  
+  1. **Type Safety**: Use Rust's type system for compile-time guarantees
+  2. **Performance**: Zero-cost abstractions and efficient streaming
+  3. **Compatibility**: Support the same features as the official Python SDK
+  4. **Extensibility**: Support integration with MCP and other protocols
+  
+  ## Architecture
+  
+  ### Core Design Decisions
+  
+  #### 1. **Async-First with Optional Blocking**
+  - **Decision**: Single async implementation with optional blocking wrapper
+  - **Rationale**: Rust's async is zero-cost; blocking can be added as a thin wrapper
+  - **Trade-off**: Slightly more complex for sync-only users, but better performance and maintainability
+  
+  ```rust
+  // Async (default)
+  let client = Client::new("sk-...");
+  let msg = client.messages().create(request).await?;
+  
+  // Blocking (optional feature)
+  #[cfg(feature = "blocking")]
+  let client = turboclaude::blocking::Client::new("sk-...");
+  let msg = client.messages().create(request)?;
+  ```
+  
+  #### 2. **Lazy Resource Initialization (like Python's @cached_property)**
+  - **Decision**: Use `OnceCell` for lazy resource initialization
+  - **Rationale**: Avoids circular dependencies, reduces initial overhead
+
+key_files:
+  - /.github/workflows/ci.yml
+  - /CHANGELOG.md
+  - /rules/builder-needs-try.yml
+  - /rules/needs-panic-docs.yml
+  - /crates/turboclaude-protocol/README.md
+  - /crates/turboclaude-transport/README.md
+  - /crates/turboclaude-integration-tests/README.md
+  - /crates/turboclaude-skills/skills/README.md
+  - /crates/turboclaude-skills/skills/git-helper/SKILL.md
+  - /crates/turboclaude-skills/skills/git-helper/reference/commit-conventions.md
+  - /crates/turboclaude-skills/skills/git-helper/reference/branch-strategies.md
+  - /crates/turboclaude-skills/README.md
+  - /crates/turboclaude-core/README.md
+  - /crates/turboclaudeagent/tests/e2e/README.md
+  - /crates/turboclaudeagent/README.md
+  - /crates/turboclaude/tests/fixtures/responses/message_success.json
+  - /crates/turboclaude/tests/fixtures/responses/message_with_tool_use.json
+  - /crates/turboclaude/tests/real_world/README.md
+  - /crates/turboclaude/README.md
+  - /crates/turboclaude-mcp/README.md
+
+analysis_status: pending_analyzer

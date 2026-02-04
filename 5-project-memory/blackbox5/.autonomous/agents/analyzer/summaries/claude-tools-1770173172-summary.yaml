@@ -1,0 +1,30 @@
+assessment:
+  category: hooks
+  complexity: medium
+  key_concepts:
+  - hooks
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# claude-tools'
+  recommended_action: immediate_review
+metrics:
+  file_count: 13
+  languages: py
+  pattern_matches:
+    agents: 0
+    automation: 6
+    claude: 22
+    hooks: 8
+    mcp: 0
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-tools-1770173172.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:53:12.719392Z'
+  repo_name: claude-tools
+  repo_url: https://github.com/tarekziade/claude-tools
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

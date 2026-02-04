@@ -1,0 +1,33 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - skills
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '<!-- GENERATED FILE: do not edit directly -->'
+  recommended_action: immediate_review
+metrics:
+  file_count: 709
+  languages: py
+  pattern_matches:
+    agents: 14
+    automation: 2
+    claude: 33
+    hooks: 3
+    mcp: 3
+    skills: 28
+  stars: 22741
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/awesome-claude-code-1770172464.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:51:30.059261Z'
+  repo_name: awesome-claude-code
+  repo_url: https://github.com/hesreallyhim/awesome-claude-code
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

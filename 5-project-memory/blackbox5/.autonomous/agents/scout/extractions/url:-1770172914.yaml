@@ -1,0 +1,23 @@
+extraction:
+  repo_name: "url:"
+  repo_url: "url:"
+  extracted_at: "2026-02-04T02:41:54Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024045"
+
+metadata:
+  stars: 0
+  last_commit: "unknown"
+  languages: ""
+  file_count: 0
+
+structure: |
+  
+
+readme_summary: |
+  
+
+key_files:
+
+
+analysis_status: pending_analyzer

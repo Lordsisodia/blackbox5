@@ -9,7 +9,7 @@ PROJECT_ROOT="/opt/ralf"
 RUN_DIR="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-$(date +%Y%m%d-%H%M%S)"
 QUEUE_FILE="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml"
 EVENTS_FILE="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml"
-REPO_LIST="$PROJECT_ROOT/6-roadmap/research/external/GitHub/repo-list.yaml"
+REPO_LIST="$PROJECT_ROOT/6-roadmap/.research/external/GitHub/repo-list.yaml"
 OUTPUT_DIR="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/scout/extractions"
 
 mkdir -p "$RUN_DIR" "$OUTPUT_DIR"

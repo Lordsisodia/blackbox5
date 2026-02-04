@@ -1,0 +1,31 @@
+assessment:
+  category: skills
+  complexity: high
+  key_concepts:
+  - skills
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Code Plugins: Orchestration and Automation'
+  recommended_action: immediate_review
+metrics:
+  file_count: 497
+  languages: py
+  pattern_matches:
+    agents: 22
+    automation: 3
+    claude: 8
+    hooks: 0
+    mcp: 0
+    skills: 19
+  stars: 27688
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/agents-1770172543.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:51:21.267536Z'
+  repo_name: agents
+  repo_url: https://github.com/wshobson/agents
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

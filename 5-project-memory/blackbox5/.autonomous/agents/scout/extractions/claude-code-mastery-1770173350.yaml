@@ -1,0 +1,163 @@
+extraction:
+  repo_name: "claude-code-mastery"
+  repo_url: "https://github.com/TheDecipherist/claude-code-mastery"
+  extracted_at: "2026-02-04T02:49:11Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024757"
+
+metadata:
+  stars: 0
+  last_commit: "2026-01-15"
+  languages: "py,js"
+  file_count: 31
+
+structure: |
+  CLAUDE.md
+  commands/explain.md
+  commands/pr.md
+  commands/README.md
+  commands/review.md
+  commands/test.md
+  docs/app.js
+  docs/banner.webp
+  docs/index.html
+  docs/.nojekyll
+  docs/styles.css
+  docs/thedecipherist.png
+  docs/thedecipherist.webp
+  .gitignore
+  GUIDE.md
+  hooks/after-edit.sh
+  hooks/block-dangerous-commands.sh
+  hooks/block-secrets.py
+  hooks/end-of-turn.sh
+  hooks/notify.sh
+  images/banner.webp
+  images/thedecipherist.png
+  images/thedecipherist.webp
+  LICENSE
+  README.md
+  skills/commit-messages/SKILL.md
+  skills/security-audit/SKILL.md
+  templates/.gitignore
+  templates/global-claude.md
+  templates/project-claude.md
+  templates/settings.json
+
+readme_summary: |
+  # Claude Code Mastery
+  
+  The complete guide to maximizing Claude Code: Global CLAUDE.md, MCP Servers, Commands, Hooks, Skills, and Why Single-Purpose Chats Matter.
+  
+  ### 🌐 [Read the Guide on Our Website](https://thedecipherist.github.io/claude-code-mastery/?utm_source=github&utm_medium=readme&utm_campaign=claude-code-mastery&utm_content=hero-cta) ← Best reading experience
+  
+  > **TL;DR:** Your global `~/.claude/CLAUDE.md` is a security gatekeeper AND project scaffolding blueprint. MCP servers extend Claude's capabilities. Custom commands automate workflows. **Hooks enforce rules deterministically** (where CLAUDE.md can fail). Skills package reusable expertise. And research shows mixing topics in a single chat causes **39% performance degradation**.
+  
+  ---
+  
+  ## 📚 Table of Contents
+  
+  - [Quick Start](#-quick-start)
+  - [The Guide](#-the-guide)
+  - [Repository Contents](#-repository-contents)
+  - [Installation](#-installation)
+  - [Contributing](#-contributing)
+  - [Sources](#-sources)
+  
+  ---
+  
+  ## 🚀 Quick Start
+  
+  ```bash
+  # Clone this repo
+  git clone https://github.com/TheDecipherist/claude-code-mastery.git
+  cd claude-code-mastery
+  
+  # Copy hooks to your Claude config
+  mkdir -p ~/.claude/hooks
+  cp hooks/* ~/.claude/hooks/
+  chmod +x ~/.claude/hooks/*.sh
+  
+  # Copy the settings template (review and customize first!)
+  cp templates/settings.json ~/.claude/settings.json
+  
+  # Copy skills
+  mkdir -p ~/.claude/skills
+  cp -r skills/* ~/.claude/skills/
+  ```
+  
+  ---
+  
+  ## 📖 The Guide
+  
+  **[📱 Read on Website](https://thedecipherist.github.io/claude-code-mastery/?utm_source=github&utm_medium=readme&utm_campaign=claude-code-mastery&utm_content=guide-section)** (recommended) | [📄 View GUIDE.md](./GUIDE.md)
+  
+  ### What's Covered
+  
+  | Part | Topic | Key Takeaway |
+  |------|-------|--------------|
+  | 1 | Global CLAUDE.md as Security Gatekeeper | Define once, inherit everywhere |
+  | 2 | Project Scaffolding Rules | Every project follows same structure |
+  | 3 | MCP Servers | External tool integrations |
+  | 4 | Context7 | Live documentation access |
+  | 5 | Custom Commands | Workflow automation |
+  | 6 | Single-Purpose Chats | 39% degradation from topic mixing |
+  | **7** | **Skills & Hooks** | **Enforcement over suggestion** |
+  
+  ---
+  
+  ## 📁 Repository Contents
+  
+  ```
+  claude-code-mastery/
+  ├── GUIDE.md                    # The complete guide
+  ├── templates/
+  │   ├── global-claude.md        # ~/.claude/CLAUDE.md template
+  │   ├── project-claude.md       # ./CLAUDE.md starter
+  │   ├── settings.json           # Hook configuration template
+  │   └── .gitignore              # Recommended .gitignore
+  ├── hooks/
+  │   ├── block-secrets.py        # PreToolUse: Block .env access
+  │   ├── block-dangerous-commands.sh  # PreToolUse: Block rm -rf, etc.
+  │   ├── end-of-turn.sh          # Stop: Quality gates
+  │   ├── after-edit.sh           # PostToolUse: Run formatters
+  │   └── notify.sh               # Notification: Desktop alerts
+  ├── skills/
+  │   ├── commit-messages/        # Generate conventional commits
+  │   │   └── SKILL.md
+  │   └── security-audit/         # Security vulnerability checks
+  │       └── SKILL.md
+  └── commands/
+      ├── new-project.md          # /new-project scaffold
+      ├── security-check.md       # /security-check audit
+      └── pre-commit.md           # /pre-commit quality gates
+  ```
+  
+  ---
+  
+  ## 🔧 Installation
+  
+  ### Prerequisites
+  
+  - [Claude Code](https://code.claude.com) installed
+  - Python 3.8+ (for Python hooks)
+  - `jq` (for JSON parsing in shell hooks)
+  
+  ### Step-by-Step
+
+key_files:
+  - /templates/project-claude.md
+  - /templates/global-claude.md
+  - /templates/settings.json
+  - /skills/security-audit/SKILL.md
+  - /skills/commit-messages/SKILL.md
+  - /commands/review.md
+  - /commands/test.md
+  - /commands/pr.md
+  - /commands/explain.md
+  - /commands/README.md
+  - /GUIDE.md
+  - /CLAUDE.md
+  - /README.md
+
+analysis_status: pending_analyzer

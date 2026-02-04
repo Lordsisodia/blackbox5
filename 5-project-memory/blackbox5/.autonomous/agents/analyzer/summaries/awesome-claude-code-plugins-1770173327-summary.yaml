@@ -1,0 +1,32 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Awesome Claude Code Plugins [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)'
+  recommended_action: immediate_review
+metrics:
+  file_count: 251
+  languages: py
+  pattern_matches:
+    agents: 7
+    automation: 5
+    claude: 16
+    hooks: 3
+    mcp: 5
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/awesome-claude-code-plugins-1770173327.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:51:45.618785Z'
+  repo_name: awesome-claude-code-plugins
+  repo_url: https://github.com/ccplugins/awesome-claude-code-plugins
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

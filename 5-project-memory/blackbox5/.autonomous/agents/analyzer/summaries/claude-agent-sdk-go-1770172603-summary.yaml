@@ -1,0 +1,31 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Agent SDK for Go'
+  recommended_action: immediate_review
+metrics:
+  file_count: 145
+  languages: go
+  pattern_matches:
+    agents: 13
+    automation: 6
+    claude: 23
+    hooks: 1
+    mcp: 0
+    skills: 0
+  stars: 79
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-agent-sdk-go-1770172603.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:51:56.462510Z'
+  repo_name: claude-agent-sdk-go
+  repo_url: https://github.com/severity1/claude-agent-sdk-go
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

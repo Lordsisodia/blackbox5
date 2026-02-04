@@ -1,0 +1,164 @@
+extraction:
+  repo_name: "claude-journal-mcp"
+  repo_url: "https://github.com/chrismbryant/claude-journal-mcp"
+  extracted_at: "2026-02-04T02:49:33Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024757"
+
+metadata:
+  stars: 0
+  last_commit: "2026-01-31"
+  languages: "py,js"
+  file_count: 28
+
+structure: |
+  agents/journal-assistant.md
+  .claude-plugin/marketplace.json
+  .claude-plugin/plugin.json
+  commands/journal-add.md
+  commands/journal-export.md
+  commands/journal-recent.md
+  commands/journal-search.md
+  commands/journal-stats.md
+  commands/journal-time.md
+  .github/workflows/test.yml
+  .gitignore
+  hooks/hooks.json
+  hooks/journal-auto-capture.js
+  hooks/README.md
+  LICENSE
+  pyproject.toml
+  README.md
+  skills/context-recovery/SKILL.md
+  skills/find-related-work/SKILL.md
+  skills/journal-capture/SKILL.md
+  src/claude_journal/cli.py
+  src/claude_journal/database.py
+  src/claude_journal/__init__.py
+  src/claude_journal/server.py
+  src/claude_journal/time_parser.py
+  tests/test_database.py
+  tests/test_time_parser.py
+  uv.lock
+
+readme_summary: |
+  # Claude Journal - Claude Code Plugin
+  
+  A lightweight journal/memory system for Claude Code with no ML dependencies. Uses simple SQLite for fast, local storage.
+  
+  This is a full-featured Claude Code plugin with slash commands, skills, an agent, and auto-capture hooks.
+  
+  ## Features
+  
+  - ✅ **Lightweight**: No embeddings, no ML models, just SQLite
+  - ✅ **Fast**: Sub-millisecond queries on local database
+  - ✅ **Smart Search**: Advanced search with ID lookup, tag filtering, exact phrases, date ranges, and keywords
+  - ✅ **Time Queries**: Natural language like "last month", "yesterday"
+  - ✅ **Project Tracking**: Organize entries by repository/project
+  - ✅ **Auto-Capture**: Automatic periodic journaling via hooks
+  - ✅ **Import/Export**: Share journal between instances
+  - ✅ **Flexible Tags**: Organize with custom tags
+  - ✅ **Slash Commands**: 6 user-friendly commands for common operations
+  - ✅ **Skills**: 3 proactive AI skills for context recovery and smart capture
+  - ✅ **Agent**: Optional journal assistant for enhanced workflows
+  
+  ## Requirements
+  
+  - Python 3.12 or higher
+  - [uv](https://docs.astral.sh/uv/) (recommended) or pip
+  
+  ## Installation
+  
+  ### Quick Start (Recommended)
+  
+  1. **Install uv** (if not already installed):
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+  
+  2. **Clone and install the plugin:**
+  ```bash
+  git clone https://github.com/chrismbryant/claude-journal-mcp.git
+  cd claude-journal-mcp
+  uv sync
+  ```
+  
+  3. **Install as a Claude Code plugin:**
+  ```bash
+  # Option A: Direct install from current directory
+  claude /plugin install .
+  
+  # Option B: Add marketplace first, then install
+  claude /marketplace add ./marketplace.json
+  claude /plugin install claude-journal
+  ```
+  
+  This automatically:
+  - Configures the MCP server (provides all 11 journal tools)
+  - Registers 6 slash commands (/journal-add, /journal-search, etc.)
+  - Enables 3 proactive skills (journal-capture, context-recovery, find-related-work)
+  - Sets up auto-capture hooks (triggers every 30 min or 3 messages)
+  - Prompts you to enable the journal-assistant agent (opt-in)
+  
+  ### Alternative: Manual MCP Server Installation
+  
+  If you prefer to install just the MCP server without the plugin features:
+  
+  1. **Install dependencies:**
+  ```bash
+  # With uv (recommended - faster)
+  uv sync
+  
+  # Or with pip
+  pip install -e .
+  ```
+  
+  2. **Add to `~/.claude/config.json` or your project's `.mcp.json`:**
+  ```json
+  {
+    "mcpServers": {
+      "journal": {
+        "command": "python",
+        "args": ["-m", "claude_journal.server"]
+      }
+    }
+  }
+  ```
+  
+  **Note:** Manual installation only provides MCP tools. You won't get slash commands, skills, or the agent without installing as a plugin.
+  
+  ## Database Location
+  
+  Default: `~/.claude/journal.db`
+  
+  Override with environment variable:
+  ```bash
+  export JOURNAL_DB_PATH="/path/to/your/journal.db"
+  ```
+  
+  ## Slash Commands
+  
+  The plugin provides 6 slash commands for easy interaction:
+  
+  ### `/journal-add`
+  Interactively create a new journal entry. Claude guides you through:
+
+key_files:
+  - /.github/workflows/test.yml
+  - /skills/find-related-work/SKILL.md
+  - /skills/journal-capture/SKILL.md
+  - /skills/context-recovery/SKILL.md
+  - /commands/journal-add.md
+  - /commands/journal-time.md
+  - /commands/journal-stats.md
+  - /commands/journal-export.md
+  - /commands/journal-recent.md
+  - /commands/journal-search.md
+  - /hooks/hooks.json
+  - /hooks/README.md
+  - /agents/journal-assistant.md
+  - /README.md
+  - /.claude-plugin/plugin.json
+  - /.claude-plugin/marketplace.json
+
+analysis_status: pending_analyzer

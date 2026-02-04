@@ -1,0 +1,190 @@
+extraction:
+  repo_name: "claude-agent-sdk-python"
+  repo_url: "https://github.com/anthropics/claude-agent-sdk-python"
+  extracted_at: "2026-02-04T02:45:06Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024448"
+
+metadata:
+  stars: 0
+  last_commit: "2026-02-04"
+  languages: "py"
+  file_count: 85
+
+structure: |
+  CHANGELOG.md
+  Dockerfile.test
+  .dockerignore
+  e2e-tests/conftest.py
+  e2e-tests/README.md
+  e2e-tests/test_agents_and_settings.py
+  e2e-tests/test_dynamic_control.py
+  e2e-tests/test_hook_events.py
+  e2e-tests/test_hooks.py
+  e2e-tests/test_include_partial_messages.py
+  e2e-tests/test_sdk_mcp_tools.py
+  e2e-tests/test_stderr_callback.py
+  e2e-tests/test_structured_output.py
+  e2e-tests/test_tool_permissions.py
+  examples/agents.py
+  examples/filesystem_agents.py
+  examples/hooks.py
+  examples/include_partial_messages.py
+  examples/max_budget_usd.py
+  examples/mcp_calculator.py
+  examples/plugin_example.py
+  examples/plugins/demo-plugin/.claude-plugin/plugin.json
+  examples/plugins/demo-plugin/commands/greet.md
+  examples/quick_start.py
+  examples/setting_sources.py
+  examples/stderr_callback_example.py
+  examples/streaming_mode_ipython.py
+  examples/streaming_mode.py
+  examples/streaming_mode_trio.py
+  examples/system_prompt.py
+  examples/tool_permission_callback.py
+  examples/tools_option.py
+  .github/workflows/auto-release.yml
+  .github/workflows/build-and-publish.yml
+  .github/workflows/claude-code-review.yml
+  .github/workflows/claude-issue-triage.yml
+  .github/workflows/claude.yml
+  .github/workflows/lint.yml
+  .github/workflows/publish.yml
+  .github/workflows/slack-issue-notification.yml
+  .github/workflows/test.yml
+  LICENSE
+  pyproject.toml
+  scripts/build_wheel.py
+  scripts/download_cli.py
+  scripts/initial-setup.sh
+  scripts/pre-push
+  scripts/test-docker.sh
+  scripts/update_cli_version.py
+  scripts/update_version.py
+
+readme_summary: |
+  # Claude Agent SDK for Python
+  
+  Python SDK for Claude Agent. See the [Claude Agent SDK documentation](https://platform.claude.com/docs/en/agent-sdk/python) for more information.
+  
+  ## Installation
+  
+  ```bash
+  pip install claude-agent-sdk
+  ```
+  
+  **Prerequisites:**
+  
+  - Python 3.10+
+  
+  **Note:** The Claude Code CLI is automatically bundled with the package - no separate installation required! The SDK will use the bundled CLI by default. If you prefer to use a system-wide installation or a specific version, you can:
+  
+  - Install Claude Code separately: `curl -fsSL https://claude.ai/install.sh | bash`
+  - Specify a custom path: `ClaudeAgentOptions(cli_path="/path/to/claude")`
+  
+  ## Quick Start
+  
+  ```python
+  import anyio
+  from claude_agent_sdk import query
+  
+  async def main():
+      async for message in query(prompt="What is 2 + 2?"):
+          print(message)
+  
+  anyio.run(main)
+  ```
+  
+  ## Basic Usage: query()
+  
+  `query()` is an async function for querying Claude Code. It returns an `AsyncIterator` of response messages. See [src/claude_agent_sdk/query.py](src/claude_agent_sdk/query.py).
+  
+  ```python
+  from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, TextBlock
+  
+  # Simple query
+  async for message in query(prompt="Hello Claude"):
+      if isinstance(message, AssistantMessage):
+          for block in message.content:
+              if isinstance(block, TextBlock):
+                  print(block.text)
+  
+  # With options
+  options = ClaudeAgentOptions(
+      system_prompt="You are a helpful assistant",
+      max_turns=1
+  )
+  
+  async for message in query(prompt="Tell me a joke", options=options):
+      print(message)
+  ```
+  
+  ### Using Tools
+  
+  ```python
+  options = ClaudeAgentOptions(
+      allowed_tools=["Read", "Write", "Bash"],
+      permission_mode='acceptEdits'  # auto-accept file edits
+  )
+  
+  async for message in query(
+      prompt="Create a hello.py file",
+      options=options
+  ):
+      # Process tool use and results
+      pass
+  ```
+  
+  ### Working Directory
+  
+  ```python
+  from pathlib import Path
+  
+  options = ClaudeAgentOptions(
+      cwd="/path/to/project"  # or Path("/path/to/project")
+  )
+  ```
+  
+  ## ClaudeSDKClient
+  
+  `ClaudeSDKClient` supports bidirectional, interactive conversations with Claude
+  Code. See [src/claude_agent_sdk/client.py](src/claude_agent_sdk/client.py).
+  
+  Unlike `query()`, `ClaudeSDKClient` additionally enables **custom tools** and **hooks**, both of which can be defined as Python functions.
+  
+  ### Custom Tools (as In-Process SDK MCP Servers)
+  
+  A **custom tool** is a Python function that you can offer to Claude, for Claude to invoke as needed.
+  
+  Custom tools are implemented in-process MCP servers that run directly within your Python application, eliminating the need for separate processes that regular MCP servers require.
+  
+  For an end-to-end example, see [MCP Calculator](examples/mcp_calculator.py).
+  
+  #### Creating a Simple Tool
+  
+  ```python
+
+key_files:
+  - /.github/workflows/lint.yml
+  - /.github/workflows/auto-release.yml
+  - /.github/workflows/claude-code-review.yml
+  - /.github/workflows/test.yml
+  - /.github/workflows/publish.yml
+  - /.github/workflows/claude.yml
+  - /.github/workflows/claude-issue-triage.yml
+  - /.github/workflows/slack-issue-notification.yml
+  - /.github/workflows/build-and-publish.yml
+  - /CHANGELOG.md
+  - /e2e-tests/README.md
+  - /examples/plugins/demo-plugin/commands/greet.md
+  - /examples/plugins/demo-plugin/.claude-plugin/plugin.json
+  - /.claude/commands/generate-changelog.md
+  - /.claude/commands/commit.md
+  - /.claude/settings.json
+  - /.claude/agents/test-agent.md
+  - /CLAUDE.md
+  - /README.md
+  - /RELEASING.md
+
+analysis_status: pending_analyzer

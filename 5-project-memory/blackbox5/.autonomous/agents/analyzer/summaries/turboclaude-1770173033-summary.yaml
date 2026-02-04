@@ -1,0 +1,32 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - skills
+  - agents
+  - claude-code
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# TurboClaude'
+  recommended_action: immediate_review
+metrics:
+  file_count: 315
+  languages: rs
+  pattern_matches:
+    agents: 8
+    automation: 0
+    claude: 30
+    hooks: 1
+    mcp: 7
+    skills: 6
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/turboclaude-1770173033.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:53:55.889391Z'
+  repo_name: turboclaude
+  repo_url: https://github.com/Epistates/turboclaude
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

@@ -1,0 +1,33 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - skills
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Continuous Claude'
+  recommended_action: immediate_review
+metrics:
+  file_count: 942
+  languages: py
+  pattern_matches:
+    agents: 11
+    automation: 1
+    claude: 19
+    hooks: 8
+    mcp: 1
+    skills: 12
+  stars: 3468
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/Continuous-Claude-v3-1770172486.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:53:17.250836Z'
+  repo_name: Continuous-Claude-v3
+  repo_url: https://github.com/parcadei/Continuous-Claude-v3
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

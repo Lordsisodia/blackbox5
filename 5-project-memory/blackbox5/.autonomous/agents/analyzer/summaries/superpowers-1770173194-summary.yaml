@@ -1,0 +1,31 @@
+assessment:
+  category: skills
+  complexity: high
+  key_concepts:
+  - skills
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 95.0
+insights:
+  integration_potential: high
+  primary_purpose: '# Superpowers'
+  recommended_action: immediate_review
+metrics:
+  file_count: 105
+  languages: js,ts,py
+  pattern_matches:
+    agents: 10
+    automation: 1
+    claude: 4
+    hooks: 0
+    mcp: 0
+    skills: 4
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/superpowers-1770173194.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:53:49.029727Z'
+  repo_name: superpowers
+  repo_url: https://github.com/obra/superpowers
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

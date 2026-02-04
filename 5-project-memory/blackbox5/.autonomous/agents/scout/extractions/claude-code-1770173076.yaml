@@ -1,0 +1,162 @@
+extraction:
+  repo_name: "claude-code"
+  repo_url: "https://github.com/anthropics/claude-code"
+  extracted_at: "2026-02-04T02:44:37Z"
+  agent: scout
+  run_dir: "/opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/runs/run-20260204-024430"
+
+metadata:
+  stars: 0
+  last_commit: "2026-02-04"
+  languages: "py,ts"
+  file_count: 178
+
+structure: |
+  CHANGELOG.md
+  demo.gif
+  .gitattributes
+  .github/ISSUE_TEMPLATE/bug_report.yml
+  .github/ISSUE_TEMPLATE/config.yml
+  .github/ISSUE_TEMPLATE/documentation.yml
+  .github/ISSUE_TEMPLATE/feature_request.yml
+  .github/ISSUE_TEMPLATE/model_behavior.yml
+  .github/workflows/auto-close-duplicates.yml
+  .github/workflows/backfill-duplicate-comments.yml
+  .github/workflows/claude-dedupe-issues.yml
+  .github/workflows/claude-issue-triage.yml
+  .github/workflows/claude.yml
+  .github/workflows/issue-opened-dispatch.yml
+  .github/workflows/lock-closed-issues.yml
+  .github/workflows/log-issue-events.yml
+  .github/workflows/oncall-triage.yml
+  .github/workflows/remove-autoclose-label.yml
+  .github/workflows/stale-issue-manager.yml
+  LICENSE.md
+  plugins/agent-sdk-dev/agents/agent-sdk-verifier-py.md
+  plugins/agent-sdk-dev/agents/agent-sdk-verifier-ts.md
+  plugins/agent-sdk-dev/.claude-plugin/plugin.json
+  plugins/agent-sdk-dev/commands/new-sdk-app.md
+  plugins/agent-sdk-dev/README.md
+  plugins/explanatory-output-style/.claude-plugin/plugin.json
+  plugins/explanatory-output-style/hooks-handlers/session-start.sh
+  plugins/explanatory-output-style/hooks/hooks.json
+  plugins/explanatory-output-style/README.md
+  plugins/feature-dev/agents/code-architect.md
+  plugins/feature-dev/agents/code-explorer.md
+  plugins/feature-dev/agents/code-reviewer.md
+  plugins/feature-dev/.claude-plugin/plugin.json
+  plugins/feature-dev/commands/feature-dev.md
+  plugins/feature-dev/README.md
+  plugins/learning-output-style/.claude-plugin/plugin.json
+  plugins/learning-output-style/hooks-handlers/session-start.sh
+  plugins/learning-output-style/hooks/hooks.json
+  plugins/learning-output-style/README.md
+  plugins/pr-review-toolkit/agents/code-reviewer.md
+  plugins/pr-review-toolkit/agents/comment-analyzer.md
+  plugins/pr-review-toolkit/agents/silent-failure-hunter.md
+  plugins/pr-review-toolkit/agents/type-design-analyzer.md
+  plugins/pr-review-toolkit/commands/review-pr.md
+  plugins/security-guidance/.claude-plugin/plugin.json
+  plugins/security-guidance/hooks/hooks.json
+  plugins/security-guidance/hooks/security_reminder_hook.py
+  scripts/auto-close-duplicates.ts
+  scripts/backfill-duplicate-comments.ts
+  scripts/comment-on-duplicates.sh
+
+readme_summary: |
+  # Claude Code
+  
+  ![](https://img.shields.io/badge/Node.js-18%2B-brightgreen?style=flat-square) [![npm]](https://www.npmjs.com/package/@anthropic-ai/claude-code)
+  
+  [npm]: https://img.shields.io/npm/v/@anthropic-ai/claude-code.svg?style=flat-square
+  
+  Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows -- all through natural language commands. Use it in your terminal, IDE, or tag @claude on Github.
+  
+  **Learn more in the [official documentation](https://code.claude.com/docs/en/overview)**.
+  
+  <img src="./demo.gif" />
+  
+  ## Get started
+  > [!NOTE]
+  > Installation via npm is deprecated. Use one of the recommended methods below.
+  
+  For more installation options, uninstall steps, and troubleshooting, see the [setup documentation](https://code.claude.com/docs/en/setup).
+  
+  1. Install Claude Code:
+  
+      **MacOS/Linux (Recommended):**
+      ```bash
+      curl -fsSL https://claude.ai/install.sh | bash
+      ```
+  
+      **Homebrew (MacOS/Linux):**
+      ```bash
+      brew install --cask claude-code
+      ```
+  
+      **Windows (Recommended):**
+      ```powershell
+      irm https://claude.ai/install.ps1 | iex
+      ```
+  
+      **WinGet (Windows):**
+      ```powershell
+      winget install Anthropic.ClaudeCode
+      ```
+  
+      **NPM (Deprecated):**
+      ```bash
+      npm install -g @anthropic-ai/claude-code
+      ```
+  
+  2. Navigate to your project directory and run `claude`.
+  
+  ## Plugins
+  
+  This repository includes several Claude Code plugins that extend functionality with custom commands and agents. See the [plugins directory](./plugins/README.md) for detailed documentation on available plugins.
+  
+  ## Reporting Bugs
+  
+  We welcome your feedback. Use the `/bug` command to report issues directly within Claude Code, or file a [GitHub issue](https://github.com/anthropics/claude-code/issues).
+  
+  ## Connect on Discord
+  
+  Join the [Claude Developers Discord](https://anthropic.com/discord) to connect with other developers using Claude Code. Get help, share feedback, and discuss your projects with the community.
+  
+  ## Data collection, usage, and retention
+  
+  When you use Claude Code, we collect feedback, which includes usage data (such as code acceptance or rejections), associated conversation data, and user feedback submitted via the `/bug` command.
+  
+  ### How we use your data
+  
+  See our [data usage policies](https://code.claude.com/docs/en/data-usage).
+  
+  ### Privacy safeguards
+  
+  We have implemented several safeguards to protect your data, including limited retention periods for sensitive information, restricted access to user session data, and clear policies against using feedback for model training.
+  
+  For full details, please review our [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy).
+
+key_files:
+  - /.github/workflows/lock-closed-issues.yml
+  - /.github/workflows/log-issue-events.yml
+  - /.github/workflows/auto-close-duplicates.yml
+  - /.github/workflows/oncall-triage.yml
+  - /.github/workflows/remove-autoclose-label.yml
+  - /.github/workflows/claude.yml
+  - /.github/workflows/stale-issue-manager.yml
+  - /.github/workflows/claude-issue-triage.yml
+  - /.github/workflows/issue-opened-dispatch.yml
+  - /.github/workflows/backfill-duplicate-comments.yml
+  - /.github/workflows/claude-dedupe-issues.yml
+  - /.github/ISSUE_TEMPLATE/model_behavior.yml
+  - /.github/ISSUE_TEMPLATE/bug_report.yml
+  - /.github/ISSUE_TEMPLATE/documentation.yml
+  - /.github/ISSUE_TEMPLATE/config.yml
+  - /.github/ISSUE_TEMPLATE/feature_request.yml
+  - /CHANGELOG.md
+  - /LICENSE.md
+  - /plugins/security-guidance/hooks/hooks.json
+  - /plugins/security-guidance/.claude-plugin/plugin.json
+
+analysis_status: pending_analyzer

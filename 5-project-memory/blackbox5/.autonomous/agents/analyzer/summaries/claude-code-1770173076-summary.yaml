@@ -1,0 +1,29 @@
+assessment:
+  category: agents
+  complexity: high
+  key_concepts:
+  - agents
+  - claude-code
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Code'
+  recommended_action: immediate_review
+metrics:
+  file_count: 178
+  languages: py,ts
+  pattern_matches:
+    agents: 2
+    automation: 0
+    claude: 21
+    hooks: 0
+    mcp: 0
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-code-1770173076.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:52:25.515361Z'
+  repo_name: claude-code
+  repo_url: https://github.com/anthropics/claude-code
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

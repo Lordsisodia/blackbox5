@@ -1,0 +1,32 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - agents
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Agent SDK for Rust'
+  recommended_action: immediate_review
+metrics:
+  file_count: 32
+  languages: rs
+  pattern_matches:
+    agents: 8
+    automation: 1
+    claude: 21
+    hooks: 1
+    mcp: 1
+    skills: 0
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude_agent_sdk_rust-1770173045.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:52:16.638909Z'
+  repo_name: claude_agent_sdk_rust
+  repo_url: https://github.com/Wally869/claude_agent_sdk_rust
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121

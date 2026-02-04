@@ -1,0 +1,32 @@
+assessment:
+  category: hooks
+  complexity: high
+  key_concepts:
+  - hooks
+  - mcp-servers
+  - skills
+  - claude-code
+  - automation
+  relevance_score: 100
+insights:
+  integration_potential: high
+  primary_purpose: '# Claude Code Mastery'
+  recommended_action: immediate_review
+metrics:
+  file_count: 31
+  languages: py,js
+  pattern_matches:
+    agents: 0
+    automation: 2
+    claude: 29
+    hooks: 12
+    mcp: 3
+    skills: 10
+  stars: 0
+source_extraction: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/scout/extractions/claude-code-mastery-1770173350.yaml
+summary:
+  agent: analyzer
+  analyzed_at: '2026-02-04T02:52:38.814547Z'
+  repo_name: claude-code-mastery
+  repo_url: https://github.com/TheDecipherist/claude-code-mastery
+  run_dir: /opt/ralf/5-project-memory/blackbox5/.autonomous/agents/analyzer/runs/run-20260204-025121
