@@ -1,0 +1,21 @@
+[
+  {
+    "id": null,
+    "network": "observation",
+    "content": "Content from tasks/active/TASK-HINDSIGHT-001/task.md: \n\n# TASK-HINDSIGHT-001: Establish 4-Network Memory Foundation\n\n**Type:** implement\n**Priority:** high\n**Status:** pending\n**Created:** 2026-02-04\n\n---\n\n## Objective\n\nCreate FACTS.md, EXPERIENCES.md, OPINIONS.md, OBSERVATIONS.md templates and integrate them into the task/run structure. This establishes the foundation for Hindsight's 4-network memory architecture in Blackbox5.\n\n---\n\n## Context\n\nHindsight's memory architecture uses 4 distinct networks:\n- **World (W):** Objective facts about the wor...",
+    "confidence": 0.5,
+    "category": null,
+    "subcategory": null,
+    "source": "tasks/active/TASK-HINDSIGHT-001/task.md",
+    "source_type": "task",
+    "task_id": null,
+    "run_id": null,
+    "created_at": "2026-02-04T02:46:11.249818",
+    "updated_at": "2026-02-04T02:46:11.249818",
+    "entities": [],
+    "keywords": [],
+    "related_memories": [],
+    "belief_version": 1,
+    "metadata": {}
+  }
+]

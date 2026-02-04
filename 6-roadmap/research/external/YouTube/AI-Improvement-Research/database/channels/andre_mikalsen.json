@@ -7,7 +7,9 @@
       "duration": "17204",
       "view_count": "734",
       "url": "https://youtube.com/watch?v=ByjjZPvNn-Y",
-      "collected_at": "2026-02-03T11:57:45.159284"
+      "collected_at": "2026-02-03T11:57:45.159284",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YPrHmG767XY",
@@ -16,7 +18,9 @@
       "duration": "17224",
       "view_count": "938",
       "url": "https://youtube.com/watch?v=YPrHmG767XY",
-      "collected_at": "2026-02-03T11:57:50.052640"
+      "collected_at": "2026-02-03T11:57:50.052640",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "uSyvAo4rI-o",
@@ -25,7 +29,9 @@
       "duration": "17805",
       "view_count": "1593",
       "url": "https://youtube.com/watch?v=uSyvAo4rI-o",
-      "collected_at": "2026-02-03T11:57:54.897170"
+      "collected_at": "2026-02-03T11:57:54.897170",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "15ZVVnDozXI",
@@ -34,7 +40,9 @@
       "duration": "19031",
       "view_count": "851",
       "url": "https://youtube.com/watch?v=15ZVVnDozXI",
-      "collected_at": "2026-02-03T11:58:00.814892"
+      "collected_at": "2026-02-03T11:58:00.814892",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Ss5Sut_ke8k",
@@ -43,7 +51,9 @@
       "duration": "18735",
       "view_count": "1309",
       "url": "https://youtube.com/watch?v=Ss5Sut_ke8k",
-      "collected_at": "2026-02-03T11:58:05.870326"
+      "collected_at": "2026-02-03T11:58:05.870326",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1su36NL9zmU",
@@ -52,7 +62,9 @@
       "duration": "20186",
       "view_count": "1394",
       "url": "https://youtube.com/watch?v=1su36NL9zmU",
-      "collected_at": "2026-02-03T11:58:11.937271"
+      "collected_at": "2026-02-03T11:58:11.937271",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4yNKYIOcftU",
@@ -61,25 +73,31 @@
       "duration": "18781",
       "view_count": "1617",
       "url": "https://youtube.com/watch?v=4yNKYIOcftU",
-      "collected_at": "2026-02-03T11:58:17.486660"
+      "collected_at": "2026-02-03T11:58:17.486660",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mKVZHOnEhzQ",
-      "title": "Auto Claude + BMAD = 🔥",
+      "title": "Auto Claude + BMAD = \ud83d\udd25",
       "upload_date": "20260116",
       "duration": "20805",
       "view_count": "2205",
       "url": "https://youtube.com/watch?v=mKVZHOnEhzQ",
-      "collected_at": "2026-02-03T11:58:22.852900"
+      "collected_at": "2026-02-03T11:58:22.852900",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "WoKQtMNAseA",
-      "title": "Auto Claude + BMAD = 🔥",
+      "title": "Auto Claude + BMAD = \ud83d\udd25",
       "upload_date": "20260114",
       "duration": "22021",
       "view_count": "2818",
       "url": "https://youtube.com/watch?v=WoKQtMNAseA",
-      "collected_at": "2026-02-03T11:58:28.436368"
+      "collected_at": "2026-02-03T11:58:28.436368",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "nbvsMjNt8VA",
@@ -88,7 +106,9 @@
       "duration": "19154",
       "view_count": "1688",
       "url": "https://youtube.com/watch?v=nbvsMjNt8VA",
-      "collected_at": "2026-02-03T11:58:33.248100"
+      "collected_at": "2026-02-03T11:58:33.248100",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "v8C3N3AXv5o",
@@ -97,61 +117,75 @@
       "duration": "18616",
       "view_count": "1578",
       "url": "https://youtube.com/watch?v=v8C3N3AXv5o",
-      "collected_at": "2026-02-03T11:58:38.114361"
+      "collected_at": "2026-02-03T11:58:38.114361",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YyNJ8pyd-Qw",
-      "title": "Auto Claude - Can we reach a stable version? 👀",
+      "title": "Auto Claude - Can we reach a stable version? \ud83d\udc40",
       "upload_date": "20260107",
       "duration": "17022",
       "view_count": "1723",
       "url": "https://youtube.com/watch?v=YyNJ8pyd-Qw",
-      "collected_at": "2026-02-03T11:58:42.662284"
+      "collected_at": "2026-02-03T11:58:42.662284",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3nPOaePP4Kk",
-      "title": "Auto Claude - Improving our AI Coding system 🔥",
+      "title": "Auto Claude - Improving our AI Coding system \ud83d\udd25",
       "upload_date": "20260105",
       "duration": "18227",
       "view_count": "1797",
       "url": "https://youtube.com/watch?v=3nPOaePP4Kk",
-      "collected_at": "2026-02-03T11:58:46.889890"
+      "collected_at": "2026-02-03T11:58:46.889890",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mo6rsyiUbQA",
-      "title": "Auto Claude - Improving our AI Coding system 🔥",
+      "title": "Auto Claude - Improving our AI Coding system \ud83d\udd25",
       "upload_date": "20260102",
       "duration": "17926",
       "view_count": "2642",
       "url": "https://youtube.com/watch?v=mo6rsyiUbQA",
-      "collected_at": "2026-02-03T11:58:52.467590"
+      "collected_at": "2026-02-03T11:58:52.467590",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1_2rkZ3XFs0",
-      "title": "Auto Claude - Improving our AI Coding system 🔥",
+      "title": "Auto Claude - Improving our AI Coding system \ud83d\udd25",
       "upload_date": "20260101",
       "duration": "16143",
       "view_count": "4843",
       "url": "https://youtube.com/watch?v=1_2rkZ3XFs0",
-      "collected_at": "2026-02-03T11:58:58.012295"
+      "collected_at": "2026-02-03T11:58:58.012295",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "29d7GSgTI9k",
-      "title": "Auto Claude - Improving our AI Coding system 🔥",
+      "title": "Auto Claude - Improving our AI Coding system \ud83d\udd25",
       "upload_date": "20251222",
       "duration": "13142",
       "view_count": "2629",
       "url": "https://youtube.com/watch?v=29d7GSgTI9k",
-      "collected_at": "2026-02-03T11:59:02.380510"
+      "collected_at": "2026-02-03T11:59:02.380510",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "nwjjN624HG0",
-      "title": "BMAD Method into Auto Claude 🔥",
+      "title": "BMAD Method into Auto Claude \ud83d\udd25",
       "upload_date": "20251219",
       "duration": "17594",
       "view_count": "5484",
       "url": "https://youtube.com/watch?v=nwjjN624HG0",
-      "collected_at": "2026-02-03T11:59:07.014980"
+      "collected_at": "2026-02-03T11:59:07.014980",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UHSy4klsFCw",
@@ -160,7 +194,9 @@
       "duration": "4090",
       "view_count": "1622",
       "url": "https://youtube.com/watch?v=UHSy4klsFCw",
-      "collected_at": "2026-02-03T11:59:12.094391"
+      "collected_at": "2026-02-03T11:59:12.094391",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "s9nt8xaXFdg",
@@ -169,7 +205,9 @@
       "duration": "1168",
       "view_count": "60395",
       "url": "https://youtube.com/watch?v=s9nt8xaXFdg",
-      "collected_at": "2026-02-03T11:55:26.771195"
+      "collected_at": "2026-02-03T11:55:26.771195",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "31x-EKSuwX0",
@@ -178,7 +216,9 @@
       "duration": "13827",
       "view_count": "641",
       "url": "https://youtube.com/watch?v=31x-EKSuwX0",
-      "collected_at": "2026-02-03T11:59:16.611534"
+      "collected_at": "2026-02-03T11:59:16.611534",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "05cPvis6SdQ",
@@ -187,7 +227,9 @@
       "duration": "19488",
       "view_count": "694",
       "url": "https://youtube.com/watch?v=05cPvis6SdQ",
-      "collected_at": "2026-02-03T11:59:21.685756"
+      "collected_at": "2026-02-03T11:59:21.685756",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1Gbw990jajc",
@@ -196,25 +238,20 @@
       "duration": "4642",
       "view_count": "106",
       "url": "https://youtube.com/watch?v=1Gbw990jajc",
-      "collected_at": "2026-02-03T11:59:27.150099"
+      "collected_at": "2026-02-03T11:59:27.150099",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UB2mbqCM41A",
-      "title": "🔴 LIVE BUILD - Scheduled Triggers: Vibe Coding an AI Marketing Platform - Day 43 | Revenue: $3,474",
+      "title": "\ud83d\udd34 LIVE BUILD - Scheduled Triggers: Vibe Coding an AI Marketing Platform - Day 43 | Revenue: $3,474",
       "upload_date": "20251209",
       "duration": "10832",
       "view_count": "170",
       "url": "https://youtube.com/watch?v=UB2mbqCM41A",
-      "collected_at": "2026-02-03T11:59:34.587823"
-    },
-    {
-      "id": "TN2pdOBZ5j4",
-      "title": "AI for fantastic frontend/UI",
-      "upload_date": "20251130",
-      "duration": "51",
-      "view_count": "1765",
-      "url": "https://youtube.com/watch?v=TN2pdOBZ5j4",
-      "collected_at": "2026-02-03T12:01:29.837581"
+      "collected_at": "2026-02-03T11:59:34.587823",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yYalfjya2Yg",
@@ -223,7 +260,9 @@
       "duration": "1042",
       "view_count": "1261",
       "url": "https://youtube.com/watch?v=yYalfjya2Yg",
-      "collected_at": "2026-02-03T11:55:33.302470"
+      "collected_at": "2026-02-03T11:55:33.302470",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vH524exUDYA",
@@ -232,7 +271,9 @@
       "duration": "12504",
       "view_count": "74",
       "url": "https://youtube.com/watch?v=vH524exUDYA",
-      "collected_at": "2026-02-03T11:59:42.205864"
+      "collected_at": "2026-02-03T11:59:42.205864",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dyt419iCTTY",
@@ -241,34 +282,9 @@
       "duration": "10262",
       "view_count": "68",
       "url": "https://youtube.com/watch?v=dyt419iCTTY",
-      "collected_at": "2026-02-03T11:59:49.393496"
-    },
-    {
-      "id": "mQgGxv6VtFk",
-      "title": "Use AI or Get Left Behind",
-      "upload_date": "20251118",
-      "duration": "52",
-      "view_count": "526",
-      "url": "https://youtube.com/watch?v=mQgGxv6VtFk",
-      "collected_at": "2026-02-03T12:01:35.742254"
-    },
-    {
-      "id": "xk073HHlXkI",
-      "title": "Each AI Agent Is a New Hire",
-      "upload_date": "20251118",
-      "duration": "51",
-      "view_count": "1158",
-      "url": "https://youtube.com/watch?v=xk073HHlXkI",
-      "collected_at": "2026-02-03T12:01:46.702406"
-    },
-    {
-      "id": "9CnguaaJSnI",
-      "title": "Companies That Ignore AI Become Slow Sinking Ships",
-      "upload_date": "20251118",
-      "duration": "65",
-      "view_count": "244",
-      "url": "https://youtube.com/watch?v=9CnguaaJSnI",
-      "collected_at": "2026-02-03T12:01:55.712632"
+      "collected_at": "2026-02-03T11:59:49.393496",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jwLxD7bc8DE",
@@ -277,7 +293,9 @@
       "duration": "636",
       "view_count": "167",
       "url": "https://youtube.com/watch?v=jwLxD7bc8DE",
-      "collected_at": "2026-02-03T11:55:40.970359"
+      "collected_at": "2026-02-03T11:55:40.970359",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "P3QTDi6-MG4",
@@ -286,25 +304,9 @@
       "duration": "15204",
       "view_count": "294",
       "url": "https://youtube.com/watch?v=P3QTDi6-MG4",
-      "collected_at": "2026-02-03T11:59:55.614024"
-    },
-    {
-      "id": "IwLSGKCN3Sc",
-      "title": "You Don’t Need To Code To Use Cursor AI",
-      "upload_date": "20251117",
-      "duration": "18",
-      "view_count": "1391",
-      "url": "https://youtube.com/watch?v=IwLSGKCN3Sc",
-      "collected_at": "2026-02-03T12:02:03.197327"
-    },
-    {
-      "id": "YKJ8wks0Kmg",
-      "title": "Your \"Perfect\" Product Is Killing Your Startup 💀",
-      "upload_date": "20251115",
-      "duration": "45",
-      "view_count": "415",
-      "url": "https://youtube.com/watch?v=YKJ8wks0Kmg",
-      "collected_at": "2026-02-03T12:02:08.888524"
+      "collected_at": "2026-02-03T11:59:55.614024",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Uu96I5d-1WM",
@@ -313,25 +315,9 @@
       "duration": "289",
       "view_count": "306",
       "url": "https://youtube.com/watch?v=Uu96I5d-1WM",
-      "collected_at": "2026-02-03T11:55:48.270004"
-    },
-    {
-      "id": "KnI2W_XfSAI",
-      "title": "Developer? Stop Selling Features",
-      "upload_date": "20251114",
-      "duration": "79",
-      "view_count": "257",
-      "url": "https://youtube.com/watch?v=KnI2W_XfSAI",
-      "collected_at": "2026-02-03T12:02:14.179129"
-    },
-    {
-      "id": "tUMy5qqCrps",
-      "title": "Why I'm Stopping Trading Time For Money",
-      "upload_date": "20251114",
-      "duration": "53",
-      "view_count": "508",
-      "url": "https://youtube.com/watch?v=tUMy5qqCrps",
-      "collected_at": "2026-02-03T12:02:18.987258"
+      "collected_at": "2026-02-03T11:55:48.270004",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "wVnb7l14DMs",
@@ -340,7 +326,9 @@
       "duration": "17029",
       "view_count": "17",
       "url": "https://youtube.com/watch?v=wVnb7l14DMs",
-      "collected_at": "2026-02-03T12:00:01.426702"
+      "collected_at": "2026-02-03T12:00:01.426702",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oPyLFSWowIA",
@@ -349,25 +337,9 @@
       "duration": "5943",
       "view_count": "21",
       "url": "https://youtube.com/watch?v=oPyLFSWowIA",
-      "collected_at": "2026-02-03T12:00:07.014478"
-    },
-    {
-      "id": "7JySzGVwwy0",
-      "title": "AI Browser Fails...",
-      "upload_date": "20251113",
-      "duration": "100",
-      "view_count": "213",
-      "url": "https://youtube.com/watch?v=7JySzGVwwy0",
-      "collected_at": "2026-02-03T12:02:23.685356"
-    },
-    {
-      "id": "UI_6d7VShZw",
-      "title": "My favorite part of revenue",
-      "upload_date": "20251113",
-      "duration": "28",
-      "view_count": "1194",
-      "url": "https://youtube.com/watch?v=UI_6d7VShZw",
-      "collected_at": "2026-02-03T12:02:28.240454"
+      "collected_at": "2026-02-03T12:00:07.014478",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bE-v2AC87wM",
@@ -376,7 +348,9 @@
       "duration": "8314",
       "view_count": "30",
       "url": "https://youtube.com/watch?v=bE-v2AC87wM",
-      "collected_at": "2026-02-03T12:00:12.927958"
+      "collected_at": "2026-02-03T12:00:12.927958",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YybVZHqEzqg",
@@ -385,151 +359,119 @@
       "duration": "13489",
       "view_count": "51",
       "url": "https://youtube.com/watch?v=YybVZHqEzqg",
-      "collected_at": "2026-02-03T12:00:17.398471"
+      "collected_at": "2026-02-03T12:00:17.398471",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4OG8iR1vBNM",
-      "title": "Vibe Coding an AI Marketing Agency | Week 2 (Day 4)— Customers 5/100",
+      "title": "Vibe Coding an AI Marketing Agency | Week 2 (Day 4)\u2014 Customers 5/100",
       "upload_date": "20251106",
       "duration": "17187",
       "view_count": "71",
       "url": "https://youtube.com/watch?v=4OG8iR1vBNM",
-      "collected_at": "2026-02-03T12:00:21.215193"
+      "collected_at": "2026-02-03T12:00:21.215193",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "l_EtG4VX7x0",
-      "title": "Vibe Coding an AI Marketing Agency | Week 2 (Day 3)— Customers 5/100",
+      "title": "Vibe Coding an AI Marketing Agency | Week 2 (Day 3)\u2014 Customers 5/100",
       "upload_date": "20251106",
       "duration": "4916",
       "view_count": "21",
       "url": "https://youtube.com/watch?v=l_EtG4VX7x0",
-      "collected_at": "2026-02-03T12:00:25.916210"
+      "collected_at": "2026-02-03T12:00:25.916210",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "pwpFVYyG5cU",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 2 (Day 2)— Customers 5/100",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 2 (Day 2)\u2014 Customers 5/100",
       "upload_date": "20251104",
       "duration": "15973",
       "view_count": "86",
       "url": "https://youtube.com/watch?v=pwpFVYyG5cU",
-      "collected_at": "2026-02-03T12:00:29.982991"
+      "collected_at": "2026-02-03T12:00:29.982991",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "uqxZZLPQslo",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 2 (Day 1 - Part 2)— Customers 0/100",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 2 (Day 1 - Part 2)\u2014 Customers 0/100",
       "upload_date": "20251103",
       "duration": "2691",
       "view_count": "32",
       "url": "https://youtube.com/watch?v=uqxZZLPQslo",
-      "collected_at": "2026-02-03T12:00:36.787793"
+      "collected_at": "2026-02-03T12:00:36.787793",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_JHGAFeZKDM",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 2 (Day 1)— Customers 0/100",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 2 (Day 1)\u2014 Customers 0/100",
       "upload_date": "20251103",
       "duration": "5167",
       "view_count": "43",
       "url": "https://youtube.com/watch?v=_JHGAFeZKDM",
-      "collected_at": "2026-02-03T12:00:42.580699"
+      "collected_at": "2026-02-03T12:00:42.580699",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AQtkGJVxWSk",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 7)— Customers 0/100",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 7)\u2014 Customers 0/100",
       "upload_date": "20251103",
       "duration": "8554",
       "view_count": "41",
       "url": "https://youtube.com/watch?v=AQtkGJVxWSk",
-      "collected_at": "2026-02-03T12:00:48.228377"
-    },
-    {
-      "id": "96BTAhpPUBY",
-      "title": "10 Minutes Instead of 60 for Coding Tasks",
-      "upload_date": "20251102",
-      "duration": "38",
-      "view_count": "699",
-      "url": "https://youtube.com/watch?v=96BTAhpPUBY",
-      "collected_at": "2026-02-03T12:02:34.129288"
-    },
-    {
-      "id": "dh9oiOBTpMQ",
-      "title": "Posts based on relevant news/trends ↗️",
-      "upload_date": "20251102",
-      "duration": "40",
-      "view_count": "325",
-      "url": "https://youtube.com/watch?v=dh9oiOBTpMQ",
-      "collected_at": "2026-02-03T12:02:39.878486"
+      "collected_at": "2026-02-03T12:00:48.228377",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jXPA1waly0s",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 6)— Customers 0/100",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 6)\u2014 Customers 0/100",
       "upload_date": "20251031",
       "duration": "17780",
       "view_count": "145",
       "url": "https://youtube.com/watch?v=jXPA1waly0s",
-      "collected_at": "2026-02-03T12:00:54.083580"
-    },
-    {
-      "id": "7kTPP3LxnvE",
-      "title": "OpenAI Structured model outputs",
-      "upload_date": "20251031",
-      "duration": "23",
-      "view_count": "1446",
-      "url": "https://youtube.com/watch?v=7kTPP3LxnvE",
-      "collected_at": "2026-02-03T12:02:45.075520"
+      "collected_at": "2026-02-03T12:00:54.083580",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "VaSEhayarzw",
-      "title": "Vibe Coding with Cursor 2.0 and Composer 1 | Week 1 (Day 5) — Customers 0/100",
+      "title": "Vibe Coding with Cursor 2.0 and Composer 1 | Week 1 (Day 5) \u2014 Customers 0/100",
       "upload_date": "20251030",
       "duration": "17188",
       "view_count": "108",
       "url": "https://youtube.com/watch?v=VaSEhayarzw",
-      "collected_at": "2026-02-03T12:00:59.738408"
+      "collected_at": "2026-02-03T12:00:59.738408",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "R3RUt4qcxXI",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 4) — Revenue: $3,474/$1,000,000",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 4) \u2014 Revenue: $3,474/$1,000,000",
       "upload_date": "20251030",
       "duration": "7503",
       "view_count": "47",
       "url": "https://youtube.com/watch?v=R3RUt4qcxXI",
-      "collected_at": "2026-02-03T12:01:06.908287"
-    },
-    {
-      "id": "yp3XVGMcEdQ",
-      "title": "The Fastest Way to Find Components in #Nextjs",
-      "upload_date": "20251030",
-      "duration": "47",
-      "view_count": "464",
-      "url": "https://youtube.com/watch?v=yp3XVGMcEdQ",
-      "collected_at": "2026-02-03T12:02:49.493557"
-    },
-    {
-      "id": "VCvC5vp_bRQ",
-      "title": "UI Trick: Template First, 10× Faster Results",
-      "upload_date": "20251030",
-      "duration": "24",
-      "view_count": "1081",
-      "url": "https://youtube.com/watch?v=VCvC5vp_bRQ",
-      "collected_at": "2026-02-03T12:02:53.875542"
-    },
-    {
-      "id": "mM2PP6jT9YY",
-      "title": "My Vision for AI-Powered Google Ads Automation",
-      "upload_date": "20251029",
-      "duration": "108",
-      "view_count": "10",
-      "url": "https://youtube.com/watch?v=mM2PP6jT9YY",
-      "collected_at": "2026-02-03T12:02:58.475231"
+      "collected_at": "2026-02-03T12:01:06.908287",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gs7sGDcd5aY",
-      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 3) — Revenue: $3,474/$1,000,000",
+      "title": "Vibe-Coding an AI Marketing Agency | Week 1 (Day 3) \u2014 Revenue: $3,474/$1,000,000",
       "upload_date": "20251028",
       "duration": "15744",
       "view_count": "62",
       "url": "https://youtube.com/watch?v=gs7sGDcd5aY",
-      "collected_at": "2026-02-03T12:01:12.403768"
+      "collected_at": "2026-02-03T12:01:12.403768",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XM3Uiv3Am6k",
@@ -538,7 +480,9 @@
       "duration": "17030",
       "view_count": "234",
       "url": "https://youtube.com/watch?v=XM3Uiv3Am6k",
-      "collected_at": "2026-02-03T12:01:18.427288"
+      "collected_at": "2026-02-03T12:01:18.427288",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "BuyM1dyCYqA",
@@ -547,25 +491,9 @@
       "duration": "12355",
       "view_count": "391",
       "url": "https://youtube.com/watch?v=BuyM1dyCYqA",
-      "collected_at": "2026-02-03T12:01:24.363492"
-    },
-    {
-      "id": "6w1Iqiwi07s",
-      "title": "The Problem With Separate AI Marketing Tools",
-      "upload_date": "20251027",
-      "duration": "31",
-      "view_count": "1552",
-      "url": "https://youtube.com/watch?v=6w1Iqiwi07s",
-      "collected_at": "2026-02-03T12:03:03.128999"
-    },
-    {
-      "id": "sfx_4gzcGgU",
-      "title": "The Power of Affirmations #shorts",
-      "upload_date": "20230719",
-      "duration": "57",
-      "view_count": "75",
-      "url": "https://youtube.com/watch?v=sfx_4gzcGgU",
-      "collected_at": "2026-02-03T12:03:08.440127"
+      "collected_at": "2026-02-03T12:01:24.363492",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jR5T6WDoT-4",
@@ -574,7 +502,9 @@
       "duration": "866",
       "view_count": "270",
       "url": "https://youtube.com/watch?v=jR5T6WDoT-4",
-      "collected_at": "2026-02-03T11:55:54.806364"
+      "collected_at": "2026-02-03T11:55:54.806364",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "jhkEU1Kq3_I",
@@ -583,7 +513,9 @@
       "duration": "329",
       "view_count": "179",
       "url": "https://youtube.com/watch?v=jhkEU1Kq3_I",
-      "collected_at": "2026-02-03T11:56:00.488761"
+      "collected_at": "2026-02-03T11:56:00.488761",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "o-NjkR_kWNs",
@@ -592,7 +524,9 @@
       "duration": "994",
       "view_count": "112",
       "url": "https://youtube.com/watch?v=o-NjkR_kWNs",
-      "collected_at": "2026-02-03T11:56:07.162720"
+      "collected_at": "2026-02-03T11:56:07.162720",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "9RieCjJeqkI",
@@ -601,7 +535,9 @@
       "duration": "150",
       "view_count": "10323",
       "url": "https://youtube.com/watch?v=9RieCjJeqkI",
-      "collected_at": "2026-02-03T11:56:12.989820"
+      "collected_at": "2026-02-03T11:56:12.989820",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "4zxFDqg2Fzg",
@@ -610,7 +546,9 @@
       "duration": "642",
       "view_count": "678",
       "url": "https://youtube.com/watch?v=4zxFDqg2Fzg",
-      "collected_at": "2026-02-03T11:56:20.080186"
+      "collected_at": "2026-02-03T11:56:20.080186",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "83Omu46-mYo",
@@ -619,7 +557,9 @@
       "duration": "472",
       "view_count": "181",
       "url": "https://youtube.com/watch?v=83Omu46-mYo",
-      "collected_at": "2026-02-03T11:56:25.913346"
+      "collected_at": "2026-02-03T11:56:25.913346",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "oWFhMW16P6A",
@@ -628,7 +568,9 @@
       "duration": "534",
       "view_count": "78",
       "url": "https://youtube.com/watch?v=oWFhMW16P6A",
-      "collected_at": "2026-02-03T11:56:31.343400"
+      "collected_at": "2026-02-03T11:56:31.343400",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "k92dPNVoYA4",
@@ -637,7 +579,9 @@
       "duration": "453",
       "view_count": "70",
       "url": "https://youtube.com/watch?v=k92dPNVoYA4",
-      "collected_at": "2026-02-03T11:56:37.306775"
+      "collected_at": "2026-02-03T11:56:37.306775",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "u74uNpyB0ik",
@@ -646,7 +590,9 @@
       "duration": "467",
       "view_count": "181",
       "url": "https://youtube.com/watch?v=u74uNpyB0ik",
-      "collected_at": "2026-02-03T11:56:43.509291"
+      "collected_at": "2026-02-03T11:56:43.509291",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "OxOwg_kJsOw",
@@ -655,7 +601,9 @@
       "duration": "601",
       "view_count": "125",
       "url": "https://youtube.com/watch?v=OxOwg_kJsOw",
-      "collected_at": "2026-02-03T11:56:49.078856"
+      "collected_at": "2026-02-03T11:56:49.078856",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6ZmObaneVwU",
@@ -664,7 +612,9 @@
       "duration": "599",
       "view_count": "168",
       "url": "https://youtube.com/watch?v=6ZmObaneVwU",
-      "collected_at": "2026-02-03T11:56:54.445470"
+      "collected_at": "2026-02-03T11:56:54.445470",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "WYJRquAO7lQ",
@@ -673,7 +623,9 @@
       "duration": "1724",
       "view_count": "426",
       "url": "https://youtube.com/watch?v=WYJRquAO7lQ",
-      "collected_at": "2026-02-03T11:56:59.462091"
+      "collected_at": "2026-02-03T11:56:59.462091",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fb7Z2TtrG8U",
@@ -682,7 +634,9 @@
       "duration": "1417",
       "view_count": "95",
       "url": "https://youtube.com/watch?v=fb7Z2TtrG8U",
-      "collected_at": "2026-02-03T11:57:05.196346"
+      "collected_at": "2026-02-03T11:57:05.196346",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "B2a1AUw3RL0",
@@ -691,7 +645,9 @@
       "duration": "688",
       "view_count": "375",
       "url": "https://youtube.com/watch?v=B2a1AUw3RL0",
-      "collected_at": "2026-02-03T11:57:11.337294"
+      "collected_at": "2026-02-03T11:57:11.337294",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8xOVHOaE4go",
@@ -700,7 +656,9 @@
       "duration": "988",
       "view_count": "372",
       "url": "https://youtube.com/watch?v=8xOVHOaE4go",
-      "collected_at": "2026-02-03T11:57:16.880624"
+      "collected_at": "2026-02-03T11:57:16.880624",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "fRSD_McUUEc",
@@ -709,7 +667,9 @@
       "duration": "630",
       "view_count": "389",
       "url": "https://youtube.com/watch?v=fRSD_McUUEc",
-      "collected_at": "2026-02-03T11:57:22.423003"
+      "collected_at": "2026-02-03T11:57:22.423003",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "U1sIz_RwR74",
@@ -718,7 +678,9 @@
       "duration": "386",
       "view_count": "12470",
       "url": "https://youtube.com/watch?v=U1sIz_RwR74",
-      "collected_at": "2026-02-03T11:57:27.253922"
+      "collected_at": "2026-02-03T11:57:27.253922",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qV8cfWme18A",
@@ -727,7 +689,9 @@
       "duration": "563",
       "view_count": "1386",
       "url": "https://youtube.com/watch?v=qV8cfWme18A",
-      "collected_at": "2026-02-03T11:57:33.316770"
+      "collected_at": "2026-02-03T11:57:33.316770",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "emlshtt7Vu8",
@@ -736,11 +700,20 @@
       "duration": "567",
       "view_count": "1116",
       "url": "https://youtube.com/watch?v=emlshtt7Vu8",
-      "collected_at": "2026-02-03T11:57:40.072852"
+      "collected_at": "2026-02-03T11:57:40.072852",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     }
   ],
   "creator": "Andre Mikalsen",
   "creator_slug": "andre_mikalsen",
   "total_videos": 82,
-  "last_updated": "2026-02-03T12:03:08.441062"
+  "last_updated": "2026-02-03T12:03:08.441062",
+  "filtered_at": "2026-02-04T04:37:37.338238",
+  "stats": {
+    "original_count": 82,
+    "filtered_count": 64,
+    "shorts_removed": 18,
+    "long_form_count": 45
+  }
 }

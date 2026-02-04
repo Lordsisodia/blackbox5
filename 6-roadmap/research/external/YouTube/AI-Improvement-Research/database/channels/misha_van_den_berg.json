@@ -7,7 +7,9 @@
       "duration": "846",
       "view_count": "4892",
       "url": "https://youtube.com/watch?v=6w65b8HWU8g",
-      "collected_at": "2026-02-03T11:54:42.628346"
+      "collected_at": "2026-02-03T11:54:42.628346",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "szxQhYjEUfU",
@@ -16,7 +18,9 @@
       "duration": "917",
       "view_count": "20929",
       "url": "https://youtube.com/watch?v=szxQhYjEUfU",
-      "collected_at": "2026-02-03T11:54:45.382570"
+      "collected_at": "2026-02-03T11:54:45.382570",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "S6T5M4jLqR8",
@@ -25,7 +29,9 @@
       "duration": "2555",
       "view_count": "47805",
       "url": "https://youtube.com/watch?v=S6T5M4jLqR8",
-      "collected_at": "2026-02-03T11:54:48.149827"
+      "collected_at": "2026-02-03T11:54:48.149827",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fjoGZ90bOzw",
@@ -34,16 +40,9 @@
       "duration": "4296",
       "view_count": "39106",
       "url": "https://youtube.com/watch?v=fjoGZ90bOzw",
-      "collected_at": "2026-02-03T11:54:51.199299"
-    },
-    {
-      "id": "jkvNFqeWSlY",
-      "title": "SWE Careers are DESTROYED by this mistake.",
-      "upload_date": "20260106",
-      "duration": "20",
-      "view_count": "1569",
-      "url": "https://youtube.com/watch?v=jkvNFqeWSlY",
-      "collected_at": "2026-02-03T12:06:25.109475"
+      "collected_at": "2026-02-03T11:54:51.199299",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Rvg72fX_dQg",
@@ -52,34 +51,20 @@
       "duration": "5007",
       "view_count": "6406",
       "url": "https://youtube.com/watch?v=Rvg72fX_dQg",
-      "collected_at": "2026-02-03T11:54:54.157332"
-    },
-    {
-      "id": "-roUIEsb7ss",
-      "title": "DevOps is dying.",
-      "upload_date": "20260103",
-      "duration": "54",
-      "view_count": "7231",
-      "url": "https://youtube.com/watch?v=-roUIEsb7ss",
-      "collected_at": "2026-02-03T12:06:31.453656"
+      "collected_at": "2026-02-03T11:54:54.157332",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "uMKeVWRO7G0",
-      "title": "How I’d Pick Which Cloud to Learn First in 2026 (If I Started Over)",
+      "title": "How I\u2019d Pick Which Cloud to Learn First in 2026 (If I Started Over)",
       "upload_date": "20251230",
       "duration": "1440",
       "view_count": "7315",
       "url": "https://youtube.com/watch?v=uMKeVWRO7G0",
-      "collected_at": "2026-02-03T11:54:57.348819"
-    },
-    {
-      "id": "xEiU3QrzVLA",
-      "title": "You are not using Windows because you chose it",
-      "upload_date": "20251228",
-      "duration": "20",
-      "view_count": "7158",
-      "url": "https://youtube.com/watch?v=xEiU3QrzVLA",
-      "collected_at": "2026-02-03T12:06:38.237631"
+      "collected_at": "2026-02-03T11:54:57.348819",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qPpMrcIPdHI",
@@ -88,7 +73,9 @@
       "duration": "2133",
       "view_count": "14769",
       "url": "https://youtube.com/watch?v=qPpMrcIPdHI",
-      "collected_at": "2026-02-03T11:55:00.883230"
+      "collected_at": "2026-02-03T11:55:00.883230",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bOsDvbp2DHc",
@@ -97,7 +84,9 @@
       "duration": "1612",
       "view_count": "20375",
       "url": "https://youtube.com/watch?v=bOsDvbp2DHc",
-      "collected_at": "2026-02-03T11:55:04.284043"
+      "collected_at": "2026-02-03T11:55:04.284043",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gxWgceGx5Os",
@@ -106,7 +95,9 @@
       "duration": "1636",
       "view_count": "74883",
       "url": "https://youtube.com/watch?v=gxWgceGx5Os",
-      "collected_at": "2026-02-03T11:55:08.642994"
+      "collected_at": "2026-02-03T11:55:08.642994",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "N4TFS86kfYk",
@@ -115,7 +106,9 @@
       "duration": "1961",
       "view_count": "119820",
       "url": "https://youtube.com/watch?v=N4TFS86kfYk",
-      "collected_at": "2026-02-03T11:55:14.342659"
+      "collected_at": "2026-02-03T11:55:14.342659",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wT562m2qLFU",
@@ -124,16 +117,9 @@
       "duration": "3468",
       "view_count": "4838",
       "url": "https://youtube.com/watch?v=wT562m2qLFU",
-      "collected_at": "2026-02-03T11:55:20.115463"
-    },
-    {
-      "id": "_K1fJjYhga8",
-      "title": "Don't Fall Into The Fake Productivity Trap",
-      "upload_date": "20251115",
-      "duration": "15",
-      "view_count": "676",
-      "url": "https://youtube.com/watch?v=_K1fJjYhga8",
-      "collected_at": "2026-02-03T12:07:46.328627"
+      "collected_at": "2026-02-03T11:55:20.115463",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2wMssuJHLJ8",
@@ -142,34 +128,9 @@
       "duration": "752",
       "view_count": "55348",
       "url": "https://youtube.com/watch?v=2wMssuJHLJ8",
-      "collected_at": "2026-02-03T11:55:26.228185"
-    },
-    {
-      "id": "kyrkz52Rybk",
-      "title": "This is why you're not getting hired",
-      "upload_date": "20251103",
-      "duration": "37",
-      "view_count": "2838",
-      "url": "https://youtube.com/watch?v=kyrkz52Rybk",
-      "collected_at": "2026-02-03T12:08:20.355940"
-    },
-    {
-      "id": "SBomYGnDkAQ",
-      "title": "They finally admitted what really matters",
-      "upload_date": "20251101",
-      "duration": "44",
-      "view_count": "1312",
-      "url": "https://youtube.com/watch?v=SBomYGnDkAQ",
-      "collected_at": "2026-02-03T12:08:26.224999"
-    },
-    {
-      "id": "8mmWc6TWJ0c",
-      "title": "Why you keep getting rejected for DevOps jobs",
-      "upload_date": "20251031",
-      "duration": "35",
-      "view_count": "3961",
-      "url": "https://youtube.com/watch?v=8mmWc6TWJ0c",
-      "collected_at": "2026-02-03T12:08:29.410901"
+      "collected_at": "2026-02-03T11:55:26.228185",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "QuoNDm94bxw",
@@ -178,7 +139,9 @@
       "duration": "1300",
       "view_count": "9804",
       "url": "https://youtube.com/watch?v=QuoNDm94bxw",
-      "collected_at": "2026-02-03T11:55:31.924705"
+      "collected_at": "2026-02-03T11:55:31.924705",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NkM6wQL2UvM",
@@ -187,16 +150,9 @@
       "duration": "1960",
       "view_count": "82801",
       "url": "https://youtube.com/watch?v=NkM6wQL2UvM",
-      "collected_at": "2026-02-03T11:55:38.006551"
-    },
-    {
-      "id": "E9ZUcAlRlHs",
-      "title": "How I Got a Six Figure Job With Old Laptops",
-      "upload_date": "20251009",
-      "duration": "50",
-      "view_count": "4513",
-      "url": "https://youtube.com/watch?v=E9ZUcAlRlHs",
-      "collected_at": "2026-02-03T12:08:55.271085"
+      "collected_at": "2026-02-03T11:55:38.006551",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "OM_DWXFTmCY",
@@ -205,7 +161,9 @@
       "duration": "1460",
       "view_count": "23112",
       "url": "https://youtube.com/watch?v=OM_DWXFTmCY",
-      "collected_at": "2026-02-03T11:55:45.244928"
+      "collected_at": "2026-02-03T11:55:45.244928",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tLkRAqmAEtE",
@@ -214,7 +172,9 @@
       "duration": "527",
       "view_count": "19227",
       "url": "https://youtube.com/watch?v=tLkRAqmAEtE",
-      "collected_at": "2026-02-03T11:55:52.814369"
+      "collected_at": "2026-02-03T11:55:52.814369",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "f-rBpnp4BP4",
@@ -223,7 +183,9 @@
       "duration": "588",
       "view_count": "6677",
       "url": "https://youtube.com/watch?v=f-rBpnp4BP4",
-      "collected_at": "2026-02-03T11:55:59.202162"
+      "collected_at": "2026-02-03T11:55:59.202162",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "y5wipLOjgT0",
@@ -232,7 +194,9 @@
       "duration": "1048",
       "view_count": "48108",
       "url": "https://youtube.com/watch?v=y5wipLOjgT0",
-      "collected_at": "2026-02-03T11:56:05.924512"
+      "collected_at": "2026-02-03T11:56:05.924512",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-dfq1blmVB8",
@@ -241,7 +205,9 @@
       "duration": "2265",
       "view_count": "28360",
       "url": "https://youtube.com/watch?v=-dfq1blmVB8",
-      "collected_at": "2026-02-03T11:56:11.231282"
+      "collected_at": "2026-02-03T11:56:11.231282",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4yzHp_5Ky0o",
@@ -250,7 +216,9 @@
       "duration": "607",
       "view_count": "9105",
       "url": "https://youtube.com/watch?v=4yzHp_5Ky0o",
-      "collected_at": "2026-02-03T11:56:17.745420"
+      "collected_at": "2026-02-03T11:56:17.745420",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "m4AOTFnQJB0",
@@ -259,7 +227,9 @@
       "duration": "5376",
       "view_count": "2414",
       "url": "https://youtube.com/watch?v=m4AOTFnQJB0",
-      "collected_at": "2026-02-03T12:04:20.768703"
+      "collected_at": "2026-02-03T12:04:20.768703",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ErhVmAEOUBM",
@@ -268,7 +238,9 @@
       "duration": "958",
       "view_count": "7535",
       "url": "https://youtube.com/watch?v=ErhVmAEOUBM",
-      "collected_at": "2026-02-03T11:56:23.691507"
+      "collected_at": "2026-02-03T11:56:23.691507",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "KW1X9xefE0Q",
@@ -277,7 +249,9 @@
       "duration": "331",
       "view_count": "226851",
       "url": "https://youtube.com/watch?v=KW1X9xefE0Q",
-      "collected_at": "2026-02-03T11:56:29.377968"
+      "collected_at": "2026-02-03T11:56:29.377968",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "mSJXn6XdEr0",
@@ -286,7 +260,9 @@
       "duration": "1089",
       "view_count": "2995",
       "url": "https://youtube.com/watch?v=mSJXn6XdEr0",
-      "collected_at": "2026-02-03T11:56:35.139732"
+      "collected_at": "2026-02-03T11:56:35.139732",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "9AKSLbfen6w",
@@ -295,16 +271,9 @@
       "duration": "1183",
       "view_count": "22039",
       "url": "https://youtube.com/watch?v=9AKSLbfen6w",
-      "collected_at": "2026-02-03T11:56:41.370419"
-    },
-    {
-      "id": "jFgPuUGhpKk",
-      "title": "Jenkins Alternatives: Best CI/CD Tools for Kubernetes",
-      "upload_date": "20250602",
-      "duration": "51",
-      "view_count": "4524",
-      "url": "https://youtube.com/watch?v=jFgPuUGhpKk",
-      "collected_at": "2026-02-03T12:09:46.459764"
+      "collected_at": "2026-02-03T11:56:41.370419",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AFS0PiBUObA",
@@ -313,7 +282,9 @@
       "duration": "938",
       "view_count": "2469",
       "url": "https://youtube.com/watch?v=AFS0PiBUObA",
-      "collected_at": "2026-02-03T11:56:47.102380"
+      "collected_at": "2026-02-03T11:56:47.102380",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "J8jAzqbXxjE",
@@ -322,7 +293,9 @@
       "duration": "1097",
       "view_count": "33971",
       "url": "https://youtube.com/watch?v=J8jAzqbXxjE",
-      "collected_at": "2026-02-03T11:56:52.575856"
+      "collected_at": "2026-02-03T11:56:52.575856",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yFrPJImR5vM",
@@ -331,7 +304,9 @@
       "duration": "611",
       "view_count": "20294",
       "url": "https://youtube.com/watch?v=yFrPJImR5vM",
-      "collected_at": "2026-02-03T11:56:59.989585"
+      "collected_at": "2026-02-03T11:56:59.989585",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8CWhPY8Ksko",
@@ -340,16 +315,9 @@
       "duration": "1562",
       "view_count": "10330",
       "url": "https://youtube.com/watch?v=8CWhPY8Ksko",
-      "collected_at": "2026-02-03T11:57:05.844036"
-    },
-    {
-      "id": "So8bjVpZFA0",
-      "title": "My Homelab Hardware",
-      "upload_date": "20250504",
-      "duration": "23",
-      "view_count": "7397",
-      "url": "https://youtube.com/watch?v=So8bjVpZFA0",
-      "collected_at": "2026-02-03T12:10:39.314265"
+      "collected_at": "2026-02-03T11:57:05.844036",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XH2ipbe_Hgw",
@@ -358,16 +326,9 @@
       "duration": "1023",
       "view_count": "4477",
       "url": "https://youtube.com/watch?v=XH2ipbe_Hgw",
-      "collected_at": "2026-02-03T11:57:12.928877"
-    },
-    {
-      "id": "SD14sDa6JQM",
-      "title": "Most Popular Job Titles for Kubernetes (2024 Q3)",
-      "upload_date": "20250427",
-      "duration": "35",
-      "view_count": "3086",
-      "url": "https://youtube.com/watch?v=SD14sDa6JQM",
-      "collected_at": "2026-02-03T12:10:51.113105"
+      "collected_at": "2026-02-03T11:57:12.928877",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "cAD6QaJTVyw",
@@ -376,7 +337,9 @@
       "duration": "1247",
       "view_count": "34820",
       "url": "https://youtube.com/watch?v=cAD6QaJTVyw",
-      "collected_at": "2026-02-03T11:57:21.681505"
+      "collected_at": "2026-02-03T11:57:21.681505",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "K42Ux_KU4DM",
@@ -385,7 +348,9 @@
       "duration": "1519",
       "view_count": "7159",
       "url": "https://youtube.com/watch?v=K42Ux_KU4DM",
-      "collected_at": "2026-02-03T11:57:29.299432"
+      "collected_at": "2026-02-03T11:57:29.299432",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Q1PIcgE0XB8",
@@ -394,7 +359,9 @@
       "duration": "858",
       "view_count": "36542",
       "url": "https://youtube.com/watch?v=Q1PIcgE0XB8",
-      "collected_at": "2026-02-03T11:57:35.352160"
+      "collected_at": "2026-02-03T11:57:35.352160",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ayY4lNcpfKk",
@@ -403,16 +370,9 @@
       "duration": "1427",
       "view_count": "4839",
       "url": "https://youtube.com/watch?v=ayY4lNcpfKk",
-      "collected_at": "2026-02-03T11:57:41.197283"
-    },
-    {
-      "id": "t_fA1aS35c0",
-      "title": "What Software Engineers Need to Consider",
-      "upload_date": "20250327",
-      "duration": "16",
-      "view_count": "3588",
-      "url": "https://youtube.com/watch?v=t_fA1aS35c0",
-      "collected_at": "2026-02-03T12:11:37.490968"
+      "collected_at": "2026-02-03T11:57:41.197283",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Ikf39alrDxs",
@@ -421,7 +381,9 @@
       "duration": "140",
       "view_count": "1508",
       "url": "https://youtube.com/watch?v=Ikf39alrDxs",
-      "collected_at": "2026-02-03T12:11:42.636057"
+      "collected_at": "2026-02-03T12:11:42.636057",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "GgulnMPd9Rk",
@@ -430,34 +392,9 @@
       "duration": "1043",
       "view_count": "6226",
       "url": "https://youtube.com/watch?v=GgulnMPd9Rk",
-      "collected_at": "2026-02-03T11:57:46.431244"
-    },
-    {
-      "id": "KvpTQpI0GsQ",
-      "title": "Why Software Engineers need Kubernetes",
-      "upload_date": "20250319",
-      "duration": "12",
-      "view_count": "4609",
-      "url": "https://youtube.com/watch?v=KvpTQpI0GsQ",
-      "collected_at": "2026-02-03T12:11:48.497933"
-    },
-    {
-      "id": "7f8kMKBKjYg",
-      "title": "My journey from Nurse to 6 figures as a DevOps Engineer",
-      "upload_date": "20250315",
-      "duration": "35",
-      "view_count": "6066",
-      "url": "https://youtube.com/watch?v=7f8kMKBKjYg",
-      "collected_at": "2026-02-03T12:11:55.133944"
-    },
-    {
-      "id": "ynN5ybV5SZk",
-      "title": "Kubernetes Certifications You Need",
-      "upload_date": "20250312",
-      "duration": "19",
-      "view_count": "3058",
-      "url": "https://youtube.com/watch?v=ynN5ybV5SZk",
-      "collected_at": "2026-02-03T12:11:59.942173"
+      "collected_at": "2026-02-03T11:57:46.431244",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AmJctvKov7Y",
@@ -466,7 +403,9 @@
       "duration": "965",
       "view_count": "6280",
       "url": "https://youtube.com/watch?v=AmJctvKov7Y",
-      "collected_at": "2026-02-03T11:57:50.838526"
+      "collected_at": "2026-02-03T11:57:50.838526",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "aX96l0gdCWY",
@@ -475,7 +414,9 @@
       "duration": "1089",
       "view_count": "21262",
       "url": "https://youtube.com/watch?v=aX96l0gdCWY",
-      "collected_at": "2026-02-03T11:57:56.277445"
+      "collected_at": "2026-02-03T11:57:56.277445",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "73FobI8S8J0",
@@ -484,7 +425,9 @@
       "duration": "3196",
       "view_count": "21024",
       "url": "https://youtube.com/watch?v=73FobI8S8J0",
-      "collected_at": "2026-02-03T11:58:05.428071"
+      "collected_at": "2026-02-03T11:58:05.428071",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "SFXdXwTvruc",
@@ -493,7 +436,9 @@
       "duration": "897",
       "view_count": "18494",
       "url": "https://youtube.com/watch?v=SFXdXwTvruc",
-      "collected_at": "2026-02-03T11:58:10.632235"
+      "collected_at": "2026-02-03T11:58:10.632235",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "SsU5Lb-wsQ4",
@@ -502,16 +447,9 @@
       "duration": "985",
       "view_count": "5390",
       "url": "https://youtube.com/watch?v=SsU5Lb-wsQ4",
-      "collected_at": "2026-02-03T11:58:15.602891"
-    },
-    {
-      "id": "7wyoKn6Mx50",
-      "title": "I’m deeply attached to Neovim and here’s why",
-      "upload_date": "20250201",
-      "duration": "83",
-      "view_count": "1286",
-      "url": "https://youtube.com/watch?v=7wyoKn6Mx50",
-      "collected_at": "2026-02-03T12:12:44.705525"
+      "collected_at": "2026-02-03T11:58:15.602891",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "tw5lovuXCnU",
@@ -520,34 +458,9 @@
       "duration": "837",
       "view_count": "13395",
       "url": "https://youtube.com/watch?v=tw5lovuXCnU",
-      "collected_at": "2026-02-03T11:58:20.157902"
-    },
-    {
-      "id": "fjifdgUP8n8",
-      "title": "Stick with the awful tmux default keybinds. Here's why...",
-      "upload_date": "20250126",
-      "duration": "37",
-      "view_count": "1480",
-      "url": "https://youtube.com/watch?v=fjifdgUP8n8",
-      "collected_at": "2026-02-03T12:12:51.781726"
-    },
-    {
-      "id": "RwTsS8LTjZU",
-      "title": "Once you use a window manager, you’ll never go back",
-      "upload_date": "20250125",
-      "duration": "32",
-      "view_count": "3041",
-      "url": "https://youtube.com/watch?v=RwTsS8LTjZU",
-      "collected_at": "2026-02-03T12:12:54.678548"
-    },
-    {
-      "id": "WYlScSpV6QI",
-      "title": "Run K3S Kubernetes on One Machine",
-      "upload_date": "20250123",
-      "duration": "35",
-      "view_count": "7605",
-      "url": "https://youtube.com/watch?v=WYlScSpV6QI",
-      "collected_at": "2026-02-03T12:12:58.799293"
+      "collected_at": "2026-02-03T11:58:20.157902",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "g59ki9z2SO8",
@@ -556,16 +469,9 @@
       "duration": "1488",
       "view_count": "20774",
       "url": "https://youtube.com/watch?v=g59ki9z2SO8",
-      "collected_at": "2026-02-03T11:58:25.240539"
-    },
-    {
-      "id": "pvkal5JfUec",
-      "title": "Start Your Home Lab on a Budget with Kubernetes",
-      "upload_date": "20250112",
-      "duration": "55",
-      "view_count": "2347",
-      "url": "https://youtube.com/watch?v=pvkal5JfUec",
-      "collected_at": "2026-02-03T12:13:11.624217"
+      "collected_at": "2026-02-03T11:58:25.240539",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "FcBs2iwXC-U",
@@ -574,7 +480,9 @@
       "duration": "1949",
       "view_count": "30822",
       "url": "https://youtube.com/watch?v=FcBs2iwXC-U",
-      "collected_at": "2026-02-03T11:58:30.473084"
+      "collected_at": "2026-02-03T11:58:30.473084",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "WfDwFvl5XBo",
@@ -583,16 +491,9 @@
       "duration": "1120",
       "view_count": "205232",
       "url": "https://youtube.com/watch?v=WfDwFvl5XBo",
-      "collected_at": "2026-02-03T11:58:37.190906"
-    },
-    {
-      "id": "xwTdrfTjL4c",
-      "title": "Master File Navigation in Neovim",
-      "upload_date": "20241229",
-      "duration": "56",
-      "view_count": "2711",
-      "url": "https://youtube.com/watch?v=xwTdrfTjL4c",
-      "collected_at": "2026-02-03T12:13:29.914325"
+      "collected_at": "2026-02-03T11:58:37.190906",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "PjNUvMQ66Zw",
@@ -601,7 +502,9 @@
       "duration": "679",
       "view_count": "9460",
       "url": "https://youtube.com/watch?v=PjNUvMQ66Zw",
-      "collected_at": "2026-02-03T11:58:42.117522"
+      "collected_at": "2026-02-03T11:58:42.117522",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8s0DWeHuEaw",
@@ -610,16 +513,9 @@
       "duration": "4002",
       "view_count": "82775",
       "url": "https://youtube.com/watch?v=8s0DWeHuEaw",
-      "collected_at": "2026-02-03T11:58:46.881091"
-    },
-    {
-      "id": "fwgzhGrwDKQ",
-      "title": "Mastering Writing - The Key to Clear Thinking",
-      "upload_date": "20241214",
-      "duration": "84",
-      "view_count": "572",
-      "url": "https://youtube.com/watch?v=fwgzhGrwDKQ",
-      "collected_at": "2026-02-03T12:13:52.212593"
+      "collected_at": "2026-02-03T11:58:46.881091",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "g2vl0B2suoY",
@@ -628,7 +524,9 @@
       "duration": "160",
       "view_count": "449",
       "url": "https://youtube.com/watch?v=g2vl0B2suoY",
-      "collected_at": "2026-02-03T12:13:59.096883"
+      "collected_at": "2026-02-03T12:13:59.096883",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "G_AU501AAlY",
@@ -637,7 +535,9 @@
       "duration": "1025",
       "view_count": "9873",
       "url": "https://youtube.com/watch?v=G_AU501AAlY",
-      "collected_at": "2026-02-03T11:58:52.178708"
+      "collected_at": "2026-02-03T11:58:52.178708",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QPvz9WM2IvY",
@@ -646,7 +546,9 @@
       "duration": "492",
       "view_count": "8394",
       "url": "https://youtube.com/watch?v=QPvz9WM2IvY",
-      "collected_at": "2026-02-03T11:58:58.941615"
+      "collected_at": "2026-02-03T11:58:58.941615",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "p0s9Z1oMQi4",
@@ -655,7 +557,9 @@
       "duration": "1164",
       "view_count": "6550",
       "url": "https://youtube.com/watch?v=p0s9Z1oMQi4",
-      "collected_at": "2026-02-03T11:59:03.904458"
+      "collected_at": "2026-02-03T11:59:03.904458",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UVOoLVvRAOw",
@@ -664,7 +568,9 @@
       "duration": "1635",
       "view_count": "2049",
       "url": "https://youtube.com/watch?v=UVOoLVvRAOw",
-      "collected_at": "2026-02-03T11:59:09.604704"
+      "collected_at": "2026-02-03T11:59:09.604704",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "B-uTTiWU9ok",
@@ -673,7 +579,9 @@
       "duration": "1928",
       "view_count": "9983",
       "url": "https://youtube.com/watch?v=B-uTTiWU9ok",
-      "collected_at": "2026-02-03T11:59:15.529545"
+      "collected_at": "2026-02-03T11:59:15.529545",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_MaRb8cikOk",
@@ -682,7 +590,9 @@
       "duration": "590",
       "view_count": "2096",
       "url": "https://youtube.com/watch?v=_MaRb8cikOk",
-      "collected_at": "2026-02-03T11:59:21.139596"
+      "collected_at": "2026-02-03T11:59:21.139596",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "L2z7j7Jho4E",
@@ -691,7 +601,9 @@
       "duration": "2947",
       "view_count": "18623",
       "url": "https://youtube.com/watch?v=L2z7j7Jho4E",
-      "collected_at": "2026-02-03T11:59:27.070511"
+      "collected_at": "2026-02-03T11:59:27.070511",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "pfgiZUFUuhg",
@@ -700,7 +612,9 @@
       "duration": "1256",
       "view_count": "17425",
       "url": "https://youtube.com/watch?v=pfgiZUFUuhg",
-      "collected_at": "2026-02-03T11:59:34.036804"
+      "collected_at": "2026-02-03T11:59:34.036804",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "x9kYn5fLoZs",
@@ -709,7 +623,9 @@
       "duration": "1261",
       "view_count": "3477",
       "url": "https://youtube.com/watch?v=x9kYn5fLoZs",
-      "collected_at": "2026-02-03T11:59:41.963744"
+      "collected_at": "2026-02-03T11:59:41.963744",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yic1GgQWccc",
@@ -718,16 +634,9 @@
       "duration": "507",
       "view_count": "11875",
       "url": "https://youtube.com/watch?v=yic1GgQWccc",
-      "collected_at": "2026-02-03T11:59:48.962033"
-    },
-    {
-      "id": "bH3s7evPJVU",
-      "title": "Learning Linux is Crucial",
-      "upload_date": "20241008",
-      "duration": "24",
-      "view_count": "4640",
-      "url": "https://youtube.com/watch?v=bH3s7evPJVU",
-      "collected_at": "2026-02-03T12:14:28.356472"
+      "collected_at": "2026-02-03T11:59:48.962033",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "bYOgjoX_px4",
@@ -736,7 +645,9 @@
       "duration": "1359",
       "view_count": "6064",
       "url": "https://youtube.com/watch?v=bYOgjoX_px4",
-      "collected_at": "2026-02-03T11:59:54.583880"
+      "collected_at": "2026-02-03T11:59:54.583880",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rxU10cOeT78",
@@ -745,7 +656,9 @@
       "duration": "1776",
       "view_count": "3347",
       "url": "https://youtube.com/watch?v=rxU10cOeT78",
-      "collected_at": "2026-02-03T11:59:59.142570"
+      "collected_at": "2026-02-03T11:59:59.142570",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1d6yceheN_Y",
@@ -754,7 +667,9 @@
       "duration": "3283",
       "view_count": "16181",
       "url": "https://youtube.com/watch?v=1d6yceheN_Y",
-      "collected_at": "2026-02-03T12:00:04.226019"
+      "collected_at": "2026-02-03T12:00:04.226019",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "9vNN_mkRDq0",
@@ -763,7 +678,9 @@
       "duration": "823",
       "view_count": "12769",
       "url": "https://youtube.com/watch?v=9vNN_mkRDq0",
-      "collected_at": "2026-02-03T12:00:10.123759"
+      "collected_at": "2026-02-03T12:00:10.123759",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qboMuv9vSpQ",
@@ -772,7 +689,9 @@
       "duration": "2264",
       "view_count": "21223",
       "url": "https://youtube.com/watch?v=qboMuv9vSpQ",
-      "collected_at": "2026-02-03T12:00:15.459466"
+      "collected_at": "2026-02-03T12:00:15.459466",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "U6wI3e9aV5w",
@@ -781,7 +700,9 @@
       "duration": "1219",
       "view_count": "16496",
       "url": "https://youtube.com/watch?v=U6wI3e9aV5w",
-      "collected_at": "2026-02-03T12:00:19.958329"
+      "collected_at": "2026-02-03T12:00:19.958329",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fvz2CxyGcyQ",
@@ -790,7 +711,9 @@
       "duration": "617",
       "view_count": "235961",
       "url": "https://youtube.com/watch?v=fvz2CxyGcyQ",
-      "collected_at": "2026-02-03T12:00:24.424996"
+      "collected_at": "2026-02-03T12:00:24.424996",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "3rCljrDfZ3Y",
@@ -799,7 +722,9 @@
       "duration": "1244",
       "view_count": "18044",
       "url": "https://youtube.com/watch?v=3rCljrDfZ3Y",
-      "collected_at": "2026-02-03T12:00:29.515377"
+      "collected_at": "2026-02-03T12:00:29.515377",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4_OPScYj4Z8",
@@ -808,7 +733,9 @@
       "duration": "497",
       "view_count": "18203",
       "url": "https://youtube.com/watch?v=4_OPScYj4Z8",
-      "collected_at": "2026-02-03T12:00:36.779176"
+      "collected_at": "2026-02-03T12:00:36.779176",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "f19aQw0IX_Y",
@@ -817,7 +744,9 @@
       "duration": "640",
       "view_count": "9635",
       "url": "https://youtube.com/watch?v=f19aQw0IX_Y",
-      "collected_at": "2026-02-03T12:00:42.751719"
+      "collected_at": "2026-02-03T12:00:42.751719",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "vXkyGgp2HWM",
@@ -826,7 +755,9 @@
       "duration": "1301",
       "view_count": "16348",
       "url": "https://youtube.com/watch?v=vXkyGgp2HWM",
-      "collected_at": "2026-02-03T12:00:48.135862"
+      "collected_at": "2026-02-03T12:00:48.135862",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "o1NJYnZCfmY",
@@ -835,7 +766,9 @@
       "duration": "964",
       "view_count": "26540",
       "url": "https://youtube.com/watch?v=o1NJYnZCfmY",
-      "collected_at": "2026-02-03T12:00:53.938219"
+      "collected_at": "2026-02-03T12:00:53.938219",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "upC8G5yFBsA",
@@ -844,7 +777,9 @@
       "duration": "1075",
       "view_count": "40302",
       "url": "https://youtube.com/watch?v=upC8G5yFBsA",
-      "collected_at": "2026-02-03T12:00:59.664547"
+      "collected_at": "2026-02-03T12:00:59.664547",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oxUVn37-Igk",
@@ -853,7 +788,9 @@
       "duration": "2157",
       "view_count": "40659",
       "url": "https://youtube.com/watch?v=oxUVn37-Igk",
-      "collected_at": "2026-02-03T12:01:06.051715"
+      "collected_at": "2026-02-03T12:01:06.051715",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "L1ALavX0pKo",
@@ -862,7 +799,9 @@
       "duration": "2089",
       "view_count": "53491",
       "url": "https://youtube.com/watch?v=L1ALavX0pKo",
-      "collected_at": "2026-02-03T12:01:10.362880"
+      "collected_at": "2026-02-03T12:01:10.362880",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Xw3SkhB4dMk",
@@ -871,7 +810,9 @@
       "duration": "1282",
       "view_count": "298543",
       "url": "https://youtube.com/watch?v=Xw3SkhB4dMk",
-      "collected_at": "2026-02-03T12:01:15.570388"
+      "collected_at": "2026-02-03T12:01:15.570388",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tLvL85rACgM",
@@ -880,7 +821,9 @@
       "duration": "562",
       "view_count": "7369",
       "url": "https://youtube.com/watch?v=tLvL85rACgM",
-      "collected_at": "2026-02-03T12:01:21.149807"
+      "collected_at": "2026-02-03T12:01:21.149807",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "TDBMyNBUWKA",
@@ -889,7 +832,9 @@
       "duration": "205",
       "view_count": "3809",
       "url": "https://youtube.com/watch?v=TDBMyNBUWKA",
-      "collected_at": "2026-02-03T12:01:26.326380"
+      "collected_at": "2026-02-03T12:01:26.326380",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "kpBXrsVg83Y",
@@ -898,7 +843,9 @@
       "duration": "1191",
       "view_count": "9389",
       "url": "https://youtube.com/watch?v=kpBXrsVg83Y",
-      "collected_at": "2026-02-03T12:01:30.987392"
+      "collected_at": "2026-02-03T12:01:30.987392",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "9YG6QlzuNwM",
@@ -907,7 +854,9 @@
       "duration": "909",
       "view_count": "29020",
       "url": "https://youtube.com/watch?v=9YG6QlzuNwM",
-      "collected_at": "2026-02-03T12:01:38.621129"
+      "collected_at": "2026-02-03T12:01:38.621129",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "tmw7oYG3vMU",
@@ -916,7 +865,9 @@
       "duration": "424",
       "view_count": "12437",
       "url": "https://youtube.com/watch?v=tmw7oYG3vMU",
-      "collected_at": "2026-02-03T12:01:48.498278"
+      "collected_at": "2026-02-03T12:01:48.498278",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "XyA5624k3KM",
@@ -925,43 +876,42 @@
       "duration": "1649",
       "view_count": "2495",
       "url": "https://youtube.com/watch?v=XyA5624k3KM",
-      "collected_at": "2026-02-03T12:01:57.448831"
+      "collected_at": "2026-02-03T12:01:57.448831",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "O1iy82884sg",
-      "title": "😤 The Game Has Changed - Azure Verified Modules",
+      "title": "\ud83d\ude24 The Game Has Changed - Azure Verified Modules",
       "upload_date": "20240601",
       "duration": "714",
       "view_count": "2254",
       "url": "https://youtube.com/watch?v=O1iy82884sg",
-      "collected_at": "2026-02-03T12:02:04.733206"
+      "collected_at": "2026-02-03T12:02:04.733206",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "wp-S8PDT-3o",
-      "title": "📚 Learning Nix for my Devcontainers - Neovim",
+      "title": "\ud83d\udcda Learning Nix for my Devcontainers - Neovim",
       "upload_date": "20240526",
       "duration": "7047",
       "view_count": "1327",
       "url": "https://youtube.com/watch?v=wp-S8PDT-3o",
-      "collected_at": "2026-02-03T12:04:25.349722"
-    },
-    {
-      "id": "h1AFa8YEqPo",
-      "title": "Nothing wrong with being Employee. But you know what you're gonna get forever.",
-      "upload_date": "20240526",
-      "duration": "28",
-      "view_count": "702",
-      "url": "https://youtube.com/watch?v=h1AFa8YEqPo",
-      "collected_at": "2026-02-03T12:15:04.861276"
+      "collected_at": "2026-02-03T12:04:25.349722",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7NuNYZRrbaE",
-      "title": "☸️ K8s Homelabbing - Deploying Wallabag! -  📚 Read Later App",
+      "title": "\u2638\ufe0f K8s Homelabbing - Deploying Wallabag! -  \ud83d\udcda Read Later App",
       "upload_date": "20240525",
       "duration": "7213",
       "view_count": "822",
       "url": "https://youtube.com/watch?v=7NuNYZRrbaE",
-      "collected_at": "2026-02-03T12:04:30.366442"
+      "collected_at": "2026-02-03T12:04:30.366442",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eNxn1s2tYBo",
@@ -970,7 +920,9 @@
       "duration": "1347",
       "view_count": "1344",
       "url": "https://youtube.com/watch?v=eNxn1s2tYBo",
-      "collected_at": "2026-02-03T12:02:11.155476"
+      "collected_at": "2026-02-03T12:02:11.155476",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vfwjW-ubmDc",
@@ -979,16 +931,9 @@
       "duration": "2251",
       "view_count": "4628",
       "url": "https://youtube.com/watch?v=vfwjW-ubmDc",
-      "collected_at": "2026-02-03T12:02:16.671292"
-    },
-    {
-      "id": "osVpxiJP7ow",
-      "title": "I QUIT MY JOB!",
-      "upload_date": "20240518",
-      "duration": "23",
-      "view_count": "605",
-      "url": "https://youtube.com/watch?v=osVpxiJP7ow",
-      "collected_at": "2026-02-03T12:15:12.102951"
+      "collected_at": "2026-02-03T12:02:16.671292",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_l232KiJHNA",
@@ -997,7 +942,9 @@
       "duration": "1255",
       "view_count": "13192",
       "url": "https://youtube.com/watch?v=_l232KiJHNA",
-      "collected_at": "2026-02-03T12:02:21.946020"
+      "collected_at": "2026-02-03T12:02:21.946020",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mjUzlS36N-k",
@@ -1006,25 +953,31 @@
       "duration": "1052",
       "view_count": "1432",
       "url": "https://youtube.com/watch?v=mjUzlS36N-k",
-      "collected_at": "2026-02-03T12:02:27.433786"
+      "collected_at": "2026-02-03T12:02:27.433786",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "RlP8vDjr3E0",
-      "title": "☸️ K8s Homelabbing - Let's Deploy Wallabag! -  📚 Read Later App",
+      "title": "\u2638\ufe0f K8s Homelabbing - Let's Deploy Wallabag! -  \ud83d\udcda Read Later App",
       "upload_date": "20240505",
       "duration": "7339",
       "view_count": "788",
       "url": "https://youtube.com/watch?v=RlP8vDjr3E0",
-      "collected_at": "2026-02-03T12:04:35.807936"
+      "collected_at": "2026-02-03T12:04:35.807936",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "xwvCte8i1xk",
-      "title": "☸️ Kubernetes Homelab - Flux Auto Updates & Home Assistant",
+      "title": "\u2638\ufe0f Kubernetes Homelab - Flux Auto Updates & Home Assistant",
       "upload_date": "20240504",
       "duration": "10408",
       "view_count": "673",
       "url": "https://youtube.com/watch?v=xwvCte8i1xk",
-      "collected_at": "2026-02-03T12:04:44.060430"
+      "collected_at": "2026-02-03T12:04:44.060430",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "MMTyeF0vv8U",
@@ -1033,16 +986,20 @@
       "duration": "862",
       "view_count": "5648",
       "url": "https://youtube.com/watch?v=MMTyeF0vv8U",
-      "collected_at": "2026-02-03T12:02:33.898624"
+      "collected_at": "2026-02-03T12:02:33.898624",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "hkClMKhvSPM",
-      "title": "✍️ Writing & Zettelkasten + K8s Homelab",
+      "title": "\u270d\ufe0f Writing & Zettelkasten + K8s Homelab",
       "upload_date": "20240430",
       "duration": "8535",
       "view_count": "1531",
       "url": "https://youtube.com/watch?v=hkClMKhvSPM",
-      "collected_at": "2026-02-03T12:04:49.100085"
+      "collected_at": "2026-02-03T12:04:49.100085",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wB2Q5qHdcbc",
@@ -1051,52 +1008,53 @@
       "duration": "1958",
       "view_count": "15275",
       "url": "https://youtube.com/watch?v=wB2Q5qHdcbc",
-      "collected_at": "2026-02-03T12:02:39.507686"
+      "collected_at": "2026-02-03T12:02:39.507686",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "EQjXoLDJe0k",
-      "title": "☸️ Finishing CKS studies & Chilling 📚",
+      "title": "\u2638\ufe0f Finishing CKS studies & Chilling \ud83d\udcda",
       "upload_date": "20240422",
       "duration": "6078",
       "view_count": "536",
       "url": "https://youtube.com/watch?v=EQjXoLDJe0k",
-      "collected_at": "2026-02-03T12:04:52.928743"
-    },
-    {
-      "id": "_hb6PZbrx8c",
-      "title": "Starting Life - CLEAN SLATE.",
-      "upload_date": "20240422",
-      "duration": "44",
-      "view_count": "381",
-      "url": "https://youtube.com/watch?v=_hb6PZbrx8c",
-      "collected_at": "2026-02-03T12:15:51.307608"
+      "collected_at": "2026-02-03T12:04:52.928743",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NJYYsxMm4mU",
-      "title": "Kubernetes ☸️  - CKS Killer Shell Marathon - 📚 Study with me!",
+      "title": "Kubernetes \u2638\ufe0f  - CKS Killer Shell Marathon - \ud83d\udcda Study with me!",
       "upload_date": "20240421",
       "duration": "11991",
       "view_count": "636",
       "url": "https://youtube.com/watch?v=NJYYsxMm4mU",
-      "collected_at": "2026-02-03T12:04:56.983458"
+      "collected_at": "2026-02-03T12:04:56.983458",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "o6WWswDnSos",
-      "title": "Kubernetes ☸️  - CKS Killer Shell Marathon - 📚 Study with me!",
+      "title": "Kubernetes \u2638\ufe0f  - CKS Killer Shell Marathon - \ud83d\udcda Study with me!",
       "upload_date": "20240421",
       "duration": "969",
       "view_count": "213",
       "url": "https://youtube.com/watch?v=o6WWswDnSos",
-      "collected_at": "2026-02-03T12:05:04.367765"
+      "collected_at": "2026-02-03T12:05:04.367765",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "x1NJ5vpEpW4",
-      "title": "☸️ Kubernetes - CKS Killer Shell Marathon - 📚 Study with me!",
+      "title": "\u2638\ufe0f Kubernetes - CKS Killer Shell Marathon - \ud83d\udcda Study with me!",
       "upload_date": "20240420",
       "duration": "20306",
       "view_count": "747",
       "url": "https://youtube.com/watch?v=x1NJ5vpEpW4",
-      "collected_at": "2026-02-03T12:05:11.681923"
+      "collected_at": "2026-02-03T12:05:11.681923",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "V-1HARvk0jU",
@@ -1105,25 +1063,9 @@
       "duration": "850",
       "view_count": "3388",
       "url": "https://youtube.com/watch?v=V-1HARvk0jU",
-      "collected_at": "2026-02-03T12:02:43.982431"
-    },
-    {
-      "id": "QB39LogXHfQ",
-      "title": "SOFT SKILLS & CONSULTANCY",
-      "upload_date": "20240412",
-      "duration": "48",
-      "view_count": "283",
-      "url": "https://youtube.com/watch?v=QB39LogXHfQ",
-      "collected_at": "2026-02-03T12:16:09.923919"
-    },
-    {
-      "id": "sIJqRhe5qHU",
-      "title": "WORKING IN DEVOPS",
-      "upload_date": "20240411",
-      "duration": "57",
-      "view_count": "490",
-      "url": "https://youtube.com/watch?v=sIJqRhe5qHU",
-      "collected_at": "2026-02-03T12:16:13.033524"
+      "collected_at": "2026-02-03T12:02:43.982431",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "_V2Olzu2cOU",
@@ -1132,7 +1074,9 @@
       "duration": "855",
       "view_count": "2156",
       "url": "https://youtube.com/watch?v=_V2Olzu2cOU",
-      "collected_at": "2026-02-03T12:02:48.261817"
+      "collected_at": "2026-02-03T12:02:48.261817",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "3cq39v9FRgs",
@@ -1141,16 +1085,9 @@
       "duration": "1416",
       "view_count": "2557",
       "url": "https://youtube.com/watch?v=3cq39v9FRgs",
-      "collected_at": "2026-02-03T12:02:53.096524"
-    },
-    {
-      "id": "nX04c066Evg",
-      "title": "EXCALIDRAW MINDMAPS",
-      "upload_date": "20240327",
-      "duration": "8",
-      "view_count": "1254",
-      "url": "https://youtube.com/watch?v=nX04c066Evg",
-      "collected_at": "2026-02-03T12:16:19.912986"
+      "collected_at": "2026-02-03T12:02:53.096524",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4HuL812KaaA",
@@ -1159,7 +1096,9 @@
       "duration": "1247",
       "view_count": "11965",
       "url": "https://youtube.com/watch?v=4HuL812KaaA",
-      "collected_at": "2026-02-03T12:02:57.614810"
+      "collected_at": "2026-02-03T12:02:57.614810",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wrQ0iJawTn4",
@@ -1168,16 +1107,9 @@
       "duration": "1461",
       "view_count": "1967",
       "url": "https://youtube.com/watch?v=wrQ0iJawTn4",
-      "collected_at": "2026-02-03T12:03:02.600391"
-    },
-    {
-      "id": "Fb22IoeKqq0",
-      "title": "Be BETTER than other Engineers.",
-      "upload_date": "20240316",
-      "duration": "29",
-      "view_count": "1275",
-      "url": "https://youtube.com/watch?v=Fb22IoeKqq0",
-      "collected_at": "2026-02-03T12:16:35.156571"
+      "collected_at": "2026-02-03T12:03:02.600391",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ICVxK7z6G34",
@@ -1186,16 +1118,9 @@
       "duration": "348",
       "view_count": "1802",
       "url": "https://youtube.com/watch?v=ICVxK7z6G34",
-      "collected_at": "2026-02-03T12:03:08.143545"
-    },
-    {
-      "id": "bPAj5zKrUG8",
-      "title": "30 MINUTE RULE",
-      "upload_date": "20240312",
-      "duration": "14",
-      "view_count": "4736",
-      "url": "https://youtube.com/watch?v=bPAj5zKrUG8",
-      "collected_at": "2026-02-03T12:16:44.239457"
+      "collected_at": "2026-02-03T12:03:08.143545",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "92UhZbJJivU",
@@ -1204,25 +1129,9 @@
       "duration": "717",
       "view_count": "19608",
       "url": "https://youtube.com/watch?v=92UhZbJJivU",
-      "collected_at": "2026-02-03T12:03:12.994678"
-    },
-    {
-      "id": "S5XJHmnOFlA",
-      "title": "How I started learning Vim #linux #devops #vim #skool",
-      "upload_date": "20240309",
-      "duration": "22",
-      "view_count": "1083",
-      "url": "https://youtube.com/watch?v=S5XJHmnOFlA",
-      "collected_at": "2026-02-03T12:16:57.028004"
-    },
-    {
-      "id": "CZAiDpCEHRQ",
-      "title": "Why I like Node Metrics in Grafana",
-      "upload_date": "20240308",
-      "duration": "22",
-      "view_count": "2378",
-      "url": "https://youtube.com/watch?v=CZAiDpCEHRQ",
-      "collected_at": "2026-02-03T12:17:02.106453"
+      "collected_at": "2026-02-03T12:03:12.994678",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "zBRq4Q0Jv4I",
@@ -1231,7 +1140,9 @@
       "duration": "737",
       "view_count": "2614",
       "url": "https://youtube.com/watch?v=zBRq4Q0Jv4I",
-      "collected_at": "2026-02-03T12:03:17.812517"
+      "collected_at": "2026-02-03T12:03:17.812517",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "OyeDTZkSG2Q",
@@ -1240,7 +1151,9 @@
       "duration": "3589",
       "view_count": "11834",
       "url": "https://youtube.com/watch?v=OyeDTZkSG2Q",
-      "collected_at": "2026-02-03T12:03:23.217449"
+      "collected_at": "2026-02-03T12:03:23.217449",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0cfU5DNy5Z4",
@@ -1249,7 +1162,9 @@
       "duration": "1078",
       "view_count": "3905",
       "url": "https://youtube.com/watch?v=0cfU5DNy5Z4",
-      "collected_at": "2026-02-03T12:03:27.980854"
+      "collected_at": "2026-02-03T12:03:27.980854",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "zIGJ8NTHF4k",
@@ -1258,7 +1173,9 @@
       "duration": "4345",
       "view_count": "104195",
       "url": "https://youtube.com/watch?v=zIGJ8NTHF4k",
-      "collected_at": "2026-02-03T12:03:33.413392"
+      "collected_at": "2026-02-03T12:03:33.413392",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "iagjeLuxnMs",
@@ -1267,7 +1184,9 @@
       "duration": "4096",
       "view_count": "180847",
       "url": "https://youtube.com/watch?v=iagjeLuxnMs",
-      "collected_at": "2026-02-03T12:03:38.022622"
+      "collected_at": "2026-02-03T12:03:38.022622",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "CgP9hs9UDzA",
@@ -1276,7 +1195,9 @@
       "duration": "766",
       "view_count": "3589",
       "url": "https://youtube.com/watch?v=CgP9hs9UDzA",
-      "collected_at": "2026-02-03T12:03:42.744916"
+      "collected_at": "2026-02-03T12:03:42.744916",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "_-D1Qz6jtEU",
@@ -1285,7 +1206,9 @@
       "duration": "1392",
       "view_count": "3565",
       "url": "https://youtube.com/watch?v=_-D1Qz6jtEU",
-      "collected_at": "2026-02-03T12:03:48.157682"
+      "collected_at": "2026-02-03T12:03:48.157682",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6Gav1JpGAzo",
@@ -1294,7 +1217,9 @@
       "duration": "598",
       "view_count": "1701",
       "url": "https://youtube.com/watch?v=6Gav1JpGAzo",
-      "collected_at": "2026-02-03T12:03:53.568710"
+      "collected_at": "2026-02-03T12:03:53.568710",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "bzkrmkGDQJA",
@@ -1303,7 +1228,9 @@
       "duration": "1073",
       "view_count": "4182",
       "url": "https://youtube.com/watch?v=bzkrmkGDQJA",
-      "collected_at": "2026-02-03T12:03:59.099787"
+      "collected_at": "2026-02-03T12:03:59.099787",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Q8dxoqqMHAg",
@@ -1312,7 +1239,9 @@
       "duration": "820",
       "view_count": "1738",
       "url": "https://youtube.com/watch?v=Q8dxoqqMHAg",
-      "collected_at": "2026-02-03T12:04:04.010025"
+      "collected_at": "2026-02-03T12:04:04.010025",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "08SxwJ7ZVyo",
@@ -1321,7 +1250,9 @@
       "duration": "636",
       "view_count": "1919",
       "url": "https://youtube.com/watch?v=08SxwJ7ZVyo",
-      "collected_at": "2026-02-03T12:04:08.185145"
+      "collected_at": "2026-02-03T12:04:08.185145",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1U34gtUCfIM",
@@ -1330,7 +1261,9 @@
       "duration": "2479",
       "view_count": "7408",
       "url": "https://youtube.com/watch?v=1U34gtUCfIM",
-      "collected_at": "2026-02-03T12:04:11.959810"
+      "collected_at": "2026-02-03T12:04:11.959810",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-xwxTEaqU90",
@@ -1339,7 +1272,9 @@
       "duration": "2113",
       "view_count": "32680",
       "url": "https://youtube.com/watch?v=-xwxTEaqU90",
-      "collected_at": "2026-02-03T12:04:16.101038"
+      "collected_at": "2026-02-03T12:04:16.101038",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Yo801wYY3b0",
@@ -1348,7 +1283,9 @@
       "duration": "8271",
       "view_count": "278",
       "url": "https://youtube.com/watch?v=Yo801wYY3b0",
-      "collected_at": "2026-02-03T12:05:32.186391"
+      "collected_at": "2026-02-03T12:05:32.186391",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "KnGxqFg9UJM",
@@ -1357,11 +1294,20 @@
       "duration": "7722",
       "view_count": "746",
       "url": "https://youtube.com/watch?v=KnGxqFg9UJM",
-      "collected_at": "2026-02-03T12:06:14.406295"
+      "collected_at": "2026-02-03T12:06:14.406295",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     }
   ],
   "creator": "Misha van den Berg",
   "creator_slug": "misha_van_den_berg",
   "total_videos": 151,
-  "last_updated": "2026-02-03T12:17:23.191846"
+  "last_updated": "2026-02-03T12:17:23.191846",
+  "filtered_at": "2026-02-04T04:37:37.398578",
+  "stats": {
+    "original_count": 151,
+    "filtered_count": 118,
+    "shorts_removed": 33,
+    "long_form_count": 76
+  }
 }

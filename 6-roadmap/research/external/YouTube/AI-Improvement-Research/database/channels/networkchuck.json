@@ -1,40 +1,15 @@
 {
   "videos": [
     {
-      "id": "9lWDK_6FTjo",
-      "title": "The Dark Web isn't what you think",
-      "upload_date": "20260202",
-      "duration": "41",
-      "view_count": "33959",
-      "url": "https://youtube.com/watch?v=9lWDK_6FTjo",
-      "collected_at": "2026-02-03T22:08:04.894395"
-    },
-    {
-      "id": "mQQgB6VK_m4",
-      "title": "I gave Claude Code a phone number #claudecode",
-      "upload_date": "20260130",
-      "duration": "42",
-      "view_count": "68275",
-      "url": "https://youtube.com/watch?v=mQQgB6VK_m4",
-      "collected_at": "2026-02-03T13:15:49.653397"
-    },
-    {
       "id": "FEDiAHzS0zw",
       "title": "Claude Code on your phone in 10 minutes",
       "upload_date": "20260129",
       "duration": "581",
       "view_count": "134929",
       "url": "https://youtube.com/watch?v=FEDiAHzS0zw",
-      "collected_at": "2026-02-03T11:55:35.217930"
-    },
-    {
-      "id": "gM5O0zCqriM",
-      "title": "I flew to Romania to find hackers who fight hackers",
-      "upload_date": "20260127",
-      "duration": "100",
-      "view_count": "42259",
-      "url": "https://youtube.com/watch?v=gM5O0zCqriM",
-      "collected_at": "2026-02-03T22:08:04.894396"
+      "collected_at": "2026-02-03T11:55:35.217930",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "cT22fTzotYc",
@@ -43,43 +18,9 @@
       "duration": "1191",
       "view_count": "156481",
       "url": "https://youtube.com/watch?v=cT22fTzotYc",
-      "collected_at": "2026-02-03T11:55:42.216390"
-    },
-    {
-      "id": "g-Ss2AEEP58",
-      "title": "Virtual Machines EXPLAINED (This Is the Magic)",
-      "upload_date": "20260122",
-      "duration": "78",
-      "view_count": "66251",
-      "url": "https://youtube.com/watch?v=g-Ss2AEEP58",
-      "collected_at": "2026-02-03T22:08:04.894397"
-    },
-    {
-      "id": "pSZilybp7mc",
-      "title": "4 Mac Studios = 1 AI Supercomputer",
-      "upload_date": "20260120",
-      "duration": "31",
-      "view_count": "257771",
-      "url": "https://youtube.com/watch?v=pSZilybp7mc",
-      "collected_at": "2026-02-03T22:08:04.894397"
-    },
-    {
-      "id": "9okx4cA-wEE",
-      "title": "What Is Zero Trust? (And Why Hackers Hate It)",
-      "upload_date": "20260120",
-      "duration": "77",
-      "view_count": "140848",
-      "url": "https://youtube.com/watch?v=9okx4cA-wEE",
-      "collected_at": "2026-02-03T22:08:04.894398"
-    },
-    {
-      "id": "gi3h2wr_wwM",
-      "title": "Can You ACTUALLY Run AI on a Raspberry Pi?",
-      "upload_date": "20260119",
-      "duration": "28",
-      "view_count": "79156",
-      "url": "https://youtube.com/watch?v=gi3h2wr_wwM",
-      "collected_at": "2026-02-03T22:08:04.894399"
+      "collected_at": "2026-02-03T11:55:42.216390",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tu1amrfflb8",
@@ -88,52 +29,9 @@
       "duration": "128",
       "view_count": "3306295",
       "url": "https://youtube.com/watch?v=tu1amrfflb8",
-      "collected_at": "2026-02-03T12:19:33.444358"
-    },
-    {
-      "id": "0ogfPb6aejo",
-      "title": "2TB of RAM in one AI Supercomputer...",
-      "upload_date": "20260113",
-      "duration": "41",
-      "view_count": "143319",
-      "url": "https://youtube.com/watch?v=0ogfPb6aejo",
-      "collected_at": "2026-02-03T22:08:04.894400"
-    },
-    {
-      "id": "MDIqCQh5B-c",
-      "title": "I Just Gave n8n SUPERPOWERS",
-      "upload_date": "20260112",
-      "duration": "74",
-      "view_count": "62323",
-      "url": "https://youtube.com/watch?v=MDIqCQh5B-c",
-      "collected_at": "2026-02-03T22:08:04.894401"
-    },
-    {
-      "id": "LDLRxUcdbyc",
-      "title": "my NEW AI Supercomputer (3.5x faster!!!)",
-      "upload_date": "20260109",
-      "duration": "22",
-      "view_count": "104371",
-      "url": "https://youtube.com/watch?v=LDLRxUcdbyc",
-      "collected_at": "2026-02-03T22:08:04.894408"
-    },
-    {
-      "id": "8W92cckXuTg",
-      "title": "ACCESS your home network from ANYWHERE",
-      "upload_date": "20260108",
-      "duration": "85",
-      "view_count": "122789",
-      "url": "https://youtube.com/watch?v=8W92cckXuTg",
-      "collected_at": "2026-02-03T22:08:04.894409"
-    },
-    {
-      "id": "_3pW7mkKTDk",
-      "title": "Add a REAL Desk Phone to the Cloud in 60 Seconds (FREE)",
-      "upload_date": "20251229",
-      "duration": "100",
-      "view_count": "121093",
-      "url": "https://youtube.com/watch?v=_3pW7mkKTDk",
-      "collected_at": "2026-02-03T13:16:13.112548"
+      "collected_at": "2026-02-03T12:19:33.444358",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "bFgTxr5yst0",
@@ -142,25 +40,9 @@
       "duration": "1993",
       "view_count": "516573",
       "url": "https://youtube.com/watch?v=bFgTxr5yst0",
-      "collected_at": "2026-02-03T11:55:50.306764"
-    },
-    {
-      "id": "p4M50NgC9qU",
-      "title": "n8n + Claude Code Is TOO Powerful",
-      "upload_date": "20251217",
-      "duration": "51",
-      "view_count": "125803",
-      "url": "https://youtube.com/watch?v=p4M50NgC9qU",
-      "collected_at": "2026-02-03T12:19:46.047809"
-    },
-    {
-      "id": "AUb-xpYoV8I",
-      "title": "Your Prompts Are Bad. Here’s How to Fix Them.",
-      "upload_date": "20251216",
-      "duration": "52",
-      "view_count": "37885",
-      "url": "https://youtube.com/watch?v=AUb-xpYoV8I",
-      "collected_at": "2026-02-03T22:08:04.894410"
+      "collected_at": "2026-02-03T11:55:50.306764",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tbCKWX34_G4",
@@ -169,34 +51,9 @@
       "duration": "2364",
       "view_count": "496409",
       "url": "https://youtube.com/watch?v=tbCKWX34_G4",
-      "collected_at": "2026-02-03T11:55:56.745689"
-    },
-    {
-      "id": "_31113MIaxI",
-      "title": "someone could be watching you....",
-      "upload_date": "20251215",
-      "duration": "55",
-      "view_count": "131004",
-      "url": "https://youtube.com/watch?v=_31113MIaxI",
-      "collected_at": "2026-02-03T22:08:04.894411"
-    },
-    {
-      "id": "1AVlW7TB-Oo",
-      "title": "Is this voice REAL or AI?",
-      "upload_date": "20251212",
-      "duration": "67",
-      "view_count": "116402",
-      "url": "https://youtube.com/watch?v=1AVlW7TB-Oo",
-      "collected_at": "2026-02-03T22:08:04.894412"
-    },
-    {
-      "id": "eGBxLRPBLM4",
-      "title": "I made an AI that roasts me. You should too",
-      "upload_date": "20251211",
-      "duration": "59",
-      "view_count": "56291",
-      "url": "https://youtube.com/watch?v=eGBxLRPBLM4",
-      "collected_at": "2026-02-03T22:08:04.894413"
+      "collected_at": "2026-02-03T11:55:56.745689",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "s96JeuuwLzc",
@@ -205,7 +62,9 @@
       "duration": "1045",
       "view_count": "448290",
       "url": "https://youtube.com/watch?v=s96JeuuwLzc",
-      "collected_at": "2026-02-03T11:56:03.213178"
+      "collected_at": "2026-02-03T11:56:03.213178",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "o-8amaZBi5M",
@@ -214,16 +73,9 @@
       "duration": "1617",
       "view_count": "407443",
       "url": "https://youtube.com/watch?v=o-8amaZBi5M",
-      "collected_at": "2026-02-03T11:56:09.510451"
-    },
-    {
-      "id": "vD-5FhePDGY",
-      "title": "3 n8n Tricks You're NOT Using (but should be!!!)",
-      "upload_date": "20251128",
-      "duration": "70",
-      "view_count": "104769",
-      "url": "https://youtube.com/watch?v=vD-5FhePDGY",
-      "collected_at": "2026-02-03T12:19:57.488501"
+      "collected_at": "2026-02-03T11:56:09.510451",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "pwWBcsxEoLk",
@@ -232,25 +84,9 @@
       "duration": "1439",
       "view_count": "519078",
       "url": "https://youtube.com/watch?v=pwWBcsxEoLk",
-      "collected_at": "2026-02-03T11:56:16.696056"
-    },
-    {
-      "id": "lax6vdOko20",
-      "title": "Forcing My Kids to Become Hackers (It Actually Worked)",
-      "upload_date": "20251126",
-      "duration": "69",
-      "view_count": "160364",
-      "url": "https://youtube.com/watch?v=lax6vdOko20",
-      "collected_at": "2026-02-03T22:08:04.894414"
-    },
-    {
-      "id": "LcueDIPb3vk",
-      "title": "Searching the Dark Web is HARD!! (this makes it easy)",
-      "upload_date": "20251119",
-      "duration": "21",
-      "view_count": "132411",
-      "url": "https://youtube.com/watch?v=LcueDIPb3vk",
-      "collected_at": "2026-02-03T22:08:04.894415"
+      "collected_at": "2026-02-03T11:56:16.696056",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_KzObeom88Y",
@@ -259,52 +95,9 @@
       "duration": "1227",
       "view_count": "717164",
       "url": "https://youtube.com/watch?v=_KzObeom88Y",
-      "collected_at": "2026-02-03T11:56:22.769859"
-    },
-    {
-      "id": "WQveY48yM7U",
-      "title": "6 HOURS of Dark Web research in 30 MINUTES",
-      "upload_date": "20251117",
-      "duration": "28",
-      "view_count": "82225",
-      "url": "https://youtube.com/watch?v=WQveY48yM7U",
-      "collected_at": "2026-02-03T22:08:04.894416"
-    },
-    {
-      "id": "1h6TKnVOqQw",
-      "title": "Your Car is EASY to Hack... this is why:",
-      "upload_date": "20251111",
-      "duration": "39",
-      "view_count": "155555",
-      "url": "https://youtube.com/watch?v=1h6TKnVOqQw",
-      "collected_at": "2026-02-03T22:08:04.894416"
-    },
-    {
-      "id": "iKTKDRkVEQU",
-      "title": "ALWAYS Keep a Human in the Loop!",
-      "upload_date": "20251110",
-      "duration": "42",
-      "view_count": "130343",
-      "url": "https://youtube.com/watch?v=iKTKDRkVEQU",
-      "collected_at": "2026-02-03T22:08:04.894417"
-    },
-    {
-      "id": "YSsvdQ12Jns",
-      "title": "AI in the Terminal Changes EVERYTHING",
-      "upload_date": "20251106",
-      "duration": "50",
-      "view_count": "221927",
-      "url": "https://youtube.com/watch?v=YSsvdQ12Jns",
-      "collected_at": "2026-02-03T22:08:04.894418"
-    },
-    {
-      "id": "Tb8m5nE7PZk",
-      "title": "The AI Kill Switch (stop Rogue AI)",
-      "upload_date": "20251105",
-      "duration": "40",
-      "view_count": "129542",
-      "url": "https://youtube.com/watch?v=Tb8m5nE7PZk",
-      "collected_at": "2026-02-03T12:20:12.725224"
+      "collected_at": "2026-02-03T11:56:22.769859",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qFsj6KL8_nU",
@@ -313,25 +106,9 @@
       "duration": "941",
       "view_count": "308539",
       "url": "https://youtube.com/watch?v=qFsj6KL8_nU",
-      "collected_at": "2026-02-03T11:56:28.252714"
-    },
-    {
-      "id": "YiVD5IPxif0",
-      "title": "This Docker Update Gives AI Superpowers",
-      "upload_date": "20251031",
-      "duration": "50",
-      "view_count": "188924",
-      "url": "https://youtube.com/watch?v=YiVD5IPxif0",
-      "collected_at": "2026-02-03T12:20:16.072312"
-    },
-    {
-      "id": "5UE_G0zGsO0",
-      "title": "The Silent Killer of Startups...",
-      "upload_date": "20251029",
-      "duration": "55",
-      "view_count": "77550",
-      "url": "https://youtube.com/watch?v=5UE_G0zGsO0",
-      "collected_at": "2026-02-03T22:08:04.894419"
+      "collected_at": "2026-02-03T11:56:28.252714",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "MsQACpcuTkU",
@@ -340,25 +117,9 @@
       "duration": "2023",
       "view_count": "1447297",
       "url": "https://youtube.com/watch?v=MsQACpcuTkU",
-      "collected_at": "2026-02-03T11:56:34.222587"
-    },
-    {
-      "id": "v7-gJ3uqZ5A",
-      "title": "He Broke the AI Image Filter (With One Simple Trick)",
-      "upload_date": "20251027",
-      "duration": "29",
-      "view_count": "538820",
-      "url": "https://youtube.com/watch?v=v7-gJ3uqZ5A",
-      "collected_at": "2026-02-03T22:08:04.894420"
-    },
-    {
-      "id": "XApvdsXEyyw",
-      "title": "He Hacked ChatGPT…with Its Own Image Generator",
-      "upload_date": "20251021",
-      "duration": "48",
-      "view_count": "596183",
-      "url": "https://youtube.com/watch?v=XApvdsXEyyw",
-      "collected_at": "2026-02-03T22:08:04.894421"
+      "collected_at": "2026-02-03T11:56:34.222587",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "FYL9e_aqZY0",
@@ -367,25 +128,9 @@
       "duration": "1438",
       "view_count": "952852",
       "url": "https://youtube.com/watch?v=FYL9e_aqZY0",
-      "collected_at": "2026-02-03T11:56:39.973261"
-    },
-    {
-      "id": "CqFfcZELbG0",
-      "title": "It’s a Trap!!!",
-      "upload_date": "20251010",
-      "duration": "51",
-      "view_count": "132213",
-      "url": "https://youtube.com/watch?v=CqFfcZELbG0",
-      "collected_at": "2026-02-03T22:08:04.894422"
-    },
-    {
-      "id": "F2pG7EJ0lS4",
-      "title": "THIS is losing you MILLIONS!!",
-      "upload_date": "20251008",
-      "duration": "54",
-      "view_count": "92791",
-      "url": "https://youtube.com/watch?v=F2pG7EJ0lS4",
-      "collected_at": "2026-02-03T22:08:04.894423"
+      "collected_at": "2026-02-03T11:56:39.973261",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "budTmdQfXYU",
@@ -394,61 +139,9 @@
       "duration": "2837",
       "view_count": "866440",
       "url": "https://youtube.com/watch?v=budTmdQfXYU",
-      "collected_at": "2026-02-03T11:56:46.140243"
-    },
-    {
-      "id": "Uc18mso08Ro",
-      "title": "I Accidentally Turned Claude Into a Hacker...",
-      "upload_date": "20250926",
-      "duration": "58",
-      "view_count": "975250",
-      "url": "https://youtube.com/watch?v=Uc18mso08Ro",
-      "collected_at": "2026-02-03T22:08:04.894423"
-    },
-    {
-      "id": "8jWFN6vQf8Y",
-      "title": "One of these is NOT a Keyboard.",
-      "upload_date": "20250925",
-      "duration": "63",
-      "view_count": "298605",
-      "url": "https://youtube.com/watch?v=8jWFN6vQf8Y",
-      "collected_at": "2026-02-03T22:08:04.894424"
-    },
-    {
-      "id": "qK7uaQyjTqg",
-      "title": "AWS just made Kubernetes EASY (Amazon EKS Auto Mode)",
-      "upload_date": "20250924",
-      "duration": "83",
-      "view_count": "55604",
-      "url": "https://youtube.com/watch?v=qK7uaQyjTqg",
-      "collected_at": "2026-02-03T22:08:04.894425"
-    },
-    {
-      "id": "4dqhgCM6LNU",
-      "title": "You can HACK AI with EMOJIS",
-      "upload_date": "20250924",
-      "duration": "27",
-      "view_count": "662325",
-      "url": "https://youtube.com/watch?v=4dqhgCM6LNU",
-      "collected_at": "2026-02-03T22:08:04.894426"
-    },
-    {
-      "id": "EOPo7yL86vE",
-      "title": "THIS new standard changes how I use AI.",
-      "upload_date": "20250923",
-      "duration": "106",
-      "view_count": "91795",
-      "url": "https://youtube.com/watch?v=EOPo7yL86vE",
-      "collected_at": "2026-02-03T22:08:04.894427"
-    },
-    {
-      "id": "gEElEzKazYA",
-      "title": "N8n AI Agents are INSANE!!",
-      "upload_date": "20250922",
-      "duration": "70",
-      "view_count": "531753",
-      "url": "https://youtube.com/watch?v=gEElEzKazYA",
-      "collected_at": "2026-02-03T22:08:04.894428"
+      "collected_at": "2026-02-03T11:56:46.140243",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "GuTcle5edjk",
@@ -457,16 +150,9 @@
       "duration": "2320",
       "view_count": "1187905",
       "url": "https://youtube.com/watch?v=GuTcle5edjk",
-      "collected_at": "2026-02-03T11:56:51.489758"
-    },
-    {
-      "id": "yPGimRqITrc",
-      "title": "it’s like you never left your home lab.",
-      "upload_date": "20250910",
-      "duration": "75",
-      "view_count": "60343",
-      "url": "https://youtube.com/watch?v=yPGimRqITrc",
-      "collected_at": "2026-02-03T12:20:42.260344"
+      "collected_at": "2026-02-03T11:56:51.489758",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "v477fvbj3rk",
@@ -475,25 +161,9 @@
       "duration": "1083",
       "view_count": "1106460",
       "url": "https://youtube.com/watch?v=v477fvbj3rk",
-      "collected_at": "2026-02-03T11:56:59.549281"
-    },
-    {
-      "id": "_u1V5GLzP98",
-      "title": "Trying the Strongest Coffee in the World (7 espressos in 1 shot!!)",
-      "upload_date": "20250825",
-      "duration": "60",
-      "view_count": "67273",
-      "url": "https://youtube.com/watch?v=_u1V5GLzP98",
-      "collected_at": "2026-02-03T13:17:08.243546"
-    },
-    {
-      "id": "vtPOBzq4zrs",
-      "title": "the most POWERFUL automation tool I’ve EVER SEEN! (N8n)",
-      "upload_date": "20250814",
-      "duration": "104",
-      "view_count": "227137",
-      "url": "https://youtube.com/watch?v=vtPOBzq4zrs",
-      "collected_at": "2026-02-03T22:08:04.894429"
+      "collected_at": "2026-02-03T11:56:59.549281",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Qvx2sVgQ-u0",
@@ -502,7 +172,9 @@
       "duration": "1599",
       "view_count": "1113196",
       "url": "https://youtube.com/watch?v=Qvx2sVgQ-u0",
-      "collected_at": "2026-02-03T11:57:06.055824"
+      "collected_at": "2026-02-03T11:57:06.055824",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ONgECvZNI3o",
@@ -511,16 +183,9 @@
       "duration": "1596",
       "view_count": "2320143",
       "url": "https://youtube.com/watch?v=ONgECvZNI3o",
-      "collected_at": "2026-02-03T11:57:14.909554"
-    },
-    {
-      "id": "3HiWCSYCIZE",
-      "title": "why are Hackers going to Las Vegas?",
-      "upload_date": "20250714",
-      "duration": "45",
-      "view_count": "60628",
-      "url": "https://youtube.com/watch?v=3HiWCSYCIZE",
-      "collected_at": "2026-02-03T22:08:04.894430"
+      "collected_at": "2026-02-03T11:57:14.909554",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "kxYh9RwLUFw",
@@ -529,7 +194,9 @@
       "duration": "1218",
       "view_count": "210922",
       "url": "https://youtube.com/watch?v=kxYh9RwLUFw",
-      "collected_at": "2026-02-03T11:57:21.381539"
+      "collected_at": "2026-02-03T11:57:21.381539",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3BXE0e3QZ4U",
@@ -538,7 +205,9 @@
       "duration": "1418",
       "view_count": "181044",
       "url": "https://youtube.com/watch?v=3BXE0e3QZ4U",
-      "collected_at": "2026-02-03T11:57:30.411692"
+      "collected_at": "2026-02-03T11:57:30.411692",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tTQ4vfCdMYw",
@@ -547,16 +216,9 @@
       "duration": "735",
       "view_count": "94697",
       "url": "https://youtube.com/watch?v=tTQ4vfCdMYw",
-      "collected_at": "2026-02-03T11:57:36.721744"
-    },
-    {
-      "id": "dG8VTdEoatM",
-      "title": "21,000 Hackers go HERE every Summer",
-      "upload_date": "20250618",
-      "duration": "55",
-      "view_count": "132848",
-      "url": "https://youtube.com/watch?v=dG8VTdEoatM",
-      "collected_at": "2026-02-03T22:08:04.894430"
+      "collected_at": "2026-02-03T11:57:36.721744",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "4hkJX7LBdXc",
@@ -565,16 +227,9 @@
       "duration": "1718",
       "view_count": "355302",
       "url": "https://youtube.com/watch?v=4hkJX7LBdXc",
-      "collected_at": "2026-02-03T11:57:41.817182"
-    },
-    {
-      "id": "G5OM24KrAH0",
-      "title": "This makes audits stupidly easy",
-      "upload_date": "20250603",
-      "duration": "69",
-      "view_count": "149563",
-      "url": "https://youtube.com/watch?v=G5OM24KrAH0",
-      "collected_at": "2026-02-03T22:08:04.894431"
+      "collected_at": "2026-02-03T11:57:41.817182",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6P-vjgPx9ww",
@@ -583,106 +238,31 @@
       "duration": "665",
       "view_count": "344646",
       "url": "https://youtube.com/watch?v=6P-vjgPx9ww",
-      "collected_at": "2026-02-03T11:57:47.477773"
-    },
-    {
-      "id": "Oc-iNQSxUMQ",
-      "title": "What is a problem that you see in the world, one that you are actively trying to solve?",
-      "upload_date": "20250522",
-      "duration": "47",
-      "view_count": "86893",
-      "url": "https://youtube.com/watch?v=Oc-iNQSxUMQ",
-      "collected_at": "2026-02-03T22:08:04.894432"
-    },
-    {
-      "id": "XS6615BRiX4",
-      "title": "If you see this, you might be hacked.",
-      "upload_date": "20250502",
-      "duration": "73",
-      "view_count": "166975",
-      "url": "https://youtube.com/watch?v=XS6615BRiX4",
-      "collected_at": "2026-02-03T22:08:04.894433"
-    },
-    {
-      "id": "8fMRim06fAE",
-      "title": "Meet the new Bernard Hackwell",
-      "upload_date": "20250502",
-      "duration": "29",
-      "view_count": "63193",
-      "url": "https://youtube.com/watch?v=8fMRim06fAE",
-      "collected_at": "2026-02-03T22:08:04.894434"
+      "collected_at": "2026-02-03T11:57:47.477773",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6WYBvbn-mgQ",
-      "title": "Can This Tiny Board Replace Your Entire HomeLab? – Zima Board 2",
+      "title": "Can This Tiny Board Replace Your Entire HomeLab? \u2013 Zima Board 2",
       "upload_date": "20250423",
       "duration": "1924",
       "view_count": "469299",
       "url": "https://youtube.com/watch?v=6WYBvbn-mgQ",
-      "collected_at": "2026-02-03T11:57:53.310245"
-    },
-    {
-      "id": "D-ZlJPKk7kM",
-      "title": "You’re using ChatGPT WRONG",
-      "upload_date": "20250421",
-      "duration": "80",
-      "view_count": "226911",
-      "url": "https://youtube.com/watch?v=D-ZlJPKk7kM",
-      "collected_at": "2026-02-03T22:08:04.894435"
-    },
-    {
-      "id": "TwG6-TRg5Rs",
-      "title": "Cisco U Spotlight is BACK! And it's kind of amazing.",
-      "upload_date": "20250421",
-      "duration": "51",
-      "view_count": "41690",
-      "url": "https://youtube.com/watch?v=TwG6-TRg5Rs",
-      "collected_at": "2026-02-03T22:08:04.894436"
+      "collected_at": "2026-02-03T11:57:53.310245",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LQAOeZBdZ2k",
-      "title": "Saying Goodbye….",
+      "title": "Saying Goodbye\u2026.",
       "upload_date": "20250418",
       "duration": "1130",
       "view_count": "140449",
       "url": "https://youtube.com/watch?v=LQAOeZBdZ2k",
-      "collected_at": "2026-02-03T11:57:58.350292"
-    },
-    {
-      "id": "Flqljv8clcY",
-      "title": "Local AI has a Secret Weakness",
-      "upload_date": "20250416",
-      "duration": "66",
-      "view_count": "490888",
-      "url": "https://youtube.com/watch?v=Flqljv8clcY",
-      "collected_at": "2026-02-03T22:08:04.894437"
-    },
-    {
-      "id": "VSdcWKCT3V8",
-      "title": "Which AI has the Best Memory?",
-      "upload_date": "20250415",
-      "duration": "68",
-      "view_count": "113959",
-      "url": "https://youtube.com/watch?v=VSdcWKCT3V8",
-      "collected_at": "2026-02-03T22:08:04.894437"
-    },
-    {
-      "id": "FV_7DnBMFAU",
-      "title": "We took our Cable Management to the next level",
-      "upload_date": "20250410",
-      "duration": "37",
-      "view_count": "76875",
-      "url": "https://youtube.com/watch?v=FV_7DnBMFAU",
-      "collected_at": "2026-02-03T22:08:04.894438"
-    },
-    {
-      "id": "QD2GWLGtZp4",
-      "title": "ChatGPT gets dumber the longer you talk",
-      "upload_date": "20250410",
-      "duration": "51",
-      "view_count": "69301",
-      "url": "https://youtube.com/watch?v=QD2GWLGtZp4",
-      "collected_at": "2026-02-03T22:08:04.894439"
+      "collected_at": "2026-02-03T11:57:58.350292",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TeQDr4DkLYo",
@@ -691,16 +271,9 @@
       "duration": "917",
       "view_count": "173224",
       "url": "https://youtube.com/watch?v=TeQDr4DkLYo",
-      "collected_at": "2026-02-03T11:58:02.515352"
-    },
-    {
-      "id": "ZWPh6c8Gqg8",
-      "title": "we finally organized our Tech Junk Drawer",
-      "upload_date": "20250408",
-      "duration": "69",
-      "view_count": "43531",
-      "url": "https://youtube.com/watch?v=ZWPh6c8Gqg8",
-      "collected_at": "2026-02-03T22:08:04.894440"
+      "collected_at": "2026-02-03T11:58:02.515352",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "cJZnlnT0rPA",
@@ -709,61 +282,20 @@
       "duration": "452",
       "view_count": "91835",
       "url": "https://youtube.com/watch?v=cJZnlnT0rPA",
-      "collected_at": "2026-02-03T11:58:07.304514"
-    },
-    {
-      "id": "on-AmAv_DtI",
-      "title": "EVERYTHING NEW with ChatGPT 4o Image Generation",
-      "upload_date": "20250328",
-      "duration": "103",
-      "view_count": "72951",
-      "url": "https://youtube.com/watch?v=on-AmAv_DtI",
-      "collected_at": "2026-02-03T13:17:44.180303"
-    },
-    {
-      "id": "QVjxorbKY6c",
-      "title": "YOU decide how this AI helps your team",
-      "upload_date": "20250320",
-      "duration": "57",
-      "view_count": "28454",
-      "url": "https://youtube.com/watch?v=QVjxorbKY6c",
-      "collected_at": "2026-02-03T22:08:04.894441"
-    },
-    {
-      "id": "KFsvPP9Kiw8",
-      "title": "the FASTEST way to build a website",
-      "upload_date": "20250318",
-      "duration": "59",
-      "view_count": "50241",
-      "url": "https://youtube.com/watch?v=KFsvPP9Kiw8",
-      "collected_at": "2026-02-03T22:08:04.894442"
-    },
-    {
-      "id": "nbPfYbvlVec",
-      "title": "AI can handle the boring stuff!",
-      "upload_date": "20250314",
-      "duration": "54",
-      "view_count": "43855",
-      "url": "https://youtube.com/watch?v=nbPfYbvlVec",
-      "collected_at": "2026-02-03T22:08:04.894443"
+      "collected_at": "2026-02-03T11:58:07.304514",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "nQCOTzS5oU0",
-      "title": "I’m changing how I use AI (Open WebUI + LiteLLM)",
+      "title": "I\u2019m changing how I use AI (Open WebUI + LiteLLM)",
       "upload_date": "20250313",
       "duration": "1468",
       "view_count": "767055",
       "url": "https://youtube.com/watch?v=nQCOTzS5oU0",
-      "collected_at": "2026-02-03T11:58:12.321414"
-    },
-    {
-      "id": "-eSTJ2-fszw",
-      "title": "Your Remote Desktop SUCKS!!",
-      "upload_date": "20250310",
-      "duration": "55",
-      "view_count": "193128",
-      "url": "https://youtube.com/watch?v=-eSTJ2-fszw",
-      "collected_at": "2026-02-03T22:08:04.894444"
+      "collected_at": "2026-02-03T11:58:12.321414",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "CxTMHw-M0Yg",
@@ -772,16 +304,9 @@
       "duration": "1933",
       "view_count": "415965",
       "url": "https://youtube.com/watch?v=CxTMHw-M0Yg",
-      "collected_at": "2026-02-03T11:58:17.584798"
-    },
-    {
-      "id": "j8cYlXd_eVw",
-      "title": "It only takes one photo",
-      "upload_date": "20250228",
-      "duration": "67",
-      "view_count": "74635",
-      "url": "https://youtube.com/watch?v=j8cYlXd_eVw",
-      "collected_at": "2026-02-03T13:17:55.759725"
+      "collected_at": "2026-02-03T11:58:17.584798",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "sxTNACldK3Y",
@@ -790,16 +315,9 @@
       "duration": "1322",
       "view_count": "659143",
       "url": "https://youtube.com/watch?v=sxTNACldK3Y",
-      "collected_at": "2026-02-03T11:58:23.120447"
-    },
-    {
-      "id": "_x5xBe7tDs4",
-      "title": "The Most Popular I.T. Cert just got better",
-      "upload_date": "20250218",
-      "duration": "75",
-      "view_count": "55896",
-      "url": "https://youtube.com/watch?v=_x5xBe7tDs4",
-      "collected_at": "2026-02-03T22:08:04.894445"
+      "collected_at": "2026-02-03T11:58:23.120447",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Ju0ndy2kwlw",
@@ -808,25 +326,9 @@
       "duration": "2097",
       "view_count": "1924320",
       "url": "https://youtube.com/watch?v=Ju0ndy2kwlw",
-      "collected_at": "2026-02-03T11:58:28.868380"
-    },
-    {
-      "id": "uJ3G3dA4Y2A",
-      "title": "5 Mac Studios = 1 insane AI Supercomputer",
-      "upload_date": "20250217",
-      "duration": "88",
-      "view_count": "165412",
-      "url": "https://youtube.com/watch?v=uJ3G3dA4Y2A",
-      "collected_at": "2026-02-03T22:08:04.894446"
-    },
-    {
-      "id": "jPZAqiQ0TtU",
-      "title": "How to get a job in IT (2025)",
-      "upload_date": "20250213",
-      "duration": "69",
-      "view_count": "203459",
-      "url": "https://youtube.com/watch?v=jPZAqiQ0TtU",
-      "collected_at": "2026-02-03T22:08:04.894446"
+      "collected_at": "2026-02-03T11:58:28.868380",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4M7RIbQZ_-w",
@@ -835,7 +337,9 @@
       "duration": "809",
       "view_count": "337731",
       "url": "https://youtube.com/watch?v=4M7RIbQZ_-w",
-      "collected_at": "2026-02-03T11:58:34.766989"
+      "collected_at": "2026-02-03T11:58:34.766989",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "EXL8mMUXs88",
@@ -844,7 +348,9 @@
       "duration": "1349",
       "view_count": "2194582",
       "url": "https://youtube.com/watch?v=EXL8mMUXs88",
-      "collected_at": "2026-02-03T11:58:39.286008"
+      "collected_at": "2026-02-03T11:58:39.286008",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7TR-FLWNVHY",
@@ -853,34 +359,20 @@
       "duration": "719",
       "view_count": "1199378",
       "url": "https://youtube.com/watch?v=7TR-FLWNVHY",
-      "collected_at": "2026-02-03T11:58:43.889619"
-    },
-    {
-      "id": "OKrXf7SMdww",
-      "title": "DeepSeek in Deep Trouble! (Internal database exposed)",
-      "upload_date": "20250129",
-      "duration": "90",
-      "view_count": "152234",
-      "url": "https://youtube.com/watch?v=OKrXf7SMdww",
-      "collected_at": "2026-02-03T22:08:04.894447"
+      "collected_at": "2026-02-03T11:58:43.889619",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5xWnmUEi1Qw",
-      "title": "the hacker’s roadmap (how to get started in IT in 2025)",
+      "title": "the hacker\u2019s roadmap (how to get started in IT in 2025)",
       "upload_date": "20250128",
       "duration": "2029",
       "view_count": "1413570",
       "url": "https://youtube.com/watch?v=5xWnmUEi1Qw",
-      "collected_at": "2026-02-03T11:58:48.721594"
-    },
-    {
-      "id": "fDWaUwguPp8",
-      "title": "Can you make your own voice assistant?",
-      "upload_date": "20250122",
-      "duration": "112",
-      "view_count": "119641",
-      "url": "https://youtube.com/watch?v=fDWaUwguPp8",
-      "collected_at": "2026-02-03T22:08:04.894448"
+      "collected_at": "2026-02-03T11:58:48.721594",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NsUVKI40DmE",
@@ -889,16 +381,9 @@
       "duration": "121",
       "view_count": "319694",
       "url": "https://youtube.com/watch?v=NsUVKI40DmE",
-      "collected_at": "2026-02-03T22:08:04.894449"
-    },
-    {
-      "id": "I4C8_HeSj-E",
-      "title": "Cybersecurity, in SPACE!!",
-      "upload_date": "20241223",
-      "duration": "83",
-      "view_count": "40630",
-      "url": "https://youtube.com/watch?v=I4C8_HeSj-E",
-      "collected_at": "2026-02-03T22:08:04.894450"
+      "collected_at": "2026-02-03T22:08:04.894449",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1lZ3FQSv-wI",
@@ -907,16 +392,9 @@
       "duration": "1322",
       "view_count": "554232",
       "url": "https://youtube.com/watch?v=1lZ3FQSv-wI",
-      "collected_at": "2026-02-03T11:58:53.286052"
-    },
-    {
-      "id": "Dl7jHJP18qE",
-      "title": "The open-source Alexa",
-      "upload_date": "20241219",
-      "duration": "84",
-      "view_count": "72374",
-      "url": "https://youtube.com/watch?v=Dl7jHJP18qE",
-      "collected_at": "2026-02-03T22:08:04.894451"
+      "collected_at": "2026-02-03T11:58:53.286052",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "L4ASwqLZVV0",
@@ -925,7 +403,9 @@
       "duration": "2479",
       "view_count": "222338",
       "url": "https://youtube.com/watch?v=L4ASwqLZVV0",
-      "collected_at": "2026-02-03T11:58:57.590718"
+      "collected_at": "2026-02-03T11:58:57.590718",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-49KVplIGDo",
@@ -934,7 +414,9 @@
       "duration": "1015",
       "view_count": "285845",
       "url": "https://youtube.com/watch?v=-49KVplIGDo",
-      "collected_at": "2026-02-03T11:59:01.502840"
+      "collected_at": "2026-02-03T11:59:01.502840",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "fdM1V98iIQI",
@@ -943,34 +425,9 @@
       "duration": "2295",
       "view_count": "682326",
       "url": "https://youtube.com/watch?v=fdM1V98iIQI",
-      "collected_at": "2026-02-03T11:59:06.303029"
-    },
-    {
-      "id": "XycW6U32h20",
-      "title": "Which Network Doesn’t Belong?",
-      "upload_date": "20241206",
-      "duration": "59",
-      "view_count": "75233",
-      "url": "https://youtube.com/watch?v=XycW6U32h20",
-      "collected_at": "2026-02-03T22:08:04.894452"
-    },
-    {
-      "id": "1gZm_fp2JB0",
-      "title": "the BEST home automation use case",
-      "upload_date": "20241205",
-      "duration": "54",
-      "view_count": "62119",
-      "url": "https://youtube.com/watch?v=1gZm_fp2JB0",
-      "collected_at": "2026-02-03T22:08:04.894453"
-    },
-    {
-      "id": "Y7d4WTvccOs",
-      "title": "I’m Replacing Alexa",
-      "upload_date": "20241204",
-      "duration": "58",
-      "view_count": "67924",
-      "url": "https://youtube.com/watch?v=Y7d4WTvccOs",
-      "collected_at": "2026-02-03T22:08:04.894453"
+      "collected_at": "2026-02-03T11:59:06.303029",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dnE7c0ELEH8",
@@ -979,25 +436,9 @@
       "duration": "2074",
       "view_count": "294506",
       "url": "https://youtube.com/watch?v=dnE7c0ELEH8",
-      "collected_at": "2026-02-03T11:59:11.269723"
-    },
-    {
-      "id": "6drXjzANhUU",
-      "title": "Using AI to prevent SCAMS",
-      "upload_date": "20241125",
-      "duration": "59",
-      "view_count": "32944",
-      "url": "https://youtube.com/watch?v=6drXjzANhUU",
-      "collected_at": "2026-02-03T13:18:21.963119"
-    },
-    {
-      "id": "5MUGYkD_MfU",
-      "title": "I forced all my employees to make a website",
-      "upload_date": "20241122",
-      "duration": "58",
-      "view_count": "75449",
-      "url": "https://youtube.com/watch?v=5MUGYkD_MfU",
-      "collected_at": "2026-02-03T13:18:25.744287"
+      "collected_at": "2026-02-03T11:59:11.269723",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3fg7Ht0DSnE",
@@ -1006,16 +447,9 @@
       "duration": "2230",
       "view_count": "303635",
       "url": "https://youtube.com/watch?v=3fg7Ht0DSnE",
-      "collected_at": "2026-02-03T11:59:16.128049"
-    },
-    {
-      "id": "UNTZ0rouDaQ",
-      "title": "Let AI handle the dumb tickets",
-      "upload_date": "20241114",
-      "duration": "60",
-      "view_count": "56024",
-      "url": "https://youtube.com/watch?v=UNTZ0rouDaQ",
-      "collected_at": "2026-02-03T22:08:04.894454"
+      "collected_at": "2026-02-03T11:59:16.128049",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XvbVePuP7NY",
@@ -1024,7 +458,9 @@
       "duration": "2381",
       "view_count": "1312460",
       "url": "https://youtube.com/watch?v=XvbVePuP7NY",
-      "collected_at": "2026-02-03T11:59:21.462441"
+      "collected_at": "2026-02-03T11:59:21.462441",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NL-90TcNBNs",
@@ -1033,7 +469,9 @@
       "duration": "3658",
       "view_count": "67476",
       "url": "https://youtube.com/watch?v=NL-90TcNBNs",
-      "collected_at": "2026-02-03T22:08:04.894338"
+      "collected_at": "2026-02-03T22:08:04.894338",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "k02P5nghmfs",
@@ -1042,7 +480,9 @@
       "duration": "2630",
       "view_count": "1801016",
       "url": "https://youtube.com/watch?v=k02P5nghmfs",
-      "collected_at": "2026-02-03T11:59:27.329565"
+      "collected_at": "2026-02-03T11:59:27.329565",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qgySNfo3crQ",
@@ -1051,7 +491,9 @@
       "duration": "3755",
       "view_count": "110070",
       "url": "https://youtube.com/watch?v=qgySNfo3crQ",
-      "collected_at": "2026-02-03T13:13:04.406261"
+      "collected_at": "2026-02-03T13:13:04.406261",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6YHqVbvfMYI",
@@ -1060,7 +502,9 @@
       "duration": "1705",
       "view_count": "360376",
       "url": "https://youtube.com/watch?v=6YHqVbvfMYI",
-      "collected_at": "2026-02-03T11:59:34.685443"
+      "collected_at": "2026-02-03T11:59:34.685443",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "o-a8Al3ZupI",
@@ -1069,7 +513,9 @@
       "duration": "2512",
       "view_count": "50425",
       "url": "https://youtube.com/watch?v=o-a8Al3ZupI",
-      "collected_at": "2026-02-03T22:08:04.894339"
+      "collected_at": "2026-02-03T22:08:04.894339",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "RUqGlWr5LBA",
@@ -1078,16 +524,9 @@
       "duration": "1577",
       "view_count": "799098",
       "url": "https://youtube.com/watch?v=RUqGlWr5LBA",
-      "collected_at": "2026-02-03T11:59:42.201813"
-    },
-    {
-      "id": "VyjxaDm2NwY",
-      "title": "a raspberry pi docker container?!?",
-      "upload_date": "20240925",
-      "duration": "46",
-      "view_count": "337384",
-      "url": "https://youtube.com/watch?v=VyjxaDm2NwY",
-      "collected_at": "2026-02-03T22:08:04.894455"
+      "collected_at": "2026-02-03T11:59:42.201813",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "WhqFLLvGOiA",
@@ -1096,16 +535,9 @@
       "duration": "4820",
       "view_count": "35061",
       "url": "https://youtube.com/watch?v=WhqFLLvGOiA",
-      "collected_at": "2026-02-03T22:08:04.894340"
-    },
-    {
-      "id": "Td1OPnEdIuQ",
-      "title": "Do you know your protocols?",
-      "upload_date": "20240919",
-      "duration": "58",
-      "view_count": "116135",
-      "url": "https://youtube.com/watch?v=Td1OPnEdIuQ",
-      "collected_at": "2026-02-03T22:08:04.894456"
+      "collected_at": "2026-02-03T22:08:04.894340",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AxMWywGFSfs",
@@ -1114,7 +546,9 @@
       "duration": "2064",
       "view_count": "406743",
       "url": "https://youtube.com/watch?v=AxMWywGFSfs",
-      "collected_at": "2026-02-03T11:59:49.394182"
+      "collected_at": "2026-02-03T11:59:49.394182",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_pNESAbECaE",
@@ -1123,7 +557,9 @@
       "duration": "6446",
       "view_count": "58033",
       "url": "https://youtube.com/watch?v=_pNESAbECaE",
-      "collected_at": "2026-02-03T13:13:11.493234"
+      "collected_at": "2026-02-03T13:13:11.493234",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "VcqtWsbSbgU",
@@ -1132,16 +568,9 @@
       "duration": "1156",
       "view_count": "264479",
       "url": "https://youtube.com/watch?v=VcqtWsbSbgU",
-      "collected_at": "2026-02-03T11:59:55.750707"
-    },
-    {
-      "id": "LhpGFDWJgKk",
-      "title": "The new ChatGPT just dropped….it solves a big problem",
-      "upload_date": "20240912",
-      "duration": "49",
-      "view_count": "230674",
-      "url": "https://youtube.com/watch?v=LhpGFDWJgKk",
-      "collected_at": "2026-02-03T22:08:04.894457"
+      "collected_at": "2026-02-03T11:59:55.750707",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2VvWM6gdDlk",
@@ -1150,7 +579,9 @@
       "duration": "1213",
       "view_count": "81991",
       "url": "https://youtube.com/watch?v=2VvWM6gdDlk",
-      "collected_at": "2026-02-03T12:00:01.914709"
+      "collected_at": "2026-02-03T12:00:01.914709",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6h9sjYm9vTE",
@@ -1159,16 +590,9 @@
       "duration": "352",
       "view_count": "184700",
       "url": "https://youtube.com/watch?v=6h9sjYm9vTE",
-      "collected_at": "2026-02-03T12:00:08.114192"
-    },
-    {
-      "id": "MXqcdQXFP8U",
-      "title": "For when you can’t afford a Cybersecurity Engineer……",
-      "upload_date": "20240903",
-      "duration": "60",
-      "view_count": "49446",
-      "url": "https://youtube.com/watch?v=MXqcdQXFP8U",
-      "collected_at": "2026-02-03T13:18:37.954242"
+      "collected_at": "2026-02-03T12:00:08.114192",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Z_QlUyYlUCg",
@@ -1177,16 +601,9 @@
       "duration": "879",
       "view_count": "243514",
       "url": "https://youtube.com/watch?v=Z_QlUyYlUCg",
-      "collected_at": "2026-02-03T12:00:13.531645"
-    },
-    {
-      "id": "w2NsWavoNrE",
-      "title": "Which type of RAM do Laptops use??",
-      "upload_date": "20240829",
-      "duration": "60",
-      "view_count": "55710",
-      "url": "https://youtube.com/watch?v=w2NsWavoNrE",
-      "collected_at": "2026-02-03T12:22:05.998214"
+      "collected_at": "2026-02-03T12:00:13.531645",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "NiQTs9DbtW4",
@@ -1195,7 +612,9 @@
       "duration": "1461",
       "view_count": "713230",
       "url": "https://youtube.com/watch?v=NiQTs9DbtW4",
-      "collected_at": "2026-02-03T12:00:18.957828"
+      "collected_at": "2026-02-03T12:00:18.957828",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3D6gaawXwfk",
@@ -1204,34 +623,9 @@
       "duration": "1023",
       "view_count": "233034",
       "url": "https://youtube.com/watch?v=3D6gaawXwfk",
-      "collected_at": "2026-02-03T12:00:23.996571"
-    },
-    {
-      "id": "LI7he7KYSLY",
-      "title": "over 24,000 GPUs!!!",
-      "upload_date": "20240813",
-      "duration": "56",
-      "view_count": "86642",
-      "url": "https://youtube.com/watch?v=LI7he7KYSLY",
-      "collected_at": "2026-02-03T22:08:04.894458"
-    },
-    {
-      "id": "TSqGHapvNr8",
-      "title": "Hackers are looking at your website",
-      "upload_date": "20240813",
-      "duration": "58",
-      "view_count": "786375",
-      "url": "https://youtube.com/watch?v=TSqGHapvNr8",
-      "collected_at": "2026-02-03T22:08:04.894459"
-    },
-    {
-      "id": "G_99HV69hxg",
-      "title": "How do touchscreens work?",
-      "upload_date": "20240808",
-      "duration": "55",
-      "view_count": "236975",
-      "url": "https://youtube.com/watch?v=G_99HV69hxg",
-      "collected_at": "2026-02-03T22:08:04.894460"
+      "collected_at": "2026-02-03T12:00:23.996571",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qdo5lMR1lX4",
@@ -1240,25 +634,9 @@
       "duration": "1378",
       "view_count": "831672",
       "url": "https://youtube.com/watch?v=qdo5lMR1lX4",
-      "collected_at": "2026-02-03T12:00:28.806748"
-    },
-    {
-      "id": "Wq2g3JxaM3k",
-      "title": "Hacking Tools",
-      "upload_date": "20240806",
-      "duration": "59",
-      "view_count": "382029",
-      "url": "https://youtube.com/watch?v=Wq2g3JxaM3k",
-      "collected_at": "2026-02-03T22:08:04.894460"
-    },
-    {
-      "id": "pVFq4opI9gM",
-      "title": "You need these skills to become a hacker",
-      "upload_date": "20240731",
-      "duration": "57",
-      "view_count": "673262",
-      "url": "https://youtube.com/watch?v=pVFq4opI9gM",
-      "collected_at": "2026-02-03T13:18:50.450720"
+      "collected_at": "2026-02-03T12:00:28.806748",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jJrnJ9rj6fs",
@@ -1267,43 +645,9 @@
       "duration": "2965",
       "view_count": "512756",
       "url": "https://youtube.com/watch?v=jJrnJ9rj6fs",
-      "collected_at": "2026-02-03T12:00:36.331785"
-    },
-    {
-      "id": "c1yNcSXzyB4",
-      "title": "the AI HelpDesk is here!!",
-      "upload_date": "20240725",
-      "duration": "56",
-      "view_count": "52389",
-      "url": "https://youtube.com/watch?v=c1yNcSXzyB4",
-      "collected_at": "2026-02-03T22:08:04.894461"
-    },
-    {
-      "id": "TTdPDXTg8Ao",
-      "title": "I'm going to be a hacker",
-      "upload_date": "20240723",
-      "duration": "60",
-      "view_count": "117570",
-      "url": "https://youtube.com/watch?v=TTdPDXTg8Ao",
-      "collected_at": "2026-02-03T22:08:04.894462"
-    },
-    {
-      "id": "mDJtWX2uc-U",
-      "title": "Helpdesk IT Challenge!! How many can you get right?",
-      "upload_date": "20240719",
-      "duration": "59",
-      "view_count": "51828",
-      "url": "https://youtube.com/watch?v=mDJtWX2uc-U",
-      "collected_at": "2026-02-03T22:08:04.894463"
-    },
-    {
-      "id": "PCw2kX_gbHQ",
-      "title": "you can’t build your AI data center like this",
-      "upload_date": "20240716",
-      "duration": "60",
-      "view_count": "62184",
-      "url": "https://youtube.com/watch?v=PCw2kX_gbHQ",
-      "collected_at": "2026-02-03T22:08:04.894464"
+      "collected_at": "2026-02-03T12:00:36.331785",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vxTW22y8zV8",
@@ -1312,7 +656,9 @@
       "duration": "1433",
       "view_count": "1028942",
       "url": "https://youtube.com/watch?v=vxTW22y8zV8",
-      "collected_at": "2026-02-03T12:00:42.238827"
+      "collected_at": "2026-02-03T12:00:42.238827",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "spoZ2zKnK88",
@@ -1321,7 +667,9 @@
       "duration": "1993",
       "view_count": "752206",
       "url": "https://youtube.com/watch?v=spoZ2zKnK88",
-      "collected_at": "2026-02-03T12:00:48.312772"
+      "collected_at": "2026-02-03T12:00:48.312772",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AaseHnf0k2o",
@@ -1330,16 +678,9 @@
       "duration": "1983",
       "view_count": "1048692",
       "url": "https://youtube.com/watch?v=AaseHnf0k2o",
-      "collected_at": "2026-02-03T12:00:54.474825"
-    },
-    {
-      "id": "ad-OHmjAU_Y",
-      "title": "Dump ChatGPT, use Fabric instead",
-      "upload_date": "20240607",
-      "duration": "26",
-      "view_count": "679598",
-      "url": "https://youtube.com/watch?v=ad-OHmjAU_Y",
-      "collected_at": "2026-02-03T22:08:04.894465"
+      "collected_at": "2026-02-03T12:00:54.474825",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UbDyjIIGaxQ",
@@ -1348,25 +689,9 @@
       "duration": "1858",
       "view_count": "705650",
       "url": "https://youtube.com/watch?v=UbDyjIIGaxQ",
-      "collected_at": "2026-02-03T12:01:00.095428"
-    },
-    {
-      "id": "_ZdeEQ8BeJk",
-      "title": "What is SNMP?",
-      "upload_date": "20240523",
-      "duration": "56",
-      "view_count": "344194",
-      "url": "https://youtube.com/watch?v=_ZdeEQ8BeJk",
-      "collected_at": "2026-02-03T22:08:04.894466"
-    },
-    {
-      "id": "piFDfCaISk8",
-      "title": "run AI on your laptop....it's PRIVATE!!",
-      "upload_date": "20240522",
-      "duration": "40",
-      "view_count": "1181037",
-      "url": "https://youtube.com/watch?v=piFDfCaISk8",
-      "collected_at": "2026-02-03T22:08:04.894466"
+      "collected_at": "2026-02-03T12:01:00.095428",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "aMzdeZ8vGXQ",
@@ -1375,7 +700,9 @@
       "duration": "385",
       "view_count": "187621",
       "url": "https://youtube.com/watch?v=aMzdeZ8vGXQ",
-      "collected_at": "2026-02-03T12:01:05.518375"
+      "collected_at": "2026-02-03T12:01:05.518375",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "-2yzXSIuC8o",
@@ -1384,7 +711,9 @@
       "duration": "1971",
       "view_count": "370139",
       "url": "https://youtube.com/watch?v=-2yzXSIuC8o",
-      "collected_at": "2026-02-03T12:01:10.087318"
+      "collected_at": "2026-02-03T12:01:10.087318",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Wjrdr0NU4Sk",
@@ -1393,7 +722,9 @@
       "duration": "1459",
       "view_count": "2391653",
       "url": "https://youtube.com/watch?v=Wjrdr0NU4Sk",
-      "collected_at": "2026-02-03T12:01:15.513025"
+      "collected_at": "2026-02-03T12:01:15.513025",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "aEuMRZzqFH8",
@@ -1402,7 +733,9 @@
       "duration": "203",
       "view_count": "218369",
       "url": "https://youtube.com/watch?v=aEuMRZzqFH8",
-      "collected_at": "2026-02-03T12:01:21.101413"
+      "collected_at": "2026-02-03T12:01:21.101413",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "EXfFBEuCAr0",
@@ -1411,16 +744,9 @@
       "duration": "1155",
       "view_count": "608834",
       "url": "https://youtube.com/watch?v=EXfFBEuCAr0",
-      "collected_at": "2026-02-03T12:01:26.430605"
-    },
-    {
-      "id": "O19FbT5r8iI",
-      "title": "A Day in the Life of a CCNA Student",
-      "upload_date": "20240405",
-      "duration": "55",
-      "view_count": "54770",
-      "url": "https://youtube.com/watch?v=O19FbT5r8iI",
-      "collected_at": "2026-02-03T22:08:04.894467"
+      "collected_at": "2026-02-03T12:01:26.430605",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gL4j-a-g9pA",
@@ -1429,16 +755,9 @@
       "duration": "1621",
       "view_count": "762042",
       "url": "https://youtube.com/watch?v=gL4j-a-g9pA",
-      "collected_at": "2026-02-03T12:01:31.355813"
-    },
-    {
-      "id": "exsA7UdC6Lg",
-      "title": "DON'T be like \"Steve\"...",
-      "upload_date": "20240318",
-      "duration": "60",
-      "view_count": "72732",
-      "url": "https://youtube.com/watch?v=exsA7UdC6Lg",
-      "collected_at": "2026-02-03T22:08:04.894468"
+      "collected_at": "2026-02-03T12:01:31.355813",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "WxYC9-hBM_g",
@@ -1447,34 +766,9 @@
       "duration": "1333",
       "view_count": "2371702",
       "url": "https://youtube.com/watch?v=WxYC9-hBM_g",
-      "collected_at": "2026-02-03T12:01:38.440561"
-    },
-    {
-      "id": "pmVr_9tBloE",
-      "title": "my phone is always doing WHAT?!?!",
-      "upload_date": "20240307",
-      "duration": "59",
-      "view_count": "162007",
-      "url": "https://youtube.com/watch?v=pmVr_9tBloE",
-      "collected_at": "2026-02-03T22:08:04.894469"
-    },
-    {
-      "id": "adCiAMpwUC8",
-      "title": "ChatGPT has a BIG problem...",
-      "upload_date": "20240304",
-      "duration": "59",
-      "view_count": "109592",
-      "url": "https://youtube.com/watch?v=adCiAMpwUC8",
-      "collected_at": "2026-02-03T22:08:04.894470"
-    },
-    {
-      "id": "sTjgUQkmxuU",
-      "title": "you NEED a website in 2024",
-      "upload_date": "20240301",
-      "duration": "48",
-      "view_count": "80244",
-      "url": "https://youtube.com/watch?v=sTjgUQkmxuU",
-      "collected_at": "2026-02-03T22:08:04.894471"
+      "collected_at": "2026-02-03T12:01:38.440561",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "5FhDrux0kCc",
@@ -1483,7 +777,9 @@
       "duration": "1124",
       "view_count": "636574",
       "url": "https://youtube.com/watch?v=5FhDrux0kCc",
-      "collected_at": "2026-02-03T12:01:48.160721"
+      "collected_at": "2026-02-03T12:01:48.160721",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dZ4l-pUG7jo",
@@ -1492,16 +788,9 @@
       "duration": "3840",
       "view_count": "26732",
       "url": "https://youtube.com/watch?v=dZ4l-pUG7jo",
-      "collected_at": "2026-02-03T22:08:04.894340"
-    },
-    {
-      "id": "wAb3TMEN5P0",
-      "title": "Why is this OS so secure??",
-      "upload_date": "20240212",
-      "duration": "37",
-      "view_count": "143296",
-      "url": "https://youtube.com/watch?v=wAb3TMEN5P0",
-      "collected_at": "2026-02-03T22:08:04.894472"
+      "collected_at": "2026-02-03T22:08:04.894340",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fb69FyW2KLk",
@@ -1510,7 +799,9 @@
       "duration": "821",
       "view_count": "329217",
       "url": "https://youtube.com/watch?v=fb69FyW2KLk",
-      "collected_at": "2026-02-03T12:01:56.999585"
+      "collected_at": "2026-02-03T12:01:56.999585",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "LCPZygnoyLo",
@@ -1519,16 +810,9 @@
       "duration": "5511",
       "view_count": "74191",
       "url": "https://youtube.com/watch?v=LCPZygnoyLo",
-      "collected_at": "2026-02-03T22:08:04.894341"
-    },
-    {
-      "id": "BKuRaWqpkJw",
-      "title": "Why aren’t you using TMUX??",
-      "upload_date": "20240125",
-      "duration": "38",
-      "view_count": "210296",
-      "url": "https://youtube.com/watch?v=BKuRaWqpkJw",
-      "collected_at": "2026-02-03T22:08:04.894473"
+      "collected_at": "2026-02-03T22:08:04.894341",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "m1j7RUEb3Z0",
@@ -1537,7 +821,9 @@
       "duration": "5524",
       "view_count": "48339",
       "url": "https://youtube.com/watch?v=m1j7RUEb3Z0",
-      "collected_at": "2026-02-03T22:08:04.894342"
+      "collected_at": "2026-02-03T22:08:04.894342",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Obuvkt_3flM",
@@ -1546,25 +832,9 @@
       "duration": "5866",
       "view_count": "69849",
       "url": "https://youtube.com/watch?v=Obuvkt_3flM",
-      "collected_at": "2026-02-03T22:08:04.894343"
-    },
-    {
-      "id": "ONNYnv2DGFo",
-      "title": "Tmux is a LINUX SUPERPOWER",
-      "upload_date": "20240110",
-      "duration": "34",
-      "view_count": "960771",
-      "url": "https://youtube.com/watch?v=ONNYnv2DGFo",
-      "collected_at": "2026-02-03T22:08:04.894473"
-    },
-    {
-      "id": "_-6grju3KQU",
-      "title": "This OS doesn't care if you get hacked...",
-      "upload_date": "20240109",
-      "duration": "59",
-      "view_count": "4181296",
-      "url": "https://youtube.com/watch?v=_-6grju3KQU",
-      "collected_at": "2026-02-03T22:08:04.894474"
+      "collected_at": "2026-02-03T22:08:04.894343",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dZwbb42pdtg",
@@ -1573,16 +843,9 @@
       "duration": "1332",
       "view_count": "3611501",
       "url": "https://youtube.com/watch?v=dZwbb42pdtg",
-      "collected_at": "2026-02-03T12:02:04.649834"
-    },
-    {
-      "id": "1hjYhafdqcY",
-      "title": "I keep seeing \"Boson\" everywhere",
-      "upload_date": "20240104",
-      "duration": "54",
-      "view_count": "74590",
-      "url": "https://youtube.com/watch?v=1hjYhafdqcY",
-      "collected_at": "2026-02-03T22:08:04.894475"
+      "collected_at": "2026-02-03T12:02:04.649834",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "nTqu6w2wc68",
@@ -1591,7 +854,9 @@
       "duration": "1066",
       "view_count": "741785",
       "url": "https://youtube.com/watch?v=nTqu6w2wc68",
-      "collected_at": "2026-02-03T12:02:11.227660"
+      "collected_at": "2026-02-03T12:02:11.227660",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "i3sRSS6fN0g",
@@ -1600,25 +865,9 @@
       "duration": "1225",
       "view_count": "849057",
       "url": "https://youtube.com/watch?v=i3sRSS6fN0g",
-      "collected_at": "2026-02-03T12:02:16.733865"
-    },
-    {
-      "id": "Hpgg7lYqmTU",
-      "title": "Here's why everyone is worried about Google Chrome",
-      "upload_date": "20231127",
-      "duration": "60",
-      "view_count": "199939",
-      "url": "https://youtube.com/watch?v=Hpgg7lYqmTU",
-      "collected_at": "2026-02-03T22:08:04.894476"
-    },
-    {
-      "id": "dQogZx2aABQ",
-      "title": "What does a PROXY actually do??",
-      "upload_date": "20231127",
-      "duration": "43",
-      "view_count": "381486",
-      "url": "https://youtube.com/watch?v=dQogZx2aABQ",
-      "collected_at": "2026-02-03T22:08:04.894477"
+      "collected_at": "2026-02-03T12:02:16.733865",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "JJ0St6OmTp0",
@@ -1627,25 +876,9 @@
       "duration": "905",
       "view_count": "727821",
       "url": "https://youtube.com/watch?v=JJ0St6OmTp0",
-      "collected_at": "2026-02-03T12:02:22.101044"
-    },
-    {
-      "id": "fb-OjzMgq2k",
-      "title": "the EASIEST way to build a website",
-      "upload_date": "20231122",
-      "duration": "58",
-      "view_count": "131504",
-      "url": "https://youtube.com/watch?v=fb-OjzMgq2k",
-      "collected_at": "2026-02-03T22:08:04.894478"
-    },
-    {
-      "id": "RDJyb5rlSHw",
-      "title": "this Will replace your dog",
-      "upload_date": "20231116",
-      "duration": "59",
-      "view_count": "51562",
-      "url": "https://youtube.com/watch?v=RDJyb5rlSHw",
-      "collected_at": "2026-02-03T12:22:53.640905"
+      "collected_at": "2026-02-03T12:02:22.101044",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "CurcakgurRE",
@@ -1654,7 +887,9 @@
       "duration": "1574",
       "view_count": "304836",
       "url": "https://youtube.com/watch?v=CurcakgurRE",
-      "collected_at": "2026-02-03T12:02:28.059796"
+      "collected_at": "2026-02-03T12:02:28.059796",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tBnJRraXDc0",
@@ -1663,25 +898,9 @@
       "duration": "1440",
       "view_count": "500138",
       "url": "https://youtube.com/watch?v=tBnJRraXDc0",
-      "collected_at": "2026-02-03T12:02:34.949713"
-    },
-    {
-      "id": "mdHHDURM31g",
-      "title": "Windows has a SECRET MODE??",
-      "upload_date": "20231020",
-      "duration": "48",
-      "view_count": "427130",
-      "url": "https://youtube.com/watch?v=mdHHDURM31g",
-      "collected_at": "2026-02-03T13:19:38.524670"
-    },
-    {
-      "id": "w9EYdWs5Hq4",
-      "title": "Check your USB cables for this!!",
-      "upload_date": "20231019",
-      "duration": "59",
-      "view_count": "240425",
-      "url": "https://youtube.com/watch?v=w9EYdWs5Hq4",
-      "collected_at": "2026-02-03T22:08:04.894479"
+      "collected_at": "2026-02-03T12:02:34.949713",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "083-46NVMd8",
@@ -1690,7 +909,9 @@
       "duration": "990",
       "view_count": "558715",
       "url": "https://youtube.com/watch?v=083-46NVMd8",
-      "collected_at": "2026-02-03T12:02:40.086063"
+      "collected_at": "2026-02-03T12:02:40.086063",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "U2-JPqrALsA",
@@ -1699,16 +920,9 @@
       "duration": "919",
       "view_count": "7446136",
       "url": "https://youtube.com/watch?v=U2-JPqrALsA",
-      "collected_at": "2026-02-03T12:02:45.780721"
-    },
-    {
-      "id": "F8kvAc9Gr1o",
-      "title": "the Raspberry Pi 5 is finally here!!!!",
-      "upload_date": "20230929",
-      "duration": "60",
-      "view_count": "247720",
-      "url": "https://youtube.com/watch?v=F8kvAc9Gr1o",
-      "collected_at": "2026-02-03T22:08:04.894480"
+      "collected_at": "2026-02-03T12:02:45.780721",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "jsKqQvFk7Sk",
@@ -1717,34 +931,20 @@
       "duration": "1077",
       "view_count": "1421627",
       "url": "https://youtube.com/watch?v=jsKqQvFk7Sk",
-      "collected_at": "2026-02-03T12:02:51.487122"
-    },
-    {
-      "id": "nvRghr_pdoI",
-      "title": "You can make INVISIBLE folders?!?!",
-      "upload_date": "20230925",
-      "duration": "58",
-      "view_count": "16458836",
-      "url": "https://youtube.com/watch?v=nvRghr_pdoI",
-      "collected_at": "2026-02-03T22:08:04.894481"
-    },
-    {
-      "id": "3WRJOES-gAw",
-      "title": "get past paywalls for FREE!!",
-      "upload_date": "20230922",
-      "duration": "33",
-      "view_count": "3340431",
-      "url": "https://youtube.com/watch?v=3WRJOES-gAw",
-      "collected_at": "2026-02-03T22:08:04.894481"
+      "collected_at": "2026-02-03T12:02:51.487122",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qHe4mlhuNt4",
-      "title": "Hacking the world’s most popular database",
+      "title": "Hacking the world\u2019s most popular database",
       "upload_date": "20230914",
       "duration": "2141",
       "view_count": "169162",
       "url": "https://youtube.com/watch?v=qHe4mlhuNt4",
-      "collected_at": "2026-02-03T12:02:57.471705"
+      "collected_at": "2026-02-03T12:02:57.471705",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "SWyXQfiN_Vo",
@@ -1753,7 +953,9 @@
       "duration": "410",
       "view_count": "163182",
       "url": "https://youtube.com/watch?v=SWyXQfiN_Vo",
-      "collected_at": "2026-02-03T12:03:03.246223"
+      "collected_at": "2026-02-03T12:03:03.246223",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "poDIT2ruQ9M",
@@ -1762,7 +964,9 @@
       "duration": "1386",
       "view_count": "1004618",
       "url": "https://youtube.com/watch?v=poDIT2ruQ9M",
-      "collected_at": "2026-02-03T12:03:08.495034"
+      "collected_at": "2026-02-03T12:03:08.495034",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "OD2vG5st4zI",
@@ -1771,7 +975,9 @@
       "duration": "471",
       "view_count": "307153",
       "url": "https://youtube.com/watch?v=OD2vG5st4zI",
-      "collected_at": "2026-02-03T12:03:13.818842"
+      "collected_at": "2026-02-03T12:03:13.818842",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Y_coOg6oHAc",
@@ -1780,43 +986,20 @@
       "duration": "1127",
       "view_count": "812847",
       "url": "https://youtube.com/watch?v=Y_coOg6oHAc",
-      "collected_at": "2026-02-03T12:03:19.317300"
-    },
-    {
-      "id": "QQOGu6HkZ_E",
-      "title": "how to avoid SQL Injections",
-      "upload_date": "20230802",
-      "duration": "56",
-      "view_count": "132038",
-      "url": "https://youtube.com/watch?v=QQOGu6HkZ_E",
-      "collected_at": "2026-02-03T22:08:04.894482"
-    },
-    {
-      "id": "_ZCv6fROPTg",
-      "title": "what is an SQL Injection?",
-      "upload_date": "20230802",
-      "duration": "55",
-      "view_count": "560938",
-      "url": "https://youtube.com/watch?v=_ZCv6fROPTg",
-      "collected_at": "2026-02-03T22:08:04.894483"
-    },
-    {
-      "id": "zkdafBNyXas",
-      "title": "Start your IT Journey in 2023 RIGHT NOW",
-      "upload_date": "20230725",
-      "duration": "57",
-      "view_count": "421024",
-      "url": "https://youtube.com/watch?v=zkdafBNyXas",
-      "collected_at": "2026-02-03T22:08:04.894484"
+      "collected_at": "2026-02-03T12:03:19.317300",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6zopTcQFhqM",
-      "title": "Subnetting…..but in reverse",
+      "title": "Subnetting\u2026..but in reverse",
       "upload_date": "20230721",
       "duration": "505",
       "view_count": "262933",
       "url": "https://youtube.com/watch?v=6zopTcQFhqM",
-      "collected_at": "2026-02-03T12:03:25.544119"
+      "collected_at": "2026-02-03T12:03:25.544119",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "3CaG2GI1kn0",
@@ -1825,16 +1008,9 @@
       "duration": "1925",
       "view_count": "1689045",
       "url": "https://youtube.com/watch?v=3CaG2GI1kn0",
-      "collected_at": "2026-02-03T12:03:31.433139"
-    },
-    {
-      "id": "PbDtgXRsCuE",
-      "title": "can my daughters decode this?!?",
-      "upload_date": "20230713",
-      "duration": "58",
-      "view_count": "350880",
-      "url": "https://youtube.com/watch?v=PbDtgXRsCuE",
-      "collected_at": "2026-02-03T12:23:09.671007"
+      "collected_at": "2026-02-03T12:03:31.433139",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0kk6k-VdllM",
@@ -1843,7 +1019,9 @@
       "duration": "1561",
       "view_count": "148362",
       "url": "https://youtube.com/watch?v=0kk6k-VdllM",
-      "collected_at": "2026-02-03T12:03:37.373330"
+      "collected_at": "2026-02-03T12:03:37.373330",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "L26Xq7m0uQ0",
@@ -1852,16 +1030,9 @@
       "duration": "742",
       "view_count": "1960149",
       "url": "https://youtube.com/watch?v=L26Xq7m0uQ0",
-      "collected_at": "2026-02-03T12:03:42.425010"
-    },
-    {
-      "id": "ElQxbbNBayI",
-      "title": "How Safe are Short Links?",
-      "upload_date": "20230629",
-      "duration": "57",
-      "view_count": "4856695",
-      "url": "https://youtube.com/watch?v=ElQxbbNBayI",
-      "collected_at": "2026-02-03T22:08:04.894485"
+      "collected_at": "2026-02-03T12:03:42.425010",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "X1CM3rZwGn8",
@@ -1870,16 +1041,9 @@
       "duration": "1658",
       "view_count": "527033",
       "url": "https://youtube.com/watch?v=X1CM3rZwGn8",
-      "collected_at": "2026-02-03T12:03:48.424405"
-    },
-    {
-      "id": "pMb0hyUqxvw",
-      "title": "How to watch Star Wars the right way!!",
-      "upload_date": "20230622",
-      "duration": "17",
-      "view_count": "516052",
-      "url": "https://youtube.com/watch?v=pMb0hyUqxvw",
-      "collected_at": "2026-02-03T22:08:04.894486"
+      "collected_at": "2026-02-03T12:03:48.424405",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "xBIowQ0WaR8",
@@ -1888,34 +1052,9 @@
       "duration": "2832",
       "view_count": "2708698",
       "url": "https://youtube.com/watch?v=xBIowQ0WaR8",
-      "collected_at": "2026-02-03T12:03:53.681888"
-    },
-    {
-      "id": "NPmQRQM5Ehk",
-      "title": "Do you know this Gmail hack??",
-      "upload_date": "20230613",
-      "duration": "57",
-      "view_count": "3486694",
-      "url": "https://youtube.com/watch?v=NPmQRQM5Ehk",
-      "collected_at": "2026-02-03T22:08:04.894487"
-    },
-    {
-      "id": "YFKhcnMjliI",
-      "title": "Chrome is removing the lock icon!?",
-      "upload_date": "20230608",
-      "duration": "59",
-      "view_count": "340964",
-      "url": "https://youtube.com/watch?v=YFKhcnMjliI",
-      "collected_at": "2026-02-03T13:20:01.959352"
-    },
-    {
-      "id": "3JYCjXdW38s",
-      "title": "MrBeast asked me to build 100 Rooms",
-      "upload_date": "20230527",
-      "duration": "39",
-      "view_count": "1558802",
-      "url": "https://youtube.com/watch?v=3JYCjXdW38s",
-      "collected_at": "2026-02-03T22:08:04.894488"
+      "collected_at": "2026-02-03T12:03:53.681888",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "B1vqKQIPxr0",
@@ -1924,25 +1063,20 @@
       "duration": "870",
       "view_count": "620447",
       "url": "https://youtube.com/watch?v=B1vqKQIPxr0",
-      "collected_at": "2026-02-03T12:03:59.281231"
-    },
-    {
-      "id": "VILQd424Kq0",
-      "title": "DESTROYING my server room wall!!",
-      "upload_date": "20230518",
-      "duration": "18",
-      "view_count": "190328",
-      "url": "https://youtube.com/watch?v=VILQd424Kq0",
-      "collected_at": "2026-02-03T22:08:04.894488"
+      "collected_at": "2026-02-03T12:03:59.281231",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "pQrM5L6C-FQ",
-      "title": "CPU, GPU…..DPU?",
+      "title": "CPU, GPU\u2026..DPU?",
       "upload_date": "20230505",
       "duration": "824",
       "view_count": "1088335",
       "url": "https://youtube.com/watch?v=pQrM5L6C-FQ",
-      "collected_at": "2026-02-03T12:04:04.315179"
+      "collected_at": "2026-02-03T12:04:04.315179",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "IYmXPF3XUwo",
@@ -1951,16 +1085,9 @@
       "duration": "1728",
       "view_count": "1521269",
       "url": "https://youtube.com/watch?v=IYmXPF3XUwo",
-      "collected_at": "2026-02-03T12:04:09.173213"
-    },
-    {
-      "id": "bZ7PAzrWyvc",
-      "title": "Kids vs. MALWARE!!",
-      "upload_date": "20230405",
-      "duration": "57",
-      "view_count": "9924088",
-      "url": "https://youtube.com/watch?v=bZ7PAzrWyvc",
-      "collected_at": "2026-02-03T22:08:04.894489"
+      "collected_at": "2026-02-03T12:04:09.173213",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jAfQvMxcokI",
@@ -1969,7 +1096,9 @@
       "duration": "985",
       "view_count": "369416",
       "url": "https://youtube.com/watch?v=jAfQvMxcokI",
-      "collected_at": "2026-02-03T12:04:13.669524"
+      "collected_at": "2026-02-03T12:04:13.669524",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Kq0BMVhbFkA",
@@ -1978,7 +1107,9 @@
       "duration": "633",
       "view_count": "323428",
       "url": "https://youtube.com/watch?v=Kq0BMVhbFkA",
-      "collected_at": "2026-02-03T12:04:18.831918"
+      "collected_at": "2026-02-03T12:04:18.831918",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "799uhYUxtvA",
@@ -1987,16 +1118,20 @@
       "duration": "756",
       "view_count": "349458",
       "url": "https://youtube.com/watch?v=799uhYUxtvA",
-      "collected_at": "2026-02-03T12:04:23.231424"
+      "collected_at": "2026-02-03T12:04:23.231424",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "prVHU1fLR20",
-      "title": "30 Windows Commands you CAN’T live without",
+      "title": "30 Windows Commands you CAN\u2019T live without",
       "upload_date": "20230327",
       "duration": "875",
       "view_count": "2839484",
       "url": "https://youtube.com/watch?v=prVHU1fLR20",
-      "collected_at": "2026-02-03T12:04:27.391590"
+      "collected_at": "2026-02-03T12:04:27.391590",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "km81ph7pZz8",
@@ -2005,7 +1140,9 @@
       "duration": "1174",
       "view_count": "2158805",
       "url": "https://youtube.com/watch?v=km81ph7pZz8",
-      "collected_at": "2026-02-03T12:04:31.827699"
+      "collected_at": "2026-02-03T12:04:31.827699",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NDlQrK_QAzY",
@@ -2014,7 +1151,9 @@
       "duration": "628",
       "view_count": "766154",
       "url": "https://youtube.com/watch?v=NDlQrK_QAzY",
-      "collected_at": "2026-02-03T12:04:35.941478"
+      "collected_at": "2026-02-03T12:04:35.941478",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "JJCq21Dc-Us",
@@ -2023,7 +1162,9 @@
       "duration": "1005",
       "view_count": "716217",
       "url": "https://youtube.com/watch?v=JJCq21Dc-Us",
-      "collected_at": "2026-02-03T12:04:40.564862"
+      "collected_at": "2026-02-03T12:04:40.564862",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "fR_D_KIAYrE",
@@ -2032,7 +1173,9 @@
       "duration": "448",
       "view_count": "259365",
       "url": "https://youtube.com/watch?v=fR_D_KIAYrE",
-      "collected_at": "2026-02-03T12:59:43.675059"
+      "collected_at": "2026-02-03T12:59:43.675059",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "InnFUrE73tU",
@@ -2041,7 +1184,9 @@
       "duration": "493",
       "view_count": "247405",
       "url": "https://youtube.com/watch?v=InnFUrE73tU",
-      "collected_at": "2026-02-03T12:59:47.604907"
+      "collected_at": "2026-02-03T12:59:47.604907",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "KA_KPmTxPSg",
@@ -2050,7 +1195,9 @@
       "duration": "782",
       "view_count": "499981",
       "url": "https://youtube.com/watch?v=KA_KPmTxPSg",
-      "collected_at": "2026-02-03T12:59:51.465118"
+      "collected_at": "2026-02-03T12:59:51.465118",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "WRe46LISkTw",
@@ -2059,16 +1206,20 @@
       "duration": "729",
       "view_count": "917191",
       "url": "https://youtube.com/watch?v=WRe46LISkTw",
-      "collected_at": "2026-02-03T12:04:52.019080"
+      "collected_at": "2026-02-03T12:04:52.019080",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "uTAaFExLgwQ",
-      "title": "the hacker’s roadmap (how to get started in IT in 2023)",
+      "title": "the hacker\u2019s roadmap (how to get started in IT in 2023)",
       "upload_date": "20230105",
       "duration": "1253",
       "view_count": "2436931",
       "url": "https://youtube.com/watch?v=uTAaFExLgwQ",
-      "collected_at": "2026-02-03T12:04:56.813350"
+      "collected_at": "2026-02-03T12:04:56.813350",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1ZfO149BJvg",
@@ -2077,7 +1228,9 @@
       "duration": "767",
       "view_count": "626638",
       "url": "https://youtube.com/watch?v=1ZfO149BJvg",
-      "collected_at": "2026-02-03T12:05:01.317475"
+      "collected_at": "2026-02-03T12:05:01.317475",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ey4u7OUAF3c",
@@ -2086,7 +1239,9 @@
       "duration": "567",
       "view_count": "941326",
       "url": "https://youtube.com/watch?v=ey4u7OUAF3c",
-      "collected_at": "2026-02-03T12:59:55.536952"
+      "collected_at": "2026-02-03T12:59:55.536952",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "DbF96IHOZig",
@@ -2095,7 +1250,9 @@
       "duration": "829",
       "view_count": "525032",
       "url": "https://youtube.com/watch?v=DbF96IHOZig",
-      "collected_at": "2026-02-03T12:59:59.386001"
+      "collected_at": "2026-02-03T12:59:59.386001",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "tHBUxYGthYg",
@@ -2104,7 +1261,9 @@
       "duration": "572",
       "view_count": "139487",
       "url": "https://youtube.com/watch?v=tHBUxYGthYg",
-      "collected_at": "2026-02-03T12:05:10.019209"
+      "collected_at": "2026-02-03T12:05:10.019209",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qOrlYzqXPa8",
@@ -2113,7 +1272,9 @@
       "duration": "671",
       "view_count": "947232",
       "url": "https://youtube.com/watch?v=qOrlYzqXPa8",
-      "collected_at": "2026-02-03T13:00:03.227249"
+      "collected_at": "2026-02-03T13:00:03.227249",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "gd7BXuUQ91w",
@@ -2122,7 +1283,9 @@
       "duration": "650",
       "view_count": "2335004",
       "url": "https://youtube.com/watch?v=gd7BXuUQ91w",
-      "collected_at": "2026-02-03T13:00:07.216536"
+      "collected_at": "2026-02-03T13:00:07.216536",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "GH6O3oBZLK8",
@@ -2131,16 +1294,20 @@
       "duration": "517",
       "view_count": "224582",
       "url": "https://youtube.com/watch?v=GH6O3oBZLK8",
-      "collected_at": "2026-02-03T13:00:11.122233"
+      "collected_at": "2026-02-03T13:00:11.122233",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "B2V_8M9cjYw",
-      "title": "Block ALL ads with this…(and speed up your internet)",
+      "title": "Block ALL ads with this\u2026(and speed up your internet)",
       "upload_date": "20221107",
       "duration": "792",
       "view_count": "1396516",
       "url": "https://youtube.com/watch?v=B2V_8M9cjYw",
-      "collected_at": "2026-02-03T13:00:14.542950"
+      "collected_at": "2026-02-03T13:00:14.542950",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6rpTjEpvUtc",
@@ -2149,7 +1316,9 @@
       "duration": "763",
       "view_count": "283752",
       "url": "https://youtube.com/watch?v=6rpTjEpvUtc",
-      "collected_at": "2026-02-03T13:00:18.546489"
+      "collected_at": "2026-02-03T13:00:18.546489",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "X2YH-XyqyXE",
@@ -2158,7 +1327,9 @@
       "duration": "1718",
       "view_count": "125542",
       "url": "https://youtube.com/watch?v=X2YH-XyqyXE",
-      "collected_at": "2026-02-03T13:00:22.092035"
+      "collected_at": "2026-02-03T13:00:22.092035",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "sLkdtjJc6mc",
@@ -2167,7 +1338,9 @@
       "duration": "655",
       "view_count": "343030",
       "url": "https://youtube.com/watch?v=sLkdtjJc6mc",
-      "collected_at": "2026-02-03T13:00:25.903531"
+      "collected_at": "2026-02-03T13:00:25.903531",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ZSADD1nYD5Y",
@@ -2176,7 +1349,9 @@
       "duration": "439",
       "view_count": "104661",
       "url": "https://youtube.com/watch?v=ZSADD1nYD5Y",
-      "collected_at": "2026-02-03T13:00:29.741535"
+      "collected_at": "2026-02-03T13:00:29.741535",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "2OPVViV-GQk",
@@ -2185,7 +1360,9 @@
       "duration": "614",
       "view_count": "1943901",
       "url": "https://youtube.com/watch?v=2OPVViV-GQk",
-      "collected_at": "2026-02-03T13:00:34.185502"
+      "collected_at": "2026-02-03T13:00:34.185502",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Jfvg3CS1X3A",
@@ -2194,7 +1371,9 @@
       "duration": "654",
       "view_count": "4158272",
       "url": "https://youtube.com/watch?v=Jfvg3CS1X3A",
-      "collected_at": "2026-02-03T13:00:38.104837"
+      "collected_at": "2026-02-03T13:00:38.104837",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "iX0HbrfRyvc",
@@ -2203,16 +1382,20 @@
       "duration": "738",
       "view_count": "396091",
       "url": "https://youtube.com/watch?v=iX0HbrfRyvc",
-      "collected_at": "2026-02-03T13:00:41.311524"
+      "collected_at": "2026-02-03T13:00:41.311524",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "mJ_5qeqGOaI",
-      "title": "let’s subnet your home network // You SUCK at subnetting // EP 6",
+      "title": "let\u2019s subnet your home network // You SUCK at subnetting // EP 6",
       "upload_date": "20220909",
       "duration": "579",
       "view_count": "877313",
       "url": "https://youtube.com/watch?v=mJ_5qeqGOaI",
-      "collected_at": "2026-02-03T13:00:44.953768"
+      "collected_at": "2026-02-03T13:00:44.953768",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "DM65_JyGxCo",
@@ -2221,7 +1404,9 @@
       "duration": "985",
       "view_count": "855974",
       "url": "https://youtube.com/watch?v=DM65_JyGxCo",
-      "collected_at": "2026-02-03T12:05:52.928224"
+      "collected_at": "2026-02-03T12:05:52.928224",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "u2M_V5LtzpQ",
@@ -2230,7 +1415,9 @@
       "duration": "700",
       "view_count": "596160",
       "url": "https://youtube.com/watch?v=u2M_V5LtzpQ",
-      "collected_at": "2026-02-03T13:00:48.486178"
+      "collected_at": "2026-02-03T13:00:48.486178",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5aYpkLfkgRE",
@@ -2239,7 +1426,9 @@
       "duration": "810",
       "view_count": "647822",
       "url": "https://youtube.com/watch?v=5aYpkLfkgRE",
-      "collected_at": "2026-02-03T13:00:52.249609"
+      "collected_at": "2026-02-03T13:00:52.249609",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "nW9M0MQinfg",
@@ -2248,7 +1437,9 @@
       "duration": "1267",
       "view_count": "187842",
       "url": "https://youtube.com/watch?v=nW9M0MQinfg",
-      "collected_at": "2026-02-03T13:00:56.229031"
+      "collected_at": "2026-02-03T13:00:56.229031",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "xiUTqnI6xk8",
@@ -2257,7 +1448,9 @@
       "duration": "1465",
       "view_count": "1960559",
       "url": "https://youtube.com/watch?v=xiUTqnI6xk8",
-      "collected_at": "2026-02-03T12:06:09.402488"
+      "collected_at": "2026-02-03T12:06:09.402488",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "cJ4yAaGazPg",
@@ -2266,7 +1459,9 @@
       "duration": "5550",
       "view_count": "53885",
       "url": "https://youtube.com/watch?v=cJ4yAaGazPg",
-      "collected_at": "2026-02-03T22:08:04.894344"
+      "collected_at": "2026-02-03T22:08:04.894344",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NeIrWXIj1m4",
@@ -2275,7 +1470,9 @@
       "duration": "493",
       "view_count": "245135",
       "url": "https://youtube.com/watch?v=NeIrWXIj1m4",
-      "collected_at": "2026-02-03T13:01:01.845977"
+      "collected_at": "2026-02-03T13:01:01.845977",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "e2h_BreIxaQ",
@@ -2284,7 +1481,9 @@
       "duration": "2451",
       "view_count": "393813",
       "url": "https://youtube.com/watch?v=e2h_BreIxaQ",
-      "collected_at": "2026-02-03T13:01:05.820996"
+      "collected_at": "2026-02-03T13:01:05.820996",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bKFMS5C4CG0",
@@ -2293,7 +1492,9 @@
       "duration": "2352",
       "view_count": "2103599",
       "url": "https://youtube.com/watch?v=bKFMS5C4CG0",
-      "collected_at": "2026-02-03T13:01:11.000096"
+      "collected_at": "2026-02-03T13:01:11.000096",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mYCyZgAv_zE",
@@ -2302,7 +1503,9 @@
       "duration": "1049",
       "view_count": "265635",
       "url": "https://youtube.com/watch?v=mYCyZgAv_zE",
-      "collected_at": "2026-02-03T13:01:15.388946"
+      "collected_at": "2026-02-03T13:01:15.388946",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oZGZRtaGyG8",
@@ -2311,7 +1514,9 @@
       "duration": "778",
       "view_count": "646832",
       "url": "https://youtube.com/watch?v=oZGZRtaGyG8",
-      "collected_at": "2026-02-03T13:01:19.397924"
+      "collected_at": "2026-02-03T13:01:19.397924",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ifT6npY39Dw",
@@ -2320,7 +1525,9 @@
       "duration": "1102",
       "view_count": "1042912",
       "url": "https://youtube.com/watch?v=ifT6npY39Dw",
-      "collected_at": "2026-02-03T13:01:22.643167"
+      "collected_at": "2026-02-03T13:01:22.643167",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ugt3PBeqHIo",
@@ -2329,7 +1536,9 @@
       "duration": "1339",
       "view_count": "237312",
       "url": "https://youtube.com/watch?v=ugt3PBeqHIo",
-      "collected_at": "2026-02-03T13:01:26.169738"
+      "collected_at": "2026-02-03T13:01:26.169738",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4xJDDUt4Wq8",
@@ -2338,16 +1547,20 @@
       "duration": "1807",
       "view_count": "354995",
       "url": "https://youtube.com/watch?v=4xJDDUt4Wq8",
-      "collected_at": "2026-02-03T13:01:30.198317"
+      "collected_at": "2026-02-03T13:01:30.198317",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3ytqP1QvhUc",
-      "title": "let’s play with a ZERO-DAY vulnerability “follina”",
+      "title": "let\u2019s play with a ZERO-DAY vulnerability \u201cfollina\u201d",
       "upload_date": "20220601",
       "duration": "1280",
       "view_count": "531361",
       "url": "https://youtube.com/watch?v=3ytqP1QvhUc",
-      "collected_at": "2026-02-03T13:01:34.386984"
+      "collected_at": "2026-02-03T13:01:34.386984",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ACM36qtHIEg",
@@ -2356,7 +1569,9 @@
       "duration": "1179",
       "view_count": "358647",
       "url": "https://youtube.com/watch?v=ACM36qtHIEg",
-      "collected_at": "2026-02-03T13:01:38.085082"
+      "collected_at": "2026-02-03T13:01:38.085082",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2-i5x8KCfII",
@@ -2365,7 +1580,9 @@
       "duration": "1125",
       "view_count": "570292",
       "url": "https://youtube.com/watch?v=2-i5x8KCfII",
-      "collected_at": "2026-02-03T13:01:41.723708"
+      "collected_at": "2026-02-03T13:01:41.723708",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UtMMjXOlRQc",
@@ -2374,7 +1591,9 @@
       "duration": "1517",
       "view_count": "2879390",
       "url": "https://youtube.com/watch?v=UtMMjXOlRQc",
-      "collected_at": "2026-02-03T13:01:45.457562"
+      "collected_at": "2026-02-03T13:01:45.457562",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Fq6gqi9Ubog",
@@ -2383,7 +1602,9 @@
       "duration": "1782",
       "view_count": "313457",
       "url": "https://youtube.com/watch?v=Fq6gqi9Ubog",
-      "collected_at": "2026-02-03T13:01:49.181074"
+      "collected_at": "2026-02-03T13:01:49.181074",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jdTwCSxNINA",
@@ -2392,7 +1613,9 @@
       "duration": "612",
       "view_count": "168852",
       "url": "https://youtube.com/watch?v=jdTwCSxNINA",
-      "collected_at": "2026-02-03T13:01:52.890879"
+      "collected_at": "2026-02-03T13:01:52.890879",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "19nN9vgcgmU",
@@ -2401,7 +1624,9 @@
       "duration": "1159",
       "view_count": "782410",
       "url": "https://youtube.com/watch?v=19nN9vgcgmU",
-      "collected_at": "2026-02-03T13:01:56.617863"
+      "collected_at": "2026-02-03T13:01:56.617863",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rW5sCgSSpI8",
@@ -2410,16 +1635,20 @@
       "duration": "706",
       "view_count": "252220",
       "url": "https://youtube.com/watch?v=rW5sCgSSpI8",
-      "collected_at": "2026-02-03T13:01:59.716376"
+      "collected_at": "2026-02-03T13:01:59.716376",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8bhvn9tQk8o",
-      "title": "we’re out of IP Addresses….but this saved us (Private IP Addresses)",
+      "title": "we\u2019re out of IP Addresses\u2026.but this saved us (Private IP Addresses)",
       "upload_date": "20220418",
       "duration": "902",
       "view_count": "652977",
       "url": "https://youtube.com/watch?v=8bhvn9tQk8o",
-      "collected_at": "2026-02-03T13:02:03.062442"
+      "collected_at": "2026-02-03T13:02:03.062442",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1KLgcBcWCsE",
@@ -2428,7 +1657,9 @@
       "duration": "793",
       "view_count": "256488",
       "url": "https://youtube.com/watch?v=1KLgcBcWCsE",
-      "collected_at": "2026-02-03T13:02:06.909797"
+      "collected_at": "2026-02-03T13:02:06.909797",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "7qd5sqazD7k",
@@ -2437,7 +1668,9 @@
       "duration": "858",
       "view_count": "1123531",
       "url": "https://youtube.com/watch?v=7qd5sqazD7k",
-      "collected_at": "2026-02-03T13:02:10.403987"
+      "collected_at": "2026-02-03T13:02:10.403987",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "tcae4TSSMo8",
@@ -2446,7 +1679,9 @@
       "duration": "1008",
       "view_count": "2304131",
       "url": "https://youtube.com/watch?v=tcae4TSSMo8",
-      "collected_at": "2026-02-03T13:02:13.905869"
+      "collected_at": "2026-02-03T13:02:13.905869",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5WfiTHiU4x8",
@@ -2455,7 +1690,9 @@
       "duration": "1125",
       "view_count": "2329080",
       "url": "https://youtube.com/watch?v=5WfiTHiU4x8",
-      "collected_at": "2026-02-03T13:02:17.490414"
+      "collected_at": "2026-02-03T13:02:17.490414",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "SPwyp2NG-bE",
@@ -2464,7 +1701,9 @@
       "duration": "733",
       "view_count": "1235139",
       "url": "https://youtube.com/watch?v=SPwyp2NG-bE",
-      "collected_at": "2026-02-03T13:02:21.442920"
+      "collected_at": "2026-02-03T13:02:21.442920",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "2MS5wnYnxPc",
@@ -2473,7 +1712,9 @@
       "duration": "804",
       "view_count": "125336",
       "url": "https://youtube.com/watch?v=2MS5wnYnxPc",
-      "collected_at": "2026-02-03T12:07:12.211368"
+      "collected_at": "2026-02-03T12:07:12.211368",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "GMOoXz20VZU",
@@ -2482,7 +1723,9 @@
       "duration": "997",
       "view_count": "279229",
       "url": "https://youtube.com/watch?v=GMOoXz20VZU",
-      "collected_at": "2026-02-03T13:02:25.139486"
+      "collected_at": "2026-02-03T13:02:25.139486",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "nD1REhS6e3Y",
@@ -2491,7 +1734,9 @@
       "duration": "1079",
       "view_count": "293957",
       "url": "https://youtube.com/watch?v=nD1REhS6e3Y",
-      "collected_at": "2026-02-03T13:02:28.502730"
+      "collected_at": "2026-02-03T13:02:28.502730",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1KEN1P7qyLM",
@@ -2500,7 +1745,9 @@
       "duration": "689",
       "view_count": "1172884",
       "url": "https://youtube.com/watch?v=1KEN1P7qyLM",
-      "collected_at": "2026-02-03T13:02:32.306797"
+      "collected_at": "2026-02-03T13:02:32.306797",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "27Wn921q_BQ",
@@ -2509,7 +1756,9 @@
       "duration": "731",
       "view_count": "701924",
       "url": "https://youtube.com/watch?v=27Wn921q_BQ",
-      "collected_at": "2026-02-03T13:02:36.459258"
+      "collected_at": "2026-02-03T13:02:36.459258",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "W2tTsjkX76o",
@@ -2518,7 +1767,9 @@
       "duration": "515",
       "view_count": "996893",
       "url": "https://youtube.com/watch?v=W2tTsjkX76o",
-      "collected_at": "2026-02-03T13:02:39.956782"
+      "collected_at": "2026-02-03T13:02:39.956782",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Ec9WQGw4lW0",
@@ -2527,16 +1778,20 @@
       "duration": "1076",
       "view_count": "388133",
       "url": "https://youtube.com/watch?v=Ec9WQGw4lW0",
-      "collected_at": "2026-02-03T13:02:44.094604"
+      "collected_at": "2026-02-03T13:02:44.094604",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3ogyS4KOlXc",
-      "title": "i HACKED my wife’s web browser (it’s SCARY easy!!)",
+      "title": "i HACKED my wife\u2019s web browser (it\u2019s SCARY easy!!)",
       "upload_date": "20220215",
       "duration": "876",
       "view_count": "4304203",
       "url": "https://youtube.com/watch?v=3ogyS4KOlXc",
-      "collected_at": "2026-02-03T13:02:47.941373"
+      "collected_at": "2026-02-03T13:02:47.941373",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "HSRghjwTTOQ",
@@ -2545,7 +1800,9 @@
       "duration": "1219",
       "view_count": "384807",
       "url": "https://youtube.com/watch?v=HSRghjwTTOQ",
-      "collected_at": "2026-02-03T13:02:51.701534"
+      "collected_at": "2026-02-03T13:02:51.701534",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "5-5Mf_L0UKw",
@@ -2554,7 +1811,9 @@
       "duration": "859",
       "view_count": "497361",
       "url": "https://youtube.com/watch?v=5-5Mf_L0UKw",
-      "collected_at": "2026-02-03T13:02:55.536494"
+      "collected_at": "2026-02-03T13:02:55.536494",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5dxuppvclxE",
@@ -2563,16 +1822,20 @@
       "duration": "5548",
       "view_count": "227353",
       "url": "https://youtube.com/watch?v=5dxuppvclxE",
-      "collected_at": "2026-02-03T22:08:04.894345"
+      "collected_at": "2026-02-03T22:08:04.894345",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UiO6uFHqwbU",
-      "title": "i hired my replacement….kind of (the FUTURE of NetworkChuck)",
+      "title": "i hired my replacement\u2026.kind of (the FUTURE of NetworkChuck)",
       "upload_date": "20220128",
       "duration": "925",
       "view_count": "138329",
       "url": "https://youtube.com/watch?v=UiO6uFHqwbU",
-      "collected_at": "2026-02-03T13:02:59.384528"
+      "collected_at": "2026-02-03T13:02:59.384528",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "El19X-zHt-c",
@@ -2581,7 +1844,9 @@
       "duration": "1764",
       "view_count": "476257",
       "url": "https://youtube.com/watch?v=El19X-zHt-c",
-      "collected_at": "2026-02-03T13:03:03.449904"
+      "collected_at": "2026-02-03T13:03:03.449904",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0scjy6Zxzwc",
@@ -2590,7 +1855,9 @@
       "duration": "881",
       "view_count": "252001",
       "url": "https://youtube.com/watch?v=0scjy6Zxzwc",
-      "collected_at": "2026-02-03T12:07:52.117410"
+      "collected_at": "2026-02-03T12:07:52.117410",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "U7e-mcJdZok",
@@ -2599,7 +1866,9 @@
       "duration": "1370",
       "view_count": "673734",
       "url": "https://youtube.com/watch?v=U7e-mcJdZok",
-      "collected_at": "2026-02-03T13:03:06.811999"
+      "collected_at": "2026-02-03T13:03:06.811999",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rHCwI4K7afY",
@@ -2608,7 +1877,9 @@
       "duration": "1211",
       "view_count": "134416",
       "url": "https://youtube.com/watch?v=rHCwI4K7afY",
-      "collected_at": "2026-02-03T13:03:10.141445"
+      "collected_at": "2026-02-03T13:03:10.141445",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LfC6pv8VISk",
@@ -2617,7 +1888,9 @@
       "duration": "1311",
       "view_count": "320960",
       "url": "https://youtube.com/watch?v=LfC6pv8VISk",
-      "collected_at": "2026-02-03T13:03:13.348670"
+      "collected_at": "2026-02-03T13:03:13.348670",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "befUVytFC80",
@@ -2626,7 +1899,9 @@
       "duration": "2578",
       "view_count": "992231",
       "url": "https://youtube.com/watch?v=befUVytFC80",
-      "collected_at": "2026-02-03T13:03:16.788256"
+      "collected_at": "2026-02-03T13:03:16.788256",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4c_rKOaTquM",
@@ -2635,7 +1910,9 @@
       "duration": "2360",
       "view_count": "77886",
       "url": "https://youtube.com/watch?v=4c_rKOaTquM",
-      "collected_at": "2026-02-03T13:03:21.583697"
+      "collected_at": "2026-02-03T13:03:21.583697",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hHtGN_JzoP8",
@@ -2644,7 +1921,9 @@
       "duration": "1607",
       "view_count": "2634597",
       "url": "https://youtube.com/watch?v=hHtGN_JzoP8",
-      "collected_at": "2026-02-03T13:03:25.013797"
+      "collected_at": "2026-02-03T13:03:25.013797",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jlHWnKVpygw",
@@ -2653,7 +1932,9 @@
       "duration": "1857",
       "view_count": "1834851",
       "url": "https://youtube.com/watch?v=jlHWnKVpygw",
-      "collected_at": "2026-02-03T13:03:28.644024"
+      "collected_at": "2026-02-03T13:03:28.644024",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YJwhQowT84A",
@@ -2662,7 +1943,9 @@
       "duration": "887",
       "view_count": "855703",
       "url": "https://youtube.com/watch?v=YJwhQowT84A",
-      "collected_at": "2026-02-03T13:03:31.963170"
+      "collected_at": "2026-02-03T13:03:31.963170",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "XIoHFklOcVQ",
@@ -2671,7 +1954,9 @@
       "duration": "2962",
       "view_count": "89182",
       "url": "https://youtube.com/watch?v=XIoHFklOcVQ",
-      "collected_at": "2026-02-03T13:03:35.673368"
+      "collected_at": "2026-02-03T13:03:35.673368",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "T6OLDHAWjjA",
@@ -2680,7 +1965,9 @@
       "duration": "1253",
       "view_count": "712539",
       "url": "https://youtube.com/watch?v=T6OLDHAWjjA",
-      "collected_at": "2026-02-03T13:03:39.200667"
+      "collected_at": "2026-02-03T13:03:39.200667",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QWQ-LQL1owE",
@@ -2689,7 +1976,9 @@
       "duration": "782",
       "view_count": "406773",
       "url": "https://youtube.com/watch?v=QWQ-LQL1owE",
-      "collected_at": "2026-02-03T13:03:42.776991"
+      "collected_at": "2026-02-03T13:03:42.776991",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "apC1bOLbzbY",
@@ -2698,16 +1987,20 @@
       "duration": "1040",
       "view_count": "1336541",
       "url": "https://youtube.com/watch?v=apC1bOLbzbY",
-      "collected_at": "2026-02-03T12:08:21.562738"
+      "collected_at": "2026-02-03T12:08:21.562738",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gyMpI8csWis",
-      "title": "how to build a Raspberry Pi NAS (it’s AWESOME!!)",
+      "title": "how to build a Raspberry Pi NAS (it\u2019s AWESOME!!)",
       "upload_date": "20211002",
       "duration": "1452",
       "view_count": "2022050",
       "url": "https://youtube.com/watch?v=gyMpI8csWis",
-      "collected_at": "2026-02-03T13:03:46.394540"
+      "collected_at": "2026-02-03T13:03:46.394540",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2rVzRoF7vQw",
@@ -2716,25 +2009,31 @@
       "duration": "943",
       "view_count": "214745",
       "url": "https://youtube.com/watch?v=2rVzRoF7vQw",
-      "collected_at": "2026-02-03T13:03:49.654956"
+      "collected_at": "2026-02-03T13:03:49.654956",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "IXr0-J5XXMA",
-      "title": "let’s go deeper into Python!! // Python RIGHT NOW!! // EP 2",
+      "title": "let\u2019s go deeper into Python!! // Python RIGHT NOW!! // EP 2",
       "upload_date": "20210921",
       "duration": "1022",
       "view_count": "943658",
       "url": "https://youtube.com/watch?v=IXr0-J5XXMA",
-      "collected_at": "2026-02-03T13:03:53.225487"
+      "collected_at": "2026-02-03T13:03:53.225487",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "zV8KQNJMKS8",
-      "title": "i hate talking on the phone…..",
+      "title": "i hate talking on the phone\u2026..",
       "upload_date": "20210917",
       "duration": "1011",
       "view_count": "67459",
       "url": "https://youtube.com/watch?v=zV8KQNJMKS8",
-      "collected_at": "2026-02-03T13:03:56.745795"
+      "collected_at": "2026-02-03T13:03:56.745795",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "lUzSsX4T4WQ",
@@ -2743,7 +2042,9 @@
       "duration": "2730",
       "view_count": "6312755",
       "url": "https://youtube.com/watch?v=lUzSsX4T4WQ",
-      "collected_at": "2026-02-03T13:03:59.791309"
+      "collected_at": "2026-02-03T13:03:59.791309",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "e_f9p-_JWZw",
@@ -2752,7 +2053,9 @@
       "duration": "1262",
       "view_count": "2915983",
       "url": "https://youtube.com/watch?v=e_f9p-_JWZw",
-      "collected_at": "2026-02-03T12:08:38.056371"
+      "collected_at": "2026-02-03T12:08:38.056371",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mRMmlo_Uqcs",
@@ -2761,7 +2064,9 @@
       "duration": "1061",
       "view_count": "2831470",
       "url": "https://youtube.com/watch?v=mRMmlo_Uqcs",
-      "collected_at": "2026-02-03T13:04:02.964856"
+      "collected_at": "2026-02-03T13:04:02.964856",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wOWhfNB_r-0",
@@ -2770,16 +2075,20 @@
       "duration": "1460",
       "view_count": "516195",
       "url": "https://youtube.com/watch?v=wOWhfNB_r-0",
-      "collected_at": "2026-02-03T13:04:06.272613"
+      "collected_at": "2026-02-03T13:04:06.272613",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0W4JZIWtjLQ",
-      "title": "you NEED to learn Port Security…….RIGHT NOW!! // FREE CCNA // EP 14",
+      "title": "you NEED to learn Port Security\u2026\u2026.RIGHT NOW!! // FREE CCNA // EP 14",
       "upload_date": "20210730",
       "duration": "1403",
       "view_count": "711584",
       "url": "https://youtube.com/watch?v=0W4JZIWtjLQ",
-      "collected_at": "2026-02-03T13:04:09.185867"
+      "collected_at": "2026-02-03T13:04:09.185867",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gsvS2M5knOw",
@@ -2788,7 +2097,9 @@
       "duration": "1790",
       "view_count": "1929853",
       "url": "https://youtube.com/watch?v=gsvS2M5knOw",
-      "collected_at": "2026-02-03T13:04:12.183055"
+      "collected_at": "2026-02-03T13:04:12.183055",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "X9fSMGkjtug",
@@ -2797,7 +2108,9 @@
       "duration": "3821",
       "view_count": "2199153",
       "url": "https://youtube.com/watch?v=X9fSMGkjtug",
-      "collected_at": "2026-02-03T13:04:15.390958"
+      "collected_at": "2026-02-03T13:04:15.390958",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rI-XxnyWFnM",
@@ -2806,7 +2119,9 @@
       "duration": "703",
       "view_count": "440598",
       "url": "https://youtube.com/watch?v=rI-XxnyWFnM",
-      "collected_at": "2026-02-03T13:04:18.585070"
+      "collected_at": "2026-02-03T13:04:18.585070",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "bXCeFPNWjsM",
@@ -2815,7 +2130,9 @@
       "duration": "1207",
       "view_count": "2679591",
       "url": "https://youtube.com/watch?v=bXCeFPNWjsM",
-      "collected_at": "2026-02-03T13:04:21.659365"
+      "collected_at": "2026-02-03T13:04:21.659365",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ZMsHCCyBqEQ",
@@ -2824,7 +2141,9 @@
       "duration": "1362",
       "view_count": "1162179",
       "url": "https://youtube.com/watch?v=ZMsHCCyBqEQ",
-      "collected_at": "2026-02-03T13:04:24.743845"
+      "collected_at": "2026-02-03T13:04:24.743845",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LlbTSfc4biw",
@@ -2833,7 +2152,9 @@
       "duration": "2561",
       "view_count": "1227749",
       "url": "https://youtube.com/watch?v=LlbTSfc4biw",
-      "collected_at": "2026-02-03T13:04:27.987483"
+      "collected_at": "2026-02-03T13:04:27.987483",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vX3krP6JmOY",
@@ -2842,7 +2163,9 @@
       "duration": "1565",
       "view_count": "951092",
       "url": "https://youtube.com/watch?v=vX3krP6JmOY",
-      "collected_at": "2026-02-03T13:04:31.859765"
+      "collected_at": "2026-02-03T13:04:31.859765",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "HwSZe00ZSuU",
@@ -2851,7 +2174,9 @@
       "duration": "930",
       "view_count": "164396",
       "url": "https://youtube.com/watch?v=HwSZe00ZSuU",
-      "collected_at": "2026-02-03T13:04:35.540289"
+      "collected_at": "2026-02-03T13:04:35.540289",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "E3DEJ7odWq0",
@@ -2860,7 +2185,9 @@
       "duration": "1147",
       "view_count": "733954",
       "url": "https://youtube.com/watch?v=E3DEJ7odWq0",
-      "collected_at": "2026-02-03T13:04:38.691715"
+      "collected_at": "2026-02-03T13:04:38.691715",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jwnvKOjmtEA",
@@ -2869,7 +2196,9 @@
       "duration": "1699",
       "view_count": "847375",
       "url": "https://youtube.com/watch?v=jwnvKOjmtEA",
-      "collected_at": "2026-02-03T13:04:42.408535"
+      "collected_at": "2026-02-03T13:04:42.408535",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gOVFbBqOVds",
@@ -2878,7 +2207,9 @@
       "duration": "5728",
       "view_count": "71884",
       "url": "https://youtube.com/watch?v=gOVFbBqOVds",
-      "collected_at": "2026-02-03T22:08:04.894346"
+      "collected_at": "2026-02-03T22:08:04.894346",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bllS9tkCkaM",
@@ -2887,7 +2218,9 @@
       "duration": "1397",
       "view_count": "1520180",
       "url": "https://youtube.com/watch?v=bllS9tkCkaM",
-      "collected_at": "2026-02-03T12:09:13.053830"
+      "collected_at": "2026-02-03T12:09:13.053830",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "SvO_FDa8AIs",
@@ -2896,7 +2229,9 @@
       "duration": "859",
       "view_count": "470540",
       "url": "https://youtube.com/watch?v=SvO_FDa8AIs",
-      "collected_at": "2026-02-03T13:04:46.033030"
+      "collected_at": "2026-02-03T13:04:46.033030",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "_u8qTN3cCnQ",
@@ -2905,16 +2240,20 @@
       "duration": "1839",
       "view_count": "1512642",
       "url": "https://youtube.com/watch?v=_u8qTN3cCnQ",
-      "collected_at": "2026-02-03T13:04:50.190066"
+      "collected_at": "2026-02-03T13:04:50.190066",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "n_1wX7kKx7k",
-      "title": "installing my “FREE” cloud phone system (AWS and 3CX)",
+      "title": "installing my \u201cFREE\u201d cloud phone system (AWS and 3CX)",
       "upload_date": "20210422",
       "duration": "1486",
       "view_count": "587864",
       "url": "https://youtube.com/watch?v=n_1wX7kKx7k",
-      "collected_at": "2026-02-03T13:04:53.968415"
+      "collected_at": "2026-02-03T13:04:53.968415",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Y17KTiJLcyQ",
@@ -2923,7 +2262,9 @@
       "duration": "793",
       "view_count": "1035948",
       "url": "https://youtube.com/watch?v=Y17KTiJLcyQ",
-      "collected_at": "2026-02-03T13:04:57.072209"
+      "collected_at": "2026-02-03T13:04:57.072209",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "gwUz3E9AW0w",
@@ -2932,7 +2273,9 @@
       "duration": "1001",
       "view_count": "1518244",
       "url": "https://youtube.com/watch?v=gwUz3E9AW0w",
-      "collected_at": "2026-02-03T13:05:00.399097"
+      "collected_at": "2026-02-03T13:05:00.399097",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "A3G-3hp88mo",
@@ -2941,7 +2284,9 @@
       "duration": "1233",
       "view_count": "2517415",
       "url": "https://youtube.com/watch?v=A3G-3hp88mo",
-      "collected_at": "2026-02-03T13:05:03.673305"
+      "collected_at": "2026-02-03T13:05:03.673305",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "udwoT39z-7I",
@@ -2950,7 +2295,9 @@
       "duration": "6872",
       "view_count": "119288",
       "url": "https://youtube.com/watch?v=udwoT39z-7I",
-      "collected_at": "2026-02-03T22:08:04.894346"
+      "collected_at": "2026-02-03T22:08:04.894346",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "9Zj3Z4KkcQA",
@@ -2959,7 +2306,9 @@
       "duration": "1255",
       "view_count": "227260",
       "url": "https://youtube.com/watch?v=9Zj3Z4KkcQA",
-      "collected_at": "2026-02-03T13:05:07.039361"
+      "collected_at": "2026-02-03T13:05:07.039361",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NWyqSbnsvGU",
@@ -2968,7 +2317,9 @@
       "duration": "584",
       "view_count": "2247215",
       "url": "https://youtube.com/watch?v=NWyqSbnsvGU",
-      "collected_at": "2026-02-03T13:05:10.539627"
+      "collected_at": "2026-02-03T13:05:10.539627",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "VbEx7B_PTOE",
@@ -2977,7 +2328,9 @@
       "duration": "692",
       "view_count": "3317271",
       "url": "https://youtube.com/watch?v=VbEx7B_PTOE",
-      "collected_at": "2026-02-03T12:09:36.202046"
+      "collected_at": "2026-02-03T12:09:36.202046",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ZhMw53Ud2tY",
@@ -2986,7 +2339,9 @@
       "duration": "1395",
       "view_count": "852751",
       "url": "https://youtube.com/watch?v=ZhMw53Ud2tY",
-      "collected_at": "2026-02-03T13:05:14.053096"
+      "collected_at": "2026-02-03T13:05:14.053096",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "MLxgmkRzgIQ",
@@ -2995,7 +2350,9 @@
       "duration": "1179",
       "view_count": "512195",
       "url": "https://youtube.com/watch?v=MLxgmkRzgIQ",
-      "collected_at": "2026-02-03T13:05:17.639029"
+      "collected_at": "2026-02-03T13:05:17.639029",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6CnDdXVTxhU",
@@ -3004,7 +2361,9 @@
       "duration": "527",
       "view_count": "5265319",
       "url": "https://youtube.com/watch?v=6CnDdXVTxhU",
-      "collected_at": "2026-02-03T13:05:22.494460"
+      "collected_at": "2026-02-03T13:05:22.494460",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "KdZvxxLsN3E",
@@ -3013,7 +2372,9 @@
       "duration": "300",
       "view_count": "4947235",
       "url": "https://youtube.com/watch?v=KdZvxxLsN3E",
-      "collected_at": "2026-02-03T13:05:25.697452"
+      "collected_at": "2026-02-03T13:05:25.697452",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "mvsiuLzpx2E",
@@ -3022,7 +2383,9 @@
       "duration": "988",
       "view_count": "1378033",
       "url": "https://youtube.com/watch?v=mvsiuLzpx2E",
-      "collected_at": "2026-02-03T13:05:29.063773"
+      "collected_at": "2026-02-03T13:05:29.063773",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "y8h5qY3zwic",
@@ -3031,7 +2394,9 @@
       "duration": "2617",
       "view_count": "668512",
       "url": "https://youtube.com/watch?v=y8h5qY3zwic",
-      "collected_at": "2026-02-03T12:09:50.265403"
+      "collected_at": "2026-02-03T12:09:50.265403",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "pGFtLAn1u44",
@@ -3040,7 +2405,9 @@
       "duration": "5565",
       "view_count": "84766",
       "url": "https://youtube.com/watch?v=pGFtLAn1u44",
-      "collected_at": "2026-02-03T22:08:04.894347"
+      "collected_at": "2026-02-03T22:08:04.894347",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bsCsuoIzyTg",
@@ -3049,7 +2416,9 @@
       "duration": "1503",
       "view_count": "203619",
       "url": "https://youtube.com/watch?v=bsCsuoIzyTg",
-      "collected_at": "2026-02-03T13:05:32.452175"
+      "collected_at": "2026-02-03T13:05:32.452175",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "37tyxaQbtN4",
@@ -3058,7 +2427,9 @@
       "duration": "979",
       "view_count": "448419",
       "url": "https://youtube.com/watch?v=37tyxaQbtN4",
-      "collected_at": "2026-02-03T12:09:55.575133"
+      "collected_at": "2026-02-03T12:09:55.575133",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "wX75Z-4MEoM",
@@ -3067,7 +2438,9 @@
       "duration": "1661",
       "view_count": "11177000",
       "url": "https://youtube.com/watch?v=wX75Z-4MEoM",
-      "collected_at": "2026-02-03T13:05:36.730636"
+      "collected_at": "2026-02-03T13:05:36.730636",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "aY7R4NiSuAs",
@@ -3076,7 +2449,9 @@
       "duration": "6338",
       "view_count": "87233",
       "url": "https://youtube.com/watch?v=aY7R4NiSuAs",
-      "collected_at": "2026-02-03T22:08:04.894348"
+      "collected_at": "2026-02-03T22:08:04.894348",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "W-wdGEz4f5A",
@@ -3085,7 +2460,9 @@
       "duration": "245",
       "view_count": "38018",
       "url": "https://youtube.com/watch?v=W-wdGEz4f5A",
-      "collected_at": "2026-02-03T13:05:40.130321"
+      "collected_at": "2026-02-03T13:05:40.130321",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "4CJMpZfK1rI",
@@ -3094,7 +2471,9 @@
       "duration": "7242",
       "view_count": "537160",
       "url": "https://youtube.com/watch?v=4CJMpZfK1rI",
-      "collected_at": "2026-02-03T22:08:04.894349"
+      "collected_at": "2026-02-03T22:08:04.894349",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "uucPBUQK2H0",
@@ -3103,7 +2482,9 @@
       "duration": "7782",
       "view_count": "68925",
       "url": "https://youtube.com/watch?v=uucPBUQK2H0",
-      "collected_at": "2026-02-03T13:13:38.050730"
+      "collected_at": "2026-02-03T13:13:38.050730",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gMU5bngGQ1E",
@@ -3112,7 +2493,9 @@
       "duration": "6616",
       "view_count": "1320881",
       "url": "https://youtube.com/watch?v=gMU5bngGQ1E",
-      "collected_at": "2026-02-03T13:13:41.089046"
+      "collected_at": "2026-02-03T13:13:41.089046",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3Ay2Vk4jySI",
@@ -3121,7 +2504,9 @@
       "duration": "385",
       "view_count": "166557",
       "url": "https://youtube.com/watch?v=3Ay2Vk4jySI",
-      "collected_at": "2026-02-03T13:05:43.611688"
+      "collected_at": "2026-02-03T13:05:43.611688",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "E_xbHTPwhIQ",
@@ -3130,7 +2515,9 @@
       "duration": "6618",
       "view_count": "188566",
       "url": "https://youtube.com/watch?v=E_xbHTPwhIQ",
-      "collected_at": "2026-02-03T22:08:04.894350"
+      "collected_at": "2026-02-03T22:08:04.894350",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6dJtq7LFpec",
@@ -3139,7 +2526,9 @@
       "duration": "5178",
       "view_count": "69346",
       "url": "https://youtube.com/watch?v=6dJtq7LFpec",
-      "collected_at": "2026-02-03T22:08:04.894351"
+      "collected_at": "2026-02-03T22:08:04.894351",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "PPrMxsDG6vA",
@@ -3148,7 +2537,9 @@
       "duration": "2816",
       "view_count": "33583",
       "url": "https://youtube.com/watch?v=PPrMxsDG6vA",
-      "collected_at": "2026-02-03T22:08:04.894351"
+      "collected_at": "2026-02-03T22:08:04.894351",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "EY-Scg1z6zA",
@@ -3157,7 +2548,9 @@
       "duration": "396",
       "view_count": "226329",
       "url": "https://youtube.com/watch?v=EY-Scg1z6zA",
-      "collected_at": "2026-02-03T13:05:47.484435"
+      "collected_at": "2026-02-03T13:05:47.484435",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "nnAQ8SYzAnE",
@@ -3166,7 +2559,9 @@
       "duration": "234",
       "view_count": "496803",
       "url": "https://youtube.com/watch?v=nnAQ8SYzAnE",
-      "collected_at": "2026-02-03T13:05:51.174933"
+      "collected_at": "2026-02-03T13:05:51.174933",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "AdzEDoHAbw8",
@@ -3175,7 +2570,9 @@
       "duration": "217",
       "view_count": "172722",
       "url": "https://youtube.com/watch?v=AdzEDoHAbw8",
-      "collected_at": "2026-02-03T13:05:54.508407"
+      "collected_at": "2026-02-03T13:05:54.508407",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "FJf1DoOeoJM",
@@ -3184,7 +2581,9 @@
       "duration": "1134",
       "view_count": "47033",
       "url": "https://youtube.com/watch?v=FJf1DoOeoJM",
-      "collected_at": "2026-02-03T12:17:14.119620"
+      "collected_at": "2026-02-03T12:17:14.119620",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wIn3L24lksI",
@@ -3193,7 +2592,9 @@
       "duration": "8870",
       "view_count": "1382752",
       "url": "https://youtube.com/watch?v=wIn3L24lksI",
-      "collected_at": "2026-02-03T22:08:04.894352"
+      "collected_at": "2026-02-03T22:08:04.894352",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ZnhM-lp6GE8",
@@ -3202,16 +2603,20 @@
       "duration": "1423",
       "view_count": "123778",
       "url": "https://youtube.com/watch?v=ZnhM-lp6GE8",
-      "collected_at": "2026-02-03T13:05:57.584718"
+      "collected_at": "2026-02-03T13:05:57.584718",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "HbcY1HQtLms",
-      "title": "Bug Bounty (how to make money HACKING!!) // ft. STÖK",
+      "title": "Bug Bounty (how to make money HACKING!!) // ft. ST\u00d6K",
       "upload_date": "20201207",
       "duration": "4624",
       "view_count": "306159",
       "url": "https://youtube.com/watch?v=HbcY1HQtLms",
-      "collected_at": "2026-02-03T22:08:04.894353"
+      "collected_at": "2026-02-03T22:08:04.894353",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "80vIin4xGp8",
@@ -3220,7 +2625,9 @@
       "duration": "1815",
       "view_count": "4307010",
       "url": "https://youtube.com/watch?v=80vIin4xGp8",
-      "collected_at": "2026-02-03T13:06:00.551228"
+      "collected_at": "2026-02-03T13:06:00.551228",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "sp-hvw5rhy8",
@@ -3229,7 +2636,9 @@
       "duration": "4072",
       "view_count": "106842",
       "url": "https://youtube.com/watch?v=sp-hvw5rhy8",
-      "collected_at": "2026-02-03T22:08:04.894354"
+      "collected_at": "2026-02-03T22:08:04.894354",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "29VLO75woK4",
@@ -3238,7 +2647,9 @@
       "duration": "287",
       "view_count": "104226",
       "url": "https://youtube.com/watch?v=29VLO75woK4",
-      "collected_at": "2026-02-03T13:06:03.975533"
+      "collected_at": "2026-02-03T13:06:03.975533",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "H8iUYmReC9M",
@@ -3247,7 +2658,9 @@
       "duration": "194",
       "view_count": "98512",
       "url": "https://youtube.com/watch?v=H8iUYmReC9M",
-      "collected_at": "2026-02-03T13:06:07.465086"
+      "collected_at": "2026-02-03T13:06:07.465086",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "LiqQZGyu0FI",
@@ -3256,7 +2669,9 @@
       "duration": "5682",
       "view_count": "27526",
       "url": "https://youtube.com/watch?v=LiqQZGyu0FI",
-      "collected_at": "2026-02-03T22:08:04.894355"
+      "collected_at": "2026-02-03T22:08:04.894355",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YYR-96xyBSU",
@@ -3265,16 +2680,20 @@
       "duration": "702",
       "view_count": "322570",
       "url": "https://youtube.com/watch?v=YYR-96xyBSU",
-      "collected_at": "2026-02-03T12:10:20.675953"
+      "collected_at": "2026-02-03T12:10:20.675953",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Q2ErfVPomFQ",
-      "title": "you’re about to get hacked!! (7 reasons why) // FREE Security+ // EP 6",
+      "title": "you\u2019re about to get hacked!! (7 reasons why) // FREE Security+ // EP 6",
       "upload_date": "20201120",
       "duration": "1373",
       "view_count": "111668",
       "url": "https://youtube.com/watch?v=Q2ErfVPomFQ",
-      "collected_at": "2026-02-03T13:06:10.720117"
+      "collected_at": "2026-02-03T13:06:10.720117",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rC8EbQZdLxk",
@@ -3283,16 +2702,20 @@
       "duration": "3998",
       "view_count": "40564",
       "url": "https://youtube.com/watch?v=rC8EbQZdLxk",
-      "collected_at": "2026-02-03T13:13:58.117519"
+      "collected_at": "2026-02-03T13:13:58.117519",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XYpJhhJOJSs",
-      "title": "my beard isn’t real // FREE Security+ // EP 5",
+      "title": "my beard isn\u2019t real // FREE Security+ // EP 5",
       "upload_date": "20201119",
       "duration": "535",
       "view_count": "71318",
       "url": "https://youtube.com/watch?v=XYpJhhJOJSs",
-      "collected_at": "2026-02-03T13:06:14.063259"
+      "collected_at": "2026-02-03T13:06:14.063259",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "UydNRZp_fmk",
@@ -3301,7 +2724,9 @@
       "duration": "617",
       "view_count": "153770",
       "url": "https://youtube.com/watch?v=UydNRZp_fmk",
-      "collected_at": "2026-02-03T13:06:17.376890"
+      "collected_at": "2026-02-03T13:06:17.376890",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "-rSqbgI7oZM",
@@ -3310,7 +2735,9 @@
       "duration": "1147",
       "view_count": "1750188",
       "url": "https://youtube.com/watch?v=-rSqbgI7oZM",
-      "collected_at": "2026-02-03T13:06:21.113780"
+      "collected_at": "2026-02-03T13:06:21.113780",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "HfPKe98UqEI",
@@ -3319,7 +2746,9 @@
       "duration": "971",
       "view_count": "364099",
       "url": "https://youtube.com/watch?v=HfPKe98UqEI",
-      "collected_at": "2026-02-03T13:06:24.495886"
+      "collected_at": "2026-02-03T13:06:24.495886",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "9z1_14YSaDY",
@@ -3328,7 +2757,9 @@
       "duration": "6710",
       "view_count": "110931",
       "url": "https://youtube.com/watch?v=9z1_14YSaDY",
-      "collected_at": "2026-02-03T13:14:00.755986"
+      "collected_at": "2026-02-03T13:14:00.755986",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "xPi4uZu4uF0",
@@ -3337,7 +2768,9 @@
       "duration": "1565",
       "view_count": "627619",
       "url": "https://youtube.com/watch?v=xPi4uZu4uF0",
-      "collected_at": "2026-02-03T13:06:27.640227"
+      "collected_at": "2026-02-03T13:06:27.640227",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "u9dBGWVwMMA",
@@ -3346,7 +2779,9 @@
       "duration": "1074",
       "view_count": "3535426",
       "url": "https://youtube.com/watch?v=u9dBGWVwMMA",
-      "collected_at": "2026-02-03T13:06:30.600880"
+      "collected_at": "2026-02-03T13:06:30.600880",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "1EmHrexhPRw",
@@ -3355,7 +2790,9 @@
       "duration": "4463",
       "view_count": "64721",
       "url": "https://youtube.com/watch?v=1EmHrexhPRw",
-      "collected_at": "2026-02-03T22:08:04.894356"
+      "collected_at": "2026-02-03T22:08:04.894356",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6aLyZisehCU",
@@ -3364,7 +2801,9 @@
       "duration": "1423",
       "view_count": "682764",
       "url": "https://youtube.com/watch?v=6aLyZisehCU",
-      "collected_at": "2026-02-03T13:06:33.757486"
+      "collected_at": "2026-02-03T13:06:33.757486",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Rxx3UtLn15g",
@@ -3373,7 +2812,9 @@
       "duration": "7260",
       "view_count": "78006",
       "url": "https://youtube.com/watch?v=Rxx3UtLn15g",
-      "collected_at": "2026-02-03T22:08:04.894356"
+      "collected_at": "2026-02-03T22:08:04.894356",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vyqSdJLVQgg",
@@ -3382,7 +2823,9 @@
       "duration": "800",
       "view_count": "632486",
       "url": "https://youtube.com/watch?v=vyqSdJLVQgg",
-      "collected_at": "2026-02-03T13:06:37.324388"
+      "collected_at": "2026-02-03T13:06:37.324388",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6-66D9J5PkY",
@@ -3391,7 +2834,9 @@
       "duration": "1217",
       "view_count": "925384",
       "url": "https://youtube.com/watch?v=6-66D9J5PkY",
-      "collected_at": "2026-02-03T13:06:40.393517"
+      "collected_at": "2026-02-03T13:06:40.393517",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yLf2jRY39Rc",
@@ -3400,7 +2845,9 @@
       "duration": "786",
       "view_count": "502997",
       "url": "https://youtube.com/watch?v=yLf2jRY39Rc",
-      "collected_at": "2026-02-03T13:06:43.924473"
+      "collected_at": "2026-02-03T13:06:43.924473",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "eZYtnzODpW4",
@@ -3409,7 +2856,9 @@
       "duration": "1167",
       "view_count": "5343610",
       "url": "https://youtube.com/watch?v=eZYtnzODpW4",
-      "collected_at": "2026-02-03T13:06:47.958622"
+      "collected_at": "2026-02-03T13:06:47.958622",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "PhVTVXqrW2s",
@@ -3418,7 +2867,9 @@
       "duration": "7402",
       "view_count": "128682",
       "url": "https://youtube.com/watch?v=PhVTVXqrW2s",
-      "collected_at": "2026-02-03T22:08:04.894357"
+      "collected_at": "2026-02-03T22:08:04.894357",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "IlK6FNxmRMY",
@@ -3427,7 +2878,9 @@
       "duration": "4534",
       "view_count": "112153",
       "url": "https://youtube.com/watch?v=IlK6FNxmRMY",
-      "collected_at": "2026-02-03T22:08:04.894358"
+      "collected_at": "2026-02-03T22:08:04.894358",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wwwAXlE4OtU",
@@ -3436,7 +2889,9 @@
       "duration": "1176",
       "view_count": "3794385",
       "url": "https://youtube.com/watch?v=wwwAXlE4OtU",
-      "collected_at": "2026-02-03T13:06:52.107318"
+      "collected_at": "2026-02-03T13:06:52.107318",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "GCQiliPDcPE",
@@ -3445,7 +2900,9 @@
       "duration": "5702",
       "view_count": "29885",
       "url": "https://youtube.com/watch?v=GCQiliPDcPE",
-      "collected_at": "2026-02-03T22:08:04.894359"
+      "collected_at": "2026-02-03T22:08:04.894359",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fQek73drZS4",
@@ -3454,7 +2911,9 @@
       "duration": "590",
       "view_count": "328536",
       "url": "https://youtube.com/watch?v=fQek73drZS4",
-      "collected_at": "2026-02-03T13:06:55.494723"
+      "collected_at": "2026-02-03T13:06:55.494723",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Bbqdq2sR6SY",
@@ -3463,7 +2922,9 @@
       "duration": "668",
       "view_count": "30957",
       "url": "https://youtube.com/watch?v=Bbqdq2sR6SY",
-      "collected_at": "2026-02-03T13:06:58.752406"
+      "collected_at": "2026-02-03T13:06:58.752406",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "7bA0gTroJjw",
@@ -3472,7 +2933,9 @@
       "duration": "1774",
       "view_count": "1447241",
       "url": "https://youtube.com/watch?v=7bA0gTroJjw",
-      "collected_at": "2026-02-03T13:07:01.824047"
+      "collected_at": "2026-02-03T13:07:01.824047",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-IB3NTJKB_A",
@@ -3481,7 +2944,9 @@
       "duration": "7578",
       "view_count": "35302",
       "url": "https://youtube.com/watch?v=-IB3NTJKB_A",
-      "collected_at": "2026-02-03T22:08:04.894360"
+      "collected_at": "2026-02-03T22:08:04.894360",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "8QyFidVcoLM",
@@ -3490,7 +2955,9 @@
       "duration": "889",
       "view_count": "792370",
       "url": "https://youtube.com/watch?v=8QyFidVcoLM",
-      "collected_at": "2026-02-03T13:07:05.110028"
+      "collected_at": "2026-02-03T13:07:05.110028",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "m-i2JBtG4FE",
@@ -3499,7 +2966,9 @@
       "duration": "661",
       "view_count": "1104151",
       "url": "https://youtube.com/watch?v=m-i2JBtG4FE",
-      "collected_at": "2026-02-03T13:07:08.134126"
+      "collected_at": "2026-02-03T13:07:08.134126",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "oIRkXulqJA4",
@@ -3508,7 +2977,9 @@
       "duration": "1316",
       "view_count": "773785",
       "url": "https://youtube.com/watch?v=oIRkXulqJA4",
-      "collected_at": "2026-02-03T12:11:10.595526"
+      "collected_at": "2026-02-03T12:11:10.595526",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "5K1m9niTHMo",
@@ -3517,7 +2988,9 @@
       "duration": "4226",
       "view_count": "103580",
       "url": "https://youtube.com/watch?v=5K1m9niTHMo",
-      "collected_at": "2026-02-03T22:08:04.894361"
+      "collected_at": "2026-02-03T22:08:04.894361",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "z4_oqTZJqCo",
@@ -3526,7 +2999,9 @@
       "duration": "777",
       "view_count": "7643859",
       "url": "https://youtube.com/watch?v=z4_oqTZJqCo",
-      "collected_at": "2026-02-03T13:07:11.259548"
+      "collected_at": "2026-02-03T13:07:11.259548",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "BKHeUJNrijI",
@@ -3535,7 +3010,9 @@
       "duration": "4996",
       "view_count": "195302",
       "url": "https://youtube.com/watch?v=BKHeUJNrijI",
-      "collected_at": "2026-02-03T22:08:04.894362"
+      "collected_at": "2026-02-03T22:08:04.894362",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dgdOILL1184",
@@ -3544,7 +3021,9 @@
       "duration": "252",
       "view_count": "327054",
       "url": "https://youtube.com/watch?v=dgdOILL1184",
-      "collected_at": "2026-02-03T13:07:14.438745"
+      "collected_at": "2026-02-03T13:07:14.438745",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "bgPuPSPZe2U",
@@ -3553,7 +3032,9 @@
       "duration": "457",
       "view_count": "858089",
       "url": "https://youtube.com/watch?v=bgPuPSPZe2U",
-      "collected_at": "2026-02-03T13:07:17.494194"
+      "collected_at": "2026-02-03T13:07:17.494194",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "UHph4pvFZ4E",
@@ -3562,7 +3043,9 @@
       "duration": "4864",
       "view_count": "236429",
       "url": "https://youtube.com/watch?v=UHph4pvFZ4E",
-      "collected_at": "2026-02-03T22:08:04.894363"
+      "collected_at": "2026-02-03T22:08:04.894363",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3kfO61Mensg",
@@ -3571,7 +3054,9 @@
       "duration": "1010",
       "view_count": "1000586",
       "url": "https://youtube.com/watch?v=3kfO61Mensg",
-      "collected_at": "2026-02-03T13:07:20.645193"
+      "collected_at": "2026-02-03T13:07:20.645193",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "CRdL1PcherM",
@@ -3580,7 +3065,9 @@
       "duration": "723",
       "view_count": "1488717",
       "url": "https://youtube.com/watch?v=CRdL1PcherM",
-      "collected_at": "2026-02-03T13:07:23.900213"
+      "collected_at": "2026-02-03T13:07:23.900213",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qsA8zREbt6g",
@@ -3589,7 +3076,9 @@
       "duration": "769",
       "view_count": "3565891",
       "url": "https://youtube.com/watch?v=qsA8zREbt6g",
-      "collected_at": "2026-02-03T13:07:27.671938"
+      "collected_at": "2026-02-03T13:07:27.671938",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "mK-Li4w8nQs",
@@ -3598,7 +3087,9 @@
       "duration": "8470",
       "view_count": "160153",
       "url": "https://youtube.com/watch?v=mK-Li4w8nQs",
-      "collected_at": "2026-02-03T22:08:04.894363"
+      "collected_at": "2026-02-03T22:08:04.894363",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "p9ScLm9S3B4",
@@ -3607,7 +3098,9 @@
       "duration": "1311",
       "view_count": "1265657",
       "url": "https://youtube.com/watch?v=p9ScLm9S3B4",
-      "collected_at": "2026-02-03T13:07:30.842303"
+      "collected_at": "2026-02-03T13:07:30.842303",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "GE5J_26Ut1Q",
@@ -3616,7 +3109,9 @@
       "duration": "1267",
       "view_count": "317848",
       "url": "https://youtube.com/watch?v=GE5J_26Ut1Q",
-      "collected_at": "2026-02-03T13:07:34.510311"
+      "collected_at": "2026-02-03T13:07:34.510311",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "8SCvs5GVOYQ",
@@ -3625,7 +3120,9 @@
       "duration": "4332",
       "view_count": "26106",
       "url": "https://youtube.com/watch?v=8SCvs5GVOYQ",
-      "collected_at": "2026-02-03T22:08:04.894364"
+      "collected_at": "2026-02-03T22:08:04.894364",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-pNupSPAgJA",
@@ -3634,7 +3131,9 @@
       "duration": "347",
       "view_count": "63211",
       "url": "https://youtube.com/watch?v=-pNupSPAgJA",
-      "collected_at": "2026-02-03T13:07:38.319013"
+      "collected_at": "2026-02-03T13:07:38.319013",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "croxobxz1bU",
@@ -3643,7 +3142,9 @@
       "duration": "186",
       "view_count": "58348",
       "url": "https://youtube.com/watch?v=croxobxz1bU",
-      "collected_at": "2026-02-03T13:07:42.026427"
+      "collected_at": "2026-02-03T13:07:42.026427",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "9eH16Fxeb9o",
@@ -3652,7 +3153,9 @@
       "duration": "1402",
       "view_count": "1962137",
       "url": "https://youtube.com/watch?v=9eH16Fxeb9o",
-      "collected_at": "2026-02-03T13:07:45.260568"
+      "collected_at": "2026-02-03T13:07:45.260568",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4t4kBkMsDbQ",
@@ -3661,7 +3164,9 @@
       "duration": "1028",
       "view_count": "3369499",
       "url": "https://youtube.com/watch?v=4t4kBkMsDbQ",
-      "collected_at": "2026-02-03T13:07:48.684694"
+      "collected_at": "2026-02-03T13:07:48.684694",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6IpGdqrJymk",
@@ -3670,7 +3175,9 @@
       "duration": "3700",
       "view_count": "74596",
       "url": "https://youtube.com/watch?v=6IpGdqrJymk",
-      "collected_at": "2026-02-03T22:08:04.894365"
+      "collected_at": "2026-02-03T22:08:04.894365",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "S7MNX_UD7vY",
@@ -3679,7 +3186,9 @@
       "duration": "630",
       "view_count": "2432443",
       "url": "https://youtube.com/watch?v=S7MNX_UD7vY",
-      "collected_at": "2026-02-03T13:07:51.825689"
+      "collected_at": "2026-02-03T13:07:51.825689",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "AfVH54edAHU",
@@ -3688,7 +3197,9 @@
       "duration": "300",
       "view_count": "3038606",
       "url": "https://youtube.com/watch?v=AfVH54edAHU",
-      "collected_at": "2026-02-03T13:07:55.021931"
+      "collected_at": "2026-02-03T13:07:55.021931",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "QahtAHEj2r0",
@@ -3697,7 +3208,9 @@
       "duration": "5528",
       "view_count": "49535",
       "url": "https://youtube.com/watch?v=QahtAHEj2r0",
-      "collected_at": "2026-02-03T22:08:04.894366"
+      "collected_at": "2026-02-03T22:08:04.894366",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hrVa_dhD-iA",
@@ -3706,7 +3219,9 @@
       "duration": "1015",
       "view_count": "1978442",
       "url": "https://youtube.com/watch?v=hrVa_dhD-iA",
-      "collected_at": "2026-02-03T13:07:58.040173"
+      "collected_at": "2026-02-03T13:07:58.040173",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "E25SKW4-8wQ",
@@ -3715,7 +3230,9 @@
       "duration": "4252",
       "view_count": "752835",
       "url": "https://youtube.com/watch?v=E25SKW4-8wQ",
-      "collected_at": "2026-02-03T22:08:04.894367"
+      "collected_at": "2026-02-03T22:08:04.894367",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yFC8pb2TPdc",
@@ -3724,7 +3241,9 @@
       "duration": "1099",
       "view_count": "1606958",
       "url": "https://youtube.com/watch?v=yFC8pb2TPdc",
-      "collected_at": "2026-02-03T13:08:01.459401"
+      "collected_at": "2026-02-03T13:08:01.459401",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7FERCp7AtXg",
@@ -3733,7 +3252,9 @@
       "duration": "487",
       "view_count": "57447",
       "url": "https://youtube.com/watch?v=7FERCp7AtXg",
-      "collected_at": "2026-02-03T13:08:06.943225"
+      "collected_at": "2026-02-03T13:08:06.943225",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "i__LrU_-DZs",
@@ -3742,7 +3263,9 @@
       "duration": "4098",
       "view_count": "31565",
       "url": "https://youtube.com/watch?v=i__LrU_-DZs",
-      "collected_at": "2026-02-03T22:08:04.894368"
+      "collected_at": "2026-02-03T22:08:04.894368",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "RYAPpHEcddw",
@@ -3751,7 +3274,9 @@
       "duration": "3060",
       "view_count": "119439",
       "url": "https://youtube.com/watch?v=RYAPpHEcddw",
-      "collected_at": "2026-02-03T22:08:04.894368"
+      "collected_at": "2026-02-03T22:08:04.894368",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YOomKJdLLEo",
@@ -3760,7 +3285,9 @@
       "duration": "845",
       "view_count": "286971",
       "url": "https://youtube.com/watch?v=YOomKJdLLEo",
-      "collected_at": "2026-02-03T12:11:57.666704"
+      "collected_at": "2026-02-03T12:11:57.666704",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "KNxZIYHx29I",
@@ -3769,7 +3296,9 @@
       "duration": "554",
       "view_count": "117254",
       "url": "https://youtube.com/watch?v=KNxZIYHx29I",
-      "collected_at": "2026-02-03T13:08:12.328498"
+      "collected_at": "2026-02-03T13:08:12.328498",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "70eVeqKBgTo",
@@ -3778,7 +3307,9 @@
       "duration": "1081",
       "view_count": "93692",
       "url": "https://youtube.com/watch?v=70eVeqKBgTo",
-      "collected_at": "2026-02-03T13:08:15.757491"
+      "collected_at": "2026-02-03T13:08:15.757491",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0fJz-xMrqFw",
@@ -3787,7 +3318,9 @@
       "duration": "641",
       "view_count": "50590",
       "url": "https://youtube.com/watch?v=0fJz-xMrqFw",
-      "collected_at": "2026-02-03T13:08:18.825160"
+      "collected_at": "2026-02-03T13:08:18.825160",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "OWKPxAgh9DU",
@@ -3796,7 +3329,9 @@
       "duration": "902",
       "view_count": "260016",
       "url": "https://youtube.com/watch?v=OWKPxAgh9DU",
-      "collected_at": "2026-02-03T13:08:22.279074"
+      "collected_at": "2026-02-03T13:08:22.279074",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5hycyr-8EKs",
@@ -3805,7 +3340,9 @@
       "duration": "1281",
       "view_count": "1013459",
       "url": "https://youtube.com/watch?v=5hycyr-8EKs",
-      "collected_at": "2026-02-03T13:08:25.789883"
+      "collected_at": "2026-02-03T13:08:25.789883",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dH3DdLy574M",
@@ -3814,7 +3351,9 @@
       "duration": "1118",
       "view_count": "896142",
       "url": "https://youtube.com/watch?v=dH3DdLy574M",
-      "collected_at": "2026-02-03T13:08:28.990384"
+      "collected_at": "2026-02-03T13:08:28.990384",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "BSplICgr7iU",
@@ -3823,7 +3362,9 @@
       "duration": "1054",
       "view_count": "628420",
       "url": "https://youtube.com/watch?v=BSplICgr7iU",
-      "collected_at": "2026-02-03T13:08:32.338299"
+      "collected_at": "2026-02-03T13:08:32.338299",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_SjSSQsIMeM",
@@ -3832,7 +3373,9 @@
       "duration": "3568",
       "view_count": "174968",
       "url": "https://youtube.com/watch?v=_SjSSQsIMeM",
-      "collected_at": "2026-02-03T22:08:04.894369"
+      "collected_at": "2026-02-03T22:08:04.894369",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eZpLjKv9xvA",
@@ -3841,7 +3384,9 @@
       "duration": "2279",
       "view_count": "200820",
       "url": "https://youtube.com/watch?v=eZpLjKv9xvA",
-      "collected_at": "2026-02-03T22:08:04.894370"
+      "collected_at": "2026-02-03T22:08:04.894370",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eGz9DS-aIeY",
@@ -3850,7 +3395,9 @@
       "duration": "1399",
       "view_count": "3140902",
       "url": "https://youtube.com/watch?v=eGz9DS-aIeY",
-      "collected_at": "2026-02-03T13:08:35.649356"
+      "collected_at": "2026-02-03T13:08:35.649356",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "DTW0eu5eLEo",
@@ -3859,16 +3406,20 @@
       "duration": "3216",
       "view_count": "25990",
       "url": "https://youtube.com/watch?v=DTW0eu5eLEo",
-      "collected_at": "2026-02-03T22:08:04.894371"
+      "collected_at": "2026-02-03T22:08:04.894371",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bpRHOpdwXS4",
-      "title": "we’re saving the internet (and the world) // IT Engineers Discussion",
+      "title": "we\u2019re saving the internet (and the world) // IT Engineers Discussion",
       "upload_date": "20200325",
       "duration": "4284",
       "view_count": "17617",
       "url": "https://youtube.com/watch?v=bpRHOpdwXS4",
-      "collected_at": "2026-02-03T22:08:04.894372"
+      "collected_at": "2026-02-03T22:08:04.894372",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "z2Wpv59Oso8",
@@ -3877,7 +3428,9 @@
       "duration": "2321",
       "view_count": "36496",
       "url": "https://youtube.com/watch?v=z2Wpv59Oso8",
-      "collected_at": "2026-02-03T22:08:04.894373"
+      "collected_at": "2026-02-03T22:08:04.894373",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "noC8t8nwji4",
@@ -3886,7 +3439,9 @@
       "duration": "608",
       "view_count": "809153",
       "url": "https://youtube.com/watch?v=noC8t8nwji4",
-      "collected_at": "2026-02-03T12:12:19.920540"
+      "collected_at": "2026-02-03T12:12:19.920540",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "x_7wC4xFz-M",
@@ -3895,7 +3450,9 @@
       "duration": "5891",
       "view_count": "56346",
       "url": "https://youtube.com/watch?v=x_7wC4xFz-M",
-      "collected_at": "2026-02-03T13:14:53.952111"
+      "collected_at": "2026-02-03T13:14:53.952111",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vbaJcRxASo0",
@@ -3904,7 +3461,9 @@
       "duration": "1890",
       "view_count": "1453344",
       "url": "https://youtube.com/watch?v=vbaJcRxASo0",
-      "collected_at": "2026-02-03T13:08:38.739077"
+      "collected_at": "2026-02-03T13:08:38.739077",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "laaGuJItNCM",
@@ -3913,7 +3472,9 @@
       "duration": "509",
       "view_count": "262321",
       "url": "https://youtube.com/watch?v=laaGuJItNCM",
-      "collected_at": "2026-02-03T13:08:42.828770"
+      "collected_at": "2026-02-03T13:08:42.828770",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1qhC2Lw9Iso",
@@ -3922,7 +3483,9 @@
       "duration": "3725",
       "view_count": "61670",
       "url": "https://youtube.com/watch?v=1qhC2Lw9Iso",
-      "collected_at": "2026-02-03T12:18:16.349438"
+      "collected_at": "2026-02-03T12:18:16.349438",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YkfU8H8URuw",
@@ -3931,7 +3494,9 @@
       "duration": "5560",
       "view_count": "62796",
       "url": "https://youtube.com/watch?v=YkfU8H8URuw",
-      "collected_at": "2026-02-03T22:08:04.894374"
+      "collected_at": "2026-02-03T22:08:04.894374",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "BezoNUflqXo",
@@ -3940,7 +3505,9 @@
       "duration": "1676",
       "view_count": "769218",
       "url": "https://youtube.com/watch?v=BezoNUflqXo",
-      "collected_at": "2026-02-03T13:08:46.451282"
+      "collected_at": "2026-02-03T13:08:46.451282",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Xx9VFUakHH4",
@@ -3949,7 +3516,9 @@
       "duration": "7575",
       "view_count": "70033",
       "url": "https://youtube.com/watch?v=Xx9VFUakHH4",
-      "collected_at": "2026-02-03T22:08:04.894374"
+      "collected_at": "2026-02-03T22:08:04.894374",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2IY1U5ljeFE",
@@ -3958,7 +3527,9 @@
       "duration": "863",
       "view_count": "53253",
       "url": "https://youtube.com/watch?v=2IY1U5ljeFE",
-      "collected_at": "2026-02-03T13:08:49.405057"
+      "collected_at": "2026-02-03T13:08:49.405057",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "rF4PDEfF_6k",
@@ -3967,7 +3538,9 @@
       "duration": "3740",
       "view_count": "12749",
       "url": "https://youtube.com/watch?v=rF4PDEfF_6k",
-      "collected_at": "2026-02-03T22:08:04.894375"
+      "collected_at": "2026-02-03T22:08:04.894375",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qvlZrtKXdx4",
@@ -3976,7 +3549,9 @@
       "duration": "3202",
       "view_count": "57134",
       "url": "https://youtube.com/watch?v=qvlZrtKXdx4",
-      "collected_at": "2026-02-03T22:08:04.894376"
+      "collected_at": "2026-02-03T22:08:04.894376",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bTPpKxuV-CY",
@@ -3985,7 +3560,9 @@
       "duration": "578",
       "view_count": "141378",
       "url": "https://youtube.com/watch?v=bTPpKxuV-CY",
-      "collected_at": "2026-02-03T13:08:52.355001"
+      "collected_at": "2026-02-03T13:08:52.355001",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8lQ4kCSA8FE",
@@ -3994,7 +3571,9 @@
       "duration": "4811",
       "view_count": "73058",
       "url": "https://youtube.com/watch?v=8lQ4kCSA8FE",
-      "collected_at": "2026-02-03T22:08:04.894377"
+      "collected_at": "2026-02-03T22:08:04.894377",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "N_l4yWLVI4g",
@@ -4003,7 +3582,9 @@
       "duration": "2560",
       "view_count": "17765",
       "url": "https://youtube.com/watch?v=N_l4yWLVI4g",
-      "collected_at": "2026-02-03T22:08:04.894378"
+      "collected_at": "2026-02-03T22:08:04.894378",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "GwHyoTVN_gA",
@@ -4012,16 +3593,20 @@
       "duration": "610",
       "view_count": "87447",
       "url": "https://youtube.com/watch?v=GwHyoTVN_gA",
-      "collected_at": "2026-02-03T13:08:55.516082"
+      "collected_at": "2026-02-03T13:08:55.516082",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "BJFxMDxG_KY",
-      "title": "The tools to learn Python, Linux, Cisco 🔥🔥 HURRY",
+      "title": "The tools to learn Python, Linux, Cisco \ud83d\udd25\ud83d\udd25 HURRY",
       "upload_date": "20191202",
       "duration": "206",
       "view_count": "65563",
       "url": "https://youtube.com/watch?v=BJFxMDxG_KY",
-      "collected_at": "2026-02-03T13:08:58.835006"
+      "collected_at": "2026-02-03T13:08:58.835006",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "cxGCndru_c0",
@@ -4030,7 +3615,9 @@
       "duration": "1005",
       "view_count": "88346",
       "url": "https://youtube.com/watch?v=cxGCndru_c0",
-      "collected_at": "2026-02-03T13:09:02.236717"
+      "collected_at": "2026-02-03T13:09:02.236717",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "CoQZdBT_hyo",
@@ -4039,7 +3626,9 @@
       "duration": "3586",
       "view_count": "23459",
       "url": "https://youtube.com/watch?v=CoQZdBT_hyo",
-      "collected_at": "2026-02-03T22:08:04.894379"
+      "collected_at": "2026-02-03T22:08:04.894379",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Pni3OhXKmKk",
@@ -4048,7 +3637,9 @@
       "duration": "7036",
       "view_count": "45379",
       "url": "https://youtube.com/watch?v=Pni3OhXKmKk",
-      "collected_at": "2026-02-03T22:08:04.894379"
+      "collected_at": "2026-02-03T22:08:04.894379",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "suruNl8rupU",
@@ -4057,7 +3648,9 @@
       "duration": "2780",
       "view_count": "106173",
       "url": "https://youtube.com/watch?v=suruNl8rupU",
-      "collected_at": "2026-02-03T22:08:04.894380"
+      "collected_at": "2026-02-03T22:08:04.894380",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "B_krqlk_cXo",
@@ -4066,7 +3659,9 @@
       "duration": "2080",
       "view_count": "76539",
       "url": "https://youtube.com/watch?v=B_krqlk_cXo",
-      "collected_at": "2026-02-03T13:09:05.448602"
+      "collected_at": "2026-02-03T13:09:05.448602",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wIt_VAM4q-Y",
@@ -4075,7 +3670,9 @@
       "duration": "3663",
       "view_count": "65213",
       "url": "https://youtube.com/watch?v=wIt_VAM4q-Y",
-      "collected_at": "2026-02-03T22:08:04.894381"
+      "collected_at": "2026-02-03T22:08:04.894381",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "N-YNANU4fOo",
@@ -4084,7 +3681,9 @@
       "duration": "5148",
       "view_count": "35949",
       "url": "https://youtube.com/watch?v=N-YNANU4fOo",
-      "collected_at": "2026-02-03T22:08:04.894382"
+      "collected_at": "2026-02-03T22:08:04.894382",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QghJroazh5Y",
@@ -4093,7 +3692,9 @@
       "duration": "4087",
       "view_count": "41503",
       "url": "https://youtube.com/watch?v=QghJroazh5Y",
-      "collected_at": "2026-02-03T22:08:04.894383"
+      "collected_at": "2026-02-03T22:08:04.894383",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "5_PuobVHeLg",
@@ -4102,7 +3703,9 @@
       "duration": "927",
       "view_count": "122935",
       "url": "https://youtube.com/watch?v=5_PuobVHeLg",
-      "collected_at": "2026-02-03T13:09:08.738636"
+      "collected_at": "2026-02-03T13:09:08.738636",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "jUMsuP_UYBg",
@@ -4111,7 +3714,9 @@
       "duration": "2251",
       "view_count": "68513",
       "url": "https://youtube.com/watch?v=jUMsuP_UYBg",
-      "collected_at": "2026-02-03T22:08:04.894384"
+      "collected_at": "2026-02-03T22:08:04.894384",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rcb27jWOwD0",
@@ -4120,7 +3725,9 @@
       "duration": "3637",
       "view_count": "19155",
       "url": "https://youtube.com/watch?v=rcb27jWOwD0",
-      "collected_at": "2026-02-03T13:09:11.805152"
+      "collected_at": "2026-02-03T13:09:11.805152",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "VIMaFk-R9xQ",
@@ -4129,7 +3736,9 @@
       "duration": "2185",
       "view_count": "67198",
       "url": "https://youtube.com/watch?v=VIMaFk-R9xQ",
-      "collected_at": "2026-02-03T22:08:04.894385"
+      "collected_at": "2026-02-03T22:08:04.894385",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "on3UL7kyOJM",
@@ -4138,7 +3747,9 @@
       "duration": "3334",
       "view_count": "19308",
       "url": "https://youtube.com/watch?v=on3UL7kyOJM",
-      "collected_at": "2026-02-03T12:18:48.787060"
+      "collected_at": "2026-02-03T12:18:48.787060",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oPrKUSizQVQ",
@@ -4147,7 +3758,9 @@
       "duration": "511",
       "view_count": "74043",
       "url": "https://youtube.com/watch?v=oPrKUSizQVQ",
-      "collected_at": "2026-02-03T13:09:14.986111"
+      "collected_at": "2026-02-03T13:09:14.986111",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "3JM44S9zCd8",
@@ -4156,7 +3769,9 @@
       "duration": "747",
       "view_count": "16666",
       "url": "https://youtube.com/watch?v=3JM44S9zCd8",
-      "collected_at": "2026-02-03T22:08:04.894385"
+      "collected_at": "2026-02-03T22:08:04.894385",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "cChGFpElMEM",
@@ -4165,7 +3780,9 @@
       "duration": "1336",
       "view_count": "422514",
       "url": "https://youtube.com/watch?v=cChGFpElMEM",
-      "collected_at": "2026-02-03T13:09:18.386860"
+      "collected_at": "2026-02-03T13:09:18.386860",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ISg_PjazSeY",
@@ -4174,7 +3791,9 @@
       "duration": "3261",
       "view_count": "72246",
       "url": "https://youtube.com/watch?v=ISg_PjazSeY",
-      "collected_at": "2026-02-03T22:08:04.894386"
+      "collected_at": "2026-02-03T22:08:04.894386",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "q7HkIwbj3CM",
@@ -4183,7 +3802,9 @@
       "duration": "1333",
       "view_count": "1136931",
       "url": "https://youtube.com/watch?v=q7HkIwbj3CM",
-      "collected_at": "2026-02-03T13:09:22.399504"
+      "collected_at": "2026-02-03T13:09:22.399504",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "L6x5bG4p4QM",
@@ -4192,7 +3813,9 @@
       "duration": "726",
       "view_count": "1568158",
       "url": "https://youtube.com/watch?v=L6x5bG4p4QM",
-      "collected_at": "2026-02-03T12:18:55.440411"
+      "collected_at": "2026-02-03T12:18:55.440411",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "SWLtfLKjB9g",
@@ -4201,7 +3824,9 @@
       "duration": "2089",
       "view_count": "21144",
       "url": "https://youtube.com/watch?v=SWLtfLKjB9g",
-      "collected_at": "2026-02-03T22:08:04.894387"
+      "collected_at": "2026-02-03T22:08:04.894387",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "b4PK1NFcRTM",
@@ -4210,7 +3835,9 @@
       "duration": "2040",
       "view_count": "80251",
       "url": "https://youtube.com/watch?v=b4PK1NFcRTM",
-      "collected_at": "2026-02-03T22:08:04.894388"
+      "collected_at": "2026-02-03T22:08:04.894388",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7Wia_5gn8jo",
@@ -4219,16 +3846,20 @@
       "duration": "3428",
       "view_count": "106789",
       "url": "https://youtube.com/watch?v=7Wia_5gn8jo",
-      "collected_at": "2026-02-03T22:08:04.894389"
+      "collected_at": "2026-02-03T22:08:04.894389",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TB87gilqs8Q",
-      "title": "WHY you need to study Python, Linux, CCNA 📚 AT THE SAME TIME! // ft. Cisco_Panther",
+      "title": "WHY you need to study Python, Linux, CCNA \ud83d\udcda AT THE SAME TIME! // ft. Cisco_Panther",
       "upload_date": "20190727",
       "duration": "3062",
       "view_count": "214541",
       "url": "https://youtube.com/watch?v=TB87gilqs8Q",
-      "collected_at": "2026-02-03T13:09:25.612354"
+      "collected_at": "2026-02-03T13:09:25.612354",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "CBfzUgic1Jo",
@@ -4237,7 +3868,9 @@
       "duration": "1033",
       "view_count": "47381",
       "url": "https://youtube.com/watch?v=CBfzUgic1Jo",
-      "collected_at": "2026-02-03T22:08:04.894390"
+      "collected_at": "2026-02-03T22:08:04.894390",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "KxnPtPi6D2c",
@@ -4246,7 +3879,9 @@
       "duration": "4028",
       "view_count": "86418",
       "url": "https://youtube.com/watch?v=KxnPtPi6D2c",
-      "collected_at": "2026-02-03T22:08:04.894391"
+      "collected_at": "2026-02-03T22:08:04.894391",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "l9YxTXDiiFY",
@@ -4255,7 +3890,9 @@
       "duration": "1277",
       "view_count": "2214279",
       "url": "https://youtube.com/watch?v=l9YxTXDiiFY",
-      "collected_at": "2026-02-03T13:09:28.910930"
+      "collected_at": "2026-02-03T13:09:28.910930",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fqtr_Yyy0a4",
@@ -4264,7 +3901,9 @@
       "duration": "2087",
       "view_count": "342857",
       "url": "https://youtube.com/watch?v=fqtr_Yyy0a4",
-      "collected_at": "2026-02-03T13:09:31.900937"
+      "collected_at": "2026-02-03T13:09:31.900937",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "f4p107p3vQg",
@@ -4273,7 +3912,9 @@
       "duration": "3076",
       "view_count": "188830",
       "url": "https://youtube.com/watch?v=f4p107p3vQg",
-      "collected_at": "2026-02-03T13:09:35.519089"
+      "collected_at": "2026-02-03T13:09:35.519089",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "l9sqsDqF0QY",
@@ -4282,7 +3923,9 @@
       "duration": "3080",
       "view_count": "71388",
       "url": "https://youtube.com/watch?v=l9sqsDqF0QY",
-      "collected_at": "2026-02-03T13:09:39.094243"
+      "collected_at": "2026-02-03T13:09:39.094243",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "nD7zD-cpQG0",
@@ -4291,7 +3934,9 @@
       "duration": "852",
       "view_count": "104178",
       "url": "https://youtube.com/watch?v=nD7zD-cpQG0",
-      "collected_at": "2026-02-03T13:09:42.518752"
+      "collected_at": "2026-02-03T13:09:42.518752",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "LrQ1xM-HBec",
@@ -4300,7 +3945,9 @@
       "duration": "2067",
       "view_count": "35167",
       "url": "https://youtube.com/watch?v=LrQ1xM-HBec",
-      "collected_at": "2026-02-03T13:09:46.248645"
+      "collected_at": "2026-02-03T13:09:46.248645",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qo3Pe_-ZfE0",
@@ -4309,7 +3956,9 @@
       "duration": "300",
       "view_count": "10326",
       "url": "https://youtube.com/watch?v=qo3Pe_-ZfE0",
-      "collected_at": "2026-02-03T13:09:49.562690"
+      "collected_at": "2026-02-03T13:09:49.562690",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "sEmEUW18uNE",
@@ -4318,7 +3967,9 @@
       "duration": "5615",
       "view_count": "17790",
       "url": "https://youtube.com/watch?v=sEmEUW18uNE",
-      "collected_at": "2026-02-03T13:09:52.848961"
+      "collected_at": "2026-02-03T13:09:52.848961",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "lzFIm3zg_nI",
@@ -4327,7 +3978,9 @@
       "duration": "470",
       "view_count": "36470",
       "url": "https://youtube.com/watch?v=lzFIm3zg_nI",
-      "collected_at": "2026-02-03T13:09:56.470954"
+      "collected_at": "2026-02-03T13:09:56.470954",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "_8OMN08VQ6A",
@@ -4336,7 +3989,9 @@
       "duration": "986",
       "view_count": "70667",
       "url": "https://youtube.com/watch?v=_8OMN08VQ6A",
-      "collected_at": "2026-02-03T13:09:59.876488"
+      "collected_at": "2026-02-03T13:09:59.876488",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "LfoJEZNX4DA",
@@ -4345,7 +4000,9 @@
       "duration": "555",
       "view_count": "50039",
       "url": "https://youtube.com/watch?v=LfoJEZNX4DA",
-      "collected_at": "2026-02-03T13:10:02.890917"
+      "collected_at": "2026-02-03T13:10:02.890917",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "cDxngzbBbhI",
@@ -4354,7 +4011,9 @@
       "duration": "1021",
       "view_count": "28811",
       "url": "https://youtube.com/watch?v=cDxngzbBbhI",
-      "collected_at": "2026-02-03T13:10:06.186859"
+      "collected_at": "2026-02-03T13:10:06.186859",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bbkBJxOo4gg",
@@ -4363,7 +4022,9 @@
       "duration": "1780",
       "view_count": "150446",
       "url": "https://youtube.com/watch?v=bbkBJxOo4gg",
-      "collected_at": "2026-02-03T13:10:09.561391"
+      "collected_at": "2026-02-03T13:10:09.561391",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hKwXjKpfPA8",
@@ -4372,7 +4033,9 @@
       "duration": "3447",
       "view_count": "73966",
       "url": "https://youtube.com/watch?v=hKwXjKpfPA8",
-      "collected_at": "2026-02-03T22:08:04.894391"
+      "collected_at": "2026-02-03T22:08:04.894391",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "8cmmVEoftEM",
@@ -4381,7 +4044,9 @@
       "duration": "1449",
       "view_count": "797968",
       "url": "https://youtube.com/watch?v=8cmmVEoftEM",
-      "collected_at": "2026-02-03T12:13:34.011506"
+      "collected_at": "2026-02-03T12:13:34.011506",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "PusUAu9gGiI",
@@ -4390,7 +4055,9 @@
       "duration": "1046",
       "view_count": "123461",
       "url": "https://youtube.com/watch?v=PusUAu9gGiI",
-      "collected_at": "2026-02-03T13:10:13.105567"
+      "collected_at": "2026-02-03T13:10:13.105567",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "F9j2aiqK0tw",
@@ -4399,7 +4066,9 @@
       "duration": "1103",
       "view_count": "122493",
       "url": "https://youtube.com/watch?v=F9j2aiqK0tw",
-      "collected_at": "2026-02-03T13:10:16.363724"
+      "collected_at": "2026-02-03T13:10:16.363724",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "FfJXcoqTvrs",
@@ -4408,7 +4077,9 @@
       "duration": "1486",
       "view_count": "132640",
       "url": "https://youtube.com/watch?v=FfJXcoqTvrs",
-      "collected_at": "2026-02-03T13:10:19.524696"
+      "collected_at": "2026-02-03T13:10:19.524696",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QpqzG931JbU",
@@ -4417,7 +4088,9 @@
       "duration": "1844",
       "view_count": "38727",
       "url": "https://youtube.com/watch?v=QpqzG931JbU",
-      "collected_at": "2026-02-03T13:10:22.657983"
+      "collected_at": "2026-02-03T13:10:22.657983",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "m5qsxBwXGB0",
@@ -4426,7 +4099,9 @@
       "duration": "1328",
       "view_count": "35442",
       "url": "https://youtube.com/watch?v=m5qsxBwXGB0",
-      "collected_at": "2026-02-03T13:10:25.964343"
+      "collected_at": "2026-02-03T13:10:25.964343",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "cN0ZhAvanYg",
@@ -4435,7 +4110,9 @@
       "duration": "2694",
       "view_count": "24964",
       "url": "https://youtube.com/watch?v=cN0ZhAvanYg",
-      "collected_at": "2026-02-03T22:08:04.894392"
+      "collected_at": "2026-02-03T22:08:04.894392",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "O6V3CVb5G3M",
@@ -4444,7 +4121,9 @@
       "duration": "499",
       "view_count": "8253",
       "url": "https://youtube.com/watch?v=O6V3CVb5G3M",
-      "collected_at": "2026-02-03T12:19:11.460007"
+      "collected_at": "2026-02-03T12:19:11.460007",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "FpsW-1Zuhp8",
@@ -4453,7 +4132,9 @@
       "duration": "1350",
       "view_count": "110850",
       "url": "https://youtube.com/watch?v=FpsW-1Zuhp8",
-      "collected_at": "2026-02-03T12:13:49.532331"
+      "collected_at": "2026-02-03T12:13:49.532331",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hBjU59-BXH0",
@@ -4462,7 +4143,9 @@
       "duration": "2671",
       "view_count": "84625",
       "url": "https://youtube.com/watch?v=hBjU59-BXH0",
-      "collected_at": "2026-02-03T22:08:04.894393"
+      "collected_at": "2026-02-03T22:08:04.894393",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "C4OxzOPGWnI",
@@ -4471,7 +4154,9 @@
       "duration": "1002",
       "view_count": "490661",
       "url": "https://youtube.com/watch?v=C4OxzOPGWnI",
-      "collected_at": "2026-02-03T13:10:29.158436"
+      "collected_at": "2026-02-03T13:10:29.158436",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "7CP4__3t8go",
@@ -4480,7 +4165,9 @@
       "duration": "1280",
       "view_count": "155469",
       "url": "https://youtube.com/watch?v=7CP4__3t8go",
-      "collected_at": "2026-02-03T13:10:32.367125"
+      "collected_at": "2026-02-03T13:10:32.367125",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "KTOQHVui0fM",
@@ -4489,7 +4176,9 @@
       "duration": "1190",
       "view_count": "25146",
       "url": "https://youtube.com/watch?v=KTOQHVui0fM",
-      "collected_at": "2026-02-03T12:13:57.644133"
+      "collected_at": "2026-02-03T12:13:57.644133",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "iP9kuR2U8-o",
@@ -4498,7 +4187,9 @@
       "duration": "929",
       "view_count": "27416",
       "url": "https://youtube.com/watch?v=iP9kuR2U8-o",
-      "collected_at": "2026-02-03T13:10:35.678496"
+      "collected_at": "2026-02-03T13:10:35.678496",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "7UkkrNoZUwU",
@@ -4507,7 +4198,9 @@
       "duration": "786",
       "view_count": "28637",
       "url": "https://youtube.com/watch?v=7UkkrNoZUwU",
-      "collected_at": "2026-02-03T13:10:38.863585"
+      "collected_at": "2026-02-03T13:10:38.863585",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "B_6P2Z-Oneg",
@@ -4516,7 +4209,9 @@
       "duration": "6778",
       "view_count": "30533",
       "url": "https://youtube.com/watch?v=B_6P2Z-Oneg",
-      "collected_at": "2026-02-03T22:08:04.894394"
+      "collected_at": "2026-02-03T22:08:04.894394",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "T1-r_feNNnw",
@@ -4525,7 +4220,9 @@
       "duration": "833",
       "view_count": "146594",
       "url": "https://youtube.com/watch?v=T1-r_feNNnw",
-      "collected_at": "2026-02-03T13:10:42.237283"
+      "collected_at": "2026-02-03T13:10:42.237283",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Azm4woyCNBA",
@@ -4534,7 +4231,9 @@
       "duration": "1526",
       "view_count": "197934",
       "url": "https://youtube.com/watch?v=Azm4woyCNBA",
-      "collected_at": "2026-02-03T13:10:45.232235"
+      "collected_at": "2026-02-03T13:10:45.232235",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "DctF8QwAmfs",
@@ -4543,7 +4242,9 @@
       "duration": "425",
       "view_count": "6870",
       "url": "https://youtube.com/watch?v=DctF8QwAmfs",
-      "collected_at": "2026-02-03T13:10:48.415920"
+      "collected_at": "2026-02-03T13:10:48.415920",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8qZYfLG1hSo",
@@ -4552,7 +4253,9 @@
       "duration": "729",
       "view_count": "12702",
       "url": "https://youtube.com/watch?v=8qZYfLG1hSo",
-      "collected_at": "2026-02-03T13:10:51.210122"
+      "collected_at": "2026-02-03T13:10:51.210122",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "rPjtZUBBPEU",
@@ -4561,7 +4264,9 @@
       "duration": "771",
       "view_count": "19564",
       "url": "https://youtube.com/watch?v=rPjtZUBBPEU",
-      "collected_at": "2026-02-03T13:10:54.102248"
+      "collected_at": "2026-02-03T13:10:54.102248",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "isMnWZqAh0k",
@@ -4570,7 +4275,9 @@
       "duration": "1072",
       "view_count": "603858",
       "url": "https://youtube.com/watch?v=isMnWZqAh0k",
-      "collected_at": "2026-02-03T13:10:57.227017"
+      "collected_at": "2026-02-03T13:10:57.227017",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "a5_gQLcTSUM",
@@ -4579,7 +4286,9 @@
       "duration": "1403",
       "view_count": "75235",
       "url": "https://youtube.com/watch?v=a5_gQLcTSUM",
-      "collected_at": "2026-02-03T13:11:00.270050"
+      "collected_at": "2026-02-03T13:11:00.270050",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eAdrnTOcPOg",
@@ -4588,7 +4297,9 @@
       "duration": "973",
       "view_count": "93484",
       "url": "https://youtube.com/watch?v=eAdrnTOcPOg",
-      "collected_at": "2026-02-03T13:11:03.381310"
+      "collected_at": "2026-02-03T13:11:03.381310",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "O8HDIRtMvwI",
@@ -4597,7 +4308,9 @@
       "duration": "441",
       "view_count": "14459",
       "url": "https://youtube.com/watch?v=O8HDIRtMvwI",
-      "collected_at": "2026-02-03T13:11:06.842751"
+      "collected_at": "2026-02-03T13:11:06.842751",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "axtZLMvquZ0",
@@ -4606,7 +4319,9 @@
       "duration": "979",
       "view_count": "26043",
       "url": "https://youtube.com/watch?v=axtZLMvquZ0",
-      "collected_at": "2026-02-03T13:11:09.815531"
+      "collected_at": "2026-02-03T13:11:09.815531",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "443TT26w1LE",
@@ -4615,7 +4330,9 @@
       "duration": "789",
       "view_count": "89425",
       "url": "https://youtube.com/watch?v=443TT26w1LE",
-      "collected_at": "2026-02-03T13:11:12.712929"
+      "collected_at": "2026-02-03T13:11:12.712929",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Pae_PYKKMAU",
@@ -4624,7 +4341,9 @@
       "duration": "934",
       "view_count": "72251",
       "url": "https://youtube.com/watch?v=Pae_PYKKMAU",
-      "collected_at": "2026-02-03T13:11:15.724808"
+      "collected_at": "2026-02-03T13:11:15.724808",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "NBgRLL8mkUI",
@@ -4633,7 +4352,9 @@
       "duration": "1239",
       "view_count": "55359",
       "url": "https://youtube.com/watch?v=NBgRLL8mkUI",
-      "collected_at": "2026-02-03T12:14:32.069507"
+      "collected_at": "2026-02-03T12:14:32.069507",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "G5HucqXioBY",
@@ -4642,7 +4363,9 @@
       "duration": "624",
       "view_count": "69042",
       "url": "https://youtube.com/watch?v=G5HucqXioBY",
-      "collected_at": "2026-02-03T13:11:18.503325"
+      "collected_at": "2026-02-03T13:11:18.503325",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "kDQMjAQNvY4",
@@ -4651,7 +4374,9 @@
       "duration": "845",
       "view_count": "134444",
       "url": "https://youtube.com/watch?v=kDQMjAQNvY4",
-      "collected_at": "2026-02-03T13:11:21.345302"
+      "collected_at": "2026-02-03T13:11:21.345302",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "0I4r0QGXD7U",
@@ -4660,7 +4385,9 @@
       "duration": "262",
       "view_count": "6470",
       "url": "https://youtube.com/watch?v=0I4r0QGXD7U",
-      "collected_at": "2026-02-03T13:11:24.222166"
+      "collected_at": "2026-02-03T13:11:24.222166",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "WhoTqIuURy4",
@@ -4669,7 +4396,9 @@
       "duration": "859",
       "view_count": "42885",
       "url": "https://youtube.com/watch?v=WhoTqIuURy4",
-      "collected_at": "2026-02-03T13:11:27.513528"
+      "collected_at": "2026-02-03T13:11:27.513528",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6HsgCor5I28",
@@ -4678,7 +4407,9 @@
       "duration": "476",
       "view_count": "225140",
       "url": "https://youtube.com/watch?v=6HsgCor5I28",
-      "collected_at": "2026-02-03T13:11:30.313380"
+      "collected_at": "2026-02-03T13:11:30.313380",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "lTlTjeCjXYM",
@@ -4687,7 +4418,9 @@
       "duration": "511",
       "view_count": "78232",
       "url": "https://youtube.com/watch?v=lTlTjeCjXYM",
-      "collected_at": "2026-02-03T12:14:46.189889"
+      "collected_at": "2026-02-03T12:14:46.189889",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "2BxAmdqWWJo",
@@ -4696,7 +4429,9 @@
       "duration": "380",
       "view_count": "18674",
       "url": "https://youtube.com/watch?v=2BxAmdqWWJo",
-      "collected_at": "2026-02-03T13:11:33.416175"
+      "collected_at": "2026-02-03T13:11:33.416175",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "BsH0SMDJdD4",
@@ -4705,7 +4440,9 @@
       "duration": "873",
       "view_count": "33402",
       "url": "https://youtube.com/watch?v=BsH0SMDJdD4",
-      "collected_at": "2026-02-03T13:11:37.895821"
+      "collected_at": "2026-02-03T13:11:37.895821",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "GEUSjg3Sy24",
@@ -4714,7 +4451,9 @@
       "duration": "292",
       "view_count": "22772",
       "url": "https://youtube.com/watch?v=GEUSjg3Sy24",
-      "collected_at": "2026-02-03T13:11:40.970787"
+      "collected_at": "2026-02-03T13:11:40.970787",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "uyGVNqZ1KMU",
@@ -4723,7 +4462,9 @@
       "duration": "786",
       "view_count": "31516",
       "url": "https://youtube.com/watch?v=uyGVNqZ1KMU",
-      "collected_at": "2026-02-03T13:11:43.884912"
+      "collected_at": "2026-02-03T13:11:43.884912",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "vN5a-ZjiFmI",
@@ -4732,7 +4473,9 @@
       "duration": "468",
       "view_count": "81267",
       "url": "https://youtube.com/watch?v=vN5a-ZjiFmI",
-      "collected_at": "2026-02-03T13:11:46.926177"
+      "collected_at": "2026-02-03T13:11:46.926177",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Zlc12P4F51c",
@@ -4741,7 +4484,9 @@
       "duration": "410",
       "view_count": "79492",
       "url": "https://youtube.com/watch?v=Zlc12P4F51c",
-      "collected_at": "2026-02-03T13:11:49.810043"
+      "collected_at": "2026-02-03T13:11:49.810043",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "dVXHibpRmaA",
@@ -4750,7 +4495,9 @@
       "duration": "560",
       "view_count": "217125",
       "url": "https://youtube.com/watch?v=dVXHibpRmaA",
-      "collected_at": "2026-02-03T12:15:02.354719"
+      "collected_at": "2026-02-03T12:15:02.354719",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "SlHfqJyqsmo",
@@ -4759,7 +4506,9 @@
       "duration": "389",
       "view_count": "33248",
       "url": "https://youtube.com/watch?v=SlHfqJyqsmo",
-      "collected_at": "2026-02-03T13:11:52.509871"
+      "collected_at": "2026-02-03T13:11:52.509871",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "TCQdJwLMqfY",
@@ -4768,7 +4517,9 @@
       "duration": "351",
       "view_count": "21275",
       "url": "https://youtube.com/watch?v=TCQdJwLMqfY",
-      "collected_at": "2026-02-03T13:11:55.545044"
+      "collected_at": "2026-02-03T13:11:55.545044",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "f8e-be_nMa8",
@@ -4777,7 +4528,9 @@
       "duration": "434",
       "view_count": "30505",
       "url": "https://youtube.com/watch?v=f8e-be_nMa8",
-      "collected_at": "2026-02-03T22:08:04.894311"
+      "collected_at": "2026-02-03T22:08:04.894311",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "M3da0R-m_Ww",
@@ -4786,7 +4539,9 @@
       "duration": "437",
       "view_count": "19513",
       "url": "https://youtube.com/watch?v=M3da0R-m_Ww",
-      "collected_at": "2026-02-03T22:08:04.894316"
+      "collected_at": "2026-02-03T22:08:04.894316",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "MN0KzfzlRio",
@@ -4795,7 +4550,9 @@
       "duration": "693",
       "view_count": "81487",
       "url": "https://youtube.com/watch?v=MN0KzfzlRio",
-      "collected_at": "2026-02-03T13:12:02.183347"
+      "collected_at": "2026-02-03T13:12:02.183347",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "PxC5UMAiVZQ",
@@ -4804,7 +4561,9 @@
       "duration": "321",
       "view_count": "2990",
       "url": "https://youtube.com/watch?v=PxC5UMAiVZQ",
-      "collected_at": "2026-02-03T13:12:04.962111"
+      "collected_at": "2026-02-03T13:12:04.962111",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qkUTB65OfAc",
@@ -4813,7 +4572,9 @@
       "duration": "299",
       "view_count": "4501",
       "url": "https://youtube.com/watch?v=qkUTB65OfAc",
-      "collected_at": "2026-02-03T22:08:04.894318"
+      "collected_at": "2026-02-03T22:08:04.894318",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "2vJehMLbZGw",
@@ -4822,16 +4583,9 @@
       "duration": "676",
       "view_count": "121207",
       "url": "https://youtube.com/watch?v=2vJehMLbZGw",
-      "collected_at": "2026-02-03T13:12:09.783281"
-    },
-    {
-      "id": "lbHASiYwGHo",
-      "title": "Programmers Becoming Network Engineers? - Collab with SimpleProgrammer",
-      "upload_date": "20171109",
-      "duration": "96",
-      "view_count": "19883",
-      "url": "https://youtube.com/watch?v=lbHASiYwGHo",
-      "collected_at": "2026-02-03T13:12:12.447883"
+      "collected_at": "2026-02-03T13:12:09.783281",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "9Vs56S95Mrs",
@@ -4840,7 +4594,9 @@
       "duration": "739",
       "view_count": "26763",
       "url": "https://youtube.com/watch?v=9Vs56S95Mrs",
-      "collected_at": "2026-02-03T13:12:15.449651"
+      "collected_at": "2026-02-03T13:12:15.449651",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qCx5q3BnaFc",
@@ -4849,7 +4605,9 @@
       "duration": "377",
       "view_count": "7036",
       "url": "https://youtube.com/watch?v=qCx5q3BnaFc",
-      "collected_at": "2026-02-03T12:15:28.396749"
+      "collected_at": "2026-02-03T12:15:28.396749",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "MdYhc4O3G7w",
@@ -4858,7 +4616,9 @@
       "duration": "881",
       "view_count": "100478",
       "url": "https://youtube.com/watch?v=MdYhc4O3G7w",
-      "collected_at": "2026-02-03T22:08:04.894319"
+      "collected_at": "2026-02-03T22:08:04.894319",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "FUw_Ctrp5EM",
@@ -4867,7 +4627,9 @@
       "duration": "1219",
       "view_count": "145713",
       "url": "https://youtube.com/watch?v=FUw_Ctrp5EM",
-      "collected_at": "2026-02-03T22:08:04.894320"
+      "collected_at": "2026-02-03T22:08:04.894320",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "O1aNuVYjXNM",
@@ -4876,7 +4638,9 @@
       "duration": "409",
       "view_count": "65368",
       "url": "https://youtube.com/watch?v=O1aNuVYjXNM",
-      "collected_at": "2026-02-03T22:08:04.894321"
+      "collected_at": "2026-02-03T22:08:04.894321",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "EywIAz8fPnY",
@@ -4885,7 +4649,9 @@
       "duration": "1029",
       "view_count": "447044",
       "url": "https://youtube.com/watch?v=EywIAz8fPnY",
-      "collected_at": "2026-02-03T22:08:04.894322"
+      "collected_at": "2026-02-03T22:08:04.894322",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "epgVJT9Wa-k",
@@ -4894,7 +4660,9 @@
       "duration": "153",
       "view_count": "2416",
       "url": "https://youtube.com/watch?v=epgVJT9Wa-k",
-      "collected_at": "2026-02-03T22:08:04.894323"
+      "collected_at": "2026-02-03T22:08:04.894323",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "FR1Jx9z7x-w",
@@ -4903,7 +4671,9 @@
       "duration": "852",
       "view_count": "13815",
       "url": "https://youtube.com/watch?v=FR1Jx9z7x-w",
-      "collected_at": "2026-02-03T22:08:04.894324"
+      "collected_at": "2026-02-03T22:08:04.894324",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "dQsaSdzfUAM",
@@ -4912,7 +4682,9 @@
       "duration": "750",
       "view_count": "39129",
       "url": "https://youtube.com/watch?v=dQsaSdzfUAM",
-      "collected_at": "2026-02-03T12:15:46.381748"
+      "collected_at": "2026-02-03T12:15:46.381748",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "UYlKgcRkiqA",
@@ -4921,7 +4693,9 @@
       "duration": "535",
       "view_count": "7789",
       "url": "https://youtube.com/watch?v=UYlKgcRkiqA",
-      "collected_at": "2026-02-03T22:08:04.894325"
+      "collected_at": "2026-02-03T22:08:04.894325",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "pSB6xNpqtGI",
@@ -4930,7 +4704,9 @@
       "duration": "1035",
       "view_count": "11561",
       "url": "https://youtube.com/watch?v=pSB6xNpqtGI",
-      "collected_at": "2026-02-03T22:08:04.894326"
+      "collected_at": "2026-02-03T22:08:04.894326",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "woJX0eBOdnA",
@@ -4939,7 +4715,9 @@
       "duration": "944",
       "view_count": "235269",
       "url": "https://youtube.com/watch?v=woJX0eBOdnA",
-      "collected_at": "2026-02-03T22:08:04.894327"
+      "collected_at": "2026-02-03T22:08:04.894327",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "18m2lUoNygo",
@@ -4948,7 +4726,9 @@
       "duration": "1276",
       "view_count": "271268",
       "url": "https://youtube.com/watch?v=18m2lUoNygo",
-      "collected_at": "2026-02-03T12:15:55.662819"
+      "collected_at": "2026-02-03T12:15:55.662819",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bQVrGvGqCQ0",
@@ -4957,7 +4737,9 @@
       "duration": "636",
       "view_count": "6066",
       "url": "https://youtube.com/watch?v=bQVrGvGqCQ0",
-      "collected_at": "2026-02-03T22:08:04.894327"
+      "collected_at": "2026-02-03T22:08:04.894327",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8HeAIXGQMA4",
@@ -4966,7 +4748,9 @@
       "duration": "422",
       "view_count": "6721",
       "url": "https://youtube.com/watch?v=8HeAIXGQMA4",
-      "collected_at": "2026-02-03T22:08:04.894328"
+      "collected_at": "2026-02-03T22:08:04.894328",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "nsi008avBfo",
@@ -4975,7 +4759,9 @@
       "duration": "697",
       "view_count": "45517",
       "url": "https://youtube.com/watch?v=nsi008avBfo",
-      "collected_at": "2026-02-03T22:08:04.894329"
+      "collected_at": "2026-02-03T22:08:04.894329",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "wMyYCJBlZTQ",
@@ -4984,7 +4770,9 @@
       "duration": "1018",
       "view_count": "80871",
       "url": "https://youtube.com/watch?v=wMyYCJBlZTQ",
-      "collected_at": "2026-02-03T22:08:04.894330"
+      "collected_at": "2026-02-03T22:08:04.894330",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "_h4ioMa7rOs",
@@ -4993,7 +4781,9 @@
       "duration": "216",
       "view_count": "22955",
       "url": "https://youtube.com/watch?v=_h4ioMa7rOs",
-      "collected_at": "2026-02-03T22:08:04.894331"
+      "collected_at": "2026-02-03T22:08:04.894331",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "dmthwYTEL0M",
@@ -5002,7 +4792,9 @@
       "duration": "1164",
       "view_count": "329893",
       "url": "https://youtube.com/watch?v=dmthwYTEL0M",
-      "collected_at": "2026-02-03T12:16:09.483191"
+      "collected_at": "2026-02-03T12:16:09.483191",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eTdHGjC0U08",
@@ -5011,7 +4803,9 @@
       "duration": "1036",
       "view_count": "50863",
       "url": "https://youtube.com/watch?v=eTdHGjC0U08",
-      "collected_at": "2026-02-03T22:08:04.894332"
+      "collected_at": "2026-02-03T22:08:04.894332",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "dfEWw95coak",
@@ -5020,7 +4814,9 @@
       "duration": "1601",
       "view_count": "159672",
       "url": "https://youtube.com/watch?v=dfEWw95coak",
-      "collected_at": "2026-02-03T22:08:04.894333"
+      "collected_at": "2026-02-03T22:08:04.894333",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "8pbu-uJlJ9E",
@@ -5029,7 +4825,9 @@
       "duration": "555",
       "view_count": "20594",
       "url": "https://youtube.com/watch?v=8pbu-uJlJ9E",
-      "collected_at": "2026-02-03T22:08:04.894334"
+      "collected_at": "2026-02-03T22:08:04.894334",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6Kms924WLeg",
@@ -5038,7 +4836,9 @@
       "duration": "413",
       "view_count": "97751",
       "url": "https://youtube.com/watch?v=6Kms924WLeg",
-      "collected_at": "2026-02-03T22:08:04.894334"
+      "collected_at": "2026-02-03T22:08:04.894334",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "yn_qCnOh9xk",
@@ -5047,7 +4847,9 @@
       "duration": "283",
       "view_count": "47628",
       "url": "https://youtube.com/watch?v=yn_qCnOh9xk",
-      "collected_at": "2026-02-03T22:08:04.894335"
+      "collected_at": "2026-02-03T22:08:04.894335",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8rVzrPzhXnA",
@@ -5056,7 +4858,9 @@
       "duration": "1206",
       "view_count": "112333",
       "url": "https://youtube.com/watch?v=8rVzrPzhXnA",
-      "collected_at": "2026-02-03T22:08:04.894336"
+      "collected_at": "2026-02-03T22:08:04.894336",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ZR7_D1V3zD0",
@@ -5065,11 +4869,20 @@
       "duration": "158",
       "view_count": "173320",
       "url": "https://youtube.com/watch?v=ZR7_D1V3zD0",
-      "collected_at": "2026-02-03T22:08:04.894337"
+      "collected_at": "2026-02-03T22:08:04.894337",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     }
   ],
   "creator": "NetworkChuck",
   "creator_slug": "networkchuck",
   "total_videos": 563,
-  "last_updated": "2026-02-03T22:08:04.894558"
+  "last_updated": "2026-02-03T22:08:04.894558",
+  "filtered_at": "2026-02-04T04:37:37.401878",
+  "stats": {
+    "original_count": 563,
+    "filtered_count": 443,
+    "shorts_removed": 120,
+    "long_form_count": 256
+  }
 }

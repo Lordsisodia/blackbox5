@@ -1,112 +1,59 @@
 {
   "videos": [
     {
-      "id": "lX85Z77Y424",
-      "title": "Biggest mistake startup founders make",
-      "upload_date": "20260203",
-      "duration": "35",
-      "view_count": "436",
-      "url": "https://youtube.com/watch?v=lX85Z77Y424",
-      "collected_at": "2026-02-03T23:24:40.835123"
-    },
-    {
       "id": "wk8joeKtXBA",
-      "title": "Scrape any website with Apify & OpenCode, here’s how",
+      "title": "Scrape any website with Apify & OpenCode, here\u2019s how",
       "upload_date": "20260202",
       "duration": "1433",
       "view_count": "5746",
       "url": "https://youtube.com/watch?v=wk8joeKtXBA",
-      "collected_at": "2026-02-03T12:59:54.822163"
-    },
-    {
-      "id": "iRI8krzMPSo",
-      "title": "The biggest grift in AI",
-      "upload_date": "20260202",
-      "duration": "34",
-      "view_count": "3026",
-      "url": "https://youtube.com/watch?v=iRI8krzMPSo",
-      "collected_at": "2026-02-03T12:59:58.693124"
-    },
-    {
-      "id": "E3A4JXcFB9Q",
-      "title": "Learn anything in 2026 with these tools",
-      "upload_date": "20260201",
-      "duration": "19",
-      "view_count": "4021",
-      "url": "https://youtube.com/watch?v=E3A4JXcFB9Q",
-      "collected_at": "2026-02-03T13:00:02.738640"
-    },
-    {
-      "id": "EvBwh75Nk68",
-      "title": "Unlock Ancient wisdom from this book",
-      "upload_date": "20260131",
-      "duration": "35",
-      "view_count": "2171",
-      "url": "https://youtube.com/watch?v=EvBwh75Nk68",
-      "collected_at": "2026-02-03T13:00:06.146978"
-    },
-    {
-      "id": "KzGpwJMxaTc",
-      "title": "What's the best AI Business Model?",
-      "upload_date": "20260130",
-      "duration": "35",
-      "view_count": "14629",
-      "url": "https://youtube.com/watch?v=KzGpwJMxaTc",
-      "collected_at": "2026-02-03T13:00:09.613977"
+      "collected_at": "2026-02-03T12:59:54.822163",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yk088BCn4Vk",
-      "title": "OpenAI is killing open-source… here’s why",
+      "title": "OpenAI is killing open-source\u2026 here\u2019s why",
       "upload_date": "20260129",
       "duration": "671",
       "view_count": "11512",
       "url": "https://youtube.com/watch?v=yk088BCn4Vk",
-      "collected_at": "2026-02-02T11:30:11.052673"
+      "collected_at": "2026-02-02T11:30:11.052673",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "aiLZMvMLYMg",
-      "title": "Build anything with Kimi 2.5, here’s how",
+      "title": "Build anything with Kimi 2.5, here\u2019s how",
       "upload_date": "20260128",
       "duration": "1678",
       "view_count": "42635",
       "url": "https://youtube.com/watch?v=aiLZMvMLYMg",
-      "collected_at": "2026-02-02T11:30:14.078822"
+      "collected_at": "2026-02-02T11:30:14.078822",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2zWGFLrTVmI",
-      "title": "I just replaced myself with Clawdbot… here's how",
+      "title": "I just replaced myself with Clawdbot\u2026 here's how",
       "upload_date": "20260126",
       "duration": "1208",
       "view_count": "80976",
       "url": "https://youtube.com/watch?v=2zWGFLrTVmI",
-      "collected_at": "2026-02-02T11:30:17.142056"
-    },
-    {
-      "id": "CfN7l4ahOHI",
-      "title": "He raised $2,000,000, how to compete?",
-      "upload_date": "20260124",
-      "duration": "37",
-      "view_count": "10106",
-      "url": "https://youtube.com/watch?v=CfN7l4ahOHI",
-      "collected_at": "2026-02-03T13:00:12.859302"
+      "collected_at": "2026-02-02T11:30:17.142056",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fOY0_WCR3eY",
-      "title": "Claude Code can now make videos, here’s how",
+      "title": "Claude Code can now make videos, here\u2019s how",
       "upload_date": "20260123",
       "duration": "969",
       "view_count": "89309",
       "url": "https://youtube.com/watch?v=fOY0_WCR3eY",
-      "collected_at": "2026-02-02T11:30:19.670651"
-    },
-    {
-      "id": "VTPC8rs5jig",
-      "title": "Should you fear AI?",
-      "upload_date": "20260123",
-      "duration": "35",
-      "view_count": "7283",
-      "url": "https://youtube.com/watch?v=VTPC8rs5jig",
-      "collected_at": "2026-02-03T13:00:16.636837"
+      "collected_at": "2026-02-02T11:30:19.670651",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6KB73J01fGw",
@@ -115,34 +62,20 @@
       "duration": "1745",
       "view_count": "31283",
       "url": "https://youtube.com/watch?v=6KB73J01fGw",
-      "collected_at": "2026-02-02T11:30:22.604602"
+      "collected_at": "2026-02-02T11:30:22.604602",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XuSFUvUdvQA",
-      "title": "Anthropic’s 7 Hour Claude Code Course in 27 Minutes",
+      "title": "Anthropic\u2019s 7 Hour Claude Code Course in 27 Minutes",
       "upload_date": "20260120",
       "duration": "1662",
       "view_count": "25914",
       "url": "https://youtube.com/watch?v=XuSFUvUdvQA",
-      "collected_at": "2026-02-02T11:30:25.372725"
-    },
-    {
-      "id": "vzF7Hj-JmZQ",
-      "title": "how to get 100 paying customers from reddit with zero marketing budget",
-      "upload_date": "20260120",
-      "duration": "45",
-      "view_count": "10504",
-      "url": "https://youtube.com/watch?v=vzF7Hj-JmZQ",
-      "collected_at": "2026-02-03T13:00:20.129748"
-    },
-    {
-      "id": "JqLCHjaIaM8",
-      "title": "how to use open source models without breaking the bank",
-      "upload_date": "20260119",
-      "duration": "40",
-      "view_count": "17076",
-      "url": "https://youtube.com/watch?v=JqLCHjaIaM8",
-      "collected_at": "2026-02-03T13:00:23.745724"
+      "collected_at": "2026-02-02T11:30:25.372725",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "nS62guAxeGA",
@@ -151,16 +84,9 @@
       "duration": "1730",
       "view_count": "26428",
       "url": "https://youtube.com/watch?v=nS62guAxeGA",
-      "collected_at": "2026-02-02T11:30:28.761063"
-    },
-    {
-      "id": "AzTuegk3RqA",
-      "title": "The secret to life from an AI Entrepreneur",
-      "upload_date": "20260116",
-      "duration": "28",
-      "view_count": "6482",
-      "url": "https://youtube.com/watch?v=AzTuegk3RqA",
-      "collected_at": "2026-02-03T13:00:27.217856"
+      "collected_at": "2026-02-02T11:30:28.761063",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4uZ4dpwbGcY",
@@ -169,34 +95,31 @@
       "duration": "1362",
       "view_count": "16213",
       "url": "https://youtube.com/watch?v=4uZ4dpwbGcY",
-      "collected_at": "2026-02-02T11:30:31.497380"
-    },
-    {
-      "id": "g0HLg81Sg7I",
-      "title": "This makes it really easy to focus",
-      "upload_date": "20260114",
-      "duration": "33",
-      "view_count": "6091",
-      "url": "https://youtube.com/watch?v=g0HLg81Sg7I",
-      "collected_at": "2026-02-03T13:00:31.182739"
+      "collected_at": "2026-02-02T11:30:31.497380",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "syK7yprJknM",
-      "title": "OpenCode just killed all vibe coding apps (it’s insane)",
+      "title": "OpenCode just killed all vibe coding apps (it\u2019s insane)",
       "upload_date": "20260113",
       "duration": "3637",
       "view_count": "123740",
       "url": "https://youtube.com/watch?v=syK7yprJknM",
-      "collected_at": "2026-02-02T11:30:33.947162"
+      "collected_at": "2026-02-02T11:30:33.947162",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "SEBWHaX2L5s",
-      "title": "This 100% private AI Agent can do anything… just watch",
+      "title": "This 100% private AI Agent can do anything\u2026 just watch",
       "upload_date": "20260111",
       "duration": "1926",
       "view_count": "127998",
       "url": "https://youtube.com/watch?v=SEBWHaX2L5s",
-      "collected_at": "2026-02-02T11:30:37.053896"
+      "collected_at": "2026-02-02T11:30:37.053896",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "V4lFIbAeWpQ",
@@ -205,7 +128,9 @@
       "duration": "2009",
       "view_count": "42840",
       "url": "https://youtube.com/watch?v=V4lFIbAeWpQ",
-      "collected_at": "2026-02-02T11:30:39.893953"
+      "collected_at": "2026-02-02T11:30:39.893953",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LisbEo-nbZs",
@@ -214,7 +139,9 @@
       "duration": "2842",
       "view_count": "5765",
       "url": "https://youtube.com/watch?v=LisbEo-nbZs",
-      "collected_at": "2026-02-02T11:30:42.375379"
+      "collected_at": "2026-02-02T11:30:42.375379",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Pqp4qJ5sS5g",
@@ -223,16 +150,20 @@
       "duration": "13729",
       "view_count": "16045",
       "url": "https://youtube.com/watch?v=Pqp4qJ5sS5g",
-      "collected_at": "2026-02-02T11:30:44.835385"
+      "collected_at": "2026-02-02T11:30:44.835385",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "smMC1W-Mjt4",
-      "title": "Claude Code is crazy good in 2026… just watch",
+      "title": "Claude Code is crazy good in 2026\u2026 just watch",
       "upload_date": "20260104",
       "duration": "2762",
       "view_count": "23861",
       "url": "https://youtube.com/watch?v=smMC1W-Mjt4",
-      "collected_at": "2026-02-02T11:30:47.381277"
+      "collected_at": "2026-02-02T11:30:47.381277",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Y4GXrYEJNu8",
@@ -241,34 +172,20 @@
       "duration": "2939",
       "view_count": "9093",
       "url": "https://youtube.com/watch?v=Y4GXrYEJNu8",
-      "collected_at": "2026-02-02T11:30:49.885941"
-    },
-    {
-      "id": "FsxrAgk-7vw",
-      "title": "Lessons from AI Startup founder - sold for $1,800,000",
-      "upload_date": "20251229",
-      "duration": "42",
-      "view_count": "8481",
-      "url": "https://youtube.com/watch?v=FsxrAgk-7vw",
-      "collected_at": "2026-02-03T13:00:34.833767"
-    },
-    {
-      "id": "NyFO6raYPrg",
-      "title": "Which AI Business Model can even compete?",
-      "upload_date": "20251228",
-      "duration": "40",
-      "view_count": "9412",
-      "url": "https://youtube.com/watch?v=NyFO6raYPrg",
-      "collected_at": "2026-02-03T13:00:38.620979"
+      "collected_at": "2026-02-02T11:30:49.885941",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "zocqnx1vx1E",
-      "title": "I sold my AI startup for $1,800,000 – here’s why",
+      "title": "I sold my AI startup for $1,800,000 \u2013 here\u2019s why",
       "upload_date": "20251227",
       "duration": "356",
       "view_count": "38955",
       "url": "https://youtube.com/watch?v=zocqnx1vx1E",
-      "collected_at": "2026-02-02T11:30:52.661983"
+      "collected_at": "2026-02-02T11:30:52.661983",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "811ctT3HqcE",
@@ -277,25 +194,9 @@
       "duration": "1054",
       "view_count": "29310",
       "url": "https://youtube.com/watch?v=811ctT3HqcE",
-      "collected_at": "2026-02-02T11:30:55.476103"
-    },
-    {
-      "id": "8crFNVdAcIU",
-      "title": "Is this AI Business Model worth it?",
-      "upload_date": "20251221",
-      "duration": "35",
-      "view_count": "14944",
-      "url": "https://youtube.com/watch?v=8crFNVdAcIU",
-      "collected_at": "2026-02-03T13:00:42.521619"
-    },
-    {
-      "id": "tfeXl69VtgI",
-      "title": "Robots don't have as much input tokens as humans",
-      "upload_date": "20251220",
-      "duration": "64",
-      "view_count": "13704",
-      "url": "https://youtube.com/watch?v=tfeXl69VtgI",
-      "collected_at": "2026-02-03T13:00:47.702400"
+      "collected_at": "2026-02-02T11:30:55.476103",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Ta5g-OxjPO4",
@@ -304,7 +205,9 @@
       "duration": "2486",
       "view_count": "71293",
       "url": "https://youtube.com/watch?v=Ta5g-OxjPO4",
-      "collected_at": "2026-02-02T11:30:58.031685"
+      "collected_at": "2026-02-02T11:30:58.031685",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "WaBdtmkU-Us",
@@ -313,16 +216,20 @@
       "duration": "1368",
       "view_count": "7061",
       "url": "https://youtube.com/watch?v=WaBdtmkU-Us",
-      "collected_at": "2026-02-02T11:31:00.611594"
+      "collected_at": "2026-02-02T11:31:00.611594",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QB3l9sFV2Kk",
-      "title": "GPT 5.2 is the first AI model I’d actually give my work to",
+      "title": "GPT 5.2 is the first AI model I\u2019d actually give my work to",
       "upload_date": "20251212",
       "duration": "1674",
       "view_count": "20393",
       "url": "https://youtube.com/watch?v=QB3l9sFV2Kk",
-      "collected_at": "2026-02-02T11:31:03.199081"
+      "collected_at": "2026-02-02T11:31:03.199081",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "g-JgaoheyTo",
@@ -331,7 +238,9 @@
       "duration": "3130",
       "view_count": "19606",
       "url": "https://youtube.com/watch?v=g-JgaoheyTo",
-      "collected_at": "2026-02-02T11:31:05.607893"
+      "collected_at": "2026-02-02T11:31:05.607893",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Wkn8YDwcyB0",
@@ -340,61 +249,75 @@
       "duration": "525",
       "view_count": "10537",
       "url": "https://youtube.com/watch?v=Wkn8YDwcyB0",
-      "collected_at": "2026-02-02T11:31:08.124855"
+      "collected_at": "2026-02-02T11:31:08.124855",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "2VktR2fAmF0",
-      "title": "Create Anything with Nano Banana Pro, Here’s How",
+      "title": "Create Anything with Nano Banana Pro, Here\u2019s How",
       "upload_date": "20251124",
       "duration": "3486",
       "view_count": "39876",
       "url": "https://youtube.com/watch?v=2VktR2fAmF0",
-      "collected_at": "2026-02-02T11:31:11.460943"
+      "collected_at": "2026-02-02T11:31:11.460943",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "GRo73YZ0p_c",
-      "title": "I’m concerned about AI, for real.",
+      "title": "I\u2019m concerned about AI, for real.",
       "upload_date": "20251121",
       "duration": "2726",
       "view_count": "37788",
       "url": "https://youtube.com/watch?v=GRo73YZ0p_c",
-      "collected_at": "2026-02-02T11:31:14.043046"
+      "collected_at": "2026-02-02T11:31:14.043046",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "pPRoAs8xh2o",
-      "title": "Put your AI Agents on a VPS… trust me",
+      "title": "Put your AI Agents on a VPS\u2026 trust me",
       "upload_date": "20251120",
       "duration": "1197",
       "view_count": "15087",
       "url": "https://youtube.com/watch?v=pPRoAs8xh2o",
-      "collected_at": "2026-02-02T11:31:16.690941"
+      "collected_at": "2026-02-02T11:31:16.690941",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7-Qyk6soh1k",
-      "title": "Gemini 3.0 just destroyed all AI models… it’s insane",
+      "title": "Gemini 3.0 just destroyed all AI models\u2026 it\u2019s insane",
       "upload_date": "20251119",
       "duration": "1144",
       "view_count": "42919",
       "url": "https://youtube.com/watch?v=7-Qyk6soh1k",
-      "collected_at": "2026-02-02T11:31:19.379909"
+      "collected_at": "2026-02-02T11:31:19.379909",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UhKEU7HWkUA",
-      "title": "NotebookLM just got 10x better… let’s run it",
+      "title": "NotebookLM just got 10x better\u2026 let\u2019s run it",
       "upload_date": "20251117",
       "duration": "2365",
       "view_count": "85288",
       "url": "https://youtube.com/watch?v=UhKEU7HWkUA",
-      "collected_at": "2026-02-02T11:31:21.955579"
+      "collected_at": "2026-02-02T11:31:21.955579",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "zvOjvAsXGWY",
-      "title": "99% of Developers Don’t Get Docker",
+      "title": "99% of Developers Don\u2019t Get Docker",
       "upload_date": "20251114",
       "duration": "608",
       "view_count": "15968",
       "url": "https://youtube.com/watch?v=zvOjvAsXGWY",
-      "collected_at": "2026-02-02T11:31:24.564883"
+      "collected_at": "2026-02-02T11:31:24.564883",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "xv5nVVE9IYw",
@@ -403,34 +326,42 @@
       "duration": "763",
       "view_count": "15516",
       "url": "https://youtube.com/watch?v=xv5nVVE9IYw",
-      "collected_at": "2026-02-02T11:31:27.058771"
+      "collected_at": "2026-02-02T11:31:27.058771",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "XuAThYV62BQ",
-      "title": "If you’re still Vibe Coding, you’re falling behind",
+      "title": "If you\u2019re still Vibe Coding, you\u2019re falling behind",
       "upload_date": "20251107",
       "duration": "1422",
       "view_count": "56123",
       "url": "https://youtube.com/watch?v=XuAThYV62BQ",
-      "collected_at": "2026-02-02T11:31:29.716087"
+      "collected_at": "2026-02-02T11:31:29.716087",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "89CQRxq0YSg",
-      "title": "If you don’t run AI locally you’re falling behind…",
+      "title": "If you don\u2019t run AI locally you\u2019re falling behind\u2026",
       "upload_date": "20251104",
       "duration": "1697",
       "view_count": "158179",
       "url": "https://youtube.com/watch?v=89CQRxq0YSg",
-      "collected_at": "2026-02-02T11:31:32.345427"
+      "collected_at": "2026-02-02T11:31:32.345427",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "PwQUTOlpoxk",
-      "title": "build anything with the n8n code node, here’s how",
+      "title": "build anything with the n8n code node, here\u2019s how",
       "upload_date": "20251031",
       "duration": "1442",
       "view_count": "8289",
       "url": "https://youtube.com/watch?v=PwQUTOlpoxk",
-      "collected_at": "2026-02-02T11:31:34.903331"
+      "collected_at": "2026-02-02T11:31:34.903331",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ep58GeP2bic",
@@ -439,16 +370,20 @@
       "duration": "624",
       "view_count": "4401",
       "url": "https://youtube.com/watch?v=ep58GeP2bic",
-      "collected_at": "2026-02-02T11:31:37.341943"
+      "collected_at": "2026-02-02T11:31:37.341943",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "JsCU1V7Hjpc",
-      "title": "Build Anything with Google Colab, Here’s How",
+      "title": "Build Anything with Google Colab, Here\u2019s How",
       "upload_date": "20251025",
       "duration": "781",
       "view_count": "51067",
       "url": "https://youtube.com/watch?v=JsCU1V7Hjpc",
-      "collected_at": "2026-02-02T11:31:39.871161"
+      "collected_at": "2026-02-02T11:31:39.871161",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "gzXvaLvSfrU",
@@ -457,7 +392,9 @@
       "duration": "1108",
       "view_count": "7368",
       "url": "https://youtube.com/watch?v=gzXvaLvSfrU",
-      "collected_at": "2026-02-02T11:31:42.864137"
+      "collected_at": "2026-02-02T11:31:42.864137",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LoUUNcnScYk",
@@ -466,7 +403,9 @@
       "duration": "2382",
       "view_count": "22553",
       "url": "https://youtube.com/watch?v=LoUUNcnScYk",
-      "collected_at": "2026-02-02T11:31:45.597133"
+      "collected_at": "2026-02-02T11:31:45.597133",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bbDFPHhpkc4",
@@ -475,61 +414,64 @@
       "duration": "1957",
       "view_count": "24266",
       "url": "https://youtube.com/watch?v=bbDFPHhpkc4",
-      "collected_at": "2026-02-02T11:31:48.075293"
+      "collected_at": "2026-02-02T11:31:48.075293",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NaNgXEQUJkQ",
-      "title": "Build anything with Haiku 4.5, here’s how",
+      "title": "Build anything with Haiku 4.5, here\u2019s how",
       "upload_date": "20251017",
       "duration": "2396",
       "view_count": "9386",
       "url": "https://youtube.com/watch?v=NaNgXEQUJkQ",
-      "collected_at": "2026-02-02T11:31:50.965839"
+      "collected_at": "2026-02-02T11:31:50.965839",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XC9a29aPtw4",
-      "title": "Build Any n8n Workflow in Minutes, Here’s How",
+      "title": "Build Any n8n Workflow in Minutes, Here\u2019s How",
       "upload_date": "20251015",
       "duration": "1679",
       "view_count": "24525",
       "url": "https://youtube.com/watch?v=XC9a29aPtw4",
-      "collected_at": "2026-02-02T11:31:53.490512"
+      "collected_at": "2026-02-02T11:31:53.490512",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "g80Q1sVtikE",
-      "title": "Fine-tune your own LLM in 13 minutes, here’s how",
+      "title": "Fine-tune your own LLM in 13 minutes, here\u2019s how",
       "upload_date": "20251013",
       "duration": "789",
       "view_count": "105746",
       "url": "https://youtube.com/watch?v=g80Q1sVtikE",
-      "collected_at": "2026-02-02T11:31:56.086918"
+      "collected_at": "2026-02-02T11:31:56.086918",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "tp_QBQVpfbk",
-      "title": "AI coding extensions will make you a 10x developer…",
+      "title": "AI coding extensions will make you a 10x developer\u2026",
       "upload_date": "20251011",
       "duration": "2302",
       "view_count": "24122",
       "url": "https://youtube.com/watch?v=tp_QBQVpfbk",
-      "collected_at": "2026-02-02T11:31:58.729499"
+      "collected_at": "2026-02-02T11:31:58.729499",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "IHb_TKFAIf0",
-      "title": "OpenAI just destroyed 100 startups… yours is next",
+      "title": "OpenAI just destroyed 100 startups\u2026 yours is next",
       "upload_date": "20251008",
       "duration": "1551",
       "view_count": "27883",
       "url": "https://youtube.com/watch?v=IHb_TKFAIf0",
-      "collected_at": "2026-02-02T11:32:01.192150"
-    },
-    {
-      "id": "1zyB1vyfL7E",
-      "title": "Give ChatGPT + Claude infinite memory, here's how",
-      "upload_date": "20251008",
-      "duration": "63",
-      "view_count": "14489",
-      "url": "https://youtube.com/watch?v=1zyB1vyfL7E",
-      "collected_at": "2026-02-03T13:00:51.758350"
+      "collected_at": "2026-02-02T11:32:01.192150",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "SJWwk_moO50",
@@ -538,25 +480,31 @@
       "duration": "3115",
       "view_count": "22080",
       "url": "https://youtube.com/watch?v=SJWwk_moO50",
-      "collected_at": "2026-02-02T11:32:03.912280"
+      "collected_at": "2026-02-02T11:32:03.912280",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6MCxSJd1ZPY",
-      "title": "The 3 AI Agents everyone should have…",
+      "title": "The 3 AI Agents everyone should have\u2026",
       "upload_date": "20250930",
       "duration": "1247",
       "view_count": "6362",
       "url": "https://youtube.com/watch?v=6MCxSJd1ZPY",
-      "collected_at": "2026-02-02T11:32:06.512978"
+      "collected_at": "2026-02-02T11:32:06.512978",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oowzvdpH_2o",
-      "title": "ChatGPT just became 100X more agentic…",
+      "title": "ChatGPT just became 100X more agentic\u2026",
       "upload_date": "20250926",
       "duration": "591",
       "view_count": "30621",
       "url": "https://youtube.com/watch?v=oowzvdpH_2o",
-      "collected_at": "2026-02-02T11:32:08.990219"
+      "collected_at": "2026-02-02T11:32:08.990219",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1kqZ2SF97DM",
@@ -565,25 +513,31 @@
       "duration": "1417",
       "view_count": "7319",
       "url": "https://youtube.com/watch?v=1kqZ2SF97DM",
-      "collected_at": "2026-02-02T11:32:11.763271"
+      "collected_at": "2026-02-02T11:32:11.763271",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "07HtHbbK5jQ",
-      "title": "“Anthropic will destroy OpenAI by 2027, here’s why” - Dylan Patel",
+      "title": "\u201cAnthropic will destroy OpenAI by 2027, here\u2019s why\u201d - Dylan Patel",
       "upload_date": "20250918",
       "duration": "2795",
       "view_count": "52565",
       "url": "https://youtube.com/watch?v=07HtHbbK5jQ",
-      "collected_at": "2026-02-02T11:32:14.754806"
+      "collected_at": "2026-02-02T11:32:14.754806",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "R4I_YaFYv3M",
-      "title": "“I want ChatGPT with infinite local memory” - Here’s how",
+      "title": "\u201cI want ChatGPT with infinite local memory\u201d - Here\u2019s how",
       "upload_date": "20250915",
       "duration": "1477",
       "view_count": "45333",
       "url": "https://youtube.com/watch?v=R4I_YaFYv3M",
-      "collected_at": "2026-02-02T11:32:17.295589"
+      "collected_at": "2026-02-02T11:32:17.295589",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mnQmBFJEqPg",
@@ -592,25 +546,31 @@
       "duration": "3308",
       "view_count": "10667",
       "url": "https://youtube.com/watch?v=mnQmBFJEqPg",
-      "collected_at": "2026-02-02T11:32:19.877381"
+      "collected_at": "2026-02-02T11:32:19.877381",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "C06FBVXMLCY",
-      "title": "OpenAI just destroyed AI coding… Codex 2.0",
+      "title": "OpenAI just destroyed AI coding\u2026 Codex 2.0",
       "upload_date": "20250908",
       "duration": "3241",
       "view_count": "76174",
       "url": "https://youtube.com/watch?v=C06FBVXMLCY",
-      "collected_at": "2026-02-02T11:32:22.510570"
+      "collected_at": "2026-02-02T11:32:22.510570",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "vePNTU3T8WY",
-      "title": "I built a team of AI Agents with Nano Banana (it’s I-N-S-A-N-E)",
+      "title": "I built a team of AI Agents with Nano Banana (it\u2019s I-N-S-A-N-E)",
       "upload_date": "20250904",
       "duration": "1831",
       "view_count": "27677",
       "url": "https://youtube.com/watch?v=vePNTU3T8WY",
-      "collected_at": "2026-02-02T11:32:25.150205"
+      "collected_at": "2026-02-02T11:32:25.150205",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "THcQjlasv7k",
@@ -619,79 +579,64 @@
       "duration": "769",
       "view_count": "11678",
       "url": "https://youtube.com/watch?v=THcQjlasv7k",
-      "collected_at": "2026-02-02T11:32:27.622130"
+      "collected_at": "2026-02-02T11:32:27.622130",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "hZL7tw8jp2M",
-      "title": "Master Vibe Coding in 22 Minutes – Lee Robinson",
+      "title": "Master Vibe Coding in 22 Minutes \u2013 Lee Robinson",
       "upload_date": "20250827",
       "duration": "1371",
       "view_count": "11567",
       "url": "https://youtube.com/watch?v=hZL7tw8jp2M",
-      "collected_at": "2026-02-02T11:32:30.146497"
+      "collected_at": "2026-02-02T11:32:30.146497",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ZsBniZ_M7hs",
-      "title": "Stop using Chrome. This AI browser is insane…",
+      "title": "Stop using Chrome. This AI browser is insane\u2026",
       "upload_date": "20250823",
       "duration": "635",
       "view_count": "31941",
       "url": "https://youtube.com/watch?v=ZsBniZ_M7hs",
-      "collected_at": "2026-02-02T11:32:32.717099"
+      "collected_at": "2026-02-02T11:32:32.717099",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "oU_rr-bOrK8",
-      "title": "This AI Voice Agent can do anything… just watch",
+      "title": "This AI Voice Agent can do anything\u2026 just watch",
       "upload_date": "20250822",
       "duration": "1091",
       "view_count": "18279",
       "url": "https://youtube.com/watch?v=oU_rr-bOrK8",
-      "collected_at": "2026-02-02T11:32:35.458094"
-    },
-    {
-      "id": "kR4xJKWonvI",
-      "title": "Forget AI Agents, Voice agents are next",
-      "upload_date": "20250822",
-      "duration": "44",
-      "view_count": "17519",
-      "url": "https://youtube.com/watch?v=kR4xJKWonvI",
-      "collected_at": "2026-02-03T13:00:56.003082"
+      "collected_at": "2026-02-02T11:32:35.458094",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eRl6UWSjlxM",
-      "title": "GPT-5 Pro is the most powerful AI agent ever… just watch",
+      "title": "GPT-5 Pro is the most powerful AI agent ever\u2026 just watch",
       "upload_date": "20250818",
       "duration": "2396",
       "view_count": "21102",
       "url": "https://youtube.com/watch?v=eRl6UWSjlxM",
-      "collected_at": "2026-02-02T11:32:39.405193"
-    },
-    {
-      "id": "YrRRr4On0Bc",
-      "title": "Scaling an AI startup to $100B",
-      "upload_date": "20250816",
-      "duration": "12",
-      "view_count": "19699",
-      "url": "https://youtube.com/watch?v=YrRRr4On0Bc",
-      "collected_at": "2026-02-03T13:01:00.888841"
+      "collected_at": "2026-02-02T11:32:39.405193",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hq8J-nj_Sr0",
-      "title": "Build Anything with Claude Code, Here’s How",
+      "title": "Build Anything with Claude Code, Here\u2019s How",
       "upload_date": "20250814",
       "duration": "6060",
       "view_count": "32593",
       "url": "https://youtube.com/watch?v=hq8J-nj_Sr0",
-      "collected_at": "2026-02-02T11:32:41.945234"
-    },
-    {
-      "id": "FNV7TECu8BA",
-      "title": "Must know GTP 5 Pro tips",
-      "upload_date": "20250811",
-      "duration": "34",
-      "view_count": "5710",
-      "url": "https://youtube.com/watch?v=FNV7TECu8BA",
-      "collected_at": "2026-02-03T13:01:05.191352"
+      "collected_at": "2026-02-02T11:32:41.945234",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bLZDNf2-jf8",
@@ -700,16 +645,9 @@
       "duration": "399",
       "view_count": "42036",
       "url": "https://youtube.com/watch?v=bLZDNf2-jf8",
-      "collected_at": "2026-02-02T11:32:44.673182"
-    },
-    {
-      "id": "giZIcnTW4L8",
-      "title": "7 tips to code faster with AI",
-      "upload_date": "20250807",
-      "duration": "57",
-      "view_count": "4082",
-      "url": "https://youtube.com/watch?v=giZIcnTW4L8",
-      "collected_at": "2026-02-03T13:01:10.171366"
+      "collected_at": "2026-02-02T11:32:44.673182",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "TJ5v23JcGIU",
@@ -718,34 +656,20 @@
       "duration": "1076",
       "view_count": "8951",
       "url": "https://youtube.com/watch?v=TJ5v23JcGIU",
-      "collected_at": "2026-02-02T11:32:48.188787"
-    },
-    {
-      "id": "FenFAip_CC4",
-      "title": "The Claude Code bible, written by the creator of Claude Code",
-      "upload_date": "20250804",
-      "duration": "33",
-      "view_count": "3108",
-      "url": "https://youtube.com/watch?v=FenFAip_CC4",
-      "collected_at": "2026-02-03T13:01:14.910652"
-    },
-    {
-      "id": "Pu2FoZkm250",
-      "title": "I used Claude Code to build an entire n8n workflow",
-      "upload_date": "20250803",
-      "duration": "35",
-      "view_count": "17670",
-      "url": "https://youtube.com/watch?v=Pu2FoZkm250",
-      "collected_at": "2026-02-03T13:01:18.744994"
+      "collected_at": "2026-02-02T11:32:48.188787",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7LlQZKPBKgs",
-      "title": "Claude Code can build any AI Agent in n8n… just watch",
+      "title": "Claude Code can build any AI Agent in n8n\u2026 just watch",
       "upload_date": "20250801",
       "duration": "855",
       "view_count": "72178",
       "url": "https://youtube.com/watch?v=7LlQZKPBKgs",
-      "collected_at": "2026-02-02T11:32:50.915848"
+      "collected_at": "2026-02-02T11:32:50.915848",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "VRHVNgYZx7M",
@@ -754,7 +678,9 @@
       "duration": "533",
       "view_count": "8648",
       "url": "https://youtube.com/watch?v=VRHVNgYZx7M",
-      "collected_at": "2026-02-02T11:32:54.687789"
+      "collected_at": "2026-02-02T11:32:54.687789",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "zW28e7LGPRQ",
@@ -763,25 +689,31 @@
       "duration": "1127",
       "view_count": "70527",
       "url": "https://youtube.com/watch?v=zW28e7LGPRQ",
-      "collected_at": "2026-02-02T11:32:57.244597"
+      "collected_at": "2026-02-02T11:32:57.244597",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Cu5kevu384U",
-      "title": "Build anything with Augment Code, here’s how",
+      "title": "Build anything with Augment Code, here\u2019s how",
       "upload_date": "20250722",
       "duration": "2557",
       "view_count": "20705",
       "url": "https://youtube.com/watch?v=Cu5kevu384U",
-      "collected_at": "2026-02-02T11:33:00.034867"
+      "collected_at": "2026-02-02T11:33:00.034867",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Y2GVqUQ_QxU",
-      "title": "Build an army of Kimi K2 agents - here’s how",
+      "title": "Build an army of Kimi K2 agents - here\u2019s how",
       "upload_date": "20250718",
       "duration": "1378",
       "view_count": "18884",
       "url": "https://youtube.com/watch?v=Y2GVqUQ_QxU",
-      "collected_at": "2026-02-02T11:33:02.553430"
+      "collected_at": "2026-02-02T11:33:02.553430",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yAslhELtKEg",
@@ -790,7 +722,9 @@
       "duration": "1194",
       "view_count": "25657",
       "url": "https://youtube.com/watch?v=yAslhELtKEg",
-      "collected_at": "2026-02-02T11:33:05.026246"
+      "collected_at": "2026-02-02T11:33:05.026246",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "MuXWT5wx47k",
@@ -799,16 +733,20 @@
       "duration": "2130",
       "view_count": "37149",
       "url": "https://youtube.com/watch?v=MuXWT5wx47k",
-      "collected_at": "2026-02-02T11:33:07.573262"
+      "collected_at": "2026-02-02T11:33:07.573262",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AYbFMDxnK70",
-      "title": "“How to prompt AI like a tech millionaire” – Balaji Srinivasan",
+      "title": "\u201cHow to prompt AI like a tech millionaire\u201d \u2013 Balaji Srinivasan",
       "upload_date": "20250709",
       "duration": "3931",
       "view_count": "10931",
       "url": "https://youtube.com/watch?v=AYbFMDxnK70",
-      "collected_at": "2026-02-02T11:33:10.307986"
+      "collected_at": "2026-02-02T11:33:10.307986",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gJQce1SERFM",
@@ -817,7 +755,9 @@
       "duration": "1274",
       "view_count": "45105",
       "url": "https://youtube.com/watch?v=gJQce1SERFM",
-      "collected_at": "2026-02-02T11:33:13.212180"
+      "collected_at": "2026-02-02T11:33:13.212180",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hx0b9JK8Wxk",
@@ -826,16 +766,20 @@
       "duration": "960",
       "view_count": "10595",
       "url": "https://youtube.com/watch?v=hx0b9JK8Wxk",
-      "collected_at": "2026-02-02T11:33:15.737015"
+      "collected_at": "2026-02-02T11:33:15.737015",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "YwUD3l7--V8",
-      "title": "Context Engineering is the future of AI Agents - here’s why",
+      "title": "Context Engineering is the future of AI Agents - here\u2019s why",
       "upload_date": "20250630",
       "duration": "1419",
       "view_count": "44606",
       "url": "https://youtube.com/watch?v=YwUD3l7--V8",
-      "collected_at": "2026-02-02T11:33:18.907821"
+      "collected_at": "2026-02-02T11:33:18.907821",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ZVjD1AfXLEo",
@@ -844,34 +788,42 @@
       "duration": "1270",
       "view_count": "14496",
       "url": "https://youtube.com/watch?v=ZVjD1AfXLEo",
-      "collected_at": "2026-02-02T11:33:22.628387"
+      "collected_at": "2026-02-02T11:33:22.628387",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "xHKgxxuGwGw",
-      "title": "Gemini CLI – the real Claude Code killer?",
+      "title": "Gemini CLI \u2013 the real Claude Code killer?",
       "upload_date": "20250626",
       "duration": "978",
       "view_count": "23602",
       "url": "https://youtube.com/watch?v=xHKgxxuGwGw",
-      "collected_at": "2026-02-02T11:33:25.628278"
+      "collected_at": "2026-02-02T11:33:25.628278",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "lO0lQLZKzI0",
-      "title": "This new vibe coding app is insane… Pythagora",
+      "title": "This new vibe coding app is insane\u2026 Pythagora",
       "upload_date": "20250624",
       "duration": "2592",
       "view_count": "17870",
       "url": "https://youtube.com/watch?v=lO0lQLZKzI0",
-      "collected_at": "2026-02-02T11:33:28.292022"
+      "collected_at": "2026-02-02T11:33:28.292022",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Svp7fbF0g2I",
-      "title": "“I built 500+ AI agents, here’s everything I know” - Nate Herk",
+      "title": "\u201cI built 500+ AI agents, here\u2019s everything I know\u201d - Nate Herk",
       "upload_date": "20250622",
       "duration": "3274",
       "view_count": "17382",
       "url": "https://youtube.com/watch?v=Svp7fbF0g2I",
-      "collected_at": "2026-02-02T11:33:30.953496"
+      "collected_at": "2026-02-02T11:33:30.953496",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "z2IN9H4UGog",
@@ -880,16 +832,20 @@
       "duration": "3034",
       "view_count": "19057",
       "url": "https://youtube.com/watch?v=z2IN9H4UGog",
-      "collected_at": "2026-02-02T11:33:33.296906"
+      "collected_at": "2026-02-02T11:33:33.296906",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "y_EHSs7j65M",
-      "title": "He makes $3,000 a day Vibe Coding apps - here’s how",
+      "title": "He makes $3,000 a day Vibe Coding apps - here\u2019s how",
       "upload_date": "20250617",
       "duration": "3242",
       "view_count": "15914",
       "url": "https://youtube.com/watch?v=y_EHSs7j65M",
-      "collected_at": "2026-02-02T11:33:35.772776"
+      "collected_at": "2026-02-02T11:33:35.772776",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Yhn42p7VE0c",
@@ -898,43 +854,42 @@
       "duration": "9081",
       "view_count": "23772",
       "url": "https://youtube.com/watch?v=Yhn42p7VE0c",
-      "collected_at": "2026-02-02T11:33:38.202881"
+      "collected_at": "2026-02-02T11:33:38.202881",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UaJSXjNX3wo",
-      "title": "Build n8n agents into full-stack apps, here’s how",
+      "title": "Build n8n agents into full-stack apps, here\u2019s how",
       "upload_date": "20250612",
       "duration": "1638",
       "view_count": "24541",
       "url": "https://youtube.com/watch?v=UaJSXjNX3wo",
-      "collected_at": "2026-02-02T11:33:40.773181"
+      "collected_at": "2026-02-02T11:33:40.773181",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "PhhUB4OQlnw",
-      "title": "Claude Code just destroyed all coding apps… it’s insane",
+      "title": "Claude Code just destroyed all coding apps\u2026 it\u2019s insane",
       "upload_date": "20250608",
       "duration": "2811",
       "view_count": "100017",
       "url": "https://youtube.com/watch?v=PhhUB4OQlnw",
-      "collected_at": "2026-02-02T11:33:43.465019"
-    },
-    {
-      "id": "BaTdILNkgos",
-      "title": "Do you agree with Dan Martell's advice?",
-      "upload_date": "20250608",
-      "duration": "60",
-      "view_count": "6204",
-      "url": "https://youtube.com/watch?v=BaTdILNkgos",
-      "collected_at": "2026-02-03T13:01:22.378158"
+      "collected_at": "2026-02-02T11:33:43.465019",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "JPWX2lFRaRE",
-      "title": "I spent 700+ hours in Cursor, here’s what I learned",
+      "title": "I spent 700+ hours in Cursor, here\u2019s what I learned",
       "upload_date": "20250606",
       "duration": "2596",
       "view_count": "29979",
       "url": "https://youtube.com/watch?v=JPWX2lFRaRE",
-      "collected_at": "2026-02-02T11:33:47.169819"
+      "collected_at": "2026-02-02T11:33:47.169819",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "YSss30HKyjE",
@@ -943,7 +898,9 @@
       "duration": "3072",
       "view_count": "9459",
       "url": "https://youtube.com/watch?v=YSss30HKyjE",
-      "collected_at": "2026-02-02T11:33:49.760579"
+      "collected_at": "2026-02-02T11:33:49.760579",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2Dl5n7W9bSk",
@@ -952,7 +909,9 @@
       "duration": "1406",
       "view_count": "12184",
       "url": "https://youtube.com/watch?v=2Dl5n7W9bSk",
-      "collected_at": "2026-02-02T11:33:52.414494"
+      "collected_at": "2026-02-02T11:33:52.414494",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "kTs3kDlKc8w",
@@ -961,7 +920,9 @@
       "duration": "3528",
       "view_count": "32510",
       "url": "https://youtube.com/watch?v=kTs3kDlKc8w",
-      "collected_at": "2026-02-02T11:33:55.262182"
+      "collected_at": "2026-02-02T11:33:55.262182",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "lZuxqbw8IX4",
@@ -970,25 +931,31 @@
       "duration": "1734",
       "view_count": "80416",
       "url": "https://youtube.com/watch?v=lZuxqbw8IX4",
-      "collected_at": "2026-02-02T11:33:58.006274"
+      "collected_at": "2026-02-02T11:33:58.006274",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yGpZbU7kcQ4",
-      "title": "Anthropic just shocked the world with Claude 4 Opus…",
+      "title": "Anthropic just shocked the world with Claude 4 Opus\u2026",
       "upload_date": "20250523",
       "duration": "1376",
       "view_count": "27881",
       "url": "https://youtube.com/watch?v=yGpZbU7kcQ4",
-      "collected_at": "2026-02-02T11:34:00.579608"
+      "collected_at": "2026-02-02T11:34:00.579608",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TYe4pi7_svM",
-      "title": "Build Anything with Codex, Here’s How",
+      "title": "Build Anything with Codex, Here\u2019s How",
       "upload_date": "20250520",
       "duration": "1857",
       "view_count": "33943",
       "url": "https://youtube.com/watch?v=TYe4pi7_svM",
-      "collected_at": "2026-02-02T11:34:03.008042"
+      "collected_at": "2026-02-02T11:34:03.008042",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "3xi7ZqGo1tU",
@@ -997,16 +964,20 @@
       "duration": "1370",
       "view_count": "121553",
       "url": "https://youtube.com/watch?v=3xi7ZqGo1tU",
-      "collected_at": "2026-02-02T11:34:05.888035"
+      "collected_at": "2026-02-02T11:34:05.888035",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QEhwXWUeGAE",
-      "title": "Use AI Agents to increase productivity, here’s how",
+      "title": "Use AI Agents to increase productivity, here\u2019s how",
       "upload_date": "20250516",
       "duration": "2561",
       "view_count": "8298",
       "url": "https://youtube.com/watch?v=QEhwXWUeGAE",
-      "collected_at": "2026-02-02T11:34:08.488857"
+      "collected_at": "2026-02-02T11:34:08.488857",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "WLvQCIUWebs",
@@ -1015,25 +986,31 @@
       "duration": "2443",
       "view_count": "276298",
       "url": "https://youtube.com/watch?v=WLvQCIUWebs",
-      "collected_at": "2026-02-02T11:34:11.216810"
+      "collected_at": "2026-02-02T11:34:11.216810",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Ck9-3WDw0Kk",
-      "title": "Google just destroyed ChatGPT forever… (Gemini 2.5 Pro)",
+      "title": "Google just destroyed ChatGPT forever\u2026 (Gemini 2.5 Pro)",
       "upload_date": "20250510",
       "duration": "765",
       "view_count": "32478",
       "url": "https://youtube.com/watch?v=Ck9-3WDw0Kk",
-      "collected_at": "2026-02-02T11:34:14.301857"
+      "collected_at": "2026-02-02T11:34:14.301857",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "NyUtXqhitXo",
-      "title": "I built a $100,000 AI startup, here’s what i learned",
+      "title": "I built a $100,000 AI startup, here\u2019s what i learned",
       "upload_date": "20250507",
       "duration": "1271",
       "view_count": "12507",
       "url": "https://youtube.com/watch?v=NyUtXqhitXo",
-      "collected_at": "2026-02-02T11:34:16.903890"
+      "collected_at": "2026-02-02T11:34:16.903890",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TFU33etuKb0",
@@ -1042,34 +1019,31 @@
       "duration": "882",
       "view_count": "63523",
       "url": "https://youtube.com/watch?v=TFU33etuKb0",
-      "collected_at": "2026-02-02T11:34:19.377585"
+      "collected_at": "2026-02-02T11:34:19.377585",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "468NVA8_a1k",
-      "title": "“Forget AI Agents, VOICE AGENTS are the future” – Jannis Moore",
+      "title": "\u201cForget AI Agents, VOICE AGENTS are the future\u201d \u2013 Jannis Moore",
       "upload_date": "20250503",
       "duration": "9206",
       "view_count": "18662",
       "url": "https://youtube.com/watch?v=468NVA8_a1k",
-      "collected_at": "2026-02-02T11:34:21.976022"
-    },
-    {
-      "id": "heJpA0wYrrk",
-      "title": "What can i even do with AI agents?",
-      "upload_date": "20250503",
-      "duration": "16",
-      "view_count": "345848",
-      "url": "https://youtube.com/watch?v=heJpA0wYrrk",
-      "collected_at": "2026-02-03T13:01:26.109712"
+      "collected_at": "2026-02-02T11:34:21.976022",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0P7F4ceq3O4",
-      "title": "People are getting RICH with AI mobile apps… let’s build one",
+      "title": "People are getting RICH with AI mobile apps\u2026 let\u2019s build one",
       "upload_date": "20250501",
       "duration": "1326",
       "view_count": "85304",
       "url": "https://youtube.com/watch?v=0P7F4ceq3O4",
-      "collected_at": "2026-02-02T11:34:24.758903"
+      "collected_at": "2026-02-02T11:34:24.758903",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "FByI3Xl846A",
@@ -1078,43 +1052,42 @@
       "duration": "2555",
       "view_count": "54140",
       "url": "https://youtube.com/watch?v=FByI3Xl846A",
-      "collected_at": "2026-02-02T11:34:27.305069"
+      "collected_at": "2026-02-02T11:34:27.305069",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "CxCslLiG_Kc",
-      "title": "OpenAI’s 7 Hour AI Agents Course in 15 Minutes",
+      "title": "OpenAI\u2019s 7 Hour AI Agents Course in 15 Minutes",
       "upload_date": "20250427",
       "duration": "933",
       "view_count": "76311",
       "url": "https://youtube.com/watch?v=CxCslLiG_Kc",
-      "collected_at": "2026-02-02T11:34:30.881407"
-    },
-    {
-      "id": "V3xufaoE8rA",
-      "title": "AI Agents will be everywhere, are you prepared?",
-      "upload_date": "20250426",
-      "duration": "33",
-      "view_count": "14852",
-      "url": "https://youtube.com/watch?v=V3xufaoE8rA",
-      "collected_at": "2026-02-03T13:01:30.316793"
+      "collected_at": "2026-02-02T11:34:30.881407",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "zDFY--jbaeU",
-      "title": "Lovable 2.0 is insane… vibe-code anything in minutes!",
+      "title": "Lovable 2.0 is insane\u2026 vibe-code anything in minutes!",
       "upload_date": "20250425",
       "duration": "1052",
       "view_count": "71016",
       "url": "https://youtube.com/watch?v=zDFY--jbaeU",
-      "collected_at": "2026-02-02T11:34:33.330543"
+      "collected_at": "2026-02-02T11:34:33.330543",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Z6MPDx7e1Po",
-      "title": "Build AI Agents for anything & everything - here’s how",
+      "title": "Build AI Agents for anything & everything - here\u2019s how",
       "upload_date": "20250423",
       "duration": "2360",
       "view_count": "46305",
       "url": "https://youtube.com/watch?v=Z6MPDx7e1Po",
-      "collected_at": "2026-02-02T11:34:35.832205"
+      "collected_at": "2026-02-02T11:34:35.832205",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "mDcULe4GMyA",
@@ -1123,16 +1096,9 @@
       "duration": "1399",
       "view_count": "33871",
       "url": "https://youtube.com/watch?v=mDcULe4GMyA",
-      "collected_at": "2026-02-02T11:34:38.412215"
-    },
-    {
-      "id": "IAfZvQbo0Po",
-      "title": "This is the future of productivity",
-      "upload_date": "20250420",
-      "duration": "31",
-      "view_count": "9115",
-      "url": "https://youtube.com/watch?v=IAfZvQbo0Po",
-      "collected_at": "2026-02-03T13:01:34.446140"
+      "collected_at": "2026-02-02T11:34:38.412215",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "akjKelVER9Q",
@@ -1141,25 +1107,20 @@
       "duration": "5888",
       "view_count": "16161",
       "url": "https://youtube.com/watch?v=akjKelVER9Q",
-      "collected_at": "2026-02-02T11:34:41.559939"
+      "collected_at": "2026-02-02T11:34:41.559939",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_whn-VpVtjo",
-      "title": "Build Anything with OpenAI o3, Here’s How",
+      "title": "Build Anything with OpenAI o3, Here\u2019s How",
       "upload_date": "20250417",
       "duration": "3471",
       "view_count": "21552",
       "url": "https://youtube.com/watch?v=_whn-VpVtjo",
-      "collected_at": "2026-02-02T11:34:44.138848"
-    },
-    {
-      "id": "wvcFdERgW64",
-      "title": "The smart get smarter with AI, here's why",
-      "upload_date": "20250417",
-      "duration": "23",
-      "view_count": "12299",
-      "url": "https://youtube.com/watch?v=wvcFdERgW64",
-      "collected_at": "2026-02-03T13:01:38.119467"
+      "collected_at": "2026-02-02T11:34:44.138848",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "02rOcvzNLvE",
@@ -1168,16 +1129,9 @@
       "duration": "1868",
       "view_count": "13597",
       "url": "https://youtube.com/watch?v=02rOcvzNLvE",
-      "collected_at": "2026-02-02T11:34:47.395077"
-    },
-    {
-      "id": "W-Jhoh5y0R0",
-      "title": "Chat GPT images are OP... here's how to use them right",
-      "upload_date": "20250415",
-      "duration": "28",
-      "view_count": "17866",
-      "url": "https://youtube.com/watch?v=W-Jhoh5y0R0",
-      "collected_at": "2026-02-03T13:01:41.634360"
+      "collected_at": "2026-02-02T11:34:47.395077",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LjL3J_TLt08",
@@ -1186,16 +1140,20 @@
       "duration": "1300",
       "view_count": "415506",
       "url": "https://youtube.com/watch?v=LjL3J_TLt08",
-      "collected_at": "2026-02-02T11:34:49.872764"
+      "collected_at": "2026-02-02T11:34:49.872764",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "xN2_t4vYS4g",
-      "title": "I spent 500 hours in ChatGPT, here’s what I learned",
+      "title": "I spent 500 hours in ChatGPT, here\u2019s what I learned",
       "upload_date": "20250410",
       "duration": "2042",
       "view_count": "11803",
       "url": "https://youtube.com/watch?v=xN2_t4vYS4g",
-      "collected_at": "2026-02-02T11:34:52.932270"
+      "collected_at": "2026-02-02T11:34:52.932270",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Dv-goT8oMMw",
@@ -1204,16 +1162,20 @@
       "duration": "1492",
       "view_count": "19005",
       "url": "https://youtube.com/watch?v=Dv-goT8oMMw",
-      "collected_at": "2026-02-02T11:34:55.343368"
+      "collected_at": "2026-02-02T11:34:55.343368",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wyKtHjGsmIM",
-      "title": "“ok but I want AI agents for my specific use case” - Here’s how",
+      "title": "\u201cok but I want AI agents for my specific use case\u201d - Here\u2019s how",
       "upload_date": "20250404",
       "duration": "947",
       "view_count": "21448",
       "url": "https://youtube.com/watch?v=wyKtHjGsmIM",
-      "collected_at": "2026-02-02T11:34:57.851538"
+      "collected_at": "2026-02-02T11:34:57.851538",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "MKQle4x-UVc",
@@ -1222,16 +1184,20 @@
       "duration": "1161",
       "view_count": "11517",
       "url": "https://youtube.com/watch?v=MKQle4x-UVc",
-      "collected_at": "2026-02-02T11:35:00.319001"
+      "collected_at": "2026-02-02T11:35:00.319001",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "JW69tWxLFQU",
-      "title": "Build Anything with Gemini 2.5 Pro, Here’s How",
+      "title": "Build Anything with Gemini 2.5 Pro, Here\u2019s How",
       "upload_date": "20250326",
       "duration": "1413",
       "view_count": "63260",
       "url": "https://youtube.com/watch?v=JW69tWxLFQU",
-      "collected_at": "2026-02-02T11:35:02.791570"
+      "collected_at": "2026-02-02T11:35:02.791570",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TxpqGVi7Cxo",
@@ -1240,7 +1206,9 @@
       "duration": "1588",
       "view_count": "22581",
       "url": "https://youtube.com/watch?v=TxpqGVi7Cxo",
-      "collected_at": "2026-02-02T11:35:05.388856"
+      "collected_at": "2026-02-02T11:35:05.388856",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0ItQIrYiUCc",
@@ -1249,16 +1217,20 @@
       "duration": "6432",
       "view_count": "44909",
       "url": "https://youtube.com/watch?v=0ItQIrYiUCc",
-      "collected_at": "2026-02-02T11:35:08.005237"
+      "collected_at": "2026-02-02T11:35:08.005237",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "faPSZV5XwyI",
-      "title": "Start Vibe Coding Like a Pro, Here’s How",
+      "title": "Start Vibe Coding Like a Pro, Here\u2019s How",
       "upload_date": "20250317",
       "duration": "1309",
       "view_count": "43528",
       "url": "https://youtube.com/watch?v=faPSZV5XwyI",
-      "collected_at": "2026-02-02T11:35:10.593077"
+      "collected_at": "2026-02-02T11:35:10.593077",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "C61wQPwDw_0",
@@ -1267,16 +1239,20 @@
       "duration": "8220",
       "view_count": "27272",
       "url": "https://youtube.com/watch?v=C61wQPwDw_0",
-      "collected_at": "2026-02-02T11:35:13.149601"
+      "collected_at": "2026-02-02T11:35:13.149601",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-BDq59Saii4",
-      "title": "Build anything with n8n, here’s how",
+      "title": "Build anything with n8n, here\u2019s how",
       "upload_date": "20250312",
       "duration": "1144",
       "view_count": "49960",
       "url": "https://youtube.com/watch?v=-BDq59Saii4",
-      "collected_at": "2026-02-02T11:35:15.746413"
+      "collected_at": "2026-02-02T11:35:15.746413",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AUOnCcaju80",
@@ -1285,52 +1261,53 @@
       "duration": "1127",
       "view_count": "28639",
       "url": "https://youtube.com/watch?v=AUOnCcaju80",
-      "collected_at": "2026-02-02T11:35:18.281596"
+      "collected_at": "2026-02-02T11:35:18.281596",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TQsP_PlCY1I",
-      "title": "Build Anything with MCP Agents, Here’s How",
+      "title": "Build Anything with MCP Agents, Here\u2019s How",
       "upload_date": "20250305",
       "duration": "1512",
       "view_count": "232687",
       "url": "https://youtube.com/watch?v=TQsP_PlCY1I",
-      "collected_at": "2026-02-02T11:35:20.708260"
-    },
-    {
-      "id": "WhSTRVN7Gpk",
-      "title": "Who will win the AI race?",
-      "upload_date": "20250303",
-      "duration": "53",
-      "view_count": "10487",
-      "url": "https://youtube.com/watch?v=WhSTRVN7Gpk",
-      "collected_at": "2026-02-03T13:01:45.457360"
+      "collected_at": "2026-02-02T11:35:20.708260",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bLF4ZcNhiZs",
-      "title": "I spent $500 on ChatGPT 4.5, here’s what I learned",
+      "title": "I spent $500 on ChatGPT 4.5, here\u2019s what I learned",
       "upload_date": "20250301",
       "duration": "1696",
       "view_count": "24336",
       "url": "https://youtube.com/watch?v=bLF4ZcNhiZs",
-      "collected_at": "2026-02-02T11:35:23.324125"
+      "collected_at": "2026-02-02T11:35:23.324125",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Gjos--a5Npw",
-      "title": "Build Anything with Claude 3.7, Here’s How",
+      "title": "Build Anything with Claude 3.7, Here\u2019s How",
       "upload_date": "20250225",
       "duration": "2118",
       "view_count": "88305",
       "url": "https://youtube.com/watch?v=Gjos--a5Npw",
-      "collected_at": "2026-02-02T11:35:26.229386"
+      "collected_at": "2026-02-02T11:35:26.229386",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6wlDAOB7hz0",
-      "title": "“How to build an AGI startup” – Logan Kilpatrick",
+      "title": "\u201cHow to build an AGI startup\u201d \u2013 Logan Kilpatrick",
       "upload_date": "20250222",
       "duration": "2667",
       "view_count": "21414",
       "url": "https://youtube.com/watch?v=6wlDAOB7hz0",
-      "collected_at": "2026-02-02T11:35:28.765382"
+      "collected_at": "2026-02-02T11:35:28.765382",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "picePk8lb48",
@@ -1339,7 +1316,9 @@
       "duration": "1851",
       "view_count": "110249",
       "url": "https://youtube.com/watch?v=picePk8lb48",
-      "collected_at": "2026-02-02T11:35:31.261613"
+      "collected_at": "2026-02-02T11:35:31.261613",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XVDnkti4Li8",
@@ -1348,25 +1327,20 @@
       "duration": "5964",
       "view_count": "81499",
       "url": "https://youtube.com/watch?v=XVDnkti4Li8",
-      "collected_at": "2026-02-02T11:35:33.741157"
+      "collected_at": "2026-02-02T11:35:33.741157",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "RcdsH09wpNk",
-      "title": "Build Anything with Mistral AI, Here’s How",
+      "title": "Build Anything with Mistral AI, Here\u2019s How",
       "upload_date": "20250211",
       "duration": "819",
       "view_count": "38302",
       "url": "https://youtube.com/watch?v=RcdsH09wpNk",
-      "collected_at": "2026-02-02T11:35:37.287660"
-    },
-    {
-      "id": "cFMwUyp0l7E",
-      "title": "china might've actually hacked openai...",
-      "upload_date": "20250210",
-      "duration": "18",
-      "view_count": "17239",
-      "url": "https://youtube.com/watch?v=cFMwUyp0l7E",
-      "collected_at": "2026-02-03T13:01:48.776290"
+      "collected_at": "2026-02-02T11:35:37.287660",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "9d7gnw6z4Rk",
@@ -1375,34 +1349,31 @@
       "duration": "876",
       "view_count": "52617",
       "url": "https://youtube.com/watch?v=9d7gnw6z4Rk",
-      "collected_at": "2026-02-02T11:35:39.704246"
+      "collected_at": "2026-02-02T11:35:39.704246",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "B_1nBG0ofhc",
-      "title": "Build Anything on AI Agents, Here’s How",
+      "title": "Build Anything on AI Agents, Here\u2019s How",
       "upload_date": "20250206",
       "duration": "1385",
       "view_count": "122108",
       "url": "https://youtube.com/watch?v=B_1nBG0ofhc",
-      "collected_at": "2026-02-02T11:35:42.509987"
-    },
-    {
-      "id": "1NtGegfPw9o",
-      "title": "David vs. Goliath",
-      "upload_date": "20250203",
-      "duration": "13",
-      "view_count": "9230",
-      "url": "https://youtube.com/watch?v=1NtGegfPw9o",
-      "collected_at": "2026-02-03T13:01:52.126494"
+      "collected_at": "2026-02-02T11:35:42.509987",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "UBX59pYqBjg",
-      "title": "build anything with o3-mini, here’s how",
+      "title": "build anything with o3-mini, here\u2019s how",
       "upload_date": "20250202",
       "duration": "1431",
       "view_count": "30891",
       "url": "https://youtube.com/watch?v=UBX59pYqBjg",
-      "collected_at": "2026-02-02T11:35:45.588717"
+      "collected_at": "2026-02-02T11:35:45.588717",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7DVOGxCAEJc",
@@ -1411,7 +1382,9 @@
       "duration": "1211",
       "view_count": "99307",
       "url": "https://youtube.com/watch?v=7DVOGxCAEJc",
-      "collected_at": "2026-02-02T11:35:48.213935"
+      "collected_at": "2026-02-02T11:35:48.213935",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-vlB9ErtZn0",
@@ -1420,34 +1393,31 @@
       "duration": "985",
       "view_count": "115019",
       "url": "https://youtube.com/watch?v=-vlB9ErtZn0",
-      "collected_at": "2026-02-02T11:35:50.908218"
+      "collected_at": "2026-02-02T11:35:50.908218",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "BdMEQzt_js0",
-      "title": "Build anything with DeepSeek R1, here’s how",
+      "title": "Build anything with DeepSeek R1, here\u2019s how",
       "upload_date": "20250121",
       "duration": "1296",
       "view_count": "589488",
       "url": "https://youtube.com/watch?v=BdMEQzt_js0",
-      "collected_at": "2026-02-02T11:35:53.295265"
+      "collected_at": "2026-02-02T11:35:53.295265",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gYLNxUxVomY",
-      "title": "I spent 400+ hours in Cursor, here’s what I learned",
+      "title": "I spent 400+ hours in Cursor, here\u2019s what I learned",
       "upload_date": "20250117",
       "duration": "2799",
       "view_count": "186774",
       "url": "https://youtube.com/watch?v=gYLNxUxVomY",
-      "collected_at": "2026-02-02T11:35:55.803670"
-    },
-    {
-      "id": "B64gfllpB_E",
-      "title": "How close is o3 to AGI?",
-      "upload_date": "20250117",
-      "duration": "18",
-      "view_count": "81474",
-      "url": "https://youtube.com/watch?v=B64gfllpB_E",
-      "collected_at": "2026-02-03T13:01:55.179778"
+      "collected_at": "2026-02-02T11:35:55.803670",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XVO3zsHdvio",
@@ -1456,16 +1426,9 @@
       "duration": "2398",
       "view_count": "1693590",
       "url": "https://youtube.com/watch?v=XVO3zsHdvio",
-      "collected_at": "2026-02-02T11:35:58.423541"
-    },
-    {
-      "id": "7YiEkV5wFr8",
-      "title": "Neuralink + AI agents = 1,000,000x productivity",
-      "upload_date": "20250111",
-      "duration": "22",
-      "view_count": "45075",
-      "url": "https://youtube.com/watch?v=7YiEkV5wFr8",
-      "collected_at": "2026-02-03T13:01:58.903454"
+      "collected_at": "2026-02-02T11:35:58.423541",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wOlqLo7oUxM",
@@ -1474,16 +1437,9 @@
       "duration": "2159",
       "view_count": "88352",
       "url": "https://youtube.com/watch?v=wOlqLo7oUxM",
-      "collected_at": "2026-02-02T11:36:01.038768"
-    },
-    {
-      "id": "x8GMoBkcTQM",
-      "title": "How i've built an entire SAAS using only AI tools",
-      "upload_date": "20250110",
-      "duration": "24",
-      "view_count": "334000",
-      "url": "https://youtube.com/watch?v=x8GMoBkcTQM",
-      "collected_at": "2026-02-03T13:02:02.282280"
+      "collected_at": "2026-02-02T11:36:01.038768",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_ry8QW9gw9I",
@@ -1492,7 +1448,9 @@
       "duration": "1317",
       "view_count": "48242",
       "url": "https://youtube.com/watch?v=_ry8QW9gw9I",
-      "collected_at": "2026-02-02T11:36:03.586671"
+      "collected_at": "2026-02-02T11:36:03.586671",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rh0MrQcU568",
@@ -1501,16 +1459,20 @@
       "duration": "1524",
       "view_count": "28170",
       "url": "https://youtube.com/watch?v=rh0MrQcU568",
-      "collected_at": "2026-02-02T11:36:06.148912"
+      "collected_at": "2026-02-02T11:36:06.148912",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NCaRixtXNIo",
-      "title": "Build anything with DeepSeek V3, here’s how",
+      "title": "Build anything with DeepSeek V3, here\u2019s how",
       "upload_date": "20241230",
       "duration": "874",
       "view_count": "277859",
       "url": "https://youtube.com/watch?v=NCaRixtXNIo",
-      "collected_at": "2026-02-02T11:36:08.643959"
+      "collected_at": "2026-02-02T11:36:08.643959",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "gXOKM3Awr-M",
@@ -1519,25 +1481,31 @@
       "duration": "789",
       "view_count": "17997",
       "url": "https://youtube.com/watch?v=gXOKM3Awr-M",
-      "collected_at": "2026-02-02T11:36:11.131645"
+      "collected_at": "2026-02-02T11:36:11.131645",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "3jcvtzFWLMk",
-      "title": "Build anything with Gemini 2.0 - here’s how",
+      "title": "Build anything with Gemini 2.0 - here\u2019s how",
       "upload_date": "20241223",
       "duration": "1623",
       "view_count": "100037",
       "url": "https://youtube.com/watch?v=3jcvtzFWLMk",
-      "collected_at": "2026-02-02T11:36:14.656733"
+      "collected_at": "2026-02-02T11:36:14.656733",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "lk7dQ6_KaBE",
-      "title": "Llama 3.3 – better than ChatGPT, runs locally, 100% private",
+      "title": "Llama 3.3 \u2013 better than ChatGPT, runs locally, 100% private",
       "upload_date": "20241220",
       "duration": "745",
       "view_count": "50750",
       "url": "https://youtube.com/watch?v=lk7dQ6_KaBE",
-      "collected_at": "2026-02-02T11:36:17.232375"
+      "collected_at": "2026-02-02T11:36:17.232375",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "_N9N9A5Jxzg",
@@ -1546,7 +1514,9 @@
       "duration": "1405",
       "view_count": "33631",
       "url": "https://youtube.com/watch?v=_N9N9A5Jxzg",
-      "collected_at": "2026-02-02T11:36:19.733684"
+      "collected_at": "2026-02-02T11:36:19.733684",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7YhvKnizrcU",
@@ -1555,7 +1525,9 @@
       "duration": "1277",
       "view_count": "41357",
       "url": "https://youtube.com/watch?v=7YhvKnizrcU",
-      "collected_at": "2026-02-02T11:36:23.272240"
+      "collected_at": "2026-02-02T11:36:23.272240",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Xd2b81Q2qL0",
@@ -1564,16 +1536,20 @@
       "duration": "1304",
       "view_count": "58100",
       "url": "https://youtube.com/watch?v=Xd2b81Q2qL0",
-      "collected_at": "2026-02-02T11:36:25.980137"
+      "collected_at": "2026-02-02T11:36:25.980137",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "NLq2qvr867Q",
-      "title": "Build Anything with ChatGPT Pro, Here’s How",
+      "title": "Build Anything with ChatGPT Pro, Here\u2019s How",
       "upload_date": "20241206",
       "duration": "1553",
       "view_count": "37172",
       "url": "https://youtube.com/watch?v=NLq2qvr867Q",
-      "collected_at": "2026-02-02T11:36:28.498982"
+      "collected_at": "2026-02-02T11:36:28.498982",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2gBcO3ht0ws",
@@ -1582,34 +1558,42 @@
       "duration": "1933",
       "view_count": "85962",
       "url": "https://youtube.com/watch?v=2gBcO3ht0ws",
-      "collected_at": "2026-02-02T11:36:31.438273"
+      "collected_at": "2026-02-02T11:36:31.438273",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "5CmAKm1wWW0",
-      "title": "Build Anything with Claude Agents, Here’s How",
+      "title": "Build Anything with Claude Agents, Here\u2019s How",
       "upload_date": "20241128",
       "duration": "1114",
       "view_count": "299612",
       "url": "https://youtube.com/watch?v=5CmAKm1wWW0",
-      "collected_at": "2026-02-02T11:36:34.015471"
+      "collected_at": "2026-02-02T11:36:34.015471",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wNIx74HOIQY",
-      "title": "Build anything with v0, here’s how",
+      "title": "Build anything with v0, here\u2019s how",
       "upload_date": "20241124",
       "duration": "735",
       "view_count": "20905",
       "url": "https://youtube.com/watch?v=wNIx74HOIQY",
-      "collected_at": "2026-02-02T11:36:36.743456"
+      "collected_at": "2026-02-02T11:36:36.743456",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ht22YzW-Swc",
-      "title": "With Bolt.new you can code anything… just watch",
+      "title": "With Bolt.new you can code anything\u2026 just watch",
       "upload_date": "20241120",
       "duration": "800",
       "view_count": "23413",
       "url": "https://youtube.com/watch?v=ht22YzW-Swc",
-      "collected_at": "2026-02-02T11:36:39.224518"
+      "collected_at": "2026-02-02T11:36:39.224518",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8DPFQOS4p_M",
@@ -1618,7 +1602,9 @@
       "duration": "1261",
       "view_count": "180202",
       "url": "https://youtube.com/watch?v=8DPFQOS4p_M",
-      "collected_at": "2026-02-02T11:36:41.639011"
+      "collected_at": "2026-02-02T11:36:41.639011",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "OygSPm3wv3g",
@@ -1627,43 +1613,42 @@
       "duration": "1443",
       "view_count": "16807",
       "url": "https://youtube.com/watch?v=OygSPm3wv3g",
-      "collected_at": "2026-02-02T11:36:44.089298"
+      "collected_at": "2026-02-02T11:36:44.089298",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "i0bQ495vMBA",
-      "title": "Build anything with bolt.new, here’s how",
+      "title": "Build anything with bolt.new, here\u2019s how",
       "upload_date": "20241109",
       "duration": "1275",
       "view_count": "199815",
       "url": "https://youtube.com/watch?v=i0bQ495vMBA",
-      "collected_at": "2026-02-02T11:36:46.658788"
+      "collected_at": "2026-02-02T11:36:46.658788",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "upuKtF_q0dc",
-      "title": "Make Money with OpenAI o1, Here’s How",
+      "title": "Make Money with OpenAI o1, Here\u2019s How",
       "upload_date": "20241104",
       "duration": "2298",
       "view_count": "22206",
       "url": "https://youtube.com/watch?v=upuKtF_q0dc",
-      "collected_at": "2026-02-02T11:36:49.006362"
+      "collected_at": "2026-02-02T11:36:49.006362",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ssBdJqBF1CA",
-      "title": "Build Anything with Grok-2, Here’s How",
+      "title": "Build Anything with Grok-2, Here\u2019s How",
       "upload_date": "20241101",
       "duration": "2194",
       "view_count": "135776",
       "url": "https://youtube.com/watch?v=ssBdJqBF1CA",
-      "collected_at": "2026-02-02T11:36:51.534444"
-    },
-    {
-      "id": "Um15imC76xI",
-      "title": "this AI Agent can scrape any website… #newsociety",
-      "upload_date": "20241031",
-      "duration": "44",
-      "view_count": "36102",
-      "url": "https://youtube.com/watch?v=Um15imC76xI",
-      "collected_at": "2026-02-03T13:02:06.477862"
+      "collected_at": "2026-02-02T11:36:51.534444",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "uUosHefPnWs",
@@ -1672,52 +1657,64 @@
       "duration": "3110",
       "view_count": "39929",
       "url": "https://youtube.com/watch?v=uUosHefPnWs",
-      "collected_at": "2026-02-02T11:36:54.011964"
+      "collected_at": "2026-02-02T11:36:54.011964",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "kzAjdas6nwE",
-      "title": "Build your own local o1 - here’s how",
+      "title": "Build your own local o1 - here\u2019s how",
       "upload_date": "20241026",
       "duration": "2169",
       "view_count": "61270",
       "url": "https://youtube.com/watch?v=kzAjdas6nwE",
-      "collected_at": "2026-02-02T11:36:56.944668"
+      "collected_at": "2026-02-02T11:36:56.944668",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "81D7rUK0IeA",
-      "title": "Code Anything with Claude AI, Here’s How",
+      "title": "Code Anything with Claude AI, Here\u2019s How",
       "upload_date": "20241023",
       "duration": "1599",
       "view_count": "49806",
       "url": "https://youtube.com/watch?v=81D7rUK0IeA",
-      "collected_at": "2026-02-02T11:36:59.709602"
+      "collected_at": "2026-02-02T11:36:59.709602",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Cw0ME8OZ0xI",
-      "title": "Build Anything with OpenAI Swarm, Here’s How",
+      "title": "Build Anything with OpenAI Swarm, Here\u2019s How",
       "upload_date": "20241020",
       "duration": "2662",
       "view_count": "70843",
       "url": "https://youtube.com/watch?v=Cw0ME8OZ0xI",
-      "collected_at": "2026-02-02T11:37:02.250708"
+      "collected_at": "2026-02-02T11:37:02.250708",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "TLeoNc5JTRM",
-      "title": "I’m building a billion-dollar AI startup, here’s how",
+      "title": "I\u2019m building a billion-dollar AI startup, here\u2019s how",
       "upload_date": "20241017",
       "duration": "5829",
       "view_count": "20274",
       "url": "https://youtube.com/watch?v=TLeoNc5JTRM",
-      "collected_at": "2026-02-02T11:37:04.624014"
+      "collected_at": "2026-02-02T11:37:04.624014",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "CK0oj9Ktfec",
-      "title": "Build anything with o1 agents - Here’s how",
+      "title": "Build anything with o1 agents - Here\u2019s how",
       "upload_date": "20241015",
       "duration": "2365",
       "view_count": "176690",
       "url": "https://youtube.com/watch?v=CK0oj9Ktfec",
-      "collected_at": "2026-02-02T11:37:07.184954"
+      "collected_at": "2026-02-02T11:37:07.184954",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "p0ohq8RX_T4",
@@ -1726,25 +1723,31 @@
       "duration": "1985",
       "view_count": "49473",
       "url": "https://youtube.com/watch?v=p0ohq8RX_T4",
-      "collected_at": "2026-02-02T11:37:09.631696"
+      "collected_at": "2026-02-02T11:37:09.631696",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "lQeYRmy8nHQ",
-      "title": "“We automated 150 tasks with AI Agents, just copy us” - Microsoft AI",
+      "title": "\u201cWe automated 150 tasks with AI Agents, just copy us\u201d - Microsoft AI",
       "upload_date": "20241009",
       "duration": "2346",
       "view_count": "96602",
       "url": "https://youtube.com/watch?v=lQeYRmy8nHQ",
-      "collected_at": "2026-02-02T11:37:12.092228"
+      "collected_at": "2026-02-02T11:37:12.092228",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "7OJM3YRXQy4",
-      "title": "Build Anything with ChatGPT Canvas, Here’s How",
+      "title": "Build Anything with ChatGPT Canvas, Here\u2019s How",
       "upload_date": "20241006",
       "duration": "1524",
       "view_count": "44553",
       "url": "https://youtube.com/watch?v=7OJM3YRXQy4",
-      "collected_at": "2026-02-02T11:37:14.933030"
+      "collected_at": "2026-02-02T11:37:14.933030",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ih5sUZT5tEY",
@@ -1753,7 +1756,9 @@
       "duration": "1893",
       "view_count": "25393",
       "url": "https://youtube.com/watch?v=ih5sUZT5tEY",
-      "collected_at": "2026-02-02T11:37:17.400301"
+      "collected_at": "2026-02-02T11:37:17.400301",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "fNnmWtf9wYo",
@@ -1762,70 +1767,86 @@
       "duration": "2801",
       "view_count": "59357",
       "url": "https://youtube.com/watch?v=fNnmWtf9wYo",
-      "collected_at": "2026-02-02T11:37:19.991855"
+      "collected_at": "2026-02-02T11:37:19.991855",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ukQe9Uwc140",
-      "title": "If you don't use OpenAI Advanced Voice, you’re falling behind",
+      "title": "If you don't use OpenAI Advanced Voice, you\u2019re falling behind",
       "upload_date": "20240928",
       "duration": "2569",
       "view_count": "19765",
       "url": "https://youtube.com/watch?v=ukQe9Uwc140",
-      "collected_at": "2026-02-02T11:37:22.652671"
+      "collected_at": "2026-02-02T11:37:22.652671",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "32k6DRcX4pA",
-      "title": "Llama 3.2 just dropped and it destroys 100B models… let’s run it",
+      "title": "Llama 3.2 just dropped and it destroys 100B models\u2026 let\u2019s run it",
       "upload_date": "20240926",
       "duration": "1654",
       "view_count": "66490",
       "url": "https://youtube.com/watch?v=32k6DRcX4pA",
-      "collected_at": "2026-02-02T11:37:25.158288"
+      "collected_at": "2026-02-02T11:37:25.158288",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "-qPeR9GnEzo",
-      "title": "“With o1 you can code any app, just watch” - Pietro Schirano",
+      "title": "\u201cWith o1 you can code any app, just watch\u201d - Pietro Schirano",
       "upload_date": "20240924",
       "duration": "2385",
       "view_count": "58710",
       "url": "https://youtube.com/watch?v=-qPeR9GnEzo",
-      "collected_at": "2026-02-02T11:37:27.682495"
+      "collected_at": "2026-02-02T11:37:27.682495",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "cfoRTXMtBKU",
-      "title": "Get RICH by making AI images for companies – here’s how",
+      "title": "Get RICH by making AI images for companies \u2013 here\u2019s how",
       "upload_date": "20240915",
       "duration": "2667",
       "view_count": "13339",
       "url": "https://youtube.com/watch?v=cfoRTXMtBKU",
-      "collected_at": "2026-02-02T11:37:30.211972"
+      "collected_at": "2026-02-02T11:37:30.211972",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "J8nZu1RhXuc",
-      "title": "Build Anything with OpenAI o1, Here’s How",
+      "title": "Build Anything with OpenAI o1, Here\u2019s How",
       "upload_date": "20240913",
       "duration": "3636",
       "view_count": "246525",
       "url": "https://youtube.com/watch?v=J8nZu1RhXuc",
-      "collected_at": "2026-02-02T11:37:32.677594"
+      "collected_at": "2026-02-02T11:37:32.677594",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "m-vruXl3db8",
-      "title": "“AI is cool, but 98% of the Human Brain is unknown” - Artem Kirsanov",
+      "title": "\u201cAI is cool, but 98% of the Human Brain is unknown\u201d - Artem Kirsanov",
       "upload_date": "20240911",
       "duration": "3788",
       "view_count": "5299",
       "url": "https://youtube.com/watch?v=m-vruXl3db8",
-      "collected_at": "2026-02-02T11:37:35.211309"
+      "collected_at": "2026-02-02T11:37:35.211309",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "C59LC1WJIbE",
-      "title": "Build Anything with Cursor, Here’s How",
+      "title": "Build Anything with Cursor, Here\u2019s How",
       "upload_date": "20240831",
       "duration": "2970",
       "view_count": "56363",
       "url": "https://youtube.com/watch?v=C59LC1WJIbE",
-      "collected_at": "2026-02-02T11:37:37.879612"
+      "collected_at": "2026-02-02T11:37:37.879612",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "z4QsBsO3SS0",
@@ -1834,7 +1855,9 @@
       "duration": "1593",
       "view_count": "173371",
       "url": "https://youtube.com/watch?v=z4QsBsO3SS0",
-      "collected_at": "2026-02-02T11:37:40.392384"
+      "collected_at": "2026-02-02T11:37:40.392384",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "LIk7GF0oeK8",
@@ -1843,52 +1866,64 @@
       "duration": "1338",
       "view_count": "61522",
       "url": "https://youtube.com/watch?v=LIk7GF0oeK8",
-      "collected_at": "2026-02-02T11:37:42.969118"
+      "collected_at": "2026-02-02T11:37:42.969118",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oWHTXTIy3J4",
-      "title": "Build Anything with LangGraph Studio, Here’s How",
+      "title": "Build Anything with LangGraph Studio, Here\u2019s How",
       "upload_date": "20240820",
       "duration": "998",
       "view_count": "43544",
       "url": "https://youtube.com/watch?v=oWHTXTIy3J4",
-      "collected_at": "2026-02-02T11:37:45.478237"
+      "collected_at": "2026-02-02T11:37:45.478237",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "AwGkl-Bvkok",
-      "title": "Build Anything with Agent Zero, Here’s How",
+      "title": "Build Anything with Agent Zero, Here\u2019s How",
       "upload_date": "20240815",
       "duration": "1830",
       "view_count": "41308",
       "url": "https://youtube.com/watch?v=AwGkl-Bvkok",
-      "collected_at": "2026-02-02T11:37:47.971037"
+      "collected_at": "2026-02-02T11:37:47.971037",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "cbLqIo0jz9Y",
-      "title": "“Llama 4 will make you forget about ChatGPT” - John Coogan",
+      "title": "\u201cLlama 4 will make you forget about ChatGPT\u201d - John Coogan",
       "upload_date": "20240810",
       "duration": "2905",
       "view_count": "6379",
       "url": "https://youtube.com/watch?v=cbLqIo0jz9Y",
-      "collected_at": "2026-02-02T11:37:50.389656"
+      "collected_at": "2026-02-02T11:37:50.389656",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Wgrc3y97i9w",
-      "title": "How I made AI Agents do my work for me – Agency Swarm",
+      "title": "How I made AI Agents do my work for me \u2013 Agency Swarm",
       "upload_date": "20240802",
       "duration": "758",
       "view_count": "18875",
       "url": "https://youtube.com/watch?v=Wgrc3y97i9w",
-      "collected_at": "2026-02-02T11:37:53.155815"
+      "collected_at": "2026-02-02T11:37:53.155815",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1SsPNc2zldM",
-      "title": "Build Anything with Llama 3.1 Agents, Here’s How",
+      "title": "Build Anything with Llama 3.1 Agents, Here\u2019s How",
       "upload_date": "20240730",
       "duration": "3630",
       "view_count": "74926",
       "url": "https://youtube.com/watch?v=1SsPNc2zldM",
-      "collected_at": "2026-02-02T11:37:55.752349"
+      "collected_at": "2026-02-02T11:37:55.752349",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_Pionjv4hGc",
@@ -1897,7 +1932,9 @@
       "duration": "4787",
       "view_count": "115803",
       "url": "https://youtube.com/watch?v=_Pionjv4hGc",
-      "collected_at": "2026-02-02T11:37:58.527477"
+      "collected_at": "2026-02-02T11:37:58.527477",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "5lYuTnFPu5A",
@@ -1906,43 +1943,53 @@
       "duration": "483",
       "view_count": "5933",
       "url": "https://youtube.com/watch?v=5lYuTnFPu5A",
-      "collected_at": "2026-02-02T11:38:00.934450"
+      "collected_at": "2026-02-02T11:38:00.934450",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "mO4-V7Lmt7c",
-      "title": "Build Anything with CrewAI, Here’s How",
+      "title": "Build Anything with CrewAI, Here\u2019s How",
       "upload_date": "20240717",
       "duration": "3788",
       "view_count": "21517",
       "url": "https://youtube.com/watch?v=mO4-V7Lmt7c",
-      "collected_at": "2026-02-02T11:38:03.376022"
+      "collected_at": "2026-02-02T11:38:03.376022",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "FRyBCkJdCuE",
-      "title": "Automate Anything with Make.com, Here’s How",
+      "title": "Automate Anything with Make.com, Here\u2019s How",
       "upload_date": "20240711",
       "duration": "2627",
       "view_count": "22624",
       "url": "https://youtube.com/watch?v=FRyBCkJdCuE",
-      "collected_at": "2026-02-02T11:38:06.023602"
+      "collected_at": "2026-02-02T11:38:06.023602",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "h0aWeR8pjc8",
-      "title": "I completed Andrej Karpathy’s AI challenge (advanced)",
+      "title": "I completed Andrej Karpathy\u2019s AI challenge (advanced)",
       "upload_date": "20240708",
       "duration": "23988",
       "view_count": "11356",
       "url": "https://youtube.com/watch?v=h0aWeR8pjc8",
-      "collected_at": "2026-02-02T11:38:09.483516"
+      "collected_at": "2026-02-02T11:38:09.483516",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "FLcDFRco6Eo",
-      "title": "Learn Python in 7 Days with ChatGPT, Here’s How",
+      "title": "Learn Python in 7 Days with ChatGPT, Here\u2019s How",
       "upload_date": "20240704",
       "duration": "2116",
       "view_count": "15692",
       "url": "https://youtube.com/watch?v=FLcDFRco6Eo",
-      "collected_at": "2026-02-02T11:38:12.026518"
+      "collected_at": "2026-02-02T11:38:12.026518",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tq9yN-j5o3M",
@@ -1951,7 +1998,9 @@
       "duration": "1680",
       "view_count": "45582",
       "url": "https://youtube.com/watch?v=tq9yN-j5o3M",
-      "collected_at": "2026-02-02T11:38:14.579285"
+      "collected_at": "2026-02-02T11:38:14.579285",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "6z3ThwSwS9s",
@@ -1960,34 +2009,42 @@
       "duration": "755",
       "view_count": "12271",
       "url": "https://youtube.com/watch?v=6z3ThwSwS9s",
-      "collected_at": "2026-02-02T11:38:17.018751"
+      "collected_at": "2026-02-02T11:38:17.018751",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "G5ZKVJScgfA",
-      "title": "AI Expert: “Automate half of your work with AI, here’s how”",
+      "title": "AI Expert: \u201cAutomate half of your work with AI, here\u2019s how\u201d",
       "upload_date": "20240628",
       "duration": "4028",
       "view_count": "11337",
       "url": "https://youtube.com/watch?v=G5ZKVJScgfA",
-      "collected_at": "2026-02-02T11:38:19.480716"
+      "collected_at": "2026-02-02T11:38:19.480716",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AhPXGKG4RZ4",
-      "title": "Build AI Agents with Docker, Here’s How",
+      "title": "Build AI Agents with Docker, Here\u2019s How",
       "upload_date": "20240627",
       "duration": "3118",
       "view_count": "119779",
       "url": "https://youtube.com/watch?v=AhPXGKG4RZ4",
-      "collected_at": "2026-02-02T11:38:22.115852"
+      "collected_at": "2026-02-02T11:38:22.115852",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "AhfRp4PbI9g",
-      "title": "AI Expert: “it’s not easy to work in AI, unless you do this”",
+      "title": "AI Expert: \u201cit\u2019s not easy to work in AI, unless you do this\u201d",
       "upload_date": "20240621",
       "duration": "4104",
       "view_count": "6719",
       "url": "https://youtube.com/watch?v=AhfRp4PbI9g",
-      "collected_at": "2026-02-02T11:38:24.651346"
+      "collected_at": "2026-02-02T11:38:24.651346",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "kX2evgYiVoo",
@@ -1996,25 +2053,31 @@
       "duration": "1228",
       "view_count": "26118",
       "url": "https://youtube.com/watch?v=kX2evgYiVoo",
-      "collected_at": "2026-02-02T11:38:27.181137"
+      "collected_at": "2026-02-02T11:38:27.181137",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Nu_xerAtNCk",
-      "title": "Build Anything with Voiceflow, Here’s How",
+      "title": "Build Anything with Voiceflow, Here\u2019s How",
       "upload_date": "20240612",
       "duration": "2212",
       "view_count": "22788",
       "url": "https://youtube.com/watch?v=Nu_xerAtNCk",
-      "collected_at": "2026-02-02T11:38:29.623758"
+      "collected_at": "2026-02-02T11:38:29.623758",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "zGczCf4sPHc",
-      "title": "Make Money with GPTs, Here’s How",
+      "title": "Make Money with GPTs, Here\u2019s How",
       "upload_date": "20240607",
       "duration": "1787",
       "view_count": "21898",
       "url": "https://youtube.com/watch?v=zGczCf4sPHc",
-      "collected_at": "2026-02-02T11:38:32.176935"
+      "collected_at": "2026-02-02T11:38:32.176935",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "z_1egoV7-ak",
@@ -2023,16 +2086,20 @@
       "duration": "844",
       "view_count": "21460",
       "url": "https://youtube.com/watch?v=z_1egoV7-ak",
-      "collected_at": "2026-02-02T11:38:34.675813"
+      "collected_at": "2026-02-02T11:38:34.675813",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "w_YRnA8RdnU",
-      "title": "Build Anything with Perplexity, Here’s How",
+      "title": "Build Anything with Perplexity, Here\u2019s How",
       "upload_date": "20240530",
       "duration": "2535",
       "view_count": "253563",
       "url": "https://youtube.com/watch?v=w_YRnA8RdnU",
-      "collected_at": "2026-02-02T11:38:37.226093"
+      "collected_at": "2026-02-02T11:38:37.226093",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "0WMtJpaprZY",
@@ -2041,7 +2108,9 @@
       "duration": "1206",
       "view_count": "34597",
       "url": "https://youtube.com/watch?v=0WMtJpaprZY",
-      "collected_at": "2026-02-02T11:38:39.786336"
+      "collected_at": "2026-02-02T11:38:39.786336",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hFlNEM6nff4",
@@ -2050,7 +2119,9 @@
       "duration": "2337",
       "view_count": "23600",
       "url": "https://youtube.com/watch?v=hFlNEM6nff4",
-      "collected_at": "2026-02-02T11:38:42.353115"
+      "collected_at": "2026-02-02T11:38:42.353115",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "XQ8FGvvzZPE",
@@ -2059,25 +2130,31 @@
       "duration": "482",
       "view_count": "3449",
       "url": "https://youtube.com/watch?v=XQ8FGvvzZPE",
-      "collected_at": "2026-02-02T11:38:45.379699"
+      "collected_at": "2026-02-02T11:38:45.379699",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "cTxENLLX1ho",
-      "title": "This Llama 3 is powerful and uncensored, let’s run it",
+      "title": "This Llama 3 is powerful and uncensored, let\u2019s run it",
       "upload_date": "20240520",
       "duration": "898",
       "view_count": "220915",
       "url": "https://youtube.com/watch?v=cTxENLLX1ho",
-      "collected_at": "2026-02-02T11:38:47.906311"
+      "collected_at": "2026-02-02T11:38:47.906311",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ZrWhu7xkU_g",
-      "title": "Make Anything with ChatGPT, Here’s How",
+      "title": "Make Anything with ChatGPT, Here\u2019s How",
       "upload_date": "20240517",
       "duration": "4237",
       "view_count": "83644",
       "url": "https://youtube.com/watch?v=ZrWhu7xkU_g",
-      "collected_at": "2026-02-02T11:38:50.688302"
+      "collected_at": "2026-02-02T11:38:50.688302",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "QFy1UcYHEJk",
@@ -2086,7 +2163,9 @@
       "duration": "2480",
       "view_count": "9913",
       "url": "https://youtube.com/watch?v=QFy1UcYHEJk",
-      "collected_at": "2026-02-02T11:38:53.466949"
+      "collected_at": "2026-02-02T11:38:53.466949",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4I-INWzMaPM",
@@ -2095,7 +2174,9 @@
       "duration": "1583",
       "view_count": "12460",
       "url": "https://youtube.com/watch?v=4I-INWzMaPM",
-      "collected_at": "2026-02-02T11:38:56.040072"
+      "collected_at": "2026-02-02T11:38:56.040072",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "8BeUKxY_QOs",
@@ -2104,7 +2185,9 @@
       "duration": "1195",
       "view_count": "19731",
       "url": "https://youtube.com/watch?v=8BeUKxY_QOs",
-      "collected_at": "2026-02-02T11:38:58.600609"
+      "collected_at": "2026-02-02T11:38:58.600609",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "DFoTCEMpcBY",
@@ -2113,7 +2196,9 @@
       "duration": "3109",
       "view_count": "7218",
       "url": "https://youtube.com/watch?v=DFoTCEMpcBY",
-      "collected_at": "2026-02-02T11:39:01.311388"
+      "collected_at": "2026-02-02T11:39:01.311388",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Zq_2xB-JBVY",
@@ -2122,7 +2207,9 @@
       "duration": "549",
       "view_count": "8678",
       "url": "https://youtube.com/watch?v=Zq_2xB-JBVY",
-      "collected_at": "2026-02-02T11:39:03.804517"
+      "collected_at": "2026-02-02T11:39:03.804517",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "fkTlyuGh7jk",
@@ -2131,25 +2218,31 @@
       "duration": "3059",
       "view_count": "58044",
       "url": "https://youtube.com/watch?v=fkTlyuGh7jk",
-      "collected_at": "2026-02-02T11:39:06.232476"
+      "collected_at": "2026-02-02T11:39:06.232476",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "CtOGupq0r7M",
-      "title": "AI Expert: Here’s how AI Agents 10x my productivity",
+      "title": "AI Expert: Here\u2019s how AI Agents 10x my productivity",
       "upload_date": "20240501",
       "duration": "3249",
       "view_count": "18704",
       "url": "https://youtube.com/watch?v=CtOGupq0r7M",
-      "collected_at": "2026-02-02T11:39:08.789885"
+      "collected_at": "2026-02-02T11:39:08.789885",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yWT8a47Gfd4",
-      "title": "Build AI Agents Smarter Than ChatGPT, Here’s How",
+      "title": "Build AI Agents Smarter Than ChatGPT, Here\u2019s How",
       "upload_date": "20240428",
       "duration": "1339",
       "view_count": "23178",
       "url": "https://youtube.com/watch?v=yWT8a47Gfd4",
-      "collected_at": "2026-02-02T11:39:11.513200"
+      "collected_at": "2026-02-02T11:39:11.513200",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "kCDfmSCbnz4",
@@ -2158,7 +2251,9 @@
       "duration": "2806",
       "view_count": "8810",
       "url": "https://youtube.com/watch?v=kCDfmSCbnz4",
-      "collected_at": "2026-02-02T11:39:14.033499"
+      "collected_at": "2026-02-02T11:39:14.033499",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "93-9NHHgn84",
@@ -2167,34 +2262,42 @@
       "duration": "760",
       "view_count": "35762",
       "url": "https://youtube.com/watch?v=93-9NHHgn84",
-      "collected_at": "2026-02-02T11:39:16.488748"
+      "collected_at": "2026-02-02T11:39:16.488748",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "wcA0E20KpbA",
-      "title": "“If you don’t build AI Agents, you’ll be left behind.” - VRSEN",
+      "title": "\u201cIf you don\u2019t build AI Agents, you\u2019ll be left behind.\u201d - VRSEN",
       "upload_date": "20240425",
       "duration": "4389",
       "view_count": "16145",
       "url": "https://youtube.com/watch?v=wcA0E20KpbA",
-      "collected_at": "2026-02-02T11:39:19.188964"
+      "collected_at": "2026-02-02T11:39:19.188964",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "wfNNlz5zFAM",
-      "title": "“Llama 3 with Agents gives you Godlike power” - Pietro Schirano",
+      "title": "\u201cLlama 3 with Agents gives you Godlike power\u201d - Pietro Schirano",
       "upload_date": "20240424",
       "duration": "4498",
       "view_count": "26670",
       "url": "https://youtube.com/watch?v=wfNNlz5zFAM",
-      "collected_at": "2026-02-02T11:39:21.972360"
+      "collected_at": "2026-02-02T11:39:21.972360",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qOyNqGclSV4",
-      "title": "Build Anything with OpenAI Assistants, Here’s How",
+      "title": "Build Anything with OpenAI Assistants, Here\u2019s How",
       "upload_date": "20240423",
       "duration": "751",
       "view_count": "53735",
       "url": "https://youtube.com/watch?v=qOyNqGclSV4",
-      "collected_at": "2026-02-02T11:39:24.628077"
+      "collected_at": "2026-02-02T11:39:24.628077",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "EDDtamlqEAU",
@@ -2203,7 +2306,9 @@
       "duration": "1602",
       "view_count": "25858",
       "url": "https://youtube.com/watch?v=EDDtamlqEAU",
-      "collected_at": "2026-02-02T11:39:27.336057"
+      "collected_at": "2026-02-02T11:39:27.336057",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "pK8u4QfdLx0",
@@ -2212,16 +2317,20 @@
       "duration": "1460",
       "view_count": "342953",
       "url": "https://youtube.com/watch?v=pK8u4QfdLx0",
-      "collected_at": "2026-02-02T11:39:30.160044"
+      "collected_at": "2026-02-02T11:39:30.160044",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "i-txsBoTJtI",
-      "title": "Build Anything with Llama 3 Agents, Here’s How",
+      "title": "Build Anything with Llama 3 Agents, Here\u2019s How",
       "upload_date": "20240419",
       "duration": "743",
       "view_count": "181270",
       "url": "https://youtube.com/watch?v=i-txsBoTJtI",
-      "collected_at": "2026-02-02T11:39:32.694227"
+      "collected_at": "2026-02-02T11:39:32.694227",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "C4xL-apCINQ",
@@ -2230,7 +2339,9 @@
       "duration": "1022",
       "view_count": "30543",
       "url": "https://youtube.com/watch?v=C4xL-apCINQ",
-      "collected_at": "2026-02-02T11:39:35.140440"
+      "collected_at": "2026-02-02T11:39:35.140440",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "yTUNwqkPTNA",
@@ -2239,7 +2350,9 @@
       "duration": "656",
       "view_count": "7382",
       "url": "https://youtube.com/watch?v=yTUNwqkPTNA",
-      "collected_at": "2026-02-02T11:39:37.748581"
+      "collected_at": "2026-02-02T11:39:37.748581",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "NBgF8Fi1dNQ",
@@ -2248,7 +2361,9 @@
       "duration": "1819",
       "view_count": "18234",
       "url": "https://youtube.com/watch?v=NBgF8Fi1dNQ",
-      "collected_at": "2026-02-02T11:39:40.492089"
+      "collected_at": "2026-02-02T11:39:40.492089",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "rCEoAP7HcO8",
@@ -2257,16 +2372,20 @@
       "duration": "588",
       "view_count": "38459",
       "url": "https://youtube.com/watch?v=rCEoAP7HcO8",
-      "collected_at": "2026-02-02T11:39:42.978391"
+      "collected_at": "2026-02-02T11:39:42.978391",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "a3EfYSJyFRE",
-      "title": "Build Anything with Local Agents, Here’s How",
+      "title": "Build Anything with Local Agents, Here\u2019s How",
       "upload_date": "20240410",
       "duration": "864",
       "view_count": "29773",
       "url": "https://youtube.com/watch?v=a3EfYSJyFRE",
-      "collected_at": "2026-02-02T11:39:45.566430"
+      "collected_at": "2026-02-02T11:39:45.566430",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "fsIipBuM4Nc",
@@ -2275,7 +2394,9 @@
       "duration": "5326",
       "view_count": "67069",
       "url": "https://youtube.com/watch?v=fsIipBuM4Nc",
-      "collected_at": "2026-02-02T11:39:48.097641"
+      "collected_at": "2026-02-02T11:39:48.097641",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "9uQ-i3z_g0c",
@@ -2284,7 +2405,9 @@
       "duration": "734",
       "view_count": "20857",
       "url": "https://youtube.com/watch?v=9uQ-i3z_g0c",
-      "collected_at": "2026-02-02T11:39:50.654056"
+      "collected_at": "2026-02-02T11:39:50.654056",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "LSts2IDULAA",
@@ -2293,43 +2416,53 @@
       "duration": "688",
       "view_count": "18580",
       "url": "https://youtube.com/watch?v=LSts2IDULAA",
-      "collected_at": "2026-02-02T11:39:53.295863"
+      "collected_at": "2026-02-02T11:39:53.295863",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "IpvzXlUuxFk",
-      "title": "AI Expert: Anyone can build Agents, here’s how",
+      "title": "AI Expert: Anyone can build Agents, here\u2019s how",
       "upload_date": "20240329",
       "duration": "3202",
       "view_count": "24374",
       "url": "https://youtube.com/watch?v=IpvzXlUuxFk",
-      "collected_at": "2026-02-02T11:39:55.881789"
+      "collected_at": "2026-02-02T11:39:55.881789",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4Qz4GfvjGLY",
-      "title": "Agents with GPT-5 are here, it’s about to get crazy",
+      "title": "Agents with GPT-5 are here, it\u2019s about to get crazy",
       "upload_date": "20240326",
       "duration": "1355",
       "view_count": "49191",
       "url": "https://youtube.com/watch?v=4Qz4GfvjGLY",
-      "collected_at": "2026-02-02T11:39:58.842522"
+      "collected_at": "2026-02-02T11:39:58.842522",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "e24BlWvSLNM",
-      "title": "Self-Improving Agents are the future, let’s build one",
+      "title": "Self-Improving Agents are the future, let\u2019s build one",
       "upload_date": "20240324",
       "duration": "2043",
       "view_count": "76827",
       "url": "https://youtube.com/watch?v=e24BlWvSLNM",
-      "collected_at": "2026-02-02T11:40:01.530426"
+      "collected_at": "2026-02-02T11:40:01.530426",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jneXqgqdBg4",
-      "title": "AI Agents are rising up, don’t get left behind",
+      "title": "AI Agents are rising up, don\u2019t get left behind",
       "upload_date": "20240320",
       "duration": "1269",
       "view_count": "10730",
       "url": "https://youtube.com/watch?v=jneXqgqdBg4",
-      "collected_at": "2026-02-02T11:40:04.072678"
+      "collected_at": "2026-02-02T11:40:04.072678",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "kJRK7FJmrLQ",
@@ -2338,7 +2471,9 @@
       "duration": "946",
       "view_count": "17746",
       "url": "https://youtube.com/watch?v=kJRK7FJmrLQ",
-      "collected_at": "2026-02-02T11:40:06.565213"
+      "collected_at": "2026-02-02T11:40:06.565213",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "AxnL5GtWVNA",
@@ -2347,7 +2482,9 @@
       "duration": "1788",
       "view_count": "348682",
       "url": "https://youtube.com/watch?v=AxnL5GtWVNA",
-      "collected_at": "2026-02-02T11:40:10.198321"
+      "collected_at": "2026-02-02T11:40:10.198321",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ny9HE1Pi0Kw",
@@ -2356,7 +2493,9 @@
       "duration": "4782",
       "view_count": "10575",
       "url": "https://youtube.com/watch?v=ny9HE1Pi0Kw",
-      "collected_at": "2026-02-02T11:40:12.952384"
+      "collected_at": "2026-02-02T11:40:12.952384",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "ZkcrLOg6lL4",
@@ -2365,7 +2504,9 @@
       "duration": "1512",
       "view_count": "53978",
       "url": "https://youtube.com/watch?v=ZkcrLOg6lL4",
-      "collected_at": "2026-02-02T11:40:16.188352"
+      "collected_at": "2026-02-02T11:40:16.188352",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "30P0WEL1-zs",
@@ -2374,25 +2515,20 @@
       "duration": "1348",
       "view_count": "12251",
       "url": "https://youtube.com/watch?v=30P0WEL1-zs",
-      "collected_at": "2026-02-02T11:40:18.955122"
-    },
-    {
-      "id": "D8EidYUiCJU",
-      "title": "Running an AI Startup is BRUTAL.",
-      "upload_date": "20240311",
-      "duration": "43",
-      "view_count": "13987",
-      "url": "https://youtube.com/watch?v=D8EidYUiCJU",
-      "collected_at": "2026-02-03T13:02:09.729569"
+      "collected_at": "2026-02-02T11:40:18.955122",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "gqcK9KnvJtM",
-      "title": "AI Founder: OpenAI is Destroying Startups, Here’s Why",
+      "title": "AI Founder: OpenAI is Destroying Startups, Here\u2019s Why",
       "upload_date": "20240309",
       "duration": "6252",
       "view_count": "33947",
       "url": "https://youtube.com/watch?v=gqcK9KnvJtM",
-      "collected_at": "2026-02-02T11:40:21.419308"
+      "collected_at": "2026-02-02T11:40:21.419308",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "zu0n-kg1wmU",
@@ -2401,34 +2537,9 @@
       "duration": "1093",
       "view_count": "13574",
       "url": "https://youtube.com/watch?v=zu0n-kg1wmU",
-      "collected_at": "2026-02-02T11:40:23.931071"
-    },
-    {
-      "id": "vd7tJmPfoJA",
-      "title": "I built an AI research Agent #VEXT",
-      "upload_date": "20240307",
-      "duration": "56",
-      "view_count": "13838",
-      "url": "https://youtube.com/watch?v=vd7tJmPfoJA",
-      "collected_at": "2026-02-03T13:02:13.213009"
-    },
-    {
-      "id": "dzQjoBiVv0E",
-      "title": "Building an AI Agent is super easy #VEXT",
-      "upload_date": "20240306",
-      "duration": "28",
-      "view_count": "9691",
-      "url": "https://youtube.com/watch?v=dzQjoBiVv0E",
-      "collected_at": "2026-02-03T13:02:16.808758"
-    },
-    {
-      "id": "3HpWaUICG1Q",
-      "title": "OpenAI is in trouble...",
-      "upload_date": "20240305",
-      "duration": "18",
-      "view_count": "9829",
-      "url": "https://youtube.com/watch?v=3HpWaUICG1Q",
-      "collected_at": "2026-02-03T13:02:20.927253"
+      "collected_at": "2026-02-02T11:40:23.931071",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "oZstUXq9-0Y",
@@ -2437,7 +2548,9 @@
       "duration": "999",
       "view_count": "10557",
       "url": "https://youtube.com/watch?v=oZstUXq9-0Y",
-      "collected_at": "2026-02-02T11:40:26.527014"
+      "collected_at": "2026-02-02T11:40:26.527014",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "sZu_b9_0SF8",
@@ -2446,7 +2559,9 @@
       "duration": "488",
       "view_count": "7070",
       "url": "https://youtube.com/watch?v=sZu_b9_0SF8",
-      "collected_at": "2026-02-02T11:40:29.691767"
+      "collected_at": "2026-02-02T11:40:29.691767",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "39k4TYQG0iE",
@@ -2455,7 +2570,9 @@
       "duration": "1009",
       "view_count": "4682",
       "url": "https://youtube.com/watch?v=39k4TYQG0iE",
-      "collected_at": "2026-02-02T11:40:32.053831"
+      "collected_at": "2026-02-02T11:40:32.053831",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Q2EVvoJBoA8",
@@ -2464,16 +2581,20 @@
       "duration": "1608",
       "view_count": "5201",
       "url": "https://youtube.com/watch?v=Q2EVvoJBoA8",
-      "collected_at": "2026-02-02T11:40:34.592624"
+      "collected_at": "2026-02-02T11:40:34.592624",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "Lv7NAFJguyQ",
-      "title": "AGI is almost here - Here’s How To Prepare",
+      "title": "AGI is almost here - Here\u2019s How To Prepare",
       "upload_date": "20240225",
       "duration": "1159",
       "view_count": "17185",
       "url": "https://youtube.com/watch?v=Lv7NAFJguyQ",
-      "collected_at": "2026-02-02T11:40:37.065991"
+      "collected_at": "2026-02-02T11:40:37.065991",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "bQ5fctswLV8",
@@ -2482,7 +2603,9 @@
       "duration": "380",
       "view_count": "7469",
       "url": "https://youtube.com/watch?v=bQ5fctswLV8",
-      "collected_at": "2026-02-02T11:40:39.674441"
+      "collected_at": "2026-02-02T11:40:39.674441",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5sHdwtkTIlU",
@@ -2491,16 +2614,20 @@
       "duration": "674",
       "view_count": "2852",
       "url": "https://youtube.com/watch?v=5sHdwtkTIlU",
-      "collected_at": "2026-02-02T11:40:42.074999"
+      "collected_at": "2026-02-02T11:40:42.074999",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "qgT-quk3JEo",
-      "title": "Build Anything With ChatGPT API, Here’s How",
+      "title": "Build Anything With ChatGPT API, Here\u2019s How",
       "upload_date": "20240220",
       "duration": "731",
       "view_count": "207743",
       "url": "https://youtube.com/watch?v=qgT-quk3JEo",
-      "collected_at": "2026-02-02T11:40:44.544223"
+      "collected_at": "2026-02-02T11:40:44.544223",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "4Ql515LQYiU",
@@ -2509,7 +2636,9 @@
       "duration": "481",
       "view_count": "4078",
       "url": "https://youtube.com/watch?v=4Ql515LQYiU",
-      "collected_at": "2026-02-02T11:40:47.159806"
+      "collected_at": "2026-02-02T11:40:47.159806",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "VfrzPX3XF64",
@@ -2518,7 +2647,9 @@
       "duration": "481",
       "view_count": "10868",
       "url": "https://youtube.com/watch?v=VfrzPX3XF64",
-      "collected_at": "2026-02-02T11:40:49.652164"
+      "collected_at": "2026-02-02T11:40:49.652164",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "lUfyZ5CcUb0",
@@ -2527,7 +2658,9 @@
       "duration": "835",
       "view_count": "1955",
       "url": "https://youtube.com/watch?v=lUfyZ5CcUb0",
-      "collected_at": "2026-02-02T11:40:52.396247"
+      "collected_at": "2026-02-02T11:40:52.396247",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "H2rgRB0ngn8",
@@ -2536,7 +2669,9 @@
       "duration": "276",
       "view_count": "4380",
       "url": "https://youtube.com/watch?v=H2rgRB0ngn8",
-      "collected_at": "2026-02-02T11:40:54.912517"
+      "collected_at": "2026-02-02T11:40:54.912517",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "sXHWzKJcSVc",
@@ -2545,7 +2680,9 @@
       "duration": "551",
       "view_count": "7800",
       "url": "https://youtube.com/watch?v=sXHWzKJcSVc",
-      "collected_at": "2026-02-02T11:40:58.488333"
+      "collected_at": "2026-02-02T11:40:58.488333",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "DKwnUM_c1Xs",
@@ -2554,7 +2691,9 @@
       "duration": "612",
       "view_count": "4946",
       "url": "https://youtube.com/watch?v=DKwnUM_c1Xs",
-      "collected_at": "2026-02-02T11:41:01.604292"
+      "collected_at": "2026-02-02T11:41:01.604292",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "4YTcl--Ox5o",
@@ -2563,34 +2702,31 @@
       "duration": "783",
       "view_count": "7996",
       "url": "https://youtube.com/watch?v=4YTcl--Ox5o",
-      "collected_at": "2026-02-02T11:41:04.890092"
-    },
-    {
-      "id": "D_M9NG9qK8g",
-      "title": "Elon Musk reveals how Grok was made... #ai #chatgpt #grok",
-      "upload_date": "20240201",
-      "duration": "28",
-      "view_count": "6072",
-      "url": "https://youtube.com/watch?v=D_M9NG9qK8g",
-      "collected_at": "2026-02-03T13:02:24.347832"
+      "collected_at": "2026-02-02T11:41:04.890092",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "YPeUGEx4FyQ",
-      "title": "OpenAI is lying about ChatGPT, here’s the proof",
+      "title": "OpenAI is lying about ChatGPT, here\u2019s the proof",
       "upload_date": "20240131",
       "duration": "572",
       "view_count": "5014",
       "url": "https://youtube.com/watch?v=YPeUGEx4FyQ",
-      "collected_at": "2026-02-02T11:41:07.654088"
+      "collected_at": "2026-02-02T11:41:07.654088",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "eLUSUhYDVHo",
-      "title": "Learn JavaScript with ChatGPT, here’s how",
+      "title": "Learn JavaScript with ChatGPT, here\u2019s how",
       "upload_date": "20240130",
       "duration": "15396",
       "view_count": "5035",
       "url": "https://youtube.com/watch?v=eLUSUhYDVHo",
-      "collected_at": "2026-02-02T11:41:10.121420"
+      "collected_at": "2026-02-02T11:41:10.121420",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "2y1j3qlY0rg",
@@ -2599,16 +2735,20 @@
       "duration": "544",
       "view_count": "4465",
       "url": "https://youtube.com/watch?v=2y1j3qlY0rg",
-      "collected_at": "2026-02-02T11:41:12.559372"
+      "collected_at": "2026-02-02T11:41:12.559372",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "XCW5Hh1Vxuk",
-      "title": "the Palworld AI situation is crazier than you think…",
+      "title": "the Palworld AI situation is crazier than you think\u2026",
       "upload_date": "20240128",
       "duration": "848",
       "view_count": "1986",
       "url": "https://youtube.com/watch?v=XCW5Hh1Vxuk",
-      "collected_at": "2026-02-02T11:41:15.229375"
+      "collected_at": "2026-02-02T11:41:15.229375",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "TGvZ1XFuRdo",
@@ -2617,52 +2757,20 @@
       "duration": "885",
       "view_count": "1508",
       "url": "https://youtube.com/watch?v=TGvZ1XFuRdo",
-      "collected_at": "2026-02-02T11:41:17.888096"
-    },
-    {
-      "id": "VkQ6SnNpPP4",
-      "title": "NOBODY CAN STOP THE AI #chatgpt #ai #aiart #aigenerated",
-      "upload_date": "20240123",
-      "duration": "40",
-      "view_count": "4390",
-      "url": "https://youtube.com/watch?v=VkQ6SnNpPP4",
-      "collected_at": "2026-02-03T13:02:27.714177"
-    },
-    {
-      "id": "uODHHXS45Mg",
-      "title": "The life of a programmer 😢 #ai #chatgpt",
-      "upload_date": "20240118",
-      "duration": "26",
-      "view_count": "6630",
-      "url": "https://youtube.com/watch?v=uODHHXS45Mg",
-      "collected_at": "2026-02-03T13:02:31.138419"
-    },
-    {
-      "id": "Z0W1HaeU37U",
-      "title": "NOTHING WILL STOP THE CAT #ai #chatgpt #aiart #aigenerated",
-      "upload_date": "20240117",
-      "duration": "40",
-      "view_count": "5502",
-      "url": "https://youtube.com/watch?v=Z0W1HaeU37U",
-      "collected_at": "2026-02-03T13:02:34.291667"
+      "collected_at": "2026-02-02T11:41:17.888096",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "dXSfqzRW43I",
-      "title": "Build Any Website With ChatGPT, Here’s How",
+      "title": "Build Any Website With ChatGPT, Here\u2019s How",
       "upload_date": "20240116",
       "duration": "5322",
       "view_count": "18518",
       "url": "https://youtube.com/watch?v=dXSfqzRW43I",
-      "collected_at": "2026-02-02T11:41:20.444257"
-    },
-    {
-      "id": "WbYAb-SqAXE",
-      "title": "Don't ignore Jeff Bezos...",
-      "upload_date": "20231218",
-      "duration": "34",
-      "view_count": "9250",
-      "url": "https://youtube.com/watch?v=WbYAb-SqAXE",
-      "collected_at": "2026-02-03T13:02:37.414747"
+      "collected_at": "2026-02-02T11:41:20.444257",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_vkqpeXCDQM",
@@ -2671,7 +2779,9 @@
       "duration": "1916",
       "view_count": "66483",
       "url": "https://youtube.com/watch?v=_vkqpeXCDQM",
-      "collected_at": "2026-02-02T11:41:22.798750"
+      "collected_at": "2026-02-02T11:41:22.798750",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "DPb2PfhZSrI",
@@ -2680,7 +2790,9 @@
       "duration": "1151",
       "view_count": "2289",
       "url": "https://youtube.com/watch?v=DPb2PfhZSrI",
-      "collected_at": "2026-02-02T11:41:25.365784"
+      "collected_at": "2026-02-02T11:41:25.365784",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "T2gKsuyMPTk",
@@ -2689,7 +2801,9 @@
       "duration": "809",
       "view_count": "24251",
       "url": "https://youtube.com/watch?v=T2gKsuyMPTk",
-      "collected_at": "2026-02-02T11:41:27.837301"
+      "collected_at": "2026-02-02T11:41:27.837301",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "PwKoAYwGqes",
@@ -2698,7 +2812,9 @@
       "duration": "2680",
       "view_count": "7346",
       "url": "https://youtube.com/watch?v=PwKoAYwGqes",
-      "collected_at": "2026-02-02T11:41:30.542637"
+      "collected_at": "2026-02-02T11:41:30.542637",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "lcNAOGlfFRw",
@@ -2707,7 +2823,9 @@
       "duration": "1400",
       "view_count": "5504",
       "url": "https://youtube.com/watch?v=lcNAOGlfFRw",
-      "collected_at": "2026-02-02T11:41:33.083210"
+      "collected_at": "2026-02-02T11:41:33.083210",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_5-_MKKOOA4",
@@ -2716,7 +2834,9 @@
       "duration": "938",
       "view_count": "14072",
       "url": "https://youtube.com/watch?v=_5-_MKKOOA4",
-      "collected_at": "2026-02-02T11:41:35.832293"
+      "collected_at": "2026-02-02T11:41:35.832293",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "pVp88optdGw",
@@ -2725,7 +2845,9 @@
       "duration": "1094",
       "view_count": "21101",
       "url": "https://youtube.com/watch?v=pVp88optdGw",
-      "collected_at": "2026-02-02T11:41:38.281441"
+      "collected_at": "2026-02-02T11:41:38.281441",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "qJ0muUQDZb0",
@@ -2734,7 +2856,9 @@
       "duration": "1423",
       "view_count": "11461",
       "url": "https://youtube.com/watch?v=qJ0muUQDZb0",
-      "collected_at": "2026-02-02T11:41:40.806193"
+      "collected_at": "2026-02-02T11:41:40.806193",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "golOcm0qdsE",
@@ -2743,7 +2867,9 @@
       "duration": "435",
       "view_count": "29191",
       "url": "https://youtube.com/watch?v=golOcm0qdsE",
-      "collected_at": "2026-02-02T11:41:43.321027"
+      "collected_at": "2026-02-02T11:41:43.321027",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "kQc2muuW-Ws",
@@ -2752,7 +2878,9 @@
       "duration": "1024",
       "view_count": "29567",
       "url": "https://youtube.com/watch?v=kQc2muuW-Ws",
-      "collected_at": "2026-02-02T11:41:45.976984"
+      "collected_at": "2026-02-02T11:41:45.976984",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "_hqftql5Ufk",
@@ -2761,7 +2889,9 @@
       "duration": "725",
       "view_count": "18662",
       "url": "https://youtube.com/watch?v=_hqftql5Ufk",
-      "collected_at": "2026-02-02T11:41:48.482096"
+      "collected_at": "2026-02-02T11:41:48.482096",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ssYl11_pjuA",
@@ -2770,16 +2900,20 @@
       "duration": "983",
       "view_count": "20115",
       "url": "https://youtube.com/watch?v=ssYl11_pjuA",
-      "collected_at": "2026-02-02T11:41:50.973728"
+      "collected_at": "2026-02-02T11:41:50.973728",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "NhzbqTHRw4A",
-      "title": "Why was Sam Altman fired? (It’s worse than you think)",
+      "title": "Why was Sam Altman fired? (It\u2019s worse than you think)",
       "upload_date": "20231118",
       "duration": "2502",
       "view_count": "33275",
       "url": "https://youtube.com/watch?v=NhzbqTHRw4A",
-      "collected_at": "2026-02-02T11:41:53.743380"
+      "collected_at": "2026-02-02T11:41:53.743380",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "iwCqC8Wdosc",
@@ -2788,7 +2922,9 @@
       "duration": "560",
       "view_count": "9831",
       "url": "https://youtube.com/watch?v=iwCqC8Wdosc",
-      "collected_at": "2026-02-02T11:41:56.350845"
+      "collected_at": "2026-02-02T11:41:56.350845",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "FHUs99QAuXg",
@@ -2797,7 +2933,9 @@
       "duration": "1529",
       "view_count": "2751",
       "url": "https://youtube.com/watch?v=FHUs99QAuXg",
-      "collected_at": "2026-02-02T11:41:59.352729"
+      "collected_at": "2026-02-02T11:41:59.352729",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "X8mdtbnEMFY",
@@ -2806,7 +2944,9 @@
       "duration": "1252",
       "view_count": "10636",
       "url": "https://youtube.com/watch?v=X8mdtbnEMFY",
-      "collected_at": "2026-02-02T11:42:02.104733"
+      "collected_at": "2026-02-02T11:42:02.104733",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "KobOs06yiss",
@@ -2815,7 +2955,9 @@
       "duration": "1665",
       "view_count": "5041",
       "url": "https://youtube.com/watch?v=KobOs06yiss",
-      "collected_at": "2026-02-02T11:42:04.784423"
+      "collected_at": "2026-02-02T11:42:04.784423",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "aHsunc60Xms",
@@ -2824,7 +2966,9 @@
       "duration": "2851",
       "view_count": "24913",
       "url": "https://youtube.com/watch?v=aHsunc60Xms",
-      "collected_at": "2026-02-02T11:42:07.256634"
+      "collected_at": "2026-02-02T11:42:07.256634",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "MxV5BgsYPlE",
@@ -2833,34 +2977,9 @@
       "duration": "1041",
       "view_count": "53056",
       "url": "https://youtube.com/watch?v=MxV5BgsYPlE",
-      "collected_at": "2026-02-02T11:42:09.777773"
-    },
-    {
-      "id": "KDokoaqrFg4",
-      "title": "Sam Altman creates a GPT agent LIVE",
-      "upload_date": "20231107",
-      "duration": "55",
-      "view_count": "35642",
-      "url": "https://youtube.com/watch?v=KDokoaqrFg4",
-      "collected_at": "2026-02-03T13:02:41.072338"
-    },
-    {
-      "id": "gNyAzlLGr5Q",
-      "title": "ChatGPT will now have AI agents",
-      "upload_date": "20231107",
-      "duration": "54",
-      "view_count": "9050",
-      "url": "https://youtube.com/watch?v=gNyAzlLGr5Q",
-      "collected_at": "2026-02-03T13:02:44.625657"
-    },
-    {
-      "id": "U9n49gDG2cY",
-      "title": "New GPT model released by OpenAI",
-      "upload_date": "20231107",
-      "duration": "37",
-      "view_count": "12617",
-      "url": "https://youtube.com/watch?v=U9n49gDG2cY",
-      "collected_at": "2026-02-03T13:02:48.229098"
+      "collected_at": "2026-02-02T11:42:09.777773",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "VmNBPqQXNgU",
@@ -2869,7 +2988,9 @@
       "duration": "585",
       "view_count": "18897",
       "url": "https://youtube.com/watch?v=VmNBPqQXNgU",
-      "collected_at": "2026-02-02T11:42:12.413345"
+      "collected_at": "2026-02-02T11:42:12.413345",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "0jHpcxTEpeU",
@@ -2878,16 +2999,20 @@
       "duration": "904",
       "view_count": "3780",
       "url": "https://youtube.com/watch?v=0jHpcxTEpeU",
-      "collected_at": "2026-02-02T11:42:14.901030"
+      "collected_at": "2026-02-02T11:42:14.901030",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "N_P4pJjVTKc",
-      "title": "Build Anything With ChatGPT, Here’s How",
+      "title": "Build Anything With ChatGPT, Here\u2019s How",
       "upload_date": "20231104",
       "duration": "5044",
       "view_count": "1128953",
       "url": "https://youtube.com/watch?v=N_P4pJjVTKc",
-      "collected_at": "2026-02-02T11:42:17.911017"
+      "collected_at": "2026-02-02T11:42:17.911017",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "jMM29sxQliI",
@@ -2896,7 +3021,9 @@
       "duration": "614",
       "view_count": "6685",
       "url": "https://youtube.com/watch?v=jMM29sxQliI",
-      "collected_at": "2026-02-02T11:42:20.396426"
+      "collected_at": "2026-02-02T11:42:20.396426",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "HLyEGlYjCfI",
@@ -2905,7 +3032,9 @@
       "duration": "533",
       "view_count": "3982",
       "url": "https://youtube.com/watch?v=HLyEGlYjCfI",
-      "collected_at": "2026-02-02T11:42:23.314928"
+      "collected_at": "2026-02-02T11:42:23.314928",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "dR8JMsYtq9w",
@@ -2914,7 +3043,9 @@
       "duration": "510",
       "view_count": "144012",
       "url": "https://youtube.com/watch?v=dR8JMsYtq9w",
-      "collected_at": "2026-02-02T11:42:25.911344"
+      "collected_at": "2026-02-02T11:42:25.911344",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "MNwM-VnTmEQ",
@@ -2923,7 +3054,9 @@
       "duration": "561",
       "view_count": "4615",
       "url": "https://youtube.com/watch?v=MNwM-VnTmEQ",
-      "collected_at": "2026-02-02T11:42:28.486848"
+      "collected_at": "2026-02-02T11:42:28.486848",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "zlRnTw77eaY",
@@ -2932,16 +3065,20 @@
       "duration": "647",
       "view_count": "57870",
       "url": "https://youtube.com/watch?v=zlRnTw77eaY",
-      "collected_at": "2026-02-02T11:42:31.025428"
+      "collected_at": "2026-02-02T11:42:31.025428",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "uxIY_jFpLLM",
-      "title": "Big Tech’s Dirty Plan To END Open Source",
+      "title": "Big Tech\u2019s Dirty Plan To END Open Source",
       "upload_date": "20231010",
       "duration": "746",
       "view_count": "2525",
       "url": "https://youtube.com/watch?v=uxIY_jFpLLM",
-      "collected_at": "2026-02-02T11:42:33.487905"
+      "collected_at": "2026-02-02T11:42:33.487905",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5VCioa_eaPk",
@@ -2950,7 +3087,9 @@
       "duration": "759",
       "view_count": "19573",
       "url": "https://youtube.com/watch?v=5VCioa_eaPk",
-      "collected_at": "2026-02-02T11:42:35.830540"
+      "collected_at": "2026-02-02T11:42:35.830540",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "QM8BJ9Vqhs0",
@@ -2959,16 +3098,20 @@
       "duration": "657",
       "view_count": "20319",
       "url": "https://youtube.com/watch?v=QM8BJ9Vqhs0",
-      "collected_at": "2026-02-02T11:42:38.250700"
+      "collected_at": "2026-02-02T11:42:38.250700",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "AOaPPSdCtpA",
-      "title": "Crazy AI News! ChatGPT, Gemini, DALL-E 3, Meta AI…",
+      "title": "Crazy AI News! ChatGPT, Gemini, DALL-E 3, Meta AI\u2026",
       "upload_date": "20230929",
       "duration": "582",
       "view_count": "1944",
       "url": "https://youtube.com/watch?v=AOaPPSdCtpA",
-      "collected_at": "2026-02-02T11:42:40.776206"
+      "collected_at": "2026-02-02T11:42:40.776206",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "NsfMOCjFQqA",
@@ -2977,43 +3120,9 @@
       "duration": "496",
       "view_count": "30801",
       "url": "https://youtube.com/watch?v=NsfMOCjFQqA",
-      "collected_at": "2026-02-02T11:42:44.521352"
-    },
-    {
-      "id": "tE0zXzvPb4g",
-      "title": "Why didn't Google release their AI?",
-      "upload_date": "20230923",
-      "duration": "47",
-      "view_count": "1310",
-      "url": "https://youtube.com/watch?v=tE0zXzvPb4g",
-      "collected_at": "2026-02-03T13:02:51.833386"
-    },
-    {
-      "id": "nQi_nBLSPRc",
-      "title": "GPT-4 is super smart...",
-      "upload_date": "20230922",
-      "duration": "39",
-      "view_count": "1355",
-      "url": "https://youtube.com/watch?v=nQi_nBLSPRc",
-      "collected_at": "2026-02-03T13:02:55.648282"
-    },
-    {
-      "id": "wrCeIVqkI6M",
-      "title": "Youtuber gives AI tips",
-      "upload_date": "20230921",
-      "duration": "57",
-      "view_count": "549",
-      "url": "https://youtube.com/watch?v=wrCeIVqkI6M",
-      "collected_at": "2026-02-03T13:02:58.982359"
-    },
-    {
-      "id": "rdqgEeU6vD8",
-      "title": "the future of AI assistants",
-      "upload_date": "20230920",
-      "duration": "27",
-      "view_count": "543",
-      "url": "https://youtube.com/watch?v=rdqgEeU6vD8",
-      "collected_at": "2026-02-03T13:03:02.226721"
+      "collected_at": "2026-02-02T11:42:44.521352",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1N7RdsC_3Mw",
@@ -3022,79 +3131,9 @@
       "duration": "809",
       "view_count": "2098",
       "url": "https://youtube.com/watch?v=1N7RdsC_3Mw",
-      "collected_at": "2026-02-02T11:42:46.979599"
-    },
-    {
-      "id": "H9LsXdG1CNE",
-      "title": "How YouTubers use AI",
-      "upload_date": "20230918",
-      "duration": "56",
-      "view_count": "1229",
-      "url": "https://youtube.com/watch?v=H9LsXdG1CNE",
-      "collected_at": "2026-02-03T13:03:05.508007"
-    },
-    {
-      "id": "1jjontpbV_k",
-      "title": "When will AI take over the world?",
-      "upload_date": "20230917",
-      "duration": "35",
-      "view_count": "567",
-      "url": "https://youtube.com/watch?v=1jjontpbV_k",
-      "collected_at": "2026-02-03T13:03:08.718735"
-    },
-    {
-      "id": "JsoNG9Dw8ZA",
-      "title": "Is OpenAI actually pausing development?",
-      "upload_date": "20230916",
-      "duration": "29",
-      "view_count": "996",
-      "url": "https://youtube.com/watch?v=JsoNG9Dw8ZA",
-      "collected_at": "2026-02-03T13:03:12.202486"
-    },
-    {
-      "id": "FViknXKd6SU",
-      "title": "Why is OpenAI successful?",
-      "upload_date": "20230915",
-      "duration": "36",
-      "view_count": "688",
-      "url": "https://youtube.com/watch?v=FViknXKd6SU",
-      "collected_at": "2026-02-03T13:03:15.584790"
-    },
-    {
-      "id": "QLt8lgbOogA",
-      "title": "This is OpenAI's biggest advantage...",
-      "upload_date": "20230914",
-      "duration": "37",
-      "view_count": "462",
-      "url": "https://youtube.com/watch?v=QLt8lgbOogA",
-      "collected_at": "2026-02-03T13:03:20.455963"
-    },
-    {
-      "id": "Xteb4bnuhxI",
-      "title": "Will AI solve climate change?",
-      "upload_date": "20230914",
-      "duration": "47",
-      "view_count": "536",
-      "url": "https://youtube.com/watch?v=Xteb4bnuhxI",
-      "collected_at": "2026-02-03T13:03:23.574528"
-    },
-    {
-      "id": "PdDozSEikhg",
-      "title": "AI controls you - here's why",
-      "upload_date": "20230913",
-      "duration": "50",
-      "view_count": "400",
-      "url": "https://youtube.com/watch?v=PdDozSEikhg",
-      "collected_at": "2026-02-03T13:03:26.794110"
-    },
-    {
-      "id": "xGG8kCuA0dE",
-      "title": "$1 Billion AI models are coming...",
-      "upload_date": "20230913",
-      "duration": "55",
-      "view_count": "2960",
-      "url": "https://youtube.com/watch?v=xGG8kCuA0dE",
-      "collected_at": "2026-02-03T13:03:30.823307"
+      "collected_at": "2026-02-02T11:42:46.979599",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ohpEYGqW0gI",
@@ -3103,7 +3142,9 @@
       "duration": "626",
       "view_count": "9452",
       "url": "https://youtube.com/watch?v=ohpEYGqW0gI",
-      "collected_at": "2026-02-02T11:42:49.614832"
+      "collected_at": "2026-02-02T11:42:49.614832",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "6vUNairBecQ",
@@ -3112,52 +3153,9 @@
       "duration": "732",
       "view_count": "1215",
       "url": "https://youtube.com/watch?v=6vUNairBecQ",
-      "collected_at": "2026-02-02T11:42:52.772944"
-    },
-    {
-      "id": "ohNZj1qQ100",
-      "title": "JFK Was Using AI?!",
-      "upload_date": "20230829",
-      "duration": "55",
-      "view_count": "3220",
-      "url": "https://youtube.com/watch?v=ohNZj1qQ100",
-      "collected_at": "2026-02-03T13:03:34.162223"
-    },
-    {
-      "id": "up-hlEZ56fE",
-      "title": "The World's First Robot Is... Interesting",
-      "upload_date": "20230828",
-      "duration": "39",
-      "view_count": "3415",
-      "url": "https://youtube.com/watch?v=up-hlEZ56fE",
-      "collected_at": "2026-02-03T13:03:37.514280"
-    },
-    {
-      "id": "tkIUzzwXueo",
-      "title": "WHY DID I INCLUDE THE 5TH BOOK?!",
-      "upload_date": "20230827",
-      "duration": "54",
-      "view_count": "1582",
-      "url": "https://youtube.com/watch?v=tkIUzzwXueo",
-      "collected_at": "2026-02-03T13:03:40.763934"
-    },
-    {
-      "id": "CaEr_y7cM5Q",
-      "title": "Google Is In Trouble...",
-      "upload_date": "20230826",
-      "duration": "48",
-      "view_count": "3917",
-      "url": "https://youtube.com/watch?v=CaEr_y7cM5Q",
-      "collected_at": "2026-02-03T13:03:43.980668"
-    },
-    {
-      "id": "PC5QaZl-jyk",
-      "title": "5 AI Tools You Never Heard Of...",
-      "upload_date": "20230825",
-      "duration": "43",
-      "view_count": "3308",
-      "url": "https://youtube.com/watch?v=PC5QaZl-jyk",
-      "collected_at": "2026-02-03T13:03:47.707602"
+      "collected_at": "2026-02-02T11:42:52.772944",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "LrFUdR1fn8s",
@@ -3166,16 +3164,9 @@
       "duration": "6661",
       "view_count": "839",
       "url": "https://youtube.com/watch?v=LrFUdR1fn8s",
-      "collected_at": "2026-02-02T11:42:55.148060"
-    },
-    {
-      "id": "qPu9fUMg0ec",
-      "title": "MrBeast wants to study AI",
-      "upload_date": "20230628",
-      "duration": "48",
-      "view_count": "3654",
-      "url": "https://youtube.com/watch?v=qPu9fUMg0ec",
-      "collected_at": "2026-02-03T13:03:51.334992"
+      "collected_at": "2026-02-02T11:42:55.148060",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "eqWpPeTPS3w",
@@ -3184,7 +3175,9 @@
       "duration": "507",
       "view_count": "12848",
       "url": "https://youtube.com/watch?v=eqWpPeTPS3w",
-      "collected_at": "2026-02-02T11:42:57.583487"
+      "collected_at": "2026-02-02T11:42:57.583487",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "fpUy94y9qJE",
@@ -3193,7 +3186,9 @@
       "duration": "546",
       "view_count": "8233",
       "url": "https://youtube.com/watch?v=fpUy94y9qJE",
-      "collected_at": "2026-02-02T11:43:00.974610"
+      "collected_at": "2026-02-02T11:43:00.974610",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "v8ygaLVZ-y8",
@@ -3202,16 +3197,20 @@
       "duration": "781",
       "view_count": "7122",
       "url": "https://youtube.com/watch?v=v8ygaLVZ-y8",
-      "collected_at": "2026-02-02T11:43:04.561981"
+      "collected_at": "2026-02-02T11:43:04.561981",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ViMW5pM95Qo",
-      "title": "Sam Altman’s Secret Interview",
+      "title": "Sam Altman\u2019s Secret Interview",
       "upload_date": "20230523",
       "duration": "1039",
       "view_count": "14741",
       "url": "https://youtube.com/watch?v=ViMW5pM95Qo",
-      "collected_at": "2026-02-02T11:43:07.197008"
+      "collected_at": "2026-02-02T11:43:07.197008",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "hr7c9XWNqBY",
@@ -3220,7 +3219,9 @@
       "duration": "635",
       "view_count": "26560",
       "url": "https://youtube.com/watch?v=hr7c9XWNqBY",
-      "collected_at": "2026-02-02T11:43:09.664703"
+      "collected_at": "2026-02-02T11:43:09.664703",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "Y2Xt7bJcg_M",
@@ -3229,7 +3230,9 @@
       "duration": "707",
       "view_count": "83523",
       "url": "https://youtube.com/watch?v=Y2Xt7bJcg_M",
-      "collected_at": "2026-02-02T11:43:13.294972"
+      "collected_at": "2026-02-02T11:43:13.294972",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1XnUtykdt1w",
@@ -3238,16 +3241,20 @@
       "duration": "575",
       "view_count": "96897",
       "url": "https://youtube.com/watch?v=1XnUtykdt1w",
-      "collected_at": "2026-02-02T11:43:16.696919"
+      "collected_at": "2026-02-02T11:43:16.696919",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "w2OLT0CpJeY",
-      "title": "Why OpenAI Isn’t Open Anymore",
+      "title": "Why OpenAI Isn\u2019t Open Anymore",
       "upload_date": "20230519",
       "duration": "626",
       "view_count": "6987",
       "url": "https://youtube.com/watch?v=w2OLT0CpJeY",
-      "collected_at": "2026-02-02T11:43:19.157062"
+      "collected_at": "2026-02-02T11:43:19.157062",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "XPGdVZtjjOM",
@@ -3256,7 +3263,9 @@
       "duration": "698",
       "view_count": "2951",
       "url": "https://youtube.com/watch?v=XPGdVZtjjOM",
-      "collected_at": "2026-02-02T11:43:21.618213"
+      "collected_at": "2026-02-02T11:43:21.618213",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "WgIlAB3cS6U",
@@ -3265,16 +3274,20 @@
       "duration": "611",
       "view_count": "387901",
       "url": "https://youtube.com/watch?v=WgIlAB3cS6U",
-      "collected_at": "2026-02-02T11:43:24.696987"
+      "collected_at": "2026-02-02T11:43:24.696987",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "FKSXoyvmcyM",
-      "title": "Sam Altman Talks AI, Elon Musk, ChatGPT, Google…",
+      "title": "Sam Altman Talks AI, Elon Musk, ChatGPT, Google\u2026",
       "upload_date": "20230516",
       "duration": "796",
       "view_count": "31232",
       "url": "https://youtube.com/watch?v=FKSXoyvmcyM",
-      "collected_at": "2026-02-02T11:43:27.293316"
+      "collected_at": "2026-02-02T11:43:27.293316",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "pOg-eBsaVIY",
@@ -3283,7 +3296,9 @@
       "duration": "690",
       "view_count": "3563",
       "url": "https://youtube.com/watch?v=pOg-eBsaVIY",
-      "collected_at": "2026-02-02T11:43:29.807022"
+      "collected_at": "2026-02-02T11:43:29.807022",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "EKuYYFxrn0I",
@@ -3292,7 +3307,9 @@
       "duration": "480",
       "view_count": "22720",
       "url": "https://youtube.com/watch?v=EKuYYFxrn0I",
-      "collected_at": "2026-02-02T11:43:32.188136"
+      "collected_at": "2026-02-02T11:43:32.188136",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "VYByaFrk2gk",
@@ -3301,7 +3318,9 @@
       "duration": "1063",
       "view_count": "4495",
       "url": "https://youtube.com/watch?v=VYByaFrk2gk",
-      "collected_at": "2026-02-02T11:43:34.737633"
+      "collected_at": "2026-02-02T11:43:34.737633",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "4kutenB9Er0",
@@ -3310,7 +3329,9 @@
       "duration": "651",
       "view_count": "15504",
       "url": "https://youtube.com/watch?v=4kutenB9Er0",
-      "collected_at": "2026-02-02T11:43:37.954845"
+      "collected_at": "2026-02-02T11:43:37.954845",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ZwZdVtTW34M",
@@ -3319,7 +3340,9 @@
       "duration": "489",
       "view_count": "1163",
       "url": "https://youtube.com/watch?v=ZwZdVtTW34M",
-      "collected_at": "2026-02-02T11:43:40.513315"
+      "collected_at": "2026-02-02T11:43:40.513315",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "5YHrnLoKn_w",
@@ -3328,7 +3351,9 @@
       "duration": "379",
       "view_count": "39127",
       "url": "https://youtube.com/watch?v=5YHrnLoKn_w",
-      "collected_at": "2026-02-02T11:43:43.583669"
+      "collected_at": "2026-02-02T11:43:43.583669",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "BH_PSss_d7E",
@@ -3337,7 +3362,9 @@
       "duration": "1025",
       "view_count": "2338",
       "url": "https://youtube.com/watch?v=BH_PSss_d7E",
-      "collected_at": "2026-02-02T11:43:45.972674"
+      "collected_at": "2026-02-02T11:43:45.972674",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "BQxXfgQXHA8",
@@ -3346,7 +3373,9 @@
       "duration": "676",
       "view_count": "911",
       "url": "https://youtube.com/watch?v=BQxXfgQXHA8",
-      "collected_at": "2026-02-02T11:43:48.736084"
+      "collected_at": "2026-02-02T11:43:48.736084",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "eUqkmjyfZvw",
@@ -3355,7 +3384,9 @@
       "duration": "1143",
       "view_count": "2554",
       "url": "https://youtube.com/watch?v=eUqkmjyfZvw",
-      "collected_at": "2026-02-02T11:43:51.194849"
+      "collected_at": "2026-02-02T11:43:51.194849",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "tdBBqg7EZyk",
@@ -3364,7 +3395,9 @@
       "duration": "383",
       "view_count": "2241",
       "url": "https://youtube.com/watch?v=tdBBqg7EZyk",
-      "collected_at": "2026-02-02T11:43:53.733154"
+      "collected_at": "2026-02-02T11:43:53.733154",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "8IlO6ONPoWc",
@@ -3373,7 +3406,9 @@
       "duration": "659",
       "view_count": "14786",
       "url": "https://youtube.com/watch?v=8IlO6ONPoWc",
-      "collected_at": "2026-02-02T11:43:56.342107"
+      "collected_at": "2026-02-02T11:43:56.342107",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ANW6fg2lIp0",
@@ -3382,7 +3417,9 @@
       "duration": "265",
       "view_count": "1490",
       "url": "https://youtube.com/watch?v=ANW6fg2lIp0",
-      "collected_at": "2026-02-02T11:43:58.877346"
+      "collected_at": "2026-02-02T11:43:58.877346",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "zdIx1E64GcA",
@@ -3391,7 +3428,9 @@
       "duration": "577",
       "view_count": "916",
       "url": "https://youtube.com/watch?v=zdIx1E64GcA",
-      "collected_at": "2026-02-02T11:44:01.451365"
+      "collected_at": "2026-02-02T11:44:01.451365",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "DGls3Q9pURI",
@@ -3400,7 +3439,9 @@
       "duration": "906",
       "view_count": "14465",
       "url": "https://youtube.com/watch?v=DGls3Q9pURI",
-      "collected_at": "2026-02-02T11:44:04.021115"
+      "collected_at": "2026-02-02T11:44:04.021115",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "ivWb5ohuzOQ",
@@ -3409,7 +3450,9 @@
       "duration": "734",
       "view_count": "603",
       "url": "https://youtube.com/watch?v=ivWb5ohuzOQ",
-      "collected_at": "2026-02-02T11:44:06.646194"
+      "collected_at": "2026-02-02T11:44:06.646194",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "g1uZQQLeoZs",
@@ -3418,7 +3461,9 @@
       "duration": "2146",
       "view_count": "1793",
       "url": "https://youtube.com/watch?v=g1uZQQLeoZs",
-      "collected_at": "2026-02-02T11:44:09.780914"
+      "collected_at": "2026-02-02T11:44:09.780914",
+      "is_long_form": true,
+      "duration_bonus": 1.5
     },
     {
       "id": "O0Yx4uaH18w",
@@ -3427,7 +3472,9 @@
       "duration": "704",
       "view_count": "2479",
       "url": "https://youtube.com/watch?v=O0Yx4uaH18w",
-      "collected_at": "2026-02-02T11:44:12.301467"
+      "collected_at": "2026-02-02T11:44:12.301467",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "0L8T3YrtHvY",
@@ -3436,7 +3483,9 @@
       "duration": "647",
       "view_count": "2488",
       "url": "https://youtube.com/watch?v=0L8T3YrtHvY",
-      "collected_at": "2026-02-02T11:44:14.712731"
+      "collected_at": "2026-02-02T11:44:14.712731",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     },
     {
       "id": "1he_Izj8AHc",
@@ -3445,38 +3494,20 @@
       "duration": "903",
       "view_count": "1287185",
       "url": "https://youtube.com/watch?v=1he_Izj8AHc",
-      "collected_at": "2026-02-02T11:44:17.309084"
-    },
-    {
-      "id": "yKJsLbTRq5o",
-      "title": "The End Of ChatGPT...",
-      "upload_date": "20230426",
-      "duration": "46",
-      "view_count": "4493",
-      "url": "https://youtube.com/watch?v=yKJsLbTRq5o",
-      "collected_at": "2026-02-03T13:03:55.065068"
-    },
-    {
-      "id": "7TKZ-wDccr4",
-      "title": "Elon Musk's AI Warning...",
-      "upload_date": "20230418",
-      "duration": "53",
-      "view_count": "2807",
-      "url": "https://youtube.com/watch?v=7TKZ-wDccr4",
-      "collected_at": "2026-02-03T13:03:58.358281"
-    },
-    {
-      "id": "XWO5_N3D62A",
-      "title": "Hello World.",
-      "upload_date": "20230417",
-      "duration": "49",
-      "view_count": "4874",
-      "url": "https://youtube.com/watch?v=XWO5_N3D62A",
-      "collected_at": "2026-02-02T11:44:20.326342"
+      "collected_at": "2026-02-02T11:44:17.309084",
+      "is_long_form": false,
+      "duration_bonus": 1.0
     }
   ],
   "creator": "David Ondrej",
   "creator_slug": "david_ondrej",
   "total_videos": 386,
-  "last_updated": "2026-02-04T00:55:38.761084"
+  "last_updated": "2026-02-03T23:24:40.835174",
+  "filtered_at": "2026-02-04T04:37:37.345418",
+  "stats": {
+    "original_count": 386,
+    "filtered_count": 318,
+    "shorts_removed": 68,
+    "long_form_count": 209
+  }
 }
