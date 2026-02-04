@@ -1,0 +1,24 @@
+[
+  {
+    "network": "experience",
+    "content": "Approach: 1. Create `.templates/memory/FACTS.md` - Template for objective facts\n2. Create `.templates/memory/EXPERIENCES.md` - Template for first-person experiences\n3. Create `.templates/memory/OPINIONS.md` - Template for beliefs with confidence\n4. Create `.templates/memory/OBSERVATIONS.md` - Template for synthesized observations\n5. Update task template to include new memory files\n6. Update run template to include new memory files\n7. Create `.autonomous/memory/config.yaml` for memory configuration\n8. Docu",
+    "source": "tasks/active/TASK-HINDSIGHT-001/task.md",
+    "confidence": 0.8,
+    "entities": [
+      "yaml",
+      ".autonomous/memory/config.yaml",
+      ".templates/memory/EXPERIENCES.md",
+      ".templates/memory/FACTS.md",
+      "EXPERIENCES",
+      "OPINIONS",
+      "Create",
+      ".templates/memory/OBSERVATIONS.md",
+      ".templates/memory/OPINIONS.md",
+      "FACTS",
+      "Template",
+      "md"
+    ],
+    "timestamp": null,
+    "context": null
+  }
+]

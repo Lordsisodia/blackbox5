@@ -1,0 +1,14 @@
+[
+  {
+    "network": "opinion",
+    "content": "Insight: - **Observation (S):** Synthesized summaries and insights",
+    "source": "tasks/active/TASK-HINDSIGHT-001/task.md",
+    "confidence": 0.75,
+    "entities": [
+      "Synthesized",
+      "Observation"
+    ],
+    "timestamp": null,
+    "context": null
+  }
+]

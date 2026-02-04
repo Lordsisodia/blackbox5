@@ -33,6 +33,11 @@ class TranscriptFetcher:
         self.last_request_time = 0
         self.proxy_config = None
 
+        # Check environment variable for Tor setting (GitHub Actions sets USE_TOR=false)
+        env_use_tor = os.environ.get('USE_TOR', 'true').lower()
+        if env_use_tor == 'false':
+            self.use_tor = False
+
         # Set up Tor proxy via Privoxy (HTTP proxy -> SOCKS5)
         if self.use_tor:
             self.proxy_config = GenericProxyConfig(

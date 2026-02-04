@@ -26,6 +26,8 @@ jobs:
           pip install youtube-transcript-api
 
       - name: Fetch transcripts
+        env:
+          USE_TOR: "false"  # Disable Tor proxy in GitHub Actions
         run: |
           python scripts/worker/worker.py --limit ${{ github.event.inputs.limit || 25 }} --output-dir content/transcripts --state-dir .state
 

@@ -30,10 +30,8 @@ sub_goals:
       - "No duplicate folders"
       - "Scripts updated to use new paths"
 
-    linked_tasks:
-      - TASK-001
-      - TASK-002
-      - TASK-003
+    linked_tasks: []
+    # NOTE: Tasks were placeholder references, removed during SSOT cleanup
 
   - id: SG-006-2
     name: "Document new architecture"
@@ -79,8 +77,8 @@ sub_goals:
       - "No broken references"
       - "Agents can find their data"
 
-    linked_tasks:
-      - TASK-001
+    linked_tasks: []
+    # NOTE: Placeholder task reference removed during SSOT cleanup
 
 # =============================================================================
 # PROGRESS

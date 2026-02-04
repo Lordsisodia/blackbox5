@@ -7,10 +7,13 @@
 # =============================================================================
 
 project:
-  reference: "project/context.yaml"
-  cached_version: "5.1.0"
-  last_sync: "2026-02-04T09:35:00Z"
-  # NOTE: Canonical project identity is in project/context.yaml
+  name: blackbox5
+  version: "5.1.0"
+  description: "Global AI Infrastructure for multi-agent orchestration"
+  status: "active"
+  last_updated: "2026-02-04T06:00:00Z"
+  updated_by: "Claude"
+  structure_version: "unified-1.0"
 
 # =============================================================================
 # ROOT FILES - Start here for project state
@@ -26,6 +29,14 @@ root_files:
     file: "STATE.yaml"
     purpose: "Single source of truth - project state and structure"
     updated: "2026-02-01"
+  dashboard:
+    file: "ACTIVE.md"
+    purpose: "Current work dashboard - what is happening now"
+    updated: "2026-01-31"
+  log:
+    file: "WORK-LOG.md"
+    purpose: "Chronological activity log"
+    updated: "2026-01-31"
   timeline:
     file: "timeline.yaml"
     purpose: "Milestones and project timeline"
@@ -38,6 +49,14 @@ root_files:
     file: "test_results.yaml"
     purpose: "Test outcomes and coverage"
     updated: "2026-01-31"
+  naming:
+    file: "_NAMING.md"
+    purpose: "Naming conventions for the project"
+    updated: "2026-01-31"
+  queries:
+    file: "QUERIES.md"
+    purpose: "Common queries for AI agents"
+    updated: "2026-01-31"
   readme:
     file: "README.md"
     purpose: "Project overview and navigation"
@@ -45,6 +64,10 @@ root_files:
   goals:
     file: "goals.yaml"
     purpose: "Autonomous agent goals and improvement targets"
+    updated: "2026-02-04"
+  unified_structure:
+    file: "UNIFIED-STRUCTURE.md"
+    purpose: "Unified hierarchy documentation (GOALS→PLANS→TASKS→SUBTASKS)"
     updated: "2026-02-04"
 
 # =============================================================================
@@ -334,17 +357,17 @@ docs:
   root:
     path: ".docs/"
     files:
-      - file: "siso-internal-patterns.md"
+      - "siso-internal-patterns.md"
         purpose: "10 key patterns from siso-internal"
-      - file: "ai-template-usage-guide.md"
+      - "ai-template-usage-guide.md"
         purpose: "How AI agents should use templates"
-      - file: "template-system-guide.md"
+      - "template-system-guide.md"
         purpose: "Template naming conventions and system documentation"
-      - file: "dot-docs-system.md"
+      - "dot-docs-system.md"
         purpose: "Specification for .docs/ system"
-      - file: "learning-extraction-guide.md"
+      - "learning-extraction-guide.md"
         purpose: "How to extract learnings from runs"
-      - file: "migration-plan.md"
+      - "migration-plan.md"
         purpose: "4-phase migration plan"
 
 # =============================================================================
@@ -355,20 +378,20 @@ autonomous:
   path: ".autonomous/"
   description: "Dual-RALF autonomous agent system"
   files:
-    - file: "DUAL-RALF-ARCHITECTURE.md"
+    - "DUAL-RALF-ARCHITECTURE.md"
       purpose: "Complete architecture documentation"
   communications:
     path: ".autonomous/communications/"
     files:
-      - file: "protocol.yaml"
+      - "protocol.yaml"
         purpose: "Communication rules and specifications"
-      - file: "queue.yaml"
+      - "queue.yaml"
         purpose: "Task queue (Planner → Executor)"
-      - file: "events.yaml"
+      - "events.yaml"
         purpose: "Execution events (Executor → Planner)"
-      - file: "chat-log.yaml"
+      - "chat-log.yaml"
         purpose: "Bidirectional chat messages"
-      - file: "heartbeat.yaml"
+      - "heartbeat.yaml"
         purpose: "Agent health checks"
 
 # =============================================================================

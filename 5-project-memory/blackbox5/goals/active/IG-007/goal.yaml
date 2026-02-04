@@ -45,9 +45,8 @@ sub_goals:
       - "Better indexing/search implemented"
       - "Faster onboarding achieved"
 
-    linked_tasks:
-      - TASK-DOCS-001
-      - TASK-DOCS-002
+    linked_tasks: []
+    # NOTE: Placeholder task references removed during SSOT cleanup
 
   - id: SG-007-3
     name: "Implement Continuous Improvement Loop"
