@@ -1,0 +1,409 @@
+#!/bin/bash
+# bb5-create - Creation commands for goals, plans, tasks, and subtasks
+# Usage: bb5-create [goal|plan|task|subtask] [name]
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BLACKBOX5_DIR="$PROJECT_ROOT/5-project-memory/blackbox5"
+
+COMMAND="${1:-}"
+NAME="${2:-}"
+
+# Colors
+if [ -t 1 ]; then
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    CYAN='\033[0;36m'
+    NC='\033[0m'
+else
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    CYAN=''
+    NC=''
+fi
+
+case "$COMMAND" in
+    goal)
+        if [ -z "$NAME" ]; then
+            echo "Usage: bb5 goal:create 'Goal Name'"
+            exit 1
+        fi
+
+        # Generate next IG-XXX ID
+        LAST_ID=$(ls -1 "$BLACKBOX5_DIR/goals/active/" 2>/dev/null | grep -E '^IG-[0-9]+$' | sort -V | tail -1 | sed 's/IG-//' || echo "0")
+        NEXT_ID=$((LAST_ID + 1))
+        GOAL_ID=$(printf "IG-%03d" "$NEXT_ID")
+
+        # Create directory
+        GOAL_DIR="$BLACKBOX5_DIR/goals/active/$GOAL_ID"
+        mkdir -p "$GOAL_DIR/journal"
+        mkdir -p "$GOAL_DIR/plans"
+
+        # Populate template
+        TEMPLATE="$BLACKBOX5_DIR/goals/templates/goal-template.yaml"
+        if [ -f "$TEMPLATE" ]; then
+            "$SCRIPT_DIR/bb5-populate-template" "$TEMPLATE" "$GOAL_DIR/goal.yaml" \
+                "ID=$GOAL_ID" \
+                "NAME=$NAME" \
+                "DATE=$(date +%Y-%m-%d)" \
+                "DATETIME=$(date -Iseconds)" \
+                "AGENT=${RALF_AGENT_TYPE:-unknown}"
+        else
+            # Fallback: create basic goal.yaml
+            cat > "$GOAL_DIR/goal.yaml" << EOF
+# Goal: $NAME
+# =============================================================================
+goal_id: $GOAL_ID
+name: "$NAME"
+description: ""
+
+meta:
+  created: "$(date +%Y-%m-%d)"
+  target_completion: ""
+  owner: "${RALF_AGENT_TYPE:-unknown}"
+  priority: high
+  status: not_started
+  category: general
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-$NEXT_ID-1
+    name: "Sub-goal 1"
+    description: ""
+    weight: 100
+    status: not_started
+    acceptance_criteria:
+      - "Criterion 1"
+    linked_tasks: []
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 0
+  last_updated: "$(date +%Y-%m-%d)"
+
+  by_sub_goal:
+    SG-$NEXT_ID-1: 0
+
+  summary:
+    total_tasks: 0
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions: []
+  learnings: []
+  related_goals: []
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  Created on $(date +%Y-%m-%d)
+EOF
+        fi
+
+        # Create timeline.yaml
+        cat > "$GOAL_DIR/timeline.yaml" << EOF
+timeline:
+  - date: "$(date +%Y-%m-%d)"
+    event: "Goal created"
+    status: not_started
+EOF
+
+        echo ""
+        echo "═══════════════════════════════════════════════════════════════"
+        printf "  ${GREEN}✓ Created goal:${NC} %s\n" "$GOAL_ID"
+        echo "═══════════════════════════════════════════════════════════════"
+        echo ""
+        echo "Name: $NAME"
+        echo "Location: $GOAL_DIR"
+        echo ""
+        echo "Next steps:"
+        echo "  cd $GOAL_DIR"
+        echo "  bb5 goal:show $GOAL_ID"
+        echo "  bb5 plan:create 'Plan Name'"
+        echo ""
+        ;;
+
+    plan)
+        if [ -z "$NAME" ]; then
+            echo "Usage: bb5 plan:create 'Plan Name'"
+            exit 1
+        fi
+
+        # Create plan directory (use sanitized name)
+        PLAN_ID=$(echo "$NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
+        PLAN_DIR="$BLACKBOX5_DIR/plans/active/$PLAN_ID"
+
+        if [ -d "$PLAN_DIR" ]; then
+            echo "Plan already exists: $PLAN_ID"
+            exit 1
+        fi
+
+        mkdir -p "$PLAN_DIR"
+        mkdir -p "$PLAN_DIR/research"
+        mkdir -p "$PLAN_DIR/tasks"
+
+        # Create plan.md
+        cat > "$PLAN_DIR/plan.md" << EOF
+# Plan: $NAME
+
+**Created:** $(date -Iseconds)
+**Status:** draft
+
+## Overview
+
+$NAME
+
+## Objectives
+
+- Objective 1
+- Objective 2
+
+## Approach
+
+1. Step 1
+2. Step 2
+3. Step 3
+
+## Success Criteria
+
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Notes
+
+EOF
+
+        # Create metadata.yaml
+        cat > "$PLAN_DIR/metadata.yaml" << EOF
+name: "$NAME"
+created: "$(date +%Y-%m-%d)"
+status: draft
+priority: medium
+estimated_effort: ""
+actual_effort: ""
+linked_goal: ""
+EOF
+
+        # Create README.md
+        cat > "$PLAN_DIR/README.md" << EOF
+# $NAME
+
+$NAME plan for BlackBox5.
+
+See plan.md for details.
+EOF
+
+        echo ""
+        echo "═══════════════════════════════════════════════════════════════"
+        printf "  ${GREEN}✓ Created plan:${NC} %s\n" "$PLAN_ID"
+        echo "═══════════════════════════════════════════════════════════════"
+        echo ""
+        echo "Name: $NAME"
+        echo "Location: $PLAN_DIR"
+        echo ""
+        echo "Next steps:"
+        echo "  cd $PLAN_DIR"
+        echo "  bb5 plan:show $PLAN_ID"
+        echo "  bb5 link:goal [GOAL-ID]    # Link to parent goal"
+        echo "  bb5 task:create 'Task Name'"
+        echo ""
+        ;;
+
+    task)
+        if [ -z "$NAME" ]; then
+            echo "Usage: bb5 task:create 'Task Name'"
+            exit 1
+        fi
+
+        # Generate TASK-ID
+        TASK_ID="TASK-$(date +%s)"
+
+        # Create directory
+        TASK_DIR="$BLACKBOX5_DIR/tasks/active/$TASK_ID"
+        mkdir -p "$TASK_DIR/timeline"
+        mkdir -p "$TASK_DIR/subtasks"
+        mkdir -p "$TASK_DIR/artifacts"
+
+        # Check for template
+        TEMPLATE="$BLACKBOX5_DIR/.templates/tasks/task-specification.md.template"
+        if [ -f "$TEMPLATE" ]; then
+            "$SCRIPT_DIR/bb5-populate-template" "$TEMPLATE" "$TASK_DIR/task.md" \
+                "ID=$TASK_ID" \
+                "NAME=$NAME" \
+                "DATE=$(date +%Y-%m-%d)" \
+                "DATETIME=$(date -Iseconds)" \
+                "AGENT=${RALF_AGENT_TYPE:-unknown}"
+        else
+            # Fallback: create basic task.md
+            cat > "$TASK_DIR/task.md" << EOF
+# $TASK_ID: $NAME
+
+**Status:** pending
+**Priority:** medium
+**Type:** implement
+**Created:** $(date -Iseconds)
+
+## Description
+
+$NAME
+
+## Pre-Execution Validation
+
+- [ ] Duplicate Check: Searched completed/ for similar tasks
+- [ ] Path Validation: Verified all target paths exist
+- [ ] Commit Check: Checked recent commits for related work
+- [ ] Assumptions: Listed and validated all assumptions
+
+**Validation Result:** [pass/warn/fail]
+
+## Acceptance Criteria
+
+### Must-Have
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+### Should-Have
+- [ ] Criterion 3
+
+### Nice-to-Have
+- [ ] Criterion 4
+
+## Dependencies
+
+**Requires:**
+- None
+
+**Blocks:**
+- None
+
+## Effort
+
+**Estimated:**
+**Actual:**
+
+## Dates
+
+**Created:** $(date -Iseconds)
+**Started:**
+**Completed:**
+EOF
+        fi
+
+        # Create empty data layer files
+        touch "$TASK_DIR/THOUGHTS.md"
+        touch "$TASK_DIR/DECISIONS.md"
+        touch "$TASK_DIR/LEARNINGS.md"
+        touch "$TASK_DIR/ASSUMPTIONS.md"
+        touch "$TASK_DIR/RESULTS.md"
+
+        echo ""
+        echo "═══════════════════════════════════════════════════════════════"
+        printf "  ${GREEN}✓ Created task:${NC} %s\n" "$TASK_ID"
+        echo "═══════════════════════════════════════════════════════════════"
+        echo ""
+        echo "Name: $NAME"
+        echo "Location: $TASK_DIR"
+        echo ""
+        echo "Next steps:"
+        echo "  cd $TASK_DIR"
+        echo "  bb5 task:show $TASK_ID"
+        echo "  bb5 link:plan [PLAN-ID]    # Link to parent plan"
+        echo "  bb5 subtask:create 'Subtask Name'"
+        echo ""
+        ;;
+
+    subtask)
+        if [ -z "$NAME" ]; then
+            echo "Usage: bb5 subtask:create 'Subtask Name'"
+            echo "Must be run from within a task directory"
+            exit 1
+        fi
+
+        # Check if we're in a task directory
+        CONTEXT=$("$SCRIPT_DIR/bb5-discover-context" json)
+        CURRENT_TYPE=$(echo "$CONTEXT" | grep '"current_type"' | sed 's/.*: "\([^"]*\)".*/\1/')
+        CURRENT_ID=$(echo "$CONTEXT" | grep '"current_id"' | sed 's/.*: "\([^"]*\)".*/\1/')
+
+        if [ "$CURRENT_TYPE" != "task" ]; then
+            echo "Not in a task directory. Current: $CURRENT_TYPE"
+            echo "Run this command from within a task folder."
+            exit 1
+        fi
+
+        # Generate subtask ID
+        SUBTASK_ID="$(echo "$NAME" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')"
+        TASK_DIR="$BLACKBOX5_DIR/tasks/active/$CURRENT_ID"
+        SUBTASK_DIR="$TASK_DIR/subtasks/$SUBTASK_ID"
+
+        if [ -d "$SUBTASK_DIR" ]; then
+            echo "Subtask already exists: $SUBTASK_ID"
+            exit 1
+        fi
+
+        mkdir -p "$SUBTASK_DIR"
+
+        # Create subtask.md
+        cat > "$SUBTASK_DIR/task.md" << EOF
+# $SUBTASK_ID: $NAME
+
+**Parent:** $CURRENT_ID
+**Status:** pending
+**Priority:** medium
+**Created:** $(date -Iseconds)
+
+## Description
+
+$NAME
+
+## Acceptance Criteria
+
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Notes
+
+EOF
+
+        echo ""
+        echo "═══════════════════════════════════════════════════════════════"
+        printf "  ${GREEN}✓ Created subtask:${NC} %s\n" "$SUBTASK_ID"
+        echo "═══════════════════════════════════════════════════════════════"
+        echo ""
+        echo "Name: $NAME"
+        echo "Parent: $CURRENT_ID"
+        echo "Location: $SUBTASK_DIR"
+        echo ""
+        echo "Next steps:"
+        echo "  cd $SUBTASK_DIR"
+        echo "  bb5 task:show $SUBTASK_ID"
+        echo ""
+        ;;
+
+    *)
+        echo "Unknown command: $COMMAND"
+        echo "Usage:"
+        echo "  bb5-create goal 'Goal Name'"
+        echo "  bb5-create plan 'Plan Name'"
+        echo "  bb5-create task 'Task Name'"
+        echo "  bb5-create subtask 'Subtask Name'"
+        exit 1
+        ;;
+esac

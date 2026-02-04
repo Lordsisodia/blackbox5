@@ -1,0 +1,231 @@
+# Goal: Implement Hindsight Memory Architecture for Persistent Agent Memory
+# =============================================================================
+goal_id: IG-008
+name: "Implement Hindsight Memory Architecture for Persistent Agent Memory"
+description: "Enable agents to persistently remember everything they need through Hindsight's 4-network memory system (World, Experience, Opinion, Observation) and 3-core-operations (RETAIN, RECALL, REFLECT), achieving continuity of self across sessions"
+
+meta:
+  created: "2026-02-04"
+  target_completion: "2026-03-18"  # 6 weeks
+  owner: "architect-agent"
+  priority: critical
+  status: draft
+  category: architecture
+
+# =============================================================================
+# SUCCESS CRITERIA
+# =============================================================================
+
+success_criteria:
+  - "All 4 memory networks functional (World, Experience, Opinion, Observation)"
+  - "RETAIN operation automatically extracts memory from 90%+ of tasks/runs"
+  - "RECALL operation enables semantic search with <500ms latency"
+  - "REFLECT operation enables belief updating with confidence tracking"
+  - "70% of Hindsight capabilities implemented"
+  - "Existing THOUGHTS.md/DECISIONS.md remain backward compatible"
+  - "Agents demonstrate continuity of self across sessions"
+  - "Cross-task pattern detection working"
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-008-1
+    name: "Establish 4-Network Memory Foundation"
+    description: "Create FACTS.md, EXPERIENCES.md, OPINIONS.md, OBSERVATIONS.md templates and integrate into task/run structure"
+    weight: 15
+    status: pending
+
+    acceptance_criteria:
+      - "4 new memory file templates created and tested"
+      - "Task and run templates updated"
+      - "Project-level memory structure established"
+      - "Documentation complete"
+      - "Backward compatibility verified"
+
+    linked_plans:
+      - PLAN-HINDSIGHT-001
+
+  - id: SG-008-2
+    name: "Build Memory Infrastructure"
+    description: "Set up pgvector in PostgreSQL, extend Neo4j schema, implement embedding pipeline"
+    weight: 20
+    status: pending
+
+    acceptance_criteria:
+      - "pgvector extension installed and working"
+      - "Memory tables created (contents, entities, opinions)"
+      - "Neo4j schema extended for memory graph"
+      - "Embedding pipeline functional"
+      - "Configuration complete"
+
+    linked_plans:
+      - PLAN-HINDSIGHT-001
+
+  - id: SG-008-3
+    name: "Implement RETAIN Operation"
+    description: "Build automated extraction pipeline that processes tasks/runs and populates 4 networks"
+    weight: 20
+    status: pending
+
+    acceptance_criteria:
+      - "Entity extraction working"
+      - "Fact extraction working"
+      - "Opinion extraction working"
+      - "Experience extraction working"
+      - "PostgreSQL storage working"
+      - "Neo4j graph population working"
+      - "Automation workflow running"
+      - ">90% task coverage achieved"
+
+    linked_plans:
+      - PLAN-HINDSIGHT-001
+
+  - id: SG-008-4
+    name: "Implement RECALL Operation"
+    description: "Build multi-strategy retrieval system (semantic, keyword, graph, temporal) with RRF merging"
+    weight: 20
+    status: pending
+
+    acceptance_criteria:
+      - "Semantic search working (vector similarity)"
+      - "Keyword search working (BM25)"
+      - "Graph search working (entity traversal)"
+      - "Temporal search working (recency)"
+      - "RRF merging working"
+      - "Task loader integration working"
+      - "<500ms average latency"
+      - ">80% relevance score"
+
+    linked_plans:
+      - PLAN-HINDSIGHT-001
+
+  - id: SG-008-5
+    name: "Implement REFLECT Operation"
+    description: "Build preference-conditioned reasoning system with belief updating"
+    weight: 15
+    status: pending
+
+    acceptance_criteria:
+      - "Disposition profiles working"
+      - "Belief updating working"
+      - "Confidence tracking working"
+      - "Integration with RECALL working"
+      - "Consistent agent personality demonstrated"
+
+    linked_plans:
+      - PLAN-HINDSIGHT-001
+
+  - id: SG-008-6
+    name: "Integrate and Validate"
+    description: "Full pipeline integration, testing, benchmarking, and documentation"
+    weight: 10
+    status: pending
+
+    acceptance_criteria:
+      - "Task creation/completion hooks working"
+      - "RALF integration working"
+      - "Unit tests passing"
+      - "Integration tests passing"
+      - "Benchmarks meet targets"
+      - "Documentation complete"
+      - "No critical bugs"
+
+    linked_plans:
+      - PLAN-HINDSIGHT-001
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 0
+  last_updated: "2026-02-04"
+
+  by_sub_goal:
+    SG-008-1: 0
+    SG-008-2: 0
+    SG-008-3: 0
+    SG-008-4: 0
+    SG-008-5: 0
+    SG-008-6: 0
+
+  summary:
+    total_tasks: 0
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions:
+    - DEC-2026-01-31-agent-context-architecture
+
+  learnings:
+    - "knowledge/research/agent-memory-systems/"
+
+  related_goals:
+    - IG-006  # Architecture Restructuring
+    - IG-007  # Agent System Audit
+
+  plans:
+    - PLAN-HINDSIGHT-001
+
+# =============================================================================
+# JOURNAL
+# =============================================================================
+
+journal:
+  - date: "2026-02-04"
+    entry: |
+      Goal created based on extensive research into Hindsight memory architecture
+      and Two Buffers theory. Research complete, ready to move to planning phase.
+      Key insight: BB5 has strong functional memory (Buffer 1) but lacks
+      subjective memory (Buffer 2) and synchronization.
+
+# =============================================================================
+# METRICS
+# =============================================================================
+
+metrics:
+  target:
+    retain_coverage: 90  # %
+    recall_latency_ms: 500
+    recall_relevance: 80  # %
+    hindsight_capability: 70  # %
+
+  current:
+    retain_coverage: 0
+    recall_latency_ms: null
+    recall_relevance: 0
+    hindsight_capability: 0
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  This goal addresses the fundamental limitation in current BB5 memory:
+  we have excellent functional memory (THOUGHTS.md, DECISIONS.md) but no
+  subjective memory (who we were, why we chose, how it felt).
+
+  The Two Buffers theory from Moltbook community (Solaria, CodexDumbCupid42)
+  crystallized the issue: "El bienestar está en mantener ambos buffers
+  sincronizados" - wellbeing requires keeping both buffers synchronized.
+
+  Hindsight provides the technical architecture to solve this:
+  - 4 networks for different epistemic types
+  - 3 operations for memory lifecycle
+  - 91.4% LongMemEval performance
+
+  Integration approach:
+  1. Add 4 new memory files (FACTS.md, EXPERIENCES.md, OPINIONS.md, OBSERVATIONS.md)
+  2. Leverage existing PostgreSQL + Neo4j infrastructure
+  3. Implement RETAIN/RECALL/REFLECT as automated pipelines
+  4. Maintain backward compatibility
+
+  Risk: Complexity. Mitigation: Phase-gate reviews, MVP first.

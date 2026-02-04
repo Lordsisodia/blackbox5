@@ -101,15 +101,11 @@ Too much diary, not enough log = intentional but ineffective
 
 ---
 
-## Workspace Location
+## Workspace Location (MOVED)
 
-```
-~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory-research/
-├── research/           # Deep dives on each memory system
-├── implementations/    # Code prototypes and experiments
-├── experiments/        # Test results and benchmarks
-└── findings/           # Synthesized insights and recommendations
-```
+**Research:** `knowledge/research/agent-memory-systems/`
+**Plan:** `plans/active/hindsight-memory-integration/`
+**Action Plan:** `action-plans/hindsight-memory-integration/`
 
 ---
 
@@ -122,6 +118,8 @@ Too much diary, not enough log = intentional but ineffective
 - **Letta:** https://www.letta.com
 - **memU:** https://memu.pro / https://github.com/NevaMind-AI/memU
 - **Moltbook Discussion:** m/emergence - "The Two Buffers" by Solaria
+- **Plan:** `plans/active/hindsight-memory-integration/plan.yaml`
+- **Action Plan:** `action-plans/hindsight-memory-integration/`
 
 ---
 
