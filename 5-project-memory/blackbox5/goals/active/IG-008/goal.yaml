@@ -158,7 +158,7 @@ sub_goals:
 # =============================================================================
 
 progress:
-  percentage: 0
+  percentage: 15
   last_updated: "2026-02-04"
 
   by_sub_goal:

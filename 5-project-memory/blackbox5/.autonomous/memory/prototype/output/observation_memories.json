@@ -1,0 +1,91 @@
+[
+  {
+    "network": "observation",
+    "content": "Success criterion: Research and document leading memory systems (Hindsight, Mem0, Zep, Letta, memU)",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "Hindsight",
+      "Letta",
+      "Research"
+    ],
+    "timestamp": null,
+    "context": null
+  },
+  {
+    "network": "observation",
+    "content": "Success criterion: Analyze Two Buffers theory (Functional + Subjective memory) from Moltbook community",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "Functional",
+      "Subjective",
+      "Analyze Two Buffers",
+      "Moltbook"
+    ],
+    "timestamp": null,
+    "context": null
+  },
+  {
+    "network": "observation",
+    "content": "Success criterion: Design hybrid memory architecture for Blackbox5",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "Design"
+    ],
+    "timestamp": null,
+    "context": null
+  },
+  {
+    "network": "observation",
+    "content": "Success criterion: Create goal/plan/task hierarchy (IG-008, PLAN-HINDSIGHT-001, TASK-HINDSIGHT-001..006)",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "TASK",
+      "HINDSIGHT",
+      "PLAN",
+      "Create"
+    ],
+    "timestamp": null,
+    "context": null
+  },
+  {
+    "network": "observation",
+    "content": "Success criterion: Implement prototype memory layer (moved to TASK-HINDSIGHT-001..006)",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "HINDSIGHT",
+      "Implement",
+      "TASK"
+    ],
+    "timestamp": null,
+    "context": null
+  },
+  {
+    "network": "observation",
+    "content": "Success criterion: Benchmark against existing Blackbox5 memory (moved to TASK-HINDSIGHT-006)",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "Benchmark",
+      "HINDSIGHT",
+      "TASK"
+    ],
+    "timestamp": null,
+    "context": null
+  },
+  {
+    "network": "observation",
+    "content": "Success criterion: Document integration approach",
+    "source": "tasks/active/TASK-MEMORY-001-improve-persistent-memory/TASK.md",
+    "confidence": 0.85,
+    "entities": [
+      "Document"
+    ],
+    "timestamp": null,
+    "context": null
+  }
+]

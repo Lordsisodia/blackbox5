@@ -12,8 +12,8 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from queue.manager import QueueManager, get_channel_tier
-from queue.database import QueueDatabase
+from video_queue.manager import QueueManager, get_channel_tier
+from video_queue.database import QueueDatabase
 
 
 def load_all_videos(channels_dir: Path):

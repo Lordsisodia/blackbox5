@@ -1,6 +1,8 @@
 # TASK-ARCH-003: Fix Single Source of Truth Violations
 
-**Status:** pending
+**Status:** in_progress
+**Started:** 2026-02-04
+**Sub-Agent Plan:** Complete
 **Priority:** CRITICAL
 **Created:** 2026-02-04
 **Estimated:** 90 minutes
@@ -55,17 +57,49 @@ Implement Option A from the SSOT analysis: Make STATE.yaml an aggregator that re
 
 ---
 
-## Subtasks (Plan → Audit → Execute)
+## Sub-Agent Delegation Plan
+
+**Approach:** Dual-RALF Worker-Validator Pattern
+**Location:** `.autonomous/research-pipeline/agents/ssot-fix/`
+**Plan:** `DELEGATION-PLAN.md`
+
+### Agent Mapping
+
+| Subtask | Worker | Validator | Skill | Phase |
+|---------|--------|-----------|-------|-------|
+| TASK-ARCH-003B | auditor-worker | auditor-validator | bmad-analyst + bmad-qa | Audit |
+| TASK-ARCH-003C | fixer-worker | fixer-validator | bmad-dev + bmad-architect | Execute |
+| TASK-ARCH-003D | final-validator | (self) | bmad-qa + bmad-tea | Validate |
+
+### Communication Files
+- `communications/ssot-pipeline-state.yaml` - Overall pipeline state
+- `communications/ssot-events.yaml` - Event bus
+- `communications/ssot-chat-log.yaml` - Agent coordination
+
+### Agent Timeline Memory
+Each agent has `memory/timeline-memory.md` injected via SessionStart hook:
+- `auditor-worker/memory/timeline-memory.md` - Audit work queue
+- `auditor-validator/memory/timeline-memory.md` - Validation checklist
+- `fixer-worker/memory/timeline-memory.md` - Fix specifications
+- `fixer-validator/memory/timeline-memory.md` - SSOT principles
+- `final-validator/memory/timeline-memory.md` - Validation checklist
+
+---
+
+## Subtasks (Plan → Audit → Execute → Validate)
 
 ### TASK-ARCH-003A: Plan the SSOT Fix (15 min)
-**Status:** in_progress
-- Define exact changes needed
-- Order of operations
-- Rollback points
-- Risk assessment
+**Status:** completed
+**Completed:** 2026-02-04
+- Defined exact changes needed
+- Created sub-agent delegation plan
+- Set up worker-validator pairs
+- Created communication infrastructure
 
 ### TASK-ARCH-003B: Audit Current State (20 min)
 **Status:** pending
+**Agent:** auditor-worker (bmad-analyst)
+**Validator:** auditor-validator (bmad-qa)
 - Inventory all root files vs. STATE.yaml references
 - Document broken references
 - Version number audit
@@ -74,6 +108,8 @@ Implement Option A from the SSOT analysis: Make STATE.yaml an aggregator that re
 
 ### TASK-ARCH-003C: Execute SSOT Fixes (45 min)
 **Status:** pending
+**Agent:** fixer-worker (bmad-dev)
+**Validator:** fixer-validator (bmad-architect)
 - Backup STATE.yaml
 - Fix YAML parse error
 - Remove deleted file references
@@ -84,6 +120,7 @@ Implement Option A from the SSOT analysis: Make STATE.yaml an aggregator that re
 
 ### TASK-ARCH-003D: Validate and Document (10 min)
 **Status:** pending
+**Agent:** final-validator (bmad-qa + bmad-tea)
 - Run full validation
 - Test RALF context
 - Update RESULTS.md

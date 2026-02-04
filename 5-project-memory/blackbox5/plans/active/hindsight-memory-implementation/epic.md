@@ -125,3 +125,14 @@ This plan is based on extensive research documented in:
 - **Goal:** `goals/active/IG-008/goal.yaml`
 - **Research:** `knowledge/research/agent-memory-systems/`
 - **Action Plan:** `action-plans/hindsight-memory-integration/`
+- **Integration Guide:** `plans/active/hindsight-memory-implementation/INTEGRATION.md`
+
+## Related Systems
+
+| System | Relationship | Integration |
+|--------|--------------|-------------|
+| Agent Swarm Memory | Hindsight extends the 3-layer architecture | Swarm orchestrator uses RECALL for pattern detection |
+| Navigation System (bb5) | Hindsight adds memory commands | `bb5 memory:recall`, `bb5 memory:facts` |
+| SessionStart Hook | Hindsight injects relevant memories | Layer 4: Relevant memories from RECALL |
+| Continuous Architecture Evolution | Hindsight enables memory-driven improvements | Query past patterns to guide improvements |
+| IG-006 (Restructure) | Must complete before Hindsight rollout | New templates must fit restructured layout |

@@ -19,105 +19,71 @@ meta:
 sub_goals:
   - id: SG-009-1
     name: "Audit and Document Existing Hooks"
-    description: "Review current hooks (session-start-navigation, pre-tool-validation, stop-hierarchy-update) and document their functionality"
+    description: "Review current hooks and document functionality"
+    weight: 10
+    status: completed
+
+  - id: SG-009-2
+    name: "Build Smart Agent-Aware SessionStart Hook"
+    description: "Create session-start-blackbox5.sh that auto-detects agent type and loads appropriate context"
     weight: 15
     status: completed
 
     acceptance_criteria:
-      - "All existing hooks documented"
-      - "Hook interaction map created"
-      - "Gaps identified for new hooks"
-      - "Performance impact assessed"
+      - "Auto-detects agent from run directory path"
+      - "Loads planner/executor/architect specific context"
+      - "No environment variables required"
+      - "Returns additionalContext for Claude"
 
-    linked_tasks:
-      - TASK-HOOKS-001
+  - id: SG-009-3
+    name: "Build Smart Subagent Tracking Hooks"
+    description: "Create subagent-tracking.sh for agent lifecycle logging"
+    weight: 15
+    status: completed
 
-  - id: SG-009-2
-    name: "Build Timeline Maintenance Hook"
-    description: "Create automated timeline updates on significant events (goal creation, task completion, decisions)"
+    acceptance_criteria:
+      - "Auto-detects agent type on start/stop"
+      - "Logs to communications/events.yaml"
+      - "Updates agent-state.yaml"
+      - "No manual agent ID required"
+
+  - id: SG-009-4
+    name: "Build Smart Pre-Tool Security Hook"
+    description: "Create pre-tool-security.py with agent-aware security rules"
+    weight: 15
+    status: completed
+
+    acceptance_criteria:
+      - "Blocks dangerous rm -rf for all agents"
+      - "Allows executor .env access"
+      - "Blocks planner/executor force push"
+      - "Requires architect for destructive DB ops"
+      - "Logs all security checks"
+
+  - id: SG-009-5
+    name: "Build Supporting Hooks"
+    description: "Timeline, architecture, context hooks"
     weight: 25
     status: completed
 
-    acceptance_criteria:
-      - "timeline-maintenance.sh hook created"
-      - "Auto-detects milestone events"
-      - "Updates timeline.yaml automatically"
-      - "bb5-timeline CLI command works"
-      - "No duplicate entries"
-
-    linked_tasks:
-      - TASK-HOOKS-002
-
-  - id: SG-009-3
-    name: "Build Architecture Consistency Hook"
-    description: "Validate directory structure, naming conventions, and hierarchy integrity before changes"
-    weight: 20
-    status: completed
-
-    acceptance_criteria:
-      - "architecture-consistency.sh hook created"
-      - "Validates goal/plan/task structure"
-      - "Checks naming conventions (IG-XXX, TASK-XXX)"
-      - "Warns on symlink modifications"
-      - "Suggests fixes"
-
-    linked_tasks:
-      - TASK-HOOKS-003
-
-  - id: SG-009-4
-    name: "Build Context Synchronization Hook"
-    description: "Sync context across files when changes occur (goal progress, index updates, timeline context)"
-    weight: 20
-    status: completed
-
-    acceptance_criteria:
-      - "context-synchronization.sh hook created"
-      - "Syncs goal progress on task completion"
-      - "Updates task timeline entries"
-      - "Suggests INDEX.yaml regeneration"
-      - "Tracks core goal metric updates"
-
-    linked_tasks:
-      - TASK-HOOKS-004
-
-  - id: SG-009-5
-    name: "Create Hook Framework Documentation"
-    description: "Document the complete hook framework based on GitHub research and our implementation"
-    weight: 10
-    status: pending
-
-    acceptance_criteria:
-      - "HOOKS.md framework guide created"
-      - "Event types documented (PreToolUse, PostToolUse, Stop, etc.)"
-      - "Best practices from claudekit, awesome-claude-code included"
-      - "Hook development guide"
-      - "Troubleshooting section"
-
-    linked_tasks:
-      - TASK-HOOKS-005
-
   - id: SG-009-6
-    name: "Integrate and Test All Hooks"
-    description: "Ensure all hooks work together without conflicts, test on real workflows"
+    name: "Create Hook Framework Documentation"
+    description: "Document smart hook patterns"
     weight: 10
     status: pending
 
-    acceptance_criteria:
-      - "All hooks registered in settings.json"
-      - "No hook conflicts detected"
-      - "Tested on goal creation workflow"
-      - "Tested on task completion workflow"
-      - "Performance acceptable (<100ms per hook)"
-
-    linked_tasks:
-      - TASK-HOOKS-006
+  - id: SG-009-7
+    name: "Integrate and Test All Hooks"
+    description: "Register in settings.json and test"
+    weight: 10
+    status: pending
 
 # =============================================================================
 # PROGRESS
 # =============================================================================
 
 progress:
-  percentage: 60
+  percentage: 75
   last_updated: "2026-02-04"
 
   by_sub_goal:
@@ -125,12 +91,13 @@ progress:
     SG-009-2: 100
     SG-009-3: 100
     SG-009-4: 100
-    SG-009-5: 0
+    SG-009-5: 100
     SG-009-6: 0
+    SG-009-7: 0
 
   summary:
-    total_tasks: 6
-    completed_tasks: 4
+    total_tasks: 7
+    completed_tasks: 5
     in_progress_tasks: 0
     blocked_tasks: 0
 
@@ -160,30 +127,49 @@ links:
 # =============================================================================
 
 notes: |
-  This goal creates a comprehensive hook ecosystem that automates maintenance
-  tasks that were previously manual or forgotten.
+  SMART HOOKS PRINCIPLE: No environment variables needed
+  =====================================================
+  All hooks self-discover context from:
+  - Run directory path (runs/planner/, runs/executor/)
+  - Current working directory
+  - File patterns (queue.yaml = planner, task-*-spec.md = executor)
+  - Parent directory structure
 
-  Existing hooks (enhanced):
-  - session-start-navigation.sh - Context discovery
-  - pre-tool-validation.sh - Structure validation
-  - stop-hierarchy-update.sh - Parent timeline updates
+  This makes hooks work automatically regardless of how agents are spawned.
 
-  New hooks created:
-  - timeline-maintenance.sh - Auto-update timeline.yaml
-  - architecture-consistency.sh - Validate structure/naming
-  - context-synchronization.sh - Sync across files
+  Hook Inventory (9 total):
+  ========================
 
-  Research sources:
-  - tarekziade/claude-tools - Trace compactor
-  - carlrannaberg/claudekit - File security, quality gates
-  - hesreallyhim/awesome-claude-code - Curated hooks list
-  - affaan-m/everything-claude-code - Memory persistence
+  SessionStart Hooks:
+  - session-start-blackbox5.sh (NEW) - Agent-aware context loading
+    * Auto-detects planner/executor/architect
+    * Loads agent-specific context
+    * Returns additionalContext for Claude
 
-  Hook events used:
-  - PreToolUse: validation before action
-  - PostToolUse: updates after action
-  - Stop: session completion tasks
-  - SessionStart: context injection
+  PreToolUse Hooks:
+  - pre-tool-security.py (NEW) - Agent-aware security
+    * Blocks rm -rf for all agents
+    * Allows executor .env access
+    * Blocks planner/executor force push
+    * Requires architect for DB ops
+  - pre-tool-validation.sh (existing) - Structure validation
+  - architecture-consistency.sh (NEW) - Naming conventions
 
-  Success means zero manual timeline updates, automatic architecture
-  enforcement, and synchronized context across all project files.
+  PostToolUse Hooks:
+  - timeline-maintenance.sh (NEW) - Auto-update timeline
+  - context-synchronization.sh (NEW) - Sync across files
+
+  Subagent Hooks:
+  - subagent-tracking.sh (NEW) - Agent lifecycle logging
+    * Logs to communications/events.yaml
+    * Updates agent-state.yaml
+
+  Stop Hooks:
+  - stop-hierarchy-update.sh (existing) - Parent timeline updates
+
+  Research Integration:
+  - claude-code-hooks-mastery patterns adapted
+  - UV single-file script pattern (Python hooks)
+  - JSON logging standardization
+  - Exit code semantics (0=continue, 2=block)
+  - Agent-aware adaptations for BB5
