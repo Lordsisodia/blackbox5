@@ -9,7 +9,7 @@ project:
   name: blackbox5
   start_date: "2026-01-20"
   target_completion: null
-  current_phase: "Ready for Development"
+  current_phase: "Navigation System Complete, Hook Improvements In Progress"
 
 # =============================================================================
 # MILESTONES - Major project achievements
@@ -156,17 +156,54 @@ events:
       - "DEC-2026-02-02-run-structure-simplification"
       - "skills-migration-2026-02-01"
 
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Unified Goals/Plans/Tasks Hierarchy"
+    description: "Migrated from scattered task systems to unified hierarchy: GOALS → PLANS → TASKS → SUBTASKS with consistent data layers"
+    impact: "high"
+    related_items:
+      - "IG-006"
+      - "TASK-1770163374"
+
+  - date: "2026-02-04"
+    type: "infrastructure"
+    title: "bb5 Navigation CLI Built"
+    description: "Created bb5 CLI with 10 commands, context discovery, template auto-population, and 3 enhanced hooks"
+    impact: "high"
+    related_items:
+      - "CG-004"
+      - "NAVIGATION-GUIDE.md"
+
+  - date: "2026-02-04"
+    type: "decision"
+    title: "Core Goal CG-004 Established"
+    description: "Created Intelligent Navigation System as perpetual core goal for agent context awareness"
+    impact: "high"
+    related_items:
+      - "CG-004"
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "Goal Merges Completed"
+    description: "Merged IG-005 into IG-007 (documentation) and IG-003 into CG-004 (navigation) to eliminate overlaps"
+    impact: "medium"
+    related_items:
+      - "IG-005"
+      - "IG-003"
+      - "IG-007"
+      - "CG-004"
+
 # =============================================================================
 # PROGRESS METRICS
 # =============================================================================
 
 progress:
-  overall_completion: 100
+  overall_completion: 85
   milestones_completed: 6
-  milestones_total: 6
-  days_elapsed: 12
+  milestones_total: 7
+  days_elapsed: 15
   days_remaining: null
-  velocity: null
+  velocity: stable
 
 # =============================================================================
 # PHASES - Project phases tracking

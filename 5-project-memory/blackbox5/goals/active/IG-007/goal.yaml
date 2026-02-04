@@ -20,7 +20,7 @@ sub_goals:
   - id: SG-007-1
     name: "Establish Architecture Analysis Framework"
     description: "Create systematic approach for AI agents to analyze codebase and identify improvement opportunities"
-    weight: 30
+    weight: 20
     status: completed
 
     acceptance_criteria:
@@ -33,9 +33,26 @@ sub_goals:
       - TASK-ARCH-001
 
   - id: SG-007-2
+    name: "Audit and Improve Documentation"
+    description: "Find outdated docs, simplify templates, improve discoverability (merged from IG-005)"
+    weight: 20
+    status: pending
+
+    acceptance_criteria:
+      - "Usage tracking implemented for docs"
+      - "Outdated and redundant docs identified"
+      - "Templates simplified"
+      - "Better indexing/search implemented"
+      - "Faster onboarding achieved"
+
+    linked_tasks:
+      - TASK-DOCS-001
+      - TASK-DOCS-002
+
+  - id: SG-007-3
     name: "Implement Continuous Improvement Loop"
     description: "Create iterative process where Claude Code sessions focus on specific areas, validate improvements, and execute them"
-    weight: 40
+    weight: 30
     status: pending
 
     acceptance_criteria:
@@ -47,8 +64,9 @@ sub_goals:
     linked_tasks:
       - TASK-ARCH-002
       - TASK-ARCH-003
+      - TASK-ARCH-004
 
-  - id: SG-007-3
+  - id: SG-007-4
     name: "Evolve Documentation Standards"
     description: "Ensure documentation improves alongside code, with AI agents updating docs to reflect architectural changes"
     weight: 30
@@ -75,6 +93,7 @@ progress:
     SG-007-1: 100
     SG-007-2: 0
     SG-007-3: 0
+    SG-007-4: 0
 
   summary:
     total_tasks: 4
@@ -94,6 +113,7 @@ links:
 
   related_goals:
     - IG-006  # Restructure BlackBox5 Architecture
+    - IG-005  # Merged: Documentation Quality (now SG-007-2)
 
   plans:
     - PLAN-ARCH-001

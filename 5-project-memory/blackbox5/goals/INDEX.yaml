@@ -1,46 +1,50 @@
 # Goals Index
 # =============================================================================
 # Auto-generated: Quick lookup for all goals
-# Generated: 2026-02-02
+# Generated: 2026-02-04
 # =============================================================================
 
 meta:
-  generated_at: "2026-02-02T11:00:00Z"
-  version: "1.0.0"
-  total_goals: 9
+  generated_at: "2026-02-04T07:30:00Z"
+  version: "1.1.0"
+  total_goals: 10
 
 # =============================================================================
 # SUMMARY
 # =============================================================================
 
 summary:
-  core: 3
-  active: 6
+  core: 4
+  active: 7
   completed: 0
   cancelled: 0
+  merged: 2
 
 by_priority:
   critical:
     - IG-006
+    - IG-008
   high:
     - IG-001
     - IG-002
+    - IG-007
+    - IG-009
   medium:
-    - IG-003
     - IG-004
-    - IG-005
 
 by_status:
   not_started:
     - IG-001
     - IG-002
-    - IG-003
     - IG-004
-    - IG-005
   in_progress:
     - IG-006
-  completed: []
-  blocked: []
+    - IG-007
+    - IG-008
+    - IG-009
+  merged:
+    - IG-003 (into CG-004)
+    - IG-005 (into IG-007)
 
 # =============================================================================
 # CORE GOALS (Perpetual)
@@ -66,7 +70,6 @@ core_goals:
       commits_to_main: 0 (target: 0)
       trend: "improving"
     active_initiatives:
-      - IG-003
       - IG-004
 
   - id: CG-003
@@ -77,8 +80,21 @@ core_goals:
       test_pass_rate: 97% (target: 98%)
       trend: "stable"
     active_initiatives:
-      - IG-005
       - IG-006
+      - IG-007
+
+  - id: CG-004
+    name: "Intelligent Navigation System"
+    status: active
+    description: "Enable agents to navigate across all contexts"
+    metrics_summary:
+      context_discovery_accuracy: 95% (target: 100%)
+      navigation_commands_used: 8/session (target: 10)
+      cross_project_navigation: 0% (target: 100%)
+      trend: "improving"
+    active_initiatives:
+      - IG-006 (hierarchy navigation - COMPLETE)
+      - IG-003 (being merged - cross-project navigation)
 
 # =============================================================================
 # ACTIVE IMPROVEMENT GOALS
@@ -89,14 +105,54 @@ active_goals:
     name: "Restructure BlackBox5 Architecture"
     priority: critical
     status: in_progress
-    progress: 65%
+    progress: 75%
     target_completion: "2026-02-15"
     owner: architect-agent
     sub_goals:
       - SG-006-1: 85% (Consolidate folders)
       - SG-006-2: 100% (Documentation - COMPLETE)
-      - SG-006-3: 10% (Migration)
-    summary: "Major restructuring nearly complete. Tasks migrated, goals system fully built."
+      - SG-006-3: 100% (Navigation system - COMPLETE)
+      - SG-006-4: 10% (Migration)
+    summary: "Major restructuring nearly complete. Navigation system built."
+
+  - id: IG-008
+    name: "Hindsight Memory Architecture"
+    priority: critical
+    status: in_progress
+    progress: 0%
+    target_completion: "2026-03-18"
+    owner: architect-agent
+    summary: "Implement persistent agent memory through Hindsight's 4-network system"
+
+  - id: IG-009
+    name: "Improve Hooks for Automated Maintenance"
+    priority: high
+    status: in_progress
+    progress: 60%
+    target_completion: "2026-02-18"
+    owner: architect-agent
+    sub_goals:
+      - SG-009-1: 100% (Audit existing - COMPLETE)
+      - SG-009-2: 100% (Timeline hook - COMPLETE)
+      - SG-009-3: 100% (Architecture hook - COMPLETE)
+      - SG-009-4: 100% (Context sync hook - COMPLETE)
+      - SG-009-5: 0% (Documentation)
+      - SG-009-6: 0% (Integration)
+    summary: "Automated hooks for timeline, architecture, context maintenance"
+
+  - id: IG-007
+    name: "Continuous Architecture & Documentation Evolution"
+    priority: high
+    status: in_progress
+    progress: 25%
+    target_completion: "2026-03-04"
+    owner: architect-agent
+    sub_goals:
+      - SG-007-1: 100% (Analysis framework - COMPLETE)
+      - SG-007-2: 0% (Documentation audit - from merged IG-005)
+      - SG-007-3: 0% (Improvement loop)
+      - SG-007-4: 0% (Documentation standards)
+    summary: "Self-improving architecture with merged documentation focus"
 
   - id: IG-001
     name: "Improve CLAUDE.md Effectiveness"
@@ -112,13 +168,6 @@ active_goals:
     progress: 0%
     summary: "Streamline operational procedures"
 
-  - id: IG-003
-    name: "Improve System Flow and Code Mapping"
-    priority: medium
-    status: not_started
-    progress: 0%
-    summary: "Better cross-project awareness"
-
   - id: IG-004
     name: "Optimize Skill Usage and Efficiency"
     priority: medium
@@ -126,12 +175,22 @@ active_goals:
     progress: 0%
     summary: "Make skills more effective"
 
+# =============================================================================
+# MERGED GOALS (Deprecated)
+# =============================================================================
+
+merged_goals:
+  - id: IG-003
+    name: "Improve System Flow and Code Mapping"
+    merged_into: CG-004
+    merged_date: "2026-02-04"
+    reason: "Cross-project navigation and code context gathering merged into Intelligent Navigation System"
+
   - id: IG-005
     name: "Improve Documentation Quality and Utility"
-    priority: medium
-    status: not_started
-    progress: 0%
-    summary: "Ensure docs are valuable and used"
+    merged_into: IG-007
+    merged_date: "2026-02-04"
+    reason: "Documentation audit and improvement merged into Continuous Architecture Evolution"
 
 # =============================================================================
 # ATTENTION REQUIRED
@@ -139,8 +198,13 @@ active_goals:
 
 needs_attention:
   - goal: IG-006
-    reason: "Documentation complete, needs final validation"
-    action: "Complete SG-006-3: Final cleanup and validation"
+    reason: "Navigation complete, needs final migration validation"
+    action: "Complete SG-006-4: Final cleanup and validation"
+    urgency: medium
+
+  - goal: IG-007
+    reason: "Newly merged goals need integration"
+    action: "Execute SG-007-2 (documentation audit from IG-005)"
     urgency: medium
 
   - goal: IG-004
@@ -158,5 +222,12 @@ recently_completed: []
 # NOTES
 # =============================================================================
 
+# MERGES PERFORMED 2026-02-04:
+# - IG-005 merged into IG-007 (documentation focus)
+# - IG-003 merged into CG-004 (navigation focus)
+#
+# RESULT: 6 active goals → 5 active goals + 4 core goals
+# Clearer separation of concerns, no overlaps
+
 # This file is auto-generated from goals in core/ and active/
-# Last updated: 2026-02-02
+# Last updated: 2026-02-04

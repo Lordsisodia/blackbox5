@@ -1,0 +1,38 @@
+name: Fetch Transcripts
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours = 4 times/day
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Number of videos to fetch'
+        required: false
+        default: '25'
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install youtube-transcript-api
+
+      - name: Fetch transcripts
+        run: |
+          python scripts/worker/worker.py --limit ${{ github.event.inputs.limit || 25 }} --output-dir content/transcripts --state-dir .state
+
+      - name: Commit transcripts
+        run: |
+          git config user.name "Transcript Bot"
+          git config user.email "bot@example.com"
+          git add content/transcripts/ database/queue.db
+          git commit -m "transcripts: $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "No changes"
+          git push

@@ -92,6 +92,11 @@ case "$COMMAND" in
         "$SCRIPT_DIR/bb5-link" task "$@"
         ;;
 
+    # Timeline commands
+    timeline)
+        "$SCRIPT_DIR/bb5-timeline" "$@"
+        ;;
+
     # Help
     help|--help|-h)
         cat << 'EOF'
@@ -125,6 +130,12 @@ LINKING COMMANDS
   bb5 link:goal [ID]        Link current item to goal
   bb5 link:plan [ID]        Link current item to plan
   bb5 link:task [ID]        Link current item to task
+
+TIMELINE COMMANDS
+  bb5 timeline show         Display full project timeline
+  bb5 timeline recent [N]   Show last N events
+  bb5 timeline milestones   Show only milestones
+  bb5 timeline stats        Show timeline statistics
 
 EXAMPLES
   bb5 whereami

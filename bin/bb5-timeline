@@ -1,0 +1,268 @@
+#!/bin/bash
+# bb5-timeline - Timeline management CLI
+# Purpose: View, update, and manage project timeline
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BB5_DIR="$PROJECT_ROOT/5-project-memory/blackbox5"
+TIMELINE_FILE="$BB5_DIR/timeline.yaml"
+
+# =============================================================================
+# COMMANDS
+# =============================================================================
+
+show_help() {
+    cat << 'EOF'
+bb5 timeline - Project timeline management
+
+USAGE:
+    bb5 timeline [COMMAND] [OPTIONS]
+
+COMMANDS:
+    show                    Display full timeline
+    recent [N]              Show last N events (default: 10)
+    add                     Add new event interactively
+    add-quick "TITLE"       Add quick event with defaults
+    milestones              Show only milestones
+    events                  Show only events
+    search "TERM"           Search timeline for term
+    since "YYYY-MM-DD"      Show events since date
+    stats                   Show timeline statistics
+    update-phase "PHASE"    Update current phase
+
+EXAMPLES:
+    bb5 timeline show
+    bb5 timeline recent 5
+    bb5 timeline add-quick "Completed navigation system"
+    bb5 timeline search "milestone"
+    bb5 timeline since 2026-02-01
+EOF
+}
+
+show_timeline() {
+    if [ ! -f "$TIMELINE_FILE" ]; then
+        echo "Error: timeline.yaml not found"
+        exit 1
+    fi
+
+    echo "# Project Timeline"
+    echo "=================="
+    echo ""
+
+    # Extract project info
+    grep -A 5 "^project:" "$TIMELINE_FILE" | grep -E "(name|current_phase)" | sed 's/^/  /'
+    echo ""
+
+    # Show recent events
+    echo "## Recent Events"
+    echo ""
+
+    # Parse and display events
+    awk '
+        /^events:/ { in_events=1; next }
+        /^  - date:/ { if (in_events) print "" }
+        /^  - / { if (in_events) print $0 }
+        /^[^ ]/ { if (in_events) exit }
+    ' "$TIMELINE_FILE" | tail -50
+}
+
+show_recent() {
+    local count="${1:-10}"
+
+    echo "# Last $count Timeline Events"
+    echo "============================"
+    echo ""
+
+    # Extract last N events
+    awk '
+        /^events:/ { in_events=1; next }
+        in_events {
+            if (/^  - date:/) {
+                if (buffer != "") print buffer
+                buffer = $0
+            } else if (/^    /) {
+                buffer = buffer "\n" $0
+            } else {
+                exit
+            }
+        }
+    ' "$TIMELINE_FILE" | tail -$((count * 5))
+}
+
+add_event() {
+    echo "Add Timeline Event"
+    echo "=================="
+    echo ""
+
+    read -p "Event type (milestone/decision/infrastructure/process/analysis): " event_type
+    read -p "Title: " title
+    read -p "Description: " description
+    read -p "Impact (low/medium/high): " impact
+    read -p "Related items (comma-separated, or leave empty): " related
+
+    # Create temp file with new event
+    TEMP_FILE=$(mktemp)
+
+    cat >> "$TEMP_FILE" << EOF
+
+  - date: "$(date +%Y-%m-%d)"
+    type: "$event_type"
+    title: "$title"
+    description: "$description"
+    impact: "$impact"
+EOF
+
+    if [ -n "$related" ]; then
+        echo "    related_items:" >> "$TEMP_FILE"
+        echo "$related" | tr ',' '\n' | sed 's/^ */      - "/; s/$/"/' >> "$TEMP_FILE"
+    else
+        echo "    related_items: null" >> "$TEMP_FILE"
+    fi
+
+    # Insert into timeline
+    awk '
+        /^# PROGRESS/ { while ((getline line < tmpfile) > 0) print line; close(tmpfile) }
+        { print }
+    ' tmpfile="$TEMP_FILE" "$TIMELINE_FILE" > "${TIMELINE_FILE}.tmp"
+
+    mv "${TIMELINE_FILE}.tmp" "$TIMELINE_FILE"
+    rm -f "$TEMP_FILE"
+
+    echo ""
+    echo "✓ Event added to timeline"
+}
+
+add_quick_event() {
+    local title="$1"
+
+    if [ -z "$title" ]; then
+        echo "Error: Title required"
+        echo "Usage: bb5 timeline add-quick \"Event title\""
+        exit 1
+    fi
+
+    TEMP_FILE=$(mktemp)
+
+    cat >> "$TEMP_FILE" << EOF
+
+  - date: "$(date +%Y-%m-%d)"
+    type: "process"
+    title: "$title"
+    description: "Auto-generated event"
+    impact: "medium"
+    related_items: null
+EOF
+
+    awk '
+        /^# PROGRESS/ { while ((getline line < tmpfile) > 0) print line; close(tmpfile) }
+        { print }
+    ' tmpfile="$TEMP_FILE" "$TIMELINE_FILE" > "${TIMELINE_FILE}.tmp"
+
+    mv "${TIMELINE_FILE}.tmp" "$TIMELINE_FILE"
+    rm -f "$TEMP_FILE"
+
+    echo "✓ Quick event added: $title"
+}
+
+show_milestones() {
+    echo "# Project Milestones"
+    echo "==================="
+    echo ""
+
+    awk '
+        /^milestones:/ { in_milestones=1; next }
+        /^[^ ]/ { in_milestones=0 }
+        in_milestones { print }
+    ' "$TIMELINE_FILE"
+}
+
+show_stats() {
+    echo "# Timeline Statistics"
+    echo "===================="
+    echo ""
+
+    local total_events=$(grep -c "^  - date:" "$TIMELINE_FILE" 2>/dev/null || echo "0")
+    local milestones=$(grep -c "^  - id: \"M-" "$TIMELINE_FILE" 2>/dev/null || echo "0")
+    local completed=$(grep -c "status: \"completed\"" "$TIMELINE_FILE" 2>/dev/null || echo "0")
+
+    echo "Total events: $total_events"
+    echo "Milestones: $milestones"
+    echo "Completed milestones: $completed"
+    echo ""
+
+    # Count by type
+    echo "Events by type:"
+    grep "^    type:" "$TIMELINE_FILE" | sed 's/.*type: "//; s/"$//' | sort | uniq -c | sort -rn | sed 's/^/  /'
+}
+
+update_phase() {
+    local new_phase="$1"
+
+    if [ -z "$new_phase" ]; then
+        echo "Error: Phase required"
+        echo "Usage: bb5 timeline update-phase \"New Phase\""
+        exit 1
+    fi
+
+    sed -i '' "s/current_phase: \"[^\"]*\"/current_phase: \"$new_phase\"/" "$TIMELINE_FILE"
+
+    echo "✓ Phase updated to: $new_phase"
+}
+
+# =============================================================================
+# MAIN
+# =============================================================================
+
+COMMAND="${1:-show}"
+shift || true
+
+case "$COMMAND" in
+    show)
+        show_timeline
+        ;;
+    recent)
+        show_recent "$1"
+        ;;
+    add)
+        add_event
+        ;;
+    add-quick)
+        add_quick_event "$1"
+        ;;
+    milestones)
+        show_milestones
+        ;;
+    events)
+        show_timeline
+        ;;
+    search)
+        grep -i "$1" "$TIMELINE_FILE" -B 2 -A 3 || echo "No matches found"
+        ;;
+    since)
+        awk -v since="$1" '
+            /^  - date:/ {
+                date = $0
+                gsub(/.*date: "|"$/, "", date)
+                if (date >= since) print_block = 1
+            }
+            print_block { print }
+            /^[^ ]/ { print_block = 0 }
+        ' "$TIMELINE_FILE"
+        ;;
+    stats)
+        show_stats
+        ;;
+    update-phase)
+        update_phase "$1"
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        echo "Run 'bb5 timeline help' for usage"
+        exit 1
+        ;;
+esac

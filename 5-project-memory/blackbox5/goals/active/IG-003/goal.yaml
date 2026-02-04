@@ -9,8 +9,11 @@ meta:
   target_completion: "2026-03-15"
   owner: "planner-agent"
   priority: medium
-  status: not_started
+  status: merged
   category: process
+  merged_into: CG-004
+  merged_date: "2026-02-04"
+  merge_note: "IG-003 sub-goals SG-003-2 (context gathering) and SG-003-3 (cross-project navigation) merged into CG-004"
 
 sub_goals:
   - id: SG-003-1
@@ -67,9 +70,18 @@ links:
   parent_goal: CG-002
 
 notes: |
-  Current issues:
+  MERGED INTO CG-004
+  ==================
+  This goal has been merged into CG-004 (Intelligent Navigation System).
+
+  Sub-goal mappings:
+  - SG-003-1 "Build project relationship map" → CG-004 initiative
+  - SG-003-2 "Optimize context gathering" → CG-004 metric: code_context_gathering_accuracy
+  - SG-003-3 "Create cross-project navigation" → CG-004 metric: cross_project_navigation_coverage
+
+  Original focus:
   - Cross-project dependencies sometimes missed
   - Context gathering can be inefficient
   - Hard to see the big picture
 
-  Success means better awareness of how everything connects.
+  All capabilities now part of the unified Intelligent Navigation System.

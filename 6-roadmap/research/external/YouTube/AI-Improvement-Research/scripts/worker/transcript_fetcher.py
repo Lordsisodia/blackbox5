@@ -1,31 +1,44 @@
 """
-Transcript Fetcher using youtube-transcript-api
+Transcript Fetcher using youtube-transcript-api with Tor proxy
 
 Fetches transcripts with rate limiting and error handling.
+Uses Tor to bypass IP blocks from YouTube.
 """
 
+import os
 import re
 import time
 from pathlib import Path
 from typing import Optional, Dict, Tuple
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound, VideoUnavailable
+from youtube_transcript_api.proxies import GenericProxyConfig
 
 
 class TranscriptFetcher:
-    """Fetches YouTube transcripts with rate limiting."""
+    """Fetches YouTube transcripts with rate limiting via Tor."""
 
-    def __init__(self, output_dir: Path, delay: float = 2.0):
+    def __init__(self, output_dir: Path, delay: float = 2.0, use_tor: bool = True):
         """
         Initialize fetcher.
 
         Args:
             output_dir: Directory to save transcripts
             delay: Seconds between requests (rate limiting)
+            use_tor: Whether to route requests through Tor
         """
         self.output_dir = output_dir
         self.delay = delay
+        self.use_tor = use_tor
         self.last_request_time = 0
+        self.proxy_config = None
+
+        # Set up Tor proxy via Privoxy (HTTP proxy -> SOCKS5)
+        if self.use_tor:
+            self.proxy_config = GenericProxyConfig(
+                http_url="http://127.0.0.1:8118",
+                https_url="http://127.0.0.1:8118"
+            )
 
     def _rate_limit(self):
         """Enforce rate limiting between requests."""
@@ -48,8 +61,8 @@ class TranscriptFetcher:
         self._rate_limit()
 
         try:
-            # Fetch transcript (new API uses instance method)
-            ytt_api = YouTubeTranscriptApi()
+            # Fetch transcript via Tor
+            ytt_api = YouTubeTranscriptApi(proxy_config=self.proxy_config)
             transcript = ytt_api.fetch(video_id)
 
             # Combine all text segments
@@ -67,7 +80,10 @@ class TranscriptFetcher:
         except VideoUnavailable:
             return False, None, "Video unavailable"
         except Exception as e:
-            return False, None, f"Error: {str(e)}"
+            error_msg = str(e)
+            if "IP" in error_msg or "blocked" in error_msg.lower():
+                return False, None, "IP blocked by YouTube - need to rotate Tor circuit"
+            return False, None, f"Error: {error_msg}"
 
     def _clean_transcript(self, text: str) -> str:
         """Clean up transcript text."""

@@ -1,74 +1,96 @@
-# TASK-XXX: FILL_ME
+# TASK-1770163374: Implement Intelligent Navigation System
 
-**Status:** FILL_ME (pending/in_progress/completed)
-**Priority:** FILL_ME (critical/high/medium/low)
-**Type:** FILL_ME
+**Status:** completed
+**Priority:** critical
+**Type:** architecture
+**Created:** 2026-02-04
+**Completed:** 2026-02-04
 
 ---
 
 ## Description
 
-FILL_ME
+Build an Intelligent Navigation System that enables AI agents to effortlessly navigate across all contexts - goals, plans, tasks, subtasks, and runs. The system should reduce cognitive load and maintain continuity across sessions through automatic context discovery, template auto-population, and enhanced hooks.
 
 ---
 
 ## Pre-Execution Validation
 
-<!-- Run these checks BEFORE starting work -->
+- [x] **Duplicate Check:** No existing navigation system
+- [x] **Path Validation:** All target paths exist
+- [x] **Commit Check:** Related to IG-006 architecture restructuring
+- [x] **Assumptions:** Agent needs context awareness
 
-- [ ] **Duplicate Check:** Searched completed/ for similar tasks
-- [ ] **Path Validation:** Verified all target paths exist
-- [ ] **Commit Check:** Checked recent commits for related work
-- [ ] **Assumptions:** Listed and validated all assumptions
-
-**Validation Result:** [pass/warn/fail]
+**Validation Result:** pass
 
 ---
 
 ## Acceptance Criteria
 
-<!-- Use SMART criteria: Specific, Measurable, Achievable, Relevant, Time-bound -->
-<!-- See: .templates/tasks/task-acceptance-criteria.md.template for detailed guidance -->
-
 ### Must-Have (Required for completion)
-- [ ] FILL_ME - [Specific, testable criterion]
-- [ ] FILL_ME - [Specific, testable criterion]
-- [ ] FILL_ME - [Specific, testable criterion]
+- [x] bb5 CLI with 10+ navigation commands (whereami, goal:show, plan:show, task:show, up, down, goto, create, link)
+- [x] bb5-discover-context for automatic context detection (goal/plan/task)
+- [x] bb5-populate-template for variable substitution ({{ID}}, {{NAME}}, {{DATE}}, {{DATETIME}}, {{AGENT}})
+- [x] 3 enhanced hooks (session-start, pre-tool, stop)
+- [x] CURRENT_CONTEXT.md auto-generated on session start
+- [x] NAVIGATION-GUIDE.md documentation
+- [x] CLAUDE.md updated with navigation commands
 
 ### Should-Have (Important but not blocking)
-- [ ] FILL_ME - [Specific, testable criterion]
+- [x] Parent relationship discovery via symlinks
+- [x] Human-readable and JSON output formats
+- [x] Template validation before population
 
 ### Nice-to-Have (If time permits)
-- [ ] FILL_ME - [Specific, testable criterion]
+- [ ] Tab completion for bash/zsh
+- [ ] Search functionality across items
+- [ ] Status dashboard
 
 ### Verification Method
-<!-- How will we verify these criteria are met? -->
-- [ ] Manual testing: [describe]
-- [ ] Automated tests: [describe]
-- [ ] Code review: [describe]
-- [ ] Documentation review: [describe]
+- [x] Manual testing: All bb5 commands tested
+- [x] Documentation review: NAVIGATION-GUIDE.md complete
 
 ---
 
-## Dependencies
+## Context
 
-**Requires:**
-- FILL_ME
-
-**Blocks:**
-- FILL_ME
+Part of IG-006: Restructure BlackBox5 Architecture. The unified hierarchy (GOALS → PLANS → TASKS → SUBTASKS) needs a navigation system to make it usable by agents.
 
 ---
 
-## Effort
+## Approach
 
-**Estimated:** FILL_ME
-**Actual:** FILL_ME
+1. Create bb5-discover-context as shared library
+2. Build bb5 CLI wrapper with command routing
+3. Implement template population engine
+4. Create 3 enhanced hooks for context injection
+5. Document in NAVIGATION-GUIDE.md
 
 ---
 
-## Dates
+## Rollback Strategy
 
-**Created:** FILL_ME
-**Started:** FILL_ME
-**Completed:** FILL_ME
+- All scripts in ~/.blackbox5/bin/ (separate from system)
+- Hooks can be disabled by removing from .claude/hooks/
+- Original templates remain untouched
+
+---
+
+## Links
+
+- **Goal:** IG-006 (Sub-goal SG-006-3)
+- **Plan:** navigation-system
+- **Core Goal:** CG-004 - Intelligent Navigation System
+
+---
+
+## Results
+
+Successfully implemented:
+- 10 bb5 CLI commands
+- Context discovery engine
+- Template auto-population
+- 3 enhanced hooks
+- Complete documentation
+
+Agents can now navigate the hierarchy effortlessly with automatic context awareness.

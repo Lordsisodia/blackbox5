@@ -1,0 +1,189 @@
+# Goal: Improve Hooks for Automated Maintenance
+# =============================================================================
+goal_id: IG-009
+name: "Improve Hooks for Automated Architecture, Context, and Timeline Maintenance"
+description: "Create comprehensive hook system that automatically maintains project timeline, architecture consistency, context synchronization, and ensures all system state is kept up-to-date without manual intervention"
+
+meta:
+  created: "2026-02-04"
+  target_completion: "2026-02-18"
+  owner: "architect-agent"
+  priority: high
+  status: in_progress
+  category: infrastructure
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-009-1
+    name: "Audit and Document Existing Hooks"
+    description: "Review current hooks (session-start-navigation, pre-tool-validation, stop-hierarchy-update) and document their functionality"
+    weight: 15
+    status: completed
+
+    acceptance_criteria:
+      - "All existing hooks documented"
+      - "Hook interaction map created"
+      - "Gaps identified for new hooks"
+      - "Performance impact assessed"
+
+    linked_tasks:
+      - TASK-HOOKS-001
+
+  - id: SG-009-2
+    name: "Build Timeline Maintenance Hook"
+    description: "Create automated timeline updates on significant events (goal creation, task completion, decisions)"
+    weight: 25
+    status: completed
+
+    acceptance_criteria:
+      - "timeline-maintenance.sh hook created"
+      - "Auto-detects milestone events"
+      - "Updates timeline.yaml automatically"
+      - "bb5-timeline CLI command works"
+      - "No duplicate entries"
+
+    linked_tasks:
+      - TASK-HOOKS-002
+
+  - id: SG-009-3
+    name: "Build Architecture Consistency Hook"
+    description: "Validate directory structure, naming conventions, and hierarchy integrity before changes"
+    weight: 20
+    status: completed
+
+    acceptance_criteria:
+      - "architecture-consistency.sh hook created"
+      - "Validates goal/plan/task structure"
+      - "Checks naming conventions (IG-XXX, TASK-XXX)"
+      - "Warns on symlink modifications"
+      - "Suggests fixes"
+
+    linked_tasks:
+      - TASK-HOOKS-003
+
+  - id: SG-009-4
+    name: "Build Context Synchronization Hook"
+    description: "Sync context across files when changes occur (goal progress, index updates, timeline context)"
+    weight: 20
+    status: completed
+
+    acceptance_criteria:
+      - "context-synchronization.sh hook created"
+      - "Syncs goal progress on task completion"
+      - "Updates task timeline entries"
+      - "Suggests INDEX.yaml regeneration"
+      - "Tracks core goal metric updates"
+
+    linked_tasks:
+      - TASK-HOOKS-004
+
+  - id: SG-009-5
+    name: "Create Hook Framework Documentation"
+    description: "Document the complete hook framework based on GitHub research and our implementation"
+    weight: 10
+    status: pending
+
+    acceptance_criteria:
+      - "HOOKS.md framework guide created"
+      - "Event types documented (PreToolUse, PostToolUse, Stop, etc.)"
+      - "Best practices from claudekit, awesome-claude-code included"
+      - "Hook development guide"
+      - "Troubleshooting section"
+
+    linked_tasks:
+      - TASK-HOOKS-005
+
+  - id: SG-009-6
+    name: "Integrate and Test All Hooks"
+    description: "Ensure all hooks work together without conflicts, test on real workflows"
+    weight: 10
+    status: pending
+
+    acceptance_criteria:
+      - "All hooks registered in settings.json"
+      - "No hook conflicts detected"
+      - "Tested on goal creation workflow"
+      - "Tested on task completion workflow"
+      - "Performance acceptable (<100ms per hook)"
+
+    linked_tasks:
+      - TASK-HOOKS-006
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 60
+  last_updated: "2026-02-04"
+
+  by_sub_goal:
+    SG-009-1: 100
+    SG-009-2: 100
+    SG-009-3: 100
+    SG-009-4: 100
+    SG-009-5: 0
+    SG-009-6: 0
+
+  summary:
+    total_tasks: 6
+    completed_tasks: 4
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions:
+    - DEC-2026-02-04-hook-framework
+
+  learnings:
+    - "GitHub: carlrannaberg/claudekit - Quality enforcement hooks"
+    - "GitHub: hesreallyhim/awesome-claude-code - Community hooks"
+    - "GitHub: affaan-m/everything-claude-code - Memory persistence hooks"
+
+  related_goals:
+    - IG-006  # Architecture restructuring (hooks support this)
+    - CG-003  # System Integrity (hooks enforce this)
+    - CG-004  # Navigation (hooks enhance this)
+
+  plans:
+    - hooks-framework
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  This goal creates a comprehensive hook ecosystem that automates maintenance
+  tasks that were previously manual or forgotten.
+
+  Existing hooks (enhanced):
+  - session-start-navigation.sh - Context discovery
+  - pre-tool-validation.sh - Structure validation
+  - stop-hierarchy-update.sh - Parent timeline updates
+
+  New hooks created:
+  - timeline-maintenance.sh - Auto-update timeline.yaml
+  - architecture-consistency.sh - Validate structure/naming
+  - context-synchronization.sh - Sync across files
+
+  Research sources:
+  - tarekziade/claude-tools - Trace compactor
+  - carlrannaberg/claudekit - File security, quality gates
+  - hesreallyhim/awesome-claude-code - Curated hooks list
+  - affaan-m/everything-claude-code - Memory persistence
+
+  Hook events used:
+  - PreToolUse: validation before action
+  - PostToolUse: updates after action
+  - Stop: session completion tasks
+  - SessionStart: context injection
+
+  Success means zero manual timeline updates, automatic architecture
+  enforcement, and synchronized context across all project files.

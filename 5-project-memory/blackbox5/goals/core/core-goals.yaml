@@ -101,7 +101,6 @@ core_goals:
         impact: "Reduced errors by 30%"
 
     active_initiatives:
-      - "IG-003: Improve System Flow and Code Mapping"
       - "IG-004: Optimize Skill Usage and Efficiency"
 
   - id: CG-003
@@ -141,8 +140,9 @@ core_goals:
         impact: "Prevented 3 accidental main commits"
 
     active_initiatives:
-      - "IG-005: Improve Documentation Quality and Utility"
       - "IG-006: Restructure BlackBox5 Architecture"
+      - "IG-007: Continuous Architecture & Documentation Evolution"
+      - "IG-009: Improve Hooks for Automated Maintenance"
 
   - id: CG-004
     name: "Intelligent Navigation System"
@@ -153,8 +153,10 @@ core_goals:
     success_criteria:
       - "Agent always knows current context without manual checking"
       - "Seamless navigation between any two points in the hierarchy"
+      - "Cross-project navigation works (between different projects)"
+      - "Code context gathering is automatic and accurate"
       - "Cross-context memory and continuity maintained"
-      - "Zero friction when switching between tasks/runs/chats"
+      - "Zero friction when switching between tasks/runs/chats/projects"
 
     metrics:
       - name: "context_discovery_accuracy"
@@ -175,6 +177,18 @@ core_goals:
         trend: "improving"
         last_updated: "2026-02-04"
 
+      - name: "cross_project_navigation_coverage"
+        target: "100%"
+        current: 0
+        trend: "not_started"
+        last_updated: "2026-02-04"
+
+      - name: "code_context_gathering_accuracy"
+        target: ">= 90%"
+        current: 0
+        trend: "not_started"
+        last_updated: "2026-02-04"
+
     timeline:
       - date: "2026-02-04"
         event: "Created bb5 navigation CLI with 10 commands"
@@ -191,8 +205,19 @@ core_goals:
         linked_task: "TASK-1770163374"
         impact: "Consistent structure across all created items"
 
+      - date: "2026-02-04"
+        event: "Established CG-004 as core goal"
+        linked_task: "TASK-1770163374"
+        impact: "Navigation system now a perpetual priority"
+
+      - date: "2026-02-04"
+        event: "Merged IG-003 into CG-004"
+        linked_task: "TASK-1770163374"
+        impact: "Cross-project navigation and code context gathering now part of navigation system"
+
     active_initiatives:
       - "IG-006: Restructure BlackBox5 Architecture (Navigation component)"
+      - "IG-003: Improve System Flow and Code Mapping (being merged into CG-004)"
 
 # =============================================================================
 # NOTES
