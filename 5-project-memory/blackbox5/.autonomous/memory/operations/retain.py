@@ -324,20 +324,81 @@ Output JSON array of relationships."""
             return []
 
     async def _store_memories(self, memories: List[Memory]):
-        """Store memories in PostgreSQL + pgvector"""
-        # TODO: Implement PostgreSQL storage
-        # For now, just print what would be stored
-        pass
+        """Store memories in vector store"""
+        from vector_store import VectorStore
+
+        store = VectorStore()
+
+        for memory in memories:
+            # Generate embedding if not present
+            if not memory.embedding:
+                memory.embedding = await self._generate_embedding(memory.content)
+
+            # Add to vector store
+            store.add_memory(
+                content=memory.content,
+                network=memory.network.value,
+                metadata={
+                    "confidence": memory.confidence,
+                    "source": memory.source,
+                    "source_type": memory.source_type,
+                    "category": memory.category,
+                    "entities": memory.entities,
+                    "created_at": memory.created_at.isoformat() if memory.created_at else None,
+                }
+            )
+
+        print(f"  Stored {len(memories)} memories in vector store")
 
     async def _store_entities(self, entities: List[Entity]):
-        """Store entities in Neo4j"""
-        # TODO: Implement Neo4j storage
-        pass
+        """Store entities in vector store as special memory type"""
+        from vector_store import VectorStore
+
+        store = VectorStore()
+
+        for entity in entities:
+            # Create a memory for each entity (for searchability)
+            content = f"Entity: {entity.name} (type: {entity.type})"
+            if entity.mention_count > 1:
+                content += f" - mentioned {entity.mention_count} times"
+
+            store.add_memory(
+                content=content,
+                network="world",  # Entities are world facts
+                metadata={
+                    "entity_name": entity.name,
+                    "entity_type": entity.type,
+                    "mention_count": entity.mention_count,
+                    "first_seen": entity.first_seen.isoformat() if entity.first_seen else None,
+                    "is_entity": True,
+                }
+            )
+
+        print(f"  Stored {len(entities)} entities")
 
     async def _store_relationships(self, relationships: List[Relationship]):
-        """Store relationships in Neo4j"""
-        # TODO: Implement Neo4j storage
-        pass
+        """Store relationships in vector store"""
+        from vector_store import VectorStore
+
+        store = VectorStore()
+
+        for rel in relationships:
+            # Create a memory for each relationship
+            content = f"Relationship: {rel.subject} {rel.predicate} {rel.object}"
+
+            store.add_memory(
+                content=content,
+                network="observation",  # Relationships are synthesized observations
+                metadata={
+                    "subject": rel.subject,
+                    "predicate": rel.predicate,
+                    "object": rel.object,
+                    "confidence": rel.confidence,
+                    "is_relationship": True,
+                }
+            )
+
+        print(f"  Stored {len(relationships)} relationships")
 
     def save_to_files(self, output_dir: Path):
         """Save extracted data to JSON files (for testing)"""

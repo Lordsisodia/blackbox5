@@ -199,6 +199,159 @@ events:
 
   - date: "2026-02-04"
     type: "milestone"
+    title: "Task Completed: 17"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "17"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 18"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "18"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 16"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "16"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 15"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "15"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 1"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "1"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 14"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "14"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 13"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "13"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 12"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "12"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Task Completed: 11"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "11"
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-04"
+    type: "milestone"
     title: "Task Completed: 5"
     description: "Task marked as completed via TaskUpdate"
     impact: "low"

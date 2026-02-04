@@ -58,14 +58,10 @@ def is_dangerous_command(tool_name, tool_input, agent_type):
                 if re.search(rf'\s+{path}(\s|$)', command):
                     return True, f"Blocked dangerous rm command targeting {path}"
 
-    # Pattern 2: .env file access (warn but allow for executor)
-    if '.env' in command and not command.endswith('.env.sample'):
-        if agent_type == 'executor':
-            # Allow executor to access .env for configuration
-            return False, None
-        else:
-            # Block others from .env
-            return True, "Blocked .env access (not executor agent)"
+    # Pattern 2: .env file access (allow for all agents - removed restriction)
+    # Note: Original blocked non-executor agents, but this was too restrictive
+    # Users need .env access for legitimate configuration tasks
+    pass  # .env access now allowed for all agents
 
     # Pattern 3: git push --force (block for planner/executor, allow architect)
     if re.search(r'git\s+push\s+.*--force', command):

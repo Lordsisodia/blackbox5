@@ -6,10 +6,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/bin/ralf-session-start-hook.sh"
-          },
-          {
-            "type": "command",
             "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh"
           },
           {
@@ -42,10 +38,6 @@
       {
         "matcher": "*",
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/bin/ralf-post-tool-hook.sh"
-          },
           {
             "type": "command",
             "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/timeline-maintenance.sh"
@@ -84,11 +76,38 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/bin/ralf-stop-hook.sh"
-          },
+            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-hierarchy-update.sh"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-hierarchy-update.sh"
+            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-end-context-update.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/user-prompt-context.sh"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/pre-compact-summarize.sh"
           }
         ]
       }
