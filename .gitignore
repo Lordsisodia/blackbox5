@@ -43,6 +43,7 @@ env/
 # Logs
 *.log
 logs/
+**/.logs/
 
 # Local Configuration
 .env
