@@ -4752,3 +4752,17 @@
   agent_id: "unknown-1770330270"
   parent_task: ""
   source: "hook"
+
+- timestamp: "2026-02-06T05:33:23+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770330803"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T05:33:26+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770330806"
+  parent_task: ""
+  source: "hook"
