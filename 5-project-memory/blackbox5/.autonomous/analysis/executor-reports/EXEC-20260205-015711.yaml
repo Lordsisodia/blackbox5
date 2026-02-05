@@ -1,0 +1,291 @@
+executor_report:
+  id: EXEC-20260205-015711
+  timestamp: '2026-02-05T01:57:11.055795'
+  dry_run: false
+  summary:
+    total_tasks: 5
+    successful: 1
+    failed: 4
+    total_execution_time_ms: 0
+  results:
+  - task_id: TASK-SKIL-005
+    success: true
+    action_taken: Threshold already at 60%, no change needed
+    files_modified:
+    - /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml
+    error_message: null
+    before_state: "# Skill Selection Framework\n# BlackBox5 - Operations\n#\n# Purpose:\
+      \ Guide skill selection during task execution to bridge the gap\n#         \
+      \ between documented skills and actual usage.\n#\n# Usage: Executors MUST check\
+      \ this file before starting Phase 2 (Execution)\n#        of any task. Follow\
+      \ the decision tree to determine if a skill\n#        should be invoked.\n#\n\
+      # Integration: Works alongside skill-usage.yaml and skill-metrics.yaml\n\n#\
+      \ ============================================================================\n\
+      # Quick Decision Tree\n# ============================================================================\n\
+      #\n# START: Read task file completely\n#   |\n#   v\n# Check skill-usage.yaml\
+      \ for applicable skills\n#   |\n#   +---> Match found with >70% confidence?\
+      \ ---> YES ---> Invoke skill\n#   |                                        \
+      \   |\n#   |                                           NO\n#   |           \
+      \                                |\n#   +---> No match or <70% confidence? --------->\
+      \ Proceed with standard execution\n#   |\n#   v\n# Document decision in THOUGHTS.md\n\
+      #   |\n#   v\n# END: Continue with Phase 2 (Execution)\n\n# ============================================================================\n\
+      # Domain-to-Skill Mapping\n# ============================================================================\n\
+      \ndomain_mapping:\n  - domain: \"Product Management\"\n    keywords: [\"PRD\"\
+      , \"requirements\", \"feature definition\", \"roadmap\", \"user story\", \"\
+      epic\"]\n    primary_skill: bmad-pm\n    confidence_threshold: 85\n    notes:\
+      \ \"Use for any requirements gathering or feature planning work\"\n\n  - domain:\
+      \ \"Architecture & Design\"\n    keywords: [\"architecture\", \"design\", \"\
+      refactor\", \"integrate\", \"pattern\", \"scalability\", \"structure\"]\n  \
+      \  primary_skill: bmad-architect\n    confidence_threshold: 90\n    notes: \"\
+      Use for system design, major refactoring, integration planning\"\n\n  - domain:\
+      \ \"Research & Analysis\"\n    keywords: [\"research\", \"analyze\", \"investigate\"\
+      , \"pattern\", \"audit\", \"study\"]\n    primary_skill: bmad-analyst\n    confidence_threshold:\
+      \ 80\n    notes: \"Use for data analysis, pattern identification, research tasks\"\
+      \n\n  - domain: \"Process & Coordination\"\n    keywords: [\"process\", \"sprint\"\
+      , \"coordinate\", \"planning\", \"scrum\", \"facilitate\"]\n    primary_skill:\
+      \ bmad-sm\n    confidence_threshold: 80\n    notes: \"Use for process questions,\
+      \ coordination, sprint planning\"\n\n  - domain: \"UX & Design\"\n    keywords:\
+      \ [\"UI\", \"UX\", \"design\", \"user flow\", \"interface\", \"mockup\", \"\
+      wireframe\"]\n    primary_skill: bmad-ux\n    confidence_threshold: 85\n   \
+      \ notes: \"Use for UI/UX decisions, user flow design\"\n\n  - domain: \"Implementation\"\
+      \n    keywords: [\"implement\", \"code\", \"develop\", \"build\", \"create\"\
+      , \"write\"]\n    primary_skill: bmad-dev\n    confidence_threshold: 80\n  \
+      \  notes: \"Use for coding tasks, implementation work, testing\"\n\n  - domain:\
+      \ \"Quality Assurance\"\n    keywords: [\"test\", \"quality\", \"QA\", \"validation\"\
+      , \"verify\", \"bug\"]\n    primary_skill: bmad-qa\n    confidence_threshold:\
+      \ 85\n    notes: \"Use for testing strategy, test plans, quality questions\"\
+      \n\n  - domain: \"Complex Problem Solving\"\n    keywords: [\"Should we\", \"\
+      How should we\", \"best way\", \"optimize\", \"strategy\"]\n    primary_skill:\
+      \ superintelligence-protocol\n    confidence_threshold: 90\n    notes: \"Use\
+      \ for architecture questions, design decisions, complex problems\"\n\n  - domain:\
+      \ \"Continuous Improvement\"\n    keywords: [\"improve\", \"optimize\", \"refine\"\
+      , \"iterate\", \"enhance\"]\n    primary_skill: continuous-improvement\n   \
+      \ confidence_threshold: 85\n    notes: \"Use when improving existing systems\
+      \ or processes\"\n\n  - domain: \"Web Research\"\n    keywords: [\"search\"\
+      , \"current\", \"documentation\", \"external\", \"web\"]\n    primary_skill:\
+      \ web-search\n    confidence_threshold: 80\n    notes: \"Use for research requiring\
+      \ external information\"\n\n  - domain: \"Codebase Navigation\"\n    keywords:\
+      \ [\"find code\", \"explore\", \"understand structure\", \"navigate\"]\n   \
+      \ primary_skill: codebase-navigation\n    confidence_threshold: 80\n    notes:\
+      \ \"Use for exploring unfamiliar codebases or finding code\"\n\n  - domain:\
+      \ \"Database Operations\"\n    keywords: [\"supabase\", \"database\", \"RLS\"\
+      , \"migration\", \"schema\"]\n    primary_skill: supabase-operations\n    confidence_threshold:\
+      \ 85\n    notes: \"Use for Supabase database operations\"\n\n  - domain: \"\
+      Git Operations\"\n    keywords: [\"commit\", \"git\", \"PR\", \"branch\", \"\
+      merge\"]\n    primary_skill: git-commit\n    confidence_threshold: 95\n    notes:\
+      \ \"Always use for git operations - high confidence\"\n\n# ============================================================================\n\
+      # Skill Selection Process\n# ============================================================================\n\
+      \nselection_process:\n  step_1: \"Read task file completely - understand objective\
+      \ and approach\"\n  step_2: \"Check skill-usage.yaml for skills with matching\
+      \ trigger_keywords\"\n  step_3: \"Match task type against domain_mapping above\"\
+      \n  step_4: \"Calculate confidence based on keyword overlap and task context\"\
+      \n  step_5: \"If confidence >= threshold, invoke the skill\"\n  step_6: \"If\
+      \ confidence < threshold, proceed with standard execution\"\n  step_7: \"Document\
+      \ decision in THOUGHTS.md under 'Skill Usage for This Task'\"\n\n# ============================================================================\n\
+      # Confidence Calculation\n# ============================================================================\n\
+      \nconfidence_calculation:\n  description: \"Calculate confidence score (0-100%)\
+      \ for skill selection\"\n\n  factors:\n    - factor: \"Keyword match\"\n   \
+      \   weight: 40\n      description: \"Percentage of skill keywords present in\
+      \ task\"\n\n    - factor: \"Task type alignment\"\n      weight: 30\n      description:\
+      \ \"How well task type matches skill's intended use\"\n\n    - factor: \"Complexity\
+      \ fit\"\n      weight: 20\n      description: \"Whether task complexity warrants\
+      \ specialized skill\"\n\n    - factor: \"Historical success\"\n      weight:\
+      \ 10\n      description: \"Skill's track record from skill-metrics.yaml\"\n\n\
+      \  formula: |\n    confidence = (keyword_match * 0.40) +\n                 (type_alignment\
+      \ * 0.30) +\n                 (complexity_fit * 0.20) +\n                 (historical_success\
+      \ * 0.10)\n\n  threshold: 60\n  threshold_notes: \"Only invoke skill if confidence\
+      \ >= 60%\"\n\n# ============================================================================\n\
+      # Fallback Behavior\n# ============================================================================\n\
+      \nfallback:\n  when_no_skill_matches:\n    action: \"Proceed with standard execution\"\
+      \n    documentation: \"Note in THOUGHTS.md: 'No applicable skill found'\"\n\n\
+      \  when_confidence_low:\n    action: \"Proceed with standard execution\"\n \
+      \   documentation: \"Note in THOUGHTS.md: 'Skill X considered but confidence\
+      \ too low (Y%)'\"\n\n  when_multiple_skills_match:\n    action: \"Select highest\
+      \ confidence skill or most specific match\"\n    documentation: \"Note in THOUGHTS.md:\
+      \ 'Multiple skills applicable, selected X because...'\"\n\n  when_uncertain:\n\
+      \    action: \"Ask Planner via chat-log.yaml\"\n    documentation: \"Document\
+      \ question and response in THOUGHTS.md\"\n\n# ============================================================================\n\
+      # Documentation Requirements\n# ============================================================================\n\
+      \ndocumentation:\n  in_thoughts_md:\n    - \"## Skill Usage for This Task\"\n\
+      \    - \"**Applicable skills:** [list or 'None']\"\n    - \"**Skill invoked:**\
+      \ [name or 'None']\"\n    - \"**Confidence:** [percentage if calculated]\"\n\
+      \    - \"**Rationale:** [why skill was or wasn't used]\"\n\n  in_results_md:\n\
+      \    - \"Note skill usage in validation section\"\n    - \"Update skill-metrics.yaml\
+      \ task_outcomes\"\n\n  in_task_completion:\n    - \"Fill out Skill Usage Tracking\
+      \ section\"\n    - \"Rate effectiveness if skill was used\"\n\n# ============================================================================\n\
+      # Validation Checklist\n# ============================================================================\n\
+      \nvalidation:\n  before_execution:\n    - \"Checked skill-usage.yaml for applicable\
+      \ skills\"\n    - \"Calculated confidence for any matches\"\n    - \"Documented\
+      \ decision in THOUGHTS.md\"\n\n  after_execution:\n    - \"Updated skill-metrics.yaml\
+      \ with task outcome\"\n    - \"Recorded skill effectiveness if used\"\n    -\
+      \ \"Noted any trigger accuracy issues\"\n\n# ============================================================================\n\
+      # Examples\n# ============================================================================\n\
+      \nexamples:\n  - scenario: \"Task: Create PRD for user authentication\"\n  \
+      \  skill_selected: \"bmad-pm\"\n    confidence: 95\n    rationale: \"Task explicitly\
+      \ mentions PRD creation, matches bmad-pm triggers\"\n\n  - scenario: \"Task:\
+      \ How should we architect the caching layer?\"\n    skill_selected: \"superintelligence-protocol\"\
+      \n    confidence: 90\n    rationale: \"Question format 'How should we' + architecture\
+      \ = superintelligence-protocol\"\n\n  - scenario: \"Task: Fix typo in README\"\
+      \n    skill_selected: \"None\"\n    confidence: N/A\n    rationale: \"Simple\
+      \ task, no skill adds value, below complexity threshold\"\n\n  - scenario: \"\
+      Task: Implement n8n workflow for data sync\"\n    skill_selected: \"bmad-dev\"\
+      \n    confidence: 85\n    rationale: \"Implementation task with clear requirements,\
+      \ bmad-dev appropriate\"\n\n# ============================================================================\n\
+      # Metadata\n# ============================================================================\n\
+      \nmetadata:\n  version: \"1.0.0\"\n  created: \"2026-02-01T08:00:00Z\"\n  last_updated:\
+      \ \"2026-02-01T08:00:00Z\"\n  total_selections_tracked: 0\n  framework_status:\
+      \ \"active\"\n"
+    after_state: "# Skill Selection Framework\n# BlackBox5 - Operations\n#\n# Purpose:\
+      \ Guide skill selection during task execution to bridge the gap\n#         \
+      \ between documented skills and actual usage.\n#\n# Usage: Executors MUST check\
+      \ this file before starting Phase 2 (Execution)\n#        of any task. Follow\
+      \ the decision tree to determine if a skill\n#        should be invoked.\n#\n\
+      # Integration: Works alongside skill-usage.yaml and skill-metrics.yaml\n\n#\
+      \ ============================================================================\n\
+      # Quick Decision Tree\n# ============================================================================\n\
+      #\n# START: Read task file completely\n#   |\n#   v\n# Check skill-usage.yaml\
+      \ for applicable skills\n#   |\n#   +---> Match found with >70% confidence?\
+      \ ---> YES ---> Invoke skill\n#   |                                        \
+      \   |\n#   |                                           NO\n#   |           \
+      \                                |\n#   +---> No match or <70% confidence? --------->\
+      \ Proceed with standard execution\n#   |\n#   v\n# Document decision in THOUGHTS.md\n\
+      #   |\n#   v\n# END: Continue with Phase 2 (Execution)\n\n# ============================================================================\n\
+      # Domain-to-Skill Mapping\n# ============================================================================\n\
+      \ndomain_mapping:\n  - domain: \"Product Management\"\n    keywords: [\"PRD\"\
+      , \"requirements\", \"feature definition\", \"roadmap\", \"user story\", \"\
+      epic\"]\n    primary_skill: bmad-pm\n    confidence_threshold: 85\n    notes:\
+      \ \"Use for any requirements gathering or feature planning work\"\n\n  - domain:\
+      \ \"Architecture & Design\"\n    keywords: [\"architecture\", \"design\", \"\
+      refactor\", \"integrate\", \"pattern\", \"scalability\", \"structure\"]\n  \
+      \  primary_skill: bmad-architect\n    confidence_threshold: 90\n    notes: \"\
+      Use for system design, major refactoring, integration planning\"\n\n  - domain:\
+      \ \"Research & Analysis\"\n    keywords: [\"research\", \"analyze\", \"investigate\"\
+      , \"pattern\", \"audit\", \"study\"]\n    primary_skill: bmad-analyst\n    confidence_threshold:\
+      \ 80\n    notes: \"Use for data analysis, pattern identification, research tasks\"\
+      \n\n  - domain: \"Process & Coordination\"\n    keywords: [\"process\", \"sprint\"\
+      , \"coordinate\", \"planning\", \"scrum\", \"facilitate\"]\n    primary_skill:\
+      \ bmad-sm\n    confidence_threshold: 80\n    notes: \"Use for process questions,\
+      \ coordination, sprint planning\"\n\n  - domain: \"UX & Design\"\n    keywords:\
+      \ [\"UI\", \"UX\", \"design\", \"user flow\", \"interface\", \"mockup\", \"\
+      wireframe\"]\n    primary_skill: bmad-ux\n    confidence_threshold: 85\n   \
+      \ notes: \"Use for UI/UX decisions, user flow design\"\n\n  - domain: \"Implementation\"\
+      \n    keywords: [\"implement\", \"code\", \"develop\", \"build\", \"create\"\
+      , \"write\"]\n    primary_skill: bmad-dev\n    confidence_threshold: 80\n  \
+      \  notes: \"Use for coding tasks, implementation work, testing\"\n\n  - domain:\
+      \ \"Quality Assurance\"\n    keywords: [\"test\", \"quality\", \"QA\", \"validation\"\
+      , \"verify\", \"bug\"]\n    primary_skill: bmad-qa\n    confidence_threshold:\
+      \ 85\n    notes: \"Use for testing strategy, test plans, quality questions\"\
+      \n\n  - domain: \"Complex Problem Solving\"\n    keywords: [\"Should we\", \"\
+      How should we\", \"best way\", \"optimize\", \"strategy\"]\n    primary_skill:\
+      \ superintelligence-protocol\n    confidence_threshold: 90\n    notes: \"Use\
+      \ for architecture questions, design decisions, complex problems\"\n\n  - domain:\
+      \ \"Continuous Improvement\"\n    keywords: [\"improve\", \"optimize\", \"refine\"\
+      , \"iterate\", \"enhance\"]\n    primary_skill: continuous-improvement\n   \
+      \ confidence_threshold: 85\n    notes: \"Use when improving existing systems\
+      \ or processes\"\n\n  - domain: \"Web Research\"\n    keywords: [\"search\"\
+      , \"current\", \"documentation\", \"external\", \"web\"]\n    primary_skill:\
+      \ web-search\n    confidence_threshold: 80\n    notes: \"Use for research requiring\
+      \ external information\"\n\n  - domain: \"Codebase Navigation\"\n    keywords:\
+      \ [\"find code\", \"explore\", \"understand structure\", \"navigate\"]\n   \
+      \ primary_skill: codebase-navigation\n    confidence_threshold: 80\n    notes:\
+      \ \"Use for exploring unfamiliar codebases or finding code\"\n\n  - domain:\
+      \ \"Database Operations\"\n    keywords: [\"supabase\", \"database\", \"RLS\"\
+      , \"migration\", \"schema\"]\n    primary_skill: supabase-operations\n    confidence_threshold:\
+      \ 85\n    notes: \"Use for Supabase database operations\"\n\n  - domain: \"\
+      Git Operations\"\n    keywords: [\"commit\", \"git\", \"PR\", \"branch\", \"\
+      merge\"]\n    primary_skill: git-commit\n    confidence_threshold: 95\n    notes:\
+      \ \"Always use for git operations - high confidence\"\n\n# ============================================================================\n\
+      # Skill Selection Process\n# ============================================================================\n\
+      \nselection_process:\n  step_1: \"Read task file completely - understand objective\
+      \ and approach\"\n  step_2: \"Check skill-usage.yaml for skills with matching\
+      \ trigger_keywords\"\n  step_3: \"Match task type against domain_mapping above\"\
+      \n  step_4: \"Calculate confidence based on keyword overlap and task context\"\
+      \n  step_5: \"If confidence >= threshold, invoke the skill\"\n  step_6: \"If\
+      \ confidence < threshold, proceed with standard execution\"\n  step_7: \"Document\
+      \ decision in THOUGHTS.md under 'Skill Usage for This Task'\"\n\n# ============================================================================\n\
+      # Confidence Calculation\n# ============================================================================\n\
+      \nconfidence_calculation:\n  description: \"Calculate confidence score (0-100%)\
+      \ for skill selection\"\n\n  factors:\n    - factor: \"Keyword match\"\n   \
+      \   weight: 40\n      description: \"Percentage of skill keywords present in\
+      \ task\"\n\n    - factor: \"Task type alignment\"\n      weight: 30\n      description:\
+      \ \"How well task type matches skill's intended use\"\n\n    - factor: \"Complexity\
+      \ fit\"\n      weight: 20\n      description: \"Whether task complexity warrants\
+      \ specialized skill\"\n\n    - factor: \"Historical success\"\n      weight:\
+      \ 10\n      description: \"Skill's track record from skill-metrics.yaml\"\n\n\
+      \  formula: |\n    confidence = (keyword_match * 0.40) +\n                 (type_alignment\
+      \ * 0.30) +\n                 (complexity_fit * 0.20) +\n                 (historical_success\
+      \ * 0.10)\n\n  threshold: 60\n  threshold_notes: \"Only invoke skill if confidence\
+      \ >= 60%\"\n\n# ============================================================================\n\
+      # Fallback Behavior\n# ============================================================================\n\
+      \nfallback:\n  when_no_skill_matches:\n    action: \"Proceed with standard execution\"\
+      \n    documentation: \"Note in THOUGHTS.md: 'No applicable skill found'\"\n\n\
+      \  when_confidence_low:\n    action: \"Proceed with standard execution\"\n \
+      \   documentation: \"Note in THOUGHTS.md: 'Skill X considered but confidence\
+      \ too low (Y%)'\"\n\n  when_multiple_skills_match:\n    action: \"Select highest\
+      \ confidence skill or most specific match\"\n    documentation: \"Note in THOUGHTS.md:\
+      \ 'Multiple skills applicable, selected X because...'\"\n\n  when_uncertain:\n\
+      \    action: \"Ask Planner via chat-log.yaml\"\n    documentation: \"Document\
+      \ question and response in THOUGHTS.md\"\n\n# ============================================================================\n\
+      # Documentation Requirements\n# ============================================================================\n\
+      \ndocumentation:\n  in_thoughts_md:\n    - \"## Skill Usage for This Task\"\n\
+      \    - \"**Applicable skills:** [list or 'None']\"\n    - \"**Skill invoked:**\
+      \ [name or 'None']\"\n    - \"**Confidence:** [percentage if calculated]\"\n\
+      \    - \"**Rationale:** [why skill was or wasn't used]\"\n\n  in_results_md:\n\
+      \    - \"Note skill usage in validation section\"\n    - \"Update skill-metrics.yaml\
+      \ task_outcomes\"\n\n  in_task_completion:\n    - \"Fill out Skill Usage Tracking\
+      \ section\"\n    - \"Rate effectiveness if skill was used\"\n\n# ============================================================================\n\
+      # Validation Checklist\n# ============================================================================\n\
+      \nvalidation:\n  before_execution:\n    - \"Checked skill-usage.yaml for applicable\
+      \ skills\"\n    - \"Calculated confidence for any matches\"\n    - \"Documented\
+      \ decision in THOUGHTS.md\"\n\n  after_execution:\n    - \"Updated skill-metrics.yaml\
+      \ with task outcome\"\n    - \"Recorded skill effectiveness if used\"\n    -\
+      \ \"Noted any trigger accuracy issues\"\n\n# ============================================================================\n\
+      # Examples\n# ============================================================================\n\
+      \nexamples:\n  - scenario: \"Task: Create PRD for user authentication\"\n  \
+      \  skill_selected: \"bmad-pm\"\n    confidence: 95\n    rationale: \"Task explicitly\
+      \ mentions PRD creation, matches bmad-pm triggers\"\n\n  - scenario: \"Task:\
+      \ How should we architect the caching layer?\"\n    skill_selected: \"superintelligence-protocol\"\
+      \n    confidence: 90\n    rationale: \"Question format 'How should we' + architecture\
+      \ = superintelligence-protocol\"\n\n  - scenario: \"Task: Fix typo in README\"\
+      \n    skill_selected: \"None\"\n    confidence: N/A\n    rationale: \"Simple\
+      \ task, no skill adds value, below complexity threshold\"\n\n  - scenario: \"\
+      Task: Implement n8n workflow for data sync\"\n    skill_selected: \"bmad-dev\"\
+      \n    confidence: 85\n    rationale: \"Implementation task with clear requirements,\
+      \ bmad-dev appropriate\"\n\n# ============================================================================\n\
+      # Metadata\n# ============================================================================\n\
+      \nmetadata:\n  version: \"1.0.0\"\n  created: \"2026-02-01T08:00:00Z\"\n  last_updated:\
+      \ \"2026-02-01T08:00:00Z\"\n  total_selections_tracked: 0\n  framework_status:\
+      \ \"active\"\n"
+    execution_time_ms: 0
+  - task_id: TASK-SKIL-007
+    success: false
+    action_taken: No automated executor available for this task
+    files_modified: []
+    error_message: Manual execution required
+    before_state: null
+    after_state: null
+    execution_time_ms: 0
+  - task_id: TASK-PROC-008
+    success: false
+    action_taken: No automated executor available for this task
+    files_modified: []
+    error_message: Manual execution required
+    before_state: null
+    after_state: null
+    execution_time_ms: 0
+  - task_id: TASK-INFR-009
+    success: false
+    action_taken: No automated executor available for this task
+    files_modified: []
+    error_message: Manual execution required
+    before_state: null
+    after_state: null
+    execution_time_ms: 0
+  - task_id: TASK-SKIL-011
+    success: false
+    action_taken: No automated executor available for this task
+    files_modified: []
+    error_message: Manual execution required
+    before_state: null
+    after_state: null
+    execution_time_ms: 0

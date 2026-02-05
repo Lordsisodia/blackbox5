@@ -1,11 +1,32 @@
 # Task Time Estimation Guidelines
-**Version:** 1.0.0
-**Last Updated:** 2026-02-01
+**Version:** 1.1.0
+**Last Updated:** 2026-02-05
 **Based On:** Analysis of 9 executor runs (Run 0035)
 
 ## Purpose
 
 Provide data-driven guidelines for estimating task completion times in the RALF autonomous system.
+
+## Universal Estimation Multiplier
+
+**All estimates must be multiplied by 1.35x to account for consistent underestimation trends.**
+
+Historical analysis shows tasks are consistently underestimated by approximately 35%. This multiplier corrects for:
+- Context switching overhead
+- Unforeseen dependencies
+- Testing and validation time
+- Documentation requirements
+
+### Applying the Multiplier
+
+```
+final_estimate = calculated_estimate * 1.35
+```
+
+**Example:**
+- Baseline calculation: 30 minutes
+- With 1.35x multiplier: 30 * 1.35 = 40.5 minutes
+- Round to: 40-45 minutes
 
 ## Baseline Estimates by Task Type
 
@@ -24,7 +45,7 @@ Based on historical execution data from executor runs:
 ## Estimation Formula
 
 ```
-estimated_minutes = baseline_type * priority_multiplier * complexity_multiplier + buffer
+estimated_minutes = baseline_type * priority_multiplier * complexity_multiplier * 1.35 + buffer
 ```
 
 ### Priority Multipliers
@@ -61,7 +82,8 @@ Task: Analyze skill effectiveness (high priority, simple)
 Baseline: 10 min (analyze)
 Priority: 10 * 0.9 = 9 min (high priority)
 Complexity: 9 * 0.7 = 6.3 min (simple)
-Buffer: 6.3 + 5 = 11.3 min
+1.35x Multiplier: 6.3 * 1.35 = 8.5 min
+Buffer: 8.5 + 5 = 13.5 min
 Final estimate: 10-15 minutes
 ```
 
@@ -71,8 +93,9 @@ Task: Create skill selection framework (critical priority, standard)
 Baseline: 30 min (implement)
 Priority: 30 * 0.8 = 24 min (critical)
 Complexity: 24 * 1.0 = 24 min (standard)
-Buffer: 24 + 10 = 34 min
-Final estimate: 30-40 minutes
+1.35x Multiplier: 24 * 1.35 = 32.4 min
+Buffer: 32.4 + 10 = 42.4 min
+Final estimate: 40-45 minutes
 ```
 
 ### Example 3: Complex Implement Task
@@ -81,8 +104,9 @@ Task: Create agent version setup checklist (medium priority, complex)
 Baseline: 30 min (implement)
 Priority: 30 * 1.0 = 30 min (medium)
 Complexity: 30 * 1.5 = 45 min (complex - multiple files)
-Buffer: 45 + 15 = 60 min
-Final estimate: 60-75 minutes
+1.35x Multiplier: 45 * 1.35 = 60.75 min
+Buffer: 60.75 + 15 = 75.75 min
+Final estimate: 75-80 minutes
 ```
 
 ## Task Type Guidelines
@@ -183,6 +207,7 @@ Use analyze baseline (5-25 min) unless:
 3. **Consider context:** First task of type takes longer (learning curve)
 4. **Track accuracy:** Record estimates vs actuals for calibration
 5. **Update baselines:** Revisit these guidelines quarterly
+6. **Apply 1.35x multiplier:** Always apply to account for underestimation trend
 
 ## Accuracy Tracking
 
@@ -210,12 +235,15 @@ Implement (2-3 files) 35 min       30-40 min
 Implement (4+ files) 45 min        40-60 min
 
 Security (any)     60 min           50-70 min
+
+Remember: Apply 1.35x multiplier to all estimates!
 ```
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1.0 | 2026-02-05 | Added 1.35x universal estimation multiplier based on underestimation analysis |
 | 1.0.0 | 2026-02-01 | Initial version based on 9 executor runs |
 
 ## Related Documents

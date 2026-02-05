@@ -1,0 +1,87 @@
+planner_report:
+  id: PLAN-20260205-015234
+  timestamp: '2026-02-05T01:52:34.261054'
+  source_scout_report: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-intelligent-20260205-aggregated.yaml
+  summary:
+    total_tasks_created: 52
+    by_priority:
+      CRITICAL: 4
+      HIGH: 11
+      MEDIUM: 22
+      LOW: 15
+    by_category:
+      skills: 10
+      infrastructure: 4
+      process: 15
+      architecture: 12
+      documentation: 10
+      manual: 1
+    total_estimated_effort_minutes: 2445
+    total_estimated_effort_hours: 40.8
+  top_10_tasks:
+  - id: TASK-SKIL-001
+    title: Zero Skill Invocation Rate - Complete System Non-Usage
+    priority: CRITICAL
+    score: 16.5
+    effort_minutes: 60
+  - id: TASK-INFR-002
+    title: Skill Metrics Completely Unpopulated - Zero Usage Data
+    priority: CRITICAL
+    score: 16.5
+    effort_minutes: 60
+  - id: TASK-PROC-003
+    title: Empty Template Files in Runs Not Being Populated
+    priority: CRITICAL
+    score: 15.5
+    effort_minutes: 60
+  - id: TASK-PROC-004
+    title: Task-to-Completion Pipeline Stalled at 40%
+    priority: CRITICAL
+    score: 15.5
+    effort_minutes: 120
+  - id: TASK-SKIL-005
+    title: Threshold Preventing Valid Skill Matches
+    priority: HIGH
+    score: 14.5
+    effort_minutes: 15
+  - id: TASK-PROC-006
+    title: Skill Integration Plan Exists But Not Implemented
+    priority: HIGH
+    score: 14.5
+    effort_minutes: 240
+  - id: TASK-SKIL-007
+    title: All Skills Have Null Effectiveness Metrics
+    priority: HIGH
+    score: 14.0
+    effort_minutes: 30
+  - id: TASK-PROC-008
+    title: Agent Stop Events Missing Context Data
+    priority: HIGH
+    score: 14.0
+    effort_minutes: 30
+  - id: TASK-INFR-009
+    title: Skill Usage Log Empty Despite 29 Executor Runs
+    priority: HIGH
+    score: 14.0
+    effort_minutes: 30
+  - id: TASK-INFR-010
+    title: Learning Index Shows Zero Learnings Despite 80+ Claimed
+    priority: HIGH
+    score: 13.5
+    effort_minutes: 60
+  quick_wins:
+  - id: TASK-SKIL-005
+    title: Threshold Preventing Valid Skill Matches
+    effort: 15
+  - id: TASK-SKIL-007
+    title: All Skills Have Null Effectiveness Metrics
+    effort: 30
+  - id: TASK-PROC-008
+    title: Agent Stop Events Missing Context Data
+    effort: 30
+  - id: TASK-INFR-009
+    title: Skill Usage Log Empty Despite 29 Executor Runs
+    effort: 30
+  - id: TASK-SKIL-011
+    title: Skill Selection Framework Not Being Followed
+    effort: 30

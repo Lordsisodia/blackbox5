@@ -551,19 +551,11 @@ recovery_metrics:
     rationale: Need data to optimize threshold over time
     expected_impact: Better threshold accuracy
 analysis:
-  last_calculated: '2026-02-04T11:15:38.189949'
+  last_calculated: '2026-02-05T23:10:34.782073'
   top_skills: []
   underperforming_skills: []
   category_performance:
   - category: agent
-    avg_effectiveness: null
-    total_tasks: 0
-    success_rate: null
-  - category: protocol
-    avg_effectiveness: null
-    total_tasks: 0
-    success_rate: null
-  - category: utility
     avg_effectiveness: null
     total_tasks: 0
     success_rate: null
@@ -572,6 +564,14 @@ analysis:
     total_tasks: 0
     success_rate: null
   - category: infrastructure
+    avg_effectiveness: null
+    total_tasks: 0
+    success_rate: null
+  - category: protocol
+    avg_effectiveness: null
+    total_tasks: 0
+    success_rate: null
+  - category: utility
     avg_effectiveness: null
     total_tasks: 0
     success_rate: null
@@ -593,8 +593,16 @@ analysis:
     recommended_skill: superintelligence-protocol
     confidence: low
   trigger_insights:
-    common_false_positives: []
-    common_missed_opportunities: []
+    common_false_positives:
+    - task_id: TASK-1769909001
+      reason: bmad-analyst identified as applicable (70% confidence) but not invoked
+        due to 80% threshold. Task wa
+    - task_id: TASK-1769910000
+      reason: Skill system recovery analysis. bmad-analyst applicable but confidence
+        below threshold. Analysis com
+    common_missed_opportunities:
+    - task_id: TASK-1769909001
+      skill: unknown
     trigger_keywords_that_work: []
 quality_rating_scale:
   5: Excellent - Exceeded expectations, reusable solution, no issues
@@ -608,4 +616,4 @@ metadata:
   total_tasks_tracked: 4
   calculation_frequency: weekly
   next_calculation_due: '2026-02-08T09:00:00Z'
-  last_updated: '2026-02-04T11:15:38.189964'
+  last_updated: '2026-02-05T23:10:34.782164'

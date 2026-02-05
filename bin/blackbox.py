@@ -23,7 +23,7 @@ from pathlib import Path
 
 # Configuration
 API_URL = "http://localhost:8000"
-ENGINE_DIR = Path(__file__).parent / "2-engine" / "01-core"
+ENGINE_DIR = Path(__file__).parent / "2-engine" / "core"
 # Vibe Kanban GUI removed - not used
 
 

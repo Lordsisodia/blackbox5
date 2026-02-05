@@ -3,6 +3,8 @@
 # Usage: bb5-populate-template [template-file] [output-file] [key=value ...]
 
 set -e
+# Source dry-run utility library
+source "$(dirname "$0")/../2-engine/.autonomous/lib/dry_run.sh" 2>/dev/null || true
 
 TEMPLATE_FILE="$1"
 OUTPUT_FILE="$2"

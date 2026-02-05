@@ -13,6 +13,135 @@ COMM_DIR="$BB5_DIR/.autonomous/agents/communications"
 EVENT_TYPE="${1:-start}"  # "start" or "stop"
 
 # =============================================================================
+# CONTEXT PERSISTENCE
+# =============================================================================
+
+# File to persist agent context between start and stop
+CONTEXT_FILE="$BB5_DIR/.agent-context"
+
+save_context() {
+    local agent_type="$1"
+    local agent_id="$2"
+    local parent_task="$3"
+    local run_id="$4"
+    local timestamp=$(date -Iseconds)
+
+    # Determine agent_type from .ralf-metadata if available
+    local detected_agent_type="$agent_type"
+    if [ -n "$run_id" ]; then
+        local run_dir=""
+        # Try to find the run directory
+        if [ -d "$BB5_DIR/runs/unknown/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/unknown/$run_id"
+        elif [ -d "$BB5_DIR/runs/planner/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/planner/$run_id"
+        elif [ -d "$BB5_DIR/runs/executor/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/executor/$run_id"
+        elif [ -d "$BB5_DIR/runs/architect/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/architect/$run_id"
+        fi
+
+        # Read agent_type from .ralf-metadata if available
+        if [ -n "$run_dir" ] && [ -f "$run_dir/.ralf-metadata" ]; then
+            local meta_agent_type=$(grep "agent_type:" "$run_dir/.ralf-metadata" | head -1 | cut -d':' -f2 | tr -d ' "' || echo "")
+            if [ -n "$meta_agent_type" ] && [ "$meta_agent_type" != "unknown" ]; then
+                detected_agent_type="$meta_agent_type"
+            fi
+        fi
+    fi
+
+    # Query queue.yaml for parent_task if not already set and we have an agent_type
+    local detected_parent_task="$parent_task"
+    if [ -z "$detected_parent_task" ] && [ -f "$COMM_DIR/queue.yaml" ]; then
+        # Look for claimed_by matching our agent_type and extract task_id
+        detected_parent_task=$(grep -B10 "claimed_by:.*$detected_agent_type" "$COMM_DIR/queue.yaml" 2>/dev/null | grep "task_id:" | tail -1 | cut -d':' -f2 | tr -d ' "' || echo "")
+    fi
+
+    # Construct full agent_id
+    local full_agent_id="${detected_agent_type}-${run_id:-$(date +%s)}"
+    if [ -n "$run_id" ]; then
+        full_agent_id="${detected_agent_type}-${run_id}"
+    fi
+
+    # Save context to file
+    cat > "$CONTEXT_FILE" << EOF
+# Agent Context - Auto-generated
+# DO NOT EDIT - This file is managed by subagent-tracking.sh
+agent_type: "$detected_agent_type"
+agent_id: "$full_agent_id"
+parent_task: "$detected_parent_task"
+run_id: "$run_id"
+timestamp: "$timestamp"
+EOF
+
+    echo "Context saved: $detected_agent_type | $full_agent_id | $detected_parent_task"
+}
+
+load_context() {
+    local agent_type="unknown"
+    local agent_id="unknown"
+    local parent_task=""
+    local run_id=""
+    local timestamp=$(date -Iseconds)
+
+    # Load from persisted context file if it exists
+    if [ -f "$CONTEXT_FILE" ]; then
+        agent_type=$(grep "agent_type:" "$CONTEXT_FILE" | cut -d':' -f2 | tr -d ' "' || echo "unknown")
+        agent_id=$(grep "agent_id:" "$CONTEXT_FILE" | cut -d':' -f2 | tr -d ' "' || echo "unknown")
+        parent_task=$(grep "parent_task:" "$CONTEXT_FILE" | cut -d':' -f2 | tr -d ' "' || echo "")
+        run_id=$(grep "run_id:" "$CONTEXT_FILE" | cut -d':' -f2 | tr -d ' "' || echo "")
+        timestamp=$(grep "timestamp:" "$CONTEXT_FILE" | cut -d':' -f2- | tr -d ' "' || echo "$timestamp")
+        echo "Loaded persisted context" >&2
+    fi
+
+    # Fallback to AGENT_CONTEXT.md if values are still unknown
+    if [ "$agent_type" = "unknown" ] && [ -f "$BB5_DIR/AGENT_CONTEXT.md" ]; then
+        local ctx_agent_type=$(grep "Detected Agent Type:" "$BB5_DIR/AGENT_CONTEXT.md" | cut -d':' -f2 | tr -d ' *' || echo "")
+        if [ -n "$ctx_agent_type" ]; then
+            agent_type="$ctx_agent_type"
+            echo "Loaded agent_type from AGENT_CONTEXT.md" >&2
+        fi
+    fi
+
+    # Fallback to .ralf-metadata if available
+    if [ -n "$run_id" ]; then
+        local run_dir=""
+        if [ -d "$BB5_DIR/runs/unknown/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/unknown/$run_id"
+        elif [ -d "$BB5_DIR/runs/planner/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/planner/$run_id"
+        elif [ -d "$BB5_DIR/runs/executor/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/executor/$run_id"
+        elif [ -d "$BB5_DIR/runs/architect/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/architect/$run_id"
+        fi
+
+        if [ -n "$run_dir" ] && [ -f "$run_dir/.ralf-metadata" ]; then
+            local meta_agent_type=$(grep "agent_type:" "$run_dir/.ralf-metadata" | head -1 | cut -d':' -f2 | tr -d ' "' || echo "")
+            if [ -n "$meta_agent_type" ] && [ "$meta_agent_type" != "unknown" ]; then
+                agent_type="$meta_agent_type"
+                echo "Loaded agent_type from .ralf-metadata" >&2
+            fi
+
+            # Update agent_id with proper format
+            if [ "$agent_type" != "unknown" ]; then
+                agent_id="${agent_type}-${run_id}"
+            fi
+        fi
+    fi
+
+    # Query queue.yaml for parent_task if still empty
+    if [ -z "$parent_task" ] && [ "$agent_type" != "unknown" ] && [ -f "$COMM_DIR/queue.yaml" ]; then
+        parent_task=$(grep -B10 "claimed_by:.*$agent_type" "$COMM_DIR/queue.yaml" 2>/dev/null | grep "task_id:" | tail -1 | cut -d':' -f2 | tr -d ' "' || echo "")
+        if [ -n "$parent_task" ]; then
+            echo "Loaded parent_task from queue.yaml" >&2
+        fi
+    fi
+
+    echo "$agent_type|$agent_id|$parent_task|$run_id|$timestamp"
+}
+
+# =============================================================================
 # SELF-DISCOVERY: Detect agent from context
 # =============================================================================
 
@@ -21,29 +150,99 @@ detect_agent_info() {
     local agent_type="unknown"
     local agent_id="unknown"
     local parent_task=""
+    local run_id=""
 
-    # Method 1: Run directory path
-    if [[ "$cwd" == *"/planner/"* ]] || [[ "${RALF_RUN_DIR:-}" == *"/planner/"* ]]; then
+    # Method 0: Load persisted context if this is a stop event
+    if [ "$EVENT_TYPE" = "stop" ] && [ -f "$CONTEXT_FILE" ]; then
+        local persisted=$(load_context)
+        agent_type=$(echo "$persisted" | cut -d'|' -f1)
+        agent_id=$(echo "$persisted" | cut -d'|' -f2)
+        parent_task=$(echo "$persisted" | cut -d'|' -f3)
+        run_id=$(echo "$persisted" | cut -d'|' -f4)
+        echo "Using persisted context for stop event" >&2
+    fi
+
+    # Method 1: Check RALF_RUN_ID environment variable
+    if [ -n "${RALF_RUN_ID:-}" ]; then
+        run_id="${RALF_RUN_ID}"
+    fi
+
+    # Method 2: Extract run_id from RALF_RUN_DIR
+    if [ -n "${RALF_RUN_DIR:-}" ]; then
+        run_id=$(basename "${RALF_RUN_DIR}")
+        # Also try to get agent_type from path
+        if [[ "${RALF_RUN_DIR}" == *"/planner/"* ]]; then
+            agent_type="planner"
+        elif [[ "${RALF_RUN_DIR}" == *"/executor/"* ]]; then
+            agent_type="executor"
+        elif [[ "${RALF_RUN_DIR}" == *"/architect/"* ]]; then
+            agent_type="architect"
+        fi
+    fi
+
+    # Method 3: Run directory path from cwd
+    if [[ "$cwd" == *"/planner/"* ]]; then
         agent_type="planner"
-        agent_id="planner-$(date +%s)"
-    elif [[ "$cwd" == *"/executor/"* ]] || [[ "${RALF_RUN_DIR:-}" == *"/executor/"* ]]; then
+        run_id=$(echo "$cwd" | grep -oE 'run-[0-9]{8}-[0-9]{6}' | tail -1 || echo "")
+    elif [[ "$cwd" == *"/executor/"* ]]; then
         agent_type="executor"
-        agent_id="executor-$(date +%s)"
+        run_id=$(echo "$cwd" | grep -oE 'run-[0-9]{8}-[0-9]{6}' | tail -1 || echo "")
         # Try to find claimed task
         if [ -f "$COMM_DIR/queue.yaml" ]; then
-            parent_task=$(grep -B5 "claimed_by" "$COMM_DIR/queue.yaml" | grep "task_id:" | tail -1 | cut -d':' -f2 | tr -d ' ' || echo "")
+            parent_task=$(grep -B10 "claimed_by:.*executor" "$COMM_DIR/queue.yaml" 2>/dev/null | grep "task_id:" | tail -1 | cut -d':' -f2 | tr -d ' "' || echo "")
         fi
-    elif [[ "$cwd" == *"/architect/"* ]] || [[ "${RALF_RUN_DIR:-}" == *"/architect/"* ]]; then
+    elif [[ "$cwd" == *"/architect/"* ]]; then
         agent_type="architect"
-        agent_id="architect-$(date +%s)"
+        run_id=$(echo "$cwd" | grep -oE 'run-[0-9]{8}-[0-9]{6}' | tail -1 || echo "")
+    elif [[ "$cwd" == *"/runs/unknown/"* ]]; then
+        # Extract run_id from unknown runs
+        run_id=$(echo "$cwd" | grep -oE 'run-[0-9]{8}-[0-9]{6}' | tail -1 || echo "")
     fi
 
-    # Method 2: Check run folder name
-    if [ -n "${RALF_RUN_ID:-}" ]; then
-        agent_id="${agent_type}-${RALF_RUN_ID}"
+    # Method 4: Check .ralf-metadata for agent_type
+    if [ -n "$run_id" ]; then
+        local run_dir=""
+        if [ -d "$BB5_DIR/runs/unknown/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/unknown/$run_id"
+        elif [ -d "$BB5_DIR/runs/planner/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/planner/$run_id"
+        elif [ -d "$BB5_DIR/runs/executor/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/executor/$run_id"
+        elif [ -d "$BB5_DIR/runs/architect/$run_id" ]; then
+            run_dir="$BB5_DIR/runs/architect/$run_id"
+        fi
+
+        if [ -n "$run_dir" ] && [ -f "$run_dir/.ralf-metadata" ]; then
+            local meta_agent_type=$(grep "agent_type:" "$run_dir/.ralf-metadata" | head -1 | cut -d':' -f2 | tr -d ' "' || echo "")
+            if [ -n "$meta_agent_type" ] && [ "$meta_agent_type" != "unknown" ]; then
+                agent_type="$meta_agent_type"
+            fi
+        fi
     fi
 
-    echo "$agent_type|$agent_id|$parent_task"
+    # Method 5: Check AGENT_CONTEXT.md
+    if [ "$agent_type" = "unknown" ] && [ -f "$BB5_DIR/AGENT_CONTEXT.md" ]; then
+        local ctx_agent_type=$(grep "Detected Agent Type:" "$BB5_DIR/AGENT_CONTEXT.md" | cut -d':' -f2 | tr -d ' *' || echo "")
+        if [ -n "$ctx_agent_type" ]; then
+            agent_type="$ctx_agent_type"
+        fi
+    fi
+
+    # Construct agent_id
+    if [ -n "$run_id" ] && [ "$agent_type" != "unknown" ]; then
+        agent_id="${agent_type}-${run_id}"
+    elif [ -n "$run_id" ]; then
+        agent_id="unknown-${run_id}"
+    else
+        agent_id="${agent_type}-$(date +%s)"
+    fi
+
+    # Query queue.yaml for parent_task if not set
+    if [ -z "$parent_task" ] && [ "$agent_type" != "unknown" ] && [ -f "$COMM_DIR/queue.yaml" ]; then
+        parent_task=$(grep -B10 "claimed_by:.*$agent_type" "$COMM_DIR/queue.yaml" 2>/dev/null | grep "task_id:" | tail -1 | cut -d':' -f2 | tr -d ' "' || echo "")
+    fi
+
+    echo "$agent_type|$agent_id|$parent_task|$run_id"
 }
 
 # =============================================================================
@@ -136,6 +335,12 @@ AGENT_INFO=$(detect_agent_info)
 AGENT_TYPE=$(echo "$AGENT_INFO" | cut -d'|' -f1)
 AGENT_ID=$(echo "$AGENT_INFO" | cut -d'|' -f2)
 PARENT_TASK=$(echo "$AGENT_INFO" | cut -d'|' -f3)
+RUN_ID=$(echo "$AGENT_INFO" | cut -d'|' -f4)
+
+# Save context at session start
+if [ "$EVENT_TYPE" = "start" ]; then
+    save_context "$AGENT_TYPE" "$AGENT_ID" "$PARENT_TASK" "$RUN_ID"
+fi
 
 # Log event
 log_event "$AGENT_TYPE" "$AGENT_ID" "$PARENT_TASK" "$EVENT_TYPE"

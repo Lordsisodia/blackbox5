@@ -334,14 +334,14 @@ As of 2026-02-01, the following templates exist:
 
 | Category | Template Count | Location |
 |----------|---------------|----------|
-| Root | 9 | `.templates/root/` |
+| Root | 8 | `.templates/root/` |
 | Epic | 7 | `.templates/epic/` |
-| Tasks | 6 | `.templates/tasks/` |
+| Tasks | 7 | `.templates/tasks/` |
 | Research | 5 | `.templates/research/` |
 | Decisions | 3 | `.templates/decisions/` |
 | Reviews | 1 | `.templates/reviews/` |
 | Agents | 1 | `.templates/agents/` |
-| **Total** | **31** | `.templates/` |
+| **Total** | **32** | `.templates/` |
 
 ---
 

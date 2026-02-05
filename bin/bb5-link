@@ -3,6 +3,8 @@
 # Usage: bb5-link [goal|plan|task] [ID]
 
 set -e
+# Source dry-run utility library
+source "$(dirname "$0")/../2-engine/.autonomous/lib/dry_run.sh" 2>/dev/null || true
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"

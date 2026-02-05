@@ -1,0 +1,845 @@
+{
+  "scout_report": {
+    "id": "SCOUT-20260205-013500",
+    "timestamp": "2026-02-05T01:35:00Z",
+    "scout_version": "1.0.0-intelligent",
+    "analyzers_used": 5,
+    "summary": {
+      "total_opportunities": 42,
+      "high_impact": 18,
+      "quick_wins": 8,
+      "patterns_found": 11,
+      "categories": {
+        "skills": 10,
+        "process": 8,
+        "documentation": 10,
+        "architecture": 12,
+        "infrastructure": 2
+      }
+    },
+    "top_opportunities": [
+      {
+        "rank": 1,
+        "id": "skill-001",
+        "title": "Zero Skill Invocation Rate - Complete System Non-Usage",
+        "category": "skills",
+        "total_score": 16.5,
+        "impact_score": 5,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "evidence": "All 23 skills have usage_count: 0, usage_log: [], invocation_rate: 0%",
+        "suggested_action": "Investigate why skills are not being triggered despite being considered. Review if the 70% confidence threshold is too high."
+      },
+      {
+        "rank": 2,
+        "id": "metrics-001",
+        "title": "Skill Metrics Completely Unpopulated - Zero Usage Data",
+        "category": "infrastructure",
+        "total_score": 16.5,
+        "impact_score": 5,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "evidence": "All 22 skills show null metrics. task_outcomes has 4 entries but no skill_used values populated",
+        "suggested_action": "Implement automated skill metric calculation script that processes task_outcomes and updates effectiveness scores"
+      },
+      {
+        "rank": 3,
+        "id": "process-001",
+        "title": "Empty Template Files in Runs Not Being Populated",
+        "category": "process",
+        "total_score": 15.5,
+        "impact_score": 5,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "evidence": "Run run-1770133139 has all template files with 'RALF_TEMPLATE: UNFILLED' markers",
+        "suggested_action": "Create validation hook that checks if run documentation is filled before allowing agent_stop"
+      },
+      {
+        "rank": 4,
+        "id": "metrics-004",
+        "title": "Task-to-Completion Pipeline Stalled at 40%",
+        "category": "process",
+        "total_score": 15.5,
+        "impact_score": 5,
+        "effort_score": 4,
+        "frequency_score": 4,
+        "evidence": "Only 4 of 10 improvement tasks completed (40% vs 70% target). 6 pending improvements including 3 high priority",
+        "suggested_action": "Prioritize remaining 6 pending improvements. Create validation framework to measure before/after metrics"
+      },
+      {
+        "rank": 5,
+        "id": "process-007",
+        "title": "Skill Integration Plan Exists But Not Implemented",
+        "category": "process",
+        "total_score": 14.5,
+        "impact_score": 5,
+        "effort_score": 5,
+        "frequency_score": 5,
+        "evidence": "SKILLS-INTEGRATION-PLAN.md dated 2026-01-28 shows complete implementation details but skill-metrics.yaml shows 0% invocation",
+        "suggested_action": "Create task to implement Phase 1 of skills integration plan. Start with SkillOrchestrator and SkillScanner"
+      }
+    ],
+    "all_opportunities": [
+      {
+        "id": "skill-001",
+        "title": "Zero Skill Invocation Rate - Complete System Non-Usage",
+        "category": "skills",
+        "impact_score": 5,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "total_score": 16.5,
+        "evidence": "All 23 skills have usage_count: 0, usage_log: [], invocation_rate: 0%",
+        "suggested_action": "Investigate why skills are not being triggered despite being considered"
+      },
+      {
+        "id": "skill-002",
+        "title": "All Skills Have Null Effectiveness Metrics",
+        "category": "skills",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 5,
+        "total_score": 14.0,
+        "evidence": "All 23 skills show effectiveness_score: null with all sub-metrics null",
+        "suggested_action": "Implement mandatory skill effectiveness tracking"
+      },
+      {
+        "id": "skill-003",
+        "title": "Threshold Preventing Valid Skill Matches",
+        "category": "skills",
+        "impact_score": 4,
+        "effort_score": 1,
+        "frequency_score": 4,
+        "total_score": 14.5,
+        "evidence": "bmad-analyst identified as applicable with 70% confidence but not invoked due to threshold",
+        "suggested_action": "Lower confidence threshold from 70% to 60%"
+      },
+      {
+        "id": "skill-004",
+        "title": "No Trigger Accuracy Data Available",
+        "category": "skills",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 11.0,
+        "evidence": "All 23 skills show trigger_accuracy: unknown",
+        "suggested_action": "Add post-task validation to track whether skill selection was correct"
+      },
+      {
+        "id": "skill-005",
+        "title": "Missing Skill Coverage for Common Task Types",
+        "category": "skills",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 3,
+        "total_score": 10.0,
+        "evidence": "4 tasks completed with skill_used: null. Task types: implement, analyze, analyze, analyze",
+        "suggested_action": "Review task patterns and ensure bmad-analyst is mapped to all analysis-type tasks"
+      },
+      {
+        "id": "skill-006",
+        "title": "Zero ROI Calculations Across All Skills",
+        "category": "skills",
+        "impact_score": 3,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 8.5,
+        "evidence": "All 23 skills show roi_calculation with null values",
+        "suggested_action": "Implement baseline time tracking for tasks without skills vs with skills"
+      },
+      {
+        "id": "skill-007",
+        "title": "Skill Selection Framework Not Being Followed",
+        "category": "skills",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 13.0,
+        "evidence": "Recovery metrics show phase_1_5_compliance: true for 3 of 4 runs, skills_considered: 3, but skills_invoked: 0",
+        "suggested_action": "Review CLAUDE.md instructions to ensure skill invocation is mandatory"
+      },
+      {
+        "id": "skill-008",
+        "title": "Inconsistent Confidence Thresholds Between Files",
+        "category": "skills",
+        "impact_score": 3,
+        "effort_score": 1,
+        "frequency_score": 4,
+        "total_score": 12.5,
+        "evidence": "skill-selection.yaml shows threshold: 70 but domain mappings have 80-95%",
+        "suggested_action": "Standardize all thresholds to 70% or document why certain skills need higher thresholds"
+      },
+      {
+        "id": "skill-009",
+        "title": "No Historical Success Data for Confidence Calculation",
+        "category": "skills",
+        "impact_score": 2,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 6.5,
+        "evidence": "Confidence calculation includes historical_success with 10% weight, but all skills have null effectiveness scores",
+        "suggested_action": "Bootstrap historical success data by retroactively rating past tasks"
+      },
+      {
+        "id": "skill-010",
+        "title": "Unused Infrastructure Skills - Potential Waste",
+        "category": "skills",
+        "impact_score": 2,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 5.0,
+        "evidence": "Three infrastructure skills (ralf-cloud-control, github-codespaces-control, legacy-cloud-control) have usage_count: 0",
+        "suggested_action": "Evaluate if these infrastructure skills are still needed"
+      },
+      {
+        "id": "process-001",
+        "title": "Empty Template Files in Runs Not Being Populated",
+        "category": "process",
+        "impact_score": 5,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "total_score": 15.5,
+        "evidence": "Run run-1770133139 has all template files with 'RALF_TEMPLATE: UNFILLED' markers",
+        "suggested_action": "Create validation hook that checks if run documentation is filled before allowing agent_stop"
+      },
+      {
+        "id": "process-002",
+        "title": "Skill Metrics System Has Zero Actual Usage Data",
+        "category": "process",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 13.0,
+        "evidence": "Skill-metrics.yaml shows 4 tasks tracked but 0 skills with actual data because skills are never being invoked",
+        "suggested_action": "Lower skill confidence threshold to 60% or implement forced skill matching"
+      },
+      {
+        "id": "process-003",
+        "title": "Agent Stop Events Missing Context Data",
+        "category": "process",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 5,
+        "total_score": 14.0,
+        "evidence": "Events.yaml shows 50+ agent_stop events where agent_type, agent_id, and parent_task are all 'unknown'",
+        "suggested_action": "Update hook system to capture agent context before emitting stop events"
+      },
+      {
+        "id": "process-004",
+        "title": "Task Template Files Created But Never Used",
+        "category": "process",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 10.0,
+        "evidence": "Multiple task directories have LEARNINGS.md and THOUGHTS.md files that are essentially empty",
+        "suggested_action": "Add task completion validation step that checks if LEARNINGS.md and THOUGHTS.md have meaningful content"
+      },
+      {
+        "id": "process-005",
+        "title": "Inconsistent Run Naming Convention Creates Discovery Issues",
+        "category": "process",
+        "impact_score": 3,
+        "effort_score": 4,
+        "frequency_score": 3,
+        "total_score": 7.0,
+        "evidence": "Analysis of 198 run folders found 5 different naming patterns with only 7% following the new standard",
+        "suggested_action": "Create run discovery tool that can find runs regardless of naming convention"
+      },
+      {
+        "id": "process-006",
+        "title": "Duplicate Task Directories for Same Work",
+        "category": "process",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 10.5,
+        "evidence": "Multiple task directories appear to track the same work with different naming conventions",
+        "suggested_action": "Implement duplicate detection check in task creation workflow"
+      },
+      {
+        "id": "process-007",
+        "title": "Skill Integration Plan Exists But Not Implemented",
+        "category": "process",
+        "impact_score": 5,
+        "effort_score": 5,
+        "frequency_score": 5,
+        "total_score": 14.5,
+        "evidence": "SKILLS-INTEGRATION-PLAN.md dated 2026-01-28 shows complete implementation details but skill-metrics.yaml shows 0% invocation",
+        "suggested_action": "Create task to implement Phase 1 of skills integration plan"
+      },
+      {
+        "id": "process-008",
+        "title": "Manual Steps Required for GitHub Actions Setup",
+        "category": "manual",
+        "impact_score": 3,
+        "effort_score": 3,
+        "frequency_score": 2,
+        "total_score": 7.0,
+        "evidence": "YouTube automation RESULTS.md shows completed setup but requires 4 manual user actions to deploy",
+        "suggested_action": "Extend automation to use GitHub CLI (gh) for repo creation and pushing"
+      },
+      {
+        "id": "docs-001",
+        "title": "Template Count Discrepancy in Documentation",
+        "category": "documentation",
+        "impact_score": 2,
+        "effort_score": 1,
+        "frequency_score": 3,
+        "total_score": 6.5,
+        "evidence": "template-system-guide.md claims 31 templates but actual count is 34",
+        "suggested_action": "Update template inventory table to reflect actual counts"
+      },
+      {
+        "id": "docs-002",
+        "title": "Missing WORK-LOG.md and ACTIVE.md Root Files",
+        "category": "documentation",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 7.0,
+        "evidence": "README.md documents WORK-LOG.md and ACTIVE.md as root state files but these files are not present",
+        "suggested_action": "Either create WORK-LOG.md and ACTIVE.md from templates, or update README.md"
+      },
+      {
+        "id": "docs-003",
+        "title": "Skill Metrics Documentation Drift - Zero Usage Data",
+        "category": "documentation",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 10.0,
+        "evidence": "skill-effectiveness-report.md and skill-metrics.yaml both show all skills with null/empty metrics",
+        "suggested_action": "Either implement automated skill usage tracking as documented, or update documentation"
+      },
+      {
+        "id": "docs-004",
+        "title": "Migration Plan References Non-Existent RALF-Core Content",
+        "category": "documentation",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 7.0,
+        "evidence": "migration-plan.md references ralf-core content migration but project already has 48 active tasks and 109 completed tasks",
+        "suggested_action": "Update migration-plan.md status to 'Completed' or 'Superseded'"
+      },
+      {
+        "id": "docs-005",
+        "title": "Inconsistent Directory Structure Documentation",
+        "category": "documentation",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 8.0,
+        "evidence": "README.md documents 6-folder structure but actual structure includes many additional folders",
+        "suggested_action": "Update README.md to include all actual folders in directory structure section"
+      },
+      {
+        "id": "docs-006",
+        "title": "Task System Design References Non-Existent Files",
+        "category": "documentation",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 7.0,
+        "evidence": "task-system-design.md documents tasks.yaml and queue.yaml at .autonomous/communications/ location",
+        "suggested_action": "Verify if tasks.yaml and queue.yaml exist in communications folder"
+      },
+      {
+        "id": "docs-007",
+        "title": "SISO-Internal Patterns Documentation References Missing Templates",
+        "category": "documentation",
+        "impact_score": 2,
+        "effort_score": 1,
+        "frequency_score": 2,
+        "total_score": 6.5,
+        "evidence": "siso-internal-patterns.md lists templates needed but most already exist in .templates/ folder",
+        "suggested_action": "Update siso-internal-patterns.md to mark template creation status as complete"
+      },
+      {
+        "id": "docs-008",
+        "title": "Architecture Dashboard Shows Stale Task Status",
+        "category": "documentation",
+        "impact_score": 2,
+        "effort_score": 1,
+        "frequency_score": 3,
+        "total_score": 6.5,
+        "evidence": "architecture-dashboard.md shows TASK-ARCH-011 as 'in_progress' but this task may have been completed",
+        "suggested_action": "Re-run bin/update-dashboard.py to refresh task statuses"
+      },
+      {
+        "id": "docs-009",
+        "title": "Blackbox5-Architecture.md References Non-Existent Scripts",
+        "category": "documentation",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 7.0,
+        "evidence": "blackbox5-architecture.md references multiple ralf-*.sh scripts that may have different names",
+        "suggested_action": "Verify all referenced scripts exist in bin/ folders"
+      },
+      {
+        "id": "docs-010",
+        "title": "Goals System Guide References Non-Existent Files",
+        "category": "documentation",
+        "impact_score": 2,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 5.0,
+        "evidence": "goals-system-guide.md references goals/INDEX.yaml, goals/core/core-goals.yaml that may not exist",
+        "suggested_action": "Verify goals/ folder structure matches documentation"
+      },
+      {
+        "id": "arch-001",
+        "title": "Duplicate Configuration Management Systems",
+        "category": "architecture",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 4,
+        "total_score": 11.5,
+        "evidence": "Multiple overlapping configuration systems: ConfigManager, routes.yaml, SYSTEM-MAP.yaml",
+        "suggested_action": "Create unified configuration schema that all components use"
+      },
+      {
+        "id": "arch-002",
+        "title": "Skill Router Hardcodes Skill Definitions",
+        "category": "architecture",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 3,
+        "total_score": 9.0,
+        "evidence": "SkillRouter class contains hardcoded SKILL_MAP dictionary with 25+ skill definitions",
+        "suggested_action": "Refactor to use discover_skills() as primary loading mechanism"
+      },
+      {
+        "id": "arch-003",
+        "title": "Tight Coupling Between RALF Loop and Shell Execution",
+        "category": "architecture",
+        "impact_score": 4,
+        "effort_score": 4,
+        "frequency_score": 5,
+        "total_score": 11.0,
+        "evidence": "ralf-loop.sh directly invokes 'claude' CLI with piped prompts",
+        "suggested_action": "Create execution adapter interface with implementations for CLI, API, and mock execution"
+      },
+      {
+        "id": "arch-004",
+        "title": "No Abstraction for Queue/Communication System",
+        "category": "architecture",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 10.5,
+        "evidence": "6-agent pipeline uses raw YAML files for queues with inline Python for parsing",
+        "suggested_action": "Create Queue interface with FileQueue and RedisQueue implementations"
+      },
+      {
+        "id": "arch-005",
+        "title": "Workflow Loader Lacks Versioning",
+        "category": "architecture",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 2,
+        "total_score": 8.0,
+        "evidence": "workflow_loader.py loads YAML workflow definitions but has no versioning mechanism",
+        "suggested_action": "Add version field to Workflow dataclass and implement version checking"
+      },
+      {
+        "id": "arch-006",
+        "title": "Decision Registry and Memory System Overlap",
+        "category": "architecture",
+        "impact_score": 3,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 7.5,
+        "evidence": "Two separate systems track decisions: DecisionRegistry and MemorySystem",
+        "suggested_action": "Unify on DecisionRegistry as primary decision tracking system"
+      },
+      {
+        "id": "arch-007",
+        "title": "State Machine Lacks Persistence Integration",
+        "category": "architecture",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 4,
+        "total_score": 10.5,
+        "evidence": "TaskStateMachine manages task transitions in memory only",
+        "suggested_action": "Add persistence hooks to state transitions and create TaskStore interface"
+      },
+      {
+        "id": "arch-008",
+        "title": "Dry-Run Library Not Used Consistently",
+        "category": "architecture",
+        "impact_score": 2,
+        "effort_score": 2,
+        "frequency_score": 3,
+        "total_score": 5.0,
+        "evidence": "Dry_run.sh library provides framework but adoption is inconsistent across scripts",
+        "suggested_action": "Audit all shell scripts and add dry_run.sh sourcing"
+      },
+      {
+        "id": "arch-009",
+        "title": "Phase Gates and Context Budget Use Different Threshold Models",
+        "category": "architecture",
+        "impact_score": 3,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 7.5,
+        "evidence": "Phase gates use criteria-based model while ContextBudget uses percentage thresholds",
+        "suggested_action": "Create unified ResourceManager that coordinates phase gates and context budget"
+      },
+      {
+        "id": "arch-010",
+        "title": "Routes.yaml Contains Template Placeholders",
+        "category": "architecture",
+        "impact_score": 3,
+        "effort_score": 1,
+        "frequency_score": 2,
+        "total_score": 9.5,
+        "evidence": "routes.yaml contains template placeholders like {{PROJECT_NAME}}, {{PROJECT_PATH}}",
+        "suggested_action": "Create configuration initialization script that populates routes.yaml"
+      },
+      {
+        "id": "arch-011",
+        "title": "bb5 CLI Commands Lack Shared Error Handling",
+        "category": "architecture",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 8.0,
+        "evidence": "bb5 command dispatcher calls individual scripts with no centralized error handling",
+        "suggested_action": "Create bb5-lib.sh with shared error handling and logging"
+      },
+      {
+        "id": "arch-012",
+        "title": "blackbox.py References Non-Existent Directory Structure",
+        "category": "architecture",
+        "impact_score": 4,
+        "effort_score": 1,
+        "frequency_score": 2,
+        "total_score": 11.5,
+        "evidence": "blackbox.py references '2-engine/01-core' which was consolidated to '2-engine/core/'",
+        "suggested_action": "Update ENGINE_DIR path to '2-engine/core'"
+      },
+      {
+        "id": "metrics-001",
+        "title": "Skill Metrics Completely Unpopulated - Zero Usage Data",
+        "category": "infrastructure",
+        "impact_score": 5,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "total_score": 16.5,
+        "evidence": "All 22 skills in skill-metrics.yaml have null values for all metrics",
+        "suggested_action": "Implement automated skill metric calculation script"
+      },
+      {
+        "id": "metrics-002",
+        "title": "High Priority Improvements Show 0% Completion Despite Being Marked Complete",
+        "category": "process",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 13.0,
+        "evidence": "improvement-metrics.yaml shows 3 high priority with 0% completion but improvement-backlog.yaml shows all 3 completed",
+        "suggested_action": "Sync improvement-metrics.yaml backlog_status with actual completion data"
+      },
+      {
+        "id": "metrics-003",
+        "title": "Learning Index Shows Zero Learnings Despite 80+ Claimed",
+        "category": "infrastructure",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 5,
+        "total_score": 13.5,
+        "evidence": "LEARNINGS.md shows 'Total Learnings: 0' but STATE.yaml claims 80 learnings captured",
+        "suggested_action": "Debug learning_extractor.py to identify why learnings are not being indexed"
+      },
+      {
+        "id": "metrics-004",
+        "title": "Task-to-Completion Pipeline Stalled at 40%",
+        "category": "process",
+        "impact_score": 5,
+        "effort_score": 4,
+        "frequency_score": 4,
+        "total_score": 15.5,
+        "evidence": "Only 4 of 10 improvement tasks have been completed (40% vs 70% target)",
+        "suggested_action": "Prioritize remaining 6 pending improvements"
+      },
+      {
+        "id": "metrics-005",
+        "title": "Validation Checklist Usage Log Empty",
+        "category": "process",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 9.0,
+        "evidence": "validation-checklist.yaml has empty usage_log array despite being created on 2026-02-01",
+        "suggested_action": "Integrate validation checklist execution into executor workflow"
+      },
+      {
+        "id": "metrics-006",
+        "title": "Test Results Template Not Populated",
+        "category": "infrastructure",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 10.0,
+        "evidence": "test_results.yaml contains only FILL_ME placeholder values with 0 total tests",
+        "suggested_action": "Implement test result aggregation from CI/CD pipeline"
+      },
+      {
+        "id": "metrics-007",
+        "title": "Skill Usage Log Empty Despite 29 Executor Runs",
+        "category": "infrastructure",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 5,
+        "total_score": 14.0,
+        "evidence": "skill-usage.yaml has empty usage_log array despite executor-dashboard.yaml tracking 29 total executions",
+        "suggested_action": "Add skill usage logging to executor completion workflow"
+      },
+      {
+        "id": "metrics-008",
+        "title": "First Principles Review Schedule Not Being Followed",
+        "category": "process",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 3,
+        "total_score": 8.0,
+        "evidence": "goals.yaml shows last_completed: null but STATE.yaml shows last_review at run 50",
+        "suggested_action": "Clarify review schedule in goals.yaml"
+      },
+      {
+        "id": "metrics-009",
+        "title": "Improvement Effectiveness Scores Missing Validation Data",
+        "category": "process",
+        "impact_score": 4,
+        "effort_score": 3,
+        "frequency_score": 3,
+        "total_score": 10.0,
+        "evidence": "improvement-metrics.yaml shows qualitative assessments without quantitative metrics",
+        "suggested_action": "Implement validation data collection for improvements"
+      },
+      {
+        "id": "metrics-010",
+        "title": "Extraction Rate Below Target Without Root Cause Analysis",
+        "category": "process",
+        "impact_score": 3,
+        "effort_score": 3,
+        "frequency_score": 4,
+        "total_score": 8.5,
+        "evidence": "Learning extraction rate is 12.5% vs 15% target",
+        "suggested_action": "Analyze the 70 learnings not converted to improvements"
+      },
+      {
+        "id": "metrics-011",
+        "title": "Commit Compliance at 75% - Missing 25% of Task Commits",
+        "category": "process",
+        "impact_score": 4,
+        "effort_score": 2,
+        "frequency_score": 4,
+        "total_score": 12.0,
+        "evidence": "executor-dashboard.yaml shows commit compliance at 75% (18 of 24 completed tasks committed)",
+        "suggested_action": "Track non-committed tasks with reasons"
+      },
+      {
+        "id": "metrics-012",
+        "title": "Estimation Accuracy Shows 35% Underestimation Trend",
+        "category": "process",
+        "impact_score": 3,
+        "effort_score": 2,
+        "frequency_score": 5,
+        "total_score": 9.0,
+        "evidence": "Tasks consistently take 35% longer than estimated",
+        "suggested_action": "Apply 1.35x multiplier to all future estimates"
+      }
+    ],
+    "patterns": [
+      {
+        "name": "Complete Skill System Non-Adoption",
+        "description": "Despite comprehensive documentation and 23 defined skills, the system is not being used. All metrics are null, usage is zero, and tasks are completing without skill invocation.",
+        "affected_areas": ["skills", "process", "metrics"],
+        "severity": "critical"
+      },
+      {
+        "name": "Empty Tracking Arrays Across Systems",
+        "description": "Multiple metric files have empty usage_log or tracking arrays despite system activity: validation-checklist.yaml, skill-usage.yaml, LEARNINGS.md. Indicates logging infrastructure exists but is not being populated.",
+        "affected_areas": ["metrics", "infrastructure"],
+        "severity": "high"
+      },
+      {
+        "name": "Data Inconsistency Between Files",
+        "description": "Multiple instances of conflicting data between related files: high priority completion counts differ, learnings count differs, review dates differ.",
+        "affected_areas": ["metrics", "process"],
+        "severity": "high"
+      },
+      {
+        "name": "Template System Creates Files But Content Never Filled",
+        "description": "A recurring pattern where template files (THOUGHTS.md, LEARNINGS.md, RESULTS.md) are auto-created with 'UNFILLED' markers but agents never populate them with actual content.",
+        "affected_areas": ["process"],
+        "severity": "high"
+      },
+      {
+        "name": "Documentation Status Drift",
+        "description": "Multiple documents have stale 'Status' fields (e.g., 'Planning', 'Proposed', 'Research Complete') that don't reflect actual implementation state.",
+        "affected_areas": ["documentation"],
+        "severity": "medium"
+      },
+      {
+        "name": "Multiple Overlapping State Management Systems",
+        "description": "The codebase has at least 4 state/task management systems: TaskStateMachine, DecisionRegistry, MemorySystem, and tasks/ YAML files. They don't synchronize automatically.",
+        "affected_areas": ["architecture"],
+        "severity": "medium"
+      },
+      {
+        "name": "Configuration Scattered Across Multiple Formats",
+        "description": "Configuration exists in YAML, Python dictionaries, and shell variables. No unified configuration schema or validation.",
+        "affected_areas": ["architecture"],
+        "severity": "medium"
+      },
+      {
+        "name": "Shell Scripts Embed Python for YAML Processing",
+        "description": "Multiple shell scripts embed Python heredocs for YAML parsing instead of using a shared YAML utility library.",
+        "affected_areas": ["architecture"],
+        "severity": "low"
+      },
+      {
+        "name": "Qualitative Metrics Without Quantitative Backing",
+        "description": "Multiple metric assessments rely on qualitative judgments (high/medium/low) without supporting quantitative data.",
+        "affected_areas": ["metrics"],
+        "severity": "medium"
+      },
+      {
+        "name": "Defined Frameworks Without Implementation",
+        "description": "Multiple frameworks defined in YAML but not operational: validation framework, improvement pipeline, skill metrics.",
+        "affected_areas": ["process", "infrastructure"],
+        "severity": "high"
+      },
+      {
+        "name": "Legacy Directory References After Consolidation",
+        "description": "Several files still reference the old pre-consolidation directory structure (01-core, 02-agents, etc.) which no longer exists.",
+        "affected_areas": ["architecture"],
+        "severity": "medium"
+      }
+    ],
+    "quick_wins": [
+      {
+        "id": "skill-003",
+        "title": "Lower Confidence Threshold from 70% to 60%",
+        "effort_minutes": 5,
+        "impact": "high",
+        "action": "Update skill-selection.yaml threshold value"
+      },
+      {
+        "id": "arch-012",
+        "title": "Fix blackbox.py Engine Path Reference",
+        "effort_minutes": 5,
+        "impact": "high",
+        "action": "Update ENGINE_DIR from '01-core' to 'core'"
+      },
+      {
+        "id": "skill-008",
+        "title": "Standardize Confidence Thresholds",
+        "effort_minutes": 10,
+        "impact": "medium",
+        "action": "Update domain-specific thresholds to match base 70%"
+      },
+      {
+        "id": "arch-010",
+        "title": "Populate Routes.yaml Template Placeholders",
+        "effort_minutes": 15,
+        "impact": "medium",
+        "action": "Replace {{PROJECT_NAME}}, {{PROJECT_PATH}} with actual values"
+      },
+      {
+        "id": "docs-001",
+        "title": "Fix Template Count in Documentation",
+        "effort_minutes": 5,
+        "impact": "low",
+        "action": "Update template-system-guide.md to show 34 templates"
+      },
+      {
+        "id": "metrics-012",
+        "title": "Apply 1.35x Estimation Multiplier",
+        "effort_minutes": 5,
+        "impact": "medium",
+        "action": "Document the multiplier in estimation guidelines"
+      },
+      {
+        "id": "metrics-002",
+        "title": "Sync High Priority Completion Counts",
+        "effort_minutes": 10,
+        "impact": "medium",
+        "action": "Update improvement-metrics.yaml to show 3 completed"
+      },
+      {
+        "id": "arch-008",
+        "title": "Add dry_run.sh to bb5 Scripts",
+        "effort_minutes": 30,
+        "impact": "medium",
+        "action": "Source dry_run.sh in bb5-goal, bb5-task, etc."
+      }
+    ],
+    "recommendations": [
+      {
+        "priority": 1,
+        "opportunity_id": "skill-001",
+        "title": "Zero Skill Invocation Rate - Complete System Non-Usage",
+        "rationale": "Score: 16.5 | Impact: 5/5 | Effort: 3/5 | The entire skill system (23 skills) is not being used despite being a core feature"
+      },
+      {
+        "priority": 2,
+        "opportunity_id": "metrics-001",
+        "title": "Skill Metrics Completely Unpopulated - Zero Usage Data",
+        "rationale": "Score: 16.5 | Impact: 5/5 | Effort: 3/5 | No data to make informed decisions about skill effectiveness"
+      },
+      {
+        "priority": 3,
+        "opportunity_id": "process-001",
+        "title": "Empty Template Files in Runs Not Being Populated",
+        "rationale": "Score: 15.5 | Impact: 5/5 | Effort: 3/5 | Agents are not documenting their work, losing institutional knowledge"
+      },
+      {
+        "priority": 4,
+        "opportunity_id": "metrics-004",
+        "title": "Task-to-Completion Pipeline Stalled at 40%",
+        "rationale": "Score: 15.5 | Impact: 5/5 | Effort: 4/5 | Improvement pipeline is not delivering at target rate"
+      },
+      {
+        "priority": 5,
+        "opportunity_id": "process-007",
+        "title": "Skill Integration Plan Exists But Not Implemented",
+        "rationale": "Score: 14.5 | Impact: 5/5 | Effort: 5/5 | Complete implementation plan ready but not executed"
+      },
+      {
+        "priority": 6,
+        "opportunity_id": "metrics-003",
+        "title": "Learning Index Shows Zero Learnings Despite 80+ Claimed",
+        "rationale": "Score: 13.5 | Impact: 4/5 | Effort: 3/5 | Learning extraction pipeline is broken"
+      },
+      {
+        "priority": 7,
+        "opportunity_id": "skill-002",
+        "title": "All Skills Have Null Effectiveness Metrics",
+        "rationale": "Score: 14.0 | Impact: 4/5 | Effort: 2/5 | Cannot optimize what isn't measured"
+      },
+      {
+        "priority": 8,
+        "opportunity_id": "metrics-007",
+        "title": "Skill Usage Log Empty Despite 29 Executor Runs",
+        "rationale": "Score: 14.0 | Impact: 4/5 | Effort: 2/5 | Logging infrastructure exists but not integrated"
+      },
+      {
+        "priority": 9,
+        "opportunity_id": "process-003",
+        "title": "Agent Stop Events Missing Context Data",
+        "rationale": "Score: 14.0 | Impact: 4/5 | Effort: 2/5 | Cannot trace agent activity without context"
+      },
+      {
+        "priority": 10,
+        "opportunity_id": "arch-001",
+        "title": "Duplicate Configuration Management Systems",
+        "rationale": "Score: 11.5 | Impact: 4/5 | Effort: 3/5 | Multiple config systems without unified schema"
+      }
+    ]
+  }
+}

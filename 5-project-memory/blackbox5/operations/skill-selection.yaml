@@ -32,6 +32,93 @@
 # END: Continue with Phase 2 (Execution)
 
 # ============================================================================
+# Auto-Trigger Rules (MANDATORY)
+# ============================================================================
+#
+# These rules MUST be checked before every task execution.
+# If ANY rule matches, the corresponding skill MUST be evaluated.
+
+auto_trigger_rules:
+  - rule_id: "ATR-001"
+    name: "Implementation Tasks"
+    condition: "Task contains 'implement' + domain keyword"
+    keywords: ["implement", "create", "build", "develop"]
+    domain_keywords: ["git", "n8n", "supabase", "database", "test", "workflow"]
+    action: "MUST check for matching skill in domain_mapping"
+    priority: "high"
+
+  - rule_id: "ATR-002"
+    name: "Analysis Tasks"
+    condition: "Task contains 'analyze' or 'research'"
+    keywords: ["analyze", "research", "investigate", "study", "audit"]
+    required_skills: ["bmad-analyst", "web-search"]
+    action: "MUST check bmad-analyst and web-search skills"
+    priority: "high"
+
+  - rule_id: "ATR-003"
+    name: "Architecture Tasks"
+    condition: "Task contains architecture/design keywords"
+    keywords: ["architecture", "design", "refactor", "structure", "pattern"]
+    required_skills: ["bmad-architect"]
+    action: "MUST check bmad-architect skill"
+    priority: "high"
+
+  - rule_id: "ATR-004"
+    name: "Decision Questions"
+    condition: "Task contains decision question format"
+    keywords: ["Should we", "How should we", "What's the best way", "best approach"]
+    required_skills: ["superintelligence-protocol"]
+    action: "MUST check superintelligence-protocol skill"
+    priority: "critical"
+
+  - rule_id: "ATR-005"
+    name: "Product Management Tasks"
+    condition: "Task contains PM keywords"
+    keywords: ["PRD", "requirements", "feature", "roadmap", "user story", "epic"]
+    required_skills: ["bmad-pm"]
+    action: "MUST check bmad-pm skill"
+    priority: "high"
+
+  - rule_id: "ATR-006"
+    name: "Quality Assurance Tasks"
+    condition: "Task contains QA keywords"
+    keywords: ["test", "QA", "quality", "validation", "verify"]
+    required_skills: ["bmad-qa"]
+    action: "MUST check bmad-qa skill"
+    priority: "high"
+
+  - rule_id: "ATR-007"
+    name: "Multi-File Tasks"
+    condition: "Task involves multiple files or systems"
+    indicators: ["multiple files", "across", "integrate", "system-wide"]
+    action: "MUST check all relevant domain skills"
+    priority: "medium"
+
+  - rule_id: "ATR-008"
+    name: "Git Operations"
+    condition: "Task involves git operations"
+    keywords: ["commit", "git", "PR", "branch", "merge", "repository"]
+    required_skills: ["git-commit"]
+    action: "MUST check git-commit skill"
+    priority: "high"
+
+  - rule_id: "ATR-009"
+    name: "Database Operations"
+    condition: "Task involves database work"
+    keywords: ["supabase", "database", "RLS", "migration", "schema", "table"]
+    required_skills: ["supabase-operations"]
+    action: "MUST check supabase-operations skill"
+    priority: "high"
+
+  - rule_id: "ATR-010"
+    name: "Continuous Improvement"
+    condition: "Task involves optimization or improvement"
+    keywords: ["improve", "optimize", "refine", "iterate", "enhance", "better"]
+    required_skills: ["continuous-improvement"]
+    action: "MUST check continuous-improvement skill"
+    priority: "medium"
+
+# ============================================================================
 # Domain-to-Skill Mapping
 # ============================================================================
 
@@ -39,80 +126,80 @@ domain_mapping:
   - domain: "Product Management"
     keywords: ["PRD", "requirements", "feature definition", "roadmap", "user story", "epic"]
     primary_skill: bmad-pm
-    confidence_threshold: 85
+    confidence_threshold: 70
     notes: "Use for any requirements gathering or feature planning work"
 
   - domain: "Architecture & Design"
     keywords: ["architecture", "design", "refactor", "integrate", "pattern", "scalability", "structure"]
     primary_skill: bmad-architect
-    confidence_threshold: 90
+    confidence_threshold: 70
     notes: "Use for system design, major refactoring, integration planning"
 
   - domain: "Research & Analysis"
     keywords: ["research", "analyze", "investigate", "pattern", "audit", "study"]
     primary_skill: bmad-analyst
-    confidence_threshold: 80
+    confidence_threshold: 70
     notes: "Use for data analysis, pattern identification, research tasks"
 
   - domain: "Process & Coordination"
     keywords: ["process", "sprint", "coordinate", "planning", "scrum", "facilitate"]
     primary_skill: bmad-sm
-    confidence_threshold: 80
+    confidence_threshold: 70
     notes: "Use for process questions, coordination, sprint planning"
 
   - domain: "UX & Design"
     keywords: ["UI", "UX", "design", "user flow", "interface", "mockup", "wireframe"]
     primary_skill: bmad-ux
-    confidence_threshold: 85
+    confidence_threshold: 70
     notes: "Use for UI/UX decisions, user flow design"
 
   - domain: "Implementation"
     keywords: ["implement", "code", "develop", "build", "create", "write"]
     primary_skill: bmad-dev
-    confidence_threshold: 80
+    confidence_threshold: 70
     notes: "Use for coding tasks, implementation work, testing"
 
   - domain: "Quality Assurance"
     keywords: ["test", "quality", "QA", "validation", "verify", "bug"]
     primary_skill: bmad-qa
-    confidence_threshold: 85
+    confidence_threshold: 70
     notes: "Use for testing strategy, test plans, quality questions"
 
   - domain: "Complex Problem Solving"
     keywords: ["Should we", "How should we", "best way", "optimize", "strategy"]
     primary_skill: superintelligence-protocol
-    confidence_threshold: 90
+    confidence_threshold: 70
     notes: "Use for architecture questions, design decisions, complex problems"
 
   - domain: "Continuous Improvement"
     keywords: ["improve", "optimize", "refine", "iterate", "enhance"]
     primary_skill: continuous-improvement
-    confidence_threshold: 85
+    confidence_threshold: 70
     notes: "Use when improving existing systems or processes"
 
   - domain: "Web Research"
     keywords: ["search", "current", "documentation", "external", "web"]
     primary_skill: web-search
-    confidence_threshold: 80
+    confidence_threshold: 70
     notes: "Use for research requiring external information"
 
   - domain: "Codebase Navigation"
     keywords: ["find code", "explore", "understand structure", "navigate"]
     primary_skill: codebase-navigation
-    confidence_threshold: 80
+    confidence_threshold: 70
     notes: "Use for exploring unfamiliar codebases or finding code"
 
   - domain: "Database Operations"
     keywords: ["supabase", "database", "RLS", "migration", "schema"]
     primary_skill: supabase-operations
-    confidence_threshold: 85
+    confidence_threshold: 70
     notes: "Use for Supabase database operations"
 
   - domain: "Git Operations"
     keywords: ["commit", "git", "PR", "branch", "merge"]
     primary_skill: git-commit
-    confidence_threshold: 95
-    notes: "Always use for git operations - high confidence"
+    confidence_threshold: 70
+    notes: "Use for git operations"
 
 # ============================================================================
 # Skill Selection Process
@@ -120,12 +207,13 @@ domain_mapping:
 
 selection_process:
   step_1: "Read task file completely - understand objective and approach"
-  step_2: "Check skill-usage.yaml for skills with matching trigger_keywords"
-  step_3: "Match task type against domain_mapping above"
-  step_4: "Calculate confidence based on keyword overlap and task context"
-  step_5: "If confidence >= threshold, invoke the skill"
-  step_6: "If confidence < threshold, proceed with standard execution"
-  step_7: "Document decision in THOUGHTS.md under 'Skill Usage for This Task'"
+  step_2: "Check auto_trigger_rules for matching conditions"
+  step_3: "Check skill-usage.yaml for skills with matching trigger_keywords"
+  step_4: "Match task type against domain_mapping above"
+  step_5: "Calculate confidence based on keyword overlap and task context"
+  step_6: "If confidence >= threshold, invoke the skill"
+  step_7: "If confidence < threshold, proceed with standard execution"
+  step_8: "Document decision in THOUGHTS.md under 'Skill Usage for This Task'"
 
 # ============================================================================
 # Confidence Calculation
@@ -207,6 +295,7 @@ documentation:
 
 validation:
   before_execution:
+    - "Checked auto_trigger_rules for matching conditions"
     - "Checked skill-usage.yaml for applicable skills"
     - "Calculated confidence for any matches"
     - "Documented decision in THOUGHTS.md"
@@ -225,29 +314,47 @@ examples:
     skill_selected: "bmad-pm"
     confidence: 95
     rationale: "Task explicitly mentions PRD creation, matches bmad-pm triggers"
+    auto_trigger: "ATR-005"
 
   - scenario: "Task: How should we architect the caching layer?"
     skill_selected: "superintelligence-protocol"
     confidence: 90
     rationale: "Question format 'How should we' + architecture = superintelligence-protocol"
+    auto_trigger: "ATR-004"
 
   - scenario: "Task: Fix typo in README"
     skill_selected: "None"
     confidence: N/A
     rationale: "Simple task, no skill adds value, below complexity threshold"
+    auto_trigger: "None"
 
   - scenario: "Task: Implement n8n workflow for data sync"
     skill_selected: "bmad-dev"
     confidence: 85
     rationale: "Implementation task with clear requirements, bmad-dev appropriate"
+    auto_trigger: "ATR-001"
 
 # ============================================================================
 # Metadata
 # ============================================================================
 
 metadata:
-  version: "1.0.0"
+  version: "1.2.0"
   created: "2026-02-01T08:00:00Z"
-  last_updated: "2026-02-01T08:00:00Z"
+  last_updated: "2026-02-05T00:00:00Z"
   total_selections_tracked: 0
   framework_status: "active"
+  changelog:
+    - version: "1.2.0"
+      date: "2026-02-05"
+      changes:
+        - "Added auto_trigger_rules section with 10 mandatory rules"
+        - "Added rule_id tracking for validation"
+        - "Updated selection_process to include auto_trigger checking"
+        - "Enhanced examples with auto_trigger references"
+    - version: "1.1.0"
+      date: "2026-02-05"
+      changes:
+        - "Standardized all confidence thresholds to 70%"
+        - "Updated decision tree threshold from 60% to 70%"
+        - "Simplified git-commit notes (removed 'high confidence' language)"

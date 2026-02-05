@@ -1,0 +1,95 @@
+# {{PROJECT_NAME}} Routes Configuration
+# This project exists to improve the {{PROJECT_NAME}} autonomous agent framework
+
+project:
+  name: "{{PROJECT_NAME}}"
+  type: "framework"
+  description: "Self-improvement project for the {{PROJECT_NAME}} autonomous agent framework"
+  root: "{{PROJECT_PATH}}"
+
+engine:
+  path: "{{PROJECT_PATH}}/2-engine/.autonomous"
+  version: "1.0.0"
+
+memory:
+  tasks: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/tasks"
+  runs: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/runs"
+  workspaces: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/workspaces"
+  decisions: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/.autonomous/memory/decisions"
+  insights: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/.autonomous/memory/insights"
+  timeline: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/timeline"
+
+routes:
+  # FULL {{PROJECT_NAME_UPPER}} ACCESS
+  # {{PROJECT_NAME}} project can see and modify anything in {{PROJECT_NAME}}
+
+  # Root
+  {{PROJECT_NAME}}_root: "{{PROJECT_PATH}}"
+
+  # Engine
+  engine: "{{PROJECT_PATH}}/2-engine"
+  engine_shell: "{{PROJECT_PATH}}/2-engine/.autonomous/shell"
+  engine_lib: "{{PROJECT_PATH}}/2-engine/.autonomous/lib"
+  engine_prompts: "{{PROJECT_PATH}}/2-engine/.autonomous/prompts"
+  engine_skills: "{{PROJECT_PATH}}/2-engine/.autonomous/skills"
+  engine_schemas: "{{PROJECT_PATH}}/2-engine/.autonomous/schemas"
+
+  # All Project Memories
+  projects: "{{PROJECT_PATH}}/5-project-memory"
+  siso_internal: "{{PROJECT_PATH}}/5-project-memory/siso-internal"
+  {{PROJECT_NAME}}: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}"
+
+  # Knowledge & Docs
+  knowledge: "{{PROJECT_PATH}}/3-knowledge"
+  docs: "{{PROJECT_PATH}}/1-docs"
+
+  # Tools & Integrations
+  tools: "{{PROJECT_PATH}}/5-tools"
+  integrations: "{{PROJECT_PATH}}/6-integrations"
+
+  # Feedback from other instances
+  feedback_incoming: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/feedback/incoming"
+  feedback_processed: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/feedback/processed"
+  feedback_actions: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/feedback/actions"
+
+  # Documentation
+  engine_docs: "{{PROJECT_PATH}}/2-engine/.docs"
+
+  # BMAD Integration
+  engine_routes: "{{PROJECT_PATH}}/2-engine/.autonomous/routes.yaml"
+  bmad_skills: "{{PROJECT_PATH}}/2-engine/.autonomous/skills"
+  bmad_workflows: "{{PROJECT_PATH}}/2-engine/.autonomous/workflows"
+  bmad_wip: "{{PROJECT_PATH}}/2-engine/.autonomous/wip"
+
+# BMAD Command Reference
+# Commands are defined in engine_routes, but available here:
+# CP, VP, EP, CE (PM) | CA, VA, EA (Architect) | BP, RS, CB, DP (Analyst)
+# SP, CS, ER (SM) | CU, VU, EU (UX) | DS, CR (Dev) | QA, VT, RT (QA)
+# TS, QD (Quick Flow) | IR, CC (Shared)
+
+feedback:
+  # Other projects send feedback here
+  endpoint: "{{PROJECT_PATH}}/5-project-memory/{{PROJECT_NAME}}/feedback/incoming"
+  auto_process: false  # Manual review before processing
+  include_telemetry: true
+  include_errors: true
+
+mcp:
+  default_profile: "full"
+  available:
+    - supabase
+    - filesystem
+    - serena
+    - sequential-thinking
+
+github:
+  repo_url: "https://github.com/Lordsisodia/{{PROJECT_NAME}}"
+  branch: "main"
+  auto_push: true
+  auto_pull: true
+  # Uses default SSH key or git credential helper
+
+conventions:
+  branch_naming: "ralf/{version}-{description}"
+  commit_format: "ralf: [{component}] {description}"
+  test_location: "co-located"

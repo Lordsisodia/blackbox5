@@ -1,0 +1,410 @@
+# Execution State Schema
+# Defines the parallel execution framework for BlackBox5 autonomous agents
+# This schema enables concurrent task execution across 5 specialized slots
+#
+# Version: 1.0.0
+# Last Updated: 2026-02-05
+# Schema Type: Runtime State Management
+
+metadata:
+  schema_version: "1.0.0"
+  last_updated: "2026-02-05T00:00:00Z"
+  updated_by: "system"
+  description: "Parallel execution state for BlackBox5 autonomous agents"
+
+# ============================================================================
+# EXECUTION SLOTS
+# ============================================================================
+# Five specialized execution slots with resource profiles optimized for
+# different types of workloads. Each slot can run one task at a time.
+# ============================================================================
+
+execution_slots:
+  slot_1:
+    id: "slot_1"
+    name: "CPU Bound"
+    description: "High-computation tasks (Architecture, Analysis, Complex Algorithms)"
+    profile: "cpu_bound"
+    status: "idle"  # idle | active | paused | error
+    priority_weight: 1.0
+    resource_profile:
+      cpu_priority: "high"
+      memory_limit: "4GB"
+      io_priority: "low"
+      network_priority: "low"
+      max_duration: "30m"
+    current_task:
+      task_id: null
+      task_type: null
+      started_at: null
+      heartbeat: null
+      pid: null
+    resource_locks: []
+    health:
+      status: "healthy"
+      last_check: null
+      consecutive_failures: 0
+
+  slot_2:
+    id: "slot_2"
+    name: "I/O Bound"
+    description: "File and documentation operations (File Ops, Documentation, Logging)"
+    profile: "io_bound"
+    status: "idle"
+    priority_weight: 0.8
+    resource_profile:
+      cpu_priority: "low"
+      memory_limit: "2GB"
+      io_priority: "high"
+      network_priority: "low"
+      max_duration: "20m"
+    current_task:
+      task_id: null
+      task_type: null
+      started_at: null
+      heartbeat: null
+      pid: null
+    resource_locks: []
+    health:
+      status: "healthy"
+      last_check: null
+      consecutive_failures: 0
+
+  slot_3:
+    id: "slot_3"
+    name: "Memory Bound"
+    description: "Data-intensive tasks (Data Processing, Vector Operations, Caching)"
+    profile: "memory_bound"
+    status: "idle"
+    priority_weight: 0.9
+    resource_profile:
+      cpu_priority: "medium"
+      memory_limit: "8GB"
+      io_priority: "medium"
+      network_priority: "low"
+      max_duration: "45m"
+    current_task:
+      task_id: null
+      task_type: null
+      started_at: null
+      heartbeat: null
+      pid: null
+    resource_locks: []
+    health:
+      status: "healthy"
+      last_check: null
+      consecutive_failures: 0
+
+  slot_4:
+    id: "slot_4"
+    name: "Network Bound"
+    description: "External communication (API Calls, Web Scraping, Sync Operations)"
+    profile: "network_bound"
+    status: "idle"
+    priority_weight: 0.7
+    resource_profile:
+      cpu_priority: "low"
+      memory_limit: "2GB"
+      io_priority: "low"
+      network_priority: "high"
+      max_duration: "60m"
+      rate_limits:
+        requests_per_second: 10
+        burst_capacity: 20
+        cooldown_period: "5s"
+    current_task:
+      task_id: null
+      task_type: null
+      started_at: null
+      heartbeat: null
+      pid: null
+    resource_locks: []
+    health:
+      status: "healthy"
+      last_check: null
+      consecutive_failures: 0
+
+  slot_5:
+    id: "slot_5"
+    name: "Reserve"
+    description: "Overflow and critical tasks (Priority escalation, Critical path)"
+    profile: "reserve"
+    status: "idle"
+    priority_weight: 1.5
+    resource_profile:
+      cpu_priority: "high"
+      memory_limit: "6GB"
+      io_priority: "high"
+      network_priority: "high"
+      max_duration: "unlimited"
+      escalation_trigger:
+        - "critical_priority"
+        - "all_slots_busy"
+        - "deadline_approaching"
+    current_task:
+      task_id: null
+      task_type: null
+      started_at: null
+      heartbeat: null
+      pid: null
+    resource_locks: []
+    health:
+      status: "healthy"
+      last_check: null
+      consecutive_failures: 0
+
+# ============================================================================
+# EXECUTION WAVES
+# ============================================================================
+# Tasks are organized into waves based on dependencies. Wave N contains
+# tasks that can only start after all tasks in Wave N-1 complete.
+# ============================================================================
+
+execution_waves:
+  current_wave: 0
+  total_waves: 0
+  wave_history: []
+
+  waves:
+    # Wave 1: Tasks with no dependencies (can start immediately)
+    wave_1:
+      id: 1
+      status: "pending"  # pending | active | completed | failed
+      tasks: []
+      dependencies: []
+      started_at: null
+      completed_at: null
+      parallel_capacity: 5  # Can use all 5 slots
+
+    # Wave 2+: Tasks unblocked by previous waves
+    wave_2:
+      id: 2
+      status: "blocked"
+      tasks: []
+      dependencies: [1]
+      started_at: null
+      completed_at: null
+      parallel_capacity: 5
+
+    wave_3:
+      id: 3
+      status: "blocked"
+      tasks: []
+      dependencies: [2]
+      started_at: null
+      completed_at: null
+      parallel_capacity: 5
+
+# ============================================================================
+# TASK QUEUE
+# ============================================================================
+# Pending tasks waiting for slot assignment or dependency resolution
+# ============================================================================
+
+task_queue:
+  pending: []  # Tasks waiting for available slot
+  blocked: []  # Tasks waiting for dependencies
+  scheduled: []  # Tasks assigned to waves but not yet started
+
+  priority_ordering:
+    - "critical"
+    - "high"
+    - "medium"
+    - "low"
+
+  scheduling_strategy: "dependency_first"  # dependency_first | priority_first | hybrid
+
+# ============================================================================
+# RESOURCE LOCKS
+# ============================================================================
+# Prevents concurrent access to shared resources
+# ============================================================================
+
+resource_locks:
+  # File system locks
+  filesystem:
+    locked_paths: []
+    lock_timeout: "5m"
+
+  # Database locks
+  database:
+    locked_tables: []
+    locked_records: []
+    lock_timeout: "10m"
+
+  # External service locks
+  external:
+    locked_services: []
+    rate_limit_windows: {}
+
+  # Agent coordination locks
+  coordination:
+    active_mutexes: []
+    semaphore_count: 5
+
+# ============================================================================
+# EXECUTION METRICS
+# ============================================================================
+# Tracks performance and efficiency of the parallel execution system
+# ============================================================================
+
+metrics:
+  # Task counters
+  tasks:
+    total_submitted: 0
+    total_completed: 0
+    total_failed: 0
+    total_cancelled: 0
+    total_timed_out: 0
+
+    by_priority:
+      critical: { submitted: 0, completed: 0, failed: 0 }
+      high: { submitted: 0, completed: 0, failed: 0 }
+      medium: { submitted: 0, completed: 0, failed: 0 }
+      low: { submitted: 0, completed: 0, failed: 0 }
+
+    by_slot:
+      slot_1: { completed: 0, failed: 0, total_duration: 0 }
+      slot_2: { completed: 0, failed: 0, total_duration: 0 }
+      slot_3: { completed: 0, failed: 0, total_duration: 0 }
+      slot_4: { completed: 0, failed: 0, total_duration: 0 }
+      slot_5: { completed: 0, failed: 0, total_duration: 0 }
+
+  # Timing metrics
+  timing:
+    total_execution_time: 0  # Total wall-clock time
+    total_task_time: 0  # Sum of all task durations
+    average_task_duration: 0
+    longest_task: { task_id: null, duration: 0 }
+    shortest_task: { task_id: null, duration: 0 }
+    time_saved_vs_serial: 0  # Parallel efficiency gain
+
+  # Efficiency metrics
+  efficiency:
+    parallelization_ratio: 0  # tasks_completed / wall_clock_time
+    slot_utilization:  # Percentage of time slots are active
+      slot_1: 0
+      slot_2: 0
+      slot_3: 0
+      slot_4: 0
+      slot_5: 0
+    average_slot_utilization: 0
+    wave_efficiency: 0  # How well waves parallelize
+
+  # Health score (0-100)
+  health_score: 100
+  health_factors:
+    success_rate: 100
+    slot_availability: 100
+    resource_contention: 0  # Lower is better
+    error_rate: 0
+
+# ============================================================================
+# EXECUTION STATE
+# ============================================================================
+# Overall system state and control flags
+# ============================================================================
+
+state:
+  status: "idle"  # idle | running | paused | shutting_down | error
+  mode: "parallel"  # parallel | serial | adaptive
+
+  started_at: null
+  last_updated: null
+
+  # Control flags
+  flags:
+    allow_parallel: true
+    auto_retry_failed: true
+    auto_escalate_critical: true
+    enforce_timeouts: true
+    enable_preemption: false
+
+  # Concurrency limits
+  limits:
+    max_concurrent_tasks: 5
+    max_tasks_per_wave: 5
+    max_retries: 3
+    max_queue_depth: 50
+
+# ============================================================================
+# DEPENDENCY GRAPH
+# ============================================================================
+# Tracks task dependencies for wave assignment
+# ============================================================================
+
+dependency_graph:
+  version: 1
+  last_updated: null
+
+  # Task nodes with their dependencies
+  nodes: {}
+  # Format:
+  # task_id:
+  #   dependencies: [task_ids]
+  #   dependents: [task_ids]
+  #   wave: 1
+  #   status: pending
+
+  # Detected circular dependencies
+  circular_dependencies: []
+
+  # Orphaned tasks (dependencies on non-existent tasks)
+  orphaned_tasks: []
+
+# ============================================================================
+# EVENT LOG
+# ============================================================================
+# Chronological log of execution events for debugging and auditing
+# ============================================================================
+
+event_log:
+  max_entries: 1000
+  entries: []
+  # Format:
+  # - timestamp: ISO8601
+  #   level: info | warning | error | debug
+  #   slot: slot_id | null
+  #   task: task_id | null
+  #   event: event_type
+  #   message: string
+  #   metadata: {}
+
+# ============================================================================
+# ALERTS & NOTIFICATIONS
+# ============================================================================
+# Active alerts requiring attention
+# ============================================================================
+
+alerts:
+  active: []
+  history: []
+
+  # Alert types that trigger notifications
+  notification_triggers:
+    - "slot_failure"
+    - "task_timeout"
+    - "circular_dependency"
+    - "resource_deadlock"
+    - "health_score_drop"
+    - "wave_stalled"
+
+# ============================================================================
+# SCHEMA VALIDATION RULES
+# ============================================================================
+validation:
+  required_fields:
+    - metadata.schema_version
+    - execution_slots
+    - state.status
+
+  allowed_status_values:
+    slot: ["idle", "active", "paused", "error"]
+    wave: ["pending", "active", "completed", "failed", "blocked"]
+    task: ["pending", "running", "completed", "failed", "cancelled", "timeout"]
+    system: ["idle", "running", "paused", "shutting_down", "error"]
+
+  constraints:
+    max_slots: 5
+    max_wave_depth: 10
+    max_concurrent_per_slot: 1

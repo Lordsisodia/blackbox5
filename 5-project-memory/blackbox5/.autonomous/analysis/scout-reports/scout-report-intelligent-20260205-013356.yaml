@@ -1,0 +1,42 @@
+id: 20260205-013356
+timestamp: '2026-02-05T01:38:56.286789'
+scout_version: 1.0.0-intelligent
+opportunities: []
+patterns: []
+summary:
+  total_opportunities: 0
+  high_impact: 0
+  quick_wins: 0
+  patterns_found: 0
+  categories: {}
+  analyzers:
+  - id: skill-analyzer
+    name: Skill Effectiveness Analyzer
+    opportunities_found: 0
+    patterns_found: 0
+    summary: Analysis complete
+    error: false
+  - id: metrics-analyzer
+    name: Metrics & Quality Analyzer
+    opportunities_found: 0
+    patterns_found: 0
+    summary: Analysis complete
+    error: false
+  - id: architecture-analyzer
+    name: Architecture Improvement Analyzer
+    opportunities_found: 0
+    patterns_found: 0
+    summary: Analysis complete
+    error: false
+  - id: process-analyzer
+    name: Process Friction Analyzer
+    opportunities_found: 0
+    patterns_found: 0
+    summary: Analysis complete
+    error: false
+  - id: documentation-analyzer
+    name: Documentation Drift Analyzer
+    opportunities_found: 0
+    patterns_found: 0
+    summary: Timeout after 5 minutes
+    error: true

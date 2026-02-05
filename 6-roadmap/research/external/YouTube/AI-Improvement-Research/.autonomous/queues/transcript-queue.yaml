@@ -1,0 +1,56 @@
+# Transcript Analysis Queue
+# Tracks transcripts ready for analysis
+
+queue:
+  - video_id: aiLZMvMLYMg
+    file: content/transcripts/david_ondrej/aiLZMvMLYMg.md
+    status: pending
+    priority: P0
+    assigned_worker: null
+    analysis_doc: null
+
+  - video_id: LisbEo-nbZs
+    file: content/transcripts/david_ondrej/LisbEo-nbZs.md
+    status: pending
+    priority: P0
+    assigned_worker: null
+    analysis_doc: null
+
+  - video_id: JRXAd-4sB8c
+    file: content/transcripts/bijan_bowen/JRXAd-4sB8c.md
+    status: pending
+    priority: P2
+    assigned_worker: null
+    analysis_doc: null
+
+  - video_id: Qh6jg3FymXY
+    file: content/transcripts/ai_code_king/Qh6jg3FymXY.md
+    status: pending
+    priority: P2
+    assigned_worker: null
+    analysis_doc: null
+
+  - video_id: JYqq8q6BQWk
+    file: content/transcripts/aichievable/JYqq8q6BQWk.md
+    status: pending
+    priority: P2
+    assigned_worker: null
+    analysis_doc: null
+
+# Queue Statistics
+stats:
+  total: 5
+  pending: 5
+  in_progress: 0
+  completed: 0
+  failed: 0
+
+# Configuration
+config:
+  batch_size: 5
+  auto_assign: true
+  priority_weights:
+    P0: 3.0
+    P1: 2.0
+    P2: 1.0
+    P3: 0.5

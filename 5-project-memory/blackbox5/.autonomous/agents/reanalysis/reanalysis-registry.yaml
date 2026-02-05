@@ -1,0 +1,737 @@
+# Reanalysis Registry
+# Defines trigger types, conditions, and actions for task reanalysis engine
+# Location: @.autonomous/agents/reanalysis/reanalysis-registry.yaml
+
+> Created: 2026-02-05
+> Version: 1.0.0
+> Status: Active
+
+---
+
+## Overview
+
+The reanalysis registry defines when and how tasks should be re-evaluated based on
+changes in the codebase, task dependencies, or system health. This enables the
+reanalysis engine to maintain task relevance and priority automatically.
+
+---
+
+## 1. Trigger Types
+
+### 1.1 structural_change
+**Description:** Infrastructure or shared code modified, affecting dependent tasks
+
+**Detection Rules:**
+  - File modified in shared/ directory
+  - Core utility function changed
+  - API contract modified
+  - Database schema updated
+  - Configuration structure changed
+
+**Affected Task Patterns:**
+  - Tasks referencing modified files
+  - Tasks depending on changed APIs
+  - Tasks using updated utilities
+  - Tasks in same module/domain
+
+**Actions:**
+  - flag: Always (mark for review)
+  - boost: If confidence > 70% (increase priority)
+  - invalidate: If breaking change detected
+
+**Auto-Action Thresholds:**
+  breaking_change_detected: invalidate
+  api_signature_changed: flag
+  file_referenced_by_task: flag
+
+---
+
+### 1.2 dependency_complete
+**Description:** A task's dependency has been completed, potentially unblocking it
+
+**Detection Rules:**
+  - Task status changed to "completed"
+  - All dependencies now satisfied
+  - Blocking issue resolved
+
+**Affected Task Patterns:**
+  - Tasks with completed dependency in "depends_on"
+  - Tasks blocked by the completed task
+  - Tasks with "blocked" status
+
+**Actions:**
+  - requeue: If all dependencies satisfied
+  - boost: If partially unblocked
+  - flag: If new blockers discovered
+
+**Auto-Action Thresholds:**
+  all_dependencies_satisfied: requeue
+  partial_unblock: boost
+  new_blockers_found: flag
+
+---
+
+### 1.3 health_drop
+**Description:** Task success rate has fallen below acceptable threshold
+
+**Detection Rules:**
+  - Success rate < 80% over last 10 attempts
+  - Multiple consecutive failures
+  - Error pattern detected in logs
+
+**Affected Task Patterns:**
+  - Tasks with failure history
+  - Tasks in same category as failing tasks
+  - Tasks using same skills/tools as failures
+
+**Actions:**
+  - flag: Always (mark for review)
+  - boost: If critical priority
+  - invalidate: If approach fundamentally flawed
+
+**Auto-Action Thresholds:**
+  success_rate_below_50: invalidate
+  success_rate_50_to_80: flag
+  consecutive_failures_3_plus: flag
+
+---
+
+### 1.4 time_based
+**Description:** Task has been pending for extended period (stale detection)
+
+**Detection Rules:**
+  - Task pending > 7 days
+  - No activity in last 5 days
+  - Created date > 14 days ago
+
+**Affected Task Patterns:**
+  - Tasks with "pending" status
+  - Tasks not updated recently
+  - Tasks in backlog
+
+**Actions:**
+  - flag: Always (review for relevance)
+  - boost: If high priority stale task
+  - invalidate: If no longer relevant
+
+**Auto-Action Thresholds:**
+  pending_over_30_days: invalidate
+  pending_14_to_30_days: flag
+  pending_7_to_14_days: boost_if_high_priority
+
+---
+
+### 1.5 failure_pattern
+**Description:** Similar tasks are failing, indicating systemic issue
+
+**Detection Rules:**
+  - 3+ tasks with same error pattern
+  - Same skill failing across tasks
+  - Same file causing multiple failures
+
+**Affected Task Patterns:**
+  - Tasks using same skill
+  - Tasks touching same files
+  - Tasks in same component/domain
+
+**Actions:**
+  - flag: Always (pattern detected)
+  - boost: If related to critical path
+  - invalidate: If root cause makes tasks obsolete
+
+**Auto-Action Thresholds:**
+  same_error_5_plus: invalidate
+  same_skill_failing: flag
+  same_file_error: flag
+
+---
+
+## 2. Trigger Definitions
+
+### Detection Configuration
+
+detection:
+  # Git hook triggers
+  git_hooks:
+    post_commit:
+      - structural_change
+      - dependency_complete
+    post_merge:
+      - structural_change
+      - failure_pattern
+
+  # Task system triggers
+  task_events:
+    task_completed:
+      - dependency_complete
+      - structural_change
+    task_failed:
+      - health_drop
+      - failure_pattern
+    task_created:
+      - dependency_complete  # Check if unblocks others
+
+  # Scheduled triggers
+  scheduled:
+    daily:
+      - time_based
+      - health_drop
+    weekly:
+      - failure_pattern
+
+---
+
+### Condition Evaluation
+
+conditions:
+  structural_change:
+    evaluate: |
+      modified_files = get_modified_files()
+      shared_files = filter_shared_files(modified_files)
+      affected_tasks = find_tasks_referencing(shared_files)
+      return affected_tasks
+
+  dependency_complete:
+    evaluate: |
+      completed_task = get_completed_task()
+      blocked_tasks = find_tasks_blocked_by(completed_task)
+      unblocked = filter_satisfied_dependencies(blocked_tasks)
+      return unblocked
+
+  health_drop:
+    evaluate: |
+      task_history = get_task_history(days=30)
+      failing_tasks = filter_by_success_rate(task_history, threshold=0.8)
+      return failing_tasks
+
+  time_based:
+    evaluate: |
+      pending_tasks = get_tasks_by_status("pending")
+      stale_tasks = filter_by_age(pending_tasks, days=7)
+      return stale_tasks
+
+  failure_pattern:
+    evaluate: |
+      recent_failures = get_failures(days=7)
+      patterns = cluster_by_similarity(recent_failures)
+      significant_patterns = filter_by_count(patterns, threshold=3)
+      return significant_patterns
+
+---
+
+## 3. Invalidation Rules
+
+### Rule: file_no_longer_exists
+**Condition:** Referenced file in task no longer exists in codebase
+
+**Action:** mark_obsolete
+**Rationale:** Task cannot be completed if target file is gone
+
+**Detection:**
+  ```yaml
+  check: |
+    task_files = extract_file_references(task)
+    for file in task_files:
+      if not file_exists(file):
+        return true
+    return false
+  ```
+
+**Metadata:**
+  - Set status: obsolete
+  - Add tag: file-missing
+  - Log reason: "Referenced file no longer exists"
+
+---
+
+### Rule: issue_already_fixed
+**Condition:** Task objective already satisfied by other changes
+
+**Action:** mark_completed
+**Rationale:** No need to complete task if problem is solved
+
+**Detection:**
+  ```yaml
+  check: |
+    task_objective = task.objective
+    recent_commits = get_commits(since=task.created)
+    for commit in recent_commits:
+      if addresses_objective(commit, task_objective):
+        return true
+    return false
+  ```
+
+**Metadata:**
+  - Set status: completed
+  - Add tag: auto-resolved
+  - Reference: commit that fixed issue
+
+---
+
+### Rule: context_changed_significantly
+**Condition:** Task context (requirements, constraints) has changed > 50%
+
+**Action:** flag_for_review
+**Rationale:** Task may no longer be relevant or correct
+
+**Detection:**
+  ```yaml
+  check: |
+    original_context = task.created_context
+    current_context = gather_current_context(task)
+    similarity = calculate_similarity(original_context, current_context)
+    return similarity < 0.5
+  ```
+
+**Metadata:**
+  - Add flag: context-changed
+  - Priority: review
+  - Suggest: task re-evaluation
+
+---
+
+### Rule: new_blockers_discovered
+**Condition:** New dependencies or blockers identified since task creation
+
+**Action:** add_dependencies
+**Rationale:** Task cannot proceed without addressing blockers
+
+**Detection:**
+  ```yaml
+  check: |
+    current_deps = task.dependencies
+    new_deps = discover_dependencies(task)
+    additional_deps = new_deps - current_deps
+    return len(additional_deps) > 0
+  ```
+
+**Metadata:**
+  - Update: dependencies list
+  - Set status: blocked
+  - Add comment: "New dependencies discovered"
+
+---
+
+### Rule: approach_fundamentally_flawed
+**Condition:** Task approach has been proven unworkable
+
+**Action:** mark_invalid
+**Rationale:** Continuing with flawed approach wastes resources
+
+**Detection:**
+  ```yaml
+  check: |
+    if task.status == "failed" and task.failure_count > 5:
+      root_cause = analyze_root_cause(task)
+      return root_cause == "approach_flawed"
+    return false
+  ```
+
+**Metadata:**
+  - Set status: invalid
+  - Add tag: approach-flawed
+  - Suggest: create new task with different approach
+
+---
+
+## 4. Re-analysis Workflow
+
+### Workflow Definition
+
+```yaml
+workflow:
+  name: task_reanalysis
+  version: 1.0.0
+
+  steps:
+    - id: detect_change
+      name: Detect Change
+      description: Identify what changed and what type of trigger it represents
+      inputs:
+        - event_type
+        - event_data
+      outputs:
+        - trigger_type
+        - change_metadata
+      actions:
+        - classify_change
+        - log_detection
+
+    - id: identify_affected
+      name: Identify Affected Tasks
+      description: Find all tasks potentially impacted by the change
+      inputs:
+        - trigger_type
+        - change_metadata
+      outputs:
+        - affected_tasks[]
+        - impact_level (high|medium|low)
+      actions:
+        - query_task_registry
+        - filter_by_relevance
+        - calculate_impact
+
+    - id: evaluate_relevance
+      name: Evaluate Relevance
+      description: Determine if affected tasks are still valid and relevant
+      inputs:
+        - affected_tasks[]
+      outputs:
+        - valid_tasks[]
+        - obsolete_tasks[]
+        - review_tasks[]
+      actions:
+        - apply_invalidation_rules
+        - check_context_relevance
+        - verify_dependencies
+
+    - id: update_priorities
+      name: Update Priorities
+      description: Adjust task priorities based on new information
+      inputs:
+        - valid_tasks[]
+        - trigger_type
+      outputs:
+        - updated_tasks[]
+      actions:
+        - recalculate_priority
+        - apply_boosts
+        - update_deadlines
+
+    - id: requeue_valid
+      name: Re-queue Valid Tasks
+      description: Add valid, ready tasks back to the queue
+      inputs:
+        - updated_tasks[]
+      outputs:
+        - queued_tasks[]
+        - blocked_tasks[]
+      actions:
+        - check_readiness
+        - add_to_queue
+        - notify_system
+
+    - id: cleanup_obsolete
+      name: Cleanup Obsolete Tasks
+      description: Archive or mark obsolete tasks
+      inputs:
+        - obsolete_tasks[]
+      outputs:
+        - archived_tasks[]
+      actions:
+        - archive_tasks
+        - log_reason
+        - notify_owners
+
+  transitions:
+    - from: detect_change
+      to: identify_affected
+      condition: trigger_type != null
+
+    - from: identify_affected
+      to: evaluate_relevance
+      condition: affected_tasks.length > 0
+
+    - from: evaluate_relevance
+      to: update_priorities
+      condition: valid_tasks.length > 0
+
+    - from: update_priorities
+      to: requeue_valid
+      condition: always
+
+    - from: requeue_valid
+      to: cleanup_obsolete
+      condition: obsolete_tasks.length > 0
+
+  error_handling:
+    on_detection_failure:
+      action: log_error
+      notify: admin
+
+    on_evaluation_failure:
+      action: flag_for_manual_review
+      notify: task_owner
+
+    on_queue_failure:
+      action: retry_with_backoff
+      max_retries: 3
+```
+
+---
+
+### State Machine
+
+```yaml
+state_machine:
+  states:
+    - idle
+    - detecting
+    - identifying
+    - evaluating
+    - updating
+    - requeuing
+    - complete
+    - error
+
+  transitions:
+    idle:
+      on_event: change_detected -> detecting
+
+    detecting:
+      on_success: identifying
+      on_failure: error
+
+    identifying:
+      on_success: evaluating
+      on_no_matches: complete
+      on_failure: error
+
+    evaluating:
+      on_success: updating
+      on_failure: error
+
+    updating:
+      on_success: requeuing
+      on_failure: error
+
+    requeuing:
+      on_success: complete
+      on_failure: error
+
+    complete:
+      on_complete: idle
+
+    error:
+      on_retry: detecting
+      on_abort: idle
+```
+
+---
+
+## 5. Action Definitions
+
+### Action: flag
+**Purpose:** Mark task for human review
+
+**Implementation:**
+  ```yaml
+  flag:
+    add_tags:
+      - needs-review
+      - reanalysis-flagged
+    set_priority: review
+    notify: task_owner
+    log: "Task flagged for review due to {{trigger_type}}"
+  ```
+
+---
+
+### Action: boost
+**Purpose:** Increase task priority
+
+**Implementation:**
+  ```yaml
+  boost:
+    priority_adjustment: +1
+    max_priority: critical
+    add_tags:
+      - priority-boosted
+    log: "Task priority boosted due to {{trigger_type}}"
+  ```
+
+---
+
+### Action: requeue
+**Purpose:** Add task back to active queue
+
+**Implementation:**
+  ```yaml
+  requeue:
+    set_status: pending
+    add_tags:
+      - requeued
+      - unblocked
+    clear_blockers: true
+    log: "Task requeued due to {{trigger_type}}"
+  ```
+
+---
+
+### Action: invalidate
+**Purpose:** Mark task as no longer valid
+
+**Implementation:**
+  ```yaml
+  invalidate:
+    set_status: invalid
+    add_tags:
+      - invalidated
+      - {{trigger_type}}
+    reason: "Invalidated due to {{trigger_type}}"
+    archive: true
+    log: "Task invalidated due to {{trigger_type}}"
+  ```
+
+---
+
+### Action: mark_obsolete
+**Purpose:** Mark task as obsolete
+
+**Implementation:**
+  ```yaml
+  mark_obsolete:
+    set_status: obsolete
+    add_tags:
+      - obsolete
+      - auto-detected
+    archive: true
+    log: "Task marked obsolete: {{reason}}"
+  ```
+
+---
+
+### Action: mark_completed
+**Purpose:** Mark task as already completed
+
+**Implementation:**
+  ```yaml
+  mark_completed:
+    set_status: completed
+    add_tags:
+      - auto-completed
+      - issue-resolved
+    resolution: "Automatically resolved"
+    log: "Task marked completed: {{reason}}"
+  ```
+
+---
+
+### Action: add_dependencies
+**Purpose:** Add new dependencies to task
+
+**Implementation:**
+  ```yaml
+  add_dependencies:
+    update_field: dependencies
+    append: true
+    set_status: blocked
+    add_tags:
+      - dependencies-added
+    log: "New dependencies added: {{new_dependencies}}"
+  ```
+
+---
+
+## 6. Configuration
+
+### Global Settings
+
+```yaml
+settings:
+  # Analysis frequency
+  analysis_interval: 3600  # seconds (1 hour)
+  max_tasks_per_analysis: 100
+
+  # Health thresholds
+  health:
+    success_rate_threshold: 0.8
+    min_attempts_for_health_check: 5
+    consecutive_failure_threshold: 3
+
+  # Time thresholds
+  time:
+    stale_task_days: 7
+    very_stale_task_days: 30
+    max_task_age_days: 90
+
+  # Pattern detection
+  patterns:
+    min_similar_failures: 3
+    pattern_lookback_days: 7
+    similarity_threshold: 0.85
+
+  # Auto-actions
+  auto_actions:
+    enabled: true
+    require_confirmation_for:
+      - invalidate
+      - mark_obsolete
+    auto_execute:
+      - flag
+      - boost
+      - requeue
+```
+
+---
+
+## 7. Integration Points
+
+### Task Registry
+- Read: Task definitions, statuses, dependencies
+- Write: Status updates, priority changes, tags
+
+### Git System
+- Read: Commit history, file changes
+- Hook: post-commit, post-merge
+
+### Health Monitor
+- Read: Task success/failure rates
+- Write: Health alerts
+
+### Queue Manager
+- Write: Requeue tasks, priority updates
+
+### Notification System
+- Write: Flag notifications, completion alerts
+
+---
+
+## 8. Metrics and Monitoring
+
+### Key Metrics
+
+```yaml
+metrics:
+  - name: reanalysis_runs
+    type: counter
+    description: Total number of reanalysis runs
+
+  - name: tasks_flagged
+    type: counter
+    tags: [trigger_type]
+    description: Tasks flagged for review
+
+  - name: tasks_requeued
+    type: counter
+    description: Tasks requeued after analysis
+
+  - name: tasks_invalidated
+    type: counter
+    tags: [reason]
+    description: Tasks marked invalid
+
+  - name: analysis_duration
+    type: histogram
+    description: Time spent on reanalysis
+
+  - name: false_positive_rate
+    type: gauge
+    description: Rate of incorrect flagging
+```
+
+---
+
+## 9. Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2026-02-05 | Initial registry definition |
+
+---
+
+## References
+
+- Reanalysis Engine: @.autonomous/agents/reanalysis/engine.yaml
+- Task Registry: @.autonomous/tasks/registry.yaml
+- Health Monitor: @.autonomous/agents/health/monitor.yaml

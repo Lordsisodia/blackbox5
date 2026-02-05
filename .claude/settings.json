@@ -76,6 +76,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-validate-docs.sh"
+          },
+          {
+            "type": "command",
             "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-hierarchy-update.sh"
           }
         ]

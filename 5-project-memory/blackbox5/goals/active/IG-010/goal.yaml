@@ -1,0 +1,97 @@
+# Goal IG-010: Implement World-Class Hook System for BB5
+
+**Status:** in_progress
+**Priority:** CRITICAL
+**Created:** 2026-02-06
+**Target Completion:** 2026-02-28
+
+---
+
+## Objective
+
+Design, implement, and deploy the most intelligent, comprehensive hook system for BlackBox5 agents. Our hooks should be industry-leading, combining best practices from 19+ GitHub repositories with custom BB5-specific innovations.
+
+---
+
+## Success Criteria
+
+- [ ] All critical hooks implemented and tested
+- [ ] Hooks follow best practices from multi-agent-ralph-loop, juno-code, SWE-agent
+- [ ] BB5-specific custom hooks address unique workflow needs
+- [ ] Agents use hooks intelligently with minimal manual intervention
+- [ ] Hook system is documented, maintainable, and extensible
+- [ ] 90%+ task completion automation via hooks
+- [ ] Zero data loss or corruption through hook validation
+
+---
+
+## Why This Matters
+
+Hooks are the nervous system of BB5. They:
+- Automate tedious manual updates
+- Prevent errors before they happen
+- Ensure data consistency across all systems
+- Enable intelligent agent orchestration
+- Capture learnings and insights automatically
+- Validate task completion rigorously
+
+Without world-class hooks, BB5 remains a manual, error-prone system.
+
+---
+
+## Key Principles
+
+1. **Best Practices First** - Study what others have done, adopt the best
+2. **BB5 Customization** - Add hooks specific to our goal/plan/task hierarchy
+3. **Intelligent Automation** - Hooks should make agents smarter, not just automate
+4. **Fail-Safe Design** - Hooks should never lose data or break workflows
+5. **Progressive Enhancement** - Start simple, iterate to sophistication
+
+---
+
+## Research Sources
+
+- multi-agent-ralph-loop (83+ hooks)
+- juno-code (lifecycle hooks)
+- SWE-agent (Python class-based hooks)
+- smart-ralph (plugin hooks)
+- Claudeman (API integration hooks)
+- BB5 current implementation (10+ hooks)
+
+---
+
+## Implementation Phases
+
+### Phase 1: Core Lifecycle Hooks (Week 1)
+- SessionStart (enhanced)
+- SessionEnd (comprehensive)
+- Stop (checkpoint)
+
+### Phase 2: Task Management Hooks (Week 2)
+- pre-task-complete validation
+- post-task-complete sync
+- post-goal-progress calculation
+
+### Phase 3: Quality & Safety Hooks (Week 3)
+- git-safety-guard
+- quality-gates
+- context-warning
+
+### Phase 4: Intelligence Hooks (Week 4)
+- smart-memory-search
+- decision-extractor
+- verification-subagent
+
+---
+
+## Related Goals
+
+- IG-006: Agent Execution Flow (complementary)
+- IG-008: Hindsight Memory (uses hooks for retention)
+- IG-009: Hooks Framework (this goal supersedes and expands)
+
+---
+
+## Notes
+
+This goal was created after comprehensive research of 19 GitHub repositories and 150+ hook opportunities. The implementation will be documented in associated plans and tasks.
