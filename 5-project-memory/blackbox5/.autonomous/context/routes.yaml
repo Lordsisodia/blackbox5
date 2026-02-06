@@ -8,58 +8,58 @@ project:
   root: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
 
 engine:
-  path: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous"
+  path: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous"
   version: "1.0.0"
 
 memory:
-  tasks: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
-  runs: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/runs"
-  workspaces: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/workspaces"
-  decisions: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/.autonomous/memory/decisions"
-  insights: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/.autonomous/memory/insights"
-  timeline: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/timeline"
+  tasks: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks"
+  runs: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs"
+  workspaces: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/workspaces"
+  decisions: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/decisions"
+  insights: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/insights"
+  timeline: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline"
 
 routes:
   # FULL BLACKBOX5 ACCESS
   # blackbox5 project can see and modify anything in blackbox5
 
   # Root
-  blackbox5_root: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+  blackbox5_root: "/Users/shaansisodia/.blackbox5"
 
   # Engine
-  engine: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine"
-  engine_shell: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/shell"
-  engine_lib: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/lib"
-  engine_prompts: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/prompts"
-  engine_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
-  engine_schemas: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/schemas"
+  engine: "/Users/shaansisodia/.blackbox5/2-engine"
+  engine_shell: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/shell"
+  engine_lib: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib"
+  engine_prompts: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts"
+  engine_skills: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/skills"
+  engine_schemas: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/schemas"
 
   # All Project Memories
-  projects: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory"
-  siso_internal: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/siso-internal"
-  blackbox5: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5"
+  projects: "/Users/shaansisodia/.blackbox5/5-project-memory"
+  siso_internal: "/Users/shaansisodia/.blackbox5/5-project-memory/siso-internal"
+  blackbox5: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
 
   # Knowledge & Docs
-  knowledge: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/3-knowledge"
-  docs: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/1-docs"
+  knowledge: "/Users/shaansisodia/.blackbox5/3-knowledge"
+  docs: "/Users/shaansisodia/.blackbox5/1-docs"
 
   # Tools & Integrations
-  tools: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-tools"
-  integrations: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/6-integrations"
+  tools: "/Users/shaansisodia/.blackbox5/5-tools"
+  integrations: "/Users/shaansisodia/.blackbox5/6-integrations"
 
   # Feedback from other instances
-  feedback_incoming: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/feedback/incoming"
-  feedback_processed: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/feedback/processed"
-  feedback_actions: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/feedback/actions"
+  feedback_incoming: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/feedback/incoming"
+  feedback_processed: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/feedback/processed"
+  feedback_actions: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/feedback/actions"
 
   # Documentation
-  engine_docs: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.docs"
+  engine_docs: "/Users/shaansisodia/.blackbox5/2-engine/.docs"
 
   # BMAD Integration
-  engine_routes: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/routes.yaml"
-  bmad_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
-  bmad_workflows: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/workflows"
-  bmad_wip: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/wip"
+  engine_routes: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml"
+  bmad_skills: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/skills"
+  bmad_workflows: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows"
+  bmad_wip: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/wip"
 
 # BMAD Command Reference
 # Commands are defined in engine_routes, but available here:
@@ -69,7 +69,7 @@ routes:
 
 feedback:
   # Other projects send feedback here
-  endpoint: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/feedback/incoming"
+  endpoint: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/feedback/incoming"
   auto_process: false  # Manual review before processing
   include_telemetry: true
   include_errors: true

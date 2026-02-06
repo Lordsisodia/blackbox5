@@ -4918,3 +4918,17 @@ unknown' does not follow claude/* pattern"
   agent_id: "unknown-1770341530"
   parent_task: ""
   source: "hook"
+
+- timestamp: "2026-02-06T08:34:13+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341653"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:37:01+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341821"
+  parent_task: ""
+  source: "hook"
