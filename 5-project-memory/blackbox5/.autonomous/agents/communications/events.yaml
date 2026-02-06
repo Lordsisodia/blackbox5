@@ -4766,3 +4766,155 @@
   agent_id: "unknown-1770330806"
   parent_task: ""
   source: "hook"
+
+- timestamp: "2026-02-06T08:26:57+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341217"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:27:13+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341233"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:28:03+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341283"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:28:20+0700"
+  type: "auto_push_blocked"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "Refused to push to main branch"
+
+- timestamp: "2026-02-06T08:28:59+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341339"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:29:03+0700"
+  type: "auto_push_skipped"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "Disabled via environment variable"
+
+- timestamp: "2026-02-06T08:29:12+0700"
+  type: "auto_push_warning"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "Branch 'HEAD
+unknown' does not follow claude/* pattern"
+
+- timestamp: "2026-02-06T08:29:13+0700"
+  type: "auto_push_error"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "No remote 'origin' configured"
+
+- timestamp: "2026-02-06T08:29:22+0700"
+  type: "auto_push_warning"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "Branch 'HEAD
+unknown' does not follow claude/* pattern"
+
+- timestamp: "2026-02-06T08:29:22+0700"
+  type: "auto_push_error"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "No remote 'origin' configured"
+
+- timestamp: "2026-02-06T08:29:29+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341369"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:29:31+0700"
+  type: "auto_push_warning"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "Branch 'HEAD
+unknown' does not follow claude/* pattern"
+
+- timestamp: "2026-02-06T08:29:31+0700"
+  type: "auto_push_error"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "No remote 'origin' configured"
+
+- timestamp: "2026-02-06T08:29:43+0700"
+  type: "auto_push_skipped"
+  agent_type: "github-auto-push"
+  agent_id: "unknown"
+  parent_task: ""
+  source: "hook"
+  message: "Disabled via .bb5-no-auto-push file"
+
+- timestamp: "2026-02-06T08:30:02+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341402"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:30:29+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341429"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:30:53+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341453"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:31:37+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341497"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:31:57+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341517"
+  parent_task: ""
+  source: "hook"
+
+- timestamp: "2026-02-06T08:32:10+07:00"
+  type: agent_stop
+  agent_type: "unknown"
+  agent_id: "unknown-1770341530"
+  parent_task: ""
+  source: "hook"

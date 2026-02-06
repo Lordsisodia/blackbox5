@@ -1,0 +1,496 @@
+# =============================================================================
+# Skill Registry Schema
+# =============================================================================
+# Purpose: Validation schema for skill-registry.yaml
+# Version: 2.0.0
+# =============================================================================
+
+schema_version: "2.0.0"
+
+# Root level structure
+root:
+  type: object
+  required:
+    - metadata
+    - metrics_schema
+    - skills
+    - usage_history
+    - task_outcomes
+    - selection_framework
+    - analysis
+  properties:
+    metadata:
+      $ref: "#/definitions/metadata"
+    metrics_schema:
+      $ref: "#/definitions/metrics_schema"
+    skills:
+      $ref: "#/definitions/skills"
+    usage_history:
+      $ref: "#/definitions/usage_history"
+    task_outcomes:
+      $ref: "#/definitions/task_outcomes"
+    selection_framework:
+      $ref: "#/definitions/selection_framework"
+    analysis:
+      $ref: "#/definitions/analysis"
+    recovery_metrics:
+      $ref: "#/definitions/recovery_metrics"
+    quality_rating_scale:
+      $ref: "#/definitions/quality_rating_scale"
+    improvement_pipeline:
+      $ref: "#/definitions/improvement_pipeline"
+
+# Definitions
+definitions:
+  metadata:
+    type: object
+    required:
+      - version
+      - created
+      - last_updated
+      - schema_version
+      - total_skills
+    properties:
+      version:
+        type: string
+        pattern: "^\\d+\\.\\d+\\.\\d+$"
+      created:
+        type: string
+        format: date-time
+      last_updated:
+        type: string
+        format: date-time
+      schema_version:
+        type: string
+      replaces_files:
+        type: array
+        items:
+          type: string
+      total_skills:
+        type: integer
+        minimum: 0
+      total_usage_records:
+        type: integer
+        minimum: 0
+      calculation_frequency:
+        type: string
+        enum: ["daily", "weekly", "monthly"]
+      next_calculation_due:
+        type: string
+        format: date-time
+
+  metrics_schema:
+    type: object
+    required:
+      - version
+      - calculation_method
+      - components
+    properties:
+      version:
+        type: string
+      calculation_method:
+        type: string
+        enum: ["weighted_composite", "simple_average", "geometric_mean"]
+      components:
+        type: array
+        items:
+          type: object
+          required:
+            - name
+            - weight
+            - description
+            - formula
+          properties:
+            name:
+              type: string
+            weight:
+              type: number
+              minimum: 0
+              maximum: 1
+            description:
+              type: string
+            formula:
+              type: string
+
+  skills:
+    type: object
+    patternProperties:
+      "^[a-z0-9-]+$":
+        $ref: "#/definitions/skill"
+    additionalProperties: false
+
+  skill:
+    type: object
+    required:
+      - name
+      - description
+      - category
+      - version
+      - created
+      - metrics
+      - usage
+      - roi
+      - selection
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      category:
+        type: string
+        enum: ["agent", "protocol", "utility", "core", "infrastructure"]
+      agent:
+        type: ["string", "null"]
+      version:
+        type: string
+      created:
+        type: string
+        format: date
+      metrics:
+        $ref: "#/definitions/skill_metrics"
+      usage:
+        $ref: "#/definitions/skill_usage"
+      roi:
+        $ref: "#/definitions/skill_roi"
+      selection:
+        $ref: "#/definitions/skill_selection"
+
+  skill_metrics:
+    type: object
+    properties:
+      effectiveness_score:
+        type: ["number", "null"]
+        minimum: 0
+        maximum: 100
+      success_rate:
+        type: ["number", "null"]
+        minimum: 0
+        maximum: 100
+      time_efficiency:
+        type: ["number", "null"]
+      trigger_accuracy:
+        type: ["number", "null"]
+        minimum: 0
+        maximum: 100
+      quality_score:
+        type: ["number", "null"]
+        minimum: 0
+        maximum: 100
+      reuse_rate:
+        type: ["number", "null"]
+        minimum: 0
+        maximum: 100
+
+  skill_usage:
+    type: object
+    properties:
+      usage_count:
+        type: integer
+        minimum: 0
+      success_count:
+        type: integer
+        minimum: 0
+      failure_count:
+        type: integer
+        minimum: 0
+      first_used:
+        type: ["string", "null"]
+        format: date-time
+      last_used:
+        type: ["string", "null"]
+        format: date-time
+      avg_execution_time_ms:
+        type: ["integer", "null"]
+        minimum: 0
+
+  skill_roi:
+    type: object
+    required:
+      - baseline_minutes
+    properties:
+      baseline_minutes:
+        type: integer
+        minimum: 1
+      time_saved_minutes:
+        type: ["number", "null"]
+      quality_improvement:
+        type: ["number", "null"]
+      cost_benefit_ratio:
+        type: ["number", "null"]
+
+  skill_selection:
+    type: object
+    required:
+      - triggers
+      - confidence_threshold
+      - priority
+      - when_to_use
+      - when_to_avoid
+      - confidence
+    properties:
+      triggers:
+        type: array
+        items:
+          type: string
+      confidence_threshold:
+        type: integer
+        minimum: 0
+        maximum: 100
+      priority:
+        type: integer
+        minimum: 1
+      when_to_use:
+        type: string
+      when_to_avoid:
+        type: string
+      confidence:
+        type: string
+        enum: ["low", "medium", "high"]
+
+  usage_history:
+    type: array
+    items:
+      type: object
+      required:
+        - timestamp
+        - task_id
+        - skill
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        task_id:
+          type: string
+        skill:
+          type: ["string", "null"]
+        applicable_skills:
+          type: array
+          items:
+            type: string
+        confidence:
+          type: ["integer", "null"]
+        trigger_reason:
+          type: ["string", "null"]
+        execution_time_ms:
+          type: ["integer", "null"]
+        result:
+          type: string
+          enum: ["success", "failure", "partial", "unknown"]
+        notes:
+          type: string
+
+  task_outcomes:
+    type: array
+    items:
+      type: object
+      required:
+        - task_id
+        - timestamp
+      properties:
+        task_id:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        skill_used:
+          type: ["string", "null"]
+        task_type:
+          type: string
+        duration_minutes:
+          type: integer
+        outcome:
+          type: string
+          enum: ["success", "failure", "partial"]
+        quality_rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        trigger_was_correct:
+          type: boolean
+        would_use_again:
+          type: boolean
+        notes:
+          type: string
+
+  selection_framework:
+    type: object
+    required:
+      - version
+      - confidence_threshold
+      - auto_trigger_rules
+      - confidence_calculation
+    properties:
+      version:
+        type: string
+      confidence_threshold:
+        type: integer
+        minimum: 0
+        maximum: 100
+      auto_trigger_rules:
+        type: array
+        items:
+          type: object
+          required:
+            - rule_id
+            - name
+            - condition
+            - action
+            - priority
+          properties:
+            rule_id:
+              type: string
+            name:
+              type: string
+            condition:
+              type: string
+            keywords:
+              type: array
+              items:
+                type: string
+            domain_keywords:
+              type: array
+              items:
+                type: string
+            required_skills:
+              type: array
+              items:
+                type: string
+            indicators:
+              type: array
+              items:
+                type: string
+            action:
+              type: string
+            priority:
+              type: string
+              enum: ["critical", "high", "medium", "low"]
+      confidence_calculation:
+        type: object
+        properties:
+          description:
+            type: string
+          threshold:
+            type: integer
+          factors:
+            type: array
+            items:
+              type: object
+              properties:
+                factor:
+                  type: string
+                weight:
+                  type: integer
+                description:
+                  type: string
+          formula:
+            type: string
+      fallback_behavior:
+        type: object
+
+  analysis:
+    type: object
+    required:
+      - last_calculated
+      - category_performance
+    properties:
+      last_calculated:
+        type: string
+        format: date-time
+      top_skills:
+        type: array
+        items:
+          type: object
+      underperforming_skills:
+        type: array
+        items:
+          type: object
+      category_performance:
+        type: array
+        items:
+          type: object
+          required:
+            - category
+          properties:
+            category:
+              type: string
+            avg_effectiveness:
+              type: ["number", "null"]
+            total_tasks:
+              type: integer
+            success_rate:
+              type: ["number", "null"]
+      roi_summary:
+        type: object
+        properties:
+          total_time_saved_minutes:
+            type: number
+          avg_quality_improvement:
+            type: ["number", "null"]
+          cost_benefit_ratio:
+            type: ["number", "null"]
+      skill_selection_recommendations:
+        type: array
+        items:
+          type: object
+      trigger_insights:
+        type: object
+
+  recovery_metrics:
+    type: object
+    properties:
+      analysis_date:
+        type: string
+        format: date-time
+      runs_analyzed:
+        type: array
+      summary:
+        type: object
+      threshold_analysis:
+        type: object
+      recommendations:
+        type: array
+
+  quality_rating_scale:
+    type: object
+    additionalProperties:
+      type: string
+
+  improvement_pipeline:
+    type: object
+    properties:
+      pipeline:
+        type: object
+      conversion_metrics:
+        type: object
+      completed_improvements:
+        type: array
+
+# Validation rules
+validation_rules:
+  - name: skill_id_format
+    description: Skill IDs must use kebab-case (lowercase with hyphens)
+    pattern: "^[a-z][a-z0-9-]*$"
+
+  - name: unique_skill_names
+    description: All skill names must be unique
+    check: unique_values
+    path: "/skills/*/name"
+
+  - name: confidence_threshold_range
+    description: Confidence thresholds must be between 0 and 100
+    check: range
+    min: 0
+    max: 100
+    path: "/skills/*/selection/confidence_threshold"
+
+  - name: weight_sum
+    description: Sum of metric component weights should equal 1.0
+    check: sum_equals
+    value: 1.0
+    path: "/metrics_schema/components/*/weight"
+
+  - name: required_triggers
+    description: All skills must have at least one trigger keyword
+    check: min_items
+    min: 1
+    path: "/skills/*/selection/triggers"

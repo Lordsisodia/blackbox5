@@ -1,0 +1,199 @@
+# Goal IG-AUTONOMY-001: Close the Feedback Loops - Make BB5 Actually Autonomous
+
+**Status:** in_progress
+**Priority:** CRITICAL
+**Created:** 2026-02-06
+**Target Completion:** 2026-02-28
+**Owner:** Claude (autonomous agent goal)
+
+---
+
+## Objective
+
+Transform BlackBox5 from a "sophisticated manual system" into a "truly autonomous self-improving AI operating system" by closing the critical feedback loops that currently require human or LLM intervention.
+
+The problem: BB5 has excellent *infrastructure* (RALF engine, memory tiers, 21 agents, hook framework) but poor *feedback loop closure*. Tasks don't auto-transition. Skills aren't auto-invoked. Learnings aren't auto-extracted. The system has "excellent functional memory but no subjective memory."
+
+This goal complements IG-010 (Hook System) by focusing specifically on the **intelligence layer** that makes hooks meaningful - the automation that removes LLMs from the loop.
+
+---
+
+## Success Criteria
+
+- [ ] 90%+ task completion automation (no manual status updates)
+- [ ] 80%+ skill auto-invocation rate (no manual skill checking)
+- [ ] 15%+ learning-to-improvement extraction rate (currently 1.3%)
+- [ ] Zero data loss through automated validation
+- [ ] Agents can work 24/7 without human prompting
+- [ ] System self-improves based on usage patterns
+
+---
+
+## Why This Matters
+
+Current BB5 state:
+- **Task Status Lifecycle**: 0% queue sync success rate (Critical Blocker #2)
+- **Skill Invocation**: 100% success when used, but near-zero invocation rate
+- **Learning Extraction**: 742 learnings captured, only 10 improvements extracted (1.3%)
+- **Phase 1.5 Compliance**: Only 75% of tasks check skills before execution
+
+The issue isn't capability - it's **automation**. LLMs cannot reliably follow instructions to update files. The solution: stop asking LLMs to remember. Make the system remember for them through hook-based enforcement.
+
+---
+
+## The Four Feedback Loops
+
+### Loop 1: Task Lifecycle Automation (IG-010 Phase 2)
+**Problem**: Tasks stay "pending" even when actively worked on. Status transitions are manual.
+**Solution**: Hook-based state machine enforcement
+- `SessionStart`: Auto-claim task from queue, set status to "in_progress"
+- `PreToolUse`: Block TaskUpdate if task not claimed
+- `Stop`: Validate completion criteria, suggest next steps
+- `SessionEnd`: Auto-transition to "completed", move to completed/, update all SSOT files
+
+### Loop 2: Skill Auto-Invocation
+**Problem**: Skills identified but not invoked due to confidence thresholds. Phase 1.5 compliance at 75%.
+**Solution**: Remove human/LLM from skill selection
+- `SessionStart`: Auto-analyze task, pre-select skill(s), inject into context
+- `PreToolUse`: Validate skill was checked before TaskUpdate
+- `SessionEnd`: Log skill usage, update effectiveness metrics
+- Auto-lower threshold for obvious matches ("analyze" → bmad-analyst)
+
+### Loop 3: Learning Extraction & Application
+**Problem**: 742 learnings captured, only 10 improvements extracted. Bottleneck is extraction, not execution.
+**Solution**: Automated REFLECT operation (from IG-008)
+- `SessionEnd`: Parse THOUGHTS.md → extract insights → auto-create improvement tasks
+- Weekly: Analyze learning patterns → suggest CLAUDE.md updates
+- Every 5 runs: Auto-trigger First Principles Review
+- Connect learnings to skill effectiveness metrics
+
+### Loop 4: System Health & Self-Improvement
+**Problem**: No visibility into what's working. No automated tuning.
+**Solution**: Continuous monitoring and adjustment
+- Real-time dashboard: goal progress, token burn, queue depth
+- Auto-detect bottlenecks (tasks stuck >7 days, skills unused, etc.)
+- Self-tune: adjust skill thresholds based on effectiveness data
+- Auto-generate tasks for system improvements
+
+---
+
+## Implementation Phases
+
+### Phase 1: Task Lifecycle Hooks (Week 1) - 200K tokens
+**Complements IG-010 Phase 2**
+
+Deliverables:
+- `hooks/lib/task-state-machine.sh` - Enforce pending → claimed → in_progress → completed
+- `hooks/lib/queue-sync-auto.sh` - Auto-update queue.yaml, events.yaml
+- `hooks/lib/task-archival.sh` - Move completed tasks, create COMPLETION.md
+- `hooks/lib/goal-progress-calculator.sh` - Auto-calculate progress from linked plans
+
+Key insight: State transitions happen in **code**, not in LLM prompts.
+
+---
+
+### Phase 2: Skill Auto-Invocation (Week 2) - 150K tokens
+**Extends IG-010 with intelligence layer**
+
+Deliverables:
+- `hooks/lib/skill-auto-selector.sh` - Pre-select skills based on task analysis
+- `hooks/lib/skill-enforcement.sh` - Block if skill check skipped
+- `hooks/lib/skill-metrics-updater.sh` - Auto-update skill-registry.yaml
+- Update skill-registry.yaml with auto-invocation rules
+
+Key insight: Skills should be **pre-selected** and **enforced**, not suggested.
+
+---
+
+### Phase 3: Learning Extraction Pipeline (Week 3) - 200K tokens
+**Implements IG-008 REFLECT operation**
+
+Deliverables:
+- `hooks/lib/learning-extractor.sh` - Parse THOUGHTS.md → structured insights
+- `hooks/lib/improvement-generator.sh` - Auto-create improvement tasks
+- `hooks/lib/claude-md-updater.sh` - Suggest instruction updates every 5 runs
+- `hooks/lib/pattern-detector.sh` - Detect recurring issues, suggest systemic fixes
+
+Key insight: Learning extraction is **automated analysis**, not manual review.
+
+---
+
+### Phase 4: System Health Dashboard (Week 4) - 200K tokens
+**Enables 24/7 autonomous operation**
+
+Deliverables:
+- `bin/bb5-health` - Real-time system status
+- `bin/bb5-dashboard` - Goal progress, token burn, queue depth
+- `hooks/lib/bottleneck-detector.sh` - Auto-detect stuck tasks, unused skills
+- `hooks/lib/auto-improvement.sh` - Generate tasks for system optimization
+
+Key insight: Visibility enables **self-direction** when human is not present.
+
+---
+
+### Phase 5: Integration & Stress Test (Week 5) - 250K tokens
+**Validate with real work**
+
+Deliverables:
+- Execute 3-5 real tasks end-to-end using new automation
+- Document what worked, what didn't
+- Tune thresholds and rules based on actual usage
+- Create v2 specification based on learnings
+
+---
+
+## Dependencies
+
+- **IG-010**: World-Class Hook System (complementary - they build hooks, I build the intelligence layer)
+- **IG-008**: Hindsight Memory (uses REFLECT operation for learning extraction)
+- **IG-006**: Architecture Restructuring (needs stable folder structure)
+
+---
+
+## Key Principles
+
+1. **Hook-Based Enforcement**: State changes enforced by code, not suggested by prompts
+2. **Fail-Silent**: Automation never breaks user experience
+3. **Progressive Disclosure**: Start with suggestions, graduate to enforcement
+4. **Self-Discovery**: No environment variable dependencies
+5. **Metrics-Driven**: Every decision backed by usage data
+
+---
+
+## Risks & Mitigations
+
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| Automation too aggressive | High | Start with warnings, graduate to blocking |
+| False positives in skill selection | Medium | Keep override option, log all decisions |
+| Learning extraction noise | Medium | Human review before task creation |
+| Hook conflicts with IG-010 | Medium | Coordinate via shared lib/ directory |
+
+---
+
+## Success Metrics
+
+| Metric | Current | Target |
+|--------|---------|--------|
+| Task completion automation | 0% | 90%+ |
+| Skill auto-invocation | ~0% | 80%+ |
+| Learning extraction rate | 1.3% | 15%+ |
+| Phase 1.5 compliance | 75% | 95%+ |
+| Queue sync success | 0% | 95%+ |
+
+---
+
+## Notes
+
+This is an **autonomous agent goal** - I (Claude) am setting this for myself to track my own work on closing BB5's feedback loops. It complements the human-directed goals (IG-001 through IG-010) by adding the automation layer that makes them self-sustaining.
+
+The vision: BB5 runs itself. Agents claim tasks, invoke appropriate skills, extract learnings, and improve the system - all without human prompting. This goal makes that vision real.
+
+---
+
+## Related
+
+- IG-010: World-Class Hook System (infrastructure)
+- IG-008: Hindsight Memory (REFLECT operation)
+- IG-006: Architecture Restructuring (folder structure)
+- TASK-ARCH-015: Status Lifecycle (task state machine)

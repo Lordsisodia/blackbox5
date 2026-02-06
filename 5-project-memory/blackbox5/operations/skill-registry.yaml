@@ -1,0 +1,1305 @@
+# =============================================================================
+# Unified Skill Registry
+# =============================================================================
+# Purpose: Single Source of Truth for all skill metrics, usage, and selection data
+# Created: 2026-02-06
+# Version: 2.0.0
+# Replaces: skill-metrics.yaml, skill-usage.yaml, skill-selection.yaml, improvement-metrics.yaml
+#
+# This file consolidates all skill-related data into a unified registry for:
+# - Skill definitions and metadata
+# - Effectiveness metrics and scoring
+# - Usage tracking and history
+# - Selection criteria and triggers
+# - Improvement tracking
+# =============================================================================
+
+metadata:
+  version: "2.0.0"
+  created: "2026-02-06T00:00:00Z"
+  last_updated: "2026-02-06T00:00:00Z"
+  schema_version: "2.0"
+  replaces_files:
+    - skill-metrics.yaml
+    - skill-usage.yaml
+    - skill-selection.yaml
+    - improvement-metrics.yaml
+  total_skills: 23
+  total_usage_records: 1
+  calculation_frequency: weekly
+  next_calculation_due: "2026-02-08T09:00:00Z"
+
+# =============================================================================
+# METRICS SCHEMA
+# =============================================================================
+metrics_schema:
+  version: "1.0.0"
+  calculation_method: weighted_composite
+  components:
+    - name: success_rate
+      weight: 0.35
+      description: Percentage of tasks completed successfully using this skill
+      formula: (success_count / total_invocations) * 100
+    - name: time_efficiency
+      weight: 0.25
+      description: How quickly tasks are completed vs baseline
+      formula: (baseline_time - actual_time) / baseline_time * 100
+    - name: trigger_accuracy
+      weight: 0.20
+      description: How often the skill was the right choice for the task
+      formula: correct_selections / total_selections * 100
+    - name: quality_score
+      weight: 0.15
+      description: Average quality rating of task outcomes (1-5 scale)
+      formula: sum(quality_ratings) / count(quality_ratings) * 20
+    - name: reuse_rate
+      weight: 0.05
+      description: Percentage of tasks where skill was used again for similar work
+      formula: reuse_count / total_invocations * 100
+
+# =============================================================================
+# SKILLS INDEX
+# =============================================================================
+# All skills with complete metadata, metrics, usage stats, and selection criteria
+
+skills:
+  # ---------------------------------------------------------------------------
+  # AGENT SKILLS
+  # ---------------------------------------------------------------------------
+  bmad-pm:
+    # Metadata
+    name: "Product Manager"
+    description: "PRD creation and requirements gathering"
+    category: agent
+    agent: John
+    version: "1.0"
+    created: "2026-01-15"
+
+    # Current Metrics
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+
+    # Usage Statistics
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+
+    # ROI Calculation
+    roi:
+      baseline_minutes: 45
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+
+    # Selection Criteria
+    selection:
+      triggers: ["PRD", "requirements", "feature definition", "roadmap", "user story", "epic"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "PRD creation, requirements gathering, feature definition"
+      when_to_avoid: "Simple tasks, coding-only work"
+      confidence: low
+
+  bmad-architect:
+    name: "System Architect"
+    description: "System design, architecture, and patterns"
+    category: agent
+    agent: Alex
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 60
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["architecture", "design", "refactor", "structure", "pattern", "scalability"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Architecture questions, design decisions, refactoring, integration planning"
+      when_to_avoid: "Quick fixes, documentation-only tasks"
+      confidence: low
+
+  bmad-analyst:
+    name: "Research Analyst"
+    description: "Research, analysis, and data insights"
+    category: agent
+    agent: Mary
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 40
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["research", "analyze", "investigate", "pattern", "audit", "study"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Research tasks, data analysis, pattern identification"
+      when_to_avoid: "Implementation work, straightforward coding"
+      confidence: low
+
+  bmad-sm:
+    name: "Scrum Master"
+    description: "Process facilitation and team coordination"
+    category: agent
+    agent: Sam
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["process", "sprint", "coordinate", "planning", "scrum", "facilitate"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Process questions, coordination, sprint planning"
+      when_to_avoid: "Technical implementation, solo coding tasks"
+      confidence: low
+
+  bmad-ux:
+    name: "UX Designer"
+    description: "User experience and interface design"
+    category: agent
+    agent: Uma
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 50
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["UI", "UX", "design", "user flow", "interface", "mockup", "wireframe"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "UI/UX questions, design decisions, user flows"
+      when_to_avoid: "Backend-only work, API development"
+      confidence: low
+
+  bmad-dev:
+    name: "Developer"
+    description: "Implementation, testing, and code quality"
+    category: agent
+    agent: Amelia
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 35
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["implement", "code", "develop", "build", "create", "write"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Implementation, coding tasks, testing, code review"
+      when_to_avoid: "High-level planning, architecture decisions"
+      confidence: low
+
+  bmad-qa:
+    name: "Quality Assurance"
+    description: "Testing strategy and quality assurance"
+    category: agent
+    agent: Quinn
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 40
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["test", "quality", "QA", "validation", "verify", "bug"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Testing strategy, test plans, quality questions"
+      when_to_avoid: "Feature development, non-testing work"
+      confidence: low
+
+  bmad-tea:
+    name: "Task Execution Agent"
+    description: "Task Execution Agent for autonomous workflows"
+    category: agent
+    agent: TEA
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["autonomous", "RALF", "workflow", "execute"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Autonomous task execution, RALF workflows"
+      when_to_avoid: "Complex decision-making, novel problems"
+      confidence: low
+
+  bmad-quick-flow:
+    name: "Quick Flow"
+    description: "Fast path for simple tasks"
+    category: agent
+    agent: Barry
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 15
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["simple", "quick fix", "straightforward", "minor"]
+      confidence_threshold: 70
+      priority: 2
+      when_to_use: "Simple tasks, quick fixes, straightforward implementations"
+      when_to_avoid: "Complex problems, multi-file changes"
+      confidence: low
+
+  bmad-planning:
+    name: "Planning Agent"
+    description: "Task breakdown and organization"
+    category: agent
+    agent: Planner
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 45
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["plan", "organize", "roadmap", "breakdown", "structure"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Task planning, project organization, roadmap creation"
+      when_to_avoid: "Execution work, implementation tasks"
+      confidence: low
+
+  # ---------------------------------------------------------------------------
+  # PROTOCOL SKILLS
+  # ---------------------------------------------------------------------------
+  superintelligence-protocol:
+    name: "Superintelligence Protocol"
+    description: "Complex problem-solving protocol"
+    category: protocol
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 90
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["Should we", "How should we", "best way", "optimize", "strategy", "complex"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Architecture questions, design decisions, complex problems, 'Should we...', 'How should we...'"
+      when_to_avoid: "Simple fixes, clear-cut decisions"
+      confidence: low
+
+  continuous-improvement:
+    name: "Continuous Improvement"
+    description: "Systematic self-improvement"
+    category: protocol
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 60
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["improve", "optimize", "refine", "iterate", "enhance", "better"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "improve, optimize, refine, iterate keywords; recurring friction"
+      when_to_avoid: "First-time tasks, emergency fixes"
+      confidence: low
+
+  run-initialization:
+    name: "Run Initialization"
+    description: "Run setup and documentation"
+    category: protocol
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 10
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["run setup", "initialize", "new run", "BlackBox5 workflow"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "New run setup, BlackBox5 workflow initialization"
+      when_to_avoid: "N/A - Always use for new runs"
+      confidence: low
+
+  # ---------------------------------------------------------------------------
+  # UTILITY SKILLS
+  # ---------------------------------------------------------------------------
+  web-search:
+    name: "Web Search"
+    description: "Web search via SearXNG"
+    category: utility
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 20
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["search", "current", "documentation", "external", "web"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Research requiring external information, current events, documentation lookup"
+      when_to_avoid: "Internal codebase questions, known information"
+      confidence: low
+
+  codebase-navigation:
+    name: "Codebase Navigation"
+    description: "Navigate and understand codebases"
+    category: utility
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 25
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["find code", "explore", "understand structure", "navigate", "locate"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Finding code, understanding structure, exploring unfamiliar codebases"
+      when_to_avoid: "Known codebase, specific file locations"
+      confidence: low
+
+  supabase-operations:
+    name: "Supabase Operations"
+    description: "Database operations for Supabase"
+    category: utility
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["supabase", "database", "RLS", "migration", "schema", "table"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Supabase database operations, RLS policies, migrations"
+      when_to_avoid: "Non-Supabase databases, non-database work"
+      confidence: low
+
+  # ---------------------------------------------------------------------------
+  # CORE SKILLS
+  # ---------------------------------------------------------------------------
+  truth-seeking:
+    name: "Truth Seeking"
+    description: "Validate assumptions and verify facts"
+    category: core
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 20
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["validate", "assumption", "fact check", "uncertainty", "verify"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Assumption validation, fact checking, uncertainty reduction"
+      when_to_avoid: "Clear-cut decisions, routine work"
+      confidence: low
+
+  git-commit:
+    name: "Git Commit"
+    description: "Safely commit changes to git"
+    category: core
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 10
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["commit", "git", "PR", "branch", "merge", "repository"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Git operations, commits, PRs"
+      when_to_avoid: "N/A - Always use for git operations"
+      confidence: low
+
+  task-selection:
+    name: "Task Selection"
+    description: "Select next task from STATE.yaml"
+    category: core
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 5
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["task queue", "STATE.yaml", "next task", "select task"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Task queue management, STATE.yaml updates"
+      when_to_avoid: "N/A - Always use for task selection"
+      confidence: low
+
+  state-management:
+    name: "State Management"
+    description: "Update STATE.yaml with progress"
+    category: core
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 5
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["progress", "STATE.yaml", "update status", "track"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Progress tracking, STATE.yaml updates"
+      when_to_avoid: "N/A - Always use for state updates"
+      confidence: low
+
+  # ---------------------------------------------------------------------------
+  # INFRASTRUCTURE SKILLS
+  # ---------------------------------------------------------------------------
+  ralf-cloud-control:
+    name: "RALF Cloud Control"
+    description: "Manage RALF agents in Kubernetes"
+    category: infrastructure
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["RALF", "K8s", "Kubernetes", "agent management", "infrastructure"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "RALF agent management, K8s operations"
+      when_to_avoid: "Local development, non-infrastructure work"
+      confidence: low
+
+  github-codespaces-control:
+    name: "GitHub Codespaces Control"
+    description: "Spawn agents in GitHub Codespaces"
+    category: infrastructure
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 25
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["Codespaces", "GitHub", "spawn agent", "cloud agent"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "GitHub Codespaces agent spawning"
+      when_to_avoid: "Local development, non-Codespaces work"
+      confidence: low
+
+  legacy-cloud-control:
+    name: "Legacy Cloud Control"
+    description: "Control Legacy agents in K8s"
+    category: infrastructure
+    agent: null
+    version: "1.0"
+    created: "2026-01-15"
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers: ["legacy", "agent control", "K8s legacy"]
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: "Legacy agent management"
+      when_to_avoid: "RALF operations, non-legacy work"
+      confidence: low
+
+# =============================================================================
+# USAGE HISTORY
+# =============================================================================
+usage_history:
+  - timestamp: "2026-02-05T16:09:58.809463+00:00"
+    task_id: TEST-001
+    skill: bmad-dev
+    applicable_skills:
+      - bmad-dev
+      - bmad-architect
+    confidence: 85
+    trigger_reason: Task involves implementing a Python script for logging
+    execution_time_ms: 2700000
+    result: success
+    notes: Logged from task TEST-001
+
+# =============================================================================
+# TASK OUTCOMES
+# =============================================================================
+task_outcomes:
+  - task_id: TASK-1769909000
+    timestamp: "2026-02-01T08:00:00Z"
+    skill_used: null
+    task_type: implement
+    duration_minutes: 40
+    outcome: success
+    quality_rating: 4
+    trigger_was_correct: true
+    would_use_again: true
+    notes: First task with skill selection framework. No skill invoked as task was straightforward documentation work. Framework successfully documented.
+
+  - task_id: TASK-1769909001
+    timestamp: "2026-02-01T08:55:00Z"
+    skill_used: null
+    task_type: analyze
+    duration_minutes: 35
+    outcome: success
+    quality_rating: 4
+    trigger_was_correct: false
+    would_use_again: false
+    notes: bmad-analyst identified as applicable (70% confidence) but not invoked due to 80% threshold. Task was pattern analysis - skill would have added value.
+
+  - task_id: TASK-1769892006
+    timestamp: "2026-02-01T09:05:00Z"
+    skill_used: null
+    task_type: analyze
+    duration_minutes: 35
+    outcome: success
+    quality_rating: 4
+    trigger_was_correct: true
+    would_use_again: true
+    notes: Documentation audit task. No applicable skill identified. Task completed successfully with standard executor workflow.
+
+  - task_id: TASK-1769910000
+    timestamp: "2026-02-01T09:10:00Z"
+    skill_used: null
+    task_type: analyze
+    duration_minutes: 30
+    outcome: success
+    quality_rating: 4
+    trigger_was_correct: false
+    would_use_again: false
+    notes: "Skill system recovery analysis. bmad-analyst applicable but confidence below threshold. Analysis completed successfully. RECOMMENDATION: Lower threshold to 70%."
+
+# =============================================================================
+# SELECTION FRAMEWORK
+# =============================================================================
+selection_framework:
+  version: "1.2.0"
+  confidence_threshold: 70
+
+  auto_trigger_rules:
+    - rule_id: ATR-001
+      name: Implementation Tasks
+      condition: Task contains 'implement' + domain keyword
+      keywords: ["implement", "create", "build", "develop"]
+      domain_keywords: ["git", "n8n", "supabase", "database", "test", "workflow"]
+      action: MUST check for matching skill in domain_mapping
+      priority: high
+
+    - rule_id: ATR-002
+      name: Analysis Tasks
+      condition: Task contains 'analyze' or 'research'
+      keywords: ["analyze", "research", "investigate", "study", "audit"]
+      required_skills: ["bmad-analyst", "web-search"]
+      action: MUST check bmad-analyst and web-search skills
+      priority: high
+
+    - rule_id: ATR-003
+      name: Architecture Tasks
+      condition: Task contains architecture/design keywords
+      keywords: ["architecture", "design", "refactor", "structure", "pattern"]
+      required_skills: ["bmad-architect"]
+      action: MUST check bmad-architect skill
+      priority: high
+
+    - rule_id: ATR-004
+      name: Decision Questions
+      condition: Task contains decision question format
+      keywords: ["Should we", "How should we", "What's the best way", "best approach"]
+      required_skills: ["superintelligence-protocol"]
+      action: MUST check superintelligence-protocol skill
+      priority: critical
+
+    - rule_id: ATR-005
+      name: Product Management Tasks
+      condition: Task contains PM keywords
+      keywords: ["PRD", "requirements", "feature", "roadmap", "user story", "epic"]
+      required_skills: ["bmad-pm"]
+      action: MUST check bmad-pm skill
+      priority: high
+
+    - rule_id: ATR-006
+      name: Quality Assurance Tasks
+      condition: Task contains QA keywords
+      keywords: ["test", "QA", "quality", "validation", "verify"]
+      required_skills: ["bmad-qa"]
+      action: MUST check bmad-qa skill
+      priority: high
+
+    - rule_id: ATR-007
+      name: Multi-File Tasks
+      condition: Task involves multiple files or systems
+      indicators: ["multiple files", "across", "integrate", "system-wide"]
+      action: MUST check all relevant domain skills
+      priority: medium
+
+    - rule_id: ATR-008
+      name: Git Operations
+      condition: Task involves git operations
+      keywords: ["commit", "git", "PR", "branch", "merge", "repository"]
+      required_skills: ["git-commit"]
+      action: MUST check git-commit skill
+      priority: high
+
+    - rule_id: ATR-009
+      name: Database Operations
+      condition: Task involves database work
+      keywords: ["supabase", "database", "RLS", "migration", "schema", "table"]
+      required_skills: ["supabase-operations"]
+      action: MUST check supabase-operations skill
+      priority: high
+
+    - rule_id: ATR-010
+      name: Continuous Improvement
+      condition: Task involves optimization or improvement
+      keywords: ["improve", "optimize", "refine", "iterate", "enhance", "better"]
+      required_skills: ["continuous-improvement"]
+      action: MUST check continuous-improvement skill
+      priority: medium
+
+  confidence_calculation:
+    description: Calculate confidence score (0-100%) for skill selection
+    threshold: 70
+    factors:
+      - factor: keyword_match
+        weight: 40
+        description: Percentage of skill keywords present in task
+      - factor: task_type_alignment
+        weight: 30
+        description: How well task type matches skill's intended use
+      - factor: complexity_fit
+        weight: 20
+        description: Whether task complexity warrants specialized skill
+      - factor: historical_success
+        weight: 10
+        description: Skill's track record from metrics
+    formula: |
+      confidence = (keyword_match * 0.40) +
+                   (type_alignment * 0.30) +
+                   (complexity_fit * 0.20) +
+                   (historical_success * 0.10)
+
+  fallback_behavior:
+    when_no_skill_matches:
+      action: Proceed with standard execution
+      documentation: "Note in THOUGHTS.md: 'No applicable skill found'"
+    when_confidence_low:
+      action: Proceed with standard execution
+      documentation: "Note in THOUGHTS.md: 'Skill X considered but confidence too low (Y%)'"
+    when_multiple_skills_match:
+      action: Select highest confidence skill or most specific match
+      documentation: "Note in THOUGHTS.md: 'Multiple skills applicable, selected X because...'"
+
+# =============================================================================
+# ANALYSIS
+# =============================================================================
+analysis:
+  last_calculated: "2026-02-05T23:10:34.782073"
+  top_skills: []
+  underperforming_skills: []
+
+  category_performance:
+    - category: agent
+      avg_effectiveness: null
+      total_tasks: 0
+      success_rate: null
+    - category: core
+      avg_effectiveness: null
+      total_tasks: 0
+      success_rate: null
+    - category: infrastructure
+      avg_effectiveness: null
+      total_tasks: 0
+      success_rate: null
+    - category: protocol
+      avg_effectiveness: null
+      total_tasks: 0
+      success_rate: null
+    - category: utility
+      avg_effectiveness: null
+      total_tasks: 0
+      success_rate: null
+
+  roi_summary:
+    total_time_saved_minutes: 0
+    avg_quality_improvement: null
+    cost_benefit_ratio: null
+
+  skill_selection_recommendations:
+    - scenario: Quick fixes (< 30 min)
+      recommended_skill: bmad-quick-flow
+      confidence: low
+    - scenario: Architecture decisions
+      recommended_skill: bmad-architect
+      confidence: low
+    - scenario: Research and analysis
+      recommended_skill: bmad-analyst
+      confidence: low
+    - scenario: Complex multi-step problems
+      recommended_skill: superintelligence-protocol
+      confidence: low
+
+  trigger_insights:
+    common_false_positives:
+      - task_id: TASK-1769909001
+        reason: bmad-analyst identified as applicable (70% confidence) but not invoked due to 80% threshold. Task was pattern analysis
+      - task_id: TASK-1769910000
+        reason: Skill system recovery analysis. bmad-analyst applicable but confidence below threshold
+    common_missed_opportunities:
+      - task_id: TASK-1769909001
+        skill: unknown
+    trigger_keywords_that_work: []
+
+# =============================================================================
+# RECOVERY METRICS
+# =============================================================================
+recovery_metrics:
+  analysis_date: "2026-02-01T09:10:00Z"
+  runs_analyzed:
+    - run_id: "0020"
+      task_id: TASK-1769903001
+      skill_considered: false
+      skill_invoked: false
+      phase_1_5_compliance: false
+      notes: Pre-fix run
+    - run_id: "0021"
+      task_id: TASK-1769909000
+      skill_considered: true
+      skill_invoked: false
+      phase_1_5_compliance: true
+      notes: First Phase 1.5 compliant run
+    - run_id: "0022"
+      task_id: TASK-1769909001
+      skill_considered: true
+      skill_invoked: false
+      phase_1_5_compliance: true
+      applicable_skill: bmad-analyst
+      confidence: 70
+      threshold: 80
+      notes: Skill identified but below threshold
+    - run_id: "0023"
+      task_id: TASK-1769892006
+      skill_considered: true
+      skill_invoked: false
+      phase_1_5_compliance: true
+      notes: No applicable skill
+
+  summary:
+    total_runs_analyzed: 4
+    phase_1_5_compliant: 3
+    skills_considered: 3
+    skills_invoked: 0
+    consideration_rate: 100%
+    invocation_rate: 0%
+    compliance_rate: 75%
+
+  threshold_analysis:
+    previous_threshold: 80
+    current_threshold: 70
+    threshold_changed_at: "2026-02-01T10:45:00Z"
+    change_task_id: TASK-1769911000
+    threshold_hits_before_change:
+      - run: "0022"
+        skill: bmad-analyst
+        confidence: 70
+        would_have_invoked_at_70: true
+
+  recommendations:
+    - priority: completed
+      action: Lower confidence threshold from 80% to 70%
+      rationale: APPLIED - Would have enabled 1 skill invocation in analyzed runs
+      expected_impact: 33% invocation rate
+      completed_at: "2026-02-01T10:45:00Z"
+      task_id: TASK-1769911000
+    - priority: medium
+      action: Implement forced skill matching for clear task types
+      rationale: Analysis tasks should always use bmad-analyst
+      expected_impact: Additional 25% invocation rate
+    - priority: medium
+      action: Track confidence calibration data
+      rationale: Need data to optimize threshold over time
+      expected_impact: Better threshold accuracy
+
+# =============================================================================
+# QUALITY RATING SCALE
+# =============================================================================
+quality_rating_scale:
+  5: Excellent - Exceeded expectations, reusable solution, no issues
+  4: Good - Met all requirements, minor improvements possible
+  3: Acceptable - Met core requirements, some issues noted
+  2: Below Average - Partial completion, significant issues
+  1: Poor - Failed to meet requirements, major issues
+
+# =============================================================================
+# IMPROVEMENT PIPELINE INTEGRATION
+# =============================================================================
+improvement_pipeline:
+  pipeline:
+    description: Learning → Improvement → Task → Completion Pipeline
+    stages:
+      - name: learnings_captured
+        description: Raw insights captured from runs
+        count: 80
+        source: LEARNINGS.md files across all runs
+      - name: improvements_extracted
+        description: Actionable improvements identified from learnings
+        count: 10
+        source: improvement-backlog.yaml
+        extraction_rate_percent: 12.5
+      - name: tasks_created
+        description: Improvements converted to executable tasks
+        count: 10
+        conversion_rate_percent: 100.0
+      - name: tasks_completed
+        description: Tasks successfully executed
+        count: 10
+        completion_rate_percent: 100.0
+
+  conversion_metrics:
+    learning_to_improvement:
+      total_learnings: 80
+      improvements_created: 10
+      extraction_rate_percent: 12.5
+      target_rate_percent: 15.0
+      status: below_target
+    improvement_to_task:
+      total_improvements: 10
+      tasks_created: 10
+      conversion_rate_percent: 100.0
+      target_rate_percent: 90.0
+      status: above_target
+    task_to_completion:
+      total_tasks: 10
+      tasks_completed: 10
+      completion_rate_percent: 100.0
+      target_rate_percent: 70.0
+      status: above_target
+    overall_efficiency:
+      learnings_to_completion_rate: 12.5
+      target_rate_percent: 10.0
+      status: above_target
+
+  completed_improvements:
+    - id: IMP-1769903001
+      title: Implement Automatic Roadmap State Synchronization
+      completed_at: "2026-02-01T02:23:02Z"
+      task_id: TASK-1769911101
+      category: process
+      impact_level: high
+    - id: IMP-1769903002
+      title: Make Pre-Execution Research Mandatory
+      completed_at: "2026-02-01T02:25:00Z"
+      task_id: TASK-1769908000
+      category: process
+      impact_level: high
+    - id: IMP-1769903003
+      title: Implement Duplicate Task Detection System
+      completed_at: "2026-02-01T02:10:12Z"
+      task_id: TASK-1769911100
+      category: infrastructure
+      impact_level: high
+    - id: IMP-1769903004
+      title: Implement Plan Validation Before Execution
+      completed_at: "2026-02-01T02:31:00Z"
+      task_id: TASK-1769913001
+      category: process
+      impact_level: high
+    - id: IMP-1769903005
+      title: Enforce Template File Naming Convention
+      completed_at: "2026-02-01T11:35:00Z"
+      task_id: TASK-1769910001
+      category: guidance
+      impact_level: medium
+    - id: IMP-1769903006
+      title: Create TDD and Testing Patterns Guide
+      completed_at: "2026-02-01T12:00:00Z"
+      task_id: TASK-1769911001
+      category: guidance
+      impact_level: high
+    - id: IMP-1769903007
+      title: Create Agent Version Setup Checklist
+      completed_at: "2026-02-01T13:30:00Z"
+      task_id: TASK-1769912000
+      category: guidance
+      impact_level: high
+    - id: IMP-1769903008
+      title: Add Shellcheck to CI/CD Pipeline
+      completed_at: "2026-02-01T02:36:50Z"
+      task_id: TASK-1769915000
+      category: infrastructure
+      impact_level: medium
+    - id: IMP-1769903009
+      title: Create Task Acceptance Criteria Template
+      completed_at: "2026-02-01T11:30:00Z"
+      task_id: TASK-1769913000
+      category: guidance
+      impact_level: medium
+    - id: IMP-1769903010
+      title: Create Improvement Metrics Dashboard
+      completed_at: "2026-02-01T14:01:00Z"
+      task_id: TASK-1769914000
+      category: infrastructure
+      impact_level: medium

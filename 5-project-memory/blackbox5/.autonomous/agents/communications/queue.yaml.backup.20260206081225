@@ -1,0 +1,1976 @@
+# BlackBox5 Task Queue Schema
+# Schema Version: 1.0.0
+# Generated: 2026-02-05
+# Total Tasks: 90 (104 total - 13 duplicates)
+# Priority Formula: (impact / effort) * confidence
+# Impact = (business_value * 0.4 + technical_debt * 0.35 + unblock_factor * 0.25)
+
+schema:
+  version: "1.0.0"
+  generated: "2026-02-06"
+  total_tasks: 90
+  completed: 25
+  in_progress: 5
+  pending: 60
+
+priority_formula:
+  description: "(impact / effort) * confidence"
+  impact:
+    formula: "(business_value * 0.4) + (technical_debt * 0.35) + (unblock_factor * 0.25)"
+    business_value: "0-10 scale"
+    technical_debt: "0-10 scale"
+    unblock_factor: "0-10 scale"
+  effort: "estimated_minutes"
+  confidence: "0.5-1.5 scale based on clarity"
+
+resource_types:
+  - cpu_bound      # Heavy computation, algorithmic work
+  - io_bound       # File operations, database queries
+  - memory_bound   # Large data processing, analysis
+  - network_bound  # External API calls, downloads
+
+parallel_groups:
+  - wave_1         # No dependencies, can run immediately
+  - wave_2         # Depends on wave_1 completion
+  - wave_3         # Depends on wave_2 completion
+  - wave_4         # Depends on wave_3 completion
+  - sequential     # Must run alone, no parallelism
+
+task_types:
+  - architecture   # System design, refactoring
+  - process        # Workflow improvements
+  - skill          # Skill system work
+  - infrastructure # System infrastructure
+  - documentation  # Docs and guides
+  - development    # Feature implementation
+  - cleanup        # Maintenance tasks
+  - autonomous     # Self-improvement loops
+
+# Duplicate tasks excluded (13 pairs):
+# 1. AGENT-SYSTEM-AUDIT / TASK-AUTO-010 (keep TASK-AUTO-010)
+# 2. TASK-1769978192 / TASK-ARCH-016 (keep TASK-ARCH-016)
+# 3. TASK-1738375000 / TASK-DEV-010 (keep TASK-DEV-010)
+# 4. TASK-youtube-automation / TASK-DEV-011 (keep TASK-DEV-011)
+# 5. TASK-HINDSIGHT-001 / TASK-AUTO-015 (keep TASK-AUTO-015)
+# 6. TASK-HINDSIGHT-002 / TASK-AUTO-016 (keep TASK-AUTO-016)
+# 7. TASK-HINDSIGHT-003 / TASK-AUTO-017 (keep TASK-AUTO-017)
+# 8. TASK-HINDSIGHT-004 / TASK-AUTO-018 (keep TASK-AUTO-018)
+# 9. TASK-HINDSIGHT-005 / TASK-AUTO-019 (keep TASK-AUTO-019)
+# 10. TASK-HINDSIGHT-006 / TASK-AUTO-020 (keep TASK-AUTO-020)
+# 11. TASK-MEMORY-001 / TASK-AUTO-021 (keep TASK-AUTO-021)
+# 12. TASK-CC-REPO-ANALYSIS-001 / TASK-AUTO-013 (keep TASK-AUTO-013)
+# 13. TASK-CLEANUP-LOOP / TASK-AUTO-014 (keep TASK-AUTO-014)
+
+tasks:
+  # ============================================
+  # COMPLETED TASKS (18)
+  # ============================================
+
+  - id: "TASK-ARCH-001"
+    type: "architecture"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "Create Architecture Analysis Framework"
+    estimated_minutes: 45
+    roi:
+      impact: 8.5
+      effort: 45
+      confidence: 1.2
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 8
+    blockedBy: []
+    blocks: ["TASK-ARCH-002", "TASK-ARCH-003"]
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-002"
+    type: "architecture"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 7.8
+    title: "Execute First Improvement Loop"
+    estimated_minutes: 60
+    roi:
+      impact: 7.8
+      effort: 60
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 8
+    blockedBy: ["TASK-ARCH-001"]
+    blocks: ["TASK-ARCH-003"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-003"
+    type: "architecture"
+    status: "completed"
+    priority: "CRITICAL"
+    priority_score: 12.0
+    title: "Fix Single Source of Truth Violations"
+    estimated_minutes: 90
+    roi:
+      impact: 12.0
+      effort: 90
+      confidence: 1.3
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 9
+    blockedBy: ["TASK-ARCH-001", "TASK-ARCH-002"]
+    blocks: ["TASK-ARCH-004"]
+    resource_type: "io_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-004"
+    type: "documentation"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 5.2
+    title: "Document SSOT Pattern"
+    estimated_minutes: 30
+    roi:
+      impact: 5.2
+      effort: 30
+      confidence: 1.1
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-ARCH-003"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-005"
+    type: "cleanup"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 9.3
+    title: "Clean Up Empty Directories"
+    estimated_minutes: 45
+    roi:
+      impact: 9.3
+      effort: 45
+      confidence: 1.4
+      business_value: 8
+      technical_debt: 9
+      unblock_factor: 7
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-006"
+    type: "infrastructure"
+    status: "completed"
+    priority: "CRITICAL"
+    priority_score: 11.2
+    title: "Create STATE.yaml Auto-Sync Script"
+    estimated_minutes: 45
+    roi:
+      impact: 11.2
+      effort: 45
+      confidence: 1.2
+      business_value: 10
+      technical_debt: 9
+      unblock_factor: 8
+    blockedBy: ["TASK-ARCH-003"]
+    blocks: ["TASK-ARCH-007"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-007"
+    type: "architecture"
+    status: "completed"
+    priority: "CRITICAL"
+    priority_score: 13.5
+    title: "Consolidate Task Systems"
+    estimated_minutes: 60
+    roi:
+      impact: 13.5
+      effort: 60
+      confidence: 1.5
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 10
+    blockedBy: ["TASK-ARCH-006"]
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-008"
+    type: "process"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Standardize Run Naming Convention"
+    estimated_minutes: 45
+    roi:
+      impact: 8.0
+      effort: 45
+      confidence: 1.2
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-007"]
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-009"
+    type: "documentation"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Populate Knowledge Base"
+    estimated_minutes: 60
+    roi:
+      impact: 6.0
+      effort: 60
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 5
+      unblock_factor: 5
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-010"
+    type: "infrastructure"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 6.5
+    title: "Implement Skill Metrics Collection"
+    estimated_minutes: 60
+    roi:
+      impact: 6.5
+      effort: 60
+      confidence: 1.1
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: []
+    blocks: ["TASK-ARCH-011"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-011"
+    type: "infrastructure"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 7.0
+    title: "Create Architecture Dashboard"
+    estimated_minutes: 45
+    roi:
+      impact: 7.0
+      effort: 45
+      confidence: 1.2
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-012"
+    type: "architecture"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 6.8
+    title: "Mirror Candidates Analysis"
+    estimated_minutes: 60
+    roi:
+      impact: 6.8
+      effort: 60
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-GOALS-001"
+    type: "process"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 8.8
+    title: "Complete Goals System Setup"
+    estimated_minutes: 45
+    roi:
+      impact: 8.8
+      effort: 45
+      confidence: 1.3
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 7
+    blockedBy: []
+    blocks: ["TASK-ARCH-001"]
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-1770163374"
+    type: "development"
+    status: "completed"
+    priority: "CRITICAL"
+    priority_score: 14.0
+    title: "Implement Intelligent Navigation"
+    estimated_minutes: 90
+    roi:
+      impact: 14.0
+      effort: 90
+      confidence: 1.4
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 9
+    blockedBy: []
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-014-goals-system"
+    type: "process"
+    status: "completed"
+    priority: "LOW"
+    priority_score: 3.0
+    title: "Goals System (Placeholder)"
+    estimated_minutes: 15
+    roi:
+      impact: 3.0
+      effort: 15
+      confidence: 0.8
+      business_value: 4
+      technical_debt: 2
+      unblock_factor: 3
+    blockedBy: ["TASK-GOALS-001"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-015-status-lifecycle"
+    type: "process"
+    status: "in_progress"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "Status Lifecycle (Placeholder)"
+    estimated_minutes: 30
+    roi:
+      impact: 5.5
+      effort: 30
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-016-agent-execution-flow"
+    type: "architecture"
+    status: "in_progress"
+    priority: "LOW"
+    priority_score: 2.5
+    title: "Agent Execution Flow (Placeholder)"
+    estimated_minutes: 15
+    roi:
+      impact: 2.5
+      effort: 15
+      confidence: 0.7
+      business_value: 3
+      technical_debt: 2
+      unblock_factor: 2
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-012-mirror-candidates"
+    type: "architecture"
+    status: "completed"
+    priority: "LOW"
+    priority_score: 2.0
+    title: "Mirror Analysis (Duplicate Placeholder)"
+    estimated_minutes: 10
+    roi:
+      impact: 2.0
+      effort: 10
+      confidence: 0.6
+      business_value: 2
+      technical_debt: 2
+      unblock_factor: 1
+    blockedBy: ["TASK-ARCH-012"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  # ============================================
+  # IN PROGRESS TASKS (4)
+  # ============================================
+
+  - id: "TASK-ARCH-016"
+    type: "architecture"
+    status: "pending"
+    priority: "CRITICAL"
+    priority_score: 15.0
+    title: "Design Agent Execution Flow"
+    estimated_minutes: 120
+    roi:
+      impact: 15.0
+      effort: 120
+      confidence: 1.2
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 10
+    blockedBy: ["TASK-ARCH-011"]
+    blocks: ["TASK-ARCH-039", "TASK-PROC-008"]
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  - id: "TASK-STATUS-LIFECYCLE-ACTION-PLAN"
+    type: "process"
+    status: "in_progress"
+    priority: "CRITICAL"
+    priority_score: 13.2
+    title: "Status Lifecycle Action Plan"
+    estimated_minutes: 90
+    roi:
+      impact: 13.2
+      effort: 90
+      confidence: 1.1
+      business_value: 10
+      technical_debt: 9
+      unblock_factor: 8
+    blockedBy: ["TASK-ARCH-006"]
+    blocks: ["TASK-PROC-040"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-AUTO-014"
+    type: "cleanup"
+    status: "in_progress"
+    priority: "MEDIUM"
+    priority_score: 7.5
+    title: "BB5 Consolidation Loop"
+    estimated_minutes: 60
+    roi:
+      impact: 7.5
+      effort: 60
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-007"]
+    blocks: ["TASK-PROC-020"]
+    resource_type: "io_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "ACTION-PLAN-youtube-pipeline"
+    type: "development"
+    status: "in_progress"
+    priority: "HIGH"
+    priority_score: 9.0
+    title: "YouTube Pipeline Action Plan"
+    estimated_minutes: 75
+    roi:
+      impact: 9.0
+      effort: 75
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 6
+      unblock_factor: 7
+    blockedBy: []
+    blocks: ["TASK-DEV-011"]
+    resource_type: "network_bound"
+    parallel_group: "wave_1"
+    goal: "IG-008"
+
+  # ============================================
+  # PENDING ARCHITECTURE TASKS
+  # ============================================
+
+  - id: "TASK-ARCH-001B"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Knowledge Base Analysis"
+    estimated_minutes: 60
+    roi:
+      impact: 8.0
+      effort: 60
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-001"]
+    blocks: ["TASK-ARCH-001C"]
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-001C"
+    type: "architecture"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.5
+    title: "First Principles Checklist"
+    estimated_minutes: 45
+    roi:
+      impact: 6.5
+      effort: 45
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-ARCH-001B"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-003B"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 9.0
+    title: "SSOT Audit Phase"
+    estimated_minutes: 60
+    roi:
+      impact: 9.0
+      effort: 60
+      confidence: 1.1
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 7
+    blockedBy: ["TASK-ARCH-003"]
+    blocks: ["TASK-ARCH-003C"]
+    resource_type: "io_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-003C"
+    type: "architecture"
+    status: "pending"
+    priority: "CRITICAL"
+    priority_score: 11.0
+    title: "SSOT Execute Phase"
+    estimated_minutes: 90
+    roi:
+      impact: 11.0
+      effort: 90
+      confidence: 1.1
+      business_value: 10
+      technical_debt: 9
+      unblock_factor: 8
+    blockedBy: ["TASK-ARCH-003B"]
+    blocks: ["TASK-ARCH-003D"]
+    resource_type: "io_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-003D"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "SSOT Validate Phase"
+    estimated_minutes: 45
+    roi:
+      impact: 8.5
+      effort: 45
+      confidence: 1.2
+      business_value: 8
+      technical_debt: 8
+      unblock_factor: 7
+    blockedBy: ["TASK-ARCH-003C"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-017"
+    type: "architecture"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 8.8
+    title: "Fix blackbox.py Non-Existent Directory References"
+    estimated_minutes: 30
+    roi:
+      impact: 8.8
+      effort: 30
+      confidence: 1.4
+      business_value: 8
+      technical_debt: 9
+      unblock_factor: 7
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-019"
+    type: "architecture"
+    status: "pending"
+    priority: "CRITICAL"
+    priority_score: 12.5
+    title: "Decouple Tight Coupling in RALF Loop"
+    estimated_minutes: 120
+    roi:
+      impact: 12.5
+      effort: 120
+      confidence: 1.0
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 9
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: ["TASK-ARCH-035"]
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-021"
+    type: "architecture"
+    status: "in_progress"
+    priority: "HIGH"
+    priority_score: 9.5
+    title: "Fix Agent Prompt Drift"
+    estimated_minutes: 60
+    roi:
+      impact: 9.5
+      effort: 60
+      confidence: 1.1
+      business_value: 9
+      technical_debt: 9
+      unblock_factor: 7
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-022"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 9.0
+    title: "Add Versioning to Workflow Loader"
+    estimated_minutes: 75
+    roi:
+      impact: 9.0
+      effort: 75
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 7
+    blockedBy: ["TASK-ARCH-019"]
+    blocks: ["TASK-ARCH-035"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+    claimed_by: ""
+    claimed_at: ""
+  - id: "TASK-ARCH-028"
+    type: "architecture"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Fix Routes.yaml Template Placeholders"
+    estimated_minutes: 45
+    roi:
+      impact: 6.0
+      effort: 45
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-029"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "Remove Hardcoded Definitions from Skill Router"
+    estimated_minutes: 60
+    roi:
+      impact: 8.5
+      effort: 60
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-SKIL-014"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-035"
+    type: "architecture"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.5
+    title: "Workflow Loader Versioning Implementation"
+    estimated_minutes: 90
+    roi:
+      impact: 6.5
+      effort: 90
+      confidence: 0.8
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-ARCH-019", "TASK-ARCH-022"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-036"
+    type: "architecture"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 6.8
+    title: "Improve bb5 CLI Error Handling"
+    estimated_minutes: 60
+    roi:
+      impact: 6.8
+      effort: 60
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 6
+    blockedBy: ["TASK-1770163374"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-038"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 9.2
+    title: "Decouple Task System"
+    estimated_minutes: 90
+    roi:
+      impact: 9.2
+      effort: 90
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 9
+      unblock_factor: 7
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-039"
+    type: "architecture"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 9.0
+    title: "Decouple Agent Execution"
+    estimated_minutes: 90
+    roi:
+      impact: 9.0
+      effort: 90
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 7
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-ARCH-052"
+    type: "architecture"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "New Architecture Task"
+    estimated_minutes: 60
+    roi:
+      impact: 5.5
+      effort: 60
+      confidence: 0.9
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  # ============================================
+  # PENDING PROCESS TASKS
+  # ============================================
+
+  - id: "TASK-PROC-003"
+    type: "process"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 4.0
+    title: "Fix Empty Template Files"
+    estimated_minutes: 30
+    roi:
+      impact: 4.0
+      effort: 30
+      confidence: 0.9
+      business_value: 4
+      technical_debt: 4
+      unblock_factor: 3
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-004"
+    type: "process"
+    status: "pending"
+    priority: "CRITICAL"
+    priority_score: 11.5
+    title: "Fix Task-to-Completion Pipeline Stall"
+    estimated_minutes: 90
+    roi:
+      impact: 11.5
+      effort: 90
+      confidence: 1.1
+      business_value: 10
+      technical_debt: 9
+      unblock_factor: 8
+    blockedBy: ["TASK-STATUS-LIFECYCLE-ACTION-PLAN"]
+    blocks: ["TASK-PROC-040"]
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-006"
+    type: "process"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "Implement Skill Integration Plan"
+    estimated_minutes: 75
+    roi:
+      impact: 8.5
+      effort: 75
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-SKIL-001"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-008"
+    type: "process"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 8.8
+    title: "Add Context to Agent Stop Events"
+    estimated_minutes: 60
+    roi:
+      impact: 8.8
+      effort: 60
+      confidence: 1.1
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-012"
+    type: "process"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.5
+    title: "Populate Skill Metrics Zero Usage Data"
+    estimated_minutes: 60
+    roi:
+      impact: 6.5
+      effort: 60
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-013"
+    type: "process"
+    status: "pending"
+    priority: "CRITICAL"
+    priority_score: 12.0
+    title: "Complete High Priority Improvements (0% completion)"
+    estimated_minutes: 120
+    roi:
+      impact: 12.0
+      effort: 120
+      confidence: 1.0
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 9
+    blockedBy: ["TASK-PROC-004"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-015"
+    type: "process"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.8
+    title: "Improve Commit Compliance (currently 75%)"
+    estimated_minutes: 45
+    roi:
+      impact: 5.8
+      effort: 45
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 5
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-020"
+    type: "process"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Fix Duplicate Task Directories"
+    estimated_minutes: 45
+    roi:
+      impact: 8.0
+      effort: 45
+      confidence: 1.2
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-AUTO-014"]
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-024"
+    type: "process"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.5
+    title: "Remove Unused Task Template Files"
+    estimated_minutes: 30
+    roi:
+      impact: 3.5
+      effort: 30
+      confidence: 0.8
+      business_value: 4
+      technical_debt: 3
+      unblock_factor: 3
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-027"
+    type: "process"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Calculate Improvement Effectiveness Scores"
+    estimated_minutes: 60
+    roi:
+      impact: 6.0
+      effort: 60
+      confidence: 0.9
+      business_value: 6
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-030"
+    type: "process"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "Populate Validation Checklist"
+    estimated_minutes: 45
+    roi:
+      impact: 5.5
+      effort: 45
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-031"
+    type: "process"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 7.8
+    title: "Fix Estimation Accuracy (35% underestimation)"
+    estimated_minutes: 60
+    roi:
+      impact: 7.8
+      effort: 60
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 5
+    blockedBy: []
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-033"
+    type: "process"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.2
+    title: "Improve Extraction Rate (below target)"
+    estimated_minutes: 75
+    roi:
+      impact: 6.2
+      effort: 75
+      confidence: 0.9
+      business_value: 7
+      technical_debt: 5
+      unblock_factor: 5
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-037"
+    type: "process"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.0
+    title: "Implement First Principles Review Schedule"
+    estimated_minutes: 45
+    roi:
+      impact: 5.0
+      effort: 45
+      confidence: 0.9
+      business_value: 6
+      technical_debt: 4
+      unblock_factor: 4
+    blockedBy: ["TASK-ARCH-001C"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-PROC-040"
+    type: "process"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "Implement Task Completion Validation"
+    estimated_minutes: 60
+    roi:
+      impact: 8.5
+      effort: 60
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-STATUS-LIFECYCLE-ACTION-PLAN", "TASK-PROC-004"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-007"
+
+  # ============================================
+  # PENDING SKILL TASKS
+  # ============================================
+
+  - id: "TASK-SKIL-001"
+    type: "skill"
+    status: "completed"
+    priority: "CRITICAL"
+    priority_score: 13.0
+    title: "Fix Zero Skill Invocation Rate"
+    estimated_minutes: 90
+    roi:
+      impact: 13.0
+      effort: 90
+      confidence: 1.0
+      business_value: 10
+      technical_debt: 10
+      unblock_factor: 8
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: ["TASK-PROC-006", "TASK-SKIL-005"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-005"
+    type: "skill"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 9.0
+    title: "Fix Threshold Preventing Valid Skill Matches"
+    estimated_minutes: 60
+    roi:
+      impact: 9.0
+      effort: 60
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-SKIL-001"]
+    blocks: ["TASK-SKIL-007"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-007"
+    type: "skill"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "Fix Null Skill Metrics"
+    estimated_minutes: 75
+    roi:
+      impact: 8.5
+      effort: 75
+      confidence: 0.9
+      business_value: 8
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-SKIL-005"]
+    blocks: ["TASK-SKIL-011", "TASK-SKIL-014"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-011"
+    type: "skill"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.5
+    title: "Enforce Skill Selection Framework"
+    estimated_minutes: 60
+    roi:
+      impact: 6.5
+      effort: 60
+      confidence: 1.0
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-SKIL-007"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-014"
+    type: "skill"
+    status: "completed"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Standardize Confidence Thresholds"
+    estimated_minutes: 45
+    roi:
+      impact: 6.0
+      effort: 45
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 6
+      unblock_factor: 4
+    blockedBy: ["TASK-SKIL-007"]
+    blocks: ["TASK-ARCH-029"]
+    resource_type: "memory_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-018"
+    type: "skill"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "Collect Trigger Accuracy Data"
+    estimated_minutes: 60
+    roi:
+      impact: 5.5
+      effort: 60
+      confidence: 0.9
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-SKIL-001"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-023"
+    type: "skill"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Add Missing Skill Coverage"
+    estimated_minutes: 90
+    roi:
+      impact: 6.0
+      effort: 90
+      confidence: 0.8
+      business_value: 7
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-032"
+    type: "skill"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Implement ROI Calculations for Skills"
+    estimated_minutes: 75
+    roi:
+      impact: 8.0
+      effort: 75
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-SKIL-007"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-046"
+    type: "skill"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.8
+    title: "Bootstrap Historical Skill Data"
+    estimated_minutes: 60
+    roi:
+      impact: 5.8
+      effort: 60
+      confidence: 0.9
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-SKIL-050"
+    type: "skill"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 4.0
+    title: "Evaluate Unused Infrastructure Skills"
+    estimated_minutes: 45
+    roi:
+      impact: 4.0
+      effort: 45
+      confidence: 0.9
+      business_value: 4
+      technical_debt: 4
+      unblock_factor: 3
+    blockedBy: ["TASK-SKIL-023"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  # ============================================
+  # PENDING INFRASTRUCTURE TASKS
+  # ============================================
+
+  - id: "TASK-INFR-002"
+    type: "infrastructure"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Populate Unpopulated Skill Metrics"
+    estimated_minutes: 60
+    roi:
+      impact: 8.0
+      effort: 60
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-INFR-009"
+    type: "infrastructure"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "Fix Empty Skill Usage Log"
+    estimated_minutes: 45
+    roi:
+      impact: 5.5
+      effort: 45
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-SKIL-001"]
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-INFR-010"
+    type: "infrastructure"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.0
+    title: "Populate Learning Index"
+    estimated_minutes: 60
+    roi:
+      impact: 5.0
+      effort: 60
+      confidence: 0.8
+      business_value: 6
+      technical_debt: 4
+      unblock_factor: 4
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-INFR-026"
+    type: "infrastructure"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.5
+    title: "Populate Test Results Template"
+    estimated_minutes: 30
+    roi:
+      impact: 3.5
+      effort: 30
+      confidence: 0.9
+      business_value: 4
+      technical_debt: 3
+      unblock_factor: 3
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  # ============================================
+  # PENDING DOCUMENTATION TASKS
+  # ============================================
+
+  - id: "TASK-DOCU-025"
+    type: "documentation"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.8
+    title: "Fix Skill Metrics Documentation Drift"
+    estimated_minutes: 45
+    roi:
+      impact: 3.8
+      effort: 45
+      confidence: 0.8
+      business_value: 4
+      technical_debt: 4
+      unblock_factor: 2
+    blockedBy: ["TASK-ARCH-010"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-034"
+    type: "documentation"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.0
+    title: "Fix Inconsistent Directory Structure Docs"
+    estimated_minutes: 60
+    roi:
+      impact: 5.0
+      effort: 60
+      confidence: 0.8
+      business_value: 6
+      technical_debt: 4
+      unblock_factor: 3
+    blockedBy: ["TASK-ARCH-003D"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-042"
+    type: "documentation"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.0
+    title: "Create Missing WORK-LOG.md and ACTIVE.md"
+    estimated_minutes: 30
+    roi:
+      impact: 3.0
+      effort: 30
+      confidence: 0.9
+      business_value: 3
+      technical_debt: 3
+      unblock_factor: 2
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-043"
+    type: "documentation"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 4.5
+    title: "Fix Migration Plan References"
+    estimated_minutes: 45
+    roi:
+      impact: 4.5
+      effort: 45
+      confidence: 0.9
+      business_value: 5
+      technical_debt: 4
+      unblock_factor: 3
+    blockedBy: ["TASK-ARCH-007"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-044"
+    type: "documentation"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 4.8
+    title: "Fix Task System Design References"
+    estimated_minutes: 45
+    roi:
+      impact: 4.8
+      effort: 45
+      confidence: 0.9
+      business_value: 5
+      technical_debt: 4
+      unblock_factor: 4
+    blockedBy: ["TASK-ARCH-038"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_4"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-045"
+    type: "documentation"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 4.5
+    title: "Fix Architecture.md References"
+    estimated_minutes: 45
+    roi:
+      impact: 4.5
+      effort: 45
+      confidence: 0.9
+      business_value: 5
+      technical_debt: 4
+      unblock_factor: 3
+    blockedBy: ["TASK-ARCH-001"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-047"
+    type: "documentation"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.2
+    title: "Fix Template Count Discrepancy"
+    estimated_minutes: 30
+    roi:
+      impact: 3.2
+      effort: 30
+      confidence: 0.9
+      business_value: 3
+      technical_debt: 3
+      unblock_factor: 2
+    blockedBy: []
+    blocks: []
+    resource_type: "io_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-048"
+    type: "documentation"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.5
+    title: "Document SISO-Internal Patterns"
+    estimated_minutes: 60
+    roi:
+      impact: 3.5
+      effort: 60
+      confidence: 0.7
+      business_value: 4
+      technical_debt: 3
+      unblock_factor: 2
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-049"
+    type: "documentation"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "Refresh Architecture Dashboard"
+    estimated_minutes: 45
+    roi:
+      impact: 5.5
+      effort: 45
+      confidence: 1.0
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-ARCH-011"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-DOCU-051"
+    type: "documentation"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.0
+    title: "Fix Goals System Guide References"
+    estimated_minutes: 30
+    roi:
+      impact: 3.0
+      effort: 30
+      confidence: 0.9
+      business_value: 3
+      technical_debt: 3
+      unblock_factor: 2
+    blockedBy: ["TASK-GOALS-001"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  # ============================================
+  # PENDING AUTONOMOUS TASKS
+  # ============================================
+
+  - id: "TASK-AUTO-010"
+    type: "autonomous"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 9.0
+    title: "Agent System Audit"
+    estimated_minutes: 75
+    roi:
+      impact: 9.0
+      effort: 75
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 8
+      unblock_factor: 6
+    blockedBy: ["TASK-ARCH-016"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-007"
+
+  - id: "TASK-AUTO-013"
+    type: "autonomous"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Claude Code Repo Analysis"
+    estimated_minutes: 90
+    roi:
+      impact: 6.0
+      effort: 90
+      confidence: 0.8
+      business_value: 7
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: []
+    blocks: []
+    resource_type: "network_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+  - id: "TASK-AUTO-015"
+    type: "autonomous"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "Hindsight Memory - Foundation"
+    estimated_minutes: 60
+    roi:
+      impact: 8.5
+      effort: 60
+      confidence: 1.1
+      business_value: 9
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: []
+    blocks: ["TASK-AUTO-016"]
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-008"
+
+  - id: "TASK-AUTO-016"
+    type: "autonomous"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Hindsight Memory - Infrastructure"
+    estimated_minutes: 75
+    roi:
+      impact: 8.0
+      effort: 75
+      confidence: 1.0
+      business_value: 8
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-AUTO-015"]
+    blocks: ["TASK-AUTO-017"]
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-008"
+
+  - id: "TASK-AUTO-017"
+    type: "autonomous"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 7.0
+    title: "Hindsight Memory - RETAIN Operation"
+    estimated_minutes: 90
+    roi:
+      impact: 7.0
+      effort: 90
+      confidence: 0.9
+      business_value: 8
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-AUTO-016"]
+    blocks: ["TASK-AUTO-018"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_3"
+    goal: "IG-008"
+
+  - id: "TASK-AUTO-018"
+    type: "autonomous"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.5
+    title: "Hindsight Memory - RECALL Operation"
+    estimated_minutes: 75
+    roi:
+      impact: 6.5
+      effort: 75
+      confidence: 0.9
+      business_value: 7
+      technical_debt: 6
+      unblock_factor: 5
+    blockedBy: ["TASK-AUTO-017"]
+    blocks: ["TASK-AUTO-019"]
+    resource_type: "cpu_bound"
+    parallel_group: "wave_4"
+    goal: "IG-008"
+
+  - id: "TASK-AUTO-019"
+    type: "autonomous"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 6.0
+    title: "Hindsight Memory - REFLECT Operation"
+    estimated_minutes: 90
+    roi:
+      impact: 6.0
+      effort: 90
+      confidence: 0.8
+      business_value: 7
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-AUTO-018"]
+    blocks: ["TASK-AUTO-020"]
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-008"
+
+  - id: "TASK-AUTO-020"
+    type: "autonomous"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.5
+    title: "Hindsight Memory - Integration"
+    estimated_minutes: 60
+    roi:
+      impact: 5.5
+      effort: 60
+      confidence: 0.9
+      business_value: 6
+      technical_debt: 5
+      unblock_factor: 4
+    blockedBy: ["TASK-AUTO-019"]
+    blocks: ["TASK-AUTO-021"]
+    resource_type: "cpu_bound"
+    parallel_group: "sequential"
+    goal: "IG-008"
+
+  - id: "TASK-AUTO-021"
+    type: "autonomous"
+    status: "completed"
+    priority: "HIGH"
+    priority_score: 8.0
+    title: "Persistent Memory System"
+    estimated_minutes: 120
+    roi:
+      impact: 8.0
+      effort: 120
+      confidence: 0.9
+      business_value: 9
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-AUTO-020"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "sequential"
+    goal: "IG-008"
+
+  # ============================================
+  # PENDING DEVELOPMENT TASKS
+  # ============================================
+
+  - id: "TASK-DEV-010"
+    type: "development"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 8.5
+    title: "CLI Interface F-016 Implementation"
+    estimated_minutes: 90
+    roi:
+      impact: 8.5
+      effort: 90
+      confidence: 1.0
+      business_value: 9
+      technical_debt: 7
+      unblock_factor: 6
+    blockedBy: ["TASK-1770163374"]
+    blocks: []
+    resource_type: "cpu_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-DEV-011"
+    type: "development"
+    status: "pending"
+    priority: "HIGH"
+    priority_score: 9.5
+    title: "YouTube Automation Scraper"
+    estimated_minutes: 120
+    roi:
+      impact: 9.5
+      effort: 120
+      confidence: 1.0
+      business_value: 10
+      technical_debt: 8
+      unblock_factor: 7
+    blockedBy: ["ACTION-PLAN-youtube-pipeline"]
+    blocks: []
+    resource_type: "network_bound"
+    parallel_group: "wave_2"
+    goal: "IG-008"
+
+  # ============================================
+  # PENDING OTHER TASKS
+  # ============================================
+
+  - id: "TASK-analyze-mirror-candidates"
+    type: "architecture"
+    status: "pending"
+    priority: "MEDIUM"
+    priority_score: 5.0
+    title: "Mirror Candidates Analysis (Additional)"
+    estimated_minutes: 60
+    roi:
+      impact: 5.0
+      effort: 60
+      confidence: 0.8
+      business_value: 6
+      technical_debt: 4
+      unblock_factor: 3
+    blockedBy: ["TASK-ARCH-012"]
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_2"
+    goal: "IG-007"
+
+  - id: "TASK-MANU-041"
+    type: "process"
+    status: "pending"
+    priority: "LOW"
+    priority_score: 3.5
+    title: "Manual Process Improvements"
+    estimated_minutes: 45
+    roi:
+      impact: 3.5
+      effort: 45
+      confidence: 0.8
+      business_value: 4
+      technical_debt: 3
+      unblock_factor: 2
+    blockedBy: []
+    blocks: []
+    resource_type: "memory_bound"
+    parallel_group: "wave_1"
+    goal: "IG-007"
+
+# ============================================
+# QUEUE METADATA
+# ============================================
+
+queue_metadata:
+  total_tasks: 90
+  by_status:
+    completed: 25
+    in_progress: 5
+    pending: 60
+  by_priority:
+    CRITICAL: 10
+    HIGH: 32
+    MEDIUM: 34
+    LOW: 15
+  by_type:
+    architecture: 24
+    process: 18
+    skill: 10
+    infrastructure: 4
+    documentation: 10
+    development: 3
+    cleanup: 2
+    autonomous: 9
+  by_resource_type:
+    cpu_bound: 35
+    io_bound: 20
+    memory_bound: 28
+    network_bound: 3
+  by_parallel_group:
+    wave_1: 28
+    wave_2: 24
+    wave_3: 18
+    wave_4: 12
+    sequential: 9
+
+  # Priority score distribution
+  priority_distribution:
+    excellent: 12    # score >= 10
+    good: 28         # score 7-9.9
+    fair: 35         # score 4-6.9
+    poor: 16         # score < 4
+
+  # Quick wins (high score, low effort)
+  quick_wins:
+    - TASK-ARCH-017  # 30 min, score 8.8
+    - TASK-ARCH-003D # 45 min, score 8.5
+    - TASK-ARCH-005  # 45 min, score 9.3
+    - TASK-PROC-015  # 45 min, score 5.8
+    - TASK-DOCU-047  # 30 min, score 3.2
+
+  # Blocked tasks (waiting for dependencies)
+  blocked_count: 52
+
+  # Ready to execute (no dependencies, pending)
+  ready_to_execute: 17
+
+  # Estimated total effort
+  total_estimated_minutes: 5130
+  total_estimated_hours: 85.5
+
+  # Completion projection
+  projections:
+    week_1: 12   # Quick wins + in-progress completion
+    week_2: 18   # Wave 1 tasks
+    week_3: 22   # Wave 2 tasks
+    week_4: 21   # Wave 3+ tasks
+    month_1_total: 73
+    month_2_total: 85
+    month_3_total: 91

@@ -1,0 +1,103 @@
+# BlackBox5 Project Configuration
+# ================================
+# Project: blackbox5
+# Version: 2.0.0
+#
+# This file contains project-specific configuration overrides.
+# It sits between engine.yaml and user.yaml in the hierarchy.
+#
+# Configuration Hierarchy:
+#   1. Environment Variables
+#   2. User Config (~/.blackbox5/config/user.yaml)
+#   3. Project Config (this file) <- You are here
+#   4. Engine Config (engine.yaml)
+#   5. Base Defaults (base.yaml)
+
+version: "2.0.0"
+
+# ============================================================================
+# Project Information
+# ============================================================================
+project:
+  name: "blackbox5"
+  description: "BlackBox5 - Recursive Autonomous Learning Framework"
+  version: "2.0.0"
+
+# ============================================================================
+# Project-Specific Paths
+# ============================================================================
+paths:
+  project_root: "${BB5_HOME}/5-project-memory/blackbox5"
+  tasks: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/tasks"
+  runs: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/runs"
+  memory: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/memory"
+  timeline: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/timeline"
+
+# ============================================================================
+# Project-Specific Features
+# ============================================================================
+features:
+  automated_testing: true
+  github_integration: true
+  api_gateway: false
+  code_review: true
+  performance_monitoring: true
+  notifications: true
+
+# ============================================================================
+# Project-Specific Thresholds
+# ============================================================================
+thresholds:
+  skill_invocation_confidence: 75
+  queue_depth_min: 5
+  queue_depth_max: 10
+  loop_timeout_seconds: 180
+
+# ============================================================================
+# Project Routing
+# ============================================================================
+routing:
+  default_agent: "executor"
+  task_type_routing:
+    feature: "executor"
+    fix: "executor"
+    research: "executor"
+    refactor: "executor"
+    analyze: "executor"
+    organize: "executor"
+    improve: "executor"
+    architecture: "executor"
+    documentation: "executor"
+
+# ============================================================================
+# Project Integrations
+# ============================================================================
+integrations:
+  github:
+    enabled: true
+    owner: "blackbox5"
+    repo: "blackbox5"
+    default_branch: "main"
+    auto_create_prs: false
+    auto_create_issues: false
+    auto_sync_status: true
+
+  slack:
+    enabled: false
+    default_channel: "#blackbox5-updates"
+
+# ============================================================================
+# Project Notifications
+# ============================================================================
+notifications:
+  enabled: true
+  on_task_completion: true
+  on_error: true
+  on_milestone: true
+  channels:
+    - console
+    - file
+
+# ============================================================================
+# End of Configuration
+# ============================================================================

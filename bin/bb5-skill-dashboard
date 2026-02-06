@@ -1,0 +1,368 @@
+#!/usr/bin/env python3
+"""
+bb5 skill-dashboard - Display skill effectiveness metrics and trends
+
+Usage:
+    bb5 skill-dashboard              Show full dashboard
+    bb5 skill-dashboard --skills     List all skills with scores
+    bb5 skill-dashboard --categories Show category breakdown
+    bb5 skill-dashboard --trends     Show trend analysis
+    bb5 skill-dashboard --roi        Show ROI summary
+    bb5 skill-dashboard --json       Output as JSON
+
+Exit Codes:
+    0 - Success
+    1 - Metrics file not found
+    2 - Error reading data
+"""
+
+import argparse
+import json
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Optional
+
+try:
+    import yaml
+except ImportError:
+    print("Error: PyYAML required. Install with: pip install pyyaml", file=sys.stderr)
+    sys.exit(1)
+
+
+# Configuration - uses unified config hierarchy
+# Priority: Environment variable > Default
+BB5_HOME = Path(os.environ.get('BLACKBOX5_HOME', os.path.expanduser('~/.blackbox5')))
+DEFAULT_PROJECT_DIR = BB5_HOME / '5-project-memory' / 'blackbox5'
+METRICS_FILE = DEFAULT_PROJECT_DIR / "operations" / "skill-metrics.yaml"
+
+
+def load_yaml_file(filepath: Path) -> dict:
+    """Load and parse YAML file."""
+    try:
+        with open(filepath, 'r') as f:
+            return yaml.safe_load(f) or {}
+    except FileNotFoundError:
+        print(f"Error: File not found: {filepath}", file=sys.stderr)
+        sys.exit(1)
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML: {e}", file=sys.stderr)
+        sys.exit(2)
+
+
+def format_score(score: Optional[float]) -> str:
+    """Format a score for display."""
+    if score is None:
+        return "N/A"
+    return f"{score:.1f}"
+
+
+def format_percentage(value: Optional[float]) -> str:
+    """Format a percentage for display."""
+    if value is None:
+        return "N/A"
+    return f"{value:.1f}%"
+
+
+def get_confidence_emoji(confidence: str) -> str:
+    """Get emoji indicator for confidence level."""
+    return {
+        'high': '[OK]',
+        'medium': '[~]',
+        'low': '[ ]'
+    }.get(confidence, '[ ]')
+
+
+def display_header(title: str):
+    """Display a section header."""
+    width = 70
+    print("\n" + "=" * width)
+    print(f" {title}".center(width))
+    print("=" * width)
+
+
+def display_subheader(title: str):
+    """Display a subsection header."""
+    print(f"\n{title}")
+    print("-" * len(title))
+
+
+def display_skills_table(skills: list[dict], limit: Optional[int] = None):
+    """Display skills in a formatted table."""
+    if limit:
+        skills = skills[:limit]
+
+    # Header
+    print(f"\n{'Skill':<25} {'Score':>8} {'Success':>10} {'Time Eff':>10} {'Quality':>10} {'Conf':>8}")
+    print("-" * 75)
+
+    for skill in skills:
+        name = skill['name'][:24]
+        metrics = skill.get('metrics', {})
+        score = format_score(skill.get('effectiveness_score'))
+        success = format_percentage(metrics.get('success_rate'))
+        time_eff = format_percentage(metrics.get('time_efficiency'))
+        quality = format_score(metrics.get('quality_score'))
+        conf = skill.get('recommendations', {}).get('confidence', 'low')
+        conf_indicator = get_confidence_emoji(conf)
+
+        print(f"{name:<25} {score:>8} {success:>10} {time_eff:>10} {quality:>10} {conf_indicator:>8}")
+
+
+def display_category_performance(categories: list[dict]):
+    """Display category performance breakdown."""
+    print(f"\n{'Category':<20} {'Avg Score':>12} {'Tasks':>10} {'Success Rate':>15}")
+    print("-" * 60)
+
+    for cat in categories:
+        name = cat['category'].capitalize()
+        score = format_score(cat.get('avg_effectiveness'))
+        tasks = cat.get('total_tasks', 0)
+        success = format_percentage(cat.get('success_rate'))
+
+        print(f"{name:<20} {score:>12} {tasks:>10} {success:>15}")
+
+
+def display_roi_summary(roi: dict):
+    """Display ROI summary."""
+    time_saved = roi.get('total_time_saved_minutes', 0)
+    quality = roi.get('avg_quality_improvement')
+    cost_benefit = roi.get('cost_benefit_ratio')
+
+    print(f"\n  Total Time Saved: {time_saved} minutes ({time_saved // 60} hours)")
+    print(f"  Avg Quality Improvement: {format_percentage(quality)}")
+    print(f"  Cost-Benefit Ratio: {format_score(cost_benefit)}x")
+
+    if cost_benefit and cost_benefit > 1:
+        print(f"  [OK] Skills are delivering positive ROI")
+    elif cost_benefit:
+        print(f"  [!] Skills need optimization for positive ROI")
+
+
+def display_trends(skills: list[dict], outcomes: list[dict]):
+    """Display trend analysis."""
+    if not outcomes:
+        print("\n  No task outcomes available for trend analysis")
+        return
+
+    # Sort outcomes by timestamp
+    sorted_outcomes = sorted(
+        [o for o in outcomes if o.get('timestamp')],
+        key=lambda x: x['timestamp']
+    )
+
+    if len(sorted_outcomes) < 2:
+        print("\n  Insufficient data for trend analysis (need 2+ tasks)")
+        return
+
+    # Calculate recent vs overall metrics
+    recent_cutoff = len(sorted_outcomes) // 2
+    recent_outcomes = sorted_outcomes[recent_cutoff:]
+    older_outcomes = sorted_outcomes[:recent_cutoff]
+
+    recent_success = sum(1 for o in recent_outcomes if o.get('outcome') == 'success')
+    older_success = sum(1 for o in older_outcomes if o.get('outcome') == 'success')
+
+    recent_rate = (recent_success / len(recent_outcomes)) * 100 if recent_outcomes else 0
+    older_rate = (older_success / len(older_outcomes)) * 100 if older_outcomes else 0
+
+    print(f"\n  Recent Success Rate: {recent_rate:.1f}%")
+    print(f"  Earlier Success Rate: {older_rate:.1f}%")
+
+    if recent_rate > older_rate:
+        print(f"  [OK] Trending upward (+{recent_rate - older_rate:.1f}%)")
+    elif recent_rate < older_rate:
+        print(f"  [!] Trending downward ({recent_rate - older_rate:.1f}%)")
+    else:
+        print(f"  [~] Stable performance")
+
+    # Skill invocation rate
+    invoked_count = sum(1 for o in outcomes if o.get('skill_used'))
+    invocation_rate = (invoked_count / len(outcomes)) * 100
+
+    print(f"\n  Skill Invocation Rate: {invocation_rate:.1f}%")
+    print(f"  Total Tasks Tracked: {len(outcomes)}")
+
+
+def display_top_skills(skills: list[dict], limit: int = 5):
+    """Display top performing skills."""
+    scored_skills = [(s, s.get('effectiveness_score') or 0) for s in skills]
+    scored_skills.sort(key=lambda x: x[1], reverse=True)
+
+    display_skills_table([s for s, _ in scored_skills[:limit] if s.get('effectiveness_score')])
+
+
+def display_underperforming_skills(skills: list[dict], threshold: float = 50):
+    """Display underperforming skills."""
+    underperforming = [
+        s for s in skills
+        if s.get('effectiveness_score') is not None and s['effectiveness_score'] < threshold
+    ]
+
+    if underperforming:
+        print(f"\n  Skills below {threshold}% threshold:")
+        for skill in underperforming:
+            print(f"    - {skill['name']}: {skill['effectiveness_score']:.1f}%")
+    else:
+        print(f"\n  [OK] No skills below {threshold}% threshold")
+
+
+def display_recommendations(recommendations: list[dict]):
+    """Display skill selection recommendations."""
+    print(f"\n{'Scenario':<30} {'Recommended Skill':<25} {'Confidence':>12}")
+    print("-" * 70)
+
+    for rec in recommendations:
+        scenario = rec.get('scenario', 'Unknown')[:28]
+        skill = rec.get('recommended_skill', 'None')[:23]
+        conf = rec.get('confidence', 'low')
+        conf_indicator = get_confidence_emoji(conf)
+
+        print(f"{scenario:<30} {skill:<25} {conf_indicator:>12}")
+
+
+def display_full_dashboard(metrics_data: dict):
+    """Display the full skill dashboard."""
+    skills = metrics_data.get('skills', [])
+    analysis = metrics_data.get('analysis', {})
+    outcomes = metrics_data.get('task_outcomes', [])
+    metadata = metrics_data.get('metadata', {})
+
+    # Header
+    display_header("SKILL EFFECTIVENESS DASHBOARD")
+
+    # Metadata
+    last_updated = metadata.get('last_updated', 'Unknown')
+    total_tasks = metadata.get('total_tasks_tracked', 0)
+    print(f"\n  Last Updated: {last_updated}")
+    print(f"  Total Tasks Tracked: {total_tasks}")
+
+    # Top Skills
+    display_subheader("TOP PERFORMING SKILLS")
+    display_top_skills(skills)
+
+    # Category Performance
+    display_subheader("CATEGORY PERFORMANCE")
+    categories = analysis.get('category_performance', [])
+    if categories:
+        display_category_performance(categories)
+    else:
+        print("\n  No category data available")
+
+    # ROI Summary
+    display_subheader("ROI SUMMARY")
+    roi = analysis.get('roi_summary', {})
+    display_roi_summary(roi)
+
+    # Trends
+    display_subheader("TRENDS")
+    display_trends(skills, outcomes)
+
+    # Underperforming
+    display_subheader("UNDERPERFORMING SKILLS")
+    display_underperforming_skills(skills)
+
+    # Recommendations
+    display_subheader("SELECTION RECOMMENDATIONS")
+    recommendations = analysis.get('skill_selection_recommendations', [])
+    if recommendations:
+        display_recommendations(recommendations)
+    else:
+        print("\n  No recommendations available")
+
+    # All Skills
+    display_subheader("ALL SKILLS")
+    display_skills_table(skills)
+
+    print("\n" + "=" * 70)
+    print("Use 'bb5 skill-dashboard --json' for machine-readable output")
+    print("=" * 70)
+
+
+def output_json(metrics_data: dict):
+    """Output metrics as JSON."""
+    print(json.dumps(metrics_data, indent=2, default=str))
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Display skill effectiveness dashboard",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+    bb5 skill-dashboard              Show full dashboard
+    bb5 skill-dashboard --skills     List skills only
+    bb5 skill-dashboard --json       Output as JSON
+        """
+    )
+
+    parser.add_argument(
+        '--json',
+        action='store_true',
+        help='Output as JSON'
+    )
+    parser.add_argument(
+        '--skills',
+        action='store_true',
+        help='Show skills table only'
+    )
+    parser.add_argument(
+        '--categories',
+        action='store_true',
+        help='Show category breakdown only'
+    )
+    parser.add_argument(
+        '--trends',
+        action='store_true',
+        help='Show trends only'
+    )
+    parser.add_argument(
+        '--roi',
+        action='store_true',
+        help='Show ROI summary only'
+    )
+    parser.add_argument(
+        '--project-dir',
+        type=str,
+        default=str(DEFAULT_PROJECT_DIR),
+        help='Project directory containing operations/ folder'
+    )
+
+    args = parser.parse_args()
+
+    project_dir = Path(args.project_dir).resolve()
+    metrics_file = project_dir / 'operations' / 'skill-metrics.yaml'
+
+    # Load metrics data
+    metrics_data = load_yaml_file(metrics_file)
+
+    if args.json:
+        output_json(metrics_data)
+        return 0
+
+    skills = metrics_data.get('skills', [])
+    analysis = metrics_data.get('analysis', {})
+    outcomes = metrics_data.get('task_outcomes', [])
+
+    if args.skills:
+        display_skills_table(skills)
+    elif args.categories:
+        categories = analysis.get('category_performance', [])
+        if categories:
+            display_category_performance(categories)
+        else:
+            print("No category data available")
+    elif args.trends:
+        display_trends(skills, outcomes)
+    elif args.roi:
+        roi = analysis.get('roi_summary', {})
+        display_roi_summary(roi)
+    else:
+        display_full_dashboard(metrics_data)
+
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

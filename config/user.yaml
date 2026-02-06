@@ -1,0 +1,53 @@
+# BlackBox5 User Configuration
+# =============================
+# Version: 2.0.0
+#
+# This file contains user-specific configuration overrides.
+# It has the highest precedence among file-based configs.
+#
+# Configuration Hierarchy:
+#   1. Environment Variables
+#   2. User Config (this file) <- You are here
+#   3. Project Config (project.yaml)
+#   4. Engine Config (engine.yaml)
+#   5. Base Defaults (base.yaml)
+
+version: "2.0.0"
+
+# ============================================================================
+# User Preferences
+# ============================================================================
+system:
+  log_level: "INFO"
+  timezone: "UTC"
+  debug_mode: false
+
+# ============================================================================
+# User-Specific Paths
+# ============================================================================
+paths:
+  # Override if your BlackBox5 installation is in a non-standard location
+  # blackbox5_home: "~/custom/blackbox5"
+
+# ============================================================================
+# User Preferences
+# ============================================================================
+cli:
+  output:
+    default_format: text
+    color: auto
+
+  editor:
+    default: auto  # Uses $EDITOR, then $VISUAL, then vim
+
+# ============================================================================
+# Personal Integrations (Use environment variables for secrets!)
+# ============================================================================
+integrations:
+  github:
+    enabled: true
+    # token: ${GITHUB_TOKEN}  # Set via environment variable
+
+# ============================================================================
+# End of Configuration
+# ============================================================================

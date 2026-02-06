@@ -1,0 +1,619 @@
+# BlackBox5 Agent Registry
+# Single source of truth for all autonomous agents in the system
+# Location: @.autonomous/agents/agent-registry.yaml
+#
+# Created: 2026-02-06
+# Version: 1.0.0
+# Status: Active
+
+---
+
+metadata:
+  registry_version: "1.0.0"
+  created: "2026-02-06T00:00:00Z"
+  last_updated: "2026-02-06T00:00:00Z"
+  updated_by: "system"
+  description: "Central registry for all BlackBox5 autonomous agents"
+  total_agents: 10
+
+---
+
+# ============================================================================
+# ACTIVE AGENTS
+# ============================================================================
+
+agents:
+  # --------------------------------------------------------------------------
+  # Scout Agent
+  # --------------------------------------------------------------------------
+  scout:
+    id: "scout"
+    name: "RALF Scout Agent"
+    type: bash
+    status: active
+    version: "1.0.0"
+    description: "GitHub Repo Discovery & Extraction - Extracts key knowledge from GitHub repos"
+    path: ".autonomous/agents/scout/"
+    script: "scout-agent.sh"
+    capabilities:
+      - github_repo_cloning
+      - metadata_extraction
+      - readme_summarization
+      - structure_analysis
+      - language_detection
+      - star_count_retrieval
+      - event_logging
+      - heartbeat_management
+    dependencies:
+      - communications/queue.yaml
+      - communications/events.yaml
+      - 6-roadmap/research/external/GitHub/repo-list.yaml
+    outputs:
+      - path: ".autonomous/agents/scout/extractions/"
+        format: yaml
+        description: "Extracted repo data"
+    triggers:
+      - scheduled
+      - manual
+    priority: high
+    created: "2026-02-01"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # Analyzer Agent
+  # --------------------------------------------------------------------------
+  analyzer:
+    id: "analyzer"
+    name: "RALF Analyzer Agent"
+    type: hybrid
+    status: active
+    version: "1.0.0"
+    description: "Data Summarization & Pattern Recognition - Analyzes scout extractions"
+    path: ".autonomous/agents/analyzer/"
+    script: "analyzer-agent.sh"
+    capabilities:
+      - pattern_recognition
+      - concept_extraction
+      - category_classification
+      - relevance_scoring
+      - complexity_analysis
+      - cross_repo_analysis
+      - summary_generation
+      - master_report_creation
+      - event_logging
+      - heartbeat_management
+    dependencies:
+      - scout/extractions/
+      - communications/events.yaml
+      - communications/heartbeat.yaml
+    outputs:
+      - path: ".autonomous/agents/analyzer/summaries/"
+        format: yaml
+        description: "Analysis summaries per repo"
+      - path: ".autonomous/agents/analyzer/concepts/"
+        format: yaml
+        description: "Cross-repo concept mappings"
+    triggers:
+      - event: "scout_extraction_complete"
+      - scheduled
+      - manual
+    priority: high
+    created: "2026-02-01"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # Planner Agent
+  # --------------------------------------------------------------------------
+  planner:
+    id: "planner"
+    name: "RALF Planner Agent"
+    type: bash
+    status: active
+    version: "1.0.0"
+    description: "Integration Planning - Reviews analyzer summaries and creates integration plans"
+    path: ".autonomous/agents/planner/"
+    script: "planner-agent.sh"
+    capabilities:
+      - integration_planning
+      - priority_assessment
+      - timeline_estimation
+      - task_generation
+      - strategy_formulation
+      - category_based_planning
+      - master_index_creation
+      - queue_management
+      - event_logging
+      - heartbeat_management
+    dependencies:
+      - analyzer/summaries/
+      - communications/queue.yaml
+      - communications/events.yaml
+      - communications/heartbeat.yaml
+    outputs:
+      - path: ".autonomous/agents/planner/integration-plans/"
+        format: markdown
+        description: "Integration plans per repo"
+      - path: "tasks/active/"
+        format: markdown
+        description: "Auto-generated tasks"
+    triggers:
+      - event: "analyzer_summary_ready"
+      - scheduled
+      - manual
+    priority: critical
+    created: "2026-02-01"
+    last_run: "2026-02-03T23:43:34+07:00"
+
+  # --------------------------------------------------------------------------
+  # Executor Agent
+  # --------------------------------------------------------------------------
+  executor:
+    id: "executor"
+    name: "RALF Executor Agent"
+    type: bash
+    status: active
+    version: "1.0.0"
+    description: "Task Execution - Executes planned tasks and manages git operations"
+    path: ".autonomous/agents/executor/"
+    capabilities:
+      - task_execution
+      - git_operations
+      - status_reporting
+      - state_updates
+      - code_implementation
+      - testing
+      - documentation
+    dependencies:
+      - communications/queue.yaml
+      - communications/events.yaml
+      - communications/heartbeat.yaml
+    outputs:
+      - path: ".autonomous/agents/executor/runs/"
+        format: mixed
+        description: "Execution run artifacts"
+    triggers:
+      - event: "task_assigned"
+      - queue_depth_threshold
+    priority: critical
+    created: "2026-02-01"
+    last_run: "2026-02-03T23:43:34+07:00"
+
+  # --------------------------------------------------------------------------
+  # Architect Agent
+  # --------------------------------------------------------------------------
+  architect:
+    id: "architect"
+    name: "RALF Architect Agent"
+    type: hybrid
+    status: active
+    version: "1.0.0"
+    description: "System Architecture & Design - Handles complex architectural decisions"
+    path: ".autonomous/agents/architect/"
+    capabilities:
+      - system_design
+      - pattern_definition
+      - scalability_planning
+      - integration_architecture
+      - technical_decisions
+      - documentation
+    dependencies:
+      - communications/events.yaml
+    outputs:
+      - path: ".autonomous/agents/architect/runs/"
+        format: mixed
+        description: "Architecture run artifacts"
+    triggers:
+      - event: "architecture_request"
+      - manual
+    priority: high
+    created: "2026-02-04"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # Communications Agent
+  # --------------------------------------------------------------------------
+  communications:
+    id: "communications"
+    name: "RALF Communications Hub"
+    type: yaml
+    status: active
+    version: "1.0.0"
+    description: "Central communication coordinator for all agents - manages events, queue, heartbeat"
+    path: ".autonomous/agents/communications/"
+    capabilities:
+      - event_management
+      - queue_coordination
+      - heartbeat_tracking
+      - agent_state_management
+      - chat_logging
+      - protocol_enforcement
+    components:
+      - file: "protocol.yaml"
+        description: "Dual-RALF communication protocol specification"
+      - file: "queue.yaml"
+        description: "Task queue for agent coordination"
+      - file: "events.yaml"
+        description: "Event log for agent activities"
+      - file: "heartbeat.yaml"
+        description: "Agent health and status tracking"
+      - file: "chat-log.yaml"
+        description: "Inter-agent communication log"
+      - file: "agent-state.yaml"
+        description: "Current agent state registry"
+    dependencies: []
+    outputs: []
+    triggers:
+      - continuous
+    priority: critical
+    created: "2026-02-01"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # Execution State Manager
+  # --------------------------------------------------------------------------
+  execution:
+    id: "execution"
+    name: "RALF Execution State Manager"
+    type: yaml
+    status: active
+    version: "1.0.0"
+    description: "Parallel execution framework with 5 specialized slots for concurrent task execution"
+    path: ".autonomous/agents/execution/"
+    capabilities:
+      - parallel_execution
+      - slot_management
+      - resource_allocation
+      - wave_scheduling
+      - dependency_tracking
+      - health_monitoring
+      - metrics_collection
+    components:
+      - file: "execution-state.yaml"
+        description: "Runtime state for 5 execution slots"
+    execution_slots:
+      - slot_1: "CPU Bound - High-computation tasks"
+      - slot_2: "I/O Bound - File and documentation operations"
+      - slot_3: "Memory Bound - Data-intensive tasks"
+      - slot_4: "Network Bound - External communication"
+      - slot_5: "Reserve - Overflow and critical tasks"
+    dependencies: []
+    outputs: []
+    triggers:
+      - continuous
+    priority: critical
+    created: "2026-02-05"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # Metrics Agent
+  # --------------------------------------------------------------------------
+  metrics:
+    id: "metrics"
+    name: "RALF Metrics Dashboard"
+    type: yaml
+    status: active
+    version: "1.0.0"
+    description: "Comprehensive tracking for autonomous system performance and ROI"
+    path: ".autonomous/agents/metrics/"
+    capabilities:
+      - health_score_tracking
+      - baseline_metrics
+      - target_tracking
+      - weekly_reporting
+      - time_savings_calculation
+      - roi_analysis
+      - alert_threshold_monitoring
+    components:
+      - file: "metrics-dashboard.yaml"
+        description: "Comprehensive metrics and KPI tracking"
+    metrics_tracked:
+      - health_score
+      - security_vulnerabilities
+      - performance_bottlenecks
+      - task_completion_rate
+      - documentation_completeness
+      - test_coverage
+      - autonomous_executions
+      - time_savings
+      - roi
+    dependencies: []
+    outputs: []
+    triggers:
+      - scheduled: weekly
+      - event: "metrics_request"
+    priority: medium
+    created: "2026-02-05"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # Reanalysis Agent
+  # --------------------------------------------------------------------------
+  reanalysis:
+    id: "reanalysis"
+    name: "RALF Reanalysis Engine"
+    type: yaml
+    status: active
+    version: "1.0.0"
+    description: "Task reanalysis engine - maintains task relevance and priority automatically"
+    path: ".autonomous/agents/reanalysis/"
+    capabilities:
+      - trigger_detection
+      - task_relevance_evaluation
+      - priority_adjustment
+      - invalidation_rules
+      - dependency_analysis
+      - workflow_management
+      - state_machine_tracking
+    components:
+      - file: "reanalysis-registry.yaml"
+        description: "Trigger types, conditions, and actions for reanalysis"
+    trigger_types:
+      - structural_change
+      - dependency_complete
+      - health_drop
+      - time_based
+      - failure_pattern
+    dependencies:
+      - communications/events.yaml
+      - tasks/active/
+    outputs: []
+    triggers:
+      - git_hooks
+      - task_events
+      - scheduled
+    priority: high
+    created: "2026-02-05"
+    last_run: null
+
+  # --------------------------------------------------------------------------
+  # GitHub Analysis Pipeline
+  # --------------------------------------------------------------------------
+  github-analysis-pipeline:
+    id: "github-analysis-pipeline"
+    name: "GitHub Analysis Pipeline"
+    type: bash
+    status: active
+    version: "1.0.0"
+    description: "3-Agent RALF System - Runs Scout → Analyzer → Planner in sequence, looping for 8 hours"
+    path: ".autonomous/agents/"
+    script: "github-analysis-pipeline.sh"
+    capabilities:
+      - multi_agent_orchestration
+      - sequential_pipeline_execution
+      - cycle_management
+      - logging
+      - error_handling
+      - runtime_management
+    orchestrates:
+      - scout
+      - analyzer
+      - planner
+    dependencies:
+      - scout-agent.sh
+      - analyzer-agent.sh
+      - planner-agent.sh
+    outputs:
+      - path: ".autonomous/agents/logs/"
+        format: mixed
+        description: "Pipeline execution logs"
+    triggers:
+      - scheduled
+      - manual
+    priority: high
+    created: "2026-02-01"
+    last_run: null
+
+---
+
+# ============================================================================
+# AGENT TYPE DEFINITIONS
+# ============================================================================
+
+types:
+  bash:
+    description: "Shell script-based agent"
+    extension: ".sh"
+    execution: "bash"
+    advantages:
+      - fast_execution
+      - system_integration
+      - file_operations
+    use_cases:
+      - file_manipulation
+      - git_operations
+      - system_commands
+
+  python:
+    description: "Python script-based agent"
+    extension: ".py"
+    execution: "python3"
+    advantages:
+      - complex_logic
+      - data_processing
+      - api_integration
+    use_cases:
+      - data_analysis
+      - ml_operations
+      - complex_calculations
+
+  hybrid:
+    description: "Bash with embedded Python"
+    extension: ".sh"
+    execution: "bash + python3"
+    advantages:
+      - best_of_both_worlds
+      - yaml_processing
+      - complex_parsing
+    use_cases:
+      - data_extraction
+      - format_conversion
+      - yaml_manipulation
+
+  yaml:
+    description: "Configuration/state-based agent"
+    extension: ".yaml"
+    execution: "n/a"
+    advantages:
+      - declarative
+      - human_readable
+      - version_control_friendly
+    use_cases:
+      - state_management
+      - configuration
+      - data_storage
+
+---
+
+# ============================================================================
+# STATUS DEFINITIONS
+# ============================================================================
+
+statuses:
+  active:
+    description: "Agent is operational and available"
+    color: "green"
+    action: "Can be scheduled or triggered"
+
+  deprecated:
+    description: "Agent is being phased out"
+    color: "orange"
+    action: "Use replacement agent if available"
+
+  experimental:
+    description: "Agent is in testing phase"
+    color: "yellow"
+    action: "Use with caution, may have bugs"
+
+  inactive:
+    description: "Agent is temporarily disabled"
+    color: "gray"
+    action: "Check dependencies or errors"
+
+---
+
+# ============================================================================
+# CAPABILITY CATEGORIES
+# ============================================================================
+
+capability_categories:
+  data_processing:
+    - extraction
+    - analysis
+    - summarization
+    - pattern_recognition
+
+  task_management:
+    - planning
+    - execution
+    - tracking
+    - reporting
+
+  communication:
+    - event_logging
+    - heartbeat_management
+    - queue_coordination
+    - chat_messaging
+
+  system_operations:
+    - git_operations
+    - file_operations
+    - state_management
+    - monitoring
+
+  intelligence:
+    - categorization
+    - scoring
+    - recommendation
+    - decision_making
+
+---
+
+# ============================================================================
+# AGENT RELATIONSHIPS
+# ============================================================================
+
+relationships:
+  pipeline:
+    description: "Sequential data flow"
+    sequence:
+      - scout
+      - analyzer
+      - planner
+      - executor
+
+  orchestration:
+    description: "Parent-child relationship"
+    parent: "github-analysis-pipeline"
+    children:
+      - scout
+      - analyzer
+      - planner
+
+  communication:
+    description: "Shared communication hub"
+    hub: "communications"
+    connected_agents:
+      - scout
+      - analyzer
+      - planner
+      - executor
+      - architect
+
+  monitoring:
+    description: "Metrics and health tracking"
+    monitor: "metrics"
+    tracked_agents:
+      - all
+
+  maintenance:
+    description: "Task reanalysis and maintenance"
+    engine: "reanalysis"
+    affected_agents:
+      - all
+
+---
+
+# ============================================================================
+# VERSION HISTORY
+# ============================================================================
+
+version_history:
+  - version: "1.0.0"
+    date: "2026-02-06"
+    changes:
+      - "Initial registry creation"
+      - "Registered 10 agents"
+      - "Defined agent types and statuses"
+      - "Documented capabilities and relationships"
+
+---
+
+# ============================================================================
+# USAGE NOTES
+# ============================================================================
+
+usage:
+  adding_agent: |
+    1. Create agent directory under .autonomous/agents/
+    2. Add entry to this registry
+    3. Update total_agents count
+    4. Document capabilities and dependencies
+    5. Update relationships if needed
+
+  updating_agent: |
+    1. Update version number
+    2. Update last_updated timestamp
+    3. Document changes in version_history
+    4. Update capabilities if changed
+
+  deprecating_agent: |
+    1. Change status to "deprecated"
+    2. Add deprecation_notice with replacement
+    3. Update relationships to reflect change
+    4. Document in version_history
+
+  finding_agents: |
+    By capability: Search capabilities list
+    By type: Filter by type field
+    By status: Filter by status field
+    By priority: Filter by priority field

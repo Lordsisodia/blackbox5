@@ -1,0 +1,316 @@
+#!/usr/bin/env python3
+"""BB5 Dashboard - Live terminal UI for system monitoring."""
+
+import os
+import signal
+import sys
+import time
+from datetime import datetime
+from typing import List, Optional
+
+import click
+from rich.console import Console
+from rich.layout import Layout
+from rich.live import Live
+from rich.panel import Panel
+from rich.table import Table
+from rich.text import Text
+
+# Add lib to path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
+
+from health_monitor import (
+    collect_all,
+    collect_queue,
+    collect_heartbeat,
+    collect_events,
+    calculate_health_score,
+    detect_stuck_tasks,
+    get_recent_snapshots,
+)
+from health_monitor.utils import format_duration, get_health_color
+
+console = Console()
+
+
+class Dashboard:
+    """Live dashboard for BB5 health monitoring."""
+
+    def __init__(self, refresh_interval: int = 5):
+        self.refresh_interval = refresh_interval
+        self.running = True
+        self.paused = False
+        self.history: List[dict] = []
+        self.max_history = 60  # 5 minutes at 5s intervals
+        self.focus = 'overview'
+        self.needs_redraw = True
+
+        # Setup signal handlers
+        signal.signal(signal.SIGWINCH, self._on_resize)
+
+    def _on_resize(self, signum, frame):
+        """Handle terminal resize."""
+        self.needs_redraw = True
+
+    def run(self):
+        """Main dashboard loop."""
+        layout = self._make_layout()
+
+        with Live(layout, refresh_per_second=4, screen=True) as live:
+            while self.running:
+                if not self.paused:
+                    data = self._collect_data()
+                    self.history.append(data)
+                    self.history = self.history[-self.max_history:]
+
+                    layout = self._update_layout(layout, data)
+                    live.update(layout)
+
+                # Check for input
+                self._check_input()
+                time.sleep(self.refresh_interval)
+
+    def _collect_data(self) -> dict:
+        """Collect current system state."""
+        tasks = collect_queue()
+        agents = collect_heartbeat()
+        events = collect_events()
+        metrics = collect_all()['metrics']
+
+        score, status, details = calculate_health_score(tasks, agents, events, metrics)
+        stuck = detect_stuck_tasks(tasks, events)
+
+        pending = sum(1 for t in tasks if t.is_pending)
+        in_progress = sum(1 for t in tasks if t.is_in_progress)
+        completed = sum(1 for t in tasks if t.is_completed)
+
+        return {
+            'timestamp': datetime.now(),
+            'health_score': score,
+            'status': status.value,
+            'queue_pending': pending,
+            'queue_in_progress': in_progress,
+            'queue_completed': completed,
+            'agents': agents,
+            'stuck': stuck,
+            'events': events[-5:],  # Last 5 events
+        }
+
+    def _make_layout(self) -> Layout:
+        """Create dashboard layout."""
+        layout = Layout(name="root")
+
+        layout.split(
+            Layout(name="header", size=3),
+            Layout(name="main", ratio=1),
+            Layout(name="footer", size=3)
+        )
+
+        layout["main"].split_row(
+            Layout(name="left", ratio=1),
+            Layout(name="right", ratio=1)
+        )
+
+        return layout
+
+    def _update_layout(self, layout: Layout, data: dict) -> Layout:
+        """Update layout with current data."""
+        # Header
+        timestamp = data['timestamp'].strftime('%Y-%m-%d %H:%M:%S')
+        hostname = os.uname().nodename if hasattr(os, 'uname') else 'localhost'
+
+        header_text = f"BB5 Dashboard    VPS: {hostname}    {timestamp}"
+        if self.paused:
+            header_text += "    [PAUSED]"
+
+        layout["header"].update(Panel(
+            header_text,
+            border_style=get_health_color(data['health_score'])
+        ))
+
+        # Overall score bar
+        score = data['health_score']
+        color = get_health_color(score)
+        filled = int(score / 2.5)  # Scale to ~40 chars
+        bar = "█" * filled + "░" * (40 - filled)
+
+        score_text = Text()
+        score_text.append(f"OVERALL: [{color}]{bar}[/{color}] {score}% ")
+        score_text.append(f"[{data['status'].upper()}]", style=color)
+
+        # Left panel - Queue and Agents
+        left_content = []
+
+        # Queue section
+        queue_table = Table(show_header=True, header_style="bold magenta")
+        queue_table.add_column("Metric", style="cyan")
+        queue_table.add_column("Value", justify="right")
+        queue_table.add_column("Bar", width=20)
+
+        total = max(1, data['queue_pending'] + data['queue_in_progress'] + data['queue_completed'])
+
+        queue_table.add_row(
+            "Pending",
+            str(data['queue_pending']),
+            "█" * int(20 * data['queue_pending'] / total)
+        )
+        queue_table.add_row(
+            "In Progress",
+            str(data['queue_in_progress']),
+            "█" * int(20 * data['queue_in_progress'] / total)
+        )
+        queue_table.add_row(
+            "Completed",
+            str(data['queue_completed']),
+            "█" * int(20 * data['queue_completed'] / total)
+        )
+
+        left_content.append(Panel(queue_table, title="Queue", border_style="blue"))
+
+        # Agents section
+        agents_table = Table(show_header=True, header_style="bold magenta")
+        agents_table.add_column("Agent", style="cyan")
+        agents_table.add_column("Status")
+        agents_table.add_column("Last Seen")
+
+        for agent in data['agents']:
+            status_color = "green" if agent.is_online() else "red" if agent.seconds_since_seen() > 240 else "yellow"
+            status = "● online" if agent.is_online() else "⚠ stale"
+            agents_table.add_row(
+                agent.name,
+                f"[{status_color}]{status}[/{status_color}]",
+                format_duration(agent.seconds_since_seen()) + " ago"
+            )
+
+        left_content.append(Panel(agents_table, title="Agents", border_style="blue"))
+
+        # Sparkline
+        if len(self.history) > 1:
+            spark = self._sparkline([h['health_score'] for h in self.history], width=30)
+            left_content.append(Panel(
+                f"Health Trend (1h): {spark}",
+                border_style="blue"
+            ))
+
+        layout["left"].update(Panel(
+            "\n".join(str(c) for c in left_content),
+            border_style="blue"
+        ))
+
+        # Right panel - Stuck tasks and Events
+        right_content = []
+
+        # Stuck tasks
+        if data['stuck']:
+            stuck_table = Table(show_header=True, header_style="bold red")
+            stuck_table.add_column("Task", style="cyan")
+            stuck_table.add_column("Duration")
+
+            for s in data['stuck'][:5]:
+                stuck_table.add_row(s.task.id, s.stuck_duration)
+
+            if len(data['stuck']) > 5:
+                stuck_table.add_row("...", f"{len(data['stuck']) - 5} more")
+
+            right_content.append(Panel(stuck_table, title="Stuck Tasks", border_style="red"))
+
+        # Recent events
+        events_table = Table(show_header=True, header_style="bold green")
+        events_table.add_column("Time", style="dim")
+        events_table.add_column("Event")
+
+        for e in data['events']:
+            time_str = e.timestamp.strftime('%H:%M:%S') if e.timestamp else '?'
+            events_table.add_row(time_str, e.event_type)
+
+        right_content.append(Panel(events_table, title="Recent Events", border_style="green"))
+
+        layout["right"].update(Panel(
+            "\n".join(str(c) for c in right_content),
+            border_style="green"
+        ))
+
+        # Footer
+        footer_text = "[Q]uit  [P]ause  [R]efresh  Refresh: {}s".format(self.refresh_interval)
+        layout["footer"].update(Panel(footer_text, border_style="dim"))
+
+        return layout
+
+    def _sparkline(self, values: List[float], width: int = 40) -> str:
+        """Generate sparkline string from values."""
+        if not values:
+            return " " * width
+
+        blocks = " ▁▂▃▄▅▆▇█"
+        min_val = min(values)
+        max_val = max(values)
+
+        if max_val == min_val:
+            return "█" * width
+
+        step = len(values) / width
+        result = []
+
+        for i in range(width):
+            idx = int(i * step)
+            if idx < len(values):
+                val = values[idx]
+                normalized = (val - min_val) / (max_val - min_val)
+                block_idx = int(normalized * (len(blocks) - 1))
+                result.append(blocks[block_idx])
+            else:
+                result.append(" ")
+
+        return "".join(result)
+
+    def _check_input(self):
+        """Check for keyboard input (non-blocking)."""
+        import select
+        import termios
+        import tty
+
+        # Save terminal settings
+        old_settings = termios.tcgetattr(sys.stdin)
+
+        try:
+            # Set terminal to raw mode for single character input
+            tty.setcbreak(sys.stdin.fileno())
+
+            # Check if input is available
+            if select.select([sys.stdin], [], [], 0)[0]:
+                char = sys.stdin.read(1).lower()
+
+                if char == 'q':
+                    self.running = False
+                elif char == 'p':
+                    self.paused = not self.paused
+                elif char == 'r':
+                    self.needs_redraw = True
+
+        finally:
+            # Restore terminal settings
+            termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
+
+
+@click.command()
+@click.option('--refresh', '-r', default=5, help='Refresh interval in seconds')
+@click.option('--focus', '-f', type=click.Choice(['overview', 'agents', 'queue']), default='overview')
+def main(refresh: int, focus: str):
+    """BB5 Dashboard - Live system monitoring."""
+    console.clear()
+    console.show_cursor(False)
+
+    try:
+        dashboard = Dashboard(refresh_interval=refresh)
+        dashboard.focus = focus
+        dashboard.run()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        console.clear()
+        console.show_cursor(True)
+        console.print("Dashboard closed.")
+
+
+if __name__ == '__main__':
+    main()

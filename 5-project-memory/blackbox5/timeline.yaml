@@ -199,6 +199,15 @@ events:
 
   - date: "2026-02-06"
     type: "milestone"
+    title: "Task Completed: 4"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "4"
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "milestone"
     title: "Task Completed: 59"
     description: "Task marked as completed via TaskUpdate"
     impact: "low"
