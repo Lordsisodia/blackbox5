@@ -1,0 +1,232 @@
+---
+name: SISO BB5 Personal Preferences
+version: 1.0.0
+project: blackbox5
+created: 2026-02-06
+---
+
+# Personal Preferences for BlackBox5
+
+This file customizes Claude's behavior for my BB5 workflow.
+It extends `~/.claude/CLAUDE.md` with project-specific preferences.
+
+---
+
+## Output Style Overrides
+
+### Communication
+- Default: Follow global ultra-terse style
+- Exceptions:
+  - Explain reasoning for architecture decisions
+  - Verbose mode when I ask "how does X work?"
+  - Use tables for multi-item comparisons
+
+### Code Changes
+- Always show diff-style output with line numbers
+- Include before/after for significant changes
+- Group related changes in single block
+
+---
+
+## Agent Preferences
+
+### Default Behavior
+- Primary: Direct Claude for most tasks
+- Auto-switch to RALF when:
+  - Task queue is empty and I say "find work"
+  - Continuous iteration needed (pattern matching, refactoring)
+  - Long-running background work (>30 min estimated)
+
+### Delegation Rules
+- Don't ask before switching — just notify me
+- Never delegate security or database changes
+- Always delegate "find all occurrences" tasks
+
+---
+
+## bb5 Command Shortcuts
+
+### My Aliases
+| Alias | Expands To | When to Use |
+|-------|------------|-------------|
+| `bb5 here` | `bb5 whereami` | Quick context check |
+| `bb5 next` | `bb5 task:list --status=pending --limit=5` | See next tasks |
+| `bb5 current` | `bb5 task:current` | What am I working on? |
+| `bb5 recent` | `bb5 runs:list --limit=10` | Recent activity |
+| `bb5 done` | `bb5 task:complete --with-learnings` | Finish current task |
+| `bb5 todo` | `bb5 task:create --template=quick` | Quick task creation |
+
+### Default Flags
+- Always use `--with-context` for task creation
+- Default sort: priority desc, created asc
+- Show task IDs in all lists
+
+---
+
+## Workflow Preferences
+
+### Task Handling
+- Auto-claim: Yes, when task is clear and <2 hours
+- Auto-create runs: Yes, always create run folder
+- Default commit message format: `type(scope): description`
+
+### Documentation Style
+- LEARNINGS.md: Required for every run
+- DECISIONS.md: When choosing between >2 options
+- ASSUMPTIONS.md: Stream of consciousness, don't polish
+- RESULTS.md: Bullet points, not prose
+
+### Commit Preferences
+```
+type(scope): description
+
+- Detail 1
+- Detail 2
+
+Task: TASK-XXX
+```
+
+Types: feat, fix, docs, refactor, test, chore
+Always include: Task ID, Co-authored-by line
+
+---
+
+## Modified Stop Conditions
+
+### Additional Stop Triggers
+- Estimated time >4 hours
+- Touching >5 files in critical path
+- Changing files I didn't author
+- Task description <10 words (clarify first)
+
+### Skip Confirmation For
+- Adding tests (even to production code)
+- Documentation improvements
+- Refactoring with tests in place
+- Config updates (non-production)
+- File reads and searches
+
+---
+
+## Testing Approach
+
+### Always Write Tests For
+- New features
+- Bug fixes (regression test)
+- Public APIs
+- Complex logic (>10 lines)
+
+### Test Style
+- Arrange-Act-Assert comments
+- Descriptive test names: `should_X_when_Y`
+- One assertion per test (preferably)
+
+### Skip Tests For
+- Simple getters/setters
+- Config files
+- Type definitions
+- Obvious glue code
+
+---
+
+## Context Management
+
+### At 70% Usage
+- Summarize THOUGHTS.md (keep last 10 entries)
+- Keep all DECISIONS.md and ASSUMPTIONS.md
+- Preserve current task objective
+
+### At 85% Usage
+- Complete current subtask
+- Exit with PARTIAL status
+- Document exact next steps
+
+### What to Preserve
+- Current task objective
+- Recent decisions (last 5)
+- Open questions
+- Blockers
+
+---
+
+## Notification Preferences
+
+### Tell Me About
+- Task completion (1 line summary)
+- Blockers (immediate)
+- Unexpected errors (with context)
+- Context rollover (brief notice)
+- Agent switches
+
+### Don't Tell Me About
+- Individual file reads
+- Successful tool calls
+- Normal workflow steps
+- Cache hits
+
+### Progress Updates
+- Every 30 minutes for long tasks
+- At completion of each subtask
+- When switching agents
+
+---
+
+## My Active Goals
+
+### Current Sprint Focus
+- Improve task queue processing speed
+- Refactor agent communication layer
+- Document new autonomous features
+
+### Long-term Objectives
+- Achieve 90% autonomous task completion
+- Reduce manual intervention to <5%
+- Build comprehensive skill library
+
+---
+
+## Known Preferences
+
+### Code Style
+- Prefer explicit over implicit
+- Early returns over nested conditionals
+- Descriptive variable names (even if longer)
+- Comments explain "why", code explains "what"
+
+### Architecture
+- Favor composition over inheritance
+- Small, focused modules
+- Clear interfaces between components
+- Event-driven for async operations
+
+### Documentation
+- README for every module
+- Docstrings for public APIs
+- Examples in documentation
+- Keep docs close to code
+
+---
+
+## Overrides from Global
+
+| Global Rule | Local Override | Reason |
+|-------------|----------------|--------|
+| Always ask before production code | Skip for tests | Tests are safe to add freely |
+| 1-3 line responses | Allow verbose for learning | I want to understand new concepts |
+| Default agent: Direct | Auto-delegate pattern tasks | RALF is better at bulk operations |
+
+---
+
+## Version History
+
+### v1.0.0 (2026-02-06)
+- Initial preferences
+- Output style overrides
+- bb5 shortcuts
+- Workflow preferences
+- Testing approach
+
+---
+
+*Last updated: 2026-02-06*
+*Copy this file to your project root as `CLAUDE.local.md` and customize*

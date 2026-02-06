@@ -1,0 +1,353 @@
+---
+name: BlackBox5 Project Configuration
+version: 1.0.0
+device: blackbox5
+last_synced: 2026-02-06
+includes:
+  - @~/.claude/OUTPUT_STYLE.md
+---
+
+# BlackBox5 Project Configuration
+
+**Summary:** High signal, low noise. Use @path imports for BB5 state. Create tasks for >30min work. Document learnings in every run.
+
+---
+
+## Quick Context
+
+<!-- Auto-generated context for this session -->
+@/AGENT_CONTEXT.md
+
+---
+
+## Current Project State
+
+<!-- Complete project structure, active tasks, system status -->
+@/STATE.yaml
+
+---
+
+## Active Goals
+
+<!-- Autonomous agent goals and improvement targets -->
+@/goals.yaml
+
+---
+
+## Recent Activity
+
+<!-- Project timeline and milestones -->
+@/timeline.yaml
+
+---
+
+## Active Tasks
+
+<!-- Current work in progress -->
+@/tasks/active/
+
+---
+
+## Skill Selection Rules
+
+<!-- MUST READ before Phase 2 (Execution) of ANY task -->
+@/operations/skill-selection.yaml
+
+---
+
+## Core Instructions
+
+### Session Start Protocol
+
+1. **Check Context**
+   - Review @/AGENT_CONTEXT.md for auto-detected context
+   - Run `bb5 whereami` if location is unclear
+
+2. **Load State**
+   - @/STATE.yaml for project structure
+   - @/goals.yaml for current priorities
+   - @/tasks/active/ for pending work
+
+3. **Select Task**
+   - Use `bb5 task:list` to see pending tasks
+   - Use `bb5 task:current` for current assignment
+   - Read task file completely before starting
+
+### Phase 1.5: Mandatory Skill Checking (CRITICAL)
+
+**BEFORE starting Phase 2 (Execution) of ANY task, you MUST:**
+
+1. **Read skill-selection.yaml**
+   - @/operations/skill-selection.yaml
+
+2. **Check domain_mapping**
+   - Match task keywords against domain keywords
+
+3. **Calculate confidence**
+   - Use formula in skill-selection.yaml
+   - Must be >=70% to invoke skill
+
+4. **Document decision**
+   - In THOUGHTS.md under "## Skill Usage for This Task"
+
+**Auto-Trigger Rules:**
+| Trigger | Action |
+|---------|--------|
+| "implement" + domain keyword | MUST check for matching skill |
+| "analyze" or "research" | MUST check bmad-analyst |
+| "architecture" or "design" | MUST check bmad-architect |
+| "Should we..." or "How should we..." | MUST check superintelligence-protocol |
+
+### Task Execution Rules
+
+**For EVERY task:**
+
+1. **ONE task per session** - Never batch multiple tasks
+2. **Create workspace** - `runs/run-YYYYMMDD_HHMMSS/`
+3. **Initialize run files:**
+   - THOUGHTS.md - Thinking and reasoning
+   - DECISIONS.md - Decisions with rationale
+   - ASSUMPTIONS.md - Assumptions and validation
+   - LEARNINGS.md - What worked, what didn't, action items
+   - RESULTS.md - Outcomes and validation
+
+4. **Document learnings** - Every run must produce at least one actionable insight
+
+### Navigation Commands
+
+Use `bb5` CLI to navigate:
+
+```bash
+bb5 whereami              # Show current location
+bb5 goal:list             # List all goals
+bb5 goal:show [ID]        # Show goal details
+bb5 plan:list             # List all plans
+bb5 task:list             # List all tasks
+bb5 task:current          # Show current task
+bb5 up                    # Go up one level
+bb5 down [ID]             # Go down to child
+bb5 root                  # Go to project root
+bb5 goto [ID]             # Jump to specific item
+```
+
+### Decision Framework
+
+**Just Do It:**
+- Clear bug fix (< 30 min)
+- Simple edit (< 10 min)
+- Documentation typo
+- Single file change
+
+**Create Formal Task:**
+- > 30 minutes of work
+- Touches multiple files
+- Requires research
+- Has dependencies
+
+**Hand Off to RALF:**
+- Task queue is empty
+- Requires continuous iteration
+- Long-running improvement
+- Fits RALF's autonomous loop pattern
+
+**Ask User:**
+- Requirements unclear
+- Scope creep detected
+- External dependency blocked
+- High-risk change
+
+### Stop Conditions
+
+**PAUSE and ask user when:**
+1. Unclear requirements
+2. Scope creep detected
+3. Blocked on external input
+4. High risk (could break critical systems)
+5. Context overflow (85% with work remaining)
+6. Contradiction found
+7. No clear path forward
+
+**EXIT with status:**
+- COMPLETE: All success criteria met
+- PARTIAL: Progress made, more work needed
+- BLOCKED: Cannot proceed without human input
+
+---
+
+## @path Import Quick Reference
+
+### Essential Imports
+
+```
+@/STATE.yaml                    - Project structure and status
+@/goals.yaml                    - Autonomous agent goals
+@/timeline.yaml                 - Project milestones
+@/AGENT_CONTEXT.md             - Auto-generated session context
+@/tasks/active/                - All active tasks
+@/operations/skill-selection.yaml  - Skill selection rules
+```
+
+### Goal-Specific Imports
+
+```
+@/goals/active/IG-007/goal.yaml    - Architecture evolution goal
+@/goals/active/IG-009/goal.yaml    - Documentation improvement goal
+```
+
+### Task-Specific Imports
+
+```
+@/tasks/active/TASK-*/task.md     - Specific task definition
+@/tasks/active/TASK-ARCH-*/       - All architecture tasks
+```
+
+### Knowledge Imports
+
+```
+@/knowledge/architecture/         - Architecture documentation
+@/decisions/architectural/        - Architecture decisions
+@/.docs/                          - AI-managed documentation
+```
+
+---
+
+## Continuous Improvement
+
+### After Every Run
+
+Document in LEARNINGS.md:
+- What worked well (to repeat)
+- What was hard (to fix)
+- What would we do differently (to improve)
+- Patterns detected (to analyze)
+- Action item (mandatory - concrete task to create)
+
+### Every 5 Runs (First Principles Review)
+
+1. Read last 5 LEARNINGS.md files from @/runs/run-*/
+2. Synthesize patterns across runs
+3. Propose concrete improvements to:
+   - This file (CLAUDE.md)
+   - LEGACY.md (operational procedures)
+   - Relevant skill files
+4. Create summary for user approval
+5. Apply approved changes
+
+### Improvement Triggers
+
+Activate continuous improvement when:
+- User says "improve", "optimize", "refine", "iterate"
+- Recurring friction in similar tasks
+- First principles review (every 5 runs)
+- Explicit skill:continuous-improvement invocation
+
+---
+
+## Superintelligence Hand-Off Protocol
+
+**Auto-activate when:**
+- User asks architecture/design questions ("Should we...", "How should we...")
+- Task involves multiple files or systems
+- High uncertainty or novel problem
+- Keywords: architecture, design, refactor, optimize, strategy, complex, integrate
+
+**Protocol location:** @~/.blackbox5/6-roadmap/01-research/superintelligence-protocol/
+
+**Output format:**
+```
+**Recommendation:** [Clear answer]
+**Confidence:** [0-100%]
+**Key Assumptions:** [What we're betting on]
+**Risks:** [What could go wrong]
+**Implementation Path:** [Next steps]
+```
+
+---
+
+## Context Management
+
+- **70% context usage:** Summarize THOUGHTS.md
+- **85% context usage:** Complete current task, exit with PARTIAL
+- **95% context usage:** Force checkpoint, exit immediately
+
+### Sub-Agent Rules
+
+**ALWAYS spawn sub-agents when:**
+- Searching across >15 files
+- Complex pattern matching needed
+- Cross-project exploration (>2 projects)
+- Estimated search time >5 minutes
+- Open-ended codebase exploration
+- Validation of complex work
+
+**USE DIRECT READS when:**
+- <15 files needed
+- Files at known paths
+- Simple pattern matching
+- Known directory structure
+- Implementation work
+
+---
+
+## Project Structure Reference
+
+```
+~/.blackbox5/5-project-memory/blackbox5/
+├── STATE.yaml              # Single source of truth
+├── goals.yaml              # Autonomous agent goals
+├── timeline.yaml           # Project milestones
+├── AGENT_CONTEXT.md        # Auto-generated context
+├── README.md               # Project overview
+├── NAVIGATION-GUIDE.md     # Navigation guide
+│
+├── project/                # WHO are we?
+│   └── context.yaml
+│
+├── plans/                  # WHAT are we building?
+│   └── active/
+│
+├── decisions/              # WHY are we doing it this way?
+│   └── architectural/
+│
+├── knowledge/              # HOW does it work?
+│   └── architecture/
+│
+├── tasks/                  # WHAT needs to be done?
+│   ├── active/
+│   ├── completed/
+│   └── backlog/
+│
+├── goals/                  # Goal hierarchy
+│   ├── active/
+│   └── core/
+│
+├── operations/             # System operations
+│   ├── skill-selection.yaml
+│   └── skill-metrics.yaml
+│
+├── runs/                   # Execution runs
+│   └── run-*/
+│       ├── THOUGHTS.md
+│       ├── DECISIONS.md
+│       ├── ASSUMPTIONS.md
+│       ├── LEARNINGS.md
+│       └── RESULTS.md
+│
+└── .docs/                  # AI-managed documentation
+    ├── CLAUDE-IMPORTS-GUIDE.md
+    ├── template-system-guide.md
+    └── dot-docs-system.md
+```
+
+---
+
+## Related Documentation
+
+- @/NAVIGATION-GUIDE.md - Detailed navigation guide
+- @/.docs/CLAUDE-IMPORTS-GUIDE.md - Complete @path import guide
+- @/.docs/template-system-guide.md - Template usage
+- @/README.md - Project overview
+
+---
+
+*This CLAUDE.md uses @path imports. See @/.docs/CLAUDE-IMPORTS-GUIDE.md for details.*
