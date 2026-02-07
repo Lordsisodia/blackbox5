@@ -1,0 +1,25 @@
+analysis:
+  analysis_id: "ANALYSIS-SCOUT-20260204-124158"
+  report_id: "SCOUT-20260204-124158"
+  report_type: "scout"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-20260204-124158.yaml"
+  extracted_at: "2026-02-07T15:42:03Z"
+  timestamp: "2026-02-04T12:41:58.033624"
+
+  summary:
+    total_opportunities: 1
+    high_impact: 1
+    quick_wins: 0
+    patterns_found: 0
+
+  key_findings:
+
+  patterns:
+    []
+
+  recommendations:
+    - priority: 1
+      finding_id: "OPP-001"
+      title: "null"
+      rationale: "High score (13.5) in infrastructure category"
+  status: extracted

@@ -1,0 +1,32 @@
+analysis:
+  analysis_id: "ANALYSIS-EXEC-20260205-015502"
+  report_id: "EXEC-20260205-015502"
+  report_type: "executor"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/executor-reports/EXEC-20260205-015502.yaml"
+  extracted_at: "2026-02-07T15:42:04Z"
+  timestamp: "2026-02-05T01:55:02.676773"
+
+  summary:
+    total_tasks: 3
+    successful: 1
+    failed: 2
+    success_rate: 0
+
+  key_findings:
+    - finding_id: "TASK-SKIL-005"
+      title: "Lowered skill confidence threshold from 70% to 60%"
+      category: "execution"
+      status: "completed"
+      error: "null"
+    - finding_id: "TASK-SKIL-007"
+      title: "No automated executor available for this task"
+      category: "execution"
+      status: "failed"
+      error: "Manual execution required"
+    - finding_id: "TASK-PROC-008"
+      title: "No automated executor available for this task"
+      category: "execution"
+      status: "failed"
+      error: "Manual execution required"
+
+  status: extracted

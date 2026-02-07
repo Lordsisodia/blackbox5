@@ -1,0 +1,22 @@
+analysis:
+  analysis_id: "ANALYSIS-20260205-013135"
+  report_id: "20260205-013135"
+  report_type: "scout"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-intelligent-20260205-013135.yaml"
+  extracted_at: "2026-02-07T15:42:03Z"
+  timestamp: "2026-02-05T01:31:36.525893"
+
+  summary:
+    total_opportunities: 0
+    high_impact: 0
+    quick_wins: 0
+    patterns_found: 0
+
+  key_findings:
+
+  patterns:
+    []
+
+  recommendations:
+    []
+  status: extracted

@@ -1,0 +1,18 @@
+executor_report:
+  id: EXEC-20260207-104928
+  timestamp: '2026-02-07T10:49:28.157723'
+  dry_run: true
+  summary:
+    total_tasks: 1
+    successful: 0
+    failed: 1
+    total_execution_time_ms: 0
+  results:
+  - task_id: TASK-ARCH-012
+    success: false
+    action_taken: Failed to load task
+    files_modified: []
+    error_message: Task file not found or unreadable
+    before_state: null
+    after_state: null
+    execution_time_ms: 0

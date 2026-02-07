@@ -1,0 +1,107 @@
+analysis:
+  analysis_id: "ANALYSIS-SCOUT-20260205-013500"
+  report_id: "SCOUT-20260205-013500"
+  report_type: "scout"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-intelligent-20260205-aggregated.yaml"
+  extracted_at: "2026-02-07T15:42:03Z"
+  timestamp: "2026-02-05T01:35:00Z"
+
+  summary:
+    total_opportunities: 42
+    high_impact: 18
+    quick_wins: 8
+    patterns_found: 11
+
+  key_findings:
+    - finding_id: "skill-001"
+      title: "Zero Skill Invocation Rate - Complete System Non-Usage"
+      category: "skills"
+      score: 16.5
+      recommendation: "Investigate why skills are not being triggered despite being considered. Review if the 70% confidence threshold is too high."
+    - finding_id: "metrics-001"
+      title: "Skill Metrics Completely Unpopulated - Zero Usage Data"
+      category: "infrastructure"
+      score: 16.5
+      recommendation: "Implement automated skill metric calculation script that processes task_outcomes and updates effectiveness scores"
+    - finding_id: "process-001"
+      title: "Empty Template Files in Runs Not Being Populated"
+      category: "process"
+      score: 15.5
+      recommendation: "Create validation hook that checks if run documentation is filled before allowing agent_stop"
+    - finding_id: "metrics-004"
+      title: "Task-to-Completion Pipeline Stalled at 40%"
+      category: "process"
+      score: 15.5
+      recommendation: "Prioritize remaining 6 pending improvements. Create validation framework to measure before/after metrics"
+    - finding_id: "process-007"
+      title: "Skill Integration Plan Exists But Not Implemented"
+      category: "process"
+      score: 14.5
+      recommendation: "Create task to implement Phase 1 of skills integration plan. Start with SkillOrchestrator and SkillScanner"
+
+  patterns:
+    - pattern: "Complete Skill System Non-Adoption"
+      severity: "critical"
+    - pattern: "Empty Tracking Arrays Across Systems"
+      severity: "high"
+    - pattern: "Data Inconsistency Between Files"
+      severity: "high"
+    - pattern: "Template System Creates Files But Content Never Filled"
+      severity: "high"
+    - pattern: "Documentation Status Drift"
+      severity: "medium"
+    - pattern: "Multiple Overlapping State Management Systems"
+      severity: "medium"
+    - pattern: "Configuration Scattered Across Multiple Formats"
+      severity: "medium"
+    - pattern: "Shell Scripts Embed Python for YAML Processing"
+      severity: "low"
+    - pattern: "Qualitative Metrics Without Quantitative Backing"
+      severity: "medium"
+    - pattern: "Defined Frameworks Without Implementation"
+      severity: "high"
+    - pattern: "Legacy Directory References After Consolidation"
+      severity: "medium"
+
+  recommendations:
+    - priority: 1
+      finding_id: "skill-001"
+      title: "Zero Skill Invocation Rate - Complete System Non-Usage"
+      rationale: "Score: 16.5 | Impact: 5/5 | Effort: 3/5 | The entire skill system (23 skills) is not being used despite being a core feature"
+    - priority: 2
+      finding_id: "metrics-001"
+      title: "Skill Metrics Completely Unpopulated - Zero Usage Data"
+      rationale: "Score: 16.5 | Impact: 5/5 | Effort: 3/5 | No data to make informed decisions about skill effectiveness"
+    - priority: 3
+      finding_id: "process-001"
+      title: "Empty Template Files in Runs Not Being Populated"
+      rationale: "Score: 15.5 | Impact: 5/5 | Effort: 3/5 | Agents are not documenting their work, losing institutional knowledge"
+    - priority: 4
+      finding_id: "metrics-004"
+      title: "Task-to-Completion Pipeline Stalled at 40%"
+      rationale: "Score: 15.5 | Impact: 5/5 | Effort: 4/5 | Improvement pipeline is not delivering at target rate"
+    - priority: 5
+      finding_id: "process-007"
+      title: "Skill Integration Plan Exists But Not Implemented"
+      rationale: "Score: 14.5 | Impact: 5/5 | Effort: 5/5 | Complete implementation plan ready but not executed"
+    - priority: 6
+      finding_id: "metrics-003"
+      title: "Learning Index Shows Zero Learnings Despite 80+ Claimed"
+      rationale: "Score: 13.5 | Impact: 4/5 | Effort: 3/5 | Learning extraction pipeline is broken"
+    - priority: 7
+      finding_id: "skill-002"
+      title: "All Skills Have Null Effectiveness Metrics"
+      rationale: "Score: 14.0 | Impact: 4/5 | Effort: 2/5 | Cannot optimize what isn't measured"
+    - priority: 8
+      finding_id: "metrics-007"
+      title: "Skill Usage Log Empty Despite 29 Executor Runs"
+      rationale: "Score: 14.0 | Impact: 4/5 | Effort: 2/5 | Logging infrastructure exists but not integrated"
+    - priority: 9
+      finding_id: "process-003"
+      title: "Agent Stop Events Missing Context Data"
+      rationale: "Score: 14.0 | Impact: 4/5 | Effort: 2/5 | Cannot trace agent activity without context"
+    - priority: 10
+      finding_id: "arch-001"
+      title: "Duplicate Configuration Management Systems"
+      rationale: "Score: 11.5 | Impact: 4/5 | Effort: 3/5 | Multiple config systems without unified schema"
+  status: extracted

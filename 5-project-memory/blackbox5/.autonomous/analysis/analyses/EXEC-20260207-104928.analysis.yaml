@@ -1,0 +1,22 @@
+analysis:
+  analysis_id: "ANALYSIS-EXEC-20260207-104928"
+  report_id: "EXEC-20260207-104928"
+  report_type: "executor"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/executor-reports/EXEC-20260207-104928.yaml"
+  extracted_at: "2026-02-07T15:42:04Z"
+  timestamp: "2026-02-07T10:49:28.157723"
+
+  summary:
+    total_tasks: 1
+    successful: 0
+    failed: 1
+    success_rate: 0
+
+  key_findings:
+    - finding_id: "TASK-ARCH-012"
+      title: "Failed to load task"
+      category: "execution"
+      status: "failed"
+      error: "Task file not found or unreadable"
+
+  status: extracted

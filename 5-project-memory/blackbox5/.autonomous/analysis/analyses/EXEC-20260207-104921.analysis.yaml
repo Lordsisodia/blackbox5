@@ -1,0 +1,22 @@
+analysis:
+  analysis_id: "ANALYSIS-EXEC-20260207-104921"
+  report_id: "EXEC-20260207-104921"
+  report_type: "executor"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/executor-reports/EXEC-20260207-104921.yaml"
+  extracted_at: "2026-02-07T15:42:04Z"
+  timestamp: "2026-02-07T10:49:21.506734"
+
+  summary:
+    total_tasks: 1
+    successful: 1
+    failed: 0
+    success_rate: 0
+
+  key_findings:
+    - finding_id: "TASK-SKIL-005"
+      title: "Lowered skill confidence threshold from 70% to 60%"
+      category: "execution"
+      status: "completed"
+      error: "null"
+
+  status: extracted

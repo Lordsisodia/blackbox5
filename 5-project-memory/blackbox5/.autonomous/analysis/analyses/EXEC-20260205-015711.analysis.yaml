@@ -1,0 +1,42 @@
+analysis:
+  analysis_id: "ANALYSIS-EXEC-20260205-015711"
+  report_id: "EXEC-20260205-015711"
+  report_type: "executor"
+  source_file: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/executor-reports/EXEC-20260205-015711.yaml"
+  extracted_at: "2026-02-07T15:42:04Z"
+  timestamp: "2026-02-05T01:57:11.055795"
+
+  summary:
+    total_tasks: 5
+    successful: 1
+    failed: 4
+    success_rate: 0
+
+  key_findings:
+    - finding_id: "TASK-SKIL-005"
+      title: "Threshold already at 60%, no change needed"
+      category: "execution"
+      status: "completed"
+      error: "null"
+    - finding_id: "TASK-SKIL-007"
+      title: "No automated executor available for this task"
+      category: "execution"
+      status: "failed"
+      error: "Manual execution required"
+    - finding_id: "TASK-PROC-008"
+      title: "No automated executor available for this task"
+      category: "execution"
+      status: "failed"
+      error: "Manual execution required"
+    - finding_id: "TASK-INFR-009"
+      title: "No automated executor available for this task"
+      category: "execution"
+      status: "failed"
+      error: "Manual execution required"
+    - finding_id: "TASK-SKIL-011"
+      title: "No automated executor available for this task"
+      category: "execution"
+      status: "failed"
+      error: "Manual execution required"
+
+  status: extracted
