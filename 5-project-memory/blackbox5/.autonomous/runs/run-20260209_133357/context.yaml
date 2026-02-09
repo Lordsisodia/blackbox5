@@ -1,2 +1,10 @@
-previous_run: run-20260209_133000
-previous_status: PARTIAL
+run:
+  id: 20260209_133357
+  type: ralf-core
+  action: continue_previous
+  priority: high
+  previous_run: run-20260209_133000
+  previous_status: PARTIAL
+  active_tasks: 0
+  git_changes: 0
+started: 2026-02-09T13:33:58Z
