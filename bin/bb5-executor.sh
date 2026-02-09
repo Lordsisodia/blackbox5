@@ -4,16 +4,18 @@
 
 set -e
 
-BB5_DIR="${BB5_DIR:-/opt/blackbox5}"
-IMPROVEMENTS_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/tasks/improvements"
-ACTIVE_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/tasks/active"
-RUNS_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/runs"
-LOG_FILE="$BB5_DIR/.autonomous/logs/bb5-executor.log"
+# Source common library for shared functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/bb5-common.sh"
 
-mkdir -p "$IMPROVEMENTS_DIR" "$ACTIVE_DIR" "$RUNS_DIR" "$(dirname "$LOG_FILE")"
+# Initialize
+BB5_SCRIPT_NAME="BB5-EXECUTOR"
+bb5_init_logging "bb5-executor"
+bb5_ensure_directories
 
+# Alias bb5_log for backward compatibility
 log() {
-    echo "[$(date '+%H:%M:%S')] [BB5-EXECUTOR] $1" | tee -a "$LOG_FILE"
+    bb5_log "$1"
 }
 
 log "═══════════════════════════════════════════════════"
@@ -35,9 +37,8 @@ fi
 LOOP_COUNT=0
 while true; do
     LOOP_COUNT=$((LOOP_COUNT + 1))
-    RUN_ID=$(date +"%Y%m%d_%H%M%S")
-    RUN_FOLDER="$RUNS_DIR/run-${RUN_ID}"
-    mkdir -p "$RUN_FOLDER"
+    RUN_FOLDER=$(bb5_create_run_folder)
+    RUN_ID=$(basename "$RUN_FOLDER" | sed 's/run-//')
 
     log ""
     log "═══════════════════════════════════════════════════"
@@ -45,11 +46,10 @@ while true; do
     log "═══════════════════════════════════════════════════"
 
     # Pull latest
-    cd "$BB5_DIR"
-    git pull origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log" || log "Pull failed"
+    bb5_git_pull "$RUN_FOLDER/git.log" || log "Pull failed"
 
     # Find pending improvement tasks
-    PENDING_TASK=$(ls -1t "$IMPROVEMENTS_DIR"/IMP-*.md 2>/dev/null | head -1)
+    PENDING_TASK=$(bb5_get_pending_task)
 
     if [ -z "$PENDING_TASK" ]; then
         log "No pending improvement tasks found"
@@ -140,17 +140,13 @@ EOF
 
     # Move task to completed if successful
     if [ "$FINAL_STATUS" = "COMPLETED" ]; then
-        mkdir -p "$ACTIVE_DIR/completed"
-        mv "$PENDING_TASK" "$ACTIVE_DIR/completed/"
+        bb5_complete_task "$PENDING_TASK"
         log "✓ Task moved to completed"
     fi
 
-    # Commit and push
-    if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
-        git add -A
-        git commit -m "bb5-executor: [$RUN_ID] $TASK_NAME - $FINAL_STATUS" || true
-        git push origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log" || log "Push failed"
-    fi
+    # Commit and push using common library
+    bb5_git_commit "bb5-executor: [$RUN_ID] $TASK_NAME - $FINAL_STATUS" || true
+    bb5_git_push "$RUN_FOLDER/git.log" || log "Push failed"
 
     log ""
     log "═══════════════════════════════════════════════════"
