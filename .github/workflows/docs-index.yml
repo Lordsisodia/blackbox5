@@ -32,7 +32,7 @@ jobs:
 
       - name: Upload index artifact
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: updated-index
           path: 1-docs/INDEX.md
