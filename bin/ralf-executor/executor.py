@@ -31,12 +31,12 @@ from typing import Optional, Dict, List, Any, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
 
-# Configuration
-BB5_DIR = Path("/Users/shaansisodia/.blackbox5")
-TASKS_DIR = BB5_DIR / "5-project-memory" / "siso-internal" / "tasks"
-RUNS_DIR = BB5_DIR / "runs" / "executor"
+# Configuration - use environment variable or default
+BB5_DIR = Path(os.environ.get("BB5_DIR", "/opt/blackbox5"))
+TASKS_DIR = BB5_DIR / "5-project-memory" / "blackbox5" / ".autonomous" / "tasks"
+RUNS_DIR = BB5_DIR / "5-project-memory" / "blackbox5" / ".autonomous" / "runs" / "executor"
 AGENTS_DIR = BB5_DIR / ".claude" / "agents"
-QUEUE_FILE = BB5_DIR / "5-project-memory" / "siso-internal" / "operations" / "executor-dashboard.yaml"
+QUEUE_FILE = BB5_DIR / "5-project-memory" / "blackbox5" / ".autonomous" / "communications" / "queue-core.yaml"
 
 class TaskStatus(Enum):
     PENDING = "pending"

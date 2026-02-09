@@ -107,7 +107,8 @@ while true; do
         export ANTHROPIC_API_KEY
         export ANTHROPIC_BASE_URL="https://api.glm.ai/coding/"
 
-        if python3 "$EXECUTOR_DIR/executor.py" --run-folder "$RUN_FOLDER" --tasks-dir "$TASKS_DIR" 2>&1 | tee -a "$LOG_FILE"; then
+        # The executor reads from queue and executes highest priority task
+        if python3 "$EXECUTOR_DIR/executor.py" --verbose 2>&1 | tee -a "$LOG_FILE"; then
             log_success "✓ Task execution completed"
         else
             log_error "❌ Task execution failed"
