@@ -618,7 +618,12 @@ Start executing the task now. Work autonomously and efficiently.
     def _run_claude(self, prompt: str, output_file: Optional[Path] = None, timeout: int = 300) -> subprocess.CompletedProcess:
         """Run Claude Code with the given prompt"""
 
-        cmd = ["claude", "-p", "--dangerously-skip-permissions"]
+        # Check if running as root - skip-permissions not allowed for root
+        import os
+        if os.getuid() == 0:
+            cmd = ["claude", "-p"]
+        else:
+            cmd = ["claude", "-p", "--dangerously-skip-permissions"]
 
         # Run claude with the prompt
         result = subprocess.run(
