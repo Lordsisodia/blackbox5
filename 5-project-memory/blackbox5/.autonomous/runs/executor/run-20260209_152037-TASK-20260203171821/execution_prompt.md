@@ -1,9 +1,27 @@
+# BB5 Task Execution
+
+You are the BB5 Executor. Execute the following task autonomously.
+
+## Task Information
+
+**Task ID:** TASK-20260203171821
+**Title:** Enhance SessionStart Hook with Git Status and Context Loading
+**Priority:** high
+**Type:** enhance
+
+## Description
+
+
+
+## Full Task Definition
+
+```markdown
 # TASK-20260203171821: Enhance SessionStart Hook with Git Status and Context Loading
 
 **Task ID:** TASK-20260203171821
 **Type:** enhance
 **Priority:** high
-**Status:** partial
+**Status:** claimed
 **Created:** 2026-02-03T17:18:21Z
 **Estimated Lines:** 200
 
@@ -132,3 +150,43 @@ This is powerful - it injects context directly into Claude's prompt without user
 
 **Source Handling:**
 SessionStart receives `source` field: "startup", "resume", or "clear". Handle each appropriately.
+
+```
+
+## Context Report
+
+No context report available.
+
+## Acceptance Criteria
+
+The following criteria MUST be met for successful completion:
+
+
+## Execution Instructions
+
+1. **Read Before Change**: Read ALL relevant files before making modifications
+2. **Follow Standards**: Adhere to project coding standards and conventions
+3. **Document**: Update THOUGHTS.md, DECISIONS.md, and LEARNINGS.md as you work
+4. **Test**: Verify your changes work as expected
+5. **Commit**: Create atomic commits with clear messages
+
+## Run Context
+
+- **Run Folder:** /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/executor/run-20260209_152037-TASK-20260203171821
+- **Started:** 2026-02-09T15:20:37.372311
+
+## Output Requirements
+
+When you complete the task, you MUST signal completion by including this tag in your final output:
+
+<promise>COMPLETE</promise>
+
+If the task cannot be completed, use:
+
+<promise>PARTIAL</promise>
+
+And explain what was accomplished and what remains.
+
+## Begin Execution
+
+Start executing the task now. Work autonomously and efficiently.

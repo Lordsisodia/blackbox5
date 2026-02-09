@@ -71,7 +71,25 @@ class Task:
 
     @property
     def task_dir(self) -> Path:
-        return TASKS_DIR / "active" / self.task_id
+        # Try to find the actual task directory (may be nested)
+        active_dir = TASKS_DIR / "active"
+
+        # First try direct path
+        direct_path = active_dir / self.task_id
+        if direct_path.exists():
+            return direct_path
+
+        # Search for task directory containing task_id
+        for item in active_dir.iterdir():
+            if item.is_dir() and self.task_id in item.name:
+                return item
+            if item.is_dir():
+                for subitem in item.iterdir():
+                    if subitem.is_dir() and self.task_id in subitem.name:
+                        return subitem
+
+        # Fallback to direct path
+        return direct_path
 
     @property
     def completed_dir(self) -> Path:
@@ -146,17 +164,14 @@ class BB5Executor:
 
         pending_tasks: List[Task] = []
 
-        # Scan all task directories
-        for task_dir in active_dir.iterdir():
-            if not task_dir.is_dir():
-                continue
+        # Recursively scan for all TASK-*.md files
+        all_task_files = list(active_dir.rglob("TASK-*.md"))
+        self.log(f"Found {len(all_task_files)} task files", LogLevel.DEBUG)
 
-            task_file = task_dir / "task.md"
-            if not task_file.exists():
-                continue
-
+        for task_file in all_task_files:
             try:
                 task = self.parse_task_file(task_file)
+                self.log(f"Task {task.task_id}: status={task.status.value}, priority={task.priority}", LogLevel.DEBUG)
                 if task.status == TaskStatus.PENDING:
                     pending_tasks.append(task)
             except Exception as e:
