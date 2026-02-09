@@ -73,7 +73,7 @@ Learnings are also categorized by domain:
 
 The learning index is stored at:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml
+.autonomous/memory/insights/learning-index.yaml
 ```
 
 ## Schema
