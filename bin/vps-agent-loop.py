@@ -222,12 +222,19 @@ def process_spawn_entry(entry):
         f.write(f"\n## Completed: {agent_type}\n")
         f.write(f"Status: COMPLETED\n")
 
-    log(f"Completed agent: {agent_type} (run: {run_id})")
+    # Calculate duration
+    duration = int(time.time() - start_time)
+
+    log(f"Completed agent: {agent_type} (run: {run_id}, duration: {duration}s)")
+
+    # Send Telegram update
+    send_telegram_update(run_id, "COMPLETED", agent_type, duration)
 
     return entry
 
 def check_git_changes():
     """Check for git changes and commit if needed"""
+    git_info = {'committed': False, 'pushed': False}
     try:
         os.chdir(BB5_DIR)
 
@@ -247,35 +254,75 @@ def check_git_changes():
 
             # Commit
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            subprocess.run(
+            commit_result = subprocess.run(
                 ["git", "commit", "-m", f"vps-agent: auto-commit {timestamp}"],
-                check=False
-            )
-
-            # Try to push
-            push_result = subprocess.run(
-                ["git", "push", "origin", "autonomous-improvement"],
                 capture_output=True,
                 text=True
             )
 
-            if push_result.returncode == 0:
-                log("Changes pushed to GitHub")
-            else:
-                log(f"Push failed: {push_result.stderr[:200]}")
+            if commit_result.returncode == 0:
+                git_info['committed'] = True
+                log("Changes committed")
 
-            return True
+                # Try to push
+                push_result = subprocess.run(
+                    ["git", "push", "origin", "autonomous-improvement"],
+                    capture_output=True,
+                    text=True
+                )
+
+                if push_result.returncode == 0:
+                    git_info['pushed'] = True
+                    log("Changes pushed to GitHub")
+                else:
+                    log(f"Push failed: {push_result.stderr[:200]}")
+            else:
+                log(f"Commit failed: {commit_result.stderr[:200]}")
+
+            return git_info
         else:
-            return False
+            return git_info
 
     except Exception as e:
         log(f"Error checking git: {e}")
-        return False
+        return git_info
+
+def send_cycle_summary(entries_processed, git_info, duration):
+    """Send summary of the cycle to Telegram"""
+    try:
+        message = f"📊 <b>Cycle Summary</b>\n"
+        message += "━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        message += f"<b>Entries Processed:</b> {entries_processed}\n"
+        message += f"<b>Duration:</b> {duration}s\n\n"
+
+        if git_info.get('committed'):
+            message += f"<b>🔄 Git</b>\n"
+            message += f"• Committed: yes\n"
+            message += f"• Pushed: {'yes' if git_info.get('pushed') else 'no'}\n"
+
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message,
+            "parse_mode": "HTML"
+        }
+        if TELEGRAM_TOPIC_ID:
+            payload["message_thread_id"] = TELEGRAM_TOPIC_ID
+
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json=payload,
+            timeout=10
+        )
+    except Exception as e:
+        log(f"Failed to send cycle summary: {e}")
 
 def run_cycle():
     """Run one cycle of the agent loop"""
     log("=" * 50)
     log("Starting VPS Agent Cycle")
+
+    # Record cycle start time
+    cycle_start_time = time.time()
 
     # 1. Read spawn queue
     entries = read_spawn_queue()
@@ -302,9 +349,13 @@ def run_cycle():
     write_spawn_queue(updated_entries)
 
     # 4. Check for git changes
-    check_git_changes()
+    git_info = check_git_changes()
 
     log("Cycle complete")
+
+    # Send summary update about the whole cycle
+    cycle_duration = int(time.time() - cycle_start_time)
+    send_cycle_summary(len(pending), git_info, cycle_duration)
 
 def main():
     log("=" * 50)
@@ -322,6 +373,9 @@ def main():
     # Initialize empty queue if needed
     if not SPAWN_QUEUE.exists():
         write_spawn_queue([])
+
+    # Send startup notification
+    send_startup_notification()
 
     # Main loop
     cycle_count = 0

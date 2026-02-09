@@ -351,8 +351,8 @@ if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
     git commit -m "ralf-core: [$RUN_ID] $ACTION - $FINAL_STATUS" 2>&1 | tee -a "$RUN_FOLDER/git.log" || true
     log_success "Changes committed"
 
-    # Try to push
-    if git push origin main 2>&1 | tee -a "$RUN_FOLDER/git.log"; then
+    # Try to push to vps branch
+    if git push origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log"; then
         log_success "Pushed to GitHub"
     else
         log_warn "Push failed (will retry next cycle)"
