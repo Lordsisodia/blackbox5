@@ -1,9 +1,27 @@
+# BB5 Task Execution
+
+You are the BB5 Executor. Execute the following task autonomously.
+
+## Task Information
+
+**Task ID:** TASK-20260203171823
+**Title:** Create Subagent Tracking Hooks for Executor/Planner/Architect
+**Priority:** high
+**Type:** implement
+
+## Description
+
+
+
+## Full Task Definition
+
+```markdown
 # TASK-20260203171823: Create Subagent Tracking Hooks for Executor/Planner/Architect
 
 **Task ID:** TASK-20260203171823
 **Type:** implement
 **Priority:** high
-**Status:** partial
+**Status:** claimed
 **Created:** 2026-02-03T17:18:23Z
 **Estimated Lines:** 400
 
@@ -153,3 +171,43 @@ The mastery repo uses LLM for summarization. For BB5, we could: use local LLM (O
 
 **Agent Types:**
 Track agent_type field to distinguish Executor vs Planner vs Architect.
+
+```
+
+## Context Report
+
+No context report available.
+
+## Acceptance Criteria
+
+The following criteria MUST be met for successful completion:
+
+
+## Execution Instructions
+
+1. **Read Before Change**: Read ALL relevant files before making modifications
+2. **Follow Standards**: Adhere to project coding standards and conventions
+3. **Document**: Update THOUGHTS.md, DECISIONS.md, and LEARNINGS.md as you work
+4. **Test**: Verify your changes work as expected
+5. **Commit**: Create atomic commits with clear messages
+
+## Run Context
+
+- **Run Folder:** /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/executor/run-20260209_152233-TASK-20260203171823
+- **Started:** 2026-02-09T15:22:33.794644
+
+## Output Requirements
+
+When you complete the task, you MUST signal completion by including this tag in your final output:
+
+<promise>COMPLETE</promise>
+
+If the task cannot be completed, use:
+
+<promise>PARTIAL</promise>
+
+And explain what was accomplished and what remains.
+
+## Begin Execution
+
+Start executing the task now. Work autonomously and efficiently.
