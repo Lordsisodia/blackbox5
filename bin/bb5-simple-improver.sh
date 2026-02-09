@@ -4,15 +4,18 @@
 
 set -e
 
-BB5_DIR="${BB5_DIR:-/opt/blackbox5}"
-RUNS_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/runs"
-IMPROVEMENTS_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/tasks/improvements"
-LOG_FILE="$BB5_DIR/.autonomous/logs/bb5-simple-improver.log"
+# Source common library for shared functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/bb5-common.sh"
 
-mkdir -p "$RUNS_DIR" "$IMPROVEMENTS_DIR" "$(dirname "$LOG_FILE")"
+# Initialize
+BB5_SCRIPT_NAME="BB5-IMPROVER"
+bb5_init_logging "bb5-simple-improver"
+bb5_ensure_directories
 
+# Alias bb5_log for backward compatibility
 log() {
-    echo "[$(date '+%H:%M:%S')] [BB5-IMPROVER] $1" | tee -a "$LOG_FILE"
+    bb5_log "$1"
 }
 
 log "═══════════════════════════════════════════════════"
@@ -30,12 +33,11 @@ while true; do
     log "Cycle $LOOP_COUNT - Run $RUN_ID"
 
     # Pull latest
-    cd "$BB5_DIR"
-    git pull origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log" || log "Pull failed"
+    bb5_git_pull "$RUN_FOLDER/git.log" || log "Pull failed"
 
-    # Analyze BB5 state
-    ACTIVE_TASKS=$(find "$BB5_DIR/5-project-memory/blackbox5/.autonomous/tasks/active" -name "*.md" 2>/dev/null | wc -l)
-    RECENT_RUNS=$(ls -1t "$RUNS_DIR" 2>/dev/null | head -10 | wc -l)
+    # Analyze BB5 state using common library functions
+    ACTIVE_TASKS=$(bb5_count_active_tasks)
+    RECENT_RUNS=$(ls -1t "$BB5_RUNS_DIR" 2>/dev/null | head -10 | wc -l)
 
     log "Active tasks: $ACTIVE_TASKS, Recent runs: $RECENT_RUNS"
 
