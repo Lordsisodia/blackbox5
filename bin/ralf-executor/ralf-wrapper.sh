@@ -6,10 +6,11 @@ set -e
 
 # Export environment variables for su
 export BB5_DIR="${BB5_DIR:-/opt/blackbox5}"
-export ANTHROPIC_API_KEY="${ANTHROPIC_API_KEY}"
+export ANTHROPIC_AUTH_TOKEN="${ANTHROPIC_AUTH_TOKEN}"
 export ANTHROPIC_BASE_URL="${ANTHROPIC_BASE_URL}"
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="${CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS}"
 export BB5_MODE="${BB5_MODE}"
+export CLAUDE_MODEL="${CLAUDE_MODEL}"
 
 # Run the actual ralf-core.sh as bb5-runner using su with preserved environment
 # This ensures a clean environment that Claude Code accepts
