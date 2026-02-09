@@ -240,7 +240,9 @@ SUPERPROMPT
 
     if [ "$AI_PROVIDER" = "claude" ]; then
         # Run Claude with superintelligence prompt
-        if claude -p < "$RUN_FOLDER/superintelligence-prompt.md" 2>&1 | tee "$RUN_FOLDER/execution.log"; then
+        # Note: Running as root, so we don't use --dangerously-skip-permissions
+        log "Spawning Claude Code..."
+        if claude -p --allowedTools="Bash,Read,Edit,Write,Glob,Grep" < "$RUN_FOLDER/superintelligence-prompt.md" 2>&1 | tee "$RUN_FOLDER/execution.log"; then
             log_success "Claude execution completed"
         else
             log_error "Claude execution failed"
