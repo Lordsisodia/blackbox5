@@ -11,6 +11,7 @@ import time
 import json
 import yaml
 import subprocess
+import requests
 from datetime import datetime
 from pathlib import Path
 
@@ -20,6 +21,11 @@ SIGNALS_DIR = BB5_DIR / "5-project-memory/blackbox5/.autonomous/signals"
 RUNS_DIR = BB5_DIR / "5-project-memory/blackbox5/.autonomous/runs"
 LOG_FILE = BB5_DIR / ".autonomous/logs/vps-agent-loop.log"
 
+# Telegram configuration
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "7643203581")
+TELEGRAM_TOPIC_ID = os.getenv("TELEGRAM_TOPIC_ID", "")  # Set for topic-specific updates
+
 def log(message):
     timestamp = datetime.now().isoformat()
     log_line = f"[{timestamp}] {message}"
@@ -27,6 +33,85 @@ def log(message):
     LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(LOG_FILE, "a") as f:
         f.write(log_line + "\n")
+
+def send_telegram_update(run_id, status, agent_type, duration, git_info=None):
+    """Send run completion update to Telegram"""
+    try:
+        # Determine emoji based on status
+        emoji = "📊"
+        if status == "COMPLETED":
+            emoji = "✅"
+        elif status == "FAILED":
+            emoji = "❌"
+        elif status == "IN_PROGRESS":
+            emoji = "⚠️"
+
+        # Build message
+        message = f"{emoji} <b>BB5 Run Complete</b>\n"
+        message += f"<code>{run_id}</code>\n"
+        message += "━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        message += f"<b>Status:</b> {status}\n"
+        message += f"<b>Agent:</b> {agent_type}\n"
+        message += f"<b>Duration:</b> {duration}s\n\n"
+
+        # Add git info if available
+        if git_info:
+            if git_info.get('committed'):
+                message += f"<b>🔄 Git</b>\n"
+                message += f"• Committed: yes\n"
+                if git_info.get('pushed'):
+                    message += f"• Pushed: yes\n"
+                else:
+                    message += f"• Pushed: no\n"
+                message += "\n"
+
+        # Add next action hint
+        if status == "COMPLETED":
+            message += "<i>✓ Run completed. Starting next cycle...</i>"
+        elif status == "FAILED":
+            message += "<i>⚠ Run failed. Will retry...</i>"
+        else:
+            message += "<i>⏳ Run in progress...</i>"
+
+        # Send to Telegram
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message,
+            "parse_mode": "HTML"
+        }
+        if TELEGRAM_TOPIC_ID:
+            payload["message_thread_id"] = TELEGRAM_TOPIC_ID
+
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json=payload,
+            timeout=10
+        )
+    except Exception as e:
+        log(f"Failed to send Telegram update: {e}")
+
+def send_startup_notification():
+    """Send startup notification to Telegram"""
+    try:
+        message = "🤖 <b>VPS Agent Loop Started</b>\n"
+        message += "━━━━━━━━━━━━━━━━━━━━━━━\n"
+        message += "<i>Will report after each run completes</i>"
+
+        payload = {
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message,
+            "parse_mode": "HTML"
+        }
+        if TELEGRAM_TOPIC_ID:
+            payload["message_thread_id"] = TELEGRAM_TOPIC_ID
+
+        requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json=payload,
+            timeout=10
+        )
+    except Exception as e:
+        log(f"Failed to send startup notification: {e}")
 
 def read_spawn_queue():
     """Read the spawn queue YAML file"""
@@ -95,6 +180,9 @@ def process_spawn_entry(entry):
     prompt = entry.get('prompt', '')
 
     log(f"Processing agent: {agent_type}")
+
+    # Record start time
+    start_time = time.time()
 
     # Create run folder
     run_folder, run_id = create_run_folder()

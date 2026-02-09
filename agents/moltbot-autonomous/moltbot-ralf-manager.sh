@@ -12,6 +12,11 @@ LOG_FILE="$BB5_DIR/.autonomous/logs/moltbot-ralf-manager.log"
 MAX_CONSECUTIVE_FAILURES=3
 CONSECUTIVE_FAILURES=0
 
+# Telegram configuration
+TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo}"
+TELEGRAM_CHAT_ID="${TELEGRAM_CHAT_ID:-7643203581}"
+TELEGRAM_TOPIC_ID="${TELEGRAM_TOPIC_ID:-}"  # Set this for topic-specific updates
+
 # Colors
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -35,6 +40,75 @@ log_warn() {
     echo -e "${YELLOW}[$(date '+%H:%M:%S')]${NC} [MOLTBOT-RALF] $1" | tee -a "$LOG_FILE"
 }
 
+# Send Telegram notification
+send_telegram_update() {
+    local run_id="$1"
+    local status="$2"
+    local action="$3"
+    local run_folder="$4"
+    local duration="${5:-unknown}"
+
+    # Determine emoji based on status
+    local emoji="📊"
+    case "$status" in
+        COMPLETED) emoji="✅" ;;
+        FAILED) emoji="❌" ;;
+        PARTIAL) emoji="⚠️" ;;
+    esac
+
+    # Build message
+    local message="${emoji} <b>BB5 Run Complete</b>%0A"
+    message+="<code>${run_id}</code>%0A"
+    message+="━━━━━━━━━━━━━━━━━━━━━━━%0A%0A"
+
+    # Status and action
+    message+="<b>Status:</b> ${status}%0A"
+    message+="<b>Action:</b> ${action}%0A"
+    message+="<b>Duration:</b> ${duration}s%0A%0A"
+
+    # Read git stats if available
+    if [ -f "$run_folder/git.log" ]; then
+        local commits=$(grep -c "commit" "$run_folder/git.log" 2>/dev/null || echo "0")
+        local pushed=$(grep -c "push" "$run_folder/git.log" 2>/dev/null || echo "0")
+        if [ "$commits" -gt 0 ] || [ "$pushed" -gt 0 ]; then
+            message+="<b>🔄 Git</b>%0A"
+            [ "$commits" -gt 0 ] && message+="• Commits: ${commits}%0A"
+            [ "$pushed" -gt 0 ] && message+="• Pushed: yes%0A"
+            message+="%0A"
+        fi
+    fi
+
+    # Read results if available
+    if [ -f "$run_folder/RESULTS.md" ]; then
+        local result_summary=$(grep -A 5 "## Outcomes" "$run_folder/RESULTS.md" 2>/dev/null | tail -n +2 | head -3 | tr '\n' ' ' | sed 's/  */ /g' | cut -c1-100)
+        if [ -n "$result_summary" ]; then
+            message+="<b>📋 Result:</b>%0A${result_summary}...%0A%0A"
+        fi
+    fi
+
+    # Add next action hint
+    case "$status" in
+        COMPLETED)
+            message+"<i>✓ Run completed successfully. Starting next cycle...</i>"
+            ;;
+        FAILED)
+            message+"<i>⚠ Run failed. Will retry (failure ${CONSECUTIVE_FAILURES}/${MAX_CONSECUTIVE_FAILURES})</i>"
+            ;;
+        PARTIAL)
+            message+"<i>⏳ Run partial. Continuing in next cycle...</i>"
+            ;;
+    esac
+
+    # Send to Telegram
+    local payload="chat_id=${TELEGRAM_CHAT_ID}&text=${message}&parse_mode=HTML"
+    if [ -n "$TELEGRAM_TOPIC_ID" ]; then
+        payload="${payload}&message_thread_id=${TELEGRAM_TOPIC_ID}"
+    fi
+
+    curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+        -d "$payload" > /dev/null 2>&1 || true
+}
+
 # Ensure log directory exists
 mkdir -p "$(dirname "$LOG_FILE")"
 
@@ -45,6 +119,14 @@ log "RALF Script: $RALF_SCRIPT"
 log "Runs Directory: $RUNS_DIR"
 log "Log File: $LOG_FILE"
 log ""
+
+# Send startup notification to Telegram
+startup_message="🤖%20<b>MoltBot%20RALF%20Manager</b>%20started%0A"
+startup_message+="━━━━━━━━━━━━━━━━━━━━━━━%0A"
+startup_message+="<i>Will%20report%20after%20each%20run%20completes</i>"
+curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+    -d "chat_id=${TELEGRAM_CHAT_ID}&text=${startup_message}&parse_mode=HTML" \
+    > /dev/null 2>&1 || true
 
 # Check if RALF script exists
 if [ ! -f "$RALF_SCRIPT" ]; then
@@ -59,17 +141,28 @@ while true; do
     log "Starting RALF Single Cycle..."
     log "───────────────────────────────────────────────────"
 
+    # Record start time
+    CYCLE_START_TIME=$(date +%s)
+
     # Run RALF single cycle
     set +e
     "$RALF_SCRIPT" 2>&1 | tee -a "$LOG_FILE"
     RALF_EXIT_CODE=$?
     set -e
 
+    # Calculate duration
+    CYCLE_END_TIME=$(date +%s)
+    CYCLE_DURATION=$((CYCLE_END_TIME - CYCLE_START_TIME))
+
     # Get latest run
     LATEST_RUN=$(ls -1t "$RUNS_DIR" 2>/dev/null | head -1)
     LATEST_STATUS="UNKNOWN"
+    LATEST_ACTION="unknown"
     if [ -n "$LATEST_RUN" ] && [ -f "$RUNS_DIR/$LATEST_RUN/status.txt" ]; then
         LATEST_STATUS=$(cat "$RUNS_DIR/$LATEST_RUN/status.txt")
+    fi
+    if [ -n "$LATEST_RUN" ] && [ -f "$RUNS_DIR/$LATEST_RUN/context.yaml" ]; then
+        LATEST_ACTION=$(grep "action:" "$RUNS_DIR/$LATEST_RUN/context.yaml" 2>/dev/null | cut -d: -f2 | tr -d ' ' || echo "unknown")
     fi
 
     log ""
@@ -77,6 +170,11 @@ while true; do
     log "  Exit Code: $RALF_EXIT_CODE"
     log "  Latest Run: ${LATEST_RUN:-none}"
     log "  Status: $LATEST_STATUS"
+
+    # Send Telegram update
+    if [ -n "$LATEST_RUN" ]; then
+        send_telegram_update "$LATEST_RUN" "$LATEST_STATUS" "$LATEST_ACTION" "$RUNS_DIR/$LATEST_RUN" "$CYCLE_DURATION"
+    fi
 
     # Handle exit code
     case $RALF_EXIT_CODE in

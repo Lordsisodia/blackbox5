@@ -6689,3 +6689,119 @@ Read the output file to retrieve the result: /private/tmp/claude-501/-Users-shaa
   task: ""
   run: "current"
   preview: "Yeah, go on, deploy that to the thingy, but I'm not even sure if that's how Molbot works. Can you ta"
+- timestamp: "2026-02-09T20:17:30+07:00"
+  type: user_prompt
+  task: ""
+  run: "current"
+  preview: "Make sure you're 100% sure and didn't miss anything."
+- timestamp: "2026-02-09T20:20:19+07:00"
+  type: user_prompt
+  task: ""
+  run: "current"
+  preview: "9199f096657444eda30ffce701e6b46b.zggFTGemqS5Oez2w - I want to test something out. I think you're usi
+Claude Code
+
+Copy page
+
+Methods for Using the GLM Coding Plan in Claude Code
+
+Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and he
+Claude Code is even more powerful with the GLM Coding Plan— giving you 3× the usage at a fraction of
+Christmas Deal: Enjoy 50% off your first GLM Coding Plan purchase, plus an extra 10%/20% off! Subscr
+For users who have used the service before 2025-09-30:
+The default model for GLM Coding Plan has been upgraded to GLM-4.7 with seamless user experience.
+However, if you previously configured fixed model mappings for GLM-4.5 in settings.json, please refe
+After successfully configuring the subscription, the default server model mapping is applied, where 
+You can manually adjust the model mapping (not recommended), see the “How to Switch the Model in Use
+​
+Step 1: Installing the Claude Code
+Recommended Installation Method
+Cursor Guided Installation Method
+Prerequisites:
+Node.js 18 or newer
+For MacOS, please use nvm to install Nodejs, if you directly install the package, maybe encounter pe
+For Windows, please additionally install Git for Windows
+# Install Claude Code
+npm install -g @anthropic-ai/claude-code
+
+# Navigate to your project
+cd your-awesome-project
+
+# Complete
+claude
+Note: If MacOS users encounter permission issues during installation, please use nvm to install Node
+​
+Step 2: Config GLM Coding Plan
+1
+Get API Key
+
+Access Z.AI Open Platform, Register or Login.
+Create an API Key in the API Keys management page.
+Copy your API Key for use.
+2
+Configure Environment Variables
+
+Set up environment variables using one of the following methods in the macOS Linux or Windows:
+Note: Some commands show no output when setting environment variables — that’s normal as long as no 
+Automated Coding Tool Helper
+Automated Script
+Manual configuration
+Coding Tool Helper is a coding-tool companion that quickly loads GLM Coding Plan into your favorite 
+# Run Coding Tool Helper directly in the terminal
+npx @z_ai/coding-helper
+For more details, please refer to the Coding Tool Helper documentation.
+Description
+​
+Step 3: Start with Claude Code
+Once the configuration is complete, you can start using Claude Code in your terminal or cmd:
+cd your-project-directory
+claude
+If prompted with “Do you want to use this API key,” select “Yes.”
+After launching, grant Claude Code permission to access files in your folder as shown below:
+Description
+You can use Claude Code for development Now!
+​
+FAQ
+​
+How to Switch the Model in Use
+Mapping between Claude Code internal model environment variables and GLM models, with the default co
+ANTHROPIC_DEFAULT_OPUS_MODEL: GLM-4.7
+ANTHROPIC_DEFAULT_SONNET_MODEL: GLM-4.7
+ANTHROPIC_DEFAULT_HAIKU_MODEL: GLM-4.5-Air
+If adjustments are needed, you can directly modify the configuration file (for example, ~/.claude/se
+It is generally not recommended to manually adjust the model mapping, as hardcoding the model mappin
+If you want to use the latest default mappings (for existing users who have configured old model map
+Configure ~/.claude/settings.json with the following content:
+{
+  \\"env\\": {
+    \\"ANTHROPIC_DEFAULT_HAIKU_MODEL\\": \\"glm-4.5-air\\",
+    \\"ANTHROPIC_DEFAULT_SONNET_MODEL\\": \\"glm-4.7\\",
+    \\"ANTHROPIC_DEFAULT_OPUS_MODEL\\": \\"glm-4.7\\"
+  }
+}
+Open a new terminal window and run claude to start Claude Code, enter /status to check the current m
+Description
+​
+Vision Search Reader MCP
+Refer to the Vision MCP Server , Search MCP Server and Web Reader MCP Server documentation; once con
+​
+Manual Configuration Not Work
+If you manually modified the ~/.claude/settings.json configuration file but found the changes did no
+Close all Claude Code windows, open a new command-line window, and run claude again to start.
+If the issue persists, try deleting the ~/.claude/settings.json file and then reconfigure the enviro
+Confirm that the JSON format of the configuration file is correct, check the variable names, and ens
+​
+Recommended Claude Code Version
+We recommend using the latest version of Claude Code. You can check the current version and upgrade 
+We have verified compatibility with Claude Code 2.0.14 and other versions.
+# Check the current version
+claude --version
+
+2.0.14 (Claude Code)
+
+# Upgrade to the latest
+claude update
+Was this page helpful?
+
+
+ "
