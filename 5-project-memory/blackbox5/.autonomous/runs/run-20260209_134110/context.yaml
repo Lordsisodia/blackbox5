@@ -1,2 +1,10 @@
-previous_run: run-20260209_134026
-previous_status: COMPLETED
+run:
+  id: 20260209_134110
+  type: ralf-core
+  action: analyze_improve
+  priority: medium
+  previous_run: run-20260209_134026
+  previous_status: COMPLETED
+  active_tasks: 0
+  git_changes: 0
+started: 2026-02-09T13:41:11Z
