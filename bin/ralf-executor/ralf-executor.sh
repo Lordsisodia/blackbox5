@@ -79,20 +79,14 @@ while true; do
     # 2. Scan for tasks and update queue
     log "Scanning for active tasks..."
     if [ -f "$EXECUTOR_DIR/task-scanner.py" ]; then
-        python3 "$EXECUTOR_DIR/task-scanner.py" --tasks-dir "$TASKS_DIR/active" --queue "$QUEUE_FILE" --output "$RUN_FOLDER/scan-results.json" 2>&1 | tee -a "$LOG_FILE"
+        python3 "$EXECUTOR_DIR/task-scanner.py" --tasks-dir "$TASKS_DIR/active" --queue-path "$QUEUE_FILE" 2>&1 | tee -a "$LOG_FILE" || true
         log_success "✓ Task scan complete"
     else
         log_warn "⚠ Task scanner not found, using fallback"
-        # Fallback: simple task detection
-        PENDING_TASK=$(ls -1t "$TASKS_DIR/active"/*.md 2>/dev/null | head -1 || true)
-        if [ -n "$PENDING_TASK" ]; then
-            TASK_NAME=$(basename "$PENDING_TASK" .md)
-            log "Found task: $TASK_NAME"
-        fi
     fi
 
-    # 3. Check if there are tasks to execute
-    PENDING_COUNT=$(ls -1 "$TASKS_DIR/active"/*.md 2>/dev/null | wc -l)
+    # 3. Check if there are tasks to execute (recursively find .md files)
+    PENDING_COUNT=$(find "$TASKS_DIR/active" -name "*.md" -type f 2>/dev/null | grep -v "/completed/" | grep -v "/runs.migrated/" | wc -l)
     log "Pending tasks: $PENDING_COUNT"
 
     if [ "$PENDING_COUNT" -eq 0 ]; then
@@ -122,7 +116,7 @@ while true; do
         # Manual mode - create action items
         log_warn "Running in manual mode (no AI provider)"
 
-        PENDING_TASK=$(ls -1t "$TASKS_DIR/active"/*.md 2>/dev/null | head -1)
+        PENDING_TASK=$(find "$TASKS_DIR/active" -name "TASK-*.md" -type f 2>/dev/null | grep -v "/completed/" | grep -v "/runs.migrated/" | head -1)
         if [ -n "$PENDING_TASK" ]; then
             TASK_NAME=$(basename "$PENDING_TASK" .md)
 
