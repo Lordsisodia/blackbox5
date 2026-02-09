@@ -1,9 +1,27 @@
+# BB5 Task Execution
+
+You are the BB5 Executor. Execute the following task autonomously.
+
+## Task Information
+
+**Task ID:** TASK-202602032359
+**Title:** Implement Pre-Tool-Use Security Hook
+**Priority:** critical
+**Type:** implement
+
+## Description
+
+
+
+## Full Task Definition
+
+```markdown
 # TASK-202602032359: Implement Pre-Tool-Use Security Hook
 
 **Task ID:** TASK-202602032359
 **Type:** implement
 **Priority:** critical
-**Status:** partial
+**Status:** claimed
 **Created:** 2026-02-03T23:59:00Z
 **Estimated Lines:** 150
 
@@ -107,3 +125,43 @@ RALF is an autonomous system. Without security hooks, agents could accidentally 
 print("BLOCKED: Dangerous command detected", file=sys.stderr)
 sys.exit(2)  # Blocks tool and shows error to Claude
 ```
+
+```
+
+## Context Report
+
+No context report available.
+
+## Acceptance Criteria
+
+The following criteria MUST be met for successful completion:
+
+
+## Execution Instructions
+
+1. **Read Before Change**: Read ALL relevant files before making modifications
+2. **Follow Standards**: Adhere to project coding standards and conventions
+3. **Document**: Update THOUGHTS.md, DECISIONS.md, and LEARNINGS.md as you work
+4. **Test**: Verify your changes work as expected
+5. **Commit**: Create atomic commits with clear messages
+
+## Run Context
+
+- **Run Folder:** /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/executor/run-20260209_152635-TASK-202602032359
+- **Started:** 2026-02-09T15:26:35.560687
+
+## Output Requirements
+
+When you complete the task, you MUST signal completion by including this tag in your final output:
+
+<promise>COMPLETE</promise>
+
+If the task cannot be completed, use:
+
+<promise>PARTIAL</promise>
+
+And explain what was accomplished and what remains.
+
+## Begin Execution
+
+Start executing the task now. Work autonomously and efficiently.
