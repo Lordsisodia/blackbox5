@@ -26,7 +26,7 @@ LOOP_COUNT=0
 while true; do
     LOOP_COUNT=$((LOOP_COUNT + 1))
     RUN_ID=$(date +"%Y%m%d_%H%M%S")
-    RUN_FOLDER="$RUNS_DIR/run-${RUN_ID}"
+    RUN_FOLDER="$BB5_RUNS_DIR/run-${RUN_ID}"
     mkdir -p "$RUN_FOLDER"
 
     log ""
@@ -43,7 +43,7 @@ while true; do
 
     # Create improvement task based on state
     IMPROVEMENT_ID="IMP-$(date +%Y%m%d-%H%M%S)"
-    IMPROVEMENT_FILE="$IMPROVEMENTS_DIR/${IMPROVEMENT_ID}.md"
+    IMPROVEMENT_FILE="$BB5_IMPROVEMENTS_DIR/${IMPROVEMENT_ID}.md"
 
     # Determine improvement type based on cycle
     case $((LOOP_COUNT % 5)) in
@@ -129,12 +129,9 @@ EOF
 
     echo "COMPLETED" > "$RUN_FOLDER/status.txt"
 
-    # Commit changes
-    git add -A
-    git commit -m "bb5-improver: [$RUN_ID] Created $IMPROVEMENT_TYPE improvement task" || true
-
-    # Push
-    git push origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log" || log "Push failed"
+    # Commit and push changes using common library
+    bb5_git_commit "bb5-improver: [$RUN_ID] Created $IMPROVEMENT_TYPE improvement task" || true
+    bb5_git_push "$RUN_FOLDER/git.log" || log "Push failed"
 
     log "Cycle $LOOP_COUNT complete. Next cycle in 5 minutes..."
 
