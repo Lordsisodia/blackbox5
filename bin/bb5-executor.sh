@@ -110,8 +110,10 @@ EOF
     export BB5_TASK="$TASK_NAME"
 
     if [ "$AI_PROVIDER" = "claude" ]; then
-        # Run Claude - root is OK, settings.json configured properly
-        if claude -p < "$RUN_FOLDER/execution-prompt.md" 2>&1 | tee "$RUN_FOLDER/execution.log"; then
+        # Run Claude as bb5-runner with bypass permissions for full autonomy
+        log "Running Claude as bb5-runner with bypass permissions..."
+        chown -R bb5-runner:bb5-runner "$RUN_FOLDER"
+        if sudo -u bb5-runner -H /usr/local/bin/claude -p --dangerously-skip-permissions < "$RUN_FOLDER/execution-prompt.md" 2>&1 | tee "$RUN_FOLDER/execution.log"; then
             log "✓ Claude execution completed"
         else
             log "❌ Claude execution failed"
