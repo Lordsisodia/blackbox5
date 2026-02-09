@@ -1,0 +1,52 @@
+# {{PROJECT_NAME}}
+
+{{PROJECT_DESCRIPTION}}
+
+## Overview
+
+This project uses the BB5 (BlackBox5) autonomous agent infrastructure for continuous self-improvement and task completion.
+
+## Project Structure
+
+```
+{{PROJECT_NAME}}/
+├── .autonomous/       # Autonomous system data
+│   ├── agents/        # Agent communications
+│   ├── memory/        # Memory store
+│   ├── tasks/         # Task tracking
+│   ├── runs/          # Run history
+│   └── state/         # State files
+├── context/           # Project context files
+├── goals/             # Active and completed goals
+├── runs/              # Current run folder
+├── knowledge/         # Knowledge base
+├── decisions/         # Decision log
+├── learnings/         # Learnings and patterns
+├── plans/             # Project plans
+├── CLAUDE.md          # Project guidance
+├── goals.yaml         # Project goals
+└── STATE.yaml         # Current state
+```
+
+## Getting Started
+
+1. Review [CLAUDE.md](CLAUDE.md) for project-specific guidance
+2. Check [goals.yaml](goals.yaml) for current objectives
+3. View [STATE.yaml](STATE.yaml) for current status
+4. See [context/](context/) for project details
+
+## BB5 Integration
+
+This project is part of the BB5 ecosystem:
+- Uses BB5 agent teams for autonomous work
+- Shares BB5 skills and memory system
+- Integrates with BB5 improvement loops
+
+## Status
+
+- **Created**: {{TIMESTAMP}}
+- **Status**: Active
+- **Phase**: Initialization
+
+---
+*This project uses BB5 autonomous infrastructure*

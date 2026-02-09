@@ -1,0 +1,39 @@
+# Architecture - {{PROJECT_NAME}}
+
+## Overview
+
+*High-level description of the system architecture*
+
+## System Diagram
+
+```
+[Component A] --> [Component B] --> [Component C]
+     ^                                    |
+     |____________________________________|
+```
+
+## Components
+
+### Component A
+- **Purpose**:
+- **Responsibilities**:
+- **Interfaces**:
+
+### Component B
+- **Purpose**:
+- **Responsibilities**:
+- **Interfaces**:
+
+## Data Flow
+
+1.
+2.
+3.
+
+## Integration Points
+
+-
+
+## Decisions
+
+*Link to decisions/architecture/ folder for ADRs*
