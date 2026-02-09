@@ -1,0 +1,8 @@
+agent_dir: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/test-spawner-001/agents/bb5-context-collector-215859-d7d4ff0c
+agent_id: bb5-context-collector-215859-d7d4ff0c
+agent_type: bb5-context-collector
+completed_at: '2026-02-09T22:08:59.873763'
+duration: 600.410161
+run_folder: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/test-spawner-001
+spawned_at: '2026-02-09T21:58:59.460358'
+status: timeout

@@ -1,0 +1,21 @@
+[Unit]
+Description=BB5 RALF Executor - Unified Task Execution Service
+After=network.target
+
+[Service]
+Type=simple
+User=bb5-runner
+WorkingDirectory=/opt/blackbox5
+Environment="BB5_DIR=/opt/blackbox5"
+Environment="ANTHROPIC_API_KEY=9199f096657444eda30ffce701e6b46b.zggFTGemqS5Oez2w"
+Environment="ANTHROPIC_BASE_URL=https://api.glm.ai/coding/"
+Environment="CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1"
+Environment="BB5_MODE=autonomous"
+ExecStart=/opt/blackbox5/bin/ralf-executor/ralf-executor.sh
+Restart=always
+RestartSec=30
+StandardOutput=append:/var/log/bb5-ralf-executor.log
+StandardError=append:/var/log/bb5-ralf-executor.log
+
+[Install]
+WantedBy=multi-user.target

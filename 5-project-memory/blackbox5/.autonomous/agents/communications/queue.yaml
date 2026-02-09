@@ -1,9 +1,6 @@
 schema:
   version: 1.0.1
   generated: '2026-02-07'
-  # NOTE: Counts are dynamically derived from the tasks list below.
-  # Use get_queue_counts() from lib/task_utils.py to retrieve current counts.
-  # Do not cache counts in this file - always derive from source of truth.
 priority_formula:
   description: (impact / effort) * confidence
   impact:
@@ -840,8 +837,427 @@ tasks:
   resource_type: memory_bound
   parallel_group: wave_1
   goal: IG-007
-# NOTE: Queue metadata is dynamically derived from the tasks list above.
-# Use get_queue_counts() from lib/task_utils.py to retrieve current counts.
-# Do not cache counts in this file - always derive from source of truth.
+- id: TASK-1769978192
+  type: design
+  status: active
+  priority: CRITICAL
+  priority_score: 20.0
+  title: 'Task: Design Agent Execution Flow with Enforcement Mechanisms'
+  estimated_minutes: 30
+  roi:
+    impact: 20.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TEMPLATE
+  type: implement
+  status: pending
+  priority: CRITICAL
+  priority_score: 20.0
+  title: Task Template
+  estimated_minutes: 30
+  roi:
+    impact: 20.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: SUBTASK-004
+  type: implement
+  status: in_progress
+  priority: CRITICAL
+  priority_score: 20.0
+  title: 'SUBTASK-004A: Create Health Monitor Core Library'
+  estimated_minutes: 30
+  roi:
+    impact: 20.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-HINDSIGHT-006
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-HINDSIGHT-006: Integrate and Validate'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-1738375000
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-1738375000: Implement Feature F-016 (CLI Interface & Tooling Suite)'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-007-1
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-FIX-SKIL-007-1: Sync skill-usage.yaml to skill-registry.yaml'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: AGENT-SYSTEM-AUDIT
+  type: implement
+  status: in_progress
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK: Agent System Audit & Integration Research'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-CC-REPO-ANALYSIS-001
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-CC-REPO-ANALYSIS-001: Claude Code GitHub Repo Analysis - Main Task'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-HINDSIGHT-005
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-HINDSIGHT-005: Implement REFLECT Operation'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-007-3
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-FIX-SKIL-007-3: Update task outcome logging to record skill_used'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-007-2
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-FIX-SKIL-007-2: Fix calculate-skill-metrics.py to target correct file'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-AUTO-010-agent-system-audit
+  type: implement
+  status: in_progress
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK: Agent System Audit & Integration Research'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-CC-001A
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-CC-001A: Discover Claude Code Related GitHub Repos'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-1
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 15.0
+  title: 'TASK-FIX-SKIL-018-1: Update Skill Selection Rule to "MUST Invoke"'
+  estimated_minutes: 20
+  roi:
+    impact: 15.0
+    effort: 20
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-DEV-011-youtube-automation
+  type: implement
+  status: pending
+  priority: MEDIUM
+  priority_score: 12.0
+  title: 'TASK: Set up YouTube Auto-Scraper on Render'
+  estimated_minutes: 30
+  roi:
+    impact: 12.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-DOCS-010-youtube-pipeline-plan
+  type: implement
+  status: active
+  priority: MEDIUM
+  priority_score: 12.0
+  title: 'ACTION PLAN: YouTube Pipeline (Minimal Moves)'
+  estimated_minutes: 30
+  roi:
+    impact: 12.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-PLAN-001-youtube-pipeline
+  type: implement
+  status: active
+  priority: MEDIUM
+  priority_score: 12.0
+  title: 'ACTION PLAN: YouTube Pipeline (Minimal Moves)'
+  estimated_minutes: 30
+  roi:
+    impact: 12.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-050-1
+  type: skills
+  status: pending
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-050-1: Decide Fate of Unused Infrastructure Skills'
+  estimated_minutes: 15
+  roi:
+    impact: 10.0
+    effort: 15
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-4
+  type: skills
+  status: pending
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-018-4: Add Skill Override Documentation Workflow'
+  estimated_minutes: 30
+  roi:
+    impact: 10.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-2
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-018-2: Create bin/detect-skill.py Auto-Detection Script'
+  estimated_minutes: 45
+  roi:
+    impact: 10.0
+    effort: 45
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-032-1
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-032-1: Implement Task-Level Time Tracking with Skill Attribution'
+  estimated_minutes: 45
+  roi:
+    impact: 10.0
+    effort: 45
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-050-2
+  type: skills
+  status: pending
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-050-2: Implement Decision - Create or Remove Infrastructure
+    Skills'
+  estimated_minutes: 30
+  roi:
+    impact: 10.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-CLEANUP-LOOP
+  type: cleanup
+  status: in_progress
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-CLEANUP-LOOP: BB5 Consolidation Loop'
+  estimated_minutes: 30
+  roi:
+    impact: 10.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-3
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 7.5
+  title: 'TASK-FIX-SKIL-018-3: Create Pre-Execution Hook for Skill Enforcement'
+  estimated_minutes: 60
+  roi:
+    impact: 7.5
+    effort: 60
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-032-2
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 7.5
+  title: 'TASK-FIX-SKIL-032-2: Create A/B Comparison Framework for Skill vs No-Skill
+    Tasks'
+  estimated_minutes: 60
+  roi:
+    impact: 7.5
+    effort: 60
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-032-3
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 6.0
+  title: 'TASK-FIX-SKIL-032-3: Build Automated ROI Calculation Pipeline'
+  estimated_minutes: 75
+  roi:
+    impact: 6.0
+    effort: 75
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-050-3
+  type: skills
+  status: pending
+  priority: LOW
+  priority_score: 5.0
+  title: 'TASK-FIX-SKIL-050-3: Update Documentation and Registry References'
+  estimated_minutes: 15
+  roi:
+    impact: 5.0
+    effort: 15
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-010-001
+  type: implement
+  status: pending
+  priority: CRITICAL
+  priority_score: 2.5
+  title: 'TASK-010-001: SessionStart Enhanced Hook'
+  estimated_minutes: 240
+  roi:
+    impact: 2.5
+    effort: 240
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
 queue_metadata:
   derived_from_filesystem: true
