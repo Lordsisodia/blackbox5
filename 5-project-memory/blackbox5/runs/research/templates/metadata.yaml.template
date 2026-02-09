@@ -1,0 +1,39 @@
+run:
+  id: "{RUN_ID}"
+  agent: "{AGENT_NAME}"
+  agent_type: "{worker|validator}"
+  pair: "{scout|analyst|planner}"
+  phase: "{extraction|analysis|planning}"
+  timestamp_start: "{START_TIME}"
+  timestamp_end: "{END_TIME}"
+  duration_seconds: {DURATION}
+
+state:
+  target: "{SOURCE_URL|PATTERN_ID|TASK_ID}"
+  status: "{idle|active|complete|blocked|failed}"
+  progress_percentage: {PERCENT}
+
+tokens:
+  budget: {BUDGET}
+  used: {USED}
+  percentage: {PERCENT}
+  checkpoint_count: {COUNT}
+
+results:
+  status: "{success|partial|failure|blocked}"
+  items_processed: {COUNT}
+  items_succeeded: {COUNT}
+  items_failed: {COUNT}
+
+next_steps:
+  - "{Action 1}"
+  - "{Action 2}"
+
+references:
+  parent_run: "{PARENT_RUN_ID|null}"
+  related_runs: []
+  related_patterns: []
+  related_tasks: []
+
+notes: |
+  {Free-form notes}

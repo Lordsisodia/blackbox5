@@ -1,0 +1,96 @@
+# Documentation Sources Registry
+# Central registry of all external documentation sources
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-02-03"
+  total_sources: 0
+
+sources:
+  - name: claude-code
+    display_name: Claude Code Documentation
+    url: https://code.claude.com/docs
+    type: official-docs
+    category: ai-tools
+    status: active
+    last_synced: "2026-02-03T23:50:00Z"
+    version: null
+    local_path: claude-code/
+    sync_strategy:
+      tier_1:
+        - /en/overview
+        - /en/cli-reference
+        - /en/settings
+        - /en/permissions
+        - /en/mcp
+        - /en/common-workflows
+        - /en/quickstart
+        - /en/setup
+      tier_2:
+        - /en/quickstart
+        - /en/setup
+        - /en/sub-agents
+        - /en/skills
+        - /en/hooks
+        - /en/hooks-guide
+        - /en/plugins
+        - /en/plugins-reference
+        - /en/discover-plugins
+        - /en/plugin-marketplaces
+        - /en/best-practices
+        - /en/troubleshooting
+        - /en/security
+        - /en/data-usage
+        - /en/sandboxing
+        - /en/interactive-mode
+        - /en/headless
+        - /en/vs-code
+        - /en/jetbrains
+        - /en/desktop
+        - /en/chrome
+        - /en/github-actions
+        - /en/gitlab-ci-cd
+        - /en/slack
+        - /en/authentication
+        - /en/memory
+        - /en/checkpointing
+      tier_3:
+        - /en/how-claude-code-works
+        - /en/features-overview
+        - /en/costs
+        - /en/model-config
+        - /en/amazon-bedrock
+        - /en/google-vertex-ai
+        - /en/microsoft-foundry
+        - /en/third-party-integrations
+        - /en/statusline
+        - /en/output-styles
+        - /en/terminal-config
+        - /en/keybindings
+        - /en/monitoring-usage
+        - /en/analytics
+        - /en/claude-code-on-the-web
+        - /en/changelog
+        - /en/devcontainer
+        - /en/legal-and-compliance
+        - /en/llm-gateway
+        - /en/network-config
+    priority: high
+    notes: "Official Anthropic documentation for Claude Code. All 53 pages fetched."
+
+# Categories for organization
+categories:
+  - ai-tools
+  - api-reference
+  - frameworks
+  - protocols
+  - sdks
+  - specifications
+
+# Source types
+types:
+  - official-docs      # Official documentation
+  - api-reference      # API reference docs
+  - github-repo        # GitHub-hosted docs
+  - specification      # Technical specifications
+  - community          # Community-maintained

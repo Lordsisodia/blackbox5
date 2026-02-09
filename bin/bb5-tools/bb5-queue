@@ -1,0 +1,301 @@
+#!/bin/bash
+# bb5-queue - Task queue management commands
+# Usage: bb5 queue list | bb5 queue next | bb5 queue ready | bb5 queue blocked | bb5 queue claimed
+# Now uses StorageBackend (SQLite with YAML fallback)
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BLACKBOX5_DIR="$PROJECT_ROOT/5-project-memory/blackbox5"
+STORAGE_BACKEND="$BLACKBOX5_DIR/.autonomous/lib/storage_backend.py"
+
+COMMAND="${1:-list}"
+
+# Colors
+if [ -t 1 ]; then
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    CYAN='\033[0;36m'
+    RED='\033[0;31m'
+    MAGENTA='\033[0;35m'
+    NC='\033[0m'
+else
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    CYAN=''
+    RED=''
+    MAGENTA=''
+    NC=''
+fi
+
+# Check if storage backend exists
+if [ ! -f "$STORAGE_BACKEND" ]; then
+    echo "Storage backend not found: $STORAGE_BACKEND"
+    exit 1
+fi
+
+# Priority value for sorting (higher = more important)
+get_priority_value() {
+    case "$1" in
+        CRITICAL) echo 4 ;;
+        HIGH) echo 3 ;;
+        MEDIUM) echo 2 ;;
+        LOW) echo 1 ;;
+        *) echo 0 ;;
+    esac
+}
+
+# Color code for priority
+get_priority_color() {
+    case "$1" in
+        CRITICAL) echo "$RED" ;;
+        HIGH) echo "$YELLOW" ;;
+        MEDIUM) echo "$CYAN" ;;
+        LOW) echo "$NC" ;;
+        *) echo "$NC" ;;
+    esac
+}
+
+# Color code for status
+get_status_color() {
+    case "$1" in
+        completed) echo "$GREEN" ;;
+        in_progress) echo "$YELLOW" ;;
+        pending) echo "$BLUE" ;;
+        blocked) echo "$RED" ;;
+        *) echo "$NC" ;;
+    esac
+}
+
+# Display header
+display_header() {
+    echo "═══════════════════════════════════════════════════════════════════════════════════"
+    printf "  %-12s %-40s %-10s %-12s %s\n" "Task ID" "Title" "Priority" "Status" "Score"
+    echo "═══════════════════════════════════════════════════════════════════════════════════"
+}
+
+# Display task row
+display_task() {
+    local id="$1"
+    local title="$2"
+    local priority="$3"
+    local status="$4"
+    local score="$5"
+
+    # Truncate title if too long
+    if [ ${#title} -gt 38 ]; then
+        title="${title:0:35}..."
+    fi
+
+    local priority_color=$(get_priority_color "$priority")
+    local status_color=$(get_status_color "$status")
+
+    printf "  ${CYAN}%-12s${NC} %-40s ${priority_color}%-10s${NC} ${status_color}%-12s${NC} %s\n" \
+        "$id" "$title" "$priority" "$status" "$score"
+}
+
+# Display footer
+display_footer() {
+    echo "═══════════════════════════════════════════════════════════════════════════════════"
+}
+
+case "$COMMAND" in
+    list)
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo "  Task Queue (sorted by priority score)"
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo ""
+
+        # Get tasks from storage backend
+        tasks=$(python3 "$STORAGE_BACKEND" list 2>/dev/null || echo "")
+
+        if [ -z "$tasks" ]; then
+            echo "No tasks found in queue."
+            exit 0
+        fi
+
+        display_header
+
+        echo "$tasks" | while IFS='|' read -r id title priority status score rest; do
+            display_task "$id" "$title" "$priority" "$status" "$score"
+        done
+
+        display_footer
+
+        # Get stats from storage backend
+        stats=$(python3 "$STORAGE_BACKEND" stats 2>/dev/null)
+        total=$(echo "$stats" | grep "^total:" | cut -d: -f2)
+        pending=$(echo "$stats" | grep "^status:pending:" | cut -d: -f3)
+        in_progress=$(echo "$stats" | grep "^status:in_progress:" | cut -d: -f3)
+        completed=$(echo "$stats" | grep "^status:completed:" | cut -d: -f3)
+
+        echo ""
+        echo "Summary: ${total:-0} total | ${BLUE}${pending:-0} pending${NC} | ${YELLOW}${in_progress:-0} in progress${NC} | ${GREEN}${completed:-0} completed${NC}"
+        ;;
+
+    next)
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo "  Next Ready Task (highest priority)"
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo ""
+
+        # Get ready tasks from storage backend
+        ready_tasks=$(python3 "$STORAGE_BACKEND" ready 2>/dev/null)
+
+        # Filter out claimed tasks and get the first one
+        next_task=$(echo "$ready_tasks" | head -1)
+
+        if [ -z "$next_task" ]; then
+            echo "No ready tasks found."
+            echo ""
+            echo "All pending tasks are either blocked or claimed."
+            echo "Run 'bb5 queue blocked' to see blocked tasks."
+            echo "Run 'bb5 queue claimed' to see claimed tasks."
+        else
+            display_header
+            IFS='|' read -r id title priority score <<< "$next_task"
+            display_task "$id" "$title" "$priority" "pending" "$score"
+            display_footer
+            echo ""
+            echo "To claim this task: bb5 task:claim $id"
+        fi
+        ;;
+
+    ready)
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo "  Ready Tasks (no dependencies, pending)"
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo ""
+
+        # Get ready tasks from storage backend
+        ready_tasks=$(python3 "$STORAGE_BACKEND" ready 2>/dev/null)
+
+        if [ -z "$ready_tasks" ]; then
+            echo "No ready tasks found."
+            echo ""
+            echo "All pending tasks have dependencies."
+            echo "Run 'bb5 queue blocked' to see blocked tasks."
+        else
+            display_header
+
+            echo "$ready_tasks" | while IFS='|' read -r id title priority score rest; do
+                display_task "$id" "$title" "$priority" "pending" "$score"
+            done
+
+            display_footer
+
+            count=$(echo "$ready_tasks" | wc -l)
+            echo ""
+            echo "Total ready tasks: $count"
+        fi
+        ;;
+
+    blocked)
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo "  Blocked Tasks (has dependencies)"
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo ""
+
+        # Get blocked tasks from storage backend
+        blocked_tasks=$(python3 "$STORAGE_BACKEND" blocked 2>/dev/null)
+
+        if [ -z "$blocked_tasks" ]; then
+            echo "No blocked tasks found."
+            echo ""
+            echo "All tasks are ready to execute!"
+        else
+            display_header
+
+            echo "$blocked_tasks" | while IFS='|' read -r id title priority score rest; do
+                display_task "$id" "$title" "$priority" "blocked" "$score"
+            done
+
+            display_footer
+
+            count=$(echo "$blocked_tasks" | wc -l)
+            echo ""
+            echo "Total blocked tasks: $count"
+        fi
+        ;;
+
+    claimed)
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo "  Claimed Tasks"
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo ""
+
+        # Get claimed tasks from storage backend
+        claimed_tasks=$(python3 "$STORAGE_BACKEND" claimed 2>/dev/null)
+
+        if [ -z "$claimed_tasks" ]; then
+            echo "No claimed tasks found."
+            echo ""
+            echo "All tasks are unclaimed and available."
+        else
+            display_header
+
+            echo "$claimed_tasks" | while IFS='|' read -r id title claimed_by rest; do
+                # Truncate title if too long
+                if [ ${#title} -gt 38 ]; then
+                    title="${title:0:35}..."
+                fi
+                printf "  ${CYAN}%-12s${NC} %-40s ${MAGENTA}Claimed by:${NC} %s\n" \
+                    "$id" "$title" "$claimed_by"
+            done
+
+            display_footer
+
+            count=$(echo "$claimed_tasks" | wc -l)
+            echo ""
+            echo "Total claimed tasks: $count"
+        fi
+        ;;
+
+    stats)
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo "  Queue Statistics"
+        echo "═══════════════════════════════════════════════════════════════════════════════════"
+        echo ""
+
+        stats=$(python3 "$STORAGE_BACKEND" stats 2>/dev/null)
+
+        total=$(echo "$stats" | grep "^total:" | cut -d: -f2)
+        echo "Total Tasks: $total"
+        echo ""
+
+        echo "By Status:"
+        echo "$stats" | grep "^status:" | while IFS=':' read -r prefix status count; do
+            printf "  %-15s %s\n" "$status:" "$count"
+        done
+
+        echo ""
+        echo "By Priority:"
+        echo "$stats" | grep "^priority:" | while IFS=':' read -r prefix priority count; do
+            printf "  %-15s %s\n" "$priority:" "$count"
+        done
+
+        echo ""
+        echo "By Type:"
+        echo "$stats" | grep "^type:" | while IFS=':' read -r prefix type count; do
+            printf "  %-15s %s\n" "$type:" "$count"
+        done
+        ;;
+
+    *)
+        echo "Unknown command: $COMMAND"
+        echo ""
+        echo "Usage: bb5 queue <command>"
+        echo ""
+        echo "Commands:"
+        echo "  list      Show all tasks in priority order"
+        echo "  next      Show highest priority ready task"
+        echo "  ready     Show tasks ready to execute (no dependencies)"
+        echo "  blocked   Show blocked tasks with dependencies"
+        echo "  claimed   Show claimed tasks"
+        echo "  stats     Show queue statistics"
+        exit 1
+        ;;
+esac

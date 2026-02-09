@@ -6,18 +6,34 @@ This section contains how-to guides, tutorials, and operational documentation fo
 
 ### 01-getting-started/
 Getting started tutorials and beginner guides.
+- [README](01-getting-started/README.md) - Getting started overview
+- [QUICK-START.md](QUICK-START.md) - Quick start guide
 
-### 02-configuration/
-Configuration guides, setup instructions, and environment setup.
+### 02-cli/
+CLI guides and command references.
 
-### 03-operations/
-Operational guides for running and maintaining the system.
+### 02-common-patterns/
+Common usage patterns and workflows.
+- [README](02-common-patterns/README.md) - Patterns overview
+
+### 02-tutorials/
+Step-by-step tutorials for common tasks.
+
+### 03-advanced/
+Advanced usage and customization guides.
+- [README](03-advanced/README.md) - Advanced guides overview
 
 ### 04-autonomous/
 Guides for autonomous system operation and auto-claude usage.
 - [autonomous-system-overview.md](04-autonomous/autonomous-system-overview.md)
 - [redis-guide.md](04-autonomous/redis-guide.md)
 - [task-tracking.md](04-autonomous/task-tracking.md)
+
+### 04-reference/
+Reference documentation and quick lookups.
+- [OUTPUT_STYLE.md](OUTPUT_STYLE.md) - Output style guide
+- [SEARCH-GUIDE.md](SEARCH-GUIDE.md) - How to search documentation
+- [superintelligence-handoff-guide.md](superintelligence-handoff-guide.md) - Superintelligence protocol guide
 
 ## Purpose
 

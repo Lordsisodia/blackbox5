@@ -1,0 +1,240 @@
+# Claude Code Related GitHub Repositories
+# Generated: 2026-02-04
+# Purpose: Discovery phase for Claude Code ecosystem analysis
+
+repositories:
+  # Tier 1: Official Anthropic Repositories
+  - name: anthropic-ai/claude-code
+    url: https://github.com/anthropics/claude-code
+    description: Official Claude Code CLI tool by Anthropic (issue tracker & docs)
+    stars: 62000
+    last_commit: "2026-01-30"
+    license: Proprietary
+    category: official
+    relevance_score: 10
+    analysis_priority: high
+    notes: Primary repository - not open source but has extensive issue tracking
+
+  - name: anthropic/claude-agent-sdk-python
+    url: https://github.com/anthropics/claude-agent-sdk-python
+    description: Official Python SDK for Claude Code agent development
+    stars: 15000
+    last_commit: "2026-01-28"
+    license: MIT
+    category: sdk
+    relevance_score: 10
+    analysis_priority: high
+    notes: Official SDK with tool use, streaming, async support
+
+  - name: anthropic/claude-agent-sdk-demos
+    url: https://github.com/anthropics/claude-agent-sdk-demos
+    description: Demo applications using Claude Agent SDK
+    stars: 3200
+    last_commit: "2026-01-25"
+    license: MIT
+    category: examples
+    relevance_score: 9
+    analysis_priority: medium
+    notes: Email agent, Excel demo, research agent examples
+
+  # Tier 2: Awesome Lists & Curated Resources
+  - name: hesreallyhim/awesome-claude-code
+    url: https://github.com/hesreallyhim/awesome-claude-code
+    description: Curated list of skills, hooks, slash-commands, and plugins
+    stars: 22400
+    last_commit: "2026-02-01"
+    license: CC0-1.0
+    category: awesome-list
+    relevance_score: 10
+    analysis_priority: high
+    notes: Most comprehensive curated list, actively maintained
+
+  - name: ccplugins/awesome-claude-code-plugins
+    url: https://github.com/ccplugins/awesome-claude-code-plugins
+    description: Curated list of plugins, MCP servers, hooks, and commands
+    stars: 8500
+    last_commit: "2026-01-29"
+    license: MIT
+    category: awesome-list
+    relevance_score: 9
+    analysis_priority: medium
+    notes: Plugin-focused awesome list
+
+  # Tier 3: Hooks & MCP Tools
+  - name: parcadei/Continuous-Claude-v3
+    url: https://github.com/parcadei/Continuous-Claude-v3
+    description: Context management with 30+ hooks, MCP execution, agent orchestration
+    stars: 12400
+    last_commit: "2026-01-30"
+    license: MIT
+    category: hooks
+    relevance_score: 9
+    analysis_priority: high
+    notes: Advanced hook system with ledgers and handoffs
+
+  - name: TheDecipherist/claude-code-mastery
+    url: https://github.com/TheDecipherist/claude-code-mastery
+    description: Complete guide with hooks, MCP servers, skills, and commands
+    stars: 6800
+    last_commit: "2026-01-27"
+    license: MIT
+    category: education
+    relevance_score: 8
+    analysis_priority: medium
+    notes: Educational resource with practical hook examples
+
+  - name: tarekziade/claude-tools
+    url: https://github.com/tarekziade/claude-tools
+    description: Hooks and tools for Claude Code including trace compactor
+    stars: 2100
+    last_commit: "2026-01-20"
+    license: MIT
+    category: tools
+    relevance_score: 7
+    analysis_priority: low
+    notes: Utility hooks and CLI tools
+
+  - name: chrismbryant/claude-journal-mcp
+    url: https://github.com/chrismbryant/claude-journal-mcp
+    description: Journal/memory plugin with auto-capture hooks
+    stars: 1800
+    last_commit: "2026-01-22"
+    license: MIT
+    category: mcp
+    relevance_score: 7
+    analysis_priority: low
+    notes: MCP server with memory management hooks
+
+  # Tier 4: Skills & Agent Frameworks
+  - name: obra/superpowers
+    url: https://github.com/obra/superpowers
+    description: Claude Code superpowers - core skills library
+    stars: 42600
+    last_commit: "2026-01-31"
+    license: MIT
+    category: skills
+    relevance_score: 9
+    analysis_priority: high
+    notes: Large skills library for Claude Code
+
+  - name: wshobson/agents
+    url: https://github.com/wshobson/agents
+    description: Intelligent automation and multi-agent orchestration
+    stars: 27600
+    last_commit: "2026-01-28"
+    license: MIT
+    category: agents
+    relevance_score: 8
+    analysis_priority: medium
+    notes: Multi-agent orchestration framework
+
+  - name: eyaltoledano/claude-task-master
+    url: https://github.com/eyaltoledano/claude-task-master
+    description: AI-powered task-management system for Claude Code
+    stars: 25200
+    last_commit: "2026-02-01"
+    license: MIT
+    category: tools
+    relevance_score: 8
+    analysis_priority: medium
+    notes: Task management integration
+
+  # Tier 5: Spec-Driven Development Frameworks
+  - name: glittercowboy/get-shit-done
+    url: https://github.com/glittercowboy/get-shit-done
+    description: Lightweight spec-driven development system for Claude Code with XML prompts
+    stars: 8500
+    last_commit: "2026-02-01"
+    license: MIT
+    category: framework
+    relevance_score: 10
+    analysis_priority: high
+    notes: GSD framework - XML task formatting, thin orchestrator, fresh contexts per agent. Analysis complete in get-shit-done/ folder.
+
+  # Tier 6: CLI Tools & Extensions
+  - name: davila7/claude-code-templates
+    url: https://github.com/davila7/claude-code-templates
+    description: CLI tool for configuring and monitoring Claude Code
+    stars: 19300
+    last_commit: "2026-01-25"
+    license: MIT
+    category: cli
+    relevance_score: 8
+    analysis_priority: medium
+    notes: Configuration and templating CLI
+
+  - name: yamadashy/repomix
+    url: https://github.com/yamadashy/repomix
+    description: Packs repositories into AI-friendly files
+    stars: 21700
+    last_commit: "2026-01-30"
+    license: MIT
+    category: cli
+    relevance_score: 7
+    analysis_priority: low
+    notes: Repository packaging for AI context
+
+  - name: KalinYorgov/mcp-server-manager
+    url: https://github.com/KalinYorgov/mcp-server-manager
+    description: CLI tool to manage MCP servers in Claude Code
+    stars: 890
+    last_commit: "2026-01-15"
+    license: MIT
+    category: cli
+    relevance_score: 7
+    analysis_priority: low
+    notes: MCP server management utility
+
+  # Tier 6: Community SDKs (Unofficial)
+  - name: severity1/claude-agent-sdk-go
+    url: https://github.com/severity1/claude-agent-sdk-go
+    description: Unofficial Go SDK for Claude Code CLI integration
+    stars: 1200
+    last_commit: "2026-01-18"
+    license: MIT
+    category: sdk
+    relevance_score: 6
+    analysis_priority: low
+    notes: Community Go port of Python SDK
+
+  - name: Epistates/turboclaude
+    url: https://github.com/Epistates/turboclaude
+    description: Unofficial Rust SDK for Anthropic's Claude
+    stars: 2100
+    last_commit: "2026-01-20"
+    license: MIT
+    category: sdk
+    relevance_score: 6
+    analysis_priority: low
+    notes: Community Rust SDK
+
+  - name: Wally869/claude_agent_sdk_rust
+    url: https://github.com/Wally869/claude_agent_sdk_rust
+    description: Rust SDK for Claude Code CLI
+    stars: 950
+    last_commit: "2026-01-12"
+    license: MIT
+    category: sdk
+    relevance_score: 6
+    analysis_priority: low
+    notes: Alternative Rust implementation
+
+metadata:
+  total_discovered: 20
+  search_date: "2026-02-04"
+  criteria:
+    min_stars: 500
+    max_age_months: 6
+    relevance_threshold: 6
+
+  top_5_priority:
+    - anthropic-ai/claude-code
+    - anthropic/claude-agent-sdk-python
+    - hesreallyhim/awesome-claude-code
+    - parcadei/Continuous-Claude-v3
+    - obra/superpowers
+
+  analysis_plan:
+    phase_1: "High priority repos (score 9-10)"
+    phase_2: "Medium priority repos (score 7-8)"
+    phase_3: "Community SDKs and tools (score 6)"

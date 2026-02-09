@@ -28,6 +28,7 @@ from collections import Counter
 _engine_lib = Path(os.environ.get('RALF_ENGINE_DIR', Path.home() / '.blackbox5' / '2-engine')) / '.autonomous' / 'lib'
 sys.path.insert(0, str(_engine_lib))
 from paths import get_ralf_project_dir, get_ralf_engine_dir, validate_ralf_paths
+from storage import get_storage
 
 
 @dataclass
@@ -405,6 +406,45 @@ class ImprovementScout:
             }
         }
 
+    def save_report_via_storage(self, report: Dict[str, Any]) -> str:
+        """Save report using StorageBackend communication repository."""
+        storage = get_storage(project_name="blackbox5")
+
+        report_id = report["scout_report"]["id"]
+        opportunity_count = report["scout_report"]["summary"]["total_opportunities"]
+        quick_wins_count = report["scout_report"]["summary"]["quick_wins"]
+
+        # Log the discovery event via storage
+        storage.communication.log_discovery(
+            agent_id="scout",
+            message=f"Scout analysis complete: {opportunity_count} opportunities, {quick_wins_count} quick wins",
+            data={
+                "report_id": report_id,
+                "opportunities_found": opportunity_count,
+                "quick_wins": quick_wins_count,
+                "categories": report["scout_report"]["summary"]["categories"]
+            }
+        )
+
+        # Also log individual opportunity discoveries
+        for opp in report["scout_report"]["opportunities"][:5]:  # Top 5
+            storage.communication.log_event(
+                event_type="opportunity_identified",
+                agent_id="scout",
+                message=f"Opportunity: {opp['title']}",
+                data={
+                    "opportunity_id": opp["id"],
+                    "category": opp["category"],
+                    "impact_score": opp["impact_score"],
+                    "total_score": opp["total_score"]
+                }
+            )
+
+        storage.close()
+
+        # Return the report ID as the reference
+        return report_id
+
     def run(self) -> str:
         """Run full analysis and return report path."""
         print("🔍 Improvement Scout Analysis Starting...")
@@ -430,23 +470,15 @@ class ImprovementScout:
         # Generate report
         report = self.generate_report()
 
-        # Ensure output directory exists
-        output_dir = self.project_dir / ".autonomous" / "analysis" / "scout-reports"
-        output_dir.mkdir(parents=True, exist_ok=True)
-
-        # Write report
-        timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
-        output_file = output_dir / f"scout-report-{timestamp}.yaml"
-
-        with open(output_file, 'w') as f:
-            yaml.dump(report, f, default_flow_style=False, sort_keys=False)
+        # Save report via StorageBackend
+        report_id = self.save_report_via_storage(report)
 
         print(f"\n✅ Analysis complete!")
         print(f"   Found {len(self.opportunities)} opportunities")
         print(f"   Identified {len(self.quick_wins)} quick wins")
-        print(f"   Report saved to: {output_file}")
+        print(f"   Report logged with ID: {report_id}")
 
-        return str(output_file)
+        return report_id
 
 
 def main():

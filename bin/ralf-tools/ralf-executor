@@ -1,0 +1,486 @@
+#!/bin/bash
+#
+# RALF-Executor
+# Purpose: Execute tasks from queue, commit code, report status
+# Runs: Continuously in background
+#
+
+set -euo pipefail
+
+# Configuration
+PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+COMM_DIR="$PROJECT_DIR/.autonomous/communications"
+QUEUE_FILE="$COMM_DIR/queue.yaml"
+EVENTS_FILE="$COMM_DIR/events.yaml"
+CHAT_FILE="$COMM_DIR/chat-log.yaml"
+HEARTBEAT_FILE="$COMM_DIR/heartbeat.yaml"
+STATE_FILE="$PROJECT_DIR/STATE.yaml"
+RUNS_DIR="$PROJECT_DIR/runs/executor"
+
+# Load config from ralf-config.yaml if exists
+RALF_CONFIG_FILE="$PROJECT_DIR/ralf-config.yaml"
+if [[ -f "$RALF_CONFIG_FILE" ]]; then
+    LOOP_INTERVAL=$(yq '.loop_interval // 30' "$RALF_CONFIG_FILE" 2>/dev/null || echo "30")
+    IDLE_TIMEOUT=$(yq '.idle_timeout // 300' "$RALF_CONFIG_FILE" 2>/dev/null || echo "300")
+    SKILLS_ENABLED=$(yq '.skills_enabled // true' "$RALF_CONFIG_FILE" 2>/dev/null || echo "true")
+    AUTO_COMMIT=$(yq '.auto_commit // false' "$RALF_CONFIG_FILE" 2>/dev/null || echo "false")
+else
+    LOOP_INTERVAL=30
+    IDLE_TIMEOUT=300
+    SKILLS_ENABLED="true"
+    AUTO_COMMIT="false"
+fi
+
+# Environment overrides
+LOOP_INTERVAL="${RALF_LOOP_INTERVAL:-$LOOP_INTERVAL}"
+IDLE_TIMEOUT="${RALF_IDLE_TIMEOUT:-$IDLE_TIMEOUT}"
+SKILLS_ENABLED="${RALF_SKILLS_ENABLED:-$SKILLS_ENABLED}"
+AUTO_COMMIT="${RALF_AUTO_COMMIT:-$AUTO_COMMIT}"
+
+# State
+current_task=""
+idle_start=""
+run_counter=0
+
+# Logging
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] [EXECUTOR] $*"
+}
+
+# Update heartbeat using Python for reliable YAML manipulation
+update_heartbeat() {
+    local status="$1"
+    local action="${2:-idle}"
+
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
+
+heartbeat_file = "$HEARTBEAT_FILE"
+
+try:
+    with open(heartbeat_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {}
+except FileNotFoundError:
+    data = {}
+
+if not isinstance(data, dict):
+    data = {}
+if "heartbeats" not in data:
+    data["heartbeats"] = {}
+if "planner" not in data["heartbeats"]:
+    data["heartbeats"]["planner"] = {}
+if "executor" not in data["heartbeats"]:
+    data["heartbeats"]["executor"] = {}
+if "metadata" not in data:
+    data["metadata"] = {}
+
+now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+# Preserve planner data if exists, update executor
+data["heartbeats"]["executor"]["last_seen"] = now
+data["heartbeats"]["executor"]["status"] = "$status"
+data["heartbeats"]["executor"]["current_action"] = "$action"
+
+data["metadata"]["timeout_seconds"] = 120
+data["metadata"]["last_updated"] = now
+
+with open(heartbeat_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
+}
+
+# Add event using Python for reliable YAML manipulation
+add_event() {
+    local type="$1"
+    local task_id="${2:-}"
+    local data="${3:-null}"
+
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
+
+events_file = "$EVENTS_FILE"
+
+try:
+    with open(events_file, 'r') as f:
+        data_yaml = yaml.safe_load(f)
+        if data_yaml is None:
+            data_yaml = {"events": [], "metadata": {}}
+except FileNotFoundError:
+    data_yaml = {"events": [], "metadata": {}}
+
+if not isinstance(data_yaml, dict):
+    data_yaml = {"events": [], "metadata": {}}
+
+if "events" not in data_yaml:
+    data_yaml["events"] = []
+if "metadata" not in data_yaml:
+    data_yaml["metadata"] = {}
+
+last_id = data_yaml["metadata"].get("last_event_id", 0)
+new_id = last_id + 1
+
+event_data = "$data"
+if event_data == "null" or event_data == "":
+    event_data = None
+
+event = {
+    "id": new_id,
+    "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    "type": "$type",
+    "task_id": "$task_id" if "$task_id" else None,
+    "data": event_data
+}
+
+data_yaml["events"].append(event)
+# Keep only last 100 events
+data_yaml["events"] = data_yaml["events"][-100:]
+
+data_yaml["metadata"]["last_event_id"] = new_id
+data_yaml["metadata"]["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+with open(events_file, 'w') as f:
+    yaml.dump(data_yaml, f, default_flow_style=False, sort_keys=False)
+PYEOF
+}
+
+# Get next task from queue
+get_next_task() {
+    yq '.queue | .[0] | select(.status == "pending")' "$QUEUE_FILE" 2>/dev/null
+}
+
+# Claim task (mark as in_progress) using Python
+claim_task() {
+    local task_id="$1"
+
+    python3 << PYEOF
+import yaml
+
+queue_file = "$QUEUE_FILE"
+
+try:
+    with open(queue_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {"queue": [], "metadata": {}}
+except FileNotFoundError:
+    data = {"queue": [], "metadata": {}}
+
+if not isinstance(data, dict):
+    data = {"queue": [], "metadata": {}}
+if "queue" not in data:
+    data["queue"] = []
+
+# Mark task as in_progress and move to end (so pending tasks are first)
+for task in data["queue"]:
+    if task.get("id") == "$task_id":
+        task["status"] = "in_progress"
+        break
+
+with open(queue_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
+
+    log "Claimed task $task_id"
+}
+
+# Remove completed task from queue using Python
+complete_task_in_queue() {
+    local task_id="$1"
+
+    python3 << PYEOF
+import yaml
+from datetime import datetime, timezone
+
+queue_file = "$QUEUE_FILE"
+
+try:
+    with open(queue_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {"queue": [], "metadata": {}}
+except FileNotFoundError:
+    data = {"queue": [], "metadata": {}}
+
+if not isinstance(data, dict):
+    data = {"queue": [], "metadata": {}}
+if "queue" not in data:
+    data["queue"] = []
+if "metadata" not in data:
+    data["metadata"] = {}
+
+# Remove task with matching id
+data["queue"] = [t for t in data["queue"] if t.get("id") != "$task_id"]
+
+# Update metadata
+data["metadata"]["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+data["metadata"]["updated_by"] = "executor"
+data["metadata"]["queue_depth_target"] = 5
+data["metadata"]["current_depth"] = len(data["queue"])
+
+with open(queue_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
+}
+
+# Mark task complete in STATE.yaml
+mark_task_complete() {
+    local task_id="$1"
+    local commit_hash="${2:-}"
+    local result="${3:-success}"
+
+    # TODO: Implement STATE.yaml update
+    # Move task from active to completed
+    # Record commit_hash, timestamp, result
+    log "Marked $task_id as complete in STATE.yaml (placeholder)"
+}
+
+# Execute task
+execute_task() {
+    local task_json="$1"
+    local task_id
+    local task_type
+    local title
+    local approach
+
+    task_id=$(echo "$task_json" | yq '.id')
+    task_type=$(echo "$task_json" | yq '.type')
+    title=$(echo "$task_json" | yq '.title')
+    approach=$(echo "$task_json" | yq '.approach')
+
+    log "Executing task: $task_id - $title"
+    log "Type: $task_type"
+    log "Approach: $approach"
+
+    # Get skill guidance if available
+    local skill_guidance
+    skill_guidance=$(get_skill_guidance "$task_type" "$title")
+    if [[ -n "$skill_guidance" ]]; then
+        log "Skill guidance available"
+        echo "$skill_guidance" >> "$run_dir/THOUGHTS.md"
+    fi
+
+    # Create run folder
+    run_counter=$((run_counter + 1))
+    local run_dir="$RUNS_DIR/run-$(printf %04d $run_counter)"
+    mkdir -p "$run_dir"
+
+    # Write THOUGHTS.md header
+    cat > "$run_dir/THOUGHTS.md" << EOF
+# THOUGHTS: Executor Run $run_counter
+
+**Task:** $task_id - $title
+**Started:** $(date)
+**Type:** $task_type
+
+## Approach
+$approach
+
+## Execution Log
+
+EOF
+
+    # TODO: Implement actual task execution
+    # - Use skills based on task_type
+    # - Execute approach
+    # - Document progress
+    # - Handle errors
+
+    # Simulate execution for now
+    log "Simulating execution..."
+    sleep 2
+
+    # Write completion
+    echo -e "\n## Completed\n\nTask completed successfully." >> "$run_dir/THOUGHTS.md"
+
+    echo "$run_dir"
+}
+
+# Get skill guidance for task execution
+get_skill_guidance() {
+    local task_type="$1"
+    local task_title="$2"
+
+    if [[ "$SKILLS_ENABLED" != "true" ]]; then
+        return
+    fi
+
+    local skill_provider_lib="$HOME/.blackbox5/2-engine/.autonomous/lib/skill_provider.py"
+    if [[ ! -f "$skill_provider_lib" ]]; then
+        return
+    fi
+
+    python3 << PYEOF
+import sys
+sys.path.insert(0, "$HOME/.blackbox5/2-engine/.autonomous/lib")
+from skill_provider import get_skill_provider
+
+provider = get_skill_provider("$PROJECT_DIR")
+if provider.is_enabled():
+    skill = provider.select_skill("$task_title")
+    if skill:
+        config = provider.get_skill_config(skill)
+        if config:
+            print(f"Skill: {skill}")
+            desc = config.get('description', '')
+            if desc:
+                print(f"Description: {desc}")
+PYEOF
+}
+
+# Commit changes
+commit_changes() {
+    local task_id="$1"
+    local run_dir="$2"
+
+    # Check if auto-commit is enabled
+    if [[ "$AUTO_COMMIT" != "true" ]]; then
+        log "Auto-commit disabled, skipping commit"
+        echo "uncommitted-$(date +%s)"
+        return
+    fi
+
+    # TODO: Implement actual git commit using git-commit skill
+    # For now, simulate
+    local commit_hash="simulated-$(date +%s)"
+
+    log "Committed changes: $commit_hash"
+    echo "$commit_hash"
+}
+
+# Ask question via chat
+ask_question() {
+    local task_id="$1"
+    local question="$2"
+
+    local tmp_file=$(mktemp)
+    local last_id
+    last_id=$(yq '.metadata.last_message_id' "$CHAT_FILE" 2>/dev/null || echo "0")
+    local new_id=$((last_id + 1))
+
+    local current_messages
+    current_messages=$(yq '.messages' "$CHAT_FILE" 2>/dev/null || echo "[]")
+
+    local new_message
+    new_message=$(cat << EOF
+{
+  "id": $new_id,
+  "from": "executor",
+  "to": "planner",
+  "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "type": "question",
+  "task_id": "$task_id",
+  "content": "$question"
+}
+EOF
+)
+
+    yq -n "
+messages: ($current_messages + [$new_message]) | .[-50:]
+metadata:
+  last_message_id: $new_id
+  last_updated: \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"
+" > "$tmp_file"
+
+    mv "$tmp_file" "$CHAT_FILE"
+    log "Asked question about $task_id"
+}
+
+# Main loop
+main() {
+    log "RALF-Executor starting..."
+    log "Project: $PROJECT_DIR"
+    log "Runs directory: $RUNS_DIR"
+
+    # Initialize
+    mkdir -p "$RUNS_DIR"
+    update_heartbeat "starting" "initializing"
+
+    while true; do
+        update_heartbeat "running" "checking_queue"
+
+        # Check for task
+        local task
+        task=$(get_next_task)
+
+        if [[ -n "$task" && "$task" != "null" ]]; then
+            # Found task, reset idle timer
+            idle_start=""
+
+            local task_id
+            task_id=$(echo "$task" | yq '.id')
+
+            # Claim it
+            claim_task "$task_id"
+            current_task="$task_id"
+
+            # Report started
+            add_event "started" "$task_id"
+            update_heartbeat "running" "executing_$task_id"
+
+            # Execute
+            local run_dir
+            run_dir=$(execute_task "$task")
+
+            # Commit
+            local commit_hash
+            commit_hash=$(commit_changes "$task_id" "$run_dir")
+
+            # Mark complete in queue and STATE
+            complete_task_in_queue "$task_id"
+            mark_task_complete "$task_id" "$commit_hash" "success"
+
+            # Report completed
+            add_event "completed" "$task_id" "success"
+
+            current_task=""
+            log "Task $task_id complete"
+
+        else
+            # No task available
+            if [[ -z "$idle_start" ]]; then
+                idle_start=$(date +%s)
+                add_event "idle"
+            fi
+
+            local idle_time
+            idle_time=$(($(date +%s) - idle_start))
+
+            log "No tasks available, idle for ${idle_time}s"
+            update_heartbeat "idle" "waiting_for_tasks"
+
+            # Check timeout
+            if [[ "$idle_time" -gt "$IDLE_TIMEOUT" ]]; then
+                log "Idle timeout reached, exiting"
+                add_event "idle_timeout"
+                break
+            fi
+        fi
+
+        # Sleep before next check
+        sleep "$LOOP_INTERVAL"
+    done
+
+    log "Executor shutting down"
+    update_heartbeat "stopped" "shutdown"
+}
+
+# Handle shutdown
+cleanup() {
+    log "Shutting down..."
+    if [[ -n "$current_task" ]]; then
+        add_event "interrupted" "$current_task"
+    fi
+    update_heartbeat "stopped" "shutdown"
+    exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Run
+main "$@"

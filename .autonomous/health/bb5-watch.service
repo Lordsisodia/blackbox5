@@ -1,0 +1,20 @@
+[Unit]
+Description=BB5 Health Monitoring Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=%I
+Environment="BB5_HOME=/home/%I/.blackbox5"
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=-/home/%I/.blackbox5/.autonomous/health/environment
+ExecStart=/home/%I/.blackbox5/bin/bb5-watch start -i 30
+ExecStop=/home/%I/.blackbox5/bin/bb5-watch stop
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=bb5-watch
+
+[Install]
+WantedBy=multi-user.target

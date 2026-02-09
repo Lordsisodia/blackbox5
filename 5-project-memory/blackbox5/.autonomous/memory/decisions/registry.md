@@ -2,13 +2,25 @@
 
 **Purpose:** Track all significant decisions made across RALF runs for reversibility and learning.
 
-**Location:** `~/.blackbox5/5-project-memory/ralf-core/.autonomous/decision_registry.md`
+**Location:** `~/.blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml`
+
+---
+
+## Status
+
+**DEPRECATED:** This markdown registry is deprecated. The central decision registry has been moved to YAML format.
+
+**New Location:** `.autonomous/decisions/decision_registry.yaml`
+- **Total Decisions:** 864
+- **Source Files:** 107
+- **Last Updated:** 2026-02-07
 
 ---
 
 ## Decision Log
 
-<!-- Decisions will be appended here by RALF agent -->
+<!-- Decisions have been extracted to decision_registry.yaml -->
+<!-- See: .autonomous/decisions/decision_registry.yaml -->
 
 ---
 
@@ -52,7 +64,7 @@
 
 ## Statistics
 
-- Total Decisions: 0
+- Total Decisions: 864 (see decision_registry.yaml)
 - Pending Verification: 0
 - Verified: 0
 - Rolled Back: 0

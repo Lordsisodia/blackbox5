@@ -28,6 +28,10 @@ SLOT_PREFIX="slot"
 HEARTBEAT_INTERVAL=30
 HEARTBEAT_TIMEOUT=120
 
+# Lock file paths
+EXECUTION_STATE_LOCK="$CONFIG_DIR/.execution-state.lock"
+QUEUE_LOCK="$PROJECT_ROOT/.autonomous/agents/communications/.queue.lock"
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -158,14 +162,21 @@ update_slot() {
     local field="$2"
     local value="$3"
 
-    if [ "$value" = "null" ] || [ "$value" = "true" ] || [ "$value" = "false" ]; then
-        yq eval -i ".slots.${SLOT_PREFIX}_${slot_id}.${field} = ${value}" "$EXECUTION_STATE"
-    else
-        yq eval -i ".slots.${SLOT_PREFIX}_${slot_id}.${field} = \"$value\"" "$EXECUTION_STATE"
-    fi
+    # Ensure lock directory exists
+    mkdir -p "$(dirname "$EXECUTION_STATE_LOCK")"
 
-    # Update last_updated timestamp
-    yq eval -i ".execution_state.last_updated = \"$(date -Iseconds)\"" "$EXECUTION_STATE"
+    # Lock execution state for modification
+    (
+        flock -x 200 || exit 1
+        if [ "$value" = "null" ] || [ "$value" = "true" ] || [ "$value" = "false" ]; then
+            yq eval -i ".slots.${SLOT_PREFIX}_${slot_id}.${field} = ${value}" "$EXECUTION_STATE"
+        else
+            yq eval -i ".slots.${SLOT_PREFIX}_${slot_id}.${field} = \"$value\"" "$EXECUTION_STATE"
+        fi
+
+        # Update last_updated timestamp
+        yq eval -i ".execution_state.last_updated = \"$(date -Iseconds)\"" "$EXECUTION_STATE"
+    ) 200>"$EXECUTION_STATE_LOCK"
 }
 
 # Get available slots
@@ -282,9 +293,15 @@ claim_task() {
     local claim_id="${RUN_ID}-slot${slot_id}"
     local timestamp=$(date -Iseconds)
 
-    # Update queue file with claim info
-    yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).claimed_by = \"$claim_id\"" "$QUEUE_FILE"
-    yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).claimed_at = \"$timestamp\"" "$QUEUE_FILE"
+    # Ensure lock directory exists
+    mkdir -p "$(dirname "$QUEUE_LOCK")"
+
+    # Lock queue file for modification
+    (
+        flock -x 200 || exit 1
+        yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).claimed_by = \"$claim_id\"" "$QUEUE_FILE"
+        yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).claimed_at = \"$timestamp\"" "$QUEUE_FILE"
+    ) 200>"$QUEUE_LOCK"
 
     log_info "Claimed task $task_id for slot $slot_id (claim: $claim_id)"
     return 0
@@ -302,17 +319,24 @@ update_task_status() {
 
     local timestamp=$(date -Iseconds)
 
-    yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).status = \"$status\"" "$QUEUE_FILE"
+    # Ensure lock directory exists
+    mkdir -p "$(dirname "$QUEUE_LOCK")"
 
-    if [ "$status" = "in_progress" ]; then
-        yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).started_at = \"$timestamp\"" "$QUEUE_FILE"
-    elif [ "$status" = "completed" ] || [ "$status" = "failed" ]; then
-        yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).completed_at = \"$timestamp\"" "$QUEUE_FILE"
-    fi
+    # Lock queue file for modification
+    (
+        flock -x 200 || exit 1
+        yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).status = \"$status\"" "$QUEUE_FILE"
 
-    if [ -n "$notes" ]; then
-        yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).notes += \" | $notes\"" "$QUEUE_FILE"
-    fi
+        if [ "$status" = "in_progress" ]; then
+            yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).started_at = \"$timestamp\"" "$QUEUE_FILE"
+        elif [ "$status" = "completed" ] || [ "$status" = "failed" ]; then
+            yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).completed_at = \"$timestamp\"" "$QUEUE_FILE"
+        fi
+
+        if [ -n "$notes" ]; then
+            yq eval -i "(.queue[] | select(.task_id == \"$task_id\")).notes += \" | $notes\"" "$QUEUE_FILE"
+        fi
+    ) 200>"$QUEUE_LOCK"
 }
 
 # Launch task in slot
@@ -403,9 +427,12 @@ EOF
     # Update task status
     update_task_status "$task_id" "in_progress"
 
-    # Update metrics
-    yq eval -i ".metrics.tasks_dispatched = (.metrics.tasks_dispatched // 0) + 1" "$EXECUTION_STATE"
-    yq eval -i ".metrics.last_dispatch = \"$timestamp\"" "$EXECUTION_STATE"
+    # Update metrics (with lock)
+    (
+        flock -x 200 || exit 1
+        yq eval -i ".metrics.tasks_dispatched = (.metrics.tasks_dispatched // 0) + 1" "$EXECUTION_STATE"
+        yq eval -i ".metrics.last_dispatch = \"$timestamp\"" "$EXECUTION_STATE"
+    ) 200>"$EXECUTION_STATE_LOCK"
 
     log_success "Launched task $task_id in slot $slot_id (PID: $pid)"
     return 0
@@ -474,13 +501,16 @@ finalize_slot() {
     update_slot "$slot_id" "heartbeat_at" "null"
     update_slot "$slot_id" "pid" "null"
 
-    # Update metrics
-    if [ "$status" = "completed" ]; then
-        yq eval -i ".metrics.tasks_completed = (.metrics.tasks_completed // 0) + 1" "$EXECUTION_STATE"
-    else
-        yq eval -i ".metrics.tasks_failed = (.metrics.tasks_failed // 0) + 1" "$EXECUTION_STATE"
-    fi
-    yq eval -i ".metrics.last_completion = \"$timestamp\"" "$EXECUTION_STATE"
+    # Update metrics (with lock)
+    (
+        flock -x 200 || exit 1
+        if [ "$status" = "completed" ]; then
+            yq eval -i ".metrics.tasks_completed = (.metrics.tasks_completed // 0) + 1" "$EXECUTION_STATE"
+        else
+            yq eval -i ".metrics.tasks_failed = (.metrics.tasks_failed // 0) + 1" "$EXECUTION_STATE"
+        fi
+        yq eval -i ".metrics.last_completion = \"$timestamp\"" "$EXECUTION_STATE"
+    ) 200>"$EXECUTION_STATE_LOCK"
 
     log_info "Slot $slot_id finalized (task $task_id: $status)"
 }
@@ -541,13 +571,19 @@ preempt_slot() {
     # Update preempted task status
     if [ "$current_task" != "null" ] && [ -n "$current_task" ]; then
         update_task_status "$current_task" "pending" "Preempted for $new_task_id"
-        # Remove claim
-        yq eval -i "(.queue[] | select(.task_id == \"$current_task\")).claimed_by = null" "$QUEUE_FILE"
-        yq eval -i "(.queue[] | select(.task_id == \"$current_task\")).claimed_at = null" "$QUEUE_FILE"
+        # Remove claim (with lock)
+        (
+            flock -x 200 || exit 1
+            yq eval -i "(.queue[] | select(.task_id == \"$current_task\")).claimed_by = null" "$QUEUE_FILE"
+            yq eval -i "(.queue[] | select(.task_id == \"$current_task\")).claimed_at = null" "$QUEUE_FILE"
+        ) 200>"$QUEUE_LOCK"
     fi
 
-    # Update metrics
-    yq eval -i ".metrics.tasks_preempted = (.metrics.tasks_preempted // 0) + 1" "$EXECUTION_STATE"
+    # Update metrics (with lock)
+    (
+        flock -x 200 || exit 1
+        yq eval -i ".metrics.tasks_preempted = (.metrics.tasks_preempted // 0) + 1" "$EXECUTION_STATE"
+    ) 200>"$EXECUTION_STATE_LOCK"
 
     # Reset slot
     update_slot "$slot_id" "status" "available"

@@ -413,21 +413,21 @@ Each agent runs independently and produces a detailed report:
 
 ```
 blackbox5/6-roadmap/02-validation/
-├── agent-1-core-infrastructure/
+├── VALIDATION-1-core-infrastructure/
 │   └── findings.md
-├── agent-2-memory-context/
+├── VALIDATION-2-memory-context/
 │   └── findings.md
-├── agent-3-agent-system/
+├── VALIDATION-3-VALIDATION-system/
 │   └── findings.md
-├── agent-4-skills-capabilities/
+├── VALIDATION-4-skills-capabilities/
 │   └── findings.md
-├── agent-5-safety-resilience/
+├── VALIDATION-5-safety-resilience/
 │   └── findings.md
-├── agent-6-integrations-mcp/
+├── VALIDATION-6-integrations-mcp/
 │   └── findings.md
-├── agent-7-ralphy-workflow/
+├── VALIDATION-7-ralphy-workflow/
 │   └── findings.md
-└── agent-8-documentation-redundancy/
+└── VALIDATION-8-documentation-redundancy/
     └── findings.md
 ```
 

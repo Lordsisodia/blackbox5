@@ -1,0 +1,227 @@
+# Claude Code Research Repository Configuration
+
+topic:
+  name: "Claude Code"
+  description: "Claude Code configurations, workflows, hooks, and community resources"
+  created_at: "2026-02-03"
+
+# Repository tiers determine processing priority
+tiers:
+  tier_1:
+    name: "Essential Resources"
+    description: "Core resources - process immediately"
+    auto_process: true
+    priority: critical
+    sources:
+      - name: "awesome-claude-code"
+        owner: "hesreallyhim"
+        repo: "awesome-claude-code"
+        url: "https://github.com/hesreallyhim/awesome-claude-code"
+        stars: 22700
+        type: "awesome-list"
+        description: "Curated list of slash-commands, CLAUDE.md files, CLI tools"
+        areas: ["resources", "awesome-list"]
+        topics: ["slash-commands", "claude-md", "tools", "hooks"]
+        local_path: "data/repos/awesome-claude-code"
+        status: "cloned"
+
+      - name: "claude-code-hooks-mastery"
+        owner: "disler"
+        repo: "claude-code-hooks-mastery"
+        url: "https://github.com/disler/claude-code-hooks-mastery"
+        stars: 2200
+        type: "educational"
+        description: "Complete implementations of all 13 Claude Code hooks"
+        areas: ["hooks", "education"]
+        topics: ["hooks", "lifecycle", "uv", "tts", "validation"]
+        local_path: "data/repos/claude-code-hooks-mastery"
+        status: "cloned"
+
+      - name: "Continuous-Claude-v3"
+        owner: "parcadei"
+        repo: "Continuous-Claude-v3"
+        url: "https://github.com/parcadei/Continuous-Claude-v3"
+        type: "framework"
+        description: "Context management with 109 skills, 32 agents"
+        areas: ["framework", "context-management", "skills", "agents"]
+        topics: ["continuity", "handoffs", "tldr-analysis", "multi-agent"]
+        local_path: "data/repos/Continuous-Claude-v3"
+        status: "cloned"
+
+  tier_2:
+    name: "High Value"
+    description: "Valuable implementations - process normally"
+    auto_process: true
+    priority: high
+    sources:
+      - name: "everything-claude-code"
+        owner: "affaan-m"
+        repo: "everything-claude-code"
+        url: "https://github.com/affaan-m/everything-claude-code"
+        type: "config-collection"
+        description: "15+ agents, 30+ skills, 20+ commands from hackathon winner"
+        areas: ["configuration", "agents", "skills", "commands"]
+        topics: ["hooks", "mcp", "rules", "continuous-learning"]
+        local_path: "data/repos/everything-claude-code"
+        status: "cloned"
+
+      - name: "claude-workflow-v2"
+        owner: "CloudAI-X"
+        repo: "claude-workflow-v2"
+        url: "https://github.com/CloudAI-X/claude-workflow-v2"
+        stars: 1200
+        type: "plugin"
+        description: "Universal workflow plugin with 7 agents, 17 commands"
+        areas: ["workflow", "plugin", "agents"]
+        topics: ["slash-commands", "git-workflow", "verification"]
+        local_path: "data/repos/claude-workflow-v2"
+        status: "cloned"
+
+      - name: "claude-code-hooks-multi-agent-observability"
+        owner: "disler"
+        repo: "claude-code-hooks-multi-agent-observability"
+        url: "https://github.com/disler/claude-code-hooks-multi-agent-observability"
+        type: "observability"
+        description: "Real-time monitoring for Claude Code agents"
+        areas: ["observability", "monitoring", "hooks"]
+        topics: ["real-time", "multi-agent", "dashboard", "sqlite"]
+        local_path: "data/repos/claude-code-hooks-multi-agent-observability"
+        status: "cloned"
+
+      - name: "tdd-guard"
+        owner: "nizos"
+        repo: "tdd-guard"
+        url: "https://github.com/nizos/tdd-guard"
+        type: "tool"
+        description: "Automated TDD enforcement for Claude Code"
+        areas: ["testing", "tdd", "tool"]
+        topics: ["tdd", "testing", "enforcement"]
+        local_path: "data/repos/tdd-guard"
+        status: "cloned"
+
+  tier_3:
+    name: "Reference"
+    description: "Good to review"
+    auto_process: false
+    priority: medium
+    sources:
+      - name: "claude-code-showcase"
+        owner: "ChrisWiles"
+        repo: "claude-code-showcase"
+        url: "https://github.com/ChrisWiles/claude-code-showcase"
+        type: "showcase"
+        description: "Example configuration with skills and agents"
+        areas: ["examples", "showcase"]
+        topics: ["skills", "agents", "mcp", "github-actions"]
+        local_path: "data/repos/claude-code-showcase"
+        status: "cloned"
+
+      - name: "Claude-Code-Development-Kit"
+        owner: "peterkrueck"
+        repo: "Claude-Code-Development-Kit"
+        url: "https://github.com/peterkrueck/Claude-Code-Development-Kit"
+        type: "toolkit"
+        description: "3-tier documentation, MCP, sub-agents"
+        areas: ["toolkit", "documentation", "mcp"]
+        topics: ["context-management", "gemini", "context7"]
+        local_path: "data/repos/Claude-Code-Development-Kit"
+        status: "cloned"
+
+# Classification areas
+areas:
+  - id: "resources"
+    name: "Resources"
+    description: "Curated lists and resources"
+    keywords: ["awesome", "resources", "lists"]
+
+  - id: "hooks"
+    name: "Hooks"
+    description: "Claude Code lifecycle hooks"
+    keywords: ["hooks", "lifecycle", "events"]
+
+  - id: "skills"
+    name: "Skills"
+    description: "Skill definitions and patterns"
+    keywords: ["skills", "capabilities"]
+
+  - id: "agents"
+    name: "Agents"
+    description: "Agent configurations and patterns"
+    keywords: ["agents", "sub-agents", "specialists"]
+
+  - id: "commands"
+    name: "Commands"
+    description: "Slash commands"
+    keywords: ["commands", "slash-commands"]
+
+  - id: "framework"
+    name: "Frameworks"
+    description: "Complete frameworks"
+    keywords: ["framework", "system"]
+
+  - id: "context-management"
+    name: "Context Management"
+    description: "Context handling and memory"
+    keywords: ["context", "memory", "continuity"]
+
+  - id: "workflow"
+    name: "Workflows"
+    description: "Workflow patterns and automation"
+    keywords: ["workflow", "automation"]
+
+  - id: "observability"
+    name: "Observability"
+    description: "Monitoring and observability"
+    keywords: ["observability", "monitoring", "metrics"]
+
+  - id: "testing"
+    name: "Testing"
+    description: "Testing tools and patterns"
+    keywords: ["testing", "tdd", "quality"]
+
+# Topics
+topics:
+  - id: "hooks"
+    name: "Hooks"
+    related_areas: ["hooks"]
+    keywords: ["user_prompt_submit", "pre_tool_use", "post_tool_use", "session_start"]
+
+  - id: "skills"
+    name: "Skills"
+    related_areas: ["skills"]
+    keywords: ["skill", "capability"]
+
+  - id: "agents"
+    name: "Agents"
+    related_areas: ["agents"]
+    keywords: ["agent", "sub-agent"]
+
+  - id: "mcp"
+    name: "MCP"
+    related_areas: ["context-management"]
+    keywords: ["mcp", "model-context-protocol"]
+
+  - id: "tdd"
+    name: "TDD"
+    related_areas: ["testing"]
+    keywords: ["tdd", "test-driven"]
+
+  - id: "awesome-list"
+    name: "Awesome List"
+    related_areas: ["resources"]
+    keywords: ["awesome", "curated"]
+
+# Ranking criteria
+ranking:
+  novelty:
+    weight: 0.25
+    description: "How new is this pattern?"
+  actionability:
+    weight: 0.35
+    description: "Can we implement this immediately?"
+  relevance:
+    weight: 0.25
+    description: "How relevant to our Claude Code setup?"
+  authority:
+    weight: 0.15
+    description: "Source credibility (stars, author)"

@@ -24,6 +24,7 @@ from dataclasses import dataclass, asdict
 _engine_lib = Path(os.environ.get('RALF_ENGINE_DIR', Path.home() / '.blackbox5' / '2-engine')) / '.autonomous' / 'lib'
 sys.path.insert(0, str(_engine_lib))
 from paths import get_ralf_project_dir, get_ralf_engine_dir, validate_ralf_paths
+from storage import get_storage
 
 # Configuration - use RALF paths with environment variable support
 try:
@@ -361,7 +362,7 @@ def aggregate_results(results: List[Dict[str, Any]], report_id: str) -> Dict[str
 
 
 def save_report(report: Dict[str, Any], output_dir: Path):
-    """Save the report to JSON and YAML files."""
+    """Save the report to JSON and YAML files and log via StorageBackend."""
     import yaml
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -376,6 +377,22 @@ def save_report(report: Dict[str, Any], output_dir: Path):
     yaml_file = output_dir / f"scout-report-task-{report_id}.yaml"
     with open(yaml_file, 'w') as f:
         yaml.dump(report, f, default_flow_style=False, sort_keys=False)
+
+    # Log via StorageBackend
+    storage = get_storage(project_name="blackbox5")
+    storage.communication.log_event(
+        event_type="scout_report_saved",
+        agent_id="scout-task-based",
+        message=f"Scout report saved: {report_id}",
+        data={
+            "report_id": report_id,
+            "json_file": str(json_file),
+            "yaml_file": str(yaml_file),
+            "opportunities_count": report["scout_report"]["summary"]["total_opportunities"],
+            "quick_wins_count": report["scout_report"]["summary"]["quick_wins"]
+        }
+    )
+    storage.close()
 
     return json_file, yaml_file
 
@@ -425,6 +442,21 @@ Or manually aggregate the results and create the report.
 
         print(f"Task definitions saved to: {tasks_file}")
 
+        # Log task creation via StorageBackend
+        storage = get_storage(project_name="blackbox5")
+        for result in results:
+            storage.communication.log_event(
+                event_type="scout_task_created",
+                agent_id="scout-task-based",
+                message=f"Analyzer task created: {result['name']}",
+                data={
+                    "analyzer_type": result["analyzer"],
+                    "status": result["status"],
+                    "report_id": report_id
+                }
+            )
+        storage.close()
+
     else:
         # Phase 2: Aggregate existing results
         print("Aggregating results from raw-results/...")
@@ -433,6 +465,20 @@ Or manually aggregate the results and create the report.
         report = aggregate_results([], report_id)
         json_file, yaml_file = save_report(report, args.output_dir)
         print(f"Report saved to: {json_file}")
+
+    # Log completion via StorageBackend
+    storage = get_storage(project_name="blackbox5")
+    storage.communication.log_event(
+        event_type="scout_complete",
+        agent_id="scout-task-based",
+        message=f"Task-based scout completed: {report_id}",
+        data={
+            "report_id": report_id,
+            "aggregate_only": args.aggregate_only,
+            "output_dir": str(args.output_dir)
+        }
+    )
+    storage.close()
 
     return 0
 

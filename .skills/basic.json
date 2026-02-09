@@ -1,0 +1,8 @@
+{
+  "name": "basic-help",
+  "description": "Basic help and information skill",
+  "category": "general",
+  "type": "knowledge",
+  "capabilities": ["help", "info"],
+  "enabled": true
+}

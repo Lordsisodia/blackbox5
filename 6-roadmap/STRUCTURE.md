@@ -55,11 +55,7 @@ cat 03-planned/PLAN-*/plan.md
 │   ├── RESEARCH-AGENTS-STATUS.md
 │   └── research-agents-setup.md
 │
-├── guides/                 # How-to guides and execution plans
-│   ├── EXECUTION-PLAN.md
-│   ├── PARALLEL-EXECUTION-PLAN.md
-│   ├── HOW-TO-MONITOR.md
-│   └── launch-agents.sh
+├── (moved to ../../1-docs/guides/)  # How-to guides and execution plans now in 1-docs
 │
 ├── archives/               # Historical summaries & completed reports
 │   ├── ROADMAP-SUMMARY.md

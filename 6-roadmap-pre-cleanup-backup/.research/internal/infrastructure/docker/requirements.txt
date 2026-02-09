@@ -1,0 +1,29 @@
+# Python dependencies for RALF agent
+# Core utilities
+requests>=2.31.0
+pyyaml>=6.0.1
+redis>=5.0.1
+
+# CLI and formatting
+rich>=13.7.0
+click>=8.1.7
+
+# GitHub integration
+PyGithub>=2.1.1
+
+# Kubernetes
+kubernetes>=28.1.0
+
+# Data processing
+pydantic>=2.5.0
+
+# Async support
+aiohttp>=3.9.1
+asyncio-mqtt>=0.16.1
+
+# Monitoring
+prometheus-client>=0.19.0
+
+# Utilities
+python-dotenv>=1.0.0
+tenacity>=8.2.3

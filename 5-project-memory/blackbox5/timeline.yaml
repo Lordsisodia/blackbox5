@@ -197,6 +197,396 @@ events:
 # PROGRESS METRICS
 # =============================================================================
 
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: TASK-SSOT-016"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "TASK-SSOT-016"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: TASK-ARCH-062"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "TASK-ARCH-062"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 11"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "11"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 11"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "11"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 9"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "9"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 9"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "9"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 8"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "8"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 9"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "9"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 8"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "8"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 7"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "7"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 8"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "8"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 7"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "7"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 7"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "7"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 1"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "1"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 1"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "1"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 6"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "6"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 5"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "5"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 4"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "4"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 3"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "3"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 6"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "6"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 5"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "5"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 4"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "4"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 3"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "3"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 1"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "1"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "milestone"
+    title: "Task Completed: 2"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "2"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 2"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "2"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "Task Started: 1"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "1"
+# =============================================================================
+
+  - date: "2026-02-07"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "process"
+    title: "Task Started: 17"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "17"
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "milestone"
+    title: "Task Completed: 16"
+    description: "Task marked as completed via TaskUpdate"
+    impact: "low"
+    related_items:
+      - "16"
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "process"
+    title: "Task Started: 16"
+    description: "Task work initiated"
+    impact: "low"
+    related_items:
+      - "16"
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
+  - date: "2026-02-06"
+    type: "process"
+    title: "New Task Created"
+    description: "Task added to active queue"
+    impact: "low"
+    related_items: null
+# =============================================================================
+
   - date: "2026-02-06"
     type: "milestone"
     title: "Task Completed: 4"
@@ -2071,12 +2461,167 @@ events:
       - "IG-009"
 # =============================================================================
 
+  - date: "2026-01-15"
+    type: "milestone"
+    title: "Goal Created: IG-001"
+    description: "Improve CLAUDE.md Effectiveness - Identified need for clearer decision framework"
+    impact: "medium"
+    related_items:
+      - "IG-001"
+
+  - date: "2026-01-15"
+    type: "milestone"
+    title: "Goal Created: IG-002"
+    description: "Improve LEGACY.md Operational Efficiency - Identified need for smoother operational procedures"
+    impact: "medium"
+    related_items:
+      - "IG-002"
+
+  - date: "2026-01-20"
+    type: "milestone"
+    title: "Goal Created: IG-003"
+    description: "Improve System Flow and Code Mapping - Need for better cross-project awareness identified"
+    impact: "medium"
+    related_items:
+      - "IG-003"
+
+  - date: "2026-01-20"
+    type: "milestone"
+    title: "Goal Created: IG-004"
+    description: "Optimize Skill Usage and Efficiency - Skill optimization needs identified"
+    impact: "medium"
+    related_items:
+      - "IG-004"
+
+  - date: "2026-01-20"
+    type: "milestone"
+    title: "Goal Created: IG-005"
+    description: "Improve Documentation Quality and Utility - Documentation audit needs identified"
+    impact: "medium"
+    related_items:
+      - "IG-005"
+
+  - date: "2026-02-01"
+    type: "milestone"
+    title: "Goal Created: IG-006"
+    description: "Restructure BlackBox5 Architecture - Identified need for architecture cleanup from audit"
+    impact: "high"
+    related_items:
+      - "IG-006"
+      - "DEC-2026-01-31-agent-context-architecture"
+
+  - date: "2026-02-01"
+    type: "process"
+    title: "IG-006: Started Consolidating .autonomous Folders"
+    description: "Sub-goal SG-006-1 started - consolidating .autonomous folders"
+    impact: "medium"
+    related_items:
+      - "IG-006"
+      - "SG-006-1"
+
+  - date: "2026-02-02"
+    type: "milestone"
+    title: "IG-006: Migrated 107 Tasks to Root Folder"
+    description: "Successfully moved all tasks from .autonomous/tasks/ to root tasks/"
+    impact: "high"
+    related_items:
+      - "IG-006"
+      - "TASK-002"
+
+  - date: "2026-02-02"
+    type: "milestone"
+    title: "IG-006: Goals System Setup Complete"
+    description: "Completed goals system setup - all 6 improvement goals created"
+    impact: "high"
+    related_items:
+      - "IG-006"
+      - "TASK-GOALS-001"
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Goal Created: IG-008"
+    description: "Implement Hindsight Memory Architecture - Research into Hindsight memory and Two Buffers theory"
+    impact: "high"
+    related_items:
+      - "IG-008"
+
+  - date: "2026-02-04"
+    type: "analysis"
+    title: "IG-008: Memory Systems Research Completed"
+    description: "Completed comprehensive research on Hindsight, Mem0, Zep, Letta, memU memory systems"
+    impact: "high"
+    related_items:
+      - "IG-008"
+
+  - date: "2026-02-04"
+    type: "decision"
+    title: "IG-008: PLAN-HINDSIGHT-001 Created"
+    description: "Created PLAN-HINDSIGHT-001 with 6-phase implementation approach covering Foundation, Infrastructure, RETAIN, RECALL, REFLECT, Integration"
+    impact: "high"
+    related_items:
+      - "IG-008"
+      - "PLAN-HINDSIGHT-001"
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "Goal Created: IG-009"
+    description: "Hook Improvements Implementation - Created to track hook system enhancements"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "IG-009: Existing Hooks Audited"
+    description: "SG-009-1 completed - Existing hooks audited"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+      - "SG-009-1"
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "IG-009: Timeline Maintenance Hook Created"
+    description: "SG-009-2 completed - Timeline maintenance hook created"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+      - "SG-009-2"
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "IG-009: Architecture Consistency Hook Created"
+    description: "SG-009-3 completed - Architecture consistency hook created"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+      - "SG-009-3"
+
+  - date: "2026-02-04"
+    type: "milestone"
+    title: "IG-009: Context Synchronization Hook Created"
+    description: "SG-009-4 completed - Context synchronization hook created"
+    impact: "medium"
+    related_items:
+      - "IG-009"
+      - "SG-009-4"
+
+# =============================================================================
+# GOAL TIMELINE CONSOLIDATION
+# =============================================================================
+# NOTE: Goal-specific timeline events have been merged into this root timeline.
+# Goal timelines now serve as filtered views referencing this canonical source.
+# See: goals/active/IG-*/timeline-view.yaml for view definitions
+# =============================================================================
+
+# NOTE: Progress metrics are dynamically derived from milestones and phases.
+# Do not cache counts here - calculate from source when needed.
+# Derivation: Count milestones with status=completed, total milestones, etc.
 progress:
-  overall_completion: 85
-  milestones_completed: 6
-  milestones_total: 7
-  days_elapsed: 15
-  days_remaining: null
+  # Derived metrics - calculate from milestones/phases sections above
+  # overall_completion: derive from completed/total milestones
+  # milestones_completed: count milestones with status=completed
+  # milestones_total: count total milestones
   velocity: stable
 
 # =============================================================================

@@ -1,14 +1,27 @@
-# Goal Timeline: IG-001
+# Goal Timeline View: IG-001
 # =============================================================================
-goal_id: IG-001
-name: "Improve CLAUDE.md Effectiveness"
+# This is a FILTERED VIEW of the canonical root timeline.yaml
+# DO NOT ADD EVENTS HERE - Add to root timeline.yaml instead
+# =============================================================================
 
-events:
-  - timestamp: "2026-01-15T10:00:00Z"
-    type: goal_created
-    description: "Identified need for clearer decision framework"
-    linked_decision: null
-    progress_delta: 0
+view_definition:
+  goal_id: IG-001
+  name: "Improve CLAUDE.md Effectiveness"
+  canonical_source: "~/blackbox5/timeline.yaml"
+  filter_criteria:
+    related_items_contains: "IG-001"
 
-# Waiting to be started
-# Next: Begin SG-001-1: Analyze current decision patterns
+  # Events from root timeline matching this goal:
+  # - 2026-01-15: Goal Created: IG-001
+
+query_instructions: |
+  To see all events for this goal:
+  1. Open ~/blackbox5/timeline.yaml
+  2. Search for "IG-001" in related_items
+  3. Or use: grep -A 10 "IG-001" ~/blackbox5/timeline.yaml
+
+# Timeline Architecture:
+# - ROOT (canonical): ~/blackbox5/timeline.yaml
+# - VIEW (this file): Filtered reference to root
+# - All events MUST be added to root timeline
+# - This file only defines the view/filter

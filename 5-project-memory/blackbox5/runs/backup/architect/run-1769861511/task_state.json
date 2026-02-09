@@ -1,0 +1,19 @@
+{
+  "run": {
+    "loop": 38,
+    "timestamp": "2026-01-31T12:11:51Z"
+  },
+  "task": {
+    "id": null,
+    "status": "searching",
+    "goal_reference": null,
+    "start_time": "2026-01-31T12:11:51Z",
+    "end_time": null
+  },
+  "success_criteria": [],
+  "completion": {
+    "criteria_met": 0,
+    "criteria_total": 0,
+    "percentage": 0
+  }
+}

@@ -1,603 +1,577 @@
-# Testing Guide
+# RALF Testing Guide
 
-**Purpose:** Practical guide for implementing tests in RALF executor runs
-
-**Audience:** RALF executors implementing tasks
-
+**Version:** 1.0.0
 **Last Updated:** 2026-02-01
+**Framework:** pytest
+
+---
+
+## Overview
+
+RALF uses pytest for automated testing. The testing framework provides quality assurance, enables faster development, and serves as executable documentation.
+
+### Test Structure
+
+```
+tests/
+├── unit/              # Unit tests (fast, isolated)
+├── integration/       # Integration tests (component interactions)
+├── fixtures/          # Test fixtures and test data
+├── lib/               # Test utilities and helpers
+├── config/            # Test configuration files
+├── conftest.py        # Shared pytest fixtures
+└── pytest.ini         # Pytest configuration
+```
+
+### Test Categories
+
+1. **Unit Tests:** Test individual components in isolation
+   - Fast execution (< 1 second per test)
+   - No external dependencies
+   - Mock file I/O, network calls
+
+2. **Integration Tests:** Test component interactions
+   - Slower than unit tests
+   - Test real dependencies
+   - Focus on critical workflows
 
 ---
 
 ## Quick Start
 
-### 1. Before You Write Code
-
-Always write the test first:
-
-```python
-# test_calculator.py
-import unittest
-
-class TestCalculator(unittest.TestCase):
-    def test_add_two_positive_numbers(self):
-        """Test adding two positive numbers."""
-        result = add(2, 3)
-        self.assertEqual(result, 5)
-
-    def test_add_negative_numbers(self):
-        """Test adding negative numbers."""
-        result = add(-2, -3)
-        self.assertEqual(result, -5)
-```
-
-Run the test to confirm it fails:
+### Installing Dependencies
 
 ```bash
-python3 -m unittest test_calculator -v
-# Expected: FAIL (function doesn't exist yet)
+# Install pytest
+pip install pytest
+
+# Optional: Install coverage.py
+pip install coverage
+
+# Optional: Install pytest-xdist for parallel execution
+pip install pytest-xdist
 ```
 
-### 2. Write Minimal Code
-
-```python
-# calculator.py
-def add(a, b):
-    """Add two numbers."""
-    return a + b
-```
-
-Run the test again:
+### Running Tests
 
 ```bash
-python3 -m unittest test_calculator -v
-# Expected: OK
+# Run all tests
+./bin/run_tests.sh
+
+# Run unit tests only
+./bin/run_tests.sh --unit
+
+# Run integration tests only
+./bin/run_tests.sh --integration
+
+# Run with verbose output
+./bin/run_tests.sh --verbose
+
+# Run with coverage reporting
+./bin/run_tests.sh --coverage
 ```
 
-### 3. Refactor
+### Using pytest Directly
 
-Improve the code while keeping tests green:
+```bash
+# Run all tests
+pytest tests/
 
-```python
-def add(a: int, b: int) -> int:
-    """
-    Add two numbers.
+# Run specific test file
+pytest tests/unit/test_config_manager.py
 
-    Args:
-        a: First number
-        b: Second number
+# Run specific test
+pytest tests/unit/test_config_manager.py::TestConfigManager::test_load_default_config
 
-    Returns:
-        Sum of a and b
-    """
-    return a + b
+# Run with verbose output
+pytest -v tests/
+
+# Run with coverage
+pytest --cov=2-engine/.autonomous/lib --cov-report=html
 ```
 
 ---
 
-## Test Structure
+## Writing Tests
 
-### Arrange-Act-Assert Pattern
-
-Every test should follow this structure:
-
-```python
-def test_feature_description(self):
-    # Arrange: Set up test data and conditions
-    input_data = {"key": "value"}
-    expected_result = "expected"
-
-    # Act: Execute the code being tested
-    result = function_under_test(input_data)
-
-    # Assert: Verify the result
-    self.assertEqual(result, expected_result)
-```
-
-### Given-When-Then Pattern (BDD Style)
-
-```python
-def test_given_valid_input_when_processing_then_returns_success(self):
-    # Given
-    context = setup_valid_context()
-
-    # When
-    result = process(context)
-
-    # Then
-    self.assertTrue(result.is_success)
-```
-
----
-
-## Testing Different Components
-
-### Unit Tests
-
-Test individual functions in isolation:
-
-```python
-class TestTaskParser(unittest.TestCase):
-    def test_parse_valid_task_file(self):
-        """Test parsing a well-formed task file."""
-        content = """
-# TASK-001: Test Task
-
-**Status:** pending
-**Priority:** high
-"""
-        task = parse_task(content)
-        self.assertEqual(task["id"], "TASK-001")
-        self.assertEqual(task["title"], "Test Task")
-        self.assertEqual(task["status"], "pending")
-
-    def test_parse_invalid_task_file(self):
-        """Test parsing malformed task file."""
-        with self.assertRaises(ParseError):
-            parse_task("invalid content")
-```
-
-### Integration Tests
-
-Test component interactions:
-
-```python
-class TestTaskExecution(unittest.TestCase):
-    def setUp(self):
-        """Set up test environment."""
-        self.run_dir = create_temp_run_dir()
-        initialize_systems(self.run_dir)
-
-    def test_full_task_lifecycle(self):
-        """Test complete task execution flow."""
-        # Create task
-        task = create_task("TASK-001", "Test Task")
-
-        # Execute task
-        result = execute_task(task, self.run_dir)
-
-        # Verify results
-        self.assertTrue(result.success)
-        self.assert_file_exists(self.run_dir / "RESULTS.md")
-```
-
-### Shell Script Tests
-
-For CLI tools and workflows:
-
-```bash
-#!/bin/bash
-# test-workflow.sh
-
-set -e  # Exit on error
-
-# Setup
-TEST_DIR=$(mktemp -d)
-trap "rm -rf $TEST_DIR" EXIT
-
-# Test: Initialize run directory
-echo "Testing: Initialize run directory"
-./ralf.sh init --run-dir "$TEST_DIR"
-assert_file_exists "$TEST_DIR/metadata.yaml"
-
-# Test: Execute task
-echo "Testing: Execute task"
-./ralf.sh execute --task TASK-001 --run-dir "$TEST_DIR"
-assert_file_exists "$TEST_DIR/RESULTS.md"
-
-# Test: Verify results
-echo "Testing: Verify results"
-if grep -q "COMPLETE" "$TEST_DIR/RESULTS.md"; then
-    echo "✓ Test passed"
-else
-    echo "✗ Test failed"
-    exit 1
-fi
-
-echo "All tests passed!"
-```
-
----
-
-## Async Testing
-
-### Basic Async Test
-
-```python
-import asyncio
-import unittest
-
-class TestAsyncOperations(unittest.TestCase):
-    def test_async_function(self):
-        """Test an async function."""
-        async def run_test():
-            result = await fetch_data()
-            self.assertIsNotNone(result)
-
-        asyncio.run(run_test())
-```
-
-### Testing with pytest-asyncio
+### Basic Test Structure
 
 ```python
 import pytest
 
-@pytest.mark.asyncio
-async def test_async_fetch():
-    """Test async data fetching."""
-    result = await fetch_data("https://api.example.com")
-    assert result["status"] == "success"
+class TestMyComponent:
+    """Test MyComponent functionality."""
+
+    def test_something(self):
+        """Test description."""
+        # Arrange
+        expected = "value"
+
+        # Act
+        actual = get_value()
+
+        # Assert
+        assert actual == expected
 ```
-
-### Mocking Async Functions
-
-```python
-from unittest.mock import AsyncMock, patch
-
-@pytest.mark.asyncio
-async def test_with_mocked_client():
-    """Test with mocked async client."""
-    mock_client = AsyncMock()
-    mock_client.get.return_value = {"data": "test"}
-
-    result = await service.get_data(client=mock_client)
-
-    assert result == {"data": "test"}
-    mock_client.get.assert_called_once()
-```
-
----
-
-## Test Data Management
 
 ### Using Fixtures
 
 ```python
-# conftest.py
-import pytest
+def test_with_fixture(temp_dir, sample_config):
+    """Test using fixtures."""
+    # temp_dir: Temporary directory (auto-cleaned)
+    # sample_config: Sample configuration dict
 
-@pytest.fixture
-def sample_task():
-    """Provide a sample task for testing."""
-    return {
-        "id": "TASK-001",
-        "title": "Test Task",
-        "status": "pending",
-        "priority": "high"
-    }
-
-@pytest.fixture
-def temp_run_dir(tmp_path):
-    """Provide a temporary run directory."""
-    run_dir = tmp_path / "run-0001"
-    run_dir.mkdir()
-    return run_dir
+    config_path = temp_dir / "config.yaml"
+    # Use fixtures...
 ```
 
-Using fixtures in tests:
+### Using Test Utilities
 
 ```python
-def test_task_processing(sample_task, temp_run_dir):
-    """Test task processing with fixtures."""
-    result = process_task(sample_task, temp_run_dir)
-    assert result.success
-```
+from tests.lib.test_utils import (
+    mock_config,
+    mock_task,
+    assert_file_exists,
+    assert_yaml_valid
+)
 
-### Factory Pattern
-
-```python
-class TaskFactory:
-    """Factory for creating test tasks."""
-
-    def __init__(self):
-        self.counter = 0
-
-    def create(self, **overrides):
-        """Create a task with default values."""
-        self.counter += 1
-        defaults = {
-            "id": f"TASK-{self.counter:04d}",
-            "title": f"Test Task {self.counter}",
-            "status": "pending",
-            "priority": "medium"
-        }
-        defaults.update(overrides)
-        return defaults
-
-# Usage
-factory = TaskFactory()
-task1 = factory.create(priority="high")
-task2 = factory.create(status="in_progress")
+def test_with_utilities():
+    """Test using utilities."""
+    config = mock_config(skill_invocation_confidence=80)
+    assert config['thresholds']['skill_invocation_confidence'] == 80
 ```
 
 ---
 
-## Mocking
+## Test Patterns
 
-### Mocking External Services
+### Pattern 1: Testing File Operations
 
 ```python
-from unittest.mock import patch, MagicMock
+def test_file_operation(temp_dir):
+    """Test file creation and validation."""
+    # Create file
+    file_path = temp_dir / "test.txt"
+    file_path.write_text("content")
 
-class TestExternalAPI(unittest.TestCase):
-    @patch('requests.get')
-    def test_fetch_user_data(self, mock_get):
-        """Test fetching user data with mocked API."""
-        # Arrange
-        mock_response = MagicMock()
-        mock_response.json.return_value = {"name": "John", "id": 123}
-        mock_response.status_code = 200
-        mock_get.return_value = mock_response
-
-        # Act
-        result = fetch_user(123)
-
-        # Assert
-        self.assertEqual(result["name"], "John")
-        mock_get.assert_called_with(
-            "https://api.example.com/users/123",
-            timeout=30
-        )
+    # Assert file exists
+    assert_file_exists(str(file_path))
 ```
 
-### Mocking File System
+### Pattern 2: Testing YAML Config
 
 ```python
-from unittest.mock import mock_open, patch
+def test_yaml_config(mock_yaml_file):
+    """Test YAML configuration loading."""
+    # mock_yaml_file: Fixture that creates valid YAML
 
-def test_file_processing():
-    """Test file processing with mocked file system."""
-    mock_content = "line1\nline2\nline3"
+    # Assert YAML is valid
+    assert_yaml_valid(mock_yaml_file)
 
-    with patch('builtins.open', mock_open(read_data=mock_content)):
-        result = process_file('test.txt')
-
-    assert len(result) == 3
+    # Assert YAML has key
+    assert_yaml_has_key(mock_yaml_file, 'thresholds.skill_invocation_confidence')
 ```
 
----
-
-## Common Patterns
-
-### Testing Exceptions
+### Pattern 3: Testing with Mocks
 
 ```python
-def test_raises_error_on_invalid_input():
-    """Test that function raises appropriate error."""
-    with pytest.raises(ValueError, match="Invalid input"):
-        process_data(None)
-
-    with pytest.raises(FileNotFoundError):
-        read_file("/nonexistent/path")
-```
-
-### Parameterized Tests
-
-```python
-import unittest
-
-class TestCalculator(unittest.TestCase):
-    def test_addition(self):
-        """Test addition with multiple cases."""
-        test_cases = [
-            (1, 1, 2),
-            (0, 0, 0),
-            (-1, 1, 0),
-            (100, 200, 300),
-        ]
-        for a, b, expected in test_cases:
-            with self.subTest(a=a, b=b):
-                result = add(a, b)
-                self.assertEqual(result, expected)
-```
-
-### Testing Side Effects
-
-```python
-def test_creates_output_file():
-    """Test that function creates expected output."""
-    with tempfile.TemporaryDirectory() as tmpdir:
-        output_path = Path(tmpdir) / "output.txt"
-
-        generate_report(output_path)
-
-        assert output_path.exists()
-        content = output_path.read_text()
-        assert "Report" in content
-```
-
----
-
-## RALF-Specific Testing
-
-### Testing Phase Gates
-
-```python
-def test_phase_gate_transitions():
-    """Test phase gate enforcement."""
-    run_dir = create_test_run()
-
-    # Initial state
-    assert get_current_phase(run_dir) == "init"
-
-    # Transition to next phase
-    mark_phase_complete(run_dir, "init")
-    assert can_enter_phase(run_dir, "planning")
-
-    # Try invalid transition
-    assert not can_enter_phase(run_dir, "execution")
-```
-
-### Testing Context Budget
-
-```python
-def test_context_budget_thresholds():
-    """Test context budget threshold enforcement."""
-    run_dir = create_test_run()
-    budget = initialize_budget(run_dir, max_tokens=100000)
-
-    # Below warning threshold
-    assert check_budget(budget, tokens_used=50000).status == "ok"
-
-    # At warning threshold
-    assert check_budget(budget, tokens_used=70000).status == "warning"
-
-    # At critical threshold
-    assert check_budget(budget, tokens_used=85000).status == "critical"
-```
-
-### Testing Decision Registry
-
-```python
-def test_decision_registry():
-    """Test decision recording and retrieval."""
-    run_dir = create_test_run()
-
-    # Record a decision
-    record_decision(
-        run_dir=run_dir,
-        decision_id="DEC-001",
-        context="Choosing database",
-        selected="PostgreSQL",
-        rationale="Better JSON support"
+def test_with_mock_config():
+    """Test using mock configuration."""
+    # Create mock config
+    config = mock_config(
+        skill_invocation_confidence=85,
+        queue_depth_min=2
     )
 
-    # Retrieve decision
-    decision = get_decision(run_dir, "DEC-001")
-    assert decision["selected"] == "PostgreSQL"
+    # Use mock config in test
+    assert config['thresholds']['skill_invocation_confidence'] == 85
+```
+
+### Pattern 4: Testing Error Handling
+
+```python
+def test_error_handling():
+    """Test error handling."""
+    # Expect exception
+    with pytest.raises(ValueError):
+        raise ValueError("Invalid value")
 ```
 
 ---
 
-## Running Tests
+## Fixtures Reference
 
-### Run All Tests
+### Built-in Fixtures (conftest.py)
 
-```bash
-# Python unittest
-python3 -m unittest discover -s tests -v
+- **temp_dir:** Temporary directory (auto-cleaned after test)
+- **sample_config:** Sample configuration dict
+- **sample_task:** Sample task dict
+- **sample_event:** Sample event dict
+- **mock_yaml_file:** Mock YAML file with sample config
+- **engine_lib_path:** Path to engine lib directory
+- **reset_environment:** Reset environment variables (auto-applied)
 
-# pytest
-pytest -v
+### Using Fixtures
+
+```python
+def test_example(temp_dir, sample_config):
+    """Test using fixtures."""
+    # Use temp_dir for file operations
+    config_file = temp_dir / "config.yaml"
+
+    # Use sample_config as test data
+    assert 'thresholds' in sample_config
 ```
 
-### Run Specific Test
+---
 
-```bash
-# Run specific test file
-python3 -m unittest test_calculator -v
+## Test Utilities Reference
 
-# Run specific test class
-python3 -m unittest test_calculator.TestCalculator -v
+### File Assertions
 
-# Run specific test method
-python3 -m unittest test_calculator.TestCalculator.test_add -v
+```python
+from tests.lib.test_utils import (
+    assert_file_exists,
+    assert_file_not_exists,
+    assert_dir_exists
+)
+
+# Assert file exists
+assert_file_exists("/path/to/file")
+
+# Assert file doesn't exist
+assert_file_not_exists("/path/to/nonexistent")
+
+# Assert directory exists
+assert_dir_exists("/path/to/dir")
 ```
 
-### Run with Coverage
+### YAML Assertions
 
-```bash
-# Install coverage tool
-pip install coverage
+```python
+from tests.lib.test_utils import (
+    assert_yaml_valid,
+    assert_yaml_has_key
+)
 
-# Run tests with coverage
-coverage run -m unittest discover -s tests
-coverage report
-coverage html  # Generate HTML report
+# Assert YAML is valid
+assert_yaml_valid("/path/to/config.yaml")
+
+# Assert YAML has key (supports dot notation)
+assert_yaml_has_key("/path/to/config.yaml", "thresholds.skill_invocation_confidence")
 ```
 
-### Run Integration Tests
+### Mock Generators
 
-```bash
-# Run RALF integration tests
-python3 2-engine/.autonomous/lib/integration_test.py run --run-dir ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0001
+```python
+from tests.lib.test_utils import (
+    mock_config,
+    mock_task,
+    mock_event
+)
 
-# Quick verification
-python3 2-engine/.autonomous/lib/integration_test.py verify-all
+# Generate mock config
+config = mock_config(
+    skill_invocation_confidence=80,
+    queue_depth_min=2,
+    queue_depth_max=8
+)
+
+# Generate mock task
+task = mock_task(
+    task_id="TASK-001",
+    task_type="implement",
+    priority="high"
+)
+
+# Generate mock event
+event = mock_event(
+    task_id="TASK-001",
+    event_type="completed",
+    result="success"
+)
+```
+
+### Test Data Helpers
+
+```python
+from tests.lib.test_utils import (
+    create_temp_yaml_file,
+    create_temp_file,
+    cleanup_test_files
+)
+
+# Create temp YAML file
+yaml_path = create_temp_yaml_file({"key": "value"})
+
+# Create temp text file
+txt_path = create_temp_file("content", suffix=".txt")
+
+# Clean up test files
+cleanup_test_files(yaml_path, txt_path)
 ```
 
 ---
 
 ## Best Practices
 
-### DO
+### 1. Keep Tests Simple
 
-- ✓ Write tests before code (TDD)
-- ✓ Keep tests independent and isolated
-- ✓ Use descriptive test names
-- ✓ Test edge cases and error conditions
-- ✓ Use fixtures for common setup
-- ✓ Mock external dependencies
-- ✓ Keep tests fast
-- ✓ Run tests frequently
+```python
+# Good: Simple, focused test
+def test_confidence_default():
+    """Test default confidence is 70."""
+    config = ConfigManager()
+    assert config.get('thresholds.skill_invocation_confidence') == 70
 
-### DON'T
+# Bad: Complex test with multiple assertions
+def test_config_too_many_things():
+    """Test too many things at once."""
+    config = ConfigManager()
+    assert config.get('thresholds.skill_invocation_confidence') == 70
+    assert config.get('thresholds.queue_depth_min') == 3
+    assert config.get('routing.default_agent') == 'executor'
+    # ... too many assertions
+```
 
-- ✗ Skip tests because they take too long
-- ✗ Test implementation details
-- ✗ Share state between tests
-- ✗ Ignore failing tests
-- ✗ Write tests without assertions
-- ✗ Test private methods directly
-- ✗ Use sleep() in tests
+### 2. Use Descriptive Names
+
+```python
+# Good: Descriptive name
+def test_load_user_config_overrides_defaults()
+
+# Bad: Vague name
+def test_config()
+```
+
+### 3. Arrange, Act, Assert
+
+```python
+def test_user_config_override():
+    # Arrange: Set up test data
+    default_config = mock_config()
+    user_config = mock_config(skill_invocation_confidence=80)
+
+    # Act: Execute code under test
+    config = ConfigManager(user_config, default_config)
+
+    # Assert: Verify expected outcome
+    assert config.get('thresholds.skill_invocation_confidence') == 80
+```
+
+### 4. Use Fixtures for Shared Setup
+
+```python
+# Good: Use fixture
+@pytest.fixture
+def config_file(temp_dir):
+    """Create config file for testing."""
+    config_path = temp_dir / "config.yaml"
+    # ... create config
+    return config_path
+
+def test_with_config(config_file):
+    """Test using shared fixture."""
+    # Use config_file
+
+# Bad: Duplicate setup
+def test_a():
+    config_path = Path("/tmp/test_a.yaml")
+    # ... create config
+
+def test_b():
+    config_path = Path("/tmp/test_b.yaml")
+    # ... duplicate setup code
+```
+
+### 5. Mock External Dependencies
+
+```python
+# Good: Mock file I/O
+def test_with_mock(temp_dir):
+    """Test using mock file system."""
+    mock_file = temp_dir / "mock.yaml"
+    mock_file.write_text("key: value")
+    # Test with mock file
+
+# Bad: Real file I/O
+def test_with_real_file():
+    """Test using real file system."""
+    # Tests real file system (slower, side effects)
+```
+
+---
+
+## CI/CD Integration
+
+### Pre-commit Hook (Optional)
+
+Create `.git/hooks/pre-commit`:
+
+```bash
+#!/bin/bash
+# Run tests before commit
+
+./bin/run_tests.sh --unit
+
+if [ $? -ne 0 ]; then
+    echo "Tests failed. Commit aborted."
+    exit 1
+fi
+```
+
+### GitHub Actions (Future)
+
+Create `.github/workflows/tests.yml`:
+
+```yaml
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: pip install pytest
+      - run: ./bin/run_tests.sh --coverage
+```
 
 ---
 
 ## Troubleshooting
 
-### Test is Flaky
+### Issue: Tests Fail with Import Errors
+
+**Problem:** `ModuleNotFoundError: No module named 'config_manager'`
+
+**Solution:** Ensure engine lib is in Python path:
 
 ```python
-# Bad: Time-dependent test
-def test_timeout():
-    start = time.time()
-    result = slow_operation()
-    assert time.time() - start < 1.0  # Flaky!
+import sys
+from pathlib import Path
 
-# Good: Mock time or use deterministic approach
-@patch('time.time')
-def test_timeout(mock_time):
-    mock_time.side_effect = [0, 0.5]  # Controlled time
-    result = slow_operation()
-    assert result.completed
+ENGINE_LIB = Path("/workspaces/blackbox5/2-engine/.autonomous/lib")
+if str(ENGINE_LIB) not in sys.path:
+    sys.path.insert(0, str(ENGINE_LIB))
 ```
 
-### Test is Slow
+### Issue: Tests Are Slow
+
+**Problem:** Tests take too long to run
+
+**Solutions:**
+- Use unit tests instead of integration tests
+- Mock file I/O and network calls
+- Run tests in parallel (pytest-xdist)
+- Use `--unit` flag to run only fast tests
+
+### Issue: Fixtures Don't Work
+
+**Problem:** `fixture 'temp_dir' not found`
+
+**Solution:** Ensure `conftest.py` is in `tests/` directory and pytest is run from project root.
+
+### Issue: Coverage Report Missing
+
+**Problem:** `--coverage` flag doesn't work
+
+**Solution:** Install coverage.py:
+
+```bash
+pip install coverage
+```
+
+---
+
+## Test Coverage
+
+### Current Coverage
+
+- **ConfigManager:** 8 tests covering load, validate, get, set, save
+- **Queue Sync:** 1 test covering sync on task completion
+- **Roadmap Sync:** 1 test covering metrics update
+- **Task Distribution:** 1 test covering task routing
+- **State Sync:** 1 test covering state synchronization
+
+**Total:** 12 tests
+
+### Target Coverage
+
+- Unit tests: 80% coverage of core libraries
+- Integration tests: Critical workflows covered
+- Test execution time: < 10 seconds for all tests
+
+---
+
+## Adding New Tests
+
+### Step 1: Create Test File
+
+```bash
+# Unit test
+touch tests/unit/test_my_component.py
+
+# Integration test
+touch tests/integration/test_workflow.py
+```
+
+### Step 2: Write Test
 
 ```python
-# Bad: Hits real database
-def test_user_creation():
-    user = create_user_in_database()  # Slow!
-    assert user.id is not None
+import pytest
 
-# Good: Use in-memory or mock
-@patch('database.create_user')
-def test_user_creation(mock_create):
-    mock_create.return_value = User(id=123)
-    user = create_user()
-    assert user.id == 123
+class TestMyComponent:
+    """Test MyComponent functionality."""
+
+    def test_feature_x(self):
+        """Test Feature X."""
+        # Arrange, Act, Assert
+        assert True
 ```
 
-### Test is Brittle
+### Step 3: Run Test
 
-```python
-# Bad: Tests internal structure
-def test_internal():
-    obj = MyClass()
-    assert obj._internal_state == "value"  # Brittle!
-
-# Good: Tests public behavior
-def test_behavior():
-    obj = MyClass()
-    result = obj.public_method()
-    assert result == "expected"  # Stable
+```bash
+# Run new test
+pytest tests/unit/test_my_component.py -v
 ```
+
+### Step 4: Add to Suite
+
+Test is automatically discovered by pytest. No additional configuration needed.
 
 ---
 
 ## Resources
 
-- [Python unittest documentation](https://docs.python.org/3/library/unittest.html)
-- [pytest documentation](https://docs.pytest.org/)
-- [BATS testing framework](https://github.com/bats-core/bats-core)
-- [operations/testing-guidelines.yaml](../testing-guidelines.yaml)
-- [operations/quality-gates.yaml](../quality-gates.yaml)
+- **pytest Documentation:** https://docs.pytest.org/
+- **Python Testing Best Practices:** https://docs.python-guide.org/writing/tests/
+- **Coverage.py Documentation:** https://coverage.readthedocs.io/
+
+---
+
+## Summary
+
+The RALF testing framework provides:
+
+✅ **Fast Feedback:** Unit tests run in < 1 second each
+✅ **Quality Assurance:** Catch bugs early, prevent regressions
+✅ **Documentation:** Tests serve as executable documentation
+✅ **CI/CD Foundation:** Ready for F-007 (CI/CD Pipeline Integration)
+✅ **Developer Experience:** Simple, well-documented, easy to extend
+
+**Next Steps:**
+1. Run `./bin/run_tests.sh` to verify all tests pass
+2. Add new tests when implementing features
+3. Aim for 80% coverage of core libraries
+4. Keep tests fast and focused
+
+---
+
+**End of Guide**

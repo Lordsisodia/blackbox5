@@ -173,13 +173,12 @@ See [`STRUCTURE.md`](./STRUCTURE.md) for templates.
 - [`STATE.yaml`](./STATE.yaml) - **Single source of truth**
 - [`QUERIES.md`](./QUERIES.md) - Agent query guide
 - [`INDEX.yaml`](./INDEX.yaml) - Master index
-- [`templates/`](./templates/) - Document templates
+- [`templates/`](../1-docs/templates/) - Document templates
 - [`research/`](./research/) - Research documentation & analysis
 - [`guides/`](./guides/) - How-to guides & execution plans
 - [`archives/`](./archives/) - Historical summaries & completed reports
 - [`frameworks/`](./frameworks/) - Framework research & analysis
-- [`first-principles/`](./first-principles/) - Deep analysis & validations
-
+- [\`1-docs/core/\`](../../1-docs/core/) - Deep analysis \& validations (moved from first-principles/)
 ---
 
 ## Recent Changes

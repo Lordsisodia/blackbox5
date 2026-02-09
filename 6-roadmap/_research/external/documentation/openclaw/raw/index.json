@@ -1,0 +1,2036 @@
+{
+  "source": {
+    "name": "openclaw",
+    "base_url": "https://docs.openclaw.ai/",
+    "discovered_at": "2026-02-07T10:10:18.496919",
+    "discovered_via": "llms.txt"
+  },
+  "routes": {
+    "tier_1": [
+      {
+        "path": "/gateway/configuration",
+        "title": "Configuration",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/configuration.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/gateway/configuration-examples",
+        "title": "Configuration Examples",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/configuration-examples.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/platforms/mac/permissions",
+        "title": "macOS Permissions",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/permissions.md",
+        "type": "reference",
+        "tier": 1
+      },
+      {
+        "path": "/start/getting-started",
+        "title": "Getting Started",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/getting-started.md",
+        "type": "reference",
+        "tier": 1
+      }
+    ],
+    "tier_2": [
+      {
+        "path": "/channels/slack",
+        "title": "Slack",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/slack.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/cli/hooks",
+        "title": "hooks",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/hooks.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/cli/memory",
+        "title": "memory",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/memory.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/cli/plugins",
+        "title": "plugins",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/plugins.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/cli/security",
+        "title": "security",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/security.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/cli/skills",
+        "title": "skills",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/skills.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/concepts/memory",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/memory.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/gateway/authentication",
+        "title": "Authentication",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/authentication.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/gateway/security/index",
+        "title": "Security",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/security/index.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/hooks",
+        "title": "Hooks",
+        "description": "",
+        "url": "https://docs.openclaw.ai/hooks.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/hooks/soul-evil",
+        "title": "SOUL Evil Hook",
+        "description": "",
+        "url": "https://docs.openclaw.ai/hooks/soul-evil.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/platforms/mac/skills",
+        "title": "Skills",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/skills.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/plugins/voice-call",
+        "title": "Voice Call Plugin",
+        "description": "",
+        "url": "https://docs.openclaw.ai/plugins/voice-call.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/plugins/zalouser",
+        "title": "Zalo Personal Plugin",
+        "description": "",
+        "url": "https://docs.openclaw.ai/plugins/zalouser.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/security/formal-verification",
+        "title": "Formal Verification (Security Models)",
+        "description": "",
+        "url": "https://docs.openclaw.ai/security/formal-verification.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/tools/chrome-extension",
+        "title": "Chrome Extension",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/chrome-extension.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/tools/skills",
+        "title": "Skills",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/skills.md",
+        "type": "reference",
+        "tier": 2
+      },
+      {
+        "path": "/tools/skills-config",
+        "title": "Skills Config",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/skills-config.md",
+        "type": "reference",
+        "tier": 2
+      }
+    ],
+    "tier_3": [
+      {
+        "path": "/automation/auth-monitoring",
+        "title": "Auth Monitoring",
+        "description": "",
+        "url": "https://docs.openclaw.ai/automation/auth-monitoring.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/automation/cron-jobs",
+        "title": "Cron Jobs",
+        "description": "",
+        "url": "https://docs.openclaw.ai/automation/cron-jobs.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/automation/cron-vs-heartbeat",
+        "title": "Cron vs Heartbeat",
+        "description": "",
+        "url": "https://docs.openclaw.ai/automation/cron-vs-heartbeat.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/automation/gmail-pubsub",
+        "title": "Gmail PubSub",
+        "description": "",
+        "url": "https://docs.openclaw.ai/automation/gmail-pubsub.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/automation/poll",
+        "title": "Polls",
+        "description": "",
+        "url": "https://docs.openclaw.ai/automation/poll.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/automation/webhook",
+        "title": "Webhooks",
+        "description": "",
+        "url": "https://docs.openclaw.ai/automation/webhook.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/bedrock",
+        "title": "Amazon Bedrock",
+        "description": "",
+        "url": "https://docs.openclaw.ai/bedrock.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/broadcast-groups",
+        "title": "Broadcast Groups",
+        "description": "",
+        "url": "https://docs.openclaw.ai/broadcast-groups.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/discord",
+        "title": "Discord",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/discord.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/feishu",
+        "title": "Feishu",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/feishu.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/googlechat",
+        "title": "Google Chat",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/googlechat.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/grammy",
+        "title": "grammY",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/grammy.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/imessage",
+        "title": "iMessage",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/imessage.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/index",
+        "title": "Chat Channels",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/line",
+        "title": "LINE",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/line.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/location",
+        "title": "Channel Location Parsing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/location.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/matrix",
+        "title": "Matrix",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/matrix.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/mattermost",
+        "title": "Mattermost",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/mattermost.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/msteams",
+        "title": "Microsoft Teams",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/msteams.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/signal",
+        "title": "Signal",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/signal.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/telegram",
+        "title": "Telegram",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/telegram.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/troubleshooting",
+        "title": "Channel Troubleshooting",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/troubleshooting.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/whatsapp",
+        "title": "WhatsApp",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/whatsapp.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/zalo",
+        "title": "Zalo",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/zalo.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/channels/zalouser",
+        "title": "Zalo Personal",
+        "description": "",
+        "url": "https://docs.openclaw.ai/channels/zalouser.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/agent",
+        "title": "agent",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/agent.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/agents",
+        "title": "agents",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/agents.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/approvals",
+        "title": "approvals",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/approvals.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/browser",
+        "title": "browser",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/browser.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/channels",
+        "title": "channels",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/channels.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/configure",
+        "title": "configure",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/configure.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/cron",
+        "title": "cron",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/cron.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/dashboard",
+        "title": "dashboard",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/dashboard.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/directory",
+        "title": "directory",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/directory.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/dns",
+        "title": "dns",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/dns.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/docs",
+        "title": "docs",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/docs.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/doctor",
+        "title": "doctor",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/doctor.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/gateway",
+        "title": "gateway",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/gateway.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/health",
+        "title": "health",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/health.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/index",
+        "title": "CLI Reference",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/logs",
+        "title": "logs",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/logs.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/message",
+        "title": "message",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/message.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/models",
+        "title": "models",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/models.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/nodes",
+        "title": "nodes",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/nodes.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/onboard",
+        "title": "onboard",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/onboard.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/pairing",
+        "title": "pairing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/pairing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/reset",
+        "title": "reset",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/reset.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/sandbox",
+        "title": "Sandbox CLI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/sandbox.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/sessions",
+        "title": "sessions",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/sessions.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/setup",
+        "title": "setup",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/setup.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/status",
+        "title": "status",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/status.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/system",
+        "title": "system",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/system.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/tui",
+        "title": "tui",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/tui.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/uninstall",
+        "title": "uninstall",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/uninstall.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/update",
+        "title": "update",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/update.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/cli/voicecall",
+        "title": "voicecall",
+        "description": "",
+        "url": "https://docs.openclaw.ai/cli/voicecall.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/agent",
+        "title": "Agent Runtime",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/agent.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/agent-loop",
+        "title": "Agent Loop",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/agent-loop.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/agent-workspace",
+        "title": "Agent Workspace",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/agent-workspace.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/architecture",
+        "title": "Gateway Architecture",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/architecture.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/channel-routing",
+        "title": "Channel Routing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/channel-routing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/compaction",
+        "title": "Compaction",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/compaction.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/context",
+        "title": "Context",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/context.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/features",
+        "title": "Features",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/features.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/group-messages",
+        "title": "Group Messages",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/group-messages.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/groups",
+        "title": "Groups",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/groups.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/markdown-formatting",
+        "title": "Markdown Formatting",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/markdown-formatting.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/messages",
+        "title": "Messages",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/messages.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/model-failover",
+        "title": "Model Failover",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/model-failover.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/model-providers",
+        "title": "Model Providers",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/model-providers.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/models",
+        "title": "Models CLI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/models.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/multi-agent",
+        "title": "Multi-Agent Routing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/multi-agent.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/oauth",
+        "title": "OAuth",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/oauth.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/presence",
+        "title": "Presence",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/presence.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/queue",
+        "title": "Command Queue",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/queue.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/retry",
+        "title": "Retry Policy",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/retry.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/session",
+        "title": "Session Management",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/session.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/session-pruning",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/session-pruning.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/session-tool",
+        "title": "Session Tools",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/session-tool.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/sessions",
+        "title": "Sessions",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/sessions.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/streaming",
+        "title": "Streaming and Chunking",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/streaming.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/system-prompt",
+        "title": "System Prompt",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/system-prompt.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/timezone",
+        "title": "Timezones",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/timezone.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/typebox",
+        "title": "TypeBox",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/typebox.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/typing-indicators",
+        "title": "Typing Indicators",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/typing-indicators.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/concepts/usage-tracking",
+        "title": "Usage Tracking",
+        "description": "",
+        "url": "https://docs.openclaw.ai/concepts/usage-tracking.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/debugging",
+        "title": "Debugging",
+        "description": "",
+        "url": "https://docs.openclaw.ai/debugging.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/environment",
+        "title": "Environment Variables",
+        "description": "",
+        "url": "https://docs.openclaw.ai/environment.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/background-process",
+        "title": "Background Exec and Process Tool",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/background-process.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/bonjour",
+        "title": "Bonjour Discovery",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/bonjour.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/bridge-protocol",
+        "title": "Bridge Protocol",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/bridge-protocol.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/cli-backends",
+        "title": "CLI Backends",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/cli-backends.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/discovery",
+        "title": "Discovery and Transports",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/discovery.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/doctor",
+        "title": "Doctor",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/doctor.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/gateway-lock",
+        "title": "Gateway Lock",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/gateway-lock.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/health",
+        "title": "Health Checks",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/health.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/heartbeat",
+        "title": "Heartbeat",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/heartbeat.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/index",
+        "title": "Gateway Runbook",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/local-models",
+        "title": "Local Models",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/local-models.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/logging",
+        "title": "Logging",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/logging.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/multiple-gateways",
+        "title": "Multiple Gateways",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/multiple-gateways.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/network-model",
+        "title": "Network model",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/network-model.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/openai-http-api",
+        "title": "OpenAI Chat Completions",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/openai-http-api.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/pairing",
+        "title": "Gateway-Owned Pairing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/pairing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/protocol",
+        "title": "Gateway Protocol",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/protocol.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/remote",
+        "title": "Remote Access",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/remote.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/remote-gateway-readme",
+        "title": "Remote Gateway Setup",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/remote-gateway-readme.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/sandbox-vs-tool-policy-vs-elevated",
+        "title": "Sandbox vs Tool Policy vs Elevated",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/sandbox-vs-tool-policy-vs-elevated.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/sandboxing",
+        "title": "Sandboxing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/sandboxing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/tailscale",
+        "title": "Tailscale",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/tailscale.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/tools-invoke-http-api",
+        "title": "Tools Invoke API",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/tools-invoke-http-api.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/gateway/troubleshooting",
+        "title": "Troubleshooting",
+        "description": "",
+        "url": "https://docs.openclaw.ai/gateway/troubleshooting.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/help/faq",
+        "title": "FAQ",
+        "description": "",
+        "url": "https://docs.openclaw.ai/help/faq.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/help/index",
+        "title": "Help",
+        "description": "",
+        "url": "https://docs.openclaw.ai/help/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/help/submitting-a-pr",
+        "title": "Submitting a PR",
+        "description": "",
+        "url": "https://docs.openclaw.ai/help/submitting-a-pr.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/help/submitting-an-issue",
+        "title": "Submitting an Issue",
+        "description": "",
+        "url": "https://docs.openclaw.ai/help/submitting-an-issue.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/help/troubleshooting",
+        "title": "Troubleshooting",
+        "description": "",
+        "url": "https://docs.openclaw.ai/help/troubleshooting.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/index",
+        "title": "OpenClaw",
+        "description": "",
+        "url": "https://docs.openclaw.ai/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/ansible",
+        "title": "Ansible",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/ansible.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/bun",
+        "title": "Bun (Experimental)",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/bun.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/development-channels",
+        "title": "Development Channels",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/development-channels.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/docker",
+        "title": "Docker",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/docker.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/exe-dev",
+        "title": "exe.dev",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/exe-dev.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/fly",
+        "title": "Fly.io",
+        "description": "Deploy OpenClaw on Fly.io",
+        "url": "https://docs.openclaw.ai/install/fly.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/gcp",
+        "title": "GCP",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/gcp.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/hetzner",
+        "title": "Hetzner",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/hetzner.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/index",
+        "title": "Install",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/installer",
+        "title": "Installer Internals",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/installer.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/macos-vm",
+        "title": "macOS VMs",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/macos-vm.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/migrating",
+        "title": "Migration Guide",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/migrating.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/nix",
+        "title": "Nix",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/nix.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/node",
+        "title": "Node.js",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/node.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/northflank",
+        "title": "Deploy on Northflank",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/northflank.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/railway",
+        "title": "Deploy on Railway",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/railway.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/render",
+        "title": "Deploy on Render",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/render.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/uninstall",
+        "title": "Uninstall",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/uninstall.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/install/updating",
+        "title": "Updating",
+        "description": "",
+        "url": "https://docs.openclaw.ai/install/updating.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/multi-agent-sandbox-tools",
+        "title": "Multi-Agent Sandbox & Tools",
+        "description": "",
+        "url": "https://docs.openclaw.ai/multi-agent-sandbox-tools.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/audio",
+        "title": "Audio and Voice Notes",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/audio.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/camera",
+        "title": "Camera Capture",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/camera.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/images",
+        "title": "Image and Media Support",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/images.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/index",
+        "title": "Nodes",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/location-command",
+        "title": "Location Command",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/location-command.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/talk",
+        "title": "Talk Mode",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/talk.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/nodes/voicewake",
+        "title": "Voice Wake",
+        "description": "",
+        "url": "https://docs.openclaw.ai/nodes/voicewake.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/android",
+        "title": "Android App",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/android.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/index",
+        "title": "Platforms",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/ios",
+        "title": "iOS App",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/ios.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/linux",
+        "title": "Linux App",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/linux.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/bundled-gateway",
+        "title": "Gateway on macOS",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/bundled-gateway.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/canvas",
+        "title": "Canvas",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/canvas.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/child-process",
+        "title": "Gateway Lifecycle",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/child-process.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/dev-setup",
+        "title": "macOS Dev Setup",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/dev-setup.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/health",
+        "title": "Health Checks",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/health.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/icon",
+        "title": "Menu Bar Icon",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/icon.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/logging",
+        "title": "macOS Logging",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/logging.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/menu-bar",
+        "title": "Menu Bar",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/menu-bar.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/peekaboo",
+        "title": "Peekaboo Bridge",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/peekaboo.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/release",
+        "title": "macOS Release",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/release.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/remote",
+        "title": "Remote Control",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/remote.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/signing",
+        "title": "macOS Signing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/signing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/voice-overlay",
+        "title": "Voice Overlay",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/voice-overlay.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/voicewake",
+        "title": "Voice Wake",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/voicewake.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/webchat",
+        "title": "WebChat",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/webchat.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/mac/xpc",
+        "title": "macOS IPC",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/mac/xpc.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/macos",
+        "title": "macOS App",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/macos.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/platforms/windows",
+        "title": "Windows (WSL2)",
+        "description": "",
+        "url": "https://docs.openclaw.ai/platforms/windows.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/plugin",
+        "title": "Plugins",
+        "description": "",
+        "url": "https://docs.openclaw.ai/plugin.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/anthropic",
+        "title": "Anthropic",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/anthropic.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/glm",
+        "title": "GLM Models",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/glm.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/index",
+        "title": "Model Providers",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/minimax",
+        "title": "MiniMax",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/minimax.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/models",
+        "title": "Model Provider Quickstart",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/models.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/moonshot",
+        "title": "Moonshot AI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/moonshot.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/openai",
+        "title": "OpenAI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/openai.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/opencode",
+        "title": "OpenCode Zen",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/opencode.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/openrouter",
+        "title": "OpenRouter",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/openrouter.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/synthetic",
+        "title": "Synthetic",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/synthetic.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/vercel-ai-gateway",
+        "title": "Vercel AI Gateway",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/vercel-ai-gateway.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/providers/zai",
+        "title": "Z.AI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/providers/zai.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/AGENTS.default",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/AGENTS.default.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/RELEASING",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/RELEASING.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/credits",
+        "title": "Credits",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/credits.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/device-models",
+        "title": "Device Model Database",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/device-models.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/rpc",
+        "title": "RPC Adapters",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/rpc.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/session-management-compaction",
+        "title": "Session Management Deep Dive",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/session-management-compaction.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/AGENTS",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/AGENTS.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/BOOT",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/BOOT.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/BOOTSTRAP",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/BOOTSTRAP.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/HEARTBEAT",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/HEARTBEAT.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/IDENTITY",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/IDENTITY.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/SOUL",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/SOUL.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/TOOLS",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/TOOLS.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/templates/USER",
+        "title": "null",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/templates/USER.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/test",
+        "title": "Tests",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/test.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/reference/wizard",
+        "title": "Onboarding Wizard Reference",
+        "description": "",
+        "url": "https://docs.openclaw.ai/reference/wizard.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/scripts",
+        "title": "Scripts",
+        "description": "",
+        "url": "https://docs.openclaw.ai/scripts.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/bootstrapping",
+        "title": "Agent Bootstrapping",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/bootstrapping.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/docs-directory",
+        "title": "Docs directory",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/docs-directory.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/hubs",
+        "title": "Docs Hubs",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/hubs.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/lore",
+        "title": "OpenClaw Lore",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/lore.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/onboarding",
+        "title": "Onboarding (macOS App)",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/onboarding.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/openclaw",
+        "title": "Personal Assistant Setup",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/openclaw.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/pairing",
+        "title": "Pairing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/pairing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/setup",
+        "title": "Setup",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/setup.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/start/showcase",
+        "title": "Showcase",
+        "description": "Real-world OpenClaw projects from the community",
+        "url": "https://docs.openclaw.ai/start/showcase.md",
+        "type": "guide",
+        "tier": 3
+      },
+      {
+        "path": "/start/wizard",
+        "title": "Onboarding Wizard (CLI)",
+        "description": "",
+        "url": "https://docs.openclaw.ai/start/wizard.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/testing",
+        "title": "Testing",
+        "description": "",
+        "url": "https://docs.openclaw.ai/testing.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/token-use",
+        "title": "Token Use and Costs",
+        "description": "",
+        "url": "https://docs.openclaw.ai/token-use.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/agent-send",
+        "title": "Agent Send",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/agent-send.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/apply-patch",
+        "title": "apply_patch Tool",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/apply-patch.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/browser",
+        "title": "Browser (OpenClaw-managed)",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/browser.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/browser-linux-troubleshooting",
+        "title": "Browser Troubleshooting",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/browser-linux-troubleshooting.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/browser-login",
+        "title": "Browser Login",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/browser-login.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/clawhub",
+        "title": "ClawHub",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/clawhub.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/elevated",
+        "title": "Elevated Mode",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/elevated.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/exec",
+        "title": "Exec Tool",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/exec.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/index",
+        "title": "Tools",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/llm-task",
+        "title": "LLM Task",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/llm-task.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/lobster",
+        "title": "Lobster",
+        "description": "Typed workflow runtime for OpenClaw \u2014 composable pipelines with approval gates.",
+        "url": "https://docs.openclaw.ai/tools/lobster.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/reactions",
+        "title": "Reactions",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/reactions.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/slash-commands",
+        "title": "Slash Commands",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/slash-commands.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/subagents",
+        "title": "Sub-Agents",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/subagents.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/thinking",
+        "title": "Thinking Levels",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/thinking.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tools/web",
+        "title": "Web Tools",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tools/web.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/tui",
+        "title": "TUI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/tui.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/web/control-ui",
+        "title": "Control UI",
+        "description": "",
+        "url": "https://docs.openclaw.ai/web/control-ui.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/web/dashboard",
+        "title": "Dashboard",
+        "description": "",
+        "url": "https://docs.openclaw.ai/web/dashboard.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/web/index",
+        "title": "Web",
+        "description": "",
+        "url": "https://docs.openclaw.ai/web/index.md",
+        "type": "reference",
+        "tier": 3
+      },
+      {
+        "path": "/web/webchat",
+        "title": "WebChat",
+        "description": "",
+        "url": "https://docs.openclaw.ai/web/webchat.md",
+        "type": "reference",
+        "tier": 3
+      }
+    ]
+  },
+  "metadata": {
+    "total_routes": 252,
+    "llms_txt": "https://docs.openclaw.ai/llms.txt"
+  }
+}

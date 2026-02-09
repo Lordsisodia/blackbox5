@@ -46,6 +46,10 @@ from typing import Any, Optional, TypeVar
 
 import yaml
 
+# Add lib directory to path for storage import
+sys.path.insert(0, str(Path(__file__).parent.parent / ".autonomous" / "lib"))
+from storage import get_storage
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -215,14 +219,21 @@ class Action:
 # =============================================================================
 
 class ReanalysisRegistry:
-    """Manages the reanalysis registry configuration."""
+    """Manages the reanalysis registry configuration using storage backend."""
 
     DEFAULT_REGISTRY_PATH = ".autonomous/agents/reanalysis/reanalysis-registry.yaml"
 
     def __init__(self, registry_path: Optional[Path] = None):
         self.registry_path = registry_path or self._find_registry()
         self.config: dict[str, Any] = {}
+        self._storage = None
         self.load()
+
+    def _get_storage(self):
+        """Get or create storage instance."""
+        if self._storage is None:
+            self._storage = get_storage()
+        return self._storage
 
     def _find_registry(self) -> Path:
         """Find the registry file in the project."""
@@ -243,14 +254,49 @@ class ReanalysisRegistry:
         raise FileNotFoundError(f"Registry file not found: {self.DEFAULT_REGISTRY_PATH}")
 
     def load(self) -> None:
-        """Load the registry configuration."""
+        """Load the registry configuration using storage backend."""
         try:
-            with open(self.registry_path, "r") as f:
-                self.config = yaml.safe_load(f)
+            # Try storage backend first for atomic reads
+            storage = self._get_storage()
+            # Load from storage if registry is stored there
+            self.config = self._load_yaml_atomic(self.registry_path)
+            if not self.config:
+                self.config = {}
             logger.debug(f"Loaded registry from {self.registry_path}")
         except Exception as e:
             logger.error(f"Failed to load registry: {e}")
             raise
+
+    def _load_yaml_atomic(self, path: Path) -> Optional[dict[str, Any]]:
+        """Load YAML file with atomic read pattern."""
+        if not path.exists():
+            return None
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return yaml.safe_load(f)
+        except Exception as e:
+            logger.warning(f"Failed to load {path}: {e}")
+            return None
+
+    def _save_yaml_atomic(self, path: Path, data: dict[str, Any]) -> bool:
+        """Save YAML file with atomic write pattern."""
+        try:
+            import tempfile
+            import os
+
+            path.parent.mkdir(parents=True, exist_ok=True)
+
+            # Write to temp file first (atomic write pattern)
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False, dir=path.parent) as f:
+                yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+                temp_path = f.name
+
+            # Atomic rename
+            os.replace(temp_path, path)
+            return True
+        except Exception as e:
+            logger.error(f"Failed to save {path}: {e}")
+            return False
 
     def get_trigger_config(self, trigger_type: TriggerType) -> dict[str, Any]:
         """Get configuration for a specific trigger type."""
@@ -274,7 +320,7 @@ class ReanalysisRegistry:
 # =============================================================================
 
 class TaskRegistry:
-    """Manages task data and operations."""
+    """Manages task data and operations using storage backend."""
 
     DEFAULT_TASKS_PATH = "tasks/active"
     DEFAULT_QUEUE_PATH = ".autonomous/memory/queue.yaml"
@@ -283,7 +329,14 @@ class TaskRegistry:
         self.tasks_path = tasks_path or self._find_tasks_path()
         self.queue_path = queue_path or self._find_queue_path()
         self.tasks: dict[str, Task] = {}
+        self._storage = None
         self.load_tasks()
+
+    def _get_storage(self):
+        """Get or create storage instance."""
+        if self._storage is None:
+            self._storage = get_storage()
+        return self._storage
 
     def _find_tasks_path(self) -> Path:
         """Find the tasks directory."""
@@ -318,7 +371,28 @@ class TaskRegistry:
         return path
 
     def load_tasks(self) -> None:
-        """Load all tasks from the tasks directory."""
+        """Load all tasks from the storage backend."""
+        try:
+            storage = self._get_storage()
+            task_list = storage.tasks.list()
+
+            for task_data in task_list:
+                try:
+                    # Convert storage format to Task format
+                    converted_data = self._convert_storage_to_task(task_data)
+                    task = Task.from_dict(converted_data)
+                    self.tasks[task.task_id] = task
+                except Exception as e:
+                    logger.warning(f"Failed to load task from storage: {e}")
+
+            logger.info(f"Loaded {len(self.tasks)} tasks from storage")
+        except Exception as e:
+            logger.warning(f"Failed to load from storage, falling back to file system: {e}")
+            # Fallback to file system loading
+            self._load_tasks_from_filesystem()
+
+    def _load_tasks_from_filesystem(self) -> None:
+        """Fallback: Load tasks from file system."""
         if not self.tasks_path.exists():
             logger.warning(f"Tasks path not found: {self.tasks_path}")
             return
@@ -339,11 +413,65 @@ class TaskRegistry:
                     except Exception as e:
                         logger.warning(f"Failed to load task from {task_file}: {e}")
 
-        logger.info(f"Loaded {len(self.tasks)} tasks")
+        logger.info(f"Loaded {len(self.tasks)} tasks from file system")
+
+    def _convert_storage_to_task(self, task_data: dict[str, Any]) -> dict[str, Any]:
+        """Convert storage task format to Task class format."""
+        return {
+            "task_id": task_data.get("id", "unknown"),
+            "title": task_data.get("title", "Untitled"),
+            "status": task_data.get("status", "pending"),
+            "priority": task_data.get("priority", "medium"),
+            "created_at": task_data.get("created_at", datetime.now().isoformat()),
+            "updated_at": task_data.get("updated_at"),
+            "completed_at": task_data.get("completed_at"),
+            "depends_on": task_data.get("depends_on", []),
+            "blocked_by": task_data.get("blockedBy", []),
+            "tags": task_data.get("tags", []),
+            "files_referenced": task_data.get("files_referenced", []),
+            "success_rate": task_data.get("success_rate"),
+            "failure_count": task_data.get("failure_count", 0),
+            "last_failure": task_data.get("last_failure"),
+            "notes": task_data.get("notes"),
+        }
+
+    def _convert_task_to_storage(self, task: Task) -> dict[str, Any]:
+        """Convert Task class to storage format."""
+        return {
+            "id": task.task_id,
+            "title": task.title,
+            "status": task.status.value,
+            "priority": task.priority.value,
+            "created_at": task.created_at.isoformat(),
+            "updated_at": task.updated_at.isoformat() if task.updated_at else None,
+            "completed_at": task.completed_at.isoformat() if task.completed_at else None,
+            "depends_on": task.depends_on,
+            "blockedBy": task.blocked_by,
+            "tags": task.tags,
+            "files_referenced": task.files_referenced,
+            "success_rate": task.success_rate,
+            "failure_count": task.failure_count,
+            "last_failure": task.last_failure.isoformat() if task.last_failure else None,
+            "notes": task.notes,
+        }
 
     def get_task(self, task_id: str) -> Optional[Task]:
         """Get a task by ID."""
-        return self.tasks.get(task_id)
+        # First check local cache
+        if task_id in self.tasks:
+            return self.tasks[task_id]
+
+        # Try storage backend
+        try:
+            storage = self._get_storage()
+            task_data = storage.tasks.get(task_id)
+            if task_data:
+                converted_data = self._convert_storage_to_task(task_data)
+                return Task.from_dict(converted_data)
+        except Exception as e:
+            logger.warning(f"Failed to get task from storage: {e}")
+
+        return None
 
     def get_tasks_by_status(self, status: TaskStatus) -> list[Task]:
         """Get all tasks with a specific status."""
@@ -362,12 +490,28 @@ class TaskRegistry:
         return [t for t in self.tasks.values() if task_id in t.blocked_by or task_id in t.depends_on]
 
     def update_task(self, task: Task) -> None:
-        """Update a task in the registry."""
+        """Update a task in the registry and persist to storage."""
         self.tasks[task.task_id] = task
-        # TODO: Persist to disk
+
+        # Persist to storage backend
+        try:
+            storage = self._get_storage()
+            task_data = self._convert_task_to_storage(task)
+            storage.tasks.save(task_data)
+            logger.debug(f"Persisted task {task.task_id} to storage")
+        except Exception as e:
+            logger.warning(f"Failed to persist task to storage: {e}")
 
     def load_queue(self) -> dict[str, Any]:
-        """Load the queue configuration."""
+        """Load the queue configuration from storage backend."""
+        try:
+            storage = self._get_storage()
+            queue_tasks = storage.queue.get_all()
+            return {"tasks": queue_tasks, "version": "1.0.0"}
+        except Exception as e:
+            logger.warning(f"Failed to load queue from storage: {e}")
+
+        # Fallback to file system
         if not self.queue_path.exists():
             return {"tasks": [], "version": "1.0.0"}
 
@@ -379,11 +523,20 @@ class TaskRegistry:
             return {"tasks": [], "version": "1.0.0"}
 
     def save_queue(self, queue: dict[str, Any]) -> None:
-        """Save the queue configuration."""
+        """Save the queue configuration using atomic writes."""
         try:
+            import tempfile
+            import os
+
             self.queue_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(self.queue_path, "w") as f:
+
+            # Write to temp file first (atomic write pattern)
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False, dir=self.queue_path.parent) as f:
                 yaml.dump(queue, f, default_flow_style=False, sort_keys=False)
+                temp_path = f.name
+
+            # Atomic rename
+            os.replace(temp_path, self.queue_path)
             logger.info(f"Saved queue to {self.queue_path}")
         except Exception as e:
             logger.error(f"Failed to save queue: {e}")

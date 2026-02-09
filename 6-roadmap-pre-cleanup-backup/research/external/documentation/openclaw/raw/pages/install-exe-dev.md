@@ -1,0 +1,181 @@
+---
+{
+  "fetch": {
+    "url": "https://docs.openclaw.ai/install/exe-dev",
+    "fetched_at": "2026-02-07T10:19:02.653008",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "size_bytes": 549328
+  },
+  "metadata": {
+    "title": "exe.dev",
+    "section": "exe-dev",
+    "tier": 3,
+    "type": "reference"
+  }
+}
+---
+
+- exe.dev - OpenClaw[Skip to main content](#content-area)[OpenClaw home page](/)EnglishSearch...⌘K[GitHub](https://github.com/openclaw/openclaw)- [Releases](https://github.com/openclaw/openclaw/releases)Search...NavigationHosting and deploymentexe.dev[Get started](/)[Install](/install)[Channels](/channels)[Agents](/concepts/architecture)[Tools](/tools)[Models](/providers)[Platforms](/platforms)[Gateway & Ops](/gateway)[Reference](/cli)[Help](/help)Install overview- [Install](/install)- [Installer Internals](/install/installer)Other install methods- [Docker](/install/docker)- [Nix](/install/nix)- [Ansible](/install/ansible)- [Bun (Experimental)](/install/bun)Maintenance- [Updating](/install/updating)- [Migration Guide](/install/migrating)- [Uninstall](/install/uninstall)Hosting and deployment- [Fly.io](/install/fly)- [Hetzner](/install/hetzner)- [GCP](/install/gcp)- [macOS VMs](/install/macos-vm)- [exe.dev](/install/exe-dev)- [Deploy on Railway](/install/railway)- [Deploy on Render](/install/render)- [Deploy on Northflank](/install/northflank)Advanced- [Development Channels](/install/development-channels)On this page- [exe.dev](#exe-dev)- [Beginner quick path](#beginner-quick-path)- [What you need](#what-you-need)- [Automated Install with Shelley](#automated-install-with-shelley)- [Manual installation](#manual-installation)- [1) Create the VM](#1-create-the-vm)- [2) Install prerequisites (on the VM)](#2-install-prerequisites-on-the-vm)- [3) Install OpenClaw](#3-install-openclaw)- [4) Setup nginx to proxy OpenClaw to port 8000](#4-setup-nginx-to-proxy-openclaw-to-port-8000)- [5) Access OpenClaw and grant privileges](#5-access-openclaw-and-grant-privileges)- [Remote Access](#remote-access)- [Updating](#updating)Hosting and deployment# exe.dev# [​](#exe-dev)exe.dev
+
+Goal: OpenClaw Gateway running on an exe.dev VM, reachable from your laptop via: `https://<vm-name>.exe.xyz`
+
+This page assumes exe.dev’s default **exeuntu** image. If you picked a different distro, map packages accordingly.
+
+## [​](#beginner-quick-path)Beginner quick path
+
+- [https://exe.new/openclaw](https://exe.new/openclaw)
+
+- Fill in your auth key/token as needed
+
+- Click on “Agent” next to your VM, and wait…
+
+- ???
+
+- Profit
+
+## [​](#what-you-need)What you need
+
+- exe.dev account
+
+- `ssh exe.dev` access to [exe.dev](https://exe.dev) virtual machines (optional)
+
+## [​](#automated-install-with-shelley)Automated Install with Shelley
+
+Shelley, [exe.dev](https://exe.dev)’s agent, can install OpenClaw instantly with our
+
+prompt. The prompt used is as below:
+
+Copy```
+
+Set up OpenClaw (https://docs.openclaw.ai/install) on this VM. Use the non-interactive and accept-risk flags for openclaw onboarding. Add the supplied auth or token as needed. Configure nginx to forward from the default port 18789 to the root location on the default enabled site config, making sure to enable Websocket support. Pairing is done by "openclaw devices list" and "openclaw device approve <request id>". Make sure the dashboard shows that OpenClaw's health is OK. exe.dev handles forwarding from port 8000 to port 80/443 and HTTPS for us, so the final "reachable" should be <vm-name>.exe.xyz, without port specification.
+
+```
+
+## [​](#manual-installation)Manual installation
+
+## [​](#1-create-the-vm)1) Create the VM
+
+From your device:
+
+Copy```
+
+ssh exe.dev new
+
+```
+
+Then connect:
+
+Copy```
+
+ssh <vm-name>.exe.xyz
+
+```
+
+Tip: keep this VM **stateful**. OpenClaw stores state under `~/.openclaw/` and `~/.openclaw/workspace/`.
+
+## [​](#2-install-prerequisites-on-the-vm)2) Install prerequisites (on the VM)
+
+Copy```
+
+sudo apt-get update
+
+sudo apt-get install -y git curl jq ca-certificates openssl
+
+```
+
+## [​](#3-install-openclaw)3) Install OpenClaw
+
+Run the OpenClaw install script:
+
+Copy```
+
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+```
+
+## [​](#4-setup-nginx-to-proxy-openclaw-to-port-8000)4) Setup nginx to proxy OpenClaw to port 8000
+
+Edit `/etc/nginx/sites-enabled/default` with
+
+Copy```
+
+server {
+
+listen 80 default_server;
+
+listen [::]:80 default_server;
+
+listen 8000;
+
+listen [::]:8000;
+
+server_name _;
+
+location / {
+
+proxy_pass http://127.0.0.1:18789;
+
+proxy_http_version 1.1;
+
+# WebSocket support
+
+proxy_set_header Upgrade $http_upgrade;
+
+proxy_set_header Connection "upgrade";
+
+# Standard proxy headers
+
+proxy_set_header Host $host;
+
+proxy_set_header X-Real-IP $remote_addr;
+
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+proxy_set_header X-Forwarded-Proto $scheme;
+
+# Timeout settings for long-lived connections
+
+proxy_read_timeout 86400s;
+
+proxy_send_timeout 86400s;
+
+}
+
+}
+
+```
+
+## [​](#5-access-openclaw-and-grant-privileges)5) Access OpenClaw and grant privileges
+
+Access `https://<vm-name>.exe.xyz/` (see the Control UI output from onboarding). If it prompts for auth, paste the
+
+token from `gateway.auth.token` on the VM (retrieve with `openclaw config get gateway.auth.token`, or generate one
+
+with `openclaw doctor --generate-gateway-token`). Approve devices with `openclaw devices list` and
+
+`openclaw devices approve <requestId>`. When in doubt, use Shelley from your browser!
+
+## [​](#remote-access)Remote Access
+
+Remote access is handled by [exe.dev](https://exe.dev)’s authentication. By
+
+default, HTTP traffic from port 8000 is forwarded to `https://<vm-name>.exe.xyz`
+
+with email auth.
+
+## [​](#updating)Updating
+
+Copy```
+
+npm i -g openclaw@latest
+
+openclaw doctor
+
+openclaw gateway restart
+
+openclaw health
+
+```
+
+Guide: [Updating](/install/updating)[macOS VMs](/install/macos-vm)[Deploy on Railway](/install/railway)⌘I[Powered by](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=clawdhub)

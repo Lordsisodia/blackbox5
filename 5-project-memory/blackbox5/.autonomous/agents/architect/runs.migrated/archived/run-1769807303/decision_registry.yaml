@@ -1,0 +1,60 @@
+# Decision Registry: TASK-1769807450
+
+decisions:
+  - id: "DEC-1769807450-001"
+    timestamp: "2026-01-31T04:04:00Z"
+    phase: "DEV-STORY"
+    context: "server.py imports from non-existent infrastructure module"
+    options_considered:
+      - id: "OPT-001"
+        description: "Create full infrastructure module with all dependencies"
+        pros: ["Complete implementation", "All functionality works"]
+        cons: ["Large scope", "Not the task objective", "High risk"]
+      - id: "OPT-002"
+        description: "Comment out all imports and functionality"
+        pros: ["Quick fix", "No errors"]
+        cons: ["Breaks API", "No functionality", "Hard to restore"]
+      - id: "OPT-003"
+        description: "Create stub implementations with TODO comments"
+        pros: ["Allows import", "Preserves structure", "Clear future work"]
+        cons: ["Limited functionality", "Need to replace later"]
+    selected_option: "OPT-003"
+    rationale: "Stub implementations allow the file to be imported while clearly marking where future work is needed. Low risk and enables development to continue."
+    reversibility: "LOW"
+    rollback_complexity: "Simple - replace stubs with real implementations"
+    rollback_steps:
+      - "Implement infrastructure module"
+      - "Replace stub imports with real imports"
+      - "Remove TODO comments"
+    verification:
+      required: false
+      criteria: []
+    status: "DECIDED"
+
+  - id: "DEC-1769807450-002"
+    timestamp: "2026-01-31T04:04:15Z"
+    phase: "DEV-STORY"
+    context: "Template file config.py has invalid Python syntax"
+    options_considered:
+      - id: "OPT-001"
+        description: "Escape template syntax with valid Python"
+        pros: ["File can be imported"]
+        cons: ["Breaks template use", "Complex escaping"]
+      - id: "OPT-002"
+        description: "Rename to .template extension"
+        pros: ["Fast", "Clear purpose", "Prevents execution"]
+        cons: ["Need template processor"]
+      - id: "OPT-003"
+        description: "Move to templates directory"
+        pros: ["Organized structure"]
+        cons: ["Larger change", "May break references"]
+    selected_option: "OPT-002"
+    rationale: "Fastest solution that clearly indicates the file is a template and prevents accidental execution."
+    reversibility: "LOW"
+    rollback_complexity: "Very simple - rename back to .py"
+    rollback_steps:
+      - "Rename config.py.template back to config.py"
+    verification:
+      required: false
+      criteria: []
+    status: "DECIDED"

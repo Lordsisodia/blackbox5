@@ -1,0 +1,29 @@
+{
+  "config": {
+    "max_tokens": 200000,
+    "thresholds": {
+      "subagent": 40,
+      "warning": 70,
+      "critical": 85,
+      "hard_limit": 95
+    }
+  },
+  "current": {
+    "current_tokens": 0,
+    "max_tokens": 200000,
+    "percentage": 0.0,
+    "threshold_triggered": null,
+    "action_taken": null,
+    "timestamp": "2026-01-30T20:56:54.240316+00:00"
+  },
+  "history": [
+    {
+      "current_tokens": 0,
+      "max_tokens": 200000,
+      "percentage": 0.0,
+      "threshold_triggered": null,
+      "action_taken": null,
+      "timestamp": "2026-01-30T20:56:54.240316+00:00"
+    }
+  ]
+}

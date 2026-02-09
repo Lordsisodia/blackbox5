@@ -1,0 +1,7 @@
+#!/bin/bash
+# BlackBox5 CLI wrapper
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export PYTHONPATH="${SCRIPT_DIR}:${SCRIPT_DIR}/engine:${PYTHONPATH}"
+
+python3 -c "from engine.interface.cli.bb5 import main; main()" "$@"

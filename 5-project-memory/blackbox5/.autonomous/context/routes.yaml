@@ -8,7 +8,7 @@ project:
   root: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
 
 engine:
-  path: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous"
+  path: "/Users/shaansisodia/.blackbox5/2-engine"
   version: "1.0.0"
 
 memory:
@@ -28,11 +28,11 @@ routes:
 
   # Engine
   engine: "/Users/shaansisodia/.blackbox5/2-engine"
-  engine_shell: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/shell"
-  engine_lib: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib"
-  engine_prompts: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts"
-  engine_skills: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/skills"
-  engine_schemas: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/schemas"
+  engine_helpers: "/Users/shaansisodia/.blackbox5/2-engine/helpers"
+  engine_helpers_legacy: "/Users/shaansisodia/.blackbox5/2-engine/helpers/legacy"
+  engine_instructions: "/Users/shaansisodia/.blackbox5/2-engine/instructions"
+  engine_configuration: "/Users/shaansisodia/.blackbox5/2-engine/configuration"
+  engine_workflows: "/Users/shaansisodia/.blackbox5/2-engine/workflows/engine"
 
   # All Project Memories
   projects: "/Users/shaansisodia/.blackbox5/5-project-memory"
@@ -53,16 +53,16 @@ routes:
   feedback_actions: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/feedback/actions"
 
   # Documentation
-  engine_docs: "/Users/shaansisodia/.blackbox5/2-engine/.docs"
+  engine_docs: "/Users/shaansisodia/.blackbox5/2-engine/documentation"
 
   # BMAD Integration
-  engine_routes: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml"
-  bmad_skills: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/skills"
-  bmad_workflows: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows"
-  bmad_wip: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/wip"
+  # REMOVED: engine_routes - no longer exists at 2-engine/.autonomous/routes.yaml
+  bmad_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/skills"
+  bmad_workflows: "/Users/shaansisodia/.blackbox5/2-engine/instructions/workflows"
+  # REMOVED: bmad_wip - no longer exists at 2-engine/.autonomous/wip"
 
 # BMAD Command Reference
-# Commands are defined in engine_routes, but available here:
+# Commands are defined in bmad_workflows, available at:
 # CP, VP, EP, CE (PM) | CA, VA, EA (Architect) | BP, RS, CB, DP (Analyst)
 # SP, CS, ER (SM) | CU, VU, EU (UX) | DS, CR (Dev) | QA, VT, RT (QA)
 # TS, QD (Quick Flow) | IR, CC (Shared)

@@ -1,33 +1,29 @@
-goal_id: IG-008
-name: "Implement Hindsight Memory Architecture for Persistent Agent Memory"
+# Goal Timeline View: IG-008
+# =============================================================================
+# This is a FILTERED VIEW of the canonical root timeline.yaml
+# DO NOT ADD EVENTS HERE - Add to root timeline.yaml instead
+# =============================================================================
 
-events:
-  - timestamp: "2026-02-04T05:00:00Z"
-    type: goal_created
-    description: "Goal created based on extensive research into Hindsight memory architecture and Two Buffers theory"
-    progress_delta: 0
-    notes: "Research phase complete. Ready to move to planning phase. Key insight: BB5 has strong functional memory (Buffer 1) but lacks subjective memory (Buffer 2) and synchronization."
+view_definition:
+  goal_id: IG-008
+  name: "Implement Hindsight Memory Architecture for Persistent Agent Memory"
+  canonical_source: "~/blackbox5/timeline.yaml"
+  filter_criteria:
+    related_items_contains: "IG-008"
 
-  - timestamp: "2026-02-04T07:00:00Z"
-    type: research_completed
-    description: "Completed comprehensive research on Hindsight, Mem0, Zep, Letta, memU memory systems"
-    progress_delta: 5
-    notes: "Created 8 research documents in knowledge/research/agent-memory-systems/"
+  # Events from root timeline matching this goal:
+  # - 2026-02-04: Goal Created: IG-008
+  # - 2026-02-04: IG-008: Memory Systems Research Completed
+  # - 2026-02-04: IG-008: PLAN-HINDSIGHT-001 Created
 
-  - timestamp: "2026-02-04T07:30:00Z"
-    type: plan_created
-    description: "Created PLAN-HINDSIGHT-001 with 6-phase implementation approach"
-    progress_delta: 5
-    notes: "Plan covers 6 weeks: Foundation, Infrastructure, RETAIN, RECALL, REFLECT, Integration"
+query_instructions: |
+  To see all events for this goal:
+  1. Open ~/blackbox5/timeline.yaml
+  2. Search for "IG-008" in related_items
+  3. Or use: grep -A 10 "IG-008" ~/blackbox5/timeline.yaml
 
-  - timestamp: "2026-02-04T08:00:00Z"
-    type: architecture_completed
-    description: "Complete BB5 goal/plan/task hierarchy established with proper symlinks"
-    progress_delta: 5
-    notes: "6 tasks created (TASK-HINDSIGHT-001..006), INTEGRATION.md documents how Hindsight fits with existing systems"
-
-  - timestamp: "2026-02-04T08:30:00Z"
-    type: integration_analysis_completed
-    description: "Mapped Hindsight integration with Agent Swarm Memory, Navigation, SessionStart hooks"
-    progress_delta: 5
-    notes: "Key insight: Hindsight adds Layer 2 between Swarm Coordination and Agent Runs. Two Buffers Theory maps to 4 networks."
+# Timeline Architecture:
+# - ROOT (canonical): ~/blackbox5/timeline.yaml
+# - VIEW (this file): Filtered reference to root
+# - All events MUST be added to root timeline
+# - This file only defines the view/filter

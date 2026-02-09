@@ -36,18 +36,18 @@ blackbox5/6-roadmap/
 │
 ├── 02-validation/               # Validation phase (COMPLETE ✅)
 │   ├── CONSOLIDATED-REPORT.md   # Master validation report
-│   ├── agent-1-core-infrastructure/
-│   ├── agent-2-memory-context/
-│   ├── agent-3-agent-system/
-│   ├── agent-4-skills-capabilities/
-│   ├── agent-5-safety-resilience/
-│   ├── agent-6-integrations-mcp/
-│   ├── agent-7-ralphy-workflow/
-│   └── agent-8-documentation-redundancy/
+│   ├── VALIDATION-1-core-infrastructure/
+│   ├── VALIDATION-2-memory-context/
+│   ├── VALIDATION-3-VALIDATION-system/
+│   ├── VALIDATION-4-skills-capabilities/
+│   ├── VALIDATION-5-safety-resilience/
+│   ├── VALIDATION-6-integrations-mcp/
+│   ├── VALIDATION-7-ralphy-workflow/
+│   └── VALIDATION-8-documentation-redundancy/
 │
 ├── 03-planned/                  # Implementation plans (READY 📋)
 │   ├── PLAN-001-fix-skills-system.md
-│   ├── PLAN-002-fix-yaml-agent-loading.md
+│   ├── PLAN-002-fix-yaml-VALIDATION-loading.md
 │   ├── PLAN-003-implement-planning-agent.md
 │   ├── PLAN-004-fix-import-paths.md
 │   ├── PLAN-005-initialize-vibe-kanban.md
@@ -79,14 +79,14 @@ blackbox5/6-roadmap/
 
 | Domain | Score | Status | Report |
 |--------|-------|--------|--------|
-| Core Infrastructure | 82% | 🟡 Mostly Working | [View](02-validation/agent-1-core-infrastructure/VALIDATION-FINDINGS.md) |
-| Memory & Context | 94% | 🟢 Excellent | [View](02-validation/agent-2-memory-context/VALIDATION-FINDINGS.md) |
-| Agent System | 86% | 🟡 Mostly Working | [View](02-validation/agent-3-agent-system/VALIDATION-FINDINGS.md) |
-| Skills & Capabilities | 45% | 🔴 Critical Issues | [View](02-validation/agent-4-skills-capabilities/VALIDATION-FINDINGS.md) |
-| Safety & Resilience | 89% | 🟢 Good | [View](02-validation/agent-5-safety-resilience/VALIDATION-FINDINGS.md) |
-| Integration & MCP | 78% | 🟡 Needs Work | [View](02-validation/agent-6-integrations-mcp/VALIDATION-FINDINGS.md) |
-| Ralphy & Workflow | 75% | 🟡 Partial | [View](02-validation/agent-7-ralphy-workflow/VALIDATION-FINDINGS.md) |
-| Documentation | 56% | 🟡 Redundant | [View](02-validation/agent-8-documentation-redundancy/VALIDATION-FINDINGS.md) |
+| Core Infrastructure | 82% | 🟡 Mostly Working | [View](02-validation/VALIDATION-1-core-infrastructure/VALIDATION-FINDINGS.md) |
+| Memory & Context | 94% | 🟢 Excellent | [View](02-validation/VALIDATION-2-memory-context/VALIDATION-FINDINGS.md) |
+| Agent System | 86% | 🟡 Mostly Working | [View](02-validation/VALIDATION-3-VALIDATION-system/VALIDATION-FINDINGS.md) |
+| Skills & Capabilities | 45% | 🔴 Critical Issues | [View](02-validation/VALIDATION-4-skills-capabilities/VALIDATION-FINDINGS.md) |
+| Safety & Resilience | 89% | 🟢 Good | [View](02-validation/VALIDATION-5-safety-resilience/VALIDATION-FINDINGS.md) |
+| Integration & MCP | 78% | 🟡 Needs Work | [View](02-validation/VALIDATION-6-integrations-mcp/VALIDATION-FINDINGS.md) |
+| Ralphy & Workflow | 75% | 🟡 Partial | [View](02-validation/VALIDATION-7-ralphy-workflow/VALIDATION-FINDINGS.md) |
+| Documentation | 56% | 🟡 Redundant | [View](02-validation/VALIDATION-8-documentation-redundancy/VALIDATION-FINDINGS.md) |
 
 **Consolidated Report:** [CONSOLIDATED-REPORT.md](02-validation/CONSOLIDATED-REPORT.md)
 
@@ -99,7 +99,7 @@ blackbox5/6-roadmap/
 | Plan | Priority | Effort | Status | Dependencies |
 |------|----------|--------|--------|--------------|
 | [PLAN-001](03-planned/PLAN-001-fix-skills-system.md) | 🔴 Critical | 1-2 days | 📋 Planned | None |
-| [PLAN-002](03-planned/PLAN-002-fix-yaml-agent-loading.md) | 🔴 High | 1 day | 📋 Planned | None |
+| [PLAN-002](03-planned/PLAN-002-fix-yaml-VALIDATION-loading.md) | 🔴 High | 1 day | 📋 Planned | None |
 | [PLAN-003](03-planned/PLAN-003-implement-planning-agent.md) | 🔴 Critical | 3-5 days | 📋 Planned | PLAN-001, PLAN-002, PLAN-005 |
 | [PLAN-004](03-planned/PLAN-004-fix-import-paths.md) | 🔴 High | 1-2 days | 📋 Planned | None |
 | [PLAN-005](03-planned/PLAN-005-initialize-vibe-kanban.md) | 🔴 High | 2 hours | 📋 Planned | None |
@@ -191,18 +191,18 @@ blackbox5/6-roadmap/
 - [INDEX.yaml](INDEX.yaml) - Master index
 
 ### Validation Reports
-- [Agent 1: Core Infrastructure](02-validation/agent-1-core-infrastructure/VALIDATION-FINDINGS.md)
-- [Agent 2: Memory & Context](02-validation/agent-2-memory-context/VALIDATION-FINDINGS.md)
-- [Agent 3: Agent System](02-validation/agent-3-agent-system/VALIDATION-FINDINGS.md)
-- [Agent 4: Skills & Capabilities](02-validation/agent-4-skills-capabilities/VALIDATION-FINDINGS.md)
-- [Agent 5: Safety & Resilience](02-validation/agent-5-safety-resilience/VALIDATION-FINDINGS.md)
-- [Agent 6: Integration & MCP](02-validation/agent-6-integrations-mcp/VALIDATION-FINDINGS.md)
-- [Agent 7: Ralphy & Workflow](02-validation/agent-7-ralphy-workflow/VALIDATION-FINDINGS.md)
-- [Agent 8: Documentation & Redundancy](02-validation/agent-8-documentation-redundancy/VALIDATION-FINDINGS.md)
+- [Agent 1: Core Infrastructure](02-validation/VALIDATION-1-core-infrastructure/VALIDATION-FINDINGS.md)
+- [Agent 2: Memory & Context](02-validation/VALIDATION-2-memory-context/VALIDATION-FINDINGS.md)
+- [Agent 3: Agent System](02-validation/VALIDATION-3-VALIDATION-system/VALIDATION-FINDINGS.md)
+- [Agent 4: Skills & Capabilities](02-validation/VALIDATION-4-skills-capabilities/VALIDATION-FINDINGS.md)
+- [Agent 5: Safety & Resilience](02-validation/VALIDATION-5-safety-resilience/VALIDATION-FINDINGS.md)
+- [Agent 6: Integration & MCP](02-validation/VALIDATION-6-integrations-mcp/VALIDATION-FINDINGS.md)
+- [Agent 7: Ralphy & Workflow](02-validation/VALIDATION-7-ralphy-workflow/VALIDATION-FINDINGS.md)
+- [Agent 8: Documentation & Redundancy](02-validation/VALIDATION-8-documentation-redundancy/VALIDATION-FINDINGS.md)
 
 ### Implementation Plans
 - [PLAN-001: Fix Skills System](03-planned/PLAN-001-fix-skills-system.md)
-- [PLAN-002: Fix YAML Agent Loading](03-planned/PLAN-002-fix-yaml-agent-loading.md)
+- [PLAN-002: Fix YAML Agent Loading](03-planned/PLAN-002-fix-yaml-VALIDATION-loading.md)
 - [PLAN-003: Implement Planning Agent](03-planned/PLAN-003-implement-planning-agent.md)
 - [PLAN-004: Fix Import Paths](03-planned/PLAN-004-fix-import-paths.md)
 - [PLAN-005: Initialize Vibe Kanban](03-planned/PLAN-005-initialize-vibe-kanban.md)

@@ -29,7 +29,7 @@ project:
 paths:
   project_root: "${BB5_HOME}/5-project-memory/blackbox5"
   tasks: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/tasks"
-  runs: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/runs"
+  runs: "${BB5_HOME}/5-project-memory/blackbox5/runs"
   memory: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/memory"
   timeline: "${BB5_HOME}/5-project-memory/blackbox5/.autonomous/timeline"
 

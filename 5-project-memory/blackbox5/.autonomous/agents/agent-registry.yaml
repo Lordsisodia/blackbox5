@@ -9,12 +9,12 @@
 ---
 
 metadata:
-  registry_version: "1.0.0"
+  registry_version: "1.1.0"
   created: "2026-02-06T00:00:00Z"
-  last_updated: "2026-02-06T00:00:00Z"
+  last_updated: "2026-02-07T00:00:00Z"
   updated_by: "system"
-  description: "Central registry for all BlackBox5 autonomous agents"
-  total_agents: 10
+  description: "Central registry for all BlackBox5 autonomous agents (RALF + Claude Code native)"
+  total_agents: 18
 
 ---
 
@@ -168,7 +168,7 @@ agents:
       - communications/events.yaml
       - communications/heartbeat.yaml
     outputs:
-      - path: ".autonomous/agents/executor/runs/"
+      - path: "runs/executor/"
         format: mixed
         description: "Execution run artifacts"
     triggers:
@@ -199,7 +199,7 @@ agents:
     dependencies:
       - communications/events.yaml
     outputs:
-      - path: ".autonomous/agents/architect/runs/"
+      - path: "runs/architect/"
         format: mixed
         description: "Architecture run artifacts"
     triggers:
@@ -571,6 +571,498 @@ relationships:
     affected_agents:
       - all
 
+  # --------------------------------------------------------------------------
+  # Claude Code Native Sub-Agents (NEW v1.1.0)
+  # --------------------------------------------------------------------------
+  claude_code_agents:
+    description: "Claude Code Task tool sub-agents for isolated execution"
+    agents:
+      - bb5-explorer
+      - bb5-researcher
+      - bb5-validator
+      - bb5-architect
+      - bb5-security-auditor
+      - bb5-glm-reviewer
+      - bb5-glm-vision
+      - bb5-synthesizer
+
+---
+
+# ============================================================================
+# CLAUDE CODE NATIVE SUB-AGENTS
+# ============================================================================
+
+claude_code_native:
+  # --------------------------------------------------------------------------
+  # BB5 Explorer
+  # --------------------------------------------------------------------------
+  bb5-explorer:
+    id: "bb5-explorer"
+    name: "BB5 Explorer"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Deep codebase exploration specialist - searches >15 files, complex patterns, cross-project"
+    path: ".claude/agents/bb5-explorer.md"
+    model: sonnet
+    tools: [Read, Grep, Glob, Bash]
+    color: blue
+    capabilities:
+      - deep_codebase_exploration
+      - cross_project_analysis
+      - pattern_recognition
+      - architecture_mapping
+      - dependency_analysis
+    triggers:
+      - ">15 files to search"
+      - "complex pattern matching"
+      - "cross-project exploration"
+    priority: high
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 Researcher
+  # --------------------------------------------------------------------------
+  bb5-researcher:
+    id: "bb5-researcher"
+    name: "BB5 Researcher"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Technology research specialist - best practices, competitive analysis, documentation synthesis"
+    path: ".claude/agents/bb5-researcher.md"
+    model: sonnet
+    tools: [WebSearch, WebFetch, Read, Write, Bash]
+    color: cyan
+    capabilities:
+      - technology_evaluation
+      - best_practices_research
+      - competitive_analysis
+      - documentation_synthesis
+      - trend_analysis
+    triggers:
+      - "technology research needed"
+      - "best practices investigation"
+      - "competitive analysis"
+    priority: high
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 Validator
+  # --------------------------------------------------------------------------
+  bb5-validator:
+    id: "bb5-validator"
+    name: "BB5 Validator"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Multi-dimensional validation specialist - correctness, security, quality, test coverage"
+    path: ".claude/agents/bb5-validator.md"
+    model: sonnet
+    tools: [Read, Grep, Bash]
+    color: green
+    capabilities:
+      - correctness_verification
+      - security_audit
+      - quality_assessment
+      - test_coverage_review
+      - performance_spot_check
+    triggers:
+      - "post-implementation validation"
+      - "quality gate"
+      - "pre-merge review"
+    priority: critical
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 Architect
+  # --------------------------------------------------------------------------
+  bb5-architect:
+    id: "bb5-architect"
+    name: "BB5 Architect"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "System architecture specialist - design patterns, scalability, integration architecture"
+    path: ".claude/agents/bb5-architect.md"
+    model: opus
+    tools: [Read, Write, Task]
+    color: purple
+    capabilities:
+      - system_design
+      - pattern_selection
+      - scalability_planning
+      - integration_architecture
+      - technical_decisions
+    triggers:
+      - "architecture questions"
+      - "design decisions"
+      - "scalability planning"
+    priority: high
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 Security Auditor
+  # --------------------------------------------------------------------------
+  bb5-security-auditor:
+    id: "bb5-security-auditor"
+    name: "BB5 Security Auditor"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Security audit specialist - vulnerability detection, OWASP compliance, threat modeling"
+    path: ".claude/agents/bb5-security-auditor.md"
+    model: opus
+    tools: [Read, Grep, Bash]
+    color: red
+    capabilities:
+      - vulnerability_scanning
+      - owasp_compliance
+      - secure_code_review
+      - threat_modeling
+      - penetration_testing_prep
+    triggers:
+      - "security review required"
+      - "auth/payment code changes"
+      - "pre-release audit"
+    priority: critical
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 GLM Reviewer
+  # --------------------------------------------------------------------------
+  bb5-glm-reviewer:
+    id: "bb5-glm-reviewer"
+    name: "BB5 GLM Reviewer"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Economic validation using GLM-4.7 - routine reviews, documentation, cost-effective validation"
+    path: ".claude/agents/bb5-glm-reviewer.md"
+    model: sonnet
+    tools: [Read, Bash, WebSearch, WebFetch]
+    color: yellow
+    capabilities:
+      - cost_effective_review
+      - web_research
+      - documentation_validation
+      - simple_pattern_matching
+      - high_volume_reviews
+    cost_savings: "90%+ vs Claude Opus"
+    triggers:
+      - "routine review"
+      - "cost-sensitive task"
+      - "documentation check"
+    priority: medium
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 GLM Vision
+  # --------------------------------------------------------------------------
+  bb5-glm-vision:
+    id: "bb5-glm-vision"
+    name: "BB5 GLM Vision"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Visual analysis using GLM-4.7 vision - UI reviews, screenshots, diagrams, visual regression"
+    path: ".claude/agents/bb5-glm-vision.md"
+    model: sonnet
+    tools: [Read, Bash]
+    color: pink
+    capabilities:
+      - screenshot_analysis
+      - ui_review
+      - mockup_to_code
+      - visual_regression
+      - diagram_parsing
+      - chart_analysis
+    mcp_tools:
+      - mcp__zai-mcp-server__analyze_image
+      - mcp__zai-mcp-server__diagnose_error_screenshot
+      - mcp__zai-mcp-server__ui_to_artifact
+      - mcp__zai-mcp-server__ui_diff_check
+      - mcp__zai-mcp-server__understand_technical_diagram
+    triggers:
+      - "UI review needed"
+      - "screenshot analysis"
+      - "visual regression test"
+    priority: medium
+    created: "2026-02-07"
+
+  # --------------------------------------------------------------------------
+  # BB5 Synthesizer
+  # --------------------------------------------------------------------------
+  bb5-synthesizer:
+    id: "bb5-synthesizer"
+    name: "BB5 Synthesizer"
+    type: claude_subagent
+    status: active
+    version: "1.0.0"
+    description: "Information synthesis specialist - combines multi-agent outputs, resolves conflicts, recommendations"
+    path: ".claude/agents/bb5-synthesizer.md"
+    model: opus
+    tools: [Read, Write]
+    color: blue
+    capabilities:
+      - multi_source_synthesis
+      - conflict_resolution
+      - decision_support
+      - report_generation
+      - pattern_recognition
+    triggers:
+      - "multiple agent outputs"
+      - "conflicting opinions"
+      - "decision support needed"
+    priority: high
+    created: "2026-02-07"
+
+---
+
+# ============================================================================
+# AGENT TYPE DEFINITIONS
+# ============================================================================
+
+types:
+  bash:
+    description: "Shell script-based agent"
+    extension: ".sh"
+    execution: "bash"
+    advantages:
+      - fast_execution
+      - system_integration
+      - file_operations
+    use_cases:
+      - file_manipulation
+      - git_operations
+      - system_commands
+
+  python:
+    description: "Python script-based agent"
+    extension: ".py"
+    execution: "python3"
+    advantages:
+      - complex_logic
+      - data_processing
+      - api_integration
+    use_cases:
+      - data_analysis
+      - ml_operations
+      - complex_calculations
+
+  hybrid:
+    description: "Bash with embedded Python"
+    extension: ".sh"
+    execution: "bash + python3"
+    advantages:
+      - best_of_both_worlds
+      - yaml_processing
+      - complex_parsing
+    use_cases:
+      - data_extraction
+      - format_conversion
+      - yaml_manipulation
+
+  yaml:
+    description: "Configuration/state-based agent"
+    extension: ".yaml"
+    execution: "n/a"
+    advantages:
+      - declarative
+      - human_readable
+      - version_control_friendly
+    use_cases:
+      - state_management
+      - configuration
+      - data_storage
+
+  claude_subagent:
+    description: "Claude Code Task tool native sub-agent"
+    extension: ".md"
+    execution: "Task(subagent_type="
+    advantages:
+      - isolated_context
+      - specific_tool_permissions
+      - model_selection
+      - parallel_execution
+    use_cases:
+      - complex_exploration
+      - specialized_validation
+      - cost_optimized_tasks
+      - multi_agent_workflows
+
+---
+
+# ============================================================================
+# STATUS DEFINITIONS
+# ============================================================================
+
+statuses:
+  active:
+    description: "Agent is operational and available"
+    color: "green"
+    action: "Can be scheduled or triggered"
+
+  deprecated:
+    description: "Agent is being phased out"
+    color: "orange"
+    action: "Use replacement agent if available"
+
+  experimental:
+    description: "Agent is in testing phase"
+    color: "yellow"
+    action: "Use with caution, may have bugs"
+
+  inactive:
+    description: "Agent is temporarily disabled"
+    color: "gray"
+    action: "Check dependencies or errors"
+
+---
+
+# ============================================================================
+# CAPABILITY CATEGORIES
+# ============================================================================
+
+capability_categories:
+  data_processing:
+    - extraction
+    - analysis
+    - summarization
+    - pattern_recognition
+
+  task_management:
+    - planning
+    - execution
+    - tracking
+    - reporting
+
+  communication:
+    - event_logging
+    - heartbeat_management
+    - queue_coordination
+    - chat_messaging
+
+  system_operations:
+    - git_operations
+    - file_operations
+    - state_management
+    - monitoring
+
+  intelligence:
+    - categorization
+    - scoring
+    - recommendation
+    - decision_making
+
+  claude_code_execution:
+    - isolated_context
+    - parallel_processing
+    - tool_restriction
+    - model_routing
+
+---
+
+# ============================================================================
+# AGENT RELATIONSHIPS
+# ============================================================================
+
+relationships:
+  pipeline:
+    description: "Sequential data flow"
+    sequence:
+      - scout
+      - analyzer
+      - planner
+      - executor
+
+  orchestration:
+    description: "Parent-child relationship"
+    parent: "github-analysis-pipeline"
+    children:
+      - scout
+      - analyzer
+      - planner
+
+  communication:
+    description: "Shared communication hub"
+    hub: "communications"
+    connected_agents:
+      - scout
+      - analyzer
+      - planner
+      - executor
+      - architect
+
+  monitoring:
+    description: "Metrics and health tracking"
+    monitor: "metrics"
+    tracked_agents:
+      - all
+
+  maintenance:
+    description: "Task reanalysis and maintenance"
+    engine: "reanalysis"
+    affected_agents:
+      - all
+
+  # --------------------------------------------------------------------------
+  # Claude Code Sub-Agent Relationships (NEW)
+  # --------------------------------------------------------------------------
+  exploration:
+    description: "Deep codebase exploration"
+    primary: "bb5-explorer"
+    supports:
+      - bb5-architect
+      - bb5-validator
+
+  research:
+    description: "Technology research and analysis"
+    primary: "bb5-researcher"
+    supports:
+      - bb5-architect
+      - bb5-explorer
+
+  validation:
+    description: "Multi-dimensional validation"
+    primary: "bb5-validator"
+    alternatives:
+      - bb5-glm-reviewer
+    escalation:
+      - bb5-security-auditor
+
+  architecture:
+    description: "System architecture and design"
+    primary: "bb5-architect"
+    supports:
+      - bb5-explorer
+      - bb5-researcher
+
+  security:
+    description: "Security audit and compliance"
+    primary: "bb5-security-auditor"
+    pre_screening:
+      - bb5-validator
+
+  cost_optimization:
+    description: "Cost-effective validation"
+    primary: "bb5-glm-reviewer"
+    escalation:
+      - bb5-validator
+      - bb5-security-auditor
+
+  visual_analysis:
+    description: "Visual content analysis"
+    primary: "bb5-glm-vision"
+    supports:
+      - bb5-validator
+
+  synthesis:
+    description: "Multi-agent output synthesis"
+    primary: "bb5-synthesizer"
+    aggregates:
+      - all_claude_subagents
+
 ---
 
 # ============================================================================
@@ -582,9 +1074,18 @@ version_history:
     date: "2026-02-06"
     changes:
       - "Initial registry creation"
-      - "Registered 10 agents"
+      - "Registered 10 RALF agents"
       - "Defined agent types and statuses"
       - "Documented capabilities and relationships"
+
+  - version: "1.1.0"
+    date: "2026-02-07"
+    changes:
+      - "Added Claude Code native sub-agent type"
+      - "Registered 8 new BB5 Claude sub-agents"
+      - "Added cost optimization category with GLM-4.7 agents"
+      - "Documented sub-agent relationships and escalation paths"
+      - "Added MCP tool references for GLM-4.7 vision"
 
 ---
 
@@ -593,12 +1094,20 @@ version_history:
 # ============================================================================
 
 usage:
-  adding_agent: |
+  adding_ralf_agent: |
     1. Create agent directory under .autonomous/agents/
-    2. Add entry to this registry
+    2. Add entry to this registry under 'agents:' section
     3. Update total_agents count
     4. Document capabilities and dependencies
     5. Update relationships if needed
+
+  adding_claude_subagent: |
+    1. Create agent markdown file in .claude/agents/<agent-name>.md
+    2. Add YAML frontmatter with name, description, tools, model, color
+    3. Add agent body with instructions
+    4. Add entry to this registry under 'claude_code_native:' section
+    5. Update total_agents count
+    6. Register in .claude/settings.json if needed
 
   updating_agent: |
     1. Update version number
@@ -617,3 +1126,21 @@ usage:
     By type: Filter by type field
     By status: Filter by status field
     By priority: Filter by priority field
+    By category: RALF (bash/hybrid/yaml) or Claude Code (claude_subagent)
+
+  invoking_claude_subagent: |
+    Use Task tool with subagent_type:
+    ```python
+    Task(
+        prompt="Task description here",
+        subagent_type="bb5-explorer",  # or bb5-researcher, bb5-validator, etc.
+        model="sonnet",  # optional override
+        run_in_background=True  # for parallel execution
+    )
+    ```
+
+  cost_optimization: |
+    Use GLM-4.7 integrated agents for cost savings:
+    - bb5-glm-reviewer: 90%+ savings on routine reviews
+    - bb5-glm-vision: Visual analysis at fraction of cost
+    Escalate to Opus only for critical security/architecture tasks

@@ -1,0 +1,19 @@
+{
+  "source": {
+    "name": "",
+    "url": "",
+    "discovered_at": ""
+  },
+  "routes": {
+    "tier_1": [],
+    "tier_2": [],
+    "tier_3": []
+  },
+  "sitemap": {
+    "format": null,
+    "url": null,
+    "last_fetched": null
+  },
+  "total_pages": 0,
+  "notes": "Route discovery results - populated during ingestion"
+}

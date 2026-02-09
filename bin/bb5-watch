@@ -1,18 +1,47 @@
 #!/usr/bin/env python3
-"""BB5 Watch - Continuous monitoring daemon."""
+"""BB5 Watch - Daemon control for continuous health monitoring.
 
+Usage:
+    bb5-watch start [options]
+    bb5-watch stop
+    bb5-watch status
+    bb5-watch restart
+    bb5-watch logs
+
+Options:
+    -i, --interval SECONDS  Check interval (default: 30)
+    -t, --telegram          Enable Telegram alerts
+    --token TOKEN           Telegram bot token
+    --chat-id CHAT_ID       Telegram chat ID
+    -d, --daemon            Run as daemon (background)
+    -h, --help              Show this help message
+
+Environment Variables:
+    TELEGRAM_BOT_TOKEN      Telegram bot token
+    TELEGRAM_CHAT_ID        Telegram chat ID
+    WEBHOOK_URL             Webhook URL for alerts
+    BB5_HOME                BB5 installation directory
+
+Examples:
+    bb5-watch start                    # Start monitoring
+    bb5-watch start -t                 # Start with Telegram alerts
+    bb5-watch start -d -i 60           # Daemon mode, 60s interval
+    bb5-watch stop                     # Stop daemon
+    bb5-watch status                   # Check daemon status
+    bb5-watch logs                     # Show recent logs
+"""
+
+import argparse
 import logging
 import os
 import signal
 import subprocess
 import sys
+import time
 from pathlib import Path
 
-import click
-import yaml
-
 # Add lib to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
+sys.path.insert(0, str(Path(__file__).parent / "lib"))
 
 from health_monitor.daemon import (
     MonitoringDaemon,
@@ -20,286 +49,342 @@ from health_monitor.daemon import (
     PIDManager,
     get_default_pid_file,
 )
-from health_monitor.alerts import AlertManager, AlertConfig
+from health_monitor.alerts import AlertManager, AlertConfig, create_alert_manager_from_env
+from health_monitor.database import init_database
 
 
-def setup_logging(log_file: Path = None, foreground: bool = False):
+def setup_logging(log_file: Path = None) -> logging.Logger:
     """Setup logging configuration."""
-    handlers = []
+    logger = logging.getLogger("bb5_watch")
+    logger.setLevel(logging.INFO)
 
-    if foreground:
-        handlers.append(logging.StreamHandler(sys.stdout))
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
 
+    # Console handler
+    console = logging.StreamHandler()
+    console.setFormatter(formatter)
+    logger.addHandler(console)
+
+    # File handler
     if log_file:
         log_file.parent.mkdir(parents=True, exist_ok=True)
-        handlers.append(logging.FileHandler(log_file))
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
 
-    if not handlers:
-        handlers.append(logging.StreamHandler(sys.stdout))
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=handlers
-    )
+    return logger
 
 
-def load_config(config_path: Path) -> DaemonConfig:
-    """Load daemon configuration from file."""
-    config = DaemonConfig(
-        pid_file=get_default_pid_file(),
-        log_file=Path(os.path.expanduser("~/.blackbox5/.autonomous/health/watch.log")),
-    )
-
-    if config_path.exists():
-        try:
-            with open(config_path) as f:
-                data = yaml.safe_load(f) or {}
-
-            daemon_cfg = data.get('daemon', {})
-            config.check_interval_seconds = daemon_cfg.get('check_interval_seconds', 30)
-            config.health_score_threshold = daemon_cfg.get('health_score_threshold', 60)
-            config.alert_cooldown_seconds = daemon_cfg.get('alert_cooldown_seconds', 300)
-
-            checks = data.get('checks', {})
-            config.heartbeat_timeout_seconds = checks.get('agents', {}).get('heartbeat_timeout_seconds', 120)
-            config.stuck_task_multiplier = checks.get('tasks', {}).get('stuck_task_multiplier', 2.0)
-        except Exception as e:
-            logging.warning(f"Failed to load config: {e}")
-
-    return config
+def get_log_file() -> Path:
+    """Get default log file path."""
+    bb5_home = Path(os.environ.get("BB5_HOME", os.path.expanduser("~/.blackbox5")))
+    return bb5_home / ".autonomous" / "health" / "watch.log"
 
 
-def load_alert_config(config_path: Path) -> AlertConfig:
-    """Load alert configuration from file."""
-    config = AlertConfig()
-
-    # Override with environment variables
-    config.telegram_enabled = bool(os.environ.get('TELEGRAM_BOT_TOKEN'))
-    config.telegram_bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
-    config.telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
-    config.webhook_enabled = bool(os.environ.get('WEBHOOK_URL'))
-    config.webhook_url = os.environ.get('WEBHOOK_URL')
-
-    if config_path.exists():
-        try:
-            with open(config_path) as f:
-                data = yaml.safe_load(f) or {}
-
-            alerts = data.get('alerts', {})
-            telegram = alerts.get('telegram', {})
-
-            if telegram.get('enabled') and not config.telegram_enabled:
-                # Load from config file if env not set
-                token = telegram.get('bot_token', '')
-                if token.startswith('${'):
-                    token = os.environ.get(token[2:-1], '')
-                config.telegram_bot_token = token
-                config.telegram_enabled = bool(token)
-
-                chat_id = telegram.get('chat_id', '')
-                if chat_id.startswith('${'):
-                    chat_id = os.environ.get(chat_id[2:-1], '')
-                config.telegram_chat_id = chat_id
-
-            config.min_severity = telegram.get('min_severity', 'warning')
-        except Exception as e:
-            logging.warning(f"Failed to load alert config: {e}")
-
-    return config
-
-
-@click.group()
-def cli():
-    """BB5 monitoring daemon."""
-    pass
-
-
-@cli.command()
-@click.option('--config', '-c', default='~/.blackbox5/config/watch-config.yaml')
-@click.option('--foreground', '-f', is_flag=True, help='Run in foreground')
-@click.option('--debug', '-d', is_flag=True, help='Enable debug logging')
-def start(config, foreground, debug):
+def start_daemon(
+    interval: int = 30,
+    alert_manager: AlertManager = None,
+    daemon_mode: bool = False,
+    health_threshold: int = 60,
+    heartbeat_timeout: int = 120,
+) -> bool:
     """Start the monitoring daemon."""
-    config_path = Path(os.path.expanduser(config))
-    daemon_config = load_config(config_path)
+    pid_file = get_default_pid_file()
+    pid_mgr = PIDManager(pid_file)
 
-    if debug:
-        logging.getLogger().setLevel(logging.DEBUG)
+    # Check if already running
+    if pid_mgr.is_running():
+        print(f"Daemon already running (PID: {pid_mgr.read()})")
+        return False
 
-    pid_manager = PIDManager(daemon_config.pid_file)
+    # Initialize database
+    init_database()
 
-    if pid_manager.is_running():
-        click.echo("Daemon is already running", err=True)
-        sys.exit(1)
+    log_file = get_log_file()
+    logger = setup_logging(log_file)
 
-    setup_logging(daemon_config.log_file if not foreground else None, foreground)
+    config = DaemonConfig(
+        check_interval_seconds=interval,
+        health_score_threshold=health_threshold,
+        heartbeat_timeout_seconds=heartbeat_timeout,
+        pid_file=pid_file,
+        log_file=log_file,
+    )
 
-    if not foreground:
-        # Daemonize
-        try:
-            pid = os.fork()
-            if pid > 0:
-                sys.exit(0)
-        except OSError as e:
-            click.echo(f"Fork failed: {e}", err=True)
-            sys.exit(1)
-
-        os.chdir('/')
-        os.setsid()
-        os.umask(0)
-
-        try:
-            pid = os.fork()
-            if pid > 0:
-                sys.exit(0)
-        except OSError as e:
-            click.echo(f"Fork failed: {e}", err=True)
-            sys.exit(1)
+    daemon = MonitoringDaemon(config, alert_manager)
 
     # Write PID file
-    pid_manager.write()
+    pid_mgr.write()
+
+    logger.info(f"Starting BB5 Watch daemon (interval: {interval}s)")
+    print(f"Starting BB5 Watch daemon...")
+    print(f"  Interval: {interval}s")
+    print(f"  Log file: {log_file}")
+    print(f"  PID file: {pid_file}")
+
+    if alert_manager and alert_manager.config.telegram_enabled:
+        print(f"  Telegram alerts: enabled")
+    else:
+        print(f"  Telegram alerts: disabled")
+
+    if daemon_mode:
+        # Fork to background
+        try:
+            pid = os.fork()
+            if pid > 0:
+                # Parent process
+                print(f"Daemon started (PID: {pid})")
+                return True
+        except OSError as e:
+            logger.error(f"Fork failed: {e}")
+            return False
 
     try:
-        # Setup alert manager
-        alert_config = load_alert_config(config_path)
-        alert_manager = AlertManager(alert_config) if alert_config.telegram_enabled or alert_config.webhook_enabled else None
-
-        # Create and run daemon
-        daemon = MonitoringDaemon(daemon_config, alert_manager)
         daemon.run()
-    finally:
-        pid_manager.remove()
+    except Exception as e:
+        logger.error(f"Daemon error: {e}", exc_info=True)
+        pid_mgr.remove()
+        return False
+
+    return True
 
 
-@cli.command()
-def stop():
+def stop_daemon() -> bool:
     """Stop the monitoring daemon."""
-    pid_manager = PIDManager(get_default_pid_file())
-    pid = pid_manager.read()
+    pid_file = get_default_pid_file()
+    pid_mgr = PIDManager(pid_file)
 
+    pid = pid_mgr.read()
     if not pid:
-        click.echo("Daemon is not running")
-        return
+        print("Daemon not running")
+        return False
+
+    if not pid_mgr.is_running():
+        print(f"Daemon not running (stale PID file removed)")
+        pid_mgr.remove()
+        return False
 
     try:
         os.kill(pid, signal.SIGTERM)
-        click.echo(f"Sent stop signal to daemon (PID {pid})")
+        print(f"Daemon stopped (PID: {pid})")
+
+        # Wait for process to exit
+        for _ in range(10):
+            if not pid_mgr.is_running():
+                break
+            time.sleep(0.5)
+
+        pid_mgr.remove()
+        return True
     except ProcessLookupError:
-        click.echo("Daemon process not found, removing stale PID file")
-        pid_manager.remove()
+        print(f"Daemon not running (stale PID file removed)")
+        pid_mgr.remove()
+        return False
     except Exception as e:
-        click.echo(f"Failed to stop daemon: {e}", err=True)
-        sys.exit(1)
+        print(f"Error stopping daemon: {e}")
+        return False
 
 
-@cli.command()
-def status():
-    """Show daemon status."""
-    pid_manager = PIDManager(get_default_pid_file())
-    pid = pid_manager.read()
+def get_daemon_status() -> dict:
+    """Get daemon status."""
+    pid_file = get_default_pid_file()
+    pid_mgr = PIDManager(pid_file)
 
-    if pid_manager.is_running():
-        click.echo(f"Daemon running (PID {pid})")
+    pid = pid_mgr.read()
+    is_running = pid_mgr.is_running()
 
-        # Try to get last check info from log
-        log_file = Path(os.path.expanduser("~/.blackbox5/.autonomous/health/watch.log"))
-        if log_file.exists():
-            try:
-                lines = log_file.read_text().strip().split('\n')
-                for line in reversed(lines[-20:]):
-                    if 'Health check complete' in line:
-                        click.echo(f"Last check: {line.split(' - ')[0]}")
-                        break
-            except Exception:
-                pass
+    status = {
+        "running": is_running,
+        "pid": pid,
+        "pid_file": str(pid_file),
+        "log_file": str(get_log_file()),
+    }
+
+    # Get last log lines
+    log_file = get_log_file()
+    if log_file.exists():
+        try:
+            with open(log_file, "r") as f:
+                lines = f.readlines()
+                status["last_logs"] = lines[-10:] if len(lines) > 10 else lines
+        except Exception:
+            status["last_logs"] = []
     else:
-        if pid:
-            click.echo("Daemon not running (stale PID file)")
-            pid_manager.remove()
-        else:
-            click.echo("Daemon not running")
+        status["last_logs"] = []
+
+    return status
 
 
-@cli.command()
-@click.option('--channel', type=click.Choice(['telegram', 'webhook']), default='telegram')
-def test_alert(channel):
-    """Test alert channel."""
-    config_path = Path(os.path.expanduser("~/.blackbox5/config/watch-config.yaml"))
-    alert_config = load_alert_config(config_path)
+def show_status():
+    """Display daemon status."""
+    status = get_daemon_status()
 
-    if channel == 'telegram' and not alert_config.telegram_enabled:
-        click.echo("Telegram not configured. Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID", err=True)
-        sys.exit(1)
+    if status["running"]:
+        print(f"Daemon status: [RUNNING] (PID: {status['pid']})")
+    else:
+        print("Daemon status: [STOPPED]")
 
-    if channel == 'webhook' and not alert_config.webhook_enabled:
-        click.echo("Webhook not configured. Set WEBHOOK_URL", err=True)
-        sys.exit(1)
+    print(f"  PID file: {status['pid_file']}")
+    print(f"  Log file: {status['log_file']}")
 
-    alert_manager = AlertManager(alert_config)
+    if status["last_logs"]:
+        print("\nRecent logs:")
+        for line in status["last_logs"]:
+            print(f"  {line.rstrip()}")
 
-    success = alert_manager.send_alert(
-        severity="warning",
-        component="test",
-        message="This is a test alert from BB5 Watch",
-        context={"test": True}
+
+def show_logs(lines: int = 50):
+    """Show daemon logs."""
+    log_file = get_log_file()
+
+    if not log_file.exists():
+        print(f"No log file found: {log_file}")
+        return
+
+    try:
+        with open(log_file, "r") as f:
+            all_lines = f.readlines()
+            for line in all_lines[-lines:]:
+                print(line.rstrip())
+    except Exception as e:
+        print(f"Error reading logs: {e}")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="BB5 Watch - Daemon control for health monitoring",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Commands:
+    start                   Start the monitoring daemon
+    stop                    Stop the daemon
+    status                  Show daemon status
+    restart                 Restart the daemon
+    logs                    Show recent logs
+
+Examples:
+    bb5-watch start                    # Start monitoring
+    bb5-watch start -t                 # Start with Telegram alerts
+    bb5-watch start -d -i 60           # Daemon mode, 60s interval
+    bb5-watch stop                     # Stop daemon
+    bb5-watch status                   # Check daemon status
+        """
     )
 
-    if success:
-        click.echo(f"Test alert sent via {channel}")
-    else:
-        click.echo(f"Failed to send test alert", err=True)
-        sys.exit(1)
+    parser.add_argument(
+        "command",
+        choices=["start", "stop", "status", "restart", "logs"],
+        help="Command to execute"
+    )
+    parser.add_argument(
+        "-i", "--interval",
+        type=int,
+        default=30,
+        help="Check interval in seconds (default: 30)"
+    )
+    parser.add_argument(
+        "-t", "--telegram",
+        action="store_true",
+        help="Enable Telegram alerts"
+    )
+    parser.add_argument(
+        "--token",
+        help="Telegram bot token"
+    )
+    parser.add_argument(
+        "--chat-id",
+        help="Telegram chat ID"
+    )
+    parser.add_argument(
+        "-d", "--daemon",
+        action="store_true",
+        help="Run as daemon (background)"
+    )
+    parser.add_argument(
+        "--threshold",
+        type=int,
+        default=60,
+        help="Health score alert threshold (default: 60)"
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=120,
+        help="Heartbeat timeout in seconds (default: 120)"
+    )
+    parser.add_argument(
+        "-n", "--lines",
+        type=int,
+        default=50,
+        help="Number of log lines to show (default: 50)"
+    )
+
+    args = parser.parse_args()
+
+    if args.command == "start":
+        # Setup alert manager
+        alert_manager = None
+
+        if args.telegram or args.token:
+            config = AlertConfig(
+                telegram_enabled=True,
+                telegram_bot_token=args.token or os.environ.get("TELEGRAM_BOT_TOKEN"),
+                telegram_chat_id=args.chat_id or os.environ.get("TELEGRAM_CHAT_ID"),
+                min_severity="warning",
+            )
+
+            if not config.telegram_bot_token or not config.telegram_chat_id:
+                print("Error: Telegram alerts require bot token and chat ID")
+                print("Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID environment variables")
+                print("Or use --token and --chat-id options")
+                sys.exit(1)
+
+            alert_manager = AlertManager(config)
+        else:
+            # Try to create from environment
+            alert_manager = create_alert_manager_from_env()
+            if not alert_manager.config.telegram_enabled:
+                alert_manager = None
+
+        success = start_daemon(
+            interval=args.interval,
+            alert_manager=alert_manager,
+            daemon_mode=args.daemon,
+            health_threshold=args.threshold,
+            heartbeat_timeout=args.timeout,
+        )
+        sys.exit(0 if success else 1)
+
+    elif args.command == "stop":
+        success = stop_daemon()
+        sys.exit(0 if success else 1)
+
+    elif args.command == "status":
+        show_status()
+
+    elif args.command == "restart":
+        stop_daemon()
+        time.sleep(1)
+
+        # Setup alert manager
+        alert_manager = create_alert_manager_from_env()
+        if not alert_manager.config.telegram_enabled:
+            alert_manager = None
+
+        success = start_daemon(
+            interval=args.interval,
+            alert_manager=alert_manager,
+            daemon_mode=args.daemon,
+            health_threshold=args.threshold,
+            heartbeat_timeout=args.timeout,
+        )
+        sys.exit(0 if success else 1)
+
+    elif args.command == "logs":
+        show_logs(args.lines)
 
 
-@cli.command()
-def config():
-    """Edit configuration file."""
-    config_path = Path(os.path.expanduser("~/.blackbox5/config/watch-config.yaml"))
-    config_path.parent.mkdir(parents=True, exist_ok=True)
-
-    if not config_path.exists():
-        # Create default config
-        default_config = """daemon:
-  check_interval_seconds: 30
-  health_score_threshold: 60
-  alert_cooldown_seconds: 300
-
-checks:
-  agents:
-    enabled: true
-    heartbeat_timeout_seconds: 120
-    alert_on_stuck: true
-
-  queue:
-    enabled: true
-    alert_on_backlog_threshold: 20
-
-  tasks:
-    enabled: true
-    stuck_task_multiplier: 2.0
-
-alerts:
-  telegram:
-    enabled: true
-    bot_token: "${TELEGRAM_BOT_TOKEN}"
-    chat_id: "${TELEGRAM_CHAT_ID}"
-    min_severity: warning
-
-  webhook:
-    enabled: false
-    url: "${WEBHOOK_URL}"
-    min_severity: critical
-
-logging:
-  level: INFO
-  file: ~/.blackbox5/.autonomous/health/watch.log
-"""
-        config_path.write_text(default_config)
-
-    editor = os.environ.get('EDITOR', 'nano')
-    subprocess.run([editor, str(config_path)])
-
-
-if __name__ == '__main__':
-    cli()
+if __name__ == "__main__":
+    main()

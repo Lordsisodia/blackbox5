@@ -2,7 +2,7 @@
 
 **Goal:** IG-AUTONOMY-001 - Close the Feedback Loops
 **Plan:** PLAN-AUTONOMY-001
-**Status:** in_progress
+**Status:** completed
 **Priority:** CRITICAL
 **Created:** 2026-02-06
 **Started:** 2026-02-06
@@ -17,11 +17,11 @@ Implement the core state machine for task lifecycle management. This is the foun
 
 ## Success Criteria
 
-- [ ] States defined: pending → claimed → in_progress → completed → archived
-- [ ] SessionStart hook auto-claims task, sets status to "in_progress"
-- [ ] PreToolUse hook blocks TaskUpdate if task not claimed
-- [ ] SessionEnd hook auto-transitions to completed when criteria met
-- [ ] All state changes logged to events.yaml
+- [x] States defined: pending → claimed → in_progress → completed → archived
+- [x] SessionStart hook auto-claims task, sets status to "in_progress"
+- [x] PreToolUse hook blocks TaskUpdate if task not claimed
+- [x] SessionEnd hook auto-transitions to completed when criteria met
+- [x] All state changes logged to events.yaml
 
 ---
 

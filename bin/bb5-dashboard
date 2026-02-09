@@ -1,316 +1,490 @@
 #!/usr/bin/env python3
-"""BB5 Dashboard - Live terminal UI for system monitoring."""
+"""BB5 Dashboard - Live terminal UI for system health monitoring.
 
-import os
-import signal
+Usage:
+    bb5-dashboard [options]
+
+Options:
+    -r, --refresh SECONDS   Refresh interval (default: 5)
+    -h, --help              Show this help message
+
+Interactive Controls:
+    q / Ctrl+C              Quit
+    r                       Force refresh
+    1/2/3                   Switch view (overview/queue/agents)
+"""
+
+import argparse
 import sys
 import time
 from datetime import datetime
-from typing import List, Optional
-
-import click
-from rich.console import Console
-from rich.layout import Layout
-from rich.live import Live
-from rich.panel import Panel
-from rich.table import Table
-from rich.text import Text
+from pathlib import Path
 
 # Add lib to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
+sys.path.insert(0, str(Path(__file__).parent / "lib"))
+
+try:
+    from rich.console import Console
+    from rich.layout import Layout
+    from rich.panel import Panel
+    from rich.table import Table
+    from rich.text import Text
+    from rich.live import Live
+    from rich import box
+except ImportError:
+    print("Error: rich library required. Install with: pip install rich")
+    sys.exit(1)
 
 from health_monitor import (
-    collect_all,
     collect_queue,
     collect_heartbeat,
     collect_events,
+    collect_metrics,
     calculate_health_score,
+    calculate_queue_health,
+    calculate_agent_health,
+    calculate_throughput,
+    calculate_commit_compliance,
     detect_stuck_tasks,
-    get_recent_snapshots,
+    get_health_emoji,
+    format_duration,
 )
-from health_monitor.utils import format_duration, get_health_color
+
 
 console = Console()
 
 
-class Dashboard:
-    """Live dashboard for BB5 health monitoring."""
+def get_health_color(score: int) -> str:
+    """Get color for health score."""
+    if score >= 90:
+        return "green"
+    elif score >= 75:
+        return "yellow"
+    elif score >= 60:
+        return "orange3"
+    else:
+        return "red"
 
-    def __init__(self, refresh_interval: int = 5):
-        self.refresh_interval = refresh_interval
-        self.running = True
-        self.paused = False
-        self.history: List[dict] = []
-        self.max_history = 60  # 5 minutes at 5s intervals
-        self.focus = 'overview'
-        self.needs_redraw = True
 
-        # Setup signal handlers
-        signal.signal(signal.SIGWINCH, self._on_resize)
+def create_health_panel(data: dict) -> Panel:
+    """Create main health score panel."""
+    score = data["health_score"]
+    status = data["status"].upper()
+    color = get_health_color(score)
+    emoji = get_health_emoji(score)
 
-    def _on_resize(self, signum, frame):
-        """Handle terminal resize."""
-        self.needs_redraw = True
+    content = Text()
+    content.append(f"{emoji} ", style="bold")
+    content.append(f"{score}/100", style=f"bold {color}")
+    content.append(f"\nStatus: {status}", style=color)
+    content.append(f"\n\nLast Updated:\n{data['timestamp'][:19]}", style="dim")
 
-    def run(self):
-        """Main dashboard loop."""
-        layout = self._make_layout()
+    return Panel(
+        content,
+        title="[bold]BB5 Health[/bold]",
+        border_style=color,
+        box=box.ROUNDED,
+    )
 
-        with Live(layout, refresh_per_second=4, screen=True) as live:
-            while self.running:
-                if not self.paused:
-                    data = self._collect_data()
-                    self.history.append(data)
-                    self.history = self.history[-self.max_history:]
 
-                    layout = self._update_layout(layout, data)
-                    live.update(layout)
+def create_queue_panel(data: dict) -> Panel:
+    """Create queue status panel."""
+    q = data["queue"]
+    color = get_health_color(q["health_score"])
 
-                # Check for input
-                self._check_input()
-                time.sleep(self.refresh_interval)
+    table = Table(show_header=False, box=None, padding=(0, 1))
+    table.add_column("label", style="dim")
+    table.add_column("value", style="bold")
 
-    def _collect_data(self) -> dict:
-        """Collect current system state."""
-        tasks = collect_queue()
-        agents = collect_heartbeat()
-        events = collect_events()
-        metrics = collect_all()['metrics']
+    table.add_row("Pending", str(q["pending"]))
+    table.add_row("In Progress", str(q["in_progress"]))
+    table.add_row("Completed", str(q["completed"]))
+    table.add_row("Blocked", str(q["blocked"]))
+    table.add_row("Total", str(q["total"]))
+    table.add_row("Health", f"{q['health_score']:.0f}/100")
 
-        score, status, details = calculate_health_score(tasks, agents, events, metrics)
-        stuck = detect_stuck_tasks(tasks, events)
+    return Panel(
+        table,
+        title="[bold]Queue Status[/bold]",
+        border_style=color,
+        box=box.ROUNDED,
+    )
 
-        pending = sum(1 for t in tasks if t.is_pending)
-        in_progress = sum(1 for t in tasks if t.is_in_progress)
-        completed = sum(1 for t in tasks if t.is_completed)
 
-        return {
-            'timestamp': datetime.now(),
-            'health_score': score,
-            'status': status.value,
-            'queue_pending': pending,
-            'queue_in_progress': in_progress,
-            'queue_completed': completed,
-            'agents': agents,
-            'stuck': stuck,
-            'events': events[-5:],  # Last 5 events
-        }
+def create_agents_panel(data: dict) -> Panel:
+    """Create agent status panel."""
+    a = data["agents"]
+    color = get_health_color(a["health_score"])
 
-    def _make_layout(self) -> Layout:
-        """Create dashboard layout."""
-        layout = Layout(name="root")
+    table = Table(show_header=False, box=None, padding=(0, 1))
+    table.add_column("label", style="dim")
+    table.add_column("value", style="bold")
 
-        layout.split(
+    table.add_row("Online", f"[green]{a['online']}[/green]")
+    table.add_row("Stale", f"[yellow]{a['stale']}[/yellow]" if a["stale"] else "0")
+    table.add_row("Offline", f"[red]{a['offline']}[/red]" if a["offline"] else "0")
+    table.add_row("Total", str(a["total"]))
+    table.add_row("Health", f"{a['health_score']:.0f}/100")
+
+    return Panel(
+        table,
+        title="[bold]Agent Status[/bold]",
+        border_style=color,
+        box=box.ROUNDED,
+    )
+
+
+def create_throughput_panel(data: dict) -> Panel:
+    """Create throughput panel."""
+    t = data["throughput"]
+
+    table = Table(show_header=False, box=None, padding=(0, 1))
+    table.add_column("label", style="dim")
+    table.add_column("value", style="bold")
+
+    table.add_row("Tasks/Day", str(t["tasks_per_day"]))
+    table.add_row("Target", str(t["target"]))
+
+    completion = (t["tasks_per_day"] / t["target"]) * 100 if t["target"] > 0 else 0
+    table.add_row("Completion", f"{completion:.0f}%")
+
+    return Panel(
+        table,
+        title="[bold]Throughput[/bold]",
+        border_style="blue",
+        box=box.ROUNDED,
+    )
+
+
+def create_compliance_panel(data: dict) -> Panel:
+    """Create commit compliance panel."""
+    c = data.get("compliance", {})
+
+    if not c:
+        return Panel(
+            "[dim]No compliance data[/dim]",
+            title="[bold]Commit Compliance[/bold]",
+            box=box.ROUNDED,
+        )
+
+    compliance_rate = c.get('compliance_rate', 0)
+    threshold = c.get('threshold', 75)
+    meets = c.get('meets_threshold', False)
+
+    color = "green" if meets else "red"
+    with_commits = c.get('with_commits', 0)
+    total = c.get('total_tasks', 0)
+
+    table = Table(show_header=False, box=None, padding=(0, 1))
+    table.add_column("label", style="dim")
+    table.add_column("value", style="bold")
+
+    table.add_row("Rate", f"[{color}]{compliance_rate:.1f}%[/{color}]")
+    table.add_row("Threshold", f"{threshold}%")
+    table.add_row("Tasks", f"{with_commits}/{total}")
+
+    # Show category breakdown if available
+    by_cat = c.get('by_category', {})
+    if by_cat:
+        table.add_row("", "")
+        table.add_row("[dim]By Category:[/dim]", "")
+        for cat, stats in sorted(by_cat.items())[:3]:  # Top 3 categories
+            rate = stats.get('rate', 0)
+            cat_color = "green" if rate >= threshold else "yellow"
+            table.add_row(f"  {cat}", f"[{cat_color}]{rate:.0f}%[/{cat_color}]")
+
+    return Panel(
+        table,
+        title="[bold]Commit Compliance[/bold]",
+        border_style=color,
+        box=box.ROUNDED,
+    )
+
+
+def create_stuck_tasks_panel(data: dict) -> Panel:
+    """Create stuck tasks panel."""
+    stuck = data.get("stuck_tasks", [])
+
+    if not stuck:
+        return Panel(
+            "[green]No stuck tasks detected[/green]",
+            title="[bold]Stuck Tasks[/bold]",
+            border_style="green",
+            box=box.ROUNDED,
+        )
+
+    table = Table(show_header=True, box=None, padding=(0, 1))
+    table.add_column("Task ID", style="dim", no_wrap=True)
+    table.add_column("Title", max_width=30)
+    table.add_column("Duration", style="yellow")
+
+    for st in stuck[:5]:
+        table.add_row(
+            st["id"],
+            st["title"][:30],
+            st["duration"],
+        )
+
+    if len(stuck) > 5:
+        table.add_row("", f"... and {len(stuck) - 5} more", "")
+
+    return Panel(
+        table,
+        title=f"[bold]Stuck Tasks ({len(stuck)})[/bold]",
+        border_style="red",
+        box=box.ROUNDED,
+    )
+
+
+def create_agent_details_panel() -> Panel:
+    """Create detailed agent panel."""
+    agents = collect_heartbeat()
+
+    if not agents:
+        return Panel(
+            "[dim]No agents registered[/dim]",
+            title="[bold]Agent Details[/bold]",
+            box=box.ROUNDED,
+        )
+
+    table = Table(show_header=True, box=None)
+    table.add_column("Agent", style="bold")
+    table.add_column("Status")
+    table.add_column("Last Seen")
+    table.add_column("Current Task")
+    table.add_column("Loop")
+
+    for agent in agents:
+        status_color = "green" if agent.is_online() else "yellow" if agent.is_stale() else "red"
+        status_text = f"[{status_color}]{agent.get_status().value}[/{status_color}]"
+
+        table.add_row(
+            agent.name,
+            status_text,
+            format_duration(agent.seconds_since_seen()),
+            agent.current_task or "-",
+            str(agent.loop_number),
+        )
+
+    return Panel(
+        table,
+        title="[bold]Agent Details[/bold]",
+        box=box.ROUNDED,
+    )
+
+
+def create_queue_details_panel() -> Panel:
+    """Create detailed queue panel."""
+    tasks = collect_queue()
+
+    if not tasks:
+        return Panel(
+            "[dim]No tasks in queue[/dim]",
+            title="[bold]Task Queue[/bold]",
+            box=box.ROUNDED,
+        )
+
+    table = Table(show_header=True, box=None)
+    table.add_column("ID", style="dim", no_wrap=True)
+    table.add_column("Title", max_width=35)
+    table.add_column("Status")
+    table.add_column("Priority")
+    table.add_column("Est.")
+
+    # Show most recent tasks
+    for task in tasks[:10]:
+        status_color = {
+            "pending": "dim",
+            "in_progress": "blue",
+            "completed": "green",
+            "blocked": "red",
+        }.get(task.status.value, "white")
+
+        table.add_row(
+            task.id,
+            task.title[:35],
+            f"[{status_color}]{task.status.value}[/{status_color}]",
+            task.priority,
+            f"{task.estimated_minutes}m",
+        )
+
+    return Panel(
+        table,
+        title=f"[bold]Task Queue ({len(tasks)} total)[/bold]",
+        box=box.ROUNDED,
+    )
+
+
+def create_dashboard_layout(view: str = "overview") -> Layout:
+    """Create the main dashboard layout."""
+    # Collect data
+    tasks = collect_queue()
+    agents = collect_heartbeat()
+    events = collect_events()
+    metrics = collect_metrics()
+
+    score, status, details = calculate_health_score(tasks, agents, events, metrics)
+    queue_score, queue_status = calculate_queue_health(tasks)
+    agent_score, agent_status = calculate_agent_health(agents)
+    throughput_val = calculate_throughput(tasks)
+    stuck = detect_stuck_tasks(tasks, events)
+    compliance = calculate_commit_compliance(days=30, threshold=75.0)
+
+    pending = sum(1 for t in tasks if t.status.value == "pending")
+    in_progress = sum(1 for t in tasks if t.status.value == "in_progress")
+    completed = sum(1 for t in tasks if t.status.value == "completed")
+    blocked = sum(1 for t in tasks if t.status.value == "blocked")
+
+    online = sum(1 for a in agents if a.is_online())
+    stale = sum(1 for a in agents if a.is_stale())
+    offline = len(agents) - online - stale
+
+    data = {
+        "timestamp": datetime.now().isoformat(),
+        "health_score": score,
+        "status": status.value,
+        "queue": {
+            "pending": pending,
+            "in_progress": in_progress,
+            "completed": completed,
+            "blocked": blocked,
+            "total": len(tasks),
+            "health_score": queue_score,
+            "health_status": queue_status,
+        },
+        "agents": {
+            "online": online,
+            "stale": stale,
+            "offline": offline,
+            "total": len(agents),
+            "health_score": agent_score,
+            "health_status": agent_status,
+        },
+        "throughput": {
+            "tasks_per_day": round(throughput_val, 2),
+            "target": 5,
+        },
+        "compliance": compliance,
+        "stuck_tasks": [
+            {
+                "id": st.task.id,
+                "title": st.task.title,
+                "reason": st.reason,
+                "duration": st.stuck_duration,
+            }
+            for st in stuck
+        ],
+    }
+
+    # Create layout
+    layout = Layout()
+
+    if view == "overview":
+        layout.split_column(
             Layout(name="header", size=3),
-            Layout(name="main", ratio=1),
-            Layout(name="footer", size=3)
+            Layout(name="main"),
+            Layout(name="footer", size=3),
         )
-
         layout["main"].split_row(
-            Layout(name="left", ratio=1),
-            Layout(name="right", ratio=1)
+            Layout(name="left"),
+            Layout(name="right"),
+        )
+        layout["left"].split_column(
+            Layout(name="health"),
+            Layout(name="queue"),
+            Layout(name="compliance"),
+        )
+        layout["right"].split_column(
+            Layout(name="agents"),
+            Layout(name="throughput"),
         )
 
-        return layout
-
-    def _update_layout(self, layout: Layout, data: dict) -> Layout:
-        """Update layout with current data."""
-        # Header
-        timestamp = data['timestamp'].strftime('%Y-%m-%d %H:%M:%S')
-        hostname = os.uname().nodename if hasattr(os, 'uname') else 'localhost'
-
-        header_text = f"BB5 Dashboard    VPS: {hostname}    {timestamp}"
-        if self.paused:
-            header_text += "    [PAUSED]"
-
+        # Add panels
         layout["header"].update(Panel(
-            header_text,
-            border_style=get_health_color(data['health_score'])
+            "[bold]BB5 Health Dashboard[/bold] | [dim]Press 'q' to quit, 'r' to refresh, '1/2/3' for views[/dim]",
+            box=box.SIMPLE,
         ))
+        layout["health"].update(create_health_panel(data))
+        layout["queue"].update(create_queue_panel(data))
+        layout["compliance"].update(create_compliance_panel(data))
+        layout["agents"].update(create_agents_panel(data))
+        layout["throughput"].update(create_throughput_panel(data))
+        layout["footer"].update(create_stuck_tasks_panel(data))
 
-        # Overall score bar
-        score = data['health_score']
-        color = get_health_color(score)
-        filled = int(score / 2.5)  # Scale to ~40 chars
-        bar = "█" * filled + "░" * (40 - filled)
-
-        score_text = Text()
-        score_text.append(f"OVERALL: [{color}]{bar}[/{color}] {score}% ")
-        score_text.append(f"[{data['status'].upper()}]", style=color)
-
-        # Left panel - Queue and Agents
-        left_content = []
-
-        # Queue section
-        queue_table = Table(show_header=True, header_style="bold magenta")
-        queue_table.add_column("Metric", style="cyan")
-        queue_table.add_column("Value", justify="right")
-        queue_table.add_column("Bar", width=20)
-
-        total = max(1, data['queue_pending'] + data['queue_in_progress'] + data['queue_completed'])
-
-        queue_table.add_row(
-            "Pending",
-            str(data['queue_pending']),
-            "█" * int(20 * data['queue_pending'] / total)
+    elif view == "queue":
+        layout.split_column(
+            Layout(name="header", size=3),
+            Layout(name="main"),
         )
-        queue_table.add_row(
-            "In Progress",
-            str(data['queue_in_progress']),
-            "█" * int(20 * data['queue_in_progress'] / total)
-        )
-        queue_table.add_row(
-            "Completed",
-            str(data['queue_completed']),
-            "█" * int(20 * data['queue_completed'] / total)
-        )
-
-        left_content.append(Panel(queue_table, title="Queue", border_style="blue"))
-
-        # Agents section
-        agents_table = Table(show_header=True, header_style="bold magenta")
-        agents_table.add_column("Agent", style="cyan")
-        agents_table.add_column("Status")
-        agents_table.add_column("Last Seen")
-
-        for agent in data['agents']:
-            status_color = "green" if agent.is_online() else "red" if agent.seconds_since_seen() > 240 else "yellow"
-            status = "● online" if agent.is_online() else "⚠ stale"
-            agents_table.add_row(
-                agent.name,
-                f"[{status_color}]{status}[/{status_color}]",
-                format_duration(agent.seconds_since_seen()) + " ago"
-            )
-
-        left_content.append(Panel(agents_table, title="Agents", border_style="blue"))
-
-        # Sparkline
-        if len(self.history) > 1:
-            spark = self._sparkline([h['health_score'] for h in self.history], width=30)
-            left_content.append(Panel(
-                f"Health Trend (1h): {spark}",
-                border_style="blue"
-            ))
-
-        layout["left"].update(Panel(
-            "\n".join(str(c) for c in left_content),
-            border_style="blue"
+        layout["header"].update(Panel(
+            "[bold]BB5 Health Dashboard - Queue View[/bold] | [dim]Press 'q' to quit, '1' overview, '3' agents[/dim]",
+            box=box.SIMPLE,
         ))
+        layout["main"].update(create_queue_details_panel())
 
-        # Right panel - Stuck tasks and Events
-        right_content = []
-
-        # Stuck tasks
-        if data['stuck']:
-            stuck_table = Table(show_header=True, header_style="bold red")
-            stuck_table.add_column("Task", style="cyan")
-            stuck_table.add_column("Duration")
-
-            for s in data['stuck'][:5]:
-                stuck_table.add_row(s.task.id, s.stuck_duration)
-
-            if len(data['stuck']) > 5:
-                stuck_table.add_row("...", f"{len(data['stuck']) - 5} more")
-
-            right_content.append(Panel(stuck_table, title="Stuck Tasks", border_style="red"))
-
-        # Recent events
-        events_table = Table(show_header=True, header_style="bold green")
-        events_table.add_column("Time", style="dim")
-        events_table.add_column("Event")
-
-        for e in data['events']:
-            time_str = e.timestamp.strftime('%H:%M:%S') if e.timestamp else '?'
-            events_table.add_row(time_str, e.event_type)
-
-        right_content.append(Panel(events_table, title="Recent Events", border_style="green"))
-
-        layout["right"].update(Panel(
-            "\n".join(str(c) for c in right_content),
-            border_style="green"
+    elif view == "agents":
+        layout.split_column(
+            Layout(name="header", size=3),
+            Layout(name="main"),
+        )
+        layout["header"].update(Panel(
+            "[bold]BB5 Health Dashboard - Agent View[/bold] | [dim]Press 'q' to quit, '1' overview, '2' queue[/dim]",
+            box=box.SIMPLE,
         ))
+        layout["main"].update(create_agent_details_panel())
 
-        # Footer
-        footer_text = "[Q]uit  [P]ause  [R]efresh  Refresh: {}s".format(self.refresh_interval)
-        layout["footer"].update(Panel(footer_text, border_style="dim"))
+    return layout
 
-        return layout
 
-    def _sparkline(self, values: List[float], width: int = 40) -> str:
-        """Generate sparkline string from values."""
-        if not values:
-            return " " * width
+def run_dashboard(refresh_interval: int = 5):
+    """Run the live dashboard."""
+    current_view = "overview"
 
-        blocks = " ▁▂▃▄▅▆▇█"
-        min_val = min(values)
-        max_val = max(values)
-
-        if max_val == min_val:
-            return "█" * width
-
-        step = len(values) / width
-        result = []
-
-        for i in range(width):
-            idx = int(i * step)
-            if idx < len(values):
-                val = values[idx]
-                normalized = (val - min_val) / (max_val - min_val)
-                block_idx = int(normalized * (len(blocks) - 1))
-                result.append(blocks[block_idx])
-            else:
-                result.append(" ")
-
-        return "".join(result)
-
-    def _check_input(self):
-        """Check for keyboard input (non-blocking)."""
-        import select
-        import termios
-        import tty
-
-        # Save terminal settings
-        old_settings = termios.tcgetattr(sys.stdin)
-
+    with Live(create_dashboard_layout(current_view), refresh_per_second=4, screen=True) as live:
         try:
-            # Set terminal to raw mode for single character input
-            tty.setcbreak(sys.stdin.fileno())
-
-            # Check if input is available
-            if select.select([sys.stdin], [], [], 0)[0]:
-                char = sys.stdin.read(1).lower()
-
-                if char == 'q':
-                    self.running = False
-                elif char == 'p':
-                    self.paused = not self.paused
-                elif char == 'r':
-                    self.needs_redraw = True
-
-        finally:
-            # Restore terminal settings
-            termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
+            while True:
+                time.sleep(refresh_interval)
+                live.update(create_dashboard_layout(current_view))
+        except KeyboardInterrupt:
+            pass
 
 
-@click.command()
-@click.option('--refresh', '-r', default=5, help='Refresh interval in seconds')
-@click.option('--focus', '-f', type=click.Choice(['overview', 'agents', 'queue']), default='overview')
-def main(refresh: int, focus: str):
-    """BB5 Dashboard - Live system monitoring."""
+def main():
+    parser = argparse.ArgumentParser(
+        description="BB5 Dashboard - Live terminal UI",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Interactive Controls:
+    q / Ctrl+C              Quit
+    r                       Force refresh
+    1/2/3                   Switch view (overview/queue/agents)
+        """
+    )
+    parser.add_argument(
+        "-r", "--refresh",
+        type=int,
+        default=5,
+        help="Refresh interval in seconds (default: 5)"
+    )
+
+    args = parser.parse_args()
+
     console.clear()
-    console.show_cursor(False)
+    console.print("[bold green]Starting BB5 Dashboard...[/bold green]")
+    console.print(f"[dim]Refresh interval: {args.refresh}s[/dim]")
+    console.print("[dim]Press Ctrl+C to exit[/dim]\n")
+
+    time.sleep(1)
 
     try:
-        dashboard = Dashboard(refresh_interval=refresh)
-        dashboard.focus = focus
-        dashboard.run()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        console.clear()
-        console.show_cursor(True)
-        console.print("Dashboard closed.")
+        run_dashboard(args.refresh)
+    except Exception as e:
+        console.print(f"[red]Error: {e}[/red]")
+        sys.exit(1)
+
+    console.clear()
+    console.print("[dim]Dashboard closed[/dim]")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

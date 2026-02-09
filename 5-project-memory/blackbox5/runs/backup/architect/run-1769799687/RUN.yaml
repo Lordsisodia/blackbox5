@@ -1,0 +1,38 @@
+# Unified Run Output
+# Generated: 2026-02-07T15:43:57Z
+
+---
+
+# Metadata
+run_id: "run-1769799687"
+timestamp: "2026-02-07T15:43:57Z"
+agent: "claude"
+
+# Thoughts and Reasoning
+thoughts: |
+
+# Decisions Made
+decisions:
+  - id: "DEC-001: Create Complementary YAML Workflow Definitions"
+  - id: "DEC-002: Workflow Schema Structure"
+  - id: "DEC-003: Use Generator Script Instead of Manual Creation"
+  - id: "DEC-004: Agent Name Extraction from Skill Files"
+  - id: "DEC-005: Complexity Determination"
+
+# Assumptions
+assumptions:
+  []
+
+# Results and Outcomes
+results:
+  content: |
+
+# Learnings
+learnings:
+  []
+
+# Source Files (for reference)
+source_files:
+  - THOUGHTS.md
+  - DECISIONS.md
+  - RESULTS.md

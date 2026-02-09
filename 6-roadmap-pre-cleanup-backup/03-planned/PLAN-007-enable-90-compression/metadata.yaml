@@ -1,0 +1,36 @@
+id: "PLAN-007"
+name: "Enable 90% LLMLingua Compression"
+slug: "enable-90-compression"
+status: "planned"
+priority: "immediate"
+effort: "15 min"
+domain: "infrastructure"
+category: "feature"
+
+created: "2026-01-20"
+updated: "2026-01-20"
+
+validation_agent: "Agent 7"
+
+dependencies:
+  requires: []
+  blocks: []
+  blocked_by: []
+
+problem:
+  summary: "LLMLingua compression disabled"
+  impact: "Higher token usage, slower processing"
+  current_compression: "0%"
+
+solution:
+  approach: "Enable LLMLingua with 90% compression target"
+  phases: 1
+    - enable_compression: "15 min"
+
+success_criteria:
+  - compression_enabled: true
+  - compression_ratio: "90%"
+
+confidence: "high"
+ready_to_execute: true
+assigned_to: null

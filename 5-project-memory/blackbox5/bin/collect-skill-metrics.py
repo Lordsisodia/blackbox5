@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 """Collect skill metrics from task outcomes and update skill-metrics.yaml."""
 
+import os
 import yaml
 from datetime import datetime
 from pathlib import Path
 from collections import defaultdict
 
+# Get project directory from environment or use default
+PROJECT_DIR = Path(os.environ.get('RALF_PROJECT_DIR', Path.home() / '.blackbox5/5-project-memory/blackbox5'))
+METRICS_PATH = PROJECT_DIR / 'operations' / 'skill-metrics.yaml'
+
+
 def load_skill_metrics():
     """Load current skill-metrics.yaml."""
-    metrics_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml')
-    with open(metrics_path, 'r') as f:
+    with open(METRICS_PATH, 'r') as f:
         return yaml.safe_load(f)
 
 def save_skill_metrics(data):
     """Save updated skill-metrics.yaml."""
-    metrics_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml')
-    with open(metrics_path, 'w') as f:
+    with open(METRICS_PATH, 'w') as f:
         yaml.dump(data, f, default_flow_style=False, sort_keys=False)
 
 def calculate_skill_metrics(task_outcomes, skills_data):

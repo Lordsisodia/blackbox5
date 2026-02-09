@@ -1,0 +1,156 @@
+# RALF Agent Deployment for Kubernetes
+# Single pod running the RALF autonomous improvement loop
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ralf
+---
+# Persistent Volume Claim for Blackbox5 code
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: blackbox5-code
+  namespace: ralf
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: hcloud-volumes
+  resources:
+    requests:
+      storage: 50Gi
+---
+# Persistent Volume Claim for RALF runs/logs
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ralf-data
+  namespace: ralf
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: hcloud-volumes
+  resources:
+    requests:
+      storage: 20Gi
+---
+# Secret for API keys (you'll create this separately)
+# kubectl create secret generic ralf-secrets -n ralf \
+#   --from-literal=anthropic-api-key=YOUR_KEY \
+#   --from-literal=github-token=YOUR_TOKEN
+---
+# ConfigMap for MCP configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mcp-config
+  namespace: ralf
+data:
+  .mcp.json: |
+    {
+      "mcpServers": {
+        "github": {
+          "type": "sse",
+          "url": "http://localhost:3000/sse"
+        }
+      }
+    }
+---
+# RALF Agent Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ralf-agent
+  namespace: ralf
+  labels:
+    app: ralf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ralf
+  template:
+    metadata:
+      labels:
+        app: ralf
+    spec:
+      containers:
+        - name: ralf
+          image: blackbox5/ralf-agent:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1000m"
+            limits:
+              memory: "4Gi"
+              cpu: "2000m"
+          env:
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ralf-secrets
+                  key: anthropic-api-key
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: ralf-secrets
+                  key: github-token
+            - name: RALF_MODE
+              value: "daemon"
+            - name: RALF_PROJECT_DIR
+              value: "/opt/blackbox5/5-project-memory/blackbox5"
+            - name: RALF_ENGINE_DIR
+              value: "/opt/blackbox5/2-engine/.autonomous"
+            - name: RALF_BLACKBOX5_DIR
+              value: "/opt/blackbox5"
+          volumeMounts:
+            - name: code
+              mountPath: /opt/blackbox5
+            - name: data
+              mountPath: /opt/blackbox5/5-project-memory/blackbox5/.autonomous
+            - name: mcp-config
+              mountPath: /home/ralf/.mcp.json
+              subPath: .mcp.json
+          livenessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "pgrep -f claude || exit 1"
+            initialDelaySeconds: 60
+            periodSeconds: 60
+          readinessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "test -f /opt/blackbox5/bin/ralf"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      volumes:
+        - name: code
+          persistentVolumeClaim:
+            claimName: blackbox5-code
+        - name: data
+          persistentVolumeClaim:
+            claimName: ralf-data
+        - name: mcp-config
+          configMap:
+            name: mcp-config
+      restartPolicy: Always
+---
+# Service for potential future API access
+apiVersion: v1
+kind: Service
+metadata:
+  name: ralf-agent
+  namespace: ralf
+spec:
+  selector:
+    app: ralf
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP

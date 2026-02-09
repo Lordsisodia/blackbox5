@@ -1,0 +1,134 @@
+#!/bin/bash
+# RALF Analysis Wrapper - Runs RALF with automatic log ingestion
+# Usage: ralf-analyze [--continuous] [--analyze-only]
+
+set -e
+
+BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"
+ENGINE_DIR="$BLACKBOX5_DIR/2-engine"
+LOG_INGESTOR="$ENGINE_DIR/helpers/legacy/log_ingestor.py"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+echo -e "${CYAN}════════════════════════════════════════════════════════════${NC}"
+echo -e "${CYAN}  RALF - Recursive Autonomous Learning Framework${NC}"
+echo -e "${CYAN}  With Log Ingestion & Pattern Analysis${NC}"
+echo -e "${CYAN}════════════════════════════════════════════════════════════${NC}"
+echo ""
+
+# Parse arguments
+CONTINUOUS=false
+ANALYZE_ONLY=false
+LOOPS=1
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --continuous|-c)
+            CONTINUOUS=true
+            shift
+            ;;
+        --analyze-only|-a)
+            ANALYZE_ONLY=true
+            shift
+            ;;
+        --loops|-n)
+            LOOPS="$2"
+            shift 2
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
+
+# Function to run analysis
+run_analysis() {
+    echo ""
+    echo -e "${BLUE}→ Analyzing RALF patterns...${NC}"
+    echo ""
+
+    python3 "$LOG_INGESTOR" --limit 10
+
+    echo ""
+    echo -e "${BLUE}→ Generating prompt enhancements...${NC}"
+    echo ""
+
+    ENHANCEMENTS=$(python3 "$LOG_INGESTOR" --prompt-enhancements)
+
+    if [ -n "$ENHANCEMENTS" ]; then
+        echo -e "${YELLOW}Suggested prompt enhancements:${NC}"
+        echo "$ENHANCEMENTS"
+
+        # Save to knowledge base
+        INSIGHTS_FILE="$BLACKBOX5_DIR/5-project-memory/blackbox5/knowledge/ralf-patterns/prompt-enhancements.md"
+        mkdir -p "$(dirname "$INSIGHTS_FILE")"
+
+        cat > "$INSIGHTS_FILE" << EOF
+# RALF Auto-Generated Prompt Enhancements
+
+Generated: $(date -Iseconds)
+
+## Current Recommendations
+
+$ENHANCEMENTS
+
+## How to Apply
+
+Add these to: \`2-engine/instructions/prompts/ralf.md\` in the Critical Rules section.
+
+## Pattern History
+
+See: \`auto-insights.json\` for detailed analysis.
+EOF
+
+        echo ""
+        echo -e "${GREEN}✓ Enhancements saved to:${NC}"
+        echo "  $INSIGHTS_FILE"
+    else
+        echo -e "${GREEN}✓ No critical patterns detected${NC}"
+    fi
+}
+
+# If analyze-only mode
+if [ "$ANALYZE_ONLY" = true ]; then
+    run_analysis
+    exit 0
+fi
+
+# Run RALF loop(s)
+LOOP_COUNT=0
+while [ $LOOP_COUNT -lt $LOOPS ] || [ "$CONTINUOUS" = true ]; do
+    LOOP_COUNT=$((LOOP_COUNT + 1))
+
+    echo ""
+    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "${YELLOW}  LOOP $LOOP_COUNT${NC}"
+    echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo ""
+
+    # Run RALF
+    if ! "$BLACKBOX5_DIR/bin/ralf" blackbox5; then
+        echo -e "${RED}✗ RALF execution failed${NC}"
+    fi
+
+    # Run analysis after each loop
+    run_analysis
+
+    # Brief pause
+    if [ "$CONTINUOUS" = true ] || [ $LOOP_COUNT -lt $LOOPS ]; then
+        echo ""
+        echo -e "${BLUE}→ Waiting 10 seconds before next loop...${NC}"
+        sleep 10
+    fi
+done
+
+echo ""
+echo -e "${GREEN}════════════════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}  RALF session complete${NC}"
+echo -e "${GREEN}════════════════════════════════════════════════════════════${NC}"

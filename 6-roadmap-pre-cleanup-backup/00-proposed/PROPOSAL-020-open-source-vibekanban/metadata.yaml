@@ -1,0 +1,25 @@
+id: "PROPOSAL-020"
+name: "Open Source Black Box with VibeKanban Integration"
+status: "proposed"
+created: "2026-01-20T13:00:00Z"
+priority: "high"
+tier: 2
+weight: 12
+domain: "product"
+category: "integrations"
+
+dependencies: []
+blocks: []
+blocked_by: []
+
+# Validation
+validation_required: true
+validation_status: "pending"
+
+# Research
+research_needed: true
+research_status: "pending"
+
+related:
+  - "PROPOSAL-013"  # Integrations Research
+  - "PLAN-005"       # Initialize Vibe Kanban

@@ -1,0 +1,16 @@
+# BB5 Watch Environment Configuration
+# Copy this file and fill in your values
+
+# Telegram Alerts (optional)
+# TELEGRAM_BOT_TOKEN=your_bot_token_here
+# TELEGRAM_CHAT_ID=your_chat_id_here
+
+# Webhook Alerts (optional)
+# WEBHOOK_URL=https://your-webhook-endpoint.com/alerts
+
+# Alert Settings
+# ALERT_MIN_SEVERITY=warning
+# ALERT_COOLDOWN_SECONDS=300
+
+# BB5 Home (optional - defaults to ~/.blackbox5)
+# BB5_HOME=/home/user/.blackbox5

@@ -1,0 +1,17 @@
+{
+  "run_id": "run-20260131-182500",
+  "task_id": "TASK-001-fix-loop-continuity",
+  "initialized_at": "2026-01-31T18:25:00Z",
+  "max_tokens": 200000,
+  "thresholds": {
+    "subagent": 80000,
+    "warning": 140000,
+    "critical": 170000,
+    "hard_limit": 190000
+  },
+  "usage": {
+    "current_tokens": 0,
+    "percentage": 0
+  },
+  "actions_triggered": []
+}

@@ -1,0 +1,60 @@
+loop:
+  number: 21
+  agent: planner
+  timestamp_start: "2026-02-01T00:38:03Z"
+  timestamp_end: "2026-02-01T07:45:00Z"
+  duration_seconds: 25617
+
+state:
+  active_tasks_count: 3
+  completed_tasks_count: 0
+  executor_status: idle
+  queue_depth: 6
+
+actions_taken:
+  - type: review
+    description: "First principles review for loop 50"
+    files_created:
+      - runs/planner/run-0021/THOUGHTS.md
+      - runs/planner/run-0021/RESULTS.md
+      - runs/planner/run-0021/DECISIONS.md
+    files_modified:
+      - STATE.yaml
+  - type: analyze
+    description: "Analyzed last 5 executor runs (0012, 0013, 0014, 0017, 0018)"
+    findings:
+      - "100% task success rate"
+      - "30-35 minute average duration"
+      - "4 patterns identified"
+      - "3 course correction decisions made"
+
+discoveries:
+  - type: pattern
+    description: "100% task success rate over last 5 runs"
+    impact: high
+  - type: pattern
+    description: "Improvement pipeline working - 10 tasks from 80+ learnings"
+    impact: high
+  - type: issue
+    description: "Heartbeat timestamp staleness (13+ hours)"
+    impact: low
+  - type: issue
+    description: "Queue depth fluctuation (3-6, target 5)"
+    impact: low
+
+questions_answered: []
+
+tasks_created: []
+
+next_steps:
+  - "Process improvement backlog (2-3 per cycle)"
+  - "Fix heartbeat monitoring"
+  - "Validate review automation at run 55"
+
+blockers: []
+
+notes: |
+  First principles review for loop 50 completed successfully.
+  Review document exists at: knowledge/analysis/first-principles-review-50.md
+  STATE.yaml updated: improvement_metrics.applied = 2
+  Next review scheduled: run 55

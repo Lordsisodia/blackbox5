@@ -24,7 +24,11 @@ from pathlib import Path
 from typing import Optional
 import yaml
 
-# Constants
+# Add lib path for storage import
+sys.path.insert(0, str(Path(__file__).parent.parent / ".autonomous" / "lib"))
+from storage import SkillRepository
+
+# Constants - kept for backward compatibility, but now uses SkillRepository
 SKILL_USAGE_FILE = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml")
 
 
@@ -104,56 +108,40 @@ def parse_thoughts_for_skill_usage(thoughts_path: Path) -> Optional[dict]:
 
 
 def load_skill_usage_yaml() -> dict:
-    """Load the skill-usage.yaml file."""
-    if not SKILL_USAGE_FILE.exists():
-        return {'usage_log': [], 'skills': [], 'metadata': {}}
+    """
+    Load the skill-usage.yaml file.
 
-    with open(SKILL_USAGE_FILE, 'r') as f:
-        return yaml.safe_load(f) or {'usage_log': [], 'skills': [], 'metadata': {}}
+    DEPRECATED: Use SkillRepository directly instead.
+    Kept for backward compatibility.
+    """
+    repo = SkillRepository()
+    return {
+        'usage_log': repo.get_usage_log(),
+        'skills': repo.get_all_skill_stats(),
+        'metadata': repo.get_metadata()
+    }
 
 
 def save_skill_usage_yaml(data: dict) -> None:
-    """Save the skill-usage.yaml file."""
-    # Ensure directory exists
-    SKILL_USAGE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    """
+    Save the skill-usage.yaml file.
 
-    with open(SKILL_USAGE_FILE, 'w') as f:
-        yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+    DEPRECATED: Use SkillRepository.log_usage() instead.
+    Kept for backward compatibility.
+    """
+    # This function is now a no-op as SkillRepository handles saves automatically
+    pass
 
 
 def update_skill_stats(data: dict, skill_name: str, outcome: str, duration_ms: Optional[int] = None) -> None:
-    """Update aggregate stats for a skill."""
-    if 'skills' not in data:
-        data['skills'] = []
+    """
+    Update aggregate stats for a skill.
 
-    for skill in data['skills']:
-        if skill.get('name') == skill_name:
-            # Update usage count
-            skill['usage_count'] = skill.get('usage_count', 0) + 1
-            skill['last_used'] = datetime.now(timezone.utc).isoformat()
-
-            # Update first_used if not set
-            if not skill.get('first_used'):
-                skill['first_used'] = skill['last_used']
-
-            # Update success/failure counts
-            if outcome == 'success':
-                skill['success_count'] = skill.get('success_count', 0) + 1
-            elif outcome == 'failure':
-                skill['failure_count'] = skill.get('failure_count', 0) + 1
-
-            # Update average execution time
-            if duration_ms:
-                current_avg = skill.get('avg_execution_time_ms')
-                current_count = skill.get('usage_count', 1)
-                if current_avg:
-                    skill['avg_execution_time_ms'] = (
-                        (current_avg * (current_count - 1) + duration_ms) // current_count
-                    )
-                else:
-                    skill['avg_execution_time_ms'] = duration_ms
-
-            break
+    DEPRECATED: SkillRepository handles stats automatically on log_usage().
+    Kept for backward compatibility.
+    """
+    # This function is now a no-op as SkillRepository handles stats automatically
+    pass
 
 
 def log_skill_usage(
@@ -163,61 +151,40 @@ def log_skill_usage(
     timestamp: Optional[str] = None
 ) -> bool:
     """
-    Log skill usage entry to skill-usage.yaml.
+    Log skill usage entry to skill-usage.yaml using SkillRepository.
 
     Returns True if logged successfully, False otherwise.
     """
     try:
-        data = load_skill_usage_yaml()
+        # Use SkillRepository for atomic, thread-safe operations
+        repo = SkillRepository()
 
-        # Ensure usage_log exists
-        if 'usage_log' not in data:
-            data['usage_log'] = []
+        # Calculate execution time from duration_minutes
+        execution_time_ms = None
+        if skill_data.get('duration_minutes'):
+            execution_time_ms = skill_data['duration_minutes'] * 60000
 
-        # Create log entry
-        entry = {
-            'timestamp': timestamp or datetime.now(timezone.utc).isoformat(),
-            'task_id': task_id,
-            'skill': skill_data.get('skill_invoked'),
-            'applicable_skills': skill_data.get('applicable_skills', []),
-            'confidence': skill_data.get('confidence'),
-            'trigger_reason': skill_data.get('rationale'),
-            'execution_time_ms': skill_data.get('duration_minutes', 0) * 60000 if skill_data.get('duration_minutes') else None,
-            'result': skill_data.get('outcome') or 'unknown',
-            'notes': f"Logged from task {task_id}"
-        }
+        # Log usage through repository
+        success = repo.log_usage(
+            task_id=task_id,
+            skill_invoked=skill_data.get('skill_invoked'),
+            applicable_skills=skill_data.get('applicable_skills', []),
+            confidence=skill_data.get('confidence'),
+            trigger_reason=skill_data.get('rationale'),
+            execution_time_ms=execution_time_ms,
+            result=skill_data.get('outcome') or 'unknown',
+            notes=f"Logged from task {task_id}" + (f" (run: {run_id})" if run_id else ""),
+            timestamp=timestamp
+        )
 
-        # Remove None values
-        entry = {k: v for k, v in entry.items() if v is not None}
+        if success:
+            print(f"[OK] Logged skill usage for task {task_id}")
+            if skill_data.get('skill_invoked'):
+                print(f"     Skill: {skill_data['skill_invoked']}")
+            if skill_data.get('confidence'):
+                print(f"     Confidence: {skill_data['confidence']}%")
 
-        # Add to log
-        data['usage_log'].append(entry)
-
-        # Update skill stats if a skill was invoked
-        if skill_data.get('skill_invoked'):
-            update_skill_stats(
-                data,
-                skill_data['skill_invoked'],
-                skill_data.get('outcome', 'unknown'),
-                entry.get('execution_time_ms')
-            )
-
-        # Update metadata
-        if 'metadata' not in data:
-            data['metadata'] = {}
-        data['metadata']['last_updated'] = datetime.now(timezone.utc).isoformat()
-        data['metadata']['total_invocations'] = len(data['usage_log'])
-
-        # Save
-        save_skill_usage_yaml(data)
-
-        print(f"[OK] Logged skill usage for task {task_id}")
-        if skill_data.get('skill_invoked'):
-            print(f"     Skill: {skill_data['skill_invoked']}")
-        if skill_data.get('confidence'):
-            print(f"     Confidence: {skill_data['confidence']}%")
-
-        return True
+        return success
 
     except Exception as e:
         print(f"[ERROR] Failed to log skill usage: {e}", file=sys.stderr)

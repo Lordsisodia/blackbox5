@@ -1,0 +1,202 @@
+#!/bin/bash
+# bb5-discover-context - Core context discovery library
+# Used by: bb5 commands, hooks, and agents
+# Purpose: Discover current location in goals/plans/tasks hierarchy
+
+set -e
+# Source dry-run utility library
+source "$(dirname "$0")/../../2-engine/helpers/legacy/dry_run.sh" 2>/dev/null || true
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BLACKBOX5_DIR="$PROJECT_ROOT/5-project-memory/blackbox5"
+
+# =============================================================================
+# PARSE ARGUMENTS
+# =============================================================================
+
+FORMAT="${1:-json}"
+PROJECT_NAME="${2:-blackbox5}"
+
+# Allow overriding project root
+if [ -n "$BB5_PROJECT_ROOT" ]; then
+    PROJECT_ROOT="$BB5_PROJECT_ROOT"
+    BLACKBOX5_DIR="$PROJECT_ROOT"
+fi
+
+# =============================================================================
+# CONTEXT DISCOVERY
+# =============================================================================
+
+CWD="$(pwd)"
+CURRENT_TYPE=""
+CURRENT_ID=""
+CURRENT_PATH=""
+PARENT_GOAL=""
+PARENT_PLAN=""
+PARENT_TASK=""
+
+# Check if in goals
+if echo "$CWD" | grep -q "/goals/active/"; then
+    CURRENT_TYPE="goal"
+    CURRENT_PATH="$(echo "$CWD" | grep -oE '/goals/active/[^/]+' | head -1)"
+    CURRENT_ID="$(basename "$CURRENT_PATH")"
+fi
+
+# Check if in plans
+if echo "$CWD" | grep -q "/plans/active/"; then
+    CURRENT_TYPE="plan"
+    CURRENT_PATH="$(echo "$CWD" | grep -oE '/plans/active/[^/]+' | head -1)"
+    CURRENT_ID="$(basename "$CURRENT_PATH")"
+
+    # Find parent goal via symlinks
+    if [ -d "$BLACKBOX5_DIR/goals/active" ]; then
+        for goal_dir in "$BLACKBOX5_DIR"/goals/active/*/; do
+            if [ -d "$goal_dir/plans" ]; then
+                for plan_link in "$goal_dir/plans"/*; do
+                    if [ -L "$plan_link" ]; then
+                        link_target="$(readlink "$plan_link")"
+                        # Normalize paths for comparison
+                        normalized_target="$(cd "$(dirname "$plan_link")" && cd "$link_target" && pwd 2>/dev/null || echo "")"
+                        normalized_current="$(cd "$BLACKBOX5_DIR/$CURRENT_PATH" 2>/dev/null && pwd || echo "")"
+                        if [ "$normalized_target" = "$normalized_current" ] || [ "$(basename "$link_target")" = "$CURRENT_ID" ]; then
+                            PARENT_GOAL="$(basename "$goal_dir")"
+                            break 2
+                        fi
+                    fi
+                done
+            fi
+        done
+    fi
+fi
+
+# Check if in tasks
+if echo "$CWD" | grep -q "/tasks/active/"; then
+    CURRENT_TYPE="task"
+    CURRENT_PATH="$(echo "$CWD" | grep -oE '/tasks/active/[^/]+' | head -1)"
+    CURRENT_ID="$(basename "$CURRENT_PATH")"
+
+    # Find parent plan via symlinks
+    if [ -d "$BLACKBOX5_DIR/plans/active" ]; then
+        for plan_dir in "$BLACKBOX5_DIR"/plans/active/*/; do
+            if [ -d "$plan_dir/tasks" ]; then
+                for task_link in "$plan_dir/tasks"/*; do
+                    if [ -L "$task_link" ]; then
+                        link_target="$(readlink "$task_link")"
+                        if [ "$(basename "$link_target")" = "$CURRENT_ID" ]; then
+                            PARENT_PLAN="$(basename "$plan_dir")"
+                            # Find parent goal
+                            for goal_dir in "$BLACKBOX5_DIR"/goals/active/*/; do
+                                if [ -d "$goal_dir/plans" ]; then
+                                    for plan_link in "$goal_dir/plans"/*; do
+                                        if [ -L "$plan_link" ]; then
+                                            plan_target="$(readlink "$plan_link")"
+                                            if [ "$(basename "$plan_target")" = "$PARENT_PLAN" ]; then
+                                                PARENT_GOAL="$(basename "$goal_dir")"
+                                                break 3
+                                            fi
+                                        fi
+                                    done
+                                fi
+                            done
+                            break
+                        fi
+                    fi
+                done
+            fi
+        done
+    fi
+fi
+
+# Check if in runs
+if echo "$CWD" | grep -q "/runs/"; then
+    CURRENT_TYPE="run"
+    CURRENT_PATH="$(echo "$CWD" | grep -oE '/runs/[^/]+' | head -1)"
+    CURRENT_ID="$(basename "$CURRENT_PATH")"
+fi
+
+# =============================================================================
+# OUTPUT
+# =============================================================================
+
+if [ "$FORMAT" = "json" ]; then
+    # JSON output
+    cat << EOF
+{
+  "current_type": "${CURRENT_TYPE:-null}",
+  "current_id": "${CURRENT_ID:-null}",
+  "current_path": "${CURRENT_PATH:-null}",
+  "parent_goal": "${PARENT_GOAL:-null}",
+  "parent_plan": "${PARENT_PLAN:-null}",
+  "project_root": "${PROJECT_ROOT}",
+  "blackbox5_dir": "${BLACKBOX5_DIR}",
+  "cwd": "${CWD}"
+}
+EOF
+else
+    # Human-readable output
+    echo "═══════════════════════════════════════════════════════════════"
+    echo "  BlackBox5 Context Discovery"
+    echo "═══════════════════════════════════════════════════════════════"
+    echo ""
+
+    if [ -n "$CURRENT_TYPE" ]; then
+        echo "Current Location:"
+        echo "  Type: $CURRENT_TYPE"
+        echo "  ID: $CURRENT_ID"
+        if [ -n "$CURRENT_PATH" ]; then
+            echo "  Path: $CURRENT_PATH"
+        fi
+        echo ""
+
+        if [ -n "$PARENT_PLAN" ] || [ -n "$PARENT_GOAL" ]; then
+            echo "Hierarchy:"
+            if [ -n "$PARENT_GOAL" ]; then
+                echo "  Goal: $PARENT_GOAL"
+            fi
+            if [ -n "$PARENT_PLAN" ]; then
+                echo "  Plan: $PARENT_PLAN"
+            fi
+            # Capitalize first letter of type
+            TYPE_CAP=$(echo "$CURRENT_TYPE" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
+            echo "  $TYPE_CAP: $CURRENT_ID"
+            echo ""
+        fi
+
+        echo "Navigation Commands:"
+        echo "  bb5 up              # Go up one level"
+        echo "  bb5 root            # Go to project root"
+        echo "  bb5 whereami        # Refresh context"
+
+        case "$CURRENT_TYPE" in
+            goal)
+                echo "  bb5 plan:list       # List plans in this goal"
+                ;;
+            plan)
+                echo "  bb5 task:list       # List tasks in this plan"
+                ;;
+            task)
+                echo "  bb5 task:current    # Show task details"
+                ;;
+        esac
+    else
+        echo "Current Location:"
+        echo "  Not in goals/plans/tasks hierarchy"
+        echo ""
+        echo "Project Root:"
+        echo "  $BLACKBOX5_DIR"
+        echo ""
+        echo "Quick Commands:"
+        echo "  bb5 goal:list       # List all goals"
+        echo "  bb5 plan:list       # List all plans"
+        echo "  bb5 task:list       # List all tasks"
+        echo "  bb5 root            # Go to project root"
+    fi
+
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════"
+fi

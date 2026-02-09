@@ -1,0 +1,531 @@
+#!/bin/bash
+# bb5-complete - Complete a task and move it to completed/
+# Usage: bb5 complete TASK-ID [--partial] [--blocked]
+#
+# This command:
+# 1. Validates the task is claimed by the current agent
+# 2. Runs validation (checks docs exist, acceptance criteria)
+# 3. Moves task folder: tasks/active/ → tasks/completed/
+# 4. Updates queue.yaml with status and completion info
+# 5. Updates STATE.yaml (syncs goal/plan progress)
+# 6. Triggers RETAIN (extracts learnings)
+# 7. Archives run folder to runs/completed/
+# 8. Updates timeline.yaml
+# 9. Logs completion event
+
+set -e
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BLACKBOX5_DIR="$PROJECT_ROOT/5-project-memory/blackbox5"
+
+TASKS_ACTIVE_DIR="$BLACKBOX5_DIR/tasks/active"
+TASKS_COMPLETED_DIR="$BLACKBOX5_DIR/tasks/completed"
+QUEUE_FILE="$BLACKBOX5_DIR/.autonomous/agents/communications/queue.yaml"
+EVENTS_FILE="$BLACKBOX5_DIR/.autonomous/agents/communications/events.yaml"
+STATE_FILE="$BLACKBOX5_DIR/STATE.yaml"
+TIMELINE_FILE="$BLACKBOX5_DIR/timeline.yaml"
+RUNS_DIR="$BLACKBOX5_DIR/runs"
+RUNS_COMPLETED_DIR="$RUNS_DIR/completed"
+
+# =============================================================================
+# COLORS
+# =============================================================================
+
+if [ -t 1 ]; then
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    CYAN='\033[0;36m'
+    RED='\033[0;31m'
+    NC='\033[0m'
+else
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    CYAN=''
+    RED=''
+    NC=''
+fi
+
+# =============================================================================
+# UTILITY FUNCTIONS
+# =============================================================================
+
+log_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+log_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+log_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+get_timestamp() {
+    date -u +"%Y-%m-%dT%H:%M:%SZ"
+}
+
+get_timestamp_local() {
+    date +"%Y-%m-%dT%H:%M:%S%z"
+}
+
+# =============================================================================
+# HELP
+# =============================================================================
+
+show_help() {
+    cat << EOF
+Usage: bb5 complete TASK-ID [OPTIONS]
+
+Complete a task and move it to the completed folder.
+
+Arguments:
+  TASK-ID         The ID of the task to complete (e.g., TASK-ARCH-001)
+
+Options:
+  --partial       Mark as partially completed (status: partial)
+  --blocked       Mark as blocked (status: blocked)
+  --force         Skip validation checks (use with caution)
+  --help          Show this help message
+
+Examples:
+  bb5 complete TASK-ARCH-001
+  bb5 complete TASK-ARCH-001 --partial
+  bb5 complete TASK-ARCH-001 --blocked
+
+What this command does:
+  1. Validates task is claimed by current agent
+  2. Runs validation (docs exist, acceptance criteria)
+  3. Moves task folder: tasks/active/ → tasks/completed/
+  4. Updates queue.yaml with completion status
+  5. Updates STATE.yaml (syncs goal/plan progress)
+  6. Triggers RETAIN (extracts learnings)
+  7. Archives run folder to runs/completed/
+  8. Updates timeline.yaml
+  9. Logs completion event
+EOF
+}
+
+# =============================================================================
+# PARSE ARGUMENTS
+# =============================================================================
+
+TASK_ID=""
+STATUS="completed"
+FORCE=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --help|-h)
+            show_help
+            exit 0
+            ;;
+        --partial)
+            STATUS="partial"
+            shift
+            ;;
+        --blocked)
+            STATUS="blocked"
+            shift
+            ;;
+        --force)
+            FORCE=true
+            shift
+            ;;
+        TASK-*|task-*|ACTION-*|action-*|SUBTASK-*|subtask-*)
+            TASK_ID="$1"
+            shift
+            ;;
+        *)
+            # Treat any non-flag argument as a task ID
+            if [[ "$1" != -* ]]; then
+                TASK_ID="$1"
+                shift
+            else
+                log_error "Unknown argument: $1"
+                show_help
+                exit 1
+            fi
+            ;;
+    esac
+done
+
+if [ -z "$TASK_ID" ]; then
+    log_error "No TASK-ID provided"
+    show_help
+    exit 1
+fi
+
+# =============================================================================
+# VALIDATION
+# =============================================================================
+
+echo "═══════════════════════════════════════════════════════════════"
+echo "  bb5 complete - Task Completion"
+echo "═══════════════════════════════════════════════════════════════"
+echo ""
+
+log_info "Task ID: $TASK_ID"
+log_info "Status: $STATUS"
+echo ""
+
+# Check task exists in active
+TASK_DIR="$TASKS_ACTIVE_DIR/$TASK_ID"
+if [ ! -d "$TASK_DIR" ]; then
+    log_error "Task not found in active tasks: $TASK_ID"
+    echo ""
+    echo "Checking completed tasks..."
+    if [ -d "$TASKS_COMPLETED_DIR/$TASK_ID" ]; then
+        log_warning "Task already exists in completed folder"
+        exit 1
+    fi
+    echo ""
+    echo "Available active tasks:"
+    ls -1 "$TASKS_ACTIVE_DIR" 2>/dev/null | grep "^TASK-" | head -10
+    exit 1
+fi
+
+log_success "Found task in active folder"
+
+# Get current agent context
+CURRENT_AGENT="${CLAUDE_CODE_AGENT:-unknown}"
+CURRENT_RUN="${CLAUDE_CODE_RUN:-run-$(date +%s)}"
+
+log_info "Current Agent: $CURRENT_AGENT"
+log_info "Current Run: $CURRENT_RUN"
+
+# =============================================================================
+# STEP 1: VALIDATE TASK IS CLAIMED BY CURRENT AGENT
+# =============================================================================
+
+echo ""
+echo "Step 1: Validating task ownership..."
+
+# Check if task has a claimed_by marker
+CLAIMED_BY=""
+if [ -f "$TASK_DIR/.claimed" ]; then
+    CLAIMED_BY=$(cat "$TASK_DIR/.claimed" 2>/dev/null)
+    log_info "Task claimed by: $CLAIMED_BY"
+else
+    log_warning "No .claimed file found"
+    # Try to extract from task.md
+    if [ -f "$TASK_DIR/task.md" ]; then
+        CLAIMED_BY=$(grep -i "claimed_by\|claimed by" "$TASK_DIR/task.md" | head -1 | sed 's/.*:[[:space:]]*//' || echo "")
+    fi
+fi
+
+if [ "$FORCE" = false ]; then
+    if [ -n "$CLAIMED_BY" ] && [ "$CLAIMED_BY" != "$CURRENT_AGENT" ]; then
+        log_error "Task is claimed by: $CLAIMED_BY"
+        log_error "Current agent: $CURRENT_AGENT"
+        echo ""
+        echo "Use --force to override (not recommended)"
+        exit 1
+    fi
+fi
+
+log_success "Task ownership validated"
+
+# =============================================================================
+# STEP 2: RUN VALIDATION
+# =============================================================================
+
+echo ""
+echo "Step 2: Running validation..."
+
+VALIDATION_ERRORS=0
+
+# Check task.md exists
+if [ ! -f "$TASK_DIR/task.md" ]; then
+    log_error "Missing task.md"
+    VALIDATION_ERRORS=$((VALIDATION_ERRORS + 1))
+else
+    log_success "Found task.md"
+fi
+
+# Check for required documentation files
+for doc in THOUGHTS.md DECISIONS.md RESULTS.md; do
+    if [ -f "$TASK_DIR/$doc" ]; then
+        size=$(wc -l < "$TASK_DIR/$doc" | tr -d ' ')
+        if [ "$size" -gt 0 ]; then
+            log_success "Found $doc ($size lines)"
+        else
+            log_warning "$doc is empty"
+        fi
+    else
+        log_warning "Missing $doc"
+    fi
+done
+
+# Check acceptance criteria in task.md
+if [ -f "$TASK_DIR/task.md" ]; then
+    if grep -q "Success Criteria\|Acceptance Criteria\|## Criteria" "$TASK_DIR/task.md"; then
+        log_success "Found acceptance criteria section"
+    else
+        log_warning "No acceptance criteria section found"
+    fi
+fi
+
+if [ "$VALIDATION_ERRORS" -gt 0 ] && [ "$FORCE" = false ]; then
+    log_error "Validation failed with $VALIDATION_ERRORS errors"
+    echo ""
+    echo "Use --force to complete anyway (not recommended)"
+    exit 1
+fi
+
+log_success "Validation passed"
+
+# =============================================================================
+# STEP 3: MOVE TASK FOLDER
+# =============================================================================
+
+echo ""
+echo "Step 3: Moving task folder..."
+
+# Ensure completed directory exists
+mkdir -p "$TASKS_COMPLETED_DIR"
+
+COMPLETED_TASK_DIR="$TASKS_COMPLETED_DIR/$TASK_ID"
+
+# Check if already exists in completed
+if [ -d "$COMPLETED_TASK_DIR" ]; then
+    log_warning "Task already exists in completed folder"
+    BACKUP_DIR="$COMPLETED_TASK_DIR.backup.$(date +%s)"
+    log_info "Backing up existing to: $BACKUP_DIR"
+    mv "$COMPLETED_TASK_DIR" "$BACKUP_DIR"
+fi
+
+# Move the task
+if mv "$TASK_DIR" "$COMPLETED_TASK_DIR"; then
+    log_success "Moved task to: $COMPLETED_TASK_DIR"
+else
+    log_error "Failed to move task folder"
+    exit 1
+fi
+
+# =============================================================================
+# STEP 4: UPDATE QUEUE.YAML
+# =============================================================================
+
+echo ""
+echo "Step 4: Updating queue.yaml..."
+
+if [ -f "$QUEUE_FILE" ]; then
+    TIMESTAMP=$(get_timestamp)
+
+    # Create backup
+    cp "$QUEUE_FILE" "$QUEUE_FILE.backup.$(date +%s)"
+
+    # Update the task status in queue.yaml with file locking
+    (
+        flock -x 200
+        if command -v yq >/dev/null 2>&1; then
+            # Use yq if available for proper YAML manipulation
+            yq eval "(.tasks[] | select(.id == \"$TASK_ID\")).status = \"$STATUS\"" -i "$QUEUE_FILE"
+            yq eval "(.tasks[] | select(.id == \"$TASK_ID\")).completed_at = \"$TIMESTAMP\"" -i "$QUEUE_FILE"
+            yq eval "(.tasks[] | select(.id == \"$TASK_ID\")).completed_by = \"$CURRENT_RUN\"" -i "$QUEUE_FILE"
+            log_success "Updated queue.yaml using yq"
+        else
+            # Fallback: simple sed replacement for status
+            # Note: This is a basic implementation - may need adjustment for complex cases
+            sed -i.bak "/- id: \"$TASK_ID\"/,/^  - id:/s/status: \"[^\"]*\"/status: \"$STATUS\"/" "$QUEUE_FILE" 2>/dev/null || true
+            log_warning "yq not available, queue.yaml may need manual update"
+        fi
+    ) 200>"$BLACKBOX5_DIR/.autonomous/agents/communications/.queue.lock"
+else
+    log_warning "queue.yaml not found at: $QUEUE_FILE"
+fi
+
+# =============================================================================
+# STEP 5: UPDATE STATE.YAML
+# =============================================================================
+
+echo ""
+echo "Step 5: Updating STATE.yaml..."
+
+if [ -f "$STATE_FILE" ]; then
+    TIMESTAMP=$(get_timestamp)
+
+    # Create backup
+    cp "$STATE_FILE" "$STATE_FILE.backup.$(date +%s)"
+
+    # Add to completed tasks section
+    # This appends to the tasks.completed section
+    TASK_TITLE=""
+    if [ -f "$COMPLETED_TASK_DIR/task.md" ]; then
+        TASK_TITLE=$(head -1 "$COMPLETED_TASK_DIR/task.md" | sed 's/^# //' | cut -c1-60)
+    fi
+
+    # Create a temporary file with the new entry
+    cat >> "$STATE_FILE" << EOF
+
+  # Completed: $TASK_ID
+  - id: "$TASK_ID"
+    title: "${TASK_TITLE:-$TASK_ID}"
+    completed_at: "$TIMESTAMP"
+    completed_by: "$CURRENT_RUN"
+    result: "$STATUS"
+EOF
+
+    log_success "Updated STATE.yaml"
+else
+    log_warning "STATE.yaml not found at: $STATE_FILE"
+fi
+
+# =============================================================================
+# STEP 6: TRIGGER RETAIN (EXTRACT LEARNINGS)
+# =============================================================================
+
+echo ""
+echo "Step 6: Triggering RETAIN (extracting learnings)..."
+
+# Check for LEARNINGS.md
+if [ -f "$COMPLETED_TASK_DIR/LEARNINGS.md" ]; then
+    LEARNINGS_SIZE=$(wc -l < "$COMPLETED_TASK_DIR/LEARNINGS.md" | tr -d ' ')
+    log_info "Found LEARNINGS.md ($LEARNINGS_SIZE lines)"
+
+    # Copy learnings to knowledge base
+    KNOWLEDGE_DIR="$BLACKBOX5_DIR/knowledge/learnings"
+    mkdir -p "$KNOWLEDGE_DIR"
+
+    LEARNING_FILE="$KNOWLEDGE_DIR/${TASK_ID}-$(date +%Y%m%d).md"
+    cp "$COMPLETED_TASK_DIR/LEARNINGS.md" "$LEARNING_FILE"
+    log_success "Archived learnings to: $LEARNING_FILE"
+else
+    log_warning "No LEARNINGS.md found - consider adding learnings for future improvement"
+fi
+
+# =============================================================================
+# STEP 7: ARCHIVE RUN FOLDER
+# =============================================================================
+
+echo ""
+echo "Step 7: Archiving run folder..."
+
+# Check if there's an active run folder for this task
+if [ -d "$RUNS_DIR/active" ]; then
+    # Look for run folders associated with this task
+    for run_dir in "$RUNS_DIR/active"/run-*; do
+        if [ -d "$run_dir" ]; then
+            # Check if this run is for our task
+            if grep -q "$TASK_ID" "$run_dir/metadata.yaml" 2>/dev/null || \
+               grep -q "$TASK_ID" "$run_dir/THOUGHTS.md" 2>/dev/null || \
+               [ -f "$run_dir/.task_id" ] && [ "$(cat "$run_dir/.task_id")" = "$TASK_ID" ]; then
+
+                RUN_NAME=$(basename "$run_dir")
+                mkdir -p "$RUNS_COMPLETED_DIR"
+
+                if mv "$run_dir" "$RUNS_COMPLETED_DIR/"; then
+                    log_success "Archived run: $RUN_NAME"
+                else
+                    log_error "Failed to archive run: $RUN_NAME"
+                fi
+            fi
+        fi
+    done
+else
+    log_info "No active runs to archive"
+fi
+
+# =============================================================================
+# STEP 8: UPDATE TIMELINE.YAML
+# =============================================================================
+
+echo ""
+echo "Step 8: Updating timeline.yaml..."
+
+if [ -f "$TIMELINE_FILE" ]; then
+    TIMESTAMP=$(get_timestamp_local)
+
+    # Create backup
+    cp "$TIMELINE_FILE" "$TIMELINE_FILE.backup.$(date +%s)"
+
+    # Add completion event to timeline with file locking
+    (
+        flock -x 200
+        cat >> "$TIMELINE_FILE" << EOF
+
+  - timestamp: "$TIMESTAMP"
+    type: task_completion
+    task_id: "$TASK_ID"
+    status: "$STATUS"
+    agent: "$CURRENT_AGENT"
+    run: "$CURRENT_RUN"
+EOF
+    ) 200>"$BLACKBOX5_DIR/.timeline.lock"
+
+    log_success "Updated timeline.yaml"
+else
+    log_warning "timeline.yaml not found at: $TIMELINE_FILE"
+fi
+
+# =============================================================================
+# STEP 9: LOG COMPLETION EVENT
+# =============================================================================
+
+echo ""
+echo "Step 9: Logging completion event..."
+
+if [ -f "$EVENTS_FILE" ]; then
+    TIMESTAMP=$(get_timestamp_local)
+
+    # Add event to events.yaml with file locking
+    (
+        flock -x 200
+        cat >> "$EVENTS_FILE" << EOF
+
+- timestamp: "$TIMESTAMP"
+  type: task_complete
+  task_id: "$TASK_ID"
+  status: "$STATUS"
+  agent_type: "$CURRENT_AGENT"
+  agent_id: "$CURRENT_RUN"
+  source: "bb5-complete"
+EOF
+    ) 200>"$BLACKBOX5_DIR/.autonomous/agents/communications/.events.lock"
+
+    log_success "Logged completion event"
+else
+    log_warning "events.yaml not found at: $EVENTS_FILE"
+fi
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+
+echo ""
+echo "═══════════════════════════════════════════════════════════════"
+echo "  Task Completion Summary"
+echo "═══════════════════════════════════════════════════════════════"
+echo ""
+printf "  Task ID:      ${CYAN}%s${NC}\n" "$TASK_ID"
+printf "  Status:       ${GREEN}%s${NC}\n" "$STATUS"
+printf "  Location:     %s\n" "$COMPLETED_TASK_DIR"
+printf "  Completed At: %s\n" "$(get_timestamp)"
+printf "  By Agent:     %s\n" "$CURRENT_AGENT"
+printf "  Run ID:       %s\n" "$CURRENT_RUN"
+echo ""
+echo "═══════════════════════════════════════════════════════════════"
+log_success "Task $TASK_ID completed successfully!"
+echo "═══════════════════════════════════════════════════════════════"
+echo ""
+
+# Return appropriate exit code based on status
+if [ "$STATUS" = "blocked" ]; then
+    exit 2
+elif [ "$STATUS" = "partial" ]; then
+    exit 3
+else
+    exit 0
+fi

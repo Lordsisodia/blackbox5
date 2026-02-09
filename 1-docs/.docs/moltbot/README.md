@@ -221,6 +221,14 @@ clawd install [skill-name]
 | [TELEGRAM-BOT.md](TELEGRAM-BOT.md) | Telegram Bot integration |
 | [FILE-REFERENCE.md](FILE-REFERENCE.md) | Complete file reference |
 
+### Comparison & Integration Research
+
+| File | Description |
+|------|-------------|
+| [BLACKBOX5-VS-OPENCLAW.md](BLACKBOX5-VS-OPENCLAW.md) | Deep dive comparison between Blackbox5 and OpenClaw architectures |
+| [HYBRID-INTEGRATION.md](HYBRID-INTEGRATION.md) | Guide for integrating Blackbox5 with OpenClaw |
+| [SKILL-SYSTEMS-COMPARISON.md](SKILL-SYSTEMS-COMPARISON.md) | Comparison of skill systems: Anthropic vs Blackbox5 vs OpenClaw |
+
 ## Sources
 
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)

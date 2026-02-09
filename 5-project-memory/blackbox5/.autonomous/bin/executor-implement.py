@@ -21,12 +21,15 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, asdict
 
-# Add engine lib to path using RALF path configuration
-# First try environment variable, then fall back to default
-_engine_lib = Path(os.environ.get('RALF_ENGINE_DIR', Path.home() / '.blackbox5' / '2-engine')) / '.autonomous' / 'lib'
-sys.path.insert(0, str(_engine_lib))
+# Add project lib to path for unified communication
+script_dir = Path(__file__).parent
+sys.path.insert(0, str(script_dir.parent / "lib"))
 from paths import get_ralf_project_dir, get_ralf_engine_dir, validate_ralf_paths
-from event_logger import log_start, log_complete, log_error, log_task_started, log_task_completed, log_task_failed
+from storage import log_agent_start, log_agent_complete, log_agent_error, log_task_started, log_task_completed, log_task_failed
+from config import get_config
+
+# Load RALF configuration
+config = get_config()
 
 # Configuration - use RALF paths with environment variable support
 try:
@@ -35,9 +38,18 @@ except FileNotFoundError as e:
     print(f"Error: {e}")
     sys.exit(1)
 
-PLANNER_REPORT_DIR = PROJECT_DIR / ".autonomous" / "analysis" / "planner-reports"
-TASKS_DIR = PROJECT_DIR / "tasks" / "active"
-RESULTS_DIR = PROJECT_DIR / ".autonomous" / "runs"
+# Override with config paths if available
+PROJECT_DIR = config.get_path('paths.project_root') or PROJECT_DIR
+ENGINE_DIR = config.get_path('paths.engine_dir') or ENGINE_DIR
+
+PLANNER_REPORT_DIR = config.get_path('paths.analysis_dir') / "planner-reports" if config.get_path('paths.analysis_dir') else (PROJECT_DIR / ".autonomous" / "analysis" / "planner-reports")
+TASKS_DIR = config.get_path('paths.tasks_dir') or (PROJECT_DIR / "tasks" / "active")
+RESULTS_DIR = config.get_path('paths.runs_dir') or (PROJECT_DIR / ".autonomous" / "runs")
+
+# Agent configuration
+EXECUTOR_CONFIG = config.get_agent_config('executor')
+TIMEOUT_SECONDS = config.get_int('agents.executor.timeout_seconds', 600)
+DRY_RUN_DEFAULT = config.get_bool('agents.executor.dry_run', False)
 
 # Agent identifier
 AGENT_NAME = "executor-implement"
@@ -286,9 +298,9 @@ class ExecutorAgent:
         """Execute a specific task."""
         self.log(f"\n🔧 Executing task: {task_id}")
 
-        # Log task started event
+        # Log task started event to unified communication system
         log_task_started(
-            agent=AGENT_NAME,
+            agent_id=AGENT_NAME,
             task_id=task_id,
             message=f"Starting execution of task {task_id}"
         )
@@ -297,7 +309,7 @@ class ExecutorAgent:
         if not task:
             error_msg = "Task file not found or unreadable"
             log_task_failed(
-                agent=AGENT_NAME,
+                agent_id=AGENT_NAME,
                 task_id=task_id,
                 message=f"Failed to load task {task_id}",
                 error_details=error_msg
@@ -323,7 +335,7 @@ class ExecutorAgent:
         else:
             error_msg = "Manual execution required"
             log_task_failed(
-                agent=AGENT_NAME,
+                agent_id=AGENT_NAME,
                 task_id=task_id,
                 message=f"No automated executor available for task {task_id}",
                 error_details=error_msg
@@ -339,7 +351,7 @@ class ExecutorAgent:
         # Log task completion or failure
         if result.success:
             log_task_completed(
-                agent=AGENT_NAME,
+                agent_id=AGENT_NAME,
                 task_id=task_id,
                 message=f"Task {task_id} completed successfully",
                 data={
@@ -350,7 +362,7 @@ class ExecutorAgent:
             )
         else:
             log_task_failed(
-                agent=AGENT_NAME,
+                agent_id=AGENT_NAME,
                 task_id=task_id,
                 message=f"Task {task_id} failed",
                 error_details=result.error_message or result.action_taken
@@ -478,8 +490,8 @@ def main():
     args = parser.parse_args()
 
     # Log start event
-    log_start(
-        agent=AGENT_NAME,
+    log_agent_start(
+        agent_id=AGENT_NAME,
         message="Executor Agent starting",
         data={"dry_run": args.dry_run, "task_id": args.task_id, "quick_wins": args.quick_wins}
     )
@@ -501,8 +513,8 @@ def main():
         results = executor.execute_quick_wins(limit=args.limit)
     else:
         print("❌ Please specify --task-id or --quick-wins")
-        log_error(
-            agent=AGENT_NAME,
+        log_agent_error(
+            agent_id=AGENT_NAME,
             message="No task specified",
             error_details="Please specify --task-id or --quick-wins"
         )
@@ -518,8 +530,8 @@ def main():
     failed = len([r for r in results if not r.success])
 
     if failed == 0:
-        log_complete(
-            agent=AGENT_NAME,
+        log_agent_complete(
+            agent_id=AGENT_NAME,
             message="Executor Agent completed successfully",
             data={
                 "total_tasks": len(results),
@@ -528,8 +540,8 @@ def main():
             }
         )
     else:
-        log_error(
-            agent=AGENT_NAME,
+        log_agent_error(
+            agent_id=AGENT_NAME,
             message="Executor Agent completed with errors",
             error_details=f"{failed} of {len(results)} tasks failed",
             data={

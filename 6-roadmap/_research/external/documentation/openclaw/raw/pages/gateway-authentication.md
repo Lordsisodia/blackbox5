@@ -1,0 +1,201 @@
+---
+{
+  "fetch": {
+    "url": "https://docs.openclaw.ai/gateway/authentication",
+    "fetched_at": "2026-02-07T10:11:09.136500",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "size_bytes": 587678
+  },
+  "metadata": {
+    "title": "Authentication",
+    "section": "authentication",
+    "tier": 2,
+    "type": "reference"
+  }
+}
+---
+
+- Authentication - OpenClaw[Skip to main content](#content-area)[OpenClaw home page](/)EnglishSearch...⌘K[GitHub](https://github.com/openclaw/openclaw)- [Releases](https://github.com/openclaw/openclaw/releases)Search...NavigationConfiguration and operationsAuthentication[Get started](/)[Install](/install)[Channels](/channels)[Agents](/concepts/architecture)[Tools](/tools)[Models](/providers)[Platforms](/platforms)[Gateway & Ops](/gateway)[Reference](/cli)[Help](/help)Gateway- [Gateway Runbook](/gateway)- Configuration and operations[Configuration](/gateway/configuration)- [Configuration Examples](/gateway/configuration-examples)- [Authentication](/gateway/authentication)- [Health Checks](/gateway/health)- [Heartbeat](/gateway/heartbeat)- [Doctor](/gateway/doctor)- [Logging](/gateway/logging)- [Gateway Lock](/gateway/gateway-lock)- [Background Exec and Process Tool](/gateway/background-process)- [Multiple Gateways](/gateway/multiple-gateways)- [Troubleshooting](/gateway/troubleshooting)- Security and sandboxing- Protocols and APIs- Networking and discoveryRemote access- [Remote Access](/gateway/remote)- [Remote Gateway Setup](/gateway/remote-gateway-readme)- [Tailscale](/gateway/tailscale)Security- [Formal Verification (Security Models)](/security/formal-verification)Web interfaces- [Web](/web)- [Control UI](/web/control-ui)- [Dashboard](/web/dashboard)- [WebChat](/web/webchat)- [TUI](/tui)On this page- [Authentication](#authentication)- [Recommended Anthropic setup (API key)](#recommended-anthropic-setup-api-key)- [Anthropic: setup-token (subscription auth)](#anthropic-setup-token-subscription-auth)- [Checking model auth status](#checking-model-auth-status)- [Controlling which credential is used](#controlling-which-credential-is-used)- [Per-session (chat command)](#per-session-chat-command)- [Per-agent (CLI override)](#per-agent-cli-override)- [Troubleshooting](#troubleshooting)- [“No credentials found”](#%E2%80%9Cno-credentials-found%E2%80%9D)- [Token expiring/expired](#token-expiring%2Fexpired)- [Requirements](#requirements)Configuration and operations# Authentication# [​](#authentication)Authentication
+
+OpenClaw supports OAuth and API keys for model providers. For Anthropic
+
+accounts, we recommend using an **API key**. For Claude subscription access,
+
+use the long‑lived token created by `claude setup-token`.
+
+See [/concepts/oauth](/concepts/oauth) for the full OAuth flow and storage
+
+layout.
+
+## [​](#recommended-anthropic-setup-api-key)Recommended Anthropic setup (API key)
+
+If you’re using Anthropic directly, use an API key.
+
+- Create an API key in the Anthropic Console.
+
+- Put it on the **gateway host** (the machine running `openclaw gateway`).
+
+Copy```
+
+export ANTHROPIC_API_KEY="..."
+
+openclaw models status
+
+```
+
+- If the Gateway runs under systemd/launchd, prefer putting the key in
+
+`~/.openclaw/.env` so the daemon can read it:
+
+Copy```
+
+cat >> ~/.openclaw/.env <<'EOF'
+
+ANTHROPIC_API_KEY=...
+
+EOF
+
+```
+
+Then restart the daemon (or restart your Gateway process) and re-check:
+
+Copy```
+
+openclaw models status
+
+openclaw doctor
+
+```
+
+If you’d rather not manage env vars yourself, the onboarding wizard can store
+
+API keys for daemon use: `openclaw onboard`.
+
+See [Help](/help) for details on env inheritance (`env.shellEnv`,
+
+`~/.openclaw/.env`, systemd/launchd).
+
+## [​](#anthropic-setup-token-subscription-auth)Anthropic: setup-token (subscription auth)
+
+For Anthropic, the recommended path is an **API key**. If you’re using a Claude
+
+subscription, the setup-token flow is also supported. Run it on the **gateway host**:
+
+Copy```
+
+claude setup-token
+
+```
+
+Then paste it into OpenClaw:
+
+Copy```
+
+openclaw models auth setup-token --provider anthropic
+
+```
+
+If the token was created on another machine, paste it manually:
+
+Copy```
+
+openclaw models auth paste-token --provider anthropic
+
+```
+
+If you see an Anthropic error like:
+
+Copy```
+
+This credential is only authorized for use with Claude Code and cannot be used for other API requests.
+
+```
+
+…use an Anthropic API key instead.
+
+Manual token entry (any provider; writes `auth-profiles.json` + updates config):
+
+Copy```
+
+openclaw models auth paste-token --provider anthropic
+
+openclaw models auth paste-token --provider openrouter
+
+```
+
+Automation-friendly check (exit `1` when expired/missing, `2` when expiring):
+
+Copy```
+
+openclaw models status --check
+
+```
+
+Optional ops scripts (systemd/Termux) are documented here:
+
+[/automation/auth-monitoring](/automation/auth-monitoring)
+
+`claude setup-token` requires an interactive TTY.
+
+## [​](#checking-model-auth-status)Checking model auth status
+
+Copy```
+
+openclaw models status
+
+openclaw doctor
+
+```
+
+## [​](#controlling-which-credential-is-used)Controlling which credential is used
+
+### [​](#per-session-chat-command)Per-session (chat command)
+
+Use `/model <alias-or-id>@<profileId>` to pin a specific provider credential for the current session (example profile ids: `anthropic:default`, `anthropic:work`).
+
+Use `/model` (or `/model list`) for a compact picker; use `/model status` for the full view (candidates + next auth profile, plus provider endpoint details when configured).
+
+### [​](#per-agent-cli-override)Per-agent (CLI override)
+
+Set an explicit auth profile order override for an agent (stored in that agent’s `auth-profiles.json`):
+
+Copy```
+
+openclaw models auth order get --provider anthropic
+
+openclaw models auth order set --provider anthropic anthropic:default
+
+openclaw models auth order clear --provider anthropic
+
+```
+
+Use `--agent <id>` to target a specific agent; omit it to use the configured default agent.
+
+## [​](#troubleshooting)Troubleshooting
+
+### [​](#“no-credentials-found”)“No credentials found”
+
+If the Anthropic token profile is missing, run `claude setup-token` on the
+
+**gateway host**, then re-check:
+
+Copy```
+
+openclaw models status
+
+```
+
+### [​](#token-expiring/expired)Token expiring/expired
+
+Run `openclaw models status` to confirm which profile is expiring. If the profile
+
+is missing, rerun `claude setup-token` and paste the token again.
+
+## [​](#requirements)Requirements
+
+- Claude Max or Pro subscription (for `claude setup-token`)
+
+- Claude Code CLI installed (`claude` command available)
+
+[Configuration Examples](/gateway/configuration-examples)[Health Checks](/gateway/health)⌘I[Powered by](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=clawdhub)

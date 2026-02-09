@@ -1,0 +1,38 @@
+# Unified Run Output
+# Generated: 2026-02-07T15:43:51Z
+
+---
+
+# Metadata
+run_id: "run-20260131_052931"
+timestamp: "2026-02-07T15:43:51Z"
+agent: "claude"
+
+# Thoughts and Reasoning
+thoughts: |
+
+# Decisions Made
+decisions:
+  - id: "DEC-001: Task Selection - Hardcoded Paths Fix"
+  
+  - id: "DEC-002: Path Selection - Quick Flow"
+  
+  - id: "DEC-003: Commit Strategy - Atomic by File Type"
+
+# Assumptions
+assumptions:
+  []
+
+# Results and Outcomes
+results:
+  content: |
+
+# Learnings
+learnings:
+  []
+
+# Source Files (for reference)
+source_files:
+  - THOUGHTS.md
+  - DECISIONS.md
+  - RESULTS.md

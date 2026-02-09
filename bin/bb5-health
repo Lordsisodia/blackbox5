@@ -1,259 +1,323 @@
 #!/usr/bin/env python3
-"""BB5 Health - System health snapshot tool."""
+"""BB5 Health - CLI snapshot tool for system health monitoring.
 
+Usage:
+    bb5-health [options]
+    bb5-health --format json
+    bb5-health --queue --agents
+
+Options:
+    -f, --format FORMAT     Output format: table, json, csv (default: table)
+    -q, --queue             Show queue stats only
+    -a, --agents            Show agent stats only
+    -s, --system            Show system health only
+    -w, --watch SECONDS     Watch mode with refresh interval
+    -h, --help              Show this help message
+
+Examples:
+    bb5-health                    # Full health snapshot
+    bb5-health -f json            # JSON output
+    bb5-health -q                 # Queue stats only
+    bb5-health -w 5               # Refresh every 5 seconds
+"""
+
+import argparse
 import csv
 import json
 import sys
+import time
 from datetime import datetime
-from typing import Optional
-
-import click
-from rich.console import Console
-from rich.panel import Panel
-from rich.progress import BarColumn, Progress
-from rich.table import Table
-from rich.text import Text
+from pathlib import Path
 
 # Add lib to path
-import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
+sys.path.insert(0, str(Path(__file__).parent / "lib"))
 
 from health_monitor import (
-    collect_all,
     collect_queue,
     collect_heartbeat,
     collect_events,
+    collect_metrics,
     calculate_health_score,
+    calculate_queue_health,
+    calculate_agent_health,
+    calculate_throughput,
+    calculate_commit_compliance,
     detect_stuck_tasks,
     init_database,
     save_snapshot,
     HealthSnapshot,
+    get_health_color,
+    get_health_emoji,
+    format_duration,
 )
-from health_monitor.utils import format_duration, get_health_color, get_health_emoji
-
-console = Console()
 
 
-@click.command()
-@click.option('--format', '-f', 'output_format', type=click.Choice(['table', 'json', 'csv']), default='table')
-@click.option('--component', '-c', type=click.Choice(['all', 'queue', 'agents', 'system', 'skills']), default='all')
-@click.option('--threshold', '-t', type=int, default=60, help='Health score threshold for exit code')
-@click.option('--no-color', is_flag=True, help='Disable colored output')
-@click.option('--save', is_flag=True, help='Save snapshot to database')
-def main(output_format: str, component: str, threshold: int, no_color: bool, save: bool):
-    """Show BB5 system health snapshot."""
-    if no_color:
-        console._color_system = None
+def format_table(data: dict) -> str:
+    """Format data as aligned table."""
+    lines = []
+    max_key = max(len(str(k)) for k in data.keys())
+    for key, value in data.items():
+        lines.append(f"  {key:<{max_key}} : {value}")
+    return "\n".join(lines)
 
-    # Initialize database
-    init_database()
 
-    # Collect data
-    data = collect_all()
-    tasks = data['tasks']
-    agents = data['agents']
-    events = data['events']
-    metrics = data['metrics']
+def get_health_snapshot() -> dict:
+    """Collect and calculate health snapshot."""
+    tasks = collect_queue()
+    agents = collect_heartbeat()
+    events = collect_events()
+    metrics = collect_metrics()
 
-    # Calculate health score
     score, status, details = calculate_health_score(tasks, agents, events, metrics)
-
-    # Detect stuck tasks
+    queue_score, queue_status = calculate_queue_health(tasks)
+    agent_score, agent_status = calculate_agent_health(agents)
+    throughput = calculate_throughput(tasks)
     stuck = detect_stuck_tasks(tasks, events)
+    compliance = calculate_commit_compliance(days=30, threshold=75.0)
 
-    # Create snapshot
-    pending = sum(1 for t in tasks if t.is_pending)
-    in_progress = sum(1 for t in tasks if t.is_in_progress)
-    completed = sum(1 for t in tasks if t.is_completed)
+    pending = sum(1 for t in tasks if t.status.value == "pending")
+    in_progress = sum(1 for t in tasks if t.status.value == "in_progress")
+    completed = sum(1 for t in tasks if t.status.value == "completed")
+    blocked = sum(1 for t in tasks if t.status.value == "blocked")
+
     online = sum(1 for a in agents if a.is_online())
     stale = sum(1 for a in agents if a.is_stale())
+    offline = len(agents) - online - stale
 
-    snapshot = HealthSnapshot(
-        timestamp=datetime.now(),
-        health_score=score,
-        status=status,
-        queue_pending=pending,
-        queue_in_progress=in_progress,
-        queue_completed=completed,
-        agents_online=online,
-        agents_stale=stale,
-        agents_total=len(agents),
-        stuck_tasks=len(stuck),
-    )
-
-    # Save to database if requested
-    if save:
-        save_snapshot(snapshot, details)
-
-    # Output based on format
-    if output_format == 'json':
-        output_json(snapshot, stuck, details, component)
-    elif output_format == 'csv':
-        output_csv(snapshot, stuck, component)
-    else:
-        output_table(snapshot, tasks, agents, stuck, details, component)
-
-    # Exit code based on health
-    if status.value == 'critical':
-        sys.exit(2)
-    elif score < threshold:
-        sys.exit(1)
-    sys.exit(0)
-
-
-def output_json(snapshot: HealthSnapshot, stuck: list, details: dict, component: str):
-    """Output as JSON."""
-    output = snapshot.to_dict()
-    output['stuck_tasks'] = [s.to_dict() for s in stuck]
-    output['details'] = details
-
-    if component != 'all':
-        output = filter_component(output, component)
-
-    console.print(json.dumps(output, indent=2))
+    return {
+        "timestamp": datetime.now().isoformat(),
+        "health_score": score,
+        "status": status.value,
+        "queue": {
+            "pending": pending,
+            "in_progress": in_progress,
+            "completed": completed,
+            "blocked": blocked,
+            "total": len(tasks),
+            "health_score": queue_score,
+            "health_status": queue_status,
+        },
+        "agents": {
+            "online": online,
+            "stale": stale,
+            "offline": offline,
+            "total": len(agents),
+            "health_score": agent_score,
+            "health_status": agent_status,
+        },
+        "throughput": {
+            "tasks_per_day": round(throughput, 2),
+            "target": 5,
+        },
+        "compliance": compliance,
+        "stuck_tasks": [
+            {
+                "id": st.task.id,
+                "title": st.task.title,
+                "reason": st.reason,
+                "duration": st.stuck_duration,
+            }
+            for st in stuck
+        ],
+        "details": details,
+    }
 
 
-def output_csv(snapshot: HealthSnapshot, stuck: list, component: str):
-    """Output as CSV."""
+def output_table(data: dict, component: str = None) -> None:
+    """Output data as formatted table."""
+    emoji = get_health_emoji(data["health_score"])
+
+    if component is None or component == "system":
+        print(f"\n{emoji} BB5 Health Snapshot")
+        print(f"{'=' * 50}")
+        print(f"  Timestamp : {data['timestamp'][:19]}")
+        print(f"  Score     : {data['health_score']}/100 ({data['status'].upper()})")
+        print()
+
+    if component is None or component == "queue":
+        q = data["queue"]
+        q_emoji = get_health_emoji(q["health_score"])
+        print(f"{q_emoji} Queue Status")
+        print("-" * 30)
+        print(f"  Pending     : {q['pending']}")
+        print(f"  In Progress : {q['in_progress']}")
+        print(f"  Completed   : {q['completed']}")
+        print(f"  Blocked     : {q['blocked']}")
+        print(f"  Total       : {q['total']}")
+        print(f"  Health      : {q['health_score']:.0f}/100 ({q['health_status']})")
+        print()
+
+    if component is None or component == "agents":
+        a = data["agents"]
+        a_emoji = get_health_emoji(a["health_score"])
+        print(f"{a_emoji} Agent Status")
+        print("-" * 30)
+        print(f"  Online  : {a['online']}")
+        print(f"  Stale   : {a['stale']}")
+        print(f"  Offline : {a['offline']}")
+        print(f"  Total   : {a['total']}")
+        print(f"  Health  : {a['health_score']:.0f}/100 ({a['health_status']})")
+        print()
+
+    if component is None:
+        t = data["throughput"]
+        print(f"📊 Throughput")
+        print("-" * 30)
+        print(f"  Tasks/Day : {t['tasks_per_day']} (target: {t['target']})")
+        print()
+
+        # Commit compliance
+        c = data.get("compliance", {})
+        if c:
+            compliance_rate = c.get('compliance_rate', 0)
+            threshold = c.get('threshold', 75)
+            meets = c.get('meets_threshold', False)
+            color_emoji = "🟢" if meets else "🔴"
+            print(f"{color_emoji} Commit Compliance")
+            print("-" * 30)
+            print(f"  Rate      : {compliance_rate:.1f}% (threshold: {threshold}%)")
+            print(f"  With      : {c.get('with_commits', 0)} / {c.get('total_tasks', 0)} tasks")
+            if not meets:
+                print(f"  ⚠️  Below threshold - {c.get('without_commits', 0)} tasks need commits")
+            print()
+
+    if data["stuck_tasks"] and (component is None or component == "queue"):
+        print(f"⚠️  Stuck Tasks ({len(data['stuck_tasks'])})")
+        print("-" * 30)
+        for st in data["stuck_tasks"][:5]:
+            print(f"  {st['id']}: {st['title'][:40]}")
+            print(f"    Reason: {st['reason']}")
+            print(f"    Duration: {st['duration']}")
+        if len(data["stuck_tasks"]) > 5:
+            print(f"  ... and {len(data['stuck_tasks']) - 5} more")
+        print()
+
+
+def output_json(data: dict) -> None:
+    """Output data as JSON."""
+    print(json.dumps(data, indent=2))
+
+
+def output_csv(data: dict) -> None:
+    """Output data as CSV."""
     writer = csv.writer(sys.stdout)
-    writer.writerow(['component', 'metric', 'value', 'unit', 'status'])
+    writer.writerow(["component", "metric", "value"])
 
-    writer.writerow(['total', 'health_score', snapshot.health_score, 'percent', snapshot.status.value])
-    writer.writerow(['queue', 'pending', snapshot.queue_pending, 'tasks', ''])
-    writer.writerow(['queue', 'in_progress', snapshot.queue_in_progress, 'tasks', ''])
-    writer.writerow(['queue', 'completed', snapshot.queue_completed, 'tasks', ''])
-    writer.writerow(['agents', 'online', snapshot.agents_online, 'count', ''])
-    writer.writerow(['agents', 'stale', snapshot.agents_stale, 'count', ''])
-    writer.writerow(['agents', 'total', snapshot.agents_total, 'count', ''])
+    writer.writerow(["system", "health_score", data["health_score"]])
+    writer.writerow(["system", "status", data["status"]])
 
-    for s in stuck:
-        writer.writerow(['stuck_task', s.task.id, s.stuck_minutes, 'minutes', 'stuck'])
+    for key, value in data["queue"].items():
+        writer.writerow(["queue", key, value])
+
+    for key, value in data["agents"].items():
+        writer.writerow(["agents", key, value])
+
+    writer.writerow(["throughput", "tasks_per_day", data["throughput"]["tasks_per_day"]])
 
 
-def output_table(snapshot: HealthSnapshot, tasks: list, agents: list, stuck: list, details: dict, component: str):
-    """Output as rich table."""
-    # Header
-    timestamp = snapshot.timestamp.strftime('%Y-%m-%d %H:%M:%S UTC')
-    emoji = get_health_emoji(snapshot.health_score)
-    color = get_health_color(snapshot.health_score)
+def watch_mode(interval: int, component: str = None) -> None:
+    """Run in watch mode with refresh."""
+    try:
+        while True:
+            # Clear screen
+            print("\033[2J\033[H", end="")
+            data = get_health_snapshot()
+            output_table(data, component)
+            print(f"\nRefreshing every {interval}s (Ctrl+C to exit)")
+            time.sleep(interval)
+    except KeyboardInterrupt:
+        print("\nExiting...")
 
-    header = Panel(
-        f"[bold]BB5 Health Snapshot[/bold]    {timestamp}",
-        border_style=color,
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="BB5 Health - System health monitoring",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+    bb5-health                    # Full health snapshot
+    bb5-health -f json            # JSON output
+    bb5-health -q                 # Queue stats only
+    bb5-health -w 5               # Refresh every 5 seconds
+        """
     )
-    console.print(header)
+    parser.add_argument(
+        "-f", "--format",
+        choices=["table", "json", "csv"],
+        default="table",
+        help="Output format (default: table)"
+    )
+    parser.add_argument(
+        "-q", "--queue",
+        action="store_true",
+        help="Show queue stats only"
+    )
+    parser.add_argument(
+        "-a", "--agents",
+        action="store_true",
+        help="Show agent stats only"
+    )
+    parser.add_argument(
+        "-s", "--system",
+        action="store_true",
+        help="Show system health only"
+    )
+    parser.add_argument(
+        "-w", "--watch",
+        type=int,
+        metavar="SECONDS",
+        help="Watch mode with refresh interval"
+    )
+    parser.add_argument(
+        "--save",
+        action="store_true",
+        help="Save snapshot to database"
+    )
 
-    # Overall score
-    score_text = Text()
-    score_text.append(f"OVERALL: {snapshot.health_score}/100 ", style="bold")
-    score_text.append(f"[{snapshot.status.value.upper()}]", style=color)
-    console.print(score_text)
-    console.print()
+    args = parser.parse_args()
 
-    # Queue section
-    if component in ('all', 'queue'):
-        queue_table = Table(title="Queue", show_header=True, header_style="bold magenta")
-        queue_table.add_column("Status", style="cyan")
-        queue_table.add_column("Count", justify="right")
-        queue_table.add_column("Visual", width=40)
+    # Determine component filter
+    component = None
+    if args.queue:
+        component = "queue"
+    elif args.agents:
+        component = "agents"
+    elif args.system:
+        component = "system"
 
-        total = max(1, snapshot.queue_pending + snapshot.queue_in_progress + snapshot.queue_completed)
+    # Initialize database if saving
+    if args.save:
+        init_database()
 
-        queue_table.add_row(
-            "Pending",
-            str(snapshot.queue_pending),
-            "█" * int(40 * snapshot.queue_pending / total) + "░" * (40 - int(40 * snapshot.queue_pending / total))
-        )
-        queue_table.add_row(
-            "In Progress",
-            str(snapshot.queue_in_progress),
-            "█" * int(40 * snapshot.queue_in_progress / total) + "░" * (40 - int(40 * snapshot.queue_in_progress / total))
-        )
-        queue_table.add_row(
-            "Completed",
-            str(snapshot.queue_completed),
-            "█" * int(40 * snapshot.queue_completed / total) + "░" * (40 - int(40 * snapshot.queue_completed / total))
-        )
-        queue_table.add_row("Total", str(total), "")
+    if args.watch:
+        watch_mode(args.watch, component)
+    else:
+        data = get_health_snapshot()
 
-        console.print(queue_table)
-        console.print()
-
-    # Agents section
-    if component in ('all', 'agents'):
-        agents_table = Table(title="Agents", show_header=True, header_style="bold magenta")
-        agents_table.add_column("Agent", style="cyan")
-        agents_table.add_column("Status")
-        agents_table.add_column("Last Seen")
-        agents_table.add_column("Loop")
-
-        for agent in agents:
-            status_color = "green" if agent.is_online() else "red" if agent.seconds_since_seen() > 240 else "yellow"
-            status = "● online" if agent.is_online() else "⚠ stale" if agent.seconds_since_seen() > 120 else "○ offline"
-            agents_table.add_row(
-                agent.name,
-                f"[{status_color}]{status}[/{status_color}]",
-                format_duration(agent.seconds_since_seen()) + " ago",
-                str(agent.loop_number),
+        if args.save:
+            from health_monitor.models import HealthStatus
+            snapshot = HealthSnapshot(
+                timestamp=datetime.now(),
+                health_score=data["health_score"],
+                status=HealthStatus(data["status"]),
+                queue_pending=data["queue"]["pending"],
+                queue_in_progress=data["queue"]["in_progress"],
+                queue_completed=data["queue"]["completed"],
+                agents_online=data["agents"]["online"],
+                agents_stale=data["agents"]["stale"],
+                agents_total=data["agents"]["total"],
+                stuck_tasks=len(data["stuck_tasks"]),
             )
+            save_snapshot(snapshot, data["details"])
+            print(f"Snapshot saved to database")
 
-        console.print(agents_table)
-        console.print()
-
-    # Stuck tasks section
-    if stuck and component in ('all', 'queue'):
-        stuck_table = Table(title="Stuck Tasks", show_header=True, header_style="bold red")
-        stuck_table.add_column("Task ID", style="cyan")
-        stuck_table.add_column("Status")
-        stuck_table.add_column("Duration")
-        stuck_table.add_column("Reason")
-
-        for s in stuck[:10]:  # Show max 10
-            stuck_table.add_row(
-                s.task.id,
-                s.task.status.value,
-                s.stuck_duration,
-                s.reason,
-            )
-
-        if len(stuck) > 10:
-            stuck_table.add_row("...", "", "", f"{len(stuck) - 10} more")
-
-        console.print(stuck_table)
-        console.print()
-
-    # Health breakdown
-    if component == 'all' and details:
-        breakdown = Table(title="Health Score Breakdown", show_header=True, header_style="bold blue")
-        breakdown.add_column("Component")
-        breakdown.add_column("Score", justify="right")
-        breakdown.add_column("Weight", justify="right")
-        breakdown.add_column("Weighted", justify="right")
-
-        for name, info in details.items():
-            breakdown.add_row(
-                name.capitalize(),
-                f"{info['score']:.1f}",
-                f"{info['weight']*100:.0f}%",
-                f"{info['score'] * info['weight']:.1f}",
-            )
-
-        console.print(breakdown)
+        if args.format == "json":
+            output_json(data)
+        elif args.format == "csv":
+            output_csv(data)
+        else:
+            output_table(data, component)
 
 
-def filter_component(data: dict, component: str) -> dict:
-    """Filter output to specific component."""
-    if component == 'queue':
-        return {
-            'queue': data.get('queue'),
-            'stuck_tasks': data.get('stuck_tasks'),
-        }
-    elif component == 'agents':
-        return {
-            'agents': data.get('agents'),
-        }
-    return data
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

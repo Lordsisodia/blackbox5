@@ -1,0 +1,54 @@
+# Unified Run Output
+# Generated: 2026-02-07T15:43:46Z
+
+---
+
+# Metadata
+run_id: "run-0042"
+timestamp: "6 (60%)"
+agent: "claude"
+
+# Thoughts and Reasoning
+thoughts: |
+
+# Decisions Made
+decisions:
+
+# Assumptions
+assumptions:
+  []
+
+# Results and Outcomes
+results:
+  content: |
+    
+    ### Immediate Outcomes
+    1. **Queue Accuracy:** TASK-1769910002 moved to completed/, queue reflects true state
+    2. **Visibility:** Duration tracking bug fully documented with evidence
+    3. **Prioritization:** Tasks re-ranked based on data-driven analysis
+    4. **Understanding:** Root causes of duplicate execution identified
+    
+    ### Short-Term Impacts
+    1. **Informed Monitoring:** Know exactly what to watch for in Run 36
+    2. **Validation Criteria:** Clear success metrics for TASK-1769911099
+    3. **Next Actions:** Prioritized queue (1099 → 1100 → 1101 → 5000)
+    4. **Foundation:** Analysis data supports future improvements
+    
+    ### Medium-Term Benefits
+    1. **Better Estimation:** Task completion baselines established
+    2. **Quality Foundation:** Duration tracking fix enables accurate metrics
+    3. **Waste Prevention:** Duplicate detection will prevent future repeats
+    4. **Reduced Maintenance:** Roadmap sync will automate state updates
+    
+    ---
+    
+
+# Learnings
+learnings:
+  []
+
+# Source Files (for reference)
+source_files:
+  - THOUGHTS.md
+  - DECISIONS.md
+  - RESULTS.md

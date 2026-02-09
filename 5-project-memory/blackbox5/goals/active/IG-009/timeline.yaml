@@ -1,20 +1,31 @@
-timeline:
-  - date: "2026-02-04"
-    event: "Goal created"
-    status: not_started
+# Goal Timeline View: IG-009
+# =============================================================================
+# This is a FILTERED VIEW of the canonical root timeline.yaml
+# DO NOT ADD EVENTS HERE - Add to root timeline.yaml instead
+# =============================================================================
 
-  - date: "2026-02-04"
-    event: "SG-009-1 completed - Existing hooks audited"
-    status: completed
+view_definition:
+  goal_id: IG-009
+  name: "Hook Improvements Implementation"
+  canonical_source: "~/blackbox5/timeline.yaml"
+  filter_criteria:
+    related_items_contains: "IG-009"
 
-  - date: "2026-02-04"
-    event: "SG-009-2 completed - Timeline maintenance hook created"
-    status: completed
+  # Events from root timeline matching this goal:
+  # - 2026-02-04: Goal Created: IG-009
+  # - 2026-02-04: IG-009: Existing Hooks Audited
+  # - 2026-02-04: IG-009: Timeline Maintenance Hook Created
+  # - 2026-02-04: IG-009: Architecture Consistency Hook Created
+  # - 2026-02-04: IG-009: Context Synchronization Hook Created
 
-  - date: "2026-02-04"
-    event: "SG-009-3 completed - Architecture consistency hook created"
-    status: completed
+query_instructions: |
+  To see all events for this goal:
+  1. Open ~/blackbox5/timeline.yaml
+  2. Search for "IG-009" in related_items
+  3. Or use: grep -A 10 "IG-009" ~/blackbox5/timeline.yaml
 
-  - date: "2026-02-04"
-    event: "SG-009-4 completed - Context synchronization hook created"
-    status: completed
+# Timeline Architecture:
+# - ROOT (canonical): ~/blackbox5/timeline.yaml
+# - VIEW (this file): Filtered reference to root
+# - All events MUST be added to root timeline
+# - This file only defines the view/filter

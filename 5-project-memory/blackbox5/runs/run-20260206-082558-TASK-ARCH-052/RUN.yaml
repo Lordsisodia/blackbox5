@@ -1,0 +1,38 @@
+# Unified Run Output
+# Generated: 2026-02-07T15:43:46Z
+
+---
+
+# Metadata
+run_id: "run-20260206-082558-TASK-ARCH-052"
+timestamp: "2026-02-07T15:43:46Z"
+agent: "claude"
+
+# Thoughts and Reasoning
+thoughts: |
+
+# Decisions Made
+decisions:
+
+# Assumptions
+assumptions:
+
+# Results and Outcomes
+results:
+  content: |
+    
+    | Timestamp | Outcome | Status | Notes |
+    |-----------|---------|--------|-------|
+    | _Add outcomes here_ | _What was achieved_ | _success/partial/blocked_ | _Details_ |
+    
+
+# Learnings
+learnings:
+
+# Source Files (for reference)
+source_files:
+  - THOUGHTS.md
+  - DECISIONS.md
+  - ASSUMPTIONS.md
+  - RESULTS.md
+  - LEARNINGS.md

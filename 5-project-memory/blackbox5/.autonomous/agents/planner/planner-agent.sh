@@ -6,7 +6,7 @@ set -e
 
 AGENT_NAME="planner"
 PROJECT_ROOT="/opt/ralf"
-RUN_DIR="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/planner/runs/run-$(date +%Y%m%d-%H%M%S)"
+RUN_DIR="$PROJECT_ROOT/5-project-memory/blackbox5/runs/planner/run-$(date +%Y%m%d-%H%M%S)"
 EVENTS_FILE="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml"
 SUMMARY_DIR="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/analyzer/summaries"
 PLANS_DIR="$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/planner/integration-plans"
@@ -19,7 +19,9 @@ log_event() {
     local message="$2"
     local timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-    cat >> "$EVENTS_FILE" << EOF
+    (
+        flock -x 200 || exit 1
+        cat >> "$EVENTS_FILE" << EOF
 - timestamp: "$timestamp"
   agent: $AGENT_NAME
   type: $type
@@ -27,13 +29,16 @@ log_event() {
   run_dir: "$RUN_DIR"
 
 EOF
+    ) 200>"$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/.events.lock"
 }
 
 update_heartbeat() {
     local status="$1"
     local timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-    python3 << PYEOF
+    (
+        flock -x 200 || exit 1
+        python3 << PYEOF
 import yaml
 import sys
 
@@ -55,6 +60,7 @@ data['heartbeats']['$AGENT_NAME'] = {
 with open('$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/heartbeat.yaml', 'w') as f:
     yaml.dump(data, f, default_flow_style=False)
 PYEOF
+    ) 200>"$PROJECT_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/.heartbeat.lock"
 }
 
 create_integration_plan() {

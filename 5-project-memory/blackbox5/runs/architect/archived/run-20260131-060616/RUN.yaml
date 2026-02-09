@@ -1,0 +1,38 @@
+# Unified Run Output
+# Generated: 2026-02-07T15:43:51Z
+
+---
+
+# Metadata
+run_id: "run-20260131-060616"
+timestamp: "2026-02-07T15:43:51Z"
+agent: "claude"
+
+# Thoughts and Reasoning
+thoughts: |
+
+# Decisions Made
+decisions:
+
+# Assumptions
+assumptions:
+  - id: "ASM-001: Current Branch is Safe for Work"
+  - id: "ASM-002: v2.3 Template Structure is Compatible with v2.4"
+  - id: "ASM-003: ralf-metrics.jsonl Format is JSON Lines"
+  - id: "ASM-004: Previous Runs Documentation Gap is Acceptable"
+  - id: "ASM-005: Dashboard Syntax Error is the Only Issue"
+
+# Results and Outcomes
+results:
+  content: |
+
+# Learnings
+learnings:
+
+# Source Files (for reference)
+source_files:
+  - THOUGHTS.md
+  - DECISIONS.md
+  - ASSUMPTIONS.md
+  - RESULTS.md
+  - LEARNINGS.md

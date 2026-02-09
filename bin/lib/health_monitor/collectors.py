@@ -81,8 +81,16 @@ def collect_heartbeat() -> List[Agent]:
     if not data:
         return []
 
+    # Handle both 'agents' and 'heartbeats' keys
+    if 'heartbeats' in data:
+        agents_data = data['heartbeats']
+    elif 'agents' in data:
+        agents_data = data['agents']
+    else:
+        return []
+
     agents = []
-    for name, info in data.get('agents', {}).items():
+    for name, info in agents_data.items():
         try:
             agent = Agent(
                 name=name,
@@ -107,8 +115,16 @@ def collect_events(limit: int = 100) -> List[Event]:
     if not data:
         return []
 
+    # Handle both list and dict formats
+    if isinstance(data, list):
+        event_list = data
+    elif isinstance(data, dict):
+        event_list = data.get('events', [])
+    else:
+        return []
+
     events = []
-    for item in data.get('events', [])[-limit:]:
+    for item in event_list[-limit:]:
         try:
             event = Event(
                 timestamp=parse_timestamp(item.get('timestamp')) or datetime.now(),

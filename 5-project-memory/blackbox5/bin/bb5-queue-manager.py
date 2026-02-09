@@ -30,6 +30,10 @@ from typing import Any, Optional
 
 import yaml
 
+# Add lib directory to path for storage import
+sys.path.insert(0, str(Path(__file__).parent.parent / ".autonomous" / "lib"))
+from storage import get_storage
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -237,28 +241,32 @@ class QueueManager:
         self.tasks: list[Task] = []
         self.metadata: Optional[QueueMetadata] = None
         self.task_map: dict[str, Task] = {}
+        self._storage = None
+
+    def _get_storage(self):
+        """Get or create storage instance."""
+        if self._storage is None:
+            self._storage = get_storage()
+        return self._storage
 
     def load(self) -> "QueueManager":
-        """Load queue from YAML file."""
-        logger.info(f"Loading queue from {self.queue_file}")
-
-        if not self.queue_file.exists():
-            raise FileNotFoundError(f"Queue file not found: {self.queue_file}")
+        """Load queue from storage backend."""
+        logger.info(f"Loading queue from storage backend")
 
         try:
-            with open(self.queue_file, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f)
-        except yaml.YAMLError as e:
-            raise ValueError(f"Invalid YAML in queue file: {e}")
+            storage = self._get_storage()
+            queue_data = storage.queue.get_all()
+        except Exception as e:
+            raise FileNotFoundError(f"Failed to load queue from storage: {e}")
 
-        if not data or "tasks" not in data:
-            raise ValueError("Queue file missing 'tasks' key")
+        if not queue_data:
+            raise ValueError("Queue is empty or not found")
 
         # Load tasks
         self.tasks = []
-        for task_data in data["tasks"]:
+        for task_data in queue_data:
             try:
-                # Convert YAML structure to expected format
+                # Convert storage structure to expected format
                 converted_data = self._convert_task_data(task_data)
                 task = Task.from_dict(converted_data)
                 self.tasks.append(task)
@@ -267,24 +275,27 @@ class QueueManager:
                 logger.error(f"Failed to parse task {task_data.get('id', 'unknown')}: {e}")
                 continue
 
-        # Load metadata
-        if "metadata" in data:
-            self.metadata = QueueMetadata.from_dict(data["metadata"])
-        else:
-            self.metadata = QueueMetadata(
-                last_updated=datetime.now(),
-                updated_by="queue-manager",
-                queue_depth_target=(3, 5),
-                current_depth=len([t for t in self.tasks if t.status == TaskStatus.PENDING]),
-            )
+        # Load metadata from storage
+        try:
+            task_list = storage.tasks.list()
+            pending_count = len([t for t in task_list if t.get('status') == 'pending'])
+        except Exception:
+            pending_count = len([t for t in self.tasks if t.status == TaskStatus.PENDING])
+
+        self.metadata = QueueMetadata(
+            last_updated=datetime.now(),
+            updated_by="queue-manager",
+            queue_depth_target=(3, 5),
+            current_depth=pending_count,
+        )
 
         logger.info(f"Loaded {len(self.tasks)} tasks")
         return self
 
     @staticmethod
     def _convert_task_data(task_data: dict[str, Any]) -> dict[str, Any]:
-        """Convert YAML task structure to internal format."""
-        # Map YAML fields to internal fields
+        """Convert storage task structure to internal format."""
+        # Map storage fields to internal fields
         converted = {
             "task_id": task_data.get("id", "unknown"),
             "title": task_data.get("title", f"Untitled Task ({task_data.get('id', 'unknown')})"),
@@ -316,22 +327,30 @@ class QueueManager:
         return converted
 
     def save(self, output_file: Optional[Path] = None) -> None:
-        """Save queue to YAML file."""
-        target = output_file or self.queue_file
-        logger.info(f"Saving queue to {target}")
+        """Save queue to storage backend."""
+        logger.info(f"Saving queue to storage backend")
 
-        data = {
-            "queue": [task.to_dict() for task in self.tasks],
-        }
+        try:
+            storage = self._get_storage()
 
-        if self.metadata:
-            data["metadata"] = self.metadata.to_dict()
+            # Update each task in storage
+            for task in self.tasks:
+                task_dict = task.to_dict()
+                # Convert to storage format
+                storage_task = {
+                    "id": task_dict["task_id"],
+                    "title": task_dict["title"],
+                    "priority": task_dict["priority"].upper() if isinstance(task_dict["priority"], str) else "MEDIUM",
+                    "priority_score": task_dict["priority_score"],
+                    "estimated_minutes": task_dict["estimated_minutes"],
+                    "status": task_dict["status"],
+                }
+                storage.tasks.save(storage_task)
 
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with open(target, "w", encoding="utf-8") as f:
-            yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
-
-        logger.info(f"Saved {len(self.tasks)} tasks to {target}")
+            logger.info(f"Saved {len(self.tasks)} tasks to storage")
+        except Exception as e:
+            logger.error(f"Failed to save queue: {e}")
+            raise
 
     def prioritize(self) -> list[Task]:
         """
@@ -516,6 +535,7 @@ class QueueManager:
         Export execution-ready state.
 
         Creates a YAML file with tasks sorted by dependencies and priority.
+        Uses storage backend for atomic writes.
         """
         logger.info(f"Exporting execution state to {output_file}")
 
@@ -548,12 +568,26 @@ class QueueManager:
         if self.metadata:
             execution_state["metadata"] = self.metadata.to_dict()
 
-        # Write to file
-        output_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(output_file, "w", encoding="utf-8") as f:
-            yaml.dump(execution_state, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        # Write to file using atomic write pattern via storage backend
+        try:
+            import tempfile
+            import os
 
-        logger.info(f"Exported execution state: {len(sorted_tasks)} tasks")
+            output_file.parent.mkdir(parents=True, exist_ok=True)
+
+            # Write to temp file first (atomic write pattern)
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False, dir=output_file.parent) as f:
+                yaml.dump(execution_state, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+                temp_path = f.name
+
+            # Atomic rename
+            os.replace(temp_path, output_file)
+
+            logger.info(f"Exported execution state: {len(sorted_tasks)} tasks")
+        except Exception as e:
+            logger.error(f"Failed to export execution state: {e}")
+            raise
+
         return execution_state
 
     def get_status(self) -> dict[str, Any]:
@@ -762,6 +796,80 @@ def cmd_status(args: argparse.Namespace) -> int:
         return 1
 
 
+def cmd_sync_counts(args: argparse.Namespace) -> int:
+    """Sync task counts from filesystem to queue.yaml."""
+    try:
+        # Import TaskCounter from bb5-task-counter
+        import subprocess
+
+        # Determine the project root based on queue file location
+        queue_path = Path(args.queue_file)
+        if queue_path.is_absolute():
+            project_root = queue_path.parent.parent.parent  # queue.yaml -> agents -> autonomous -> project root
+        else:
+            project_root = Path.cwd()
+
+        # Use relative path for tasks_dir since cwd is set
+        # Note: --tasks-dir must come before the command (update) because it's a global arg
+        result = subprocess.run(
+            ["python3", str(project_root / "bin/bb5-task-counter.py"),
+             "--tasks-dir", args.tasks_dir,  # Global arg before command
+             "update",
+             "--queue-file", str(queue_path)],
+            capture_output=True,
+            text=True,
+            cwd=str(project_root)
+        )
+
+        if result.returncode == 0:
+            print("Task counts synced successfully from filesystem")
+            print(result.stdout)
+            return 0
+        else:
+            logger.error(f"Failed to sync counts: {result.stderr}")
+            return 1
+
+    except Exception as e:
+        logger.error(f"Failed to sync counts: {e}")
+        return 1
+
+
+def cmd_validate_counts(args: argparse.Namespace) -> int:
+    """Validate queue.yaml counts match filesystem."""
+    try:
+        # Import TaskCounter from bb5-task-counter
+        import subprocess
+
+        # Determine the project root based on queue file location
+        queue_path = Path(args.queue_file)
+        if queue_path.is_absolute():
+            project_root = queue_path.parent.parent.parent  # queue.yaml -> agents -> autonomous -> project root
+        else:
+            project_root = Path.cwd()
+
+        # Use relative path for tasks_dir since cwd is set
+        # Note: --tasks-dir must come before the command (validate) because it's a global arg
+        result = subprocess.run(
+            ["python3", str(project_root / "bin/bb5-task-counter.py"),
+             "--tasks-dir", args.tasks_dir,  # Global arg before command
+             "validate",
+             "--queue-file", str(queue_path)],
+            capture_output=True,
+            text=True,
+            cwd=str(project_root)
+        )
+
+        print(result.stdout)
+        if result.stderr:
+            print(result.stderr, file=sys.stderr)
+
+        return result.returncode
+
+    except Exception as e:
+        logger.error(f"Failed to validate counts: {e}")
+        return 1
+
+
 def main() -> int:
     """Main entry point."""
     parser = argparse.ArgumentParser(
@@ -774,6 +882,8 @@ Examples:
   bb5-queue-manager.py resolve
   bb5-queue-manager.py export --output execution-state.yaml
   bb5-queue-manager.py status
+  bb5-queue-manager.py sync-counts
+  bb5-queue-manager.py validate-counts
         """
     )
 
@@ -813,6 +923,24 @@ Examples:
     # status command
     status_parser = subparsers.add_parser("status", help="Show queue status")
     status_parser.set_defaults(func=cmd_status)
+
+    # sync-counts command
+    sync_parser = subparsers.add_parser("sync-counts", help="Sync task counts from filesystem")
+    sync_parser.add_argument(
+        "--tasks-dir",
+        default="tasks",
+        help="Path to tasks directory (default: tasks)"
+    )
+    sync_parser.set_defaults(func=cmd_sync_counts)
+
+    # validate-counts command
+    validate_parser = subparsers.add_parser("validate-counts", help="Validate queue counts match filesystem")
+    validate_parser.add_argument(
+        "--tasks-dir",
+        default="tasks",
+        help="Path to tasks directory (default: tasks)"
+    )
+    validate_parser.set_defaults(func=cmd_validate_counts)
 
     args = parser.parse_args()
 

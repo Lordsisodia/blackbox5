@@ -1,0 +1,291 @@
+#!/bin/bash
+#
+# RALF-Dual v2 Launcher
+# Purpose: Start both Planner and Executor v2 agents in parallel
+#
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Auto-detect if running in GitHub Codespace
+if [[ -n "${CODESPACE_NAME:-}" ]] || [[ -d "/workspaces/blackbox5" ]]; then
+    # GitHub Codespace environment
+    BASE_DIR="/workspaces/blackbox5"
+else
+    # Local environment
+    BASE_DIR="${RALF_BASE_DIR:-$HOME/.blackbox5}"
+fi
+
+PROJECT_DIR="${RALF_PROJECT_DIR:-$BASE_DIR/5-project-memory/blackbox5}"
+ENGINE_DIR="${RALF_ENGINE_DIR:-$BASE_DIR/2-engine}"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+log() { echo -e "${BLUE}[RALF-DUAL-v2]${NC} $*"; }
+error() { echo -e "${RED}[ERROR]${NC} $*" >&2; }
+success() { echo -e "${GREEN}[SUCCESS]${NC} $*"; }
+warn() { echo -e "${YELLOW}[WARN]${NC} $*"; }
+
+# Check dependencies
+check_deps() {
+    local missing=()
+
+    if ! command -v tmux &> /dev/null; then
+        missing+=("tmux")
+    fi
+
+    if ! command -v claude &> /dev/null; then
+        missing+=("claude")
+    fi
+
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        error "Missing dependencies: ${missing[*]}"
+        error "Install with: brew install tmux"
+        error "Claude Code: curl -fsSL https://claude.ai/install | sh"
+        exit 1
+    fi
+}
+
+# Start keep-alive server
+start_keepalive() {
+    log "Starting keep-alive server..."
+
+    if [[ -f /tmp/ralf-keepalive.pid ]]; then
+        local pid=$(cat /tmp/ralf-keepalive.pid)
+        if kill -0 $pid 2>/dev/null; then
+            warn "Keep-alive server already running"
+            return
+        fi
+    fi
+
+    "$SCRIPT_DIR/ralf-keepalive" start > /dev/null 2>&1 &
+    sleep 2
+
+    # Get the codespace URL for UptimeRobot
+    if [[ -n "${CODESPACE_NAME:-}" ]]; then
+        local url="https://${CODESPACE_NAME}-8080.app.github.dev"
+        success "Keep-alive server should be accessible at: $url"
+        log "Add this URL to UptimeRobot with 5-minute intervals"
+    fi
+}
+
+# Start Planner v2
+start_planner() {
+    log "Starting RALF-Planner v2..."
+
+    if tmux has-session -t ralf-planner-v2 2>/dev/null; then
+        warn "Planner v2 session already exists"
+        return
+    fi
+
+    # Use GLM key from codespace secret if available, otherwise fall back to file
+    local api_key="${ANTHROPIC_API_KEY:-$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")}"
+    tmux new-session -d -s ralf-planner-v2 -n planner \
+        "export ANTHROPIC_API_KEY='$api_key' && \
+         export ANTHROPIC_BASE_URL='${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}' && \
+         cd '$PROJECT_DIR' && \
+         export RALF_MODE=plan && \
+         export RALF_PROJECT_DIR='$PROJECT_DIR' && \
+         export RALF_ENGINE_DIR='$ENGINE_DIR' && \
+         '$SCRIPT_DIR/ralf-planner-v2' 2>&1 | tee -a '$PROJECT_DIR/.autonomous/planner-v2.log'"
+
+    success "Planner v2 started in tmux session 'ralf-planner-v2'"
+}
+
+# Start Executor v2
+start_executor() {
+    log "Starting RALF-Executor v2..."
+
+    if tmux has-session -t ralf-executor-v2 2>/dev/null; then
+        warn "Executor v2 session already exists"
+        return
+    fi
+
+    # Use GLM key from codespace secret if available, otherwise fall back to file
+    local api_key="${ANTHROPIC_API_KEY:-$(cat "$HOME/.anthropic_api_key" 2>/dev/null || echo "")}"
+    tmux new-session -d -s ralf-executor-v2 -n executor \
+        "export ANTHROPIC_API_KEY='$api_key' && \
+         export ANTHROPIC_BASE_URL='${ANTHROPIC_BASE_URL:-https://api.z.ai/api/anthropic}' && \
+         cd '$PROJECT_DIR' && \
+         export RALF_MODE=execute && \
+         export RALF_PROJECT_DIR='$PROJECT_DIR' && \
+         export RALF_ENGINE_DIR='$ENGINE_DIR' && \
+         '$SCRIPT_DIR/ralf-executor-v2' 2>&1 | tee -a '$PROJECT_DIR/.autonomous/executor-v2.log'"
+
+    success "Executor v2 started in tmux session 'ralf-executor-v2'"
+}
+
+# Stop agents
+stop_agents() {
+    log "Stopping RALF v2 agents..."
+
+    if tmux has-session -t ralf-planner-v2 2>/dev/null; then
+        tmux kill-session -t ralf-planner-v2
+        success "Planner v2 stopped"
+    fi
+
+    if tmux has-session -t ralf-executor-v2 2>/dev/null; then
+        tmux kill-session -t ralf-executor-v2
+        success "Executor v2 stopped"
+    fi
+}
+
+# Show status
+show_status() {
+    log "RALF-Dual v2 Status:"
+    echo ""
+
+    if tmux has-session -t ralf-planner-v2 2>/dev/null; then
+        success "Planner v2: RUNNING (tmux session: ralf-planner-v2)"
+    else
+        error "Planner v2: STOPPED"
+    fi
+
+    if tmux has-session -t ralf-executor-v2 2>/dev/null; then
+        success "Executor v2: RUNNING (tmux session: ralf-executor-v2)"
+    else
+        error "Executor v2: STOPPED"
+    fi
+
+    echo ""
+
+    # Show queue depth
+    if [[ -f "$PROJECT_DIR/.autonomous/communications/queue.yaml" ]]; then
+        local depth
+        depth=$(yq '.queue | length' "$PROJECT_DIR/.autonomous/communications/queue.yaml" 2>/dev/null || echo "0")
+        log "Queue depth: $depth tasks"
+    fi
+
+    # Show last logs
+    if [[ -f "$PROJECT_DIR/.autonomous/planner-v2.log" ]]; then
+        local planner_status
+        planner_status=$(tail -1 "$PROJECT_DIR/.autonomous/planner-v2.log" 2>/dev/null | grep -oE "(running|stopped|idle)" || echo "unknown")
+        log "Planner status: $planner_status"
+    fi
+
+    if [[ -f "$PROJECT_DIR/.autonomous/executor-v2.log" ]]; then
+        local executor_status
+        executor_status=$(tail -1 "$PROJECT_DIR/.autonomous/executor-v2.log" 2>/dev/null | grep -oE "(running|stopped|idle)" || echo "unknown")
+        log "Executor status: $executor_status"
+    fi
+}
+
+# Show logs
+show_logs() {
+    local agent="$1"
+    case "$agent" in
+        planner)
+            if [[ -f "$PROJECT_DIR/.autonomous/planner-v2.log" ]]; then
+                tail -f "$PROJECT_DIR/.autonomous/planner-v2.log"
+            else
+                error "Planner v2 log not found"
+            fi
+            ;;
+        executor)
+            if [[ -f "$PROJECT_DIR/.autonomous/executor-v2.log" ]]; then
+                tail -f "$PROJECT_DIR/.autonomous/executor-v2.log"
+            else
+                error "Executor v2 log not found"
+            fi
+            ;;
+        both)
+            if [[ -f "$PROJECT_DIR/.autonomous/planner-v2.log" && -f "$PROJECT_DIR/.autonomous/executor-v2.log" ]]; then
+                tail -f "$PROJECT_DIR/.autonomous/planner-v2.log" "$PROJECT_DIR/.autonomous/executor-v2.log"
+            else
+                error "Logs not found"
+            fi
+            ;;
+        *)
+            error "Unknown agent: $agent (use: planner, executor, both)"
+            exit 1
+            ;;
+    esac
+}
+
+# Attach to tmux session
+attach_session() {
+    local agent="$1"
+    case "$agent" in
+        planner)
+            tmux attach -t ralf-planner-v2
+            ;;
+        executor)
+            tmux attach -t ralf-executor-v2
+            ;;
+        *)
+            error "Unknown agent: $agent (use: planner, executor)"
+            exit 1
+            ;;
+    esac
+}
+
+# Main command handler
+case "${1:-start}" in
+    start)
+        check_deps
+        start_keepalive
+        start_planner
+        start_executor
+        echo ""
+        success "RALF-Dual v2 is running!"
+        log "View status: ralf-dual-v2 status"
+        log "Attach to Planner: ralf-dual-v2 attach planner"
+        log "Attach to Executor: ralf-dual-v2 attach executor"
+        log "Stop: ralf-dual-v2 stop"
+        if [[ -n "${CODESPACE_NAME:-}" ]]; then
+            warn "IMPORTANT: Add this URL to UptimeRobot to prevent sleep:"
+            log "https://${CODESPACE_NAME}-8080.app.github.dev"
+        fi
+        ;;
+    stop)
+        stop_agents
+        ;;
+    restart)
+        stop_agents
+        sleep 1
+        check_deps
+        start_planner
+        start_executor
+        ;;
+    status)
+        show_status
+        ;;
+    attach)
+        attach_session "${2:-planner}"
+        ;;
+    logs)
+        show_logs "${2:-both}"
+        ;;
+    help|--help|-h)
+        echo "RALF-Dual v2: Parallel Agent Launcher"
+        echo ""
+        echo "Usage: ralf-dual-v2 [command] [options]"
+        echo ""
+        echo "Commands:"
+        echo "    start           Start both Planner and Executor v2"
+        echo "    stop            Stop both agents"
+        echo "    restart         Restart both agents"
+        echo "    status          Show current status"
+        echo "    attach [agent]  Attach to tmux session (planner|executor)"
+        echo "    logs [agent]    Show logs (planner|executor|both)"
+        echo "    help            Show this help"
+        echo ""
+        echo "Examples:"
+        echo "    ralf-dual-v2 start              # Start both agents"
+        echo "    ralf-dual-v2 status             # Check status"
+        echo "    ralf-dual-v2 attach planner     # Watch Planner v2"
+        echo "    ralf-dual-v2 logs executor      # Show Executor v2 logs"
+        echo "    ralf-dual-v2 stop               # Stop everything"
+        ;;
+    *)
+        error "Unknown command: $1"
+        echo "Use 'ralf-dual-v2 help' for usage"
+        exit 1
+        ;;
+esac

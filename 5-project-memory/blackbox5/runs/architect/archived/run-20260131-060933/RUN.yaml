@@ -1,0 +1,40 @@
+# Unified Run Output
+# Generated: 2026-02-07T15:43:50Z
+
+---
+
+# Metadata
+run_id: "run-20260131-060933"
+timestamp: "2026-02-07T15:43:51Z"
+agent: "claude"
+
+# Thoughts and Reasoning
+thoughts: |
+
+# Decisions Made
+decisions:
+  - id: "DEC-001: Update PLAN-001 to Completed Status"
+  - id: "DEC-002: Unblock PLAN-002 (Fix YAML Agent Loading)"
+  - id: "DEC-003: Set next_action to PLAN-004"
+
+# Assumptions
+assumptions:
+  - id: "ASM-001: TASK-1738300332 Successfully Completed PLAN-001"
+  - id: "ASM-002: Single Canonical Skills System Exists"
+  - id: "ASM-003: STATE.yaml is Single Source of Truth"
+  - id: "ASM-004: Updating Metadata Won't Break Dependencies"
+
+# Results and Outcomes
+results:
+  content: |
+
+# Learnings
+learnings:
+
+# Source Files (for reference)
+source_files:
+  - THOUGHTS.md
+  - DECISIONS.md
+  - ASSUMPTIONS.md
+  - RESULTS.md
+  - LEARNINGS.md

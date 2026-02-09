@@ -1,0 +1,43 @@
+id: "PLAN-003"
+name: "Implement Planning Agent"
+slug: "implement-planning-agent"
+status: "planned"
+priority: "high"
+effort: "3-5 days"
+domain: "agents"
+category: "feature"
+
+created: "2026-01-20"
+updated: "2026-01-20"
+
+validation_agent: "Agent 3"
+
+dependencies:
+  requires: ["PLAN-001", "PLAN-002", "PLAN-005"]
+  blocks: []
+  blocked_by: ["PLAN-001", "PLAN-002", "PLAN-005"]
+
+problem:
+  summary: "No autonomous planning agent exists"
+  impact: "All planning must be done manually"
+  current_state: "Manual planning only"
+
+solution:
+  approach: "Build autonomous planning agent with Vibe Kanban integration"
+  phases: 3
+    - core_agent: "2 days"
+    - vibe_kanban_integration: "1 day"
+    - testing: "1 day"
+
+files_to_create:
+  - "blackbox5/2-engine/02-agents/specialists/planning-agent.yaml"
+  - "blackbox5/2-engine/02-agents/implementations/specialists/planning_agent.py"
+
+success_criteria:
+  - agent_creates_plans: true
+  - vibe_kanban_integration: true
+  - test_coverage: "80%+"
+
+confidence: "medium"
+ready_to_execute: false  # blocked by PLAN-001, PLAN-002, PLAN-005
+assigned_to: null

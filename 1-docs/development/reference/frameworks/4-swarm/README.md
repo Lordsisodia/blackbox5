@@ -1,21 +1,34 @@
-# 4-swarm
+# Swarm Framework
 
-Component in Blackbox4.
+> Lightweight multi-agent orchestration framework
 
-## Location
+## Overview
 
-```
-.blackbox4/2-frameworks/4-swarm
-```
+Swarm is a lightweight framework for orchestrating multiple agents with handoffs and context passing.
 
-## Parent Directory
+## Subdirectories
 
-Part of: [`.blackbox4/2-frameworks/`](../)
+- **examples/** - Swarm usage examples
+- **patterns/** - Swarm orchestration patterns
+
+## Files
+
+- `RESEARCH.md` - Research on Swarm framework
 
 ## Purpose
 
-This directory contains: `4-swarm`
+Swarm provides:
+- Lightweight agent orchestration
+- Handoff patterns between agents
+- Context management across agents
+- Simple multi-agent coordination
 
-## Usage
+## Parent Directory
 
-See parent directory documentation for usage information.
+Part of: [`frameworks/`](../)
+
+## Related
+
+- [1-bmad](../1-bmad/) - BMAD framework
+- [2-speckit](../2-speckit/) - Speckit framework
+- [3-metagpt](../3-metagpt/) - MetaGPT framework

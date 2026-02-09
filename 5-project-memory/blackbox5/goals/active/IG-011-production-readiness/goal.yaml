@@ -1,0 +1,207 @@
+# IG-011: BlackBox5 Production Readiness
+
+**Status:** in_progress
+**Priority:** CRITICAL
+**Created:** 2026-02-07
+**Target Completion:** 2026-02-28
+**Owner:** Architecture Team
+
+---
+
+## Objective
+
+Bring BlackBox5 from 58% to 85%+ architecture score by fixing critical issues blocking multi-agent cluster deployment.
+
+---
+
+## Success Criteria
+
+- [ ] File locking: 50% → 100% (5 scripts fixed)
+- [ ] Path abstraction: 24% → 80% (56 scripts fixed)
+- [ ] Storage backend: 11% → 70% (29 scripts migrated)
+- [ ] Decision registry: 0 → 230+ decisions extracted
+- [ ] Overall architecture score: 58 → 85+
+- [ ] Multi-agent cluster ready: GO/NO-GO = GO
+
+---
+
+## Sub-Goals
+
+### SG-011-1: Critical File Locking (Week 1)
+**Priority:** P0 - Blocks data corruption
+**Status:** not_started
+**Target:** 2026-02-14
+
+Add flock to 5 critical scripts without file locking:
+- ralf-stop-hook.sh
+- bb5-parallel-dispatch.sh
+- subagent-tracking.sh
+- ralf-post-tool-hook.sh
+- planner-agent.sh
+
+**Success Criteria:**
+- [ ] All 5 scripts use flock pattern
+- [ ] Lock files created (.queue.lock, .events.lock)
+- [ ] Race condition tests pass
+
+---
+
+### SG-011-2: Script Usage Audit (Week 1)
+**Priority:** P0 - Prevents wasted effort
+**Status:** in_progress
+**Target:** 2026-02-14
+
+Audit 79 scripts with hardcoded paths:
+- Categorize by actual usage (ACTIVE, HOOK, PROXY, UNUSED, ONE-TIME)
+- Identify scripts for deletion vs fixing
+- Prioritize fix order by usage frequency
+
+**Success Criteria:**
+- [ ] All 79 scripts categorized
+- [ ] UNUSED scripts identified for deletion
+- [ ] ACTIVE scripts prioritized for fixing
+
+---
+
+### SG-011-3: Core RALF Path Fix (Week 2)
+**Priority:** P1 - Core functionality
+**Status:** not_started
+**Target:** 2026-02-21
+
+Fix 9 core RALF scripts to use paths.sh:
+- ralf-task-select.sh
+- ralf-planner-queue.sh
+- ralf-task-init.sh
+- ralf-verifier.sh
+- ralf-stop-hook.sh
+- ralf-post-tool-hook.sh
+- ralf-session-start-hook.sh
+- ralf-six-agent-pipeline.sh
+- ralf-task-start.sh
+
+**Success Criteria:**
+- [ ] All 9 scripts use paths.sh library
+- [ ] No hardcoded 5-project-memory/ references
+- [ ] Scripts tested and working
+
+---
+
+### SG-011-4: BB5 Bin Path Fix (Week 2)
+**Priority:** P1 - Core functionality
+**Status:** not_started
+**Target:** 2026-02-21
+
+Fix 4 BB5 bin scripts to use PathResolver:
+- bb5-generate-state.py
+- bb5-status
+- bb5-validate
+- bb5-watch
+
+**Success Criteria:**
+- [ ] All 4 scripts use PathResolver
+- [ ] No hardcoded paths
+- [ ] Scripts tested and working
+
+---
+
+### SG-011-5: Storage Backend Migration (Week 3-4)
+**Priority:** P1 - Data integrity
+**Status:** not_started
+**Target:** 2026-02-28
+
+Migrate high-use scripts to StorageBackend:
+- ralf-planner → use storage.py
+- ralf-executor → use storage.py
+- ralf-architect → use storage.py
+- bb5-queue-manager.py → use storage.py
+- bb5-reanalysis-engine.py → use storage.py
+
+**Success Criteria:**
+- [ ] 5 scripts use StorageBackend
+- [ ] Raw yaml.safe_load() eliminated
+- [ ] ACID guarantees verified
+
+---
+
+### SG-011-6: Decision Registry Population (Week 3-4)
+**Priority:** P2 - Knowledge management
+**Status:** not_started
+**Target:** 2026-02-28
+
+Extract decisions from 461 run folder DECISIONS.md files:
+- Parse decision entries
+- Assign DEC-XXX IDs
+- Add to central registry
+- Create cross-references
+
+**Success Criteria:**
+- [ ] 230+ decisions in registry
+- [ ] Cross-references to run folders
+- [ ] Searchable decision database
+
+---
+
+### SG-011-7: Script Cleanup (Ongoing)
+**Priority:** P2 - Maintenance
+**Status:** not_started
+**Target:** 2026-02-28
+
+Delete or archive unused scripts:
+- Delete UNUSED category scripts
+- Archive ONE-TIME scripts
+- Document remaining scripts
+
+**Success Criteria:**
+- [ ] Unused scripts deleted
+- [ ] One-time scripts archived
+- [ ] Script inventory documented
+
+---
+
+## Dependencies
+
+- SG-011-2 (Audit) must complete before SG-011-3/4/5
+- SG-011-1 (File locking) can run in parallel
+- SG-011-6 (Decisions) can run in parallel
+
+---
+
+## Risks
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| Script dependencies break | Medium | High | Test each fix individually |
+| Path abstraction library bugs | Low | High | Add unit tests |
+| Storage migration data loss | Low | Critical | Backup before migration |
+| Time overrun | Medium | Medium | Prioritize P0/P1 items |
+
+---
+
+## Progress Tracking
+
+| Week | Target | Key Deliverables |
+|------|--------|------------------|
+| Week 1 | File locking + Audit | 5 scripts locked, 79 scripts categorized |
+| Week 2 | Path fixes | 13 scripts fixed (9 RALF + 4 BB5) |
+| Week 3 | Storage migration | 5 scripts migrated |
+| Week 4 | Decisions + Cleanup | 230 decisions, unused scripts deleted |
+
+---
+
+## Definition of Done
+
+- [ ] All P0 items complete
+- [ ] All P1 items complete
+- [ ] Architecture score ≥ 85%
+- [ ] Multi-agent cluster tests pass
+- [ ] Documentation updated
+- [ ] Handoff to operations team
+
+---
+
+## Related
+
+- Parent: IG-006 Architecture Consolidation
+- Depends on: IG-007 Continuous Architecture Evolution
+- Blocks: Multi-Agent Cluster Deployment
+- Analysis: ARCHITECTURE-VALIDATION-REPORT-2026-02-07.md

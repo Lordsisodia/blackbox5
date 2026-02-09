@@ -1,0 +1,1167 @@
+================================================================================
+BLACKBOX5 TASK DUPLICATE DETECTION REPORT
+Generated: 2026-02-09T11:13:42.726066
+================================================================================
+
+Total tasks scanned: 225
+Potential duplicates found: 68
+
+--------------------------------------------------------------------------------
+POTENTIAL DUPLICATES (sorted by confidence)
+--------------------------------------------------------------------------------
+
+1. Confidence: 100%
+   Reason: Exact title match: 'design agent execution flow with enforcement mechanisms'
+
+   Task A: TASK-1769978192
+   Title:  Task: Design Agent Execution Flow with Enforcement Mechanisms
+   Status: active | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1769978192/task.md
+
+   Task B: TASK-ARCH-016-agent-execution-flow
+   Title:  Task: Design Agent Execution Flow with Enforcement Mechanisms
+   Status: completed | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-016-agent-execution-flow/task.md
+
+   → Suggestion: Task B is completed. Consider closing Task A as duplicate.
+
+--------------------------------------------------------------------------------
+
+2. Confidence: 100%
+   Reason: Exact title match: 'implement feature f 016 cli interface tooling suite'
+
+   Task A: TASK-1738375000
+   Title:  TASK-1738375000: Implement Feature F-016 (CLI Interface & Tooling Suite)
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1738375000/task.md
+
+   Task B: TASK-DEV-010-cli-interface-f016
+   Title:  TASK-1738375000: Implement Feature F-016 (CLI Interface & Tooling Suite)
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DEV-010-cli-interface-f016/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+3. Confidence: 100%
+   Reason: Exact title match: 'youtube pipeline minimal moves'
+
+   Task A: TASK-DOCS-010-youtube-pipeline-plan
+   Title:  ACTION PLAN: YouTube Pipeline (Minimal Moves)
+   Status: active | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCS-010-youtube-pipeline-plan/task.md
+
+   Task B: TASK-PLAN-001-youtube-pipeline
+   Title:  ACTION PLAN: YouTube Pipeline (Minimal Moves)
+   Status: active | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PLAN-001-youtube-pipeline/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+4. Confidence: 100%
+   Reason: Exact title match: 'youtube pipeline minimal moves'
+
+   Task A: TASK-DOCS-010-youtube-pipeline-plan
+   Title:  ACTION PLAN: YouTube Pipeline (Minimal Moves)
+   Status: active | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCS-010-youtube-pipeline-plan/task.md
+
+   Task B: ACTION-PLAN-youtube-pipeline
+   Title:  ACTION PLAN: YouTube Pipeline (Minimal Moves)
+   Status: active | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/ACTION-PLAN-youtube-pipeline/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+5. Confidence: 100%
+   Reason: Exact title match: 'implement intelligent navigation system'
+
+   Task A: TASK-1770163374
+   Title:  TASK-1770163374: Implement Intelligent Navigation System
+   Status: completed | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1770163374/task.md
+
+   Task B: TASK-TEMPLATE-002
+   Title:  TASK-1770163374: Implement Intelligent Navigation System
+   Status: completed | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-TEMPLATE-002/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+6. Confidence: 100%
+   Reason: Exact title match: 'improve blackbox5 persistent memory system'
+
+   Task A: TASK-MEMORY-001-improve-persistent-memory
+   Title:  TASK-MEMORY-001: Improve Blackbox5 Persistent Memory System
+   Status: completed | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-MEMORY-001-improve-persistent-memory/task.md
+
+   Task B: TASK-AUTO-021-persistent-memory
+   Title:  TASK-MEMORY-001: Improve Blackbox5 Persistent Memory System
+   Status: completed | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTO-021-persistent-memory/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+7. Confidence: 100%
+   Reason: Exact title match: 'agent system audit integration research'
+
+   Task A: AGENT-SYSTEM-AUDIT
+   Title:  TASK: Agent System Audit & Integration Research
+   Status: in_progress | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/AGENT-SYSTEM-AUDIT/task.md
+
+   Task B: TASK-AUTO-010-agent-system-audit
+   Title:  TASK: Agent System Audit & Integration Research
+   Status: in_progress | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTO-010-agent-system-audit/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+8. Confidence: 100%
+   Reason: Exact title match: 'task status lifecycle automation critical blocker 2'
+
+   Task A: TASK-PROC-040-status-lifecycle
+   Title:  Action Plan: Task Status Lifecycle Automation (Critical Blocker #2)
+   Status: active | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-040-status-lifecycle/task.md
+
+   Task B: TASK-STATUS-LIFECYCLE-ACTION-PLAN
+   Title:  Action Plan: Task Status Lifecycle Automation (Critical Blocker #2)
+   Status: active | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-STATUS-LIFECYCLE-ACTION-PLAN/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+9. Confidence: 100%
+   Reason: Exact title match: 'task status lifecycle automation critical blocker 2'
+
+   Task A: TASK-PROC-040-status-lifecycle
+   Title:  Action Plan: Task Status Lifecycle Automation (Critical Blocker #2)
+   Status: active | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-040-status-lifecycle/task.md
+
+   Task B: TASK-ARCH-015-status-lifecycle
+   Title:  Action Plan: Task Status Lifecycle Automation (Critical Blocker #2)
+   Status: completed | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-015-status-lifecycle/task.md
+
+   → Suggestion: Task B is completed. Consider closing Task A as duplicate.
+
+--------------------------------------------------------------------------------
+
+10. Confidence: 100%
+   Reason: Exact title match: 'youtube pipeline minimal moves'
+
+   Task A: TASK-PLAN-001-youtube-pipeline
+   Title:  ACTION PLAN: YouTube Pipeline (Minimal Moves)
+   Status: active | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PLAN-001-youtube-pipeline/task.md
+
+   Task B: ACTION-PLAN-youtube-pipeline
+   Title:  ACTION PLAN: YouTube Pipeline (Minimal Moves)
+   Status: active | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/ACTION-PLAN-youtube-pipeline/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+11. Confidence: 100%
+   Reason: Exact title match: 'complete goals system setup'
+
+   Task A: TASK-GOALS-001
+   Title:  TASK-GOALS-001: Complete Goals System Setup
+   Status: unknown | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-GOALS-001/task.md
+
+   Task B: TASK-ARCH-014-goals-system
+   Title:  TASK-GOALS-001: Complete Goals System Setup
+   Status: unknown | Priority: unknown
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-014-goals-system/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+12. Confidence: 100%
+   Reason: Exact title match: 'task status lifecycle automation critical blocker 2'
+
+   Task A: TASK-STATUS-LIFECYCLE-ACTION-PLAN
+   Title:  Action Plan: Task Status Lifecycle Automation (Critical Blocker #2)
+   Status: active | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-STATUS-LIFECYCLE-ACTION-PLAN/task.md
+
+   Task B: TASK-ARCH-015-status-lifecycle
+   Title:  Action Plan: Task Status Lifecycle Automation (Critical Blocker #2)
+   Status: completed | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-015-status-lifecycle/task.md
+
+   → Suggestion: Task B is completed. Consider closing Task A as duplicate.
+
+--------------------------------------------------------------------------------
+
+13. Confidence: 100%
+   Reason: Exact title match: 'implement automatic roadmap state synchronization'
+
+   Task A: TASK-1769905000-implement-auto-sync-roadmap-state
+   Title:  TASK-1769905000: Implement Automatic Roadmap State Synchronization
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769905000-implement-auto-sync-roadmap-state/task.md
+
+   Task B: TASK-1769911101-auto-sync-roadmap-state
+   Title:  TASK-1769911101: Implement Automatic Roadmap State Synchronization
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769911101-auto-sync-roadmap-state/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+14. Confidence: 100%
+   Reason: Exact title match: 'review and improve claude md decision framework'
+
+   Task A: TASK-1738366800-claude-md-improvements
+   Title:  TASK-1738366800: Review and Improve CLAUDE.md Decision Framework
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1738366800-claude-md-improvements/task.md
+
+   Task B: TASK-1769892002-claude-md-improvements
+   Title:  TASK-1769892002: Review and Improve CLAUDE.md Decision Framework
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769892002-claude-md-improvements/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+15. Confidence: 100%
+   Reason: Exact title match: 'fix import path errors'
+
+   Task A: TASK-1769808835-fix-import-path-errors
+   Title:  TASK-1769808835: Fix Import Path Errors
+   Status: completed | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769808835-fix-import-path-errors/task.md
+
+   Task B: TASK-1769807450-fix-import-path-errors
+   Title:  TASK-1769807450: Fix Import Path Errors
+   Status: pending | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769807450-fix-import-path-errors/task.md
+
+   → Suggestion: Task A is completed. Consider closing Task B as duplicate.
+
+--------------------------------------------------------------------------------
+
+16. Confidence: 100%
+   Reason: Exact title match: 'fix skills system critical issues'
+
+   Task A: TASK-1738300332-fix-skills-system-critical-issues
+   Title:  TASK-1738300332: Fix Skills System Critical Issues
+   Status: in_progress | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1738300332-fix-skills-system-critical-issues/task.md
+
+   Task B: TASK-20260130-001-fix-skills-system
+   Title:  TASK-20260130-001: Fix Skills System Critical Issues
+   Status: in_progress | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-20260130-001-fix-skills-system/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+17. Confidence: 100%
+   Reason: Exact title match: 'fix skills system critical issues'
+
+   Task A: TASK-1738300332-fix-skills-system-critical-issues
+   Title:  TASK-1738300332: Fix Skills System Critical Issues
+   Status: in_progress | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1738300332-fix-skills-system-critical-issues/task.md
+
+   Task B: TASK-1769807395-fix-skills-system-critical-issues
+   Title:  TASK-1769807395: Fix Skills System Critical Issues
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769807395-fix-skills-system-critical-issues/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+18. Confidence: 100%
+   Reason: Exact title match: 'verify and complete plan 004 import fixes'
+
+   Task A: ralf-core
+   Title:  TASK-1738334520: Verify and Complete PLAN-004 Import Fixes
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/ralf-core/TASK-1769813746-verify-plan004-imports.md
+
+   Task B: TASK-1769813746-verify-plan004-imports
+   Title:  TASK-1738334520: Verify and Complete PLAN-004 Import Fixes
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769813746-verify-plan004-imports/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+19. Confidence: 100%
+   Reason: Exact title match: 'optimize legacy md operational procedures'
+
+   Task A: TASK-1769895001-legacy-md-optimization
+   Title:  TASK-1769895001: Optimize LEGACY.md Operational Procedures
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769895001-legacy-md-optimization/task.md
+
+   Task B: TASK-1769895001-optimize-legacy-md-procedures
+   Title:  TASK-1769895001: Optimize LEGACY.md Operational Procedures
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769895001-optimize-legacy-md-procedures/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+20. Confidence: 100%
+   Reason: Exact title match: 'make pre execution research mandatory'
+
+   Task A: TASK-1769912002-mandatory-pre-execution-research
+   Title:  TASK-1769912002: Make Pre-Execution Research Mandatory
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769912002-mandatory-pre-execution-research/task.md
+
+   Task B: TASK-1769908000-mandatory-pre-execution-research
+   Title:  TASK-1769908000: Make Pre-Execution Research Mandatory
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769908000-mandatory-pre-execution-research/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+21. Confidence: 100%
+   Reason: Exact title match: 'create skill usage tracking system'
+
+   Task A: TASK-1738366801-skill-usage-tracking
+   Title:  TASK-1738366801: Create Skill Usage Tracking System
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1738366801-skill-usage-tracking/task.md
+
+   Task B: TASK-1769892001-skill-usage-tracking
+   Title:  TASK-1769892001: Create Skill Usage Tracking System
+   Status: completed | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769892001-skill-usage-tracking/task.md
+
+   → Suggestion: Task B is completed. Consider closing Task A as duplicate.
+
+--------------------------------------------------------------------------------
+
+22. Confidence: 100%
+   Reason: Exact title match: 'fix skills system critical issues'
+
+   Task A: TASK-20260130-001-fix-skills-system
+   Title:  TASK-20260130-001: Fix Skills System Critical Issues
+   Status: in_progress | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-20260130-001-fix-skills-system/task.md
+
+   Task B: TASK-1769807395-fix-skills-system-critical-issues
+   Title:  TASK-1769807395: Fix Skills System Critical Issues
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769807395-fix-skills-system-critical-issues/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+23. Confidence: 100%
+   Reason: Exact title match: 'fix routes yaml incorrect paths'
+
+   Task A: TASK-ARCH-064
+   Title:  TASK-ARCH-064: Fix routes.yaml Incorrect Paths
+   Status: completed | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-064/task.md
+
+   Task B: TASK-ARCH-064-fix-routes-yaml
+   Title:  TASK-ARCH-064: Fix routes.yaml Incorrect Paths
+   Status: pending | Priority: critical
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-064-fix-routes-yaml/task.md
+
+   → Suggestion: Task A is completed. Consider closing Task B as duplicate.
+
+--------------------------------------------------------------------------------
+
+24. Confidence: 88%
+   Reason: High content similarity (88%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-DOCU-044
+   Title:  TASK-DOCU-044: Task System Design References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-044/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+25. Confidence: 88%
+   Reason: High content similarity (88%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-DOCU-051
+   Title:  TASK-DOCU-051: Goals System Guide References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+26. Confidence: 88%
+   Reason: High title similarity (88%)
+
+   Task A: TASK-DOCU-044
+   Title:  TASK-DOCU-044: Task System Design References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-044/task.md
+
+   Task B: TASK-DOCU-051
+   Title:  TASK-DOCU-051: Goals System Guide References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+27. Confidence: 87%
+   Reason: High title similarity (87%)
+
+   Task A: TASK-1769892003-archive-old-runs
+   Title:  TASK-1769892003: Archive Old Runs and Update Run Lifecycle
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1769892003-archive-old-runs/task.md
+
+   Task B: TASK-1738366802-archive-old-runs
+   Title:  TASK-1738366802: Archive Analyzed Runs and Update Lifecycle
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-1738366802-archive-old-runs/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+28. Confidence: 87%
+   Reason: High content similarity (87%)
+
+   Task A: TASK-PROC-027
+   Title:  TASK-PROC-027: Improvement Effectiveness Scores Missing Validation Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-027/task.md
+
+   Task B: TASK-PROC-033
+   Title:  TASK-PROC-033: Extraction Rate Below Target Without Root Cause Analysis
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-033/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+29. Confidence: 86%
+   Reason: High content similarity (86%)
+
+   Task A: TASK-PROC-027
+   Title:  TASK-PROC-027: Improvement Effectiveness Scores Missing Validation Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-027/task.md
+
+   Task B: TASK-INFR-026
+   Title:  TASK-INFR-026: Test Results Template Not Populated
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-INFR-026/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+30. Confidence: 86%
+   Reason: High content similarity (86%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-DOCU-048
+   Title:  TASK-DOCU-048: SISO-Internal Patterns Documentation References Missing Templates
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+31. Confidence: 85%
+   Reason: High content similarity (85%)
+
+   Task A: TASK-INFR-026
+   Title:  TASK-INFR-026: Test Results Template Not Populated
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-INFR-026/task.md
+
+   Task B: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+32. Confidence: 85%
+   Reason: High content similarity (85%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-DOCU-049
+   Title:  TASK-DOCU-049: Architecture Dashboard Shows Stale Task Status
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+33. Confidence: 85%
+   Reason: High content similarity (85%)
+
+   Task A: TASK-PROC-020
+   Title:  TASK-PROC-020: Duplicate Task Directories for Same Work
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020/task.md
+
+   Task B: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+34. Confidence: 85%
+   Reason: High content similarity (85%)
+
+   Task A: TASK-DOCU-049
+   Title:  TASK-DOCU-049: Architecture Dashboard Shows Stale Task Status
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049/task.md
+
+   Task B: TASK-DOCU-048
+   Title:  TASK-DOCU-048: SISO-Internal Patterns Documentation References Missing Templates
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+35. Confidence: 84%
+   Reason: High content similarity (84%)
+
+   Task A: TASK-PROC-027
+   Title:  TASK-PROC-027: Improvement Effectiveness Scores Missing Validation Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-027/task.md
+
+   Task B: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+36. Confidence: 84%
+   Reason: High content similarity (84%)
+
+   Task A: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   Task B: TASK-PROC-015
+   Title:  TASK-PROC-015: Commit Compliance at 75% - Missing 25% of Task Commits
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-015/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+37. Confidence: 83%
+   Reason: High content similarity (83%)
+
+   Task A: TASK-PROC-027
+   Title:  TASK-PROC-027: Improvement Effectiveness Scores Missing Validation Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-027/task.md
+
+   Task B: TASK-SKIL-007
+   Title:  TASK-SKIL-007: All Skills Have Null Effectiveness Metrics
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-007/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+38. Confidence: 83%
+   Reason: High content similarity (83%)
+
+   Task A: TASK-DOCU-034
+   Title:  TASK-DOCU-034: Inconsistent Directory Structure Documentation
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-034/task.md
+
+   Task B: TASK-DOCU-025
+   Title:  TASK-DOCU-025: Skill Metrics Documentation Drift - Zero Usage Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-025/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+39. Confidence: 83%
+   Reason: High content similarity (83%)
+
+   Task A: TASK-DOCU-051
+   Title:  TASK-DOCU-051: Goals System Guide References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051/task.md
+
+   Task B: TASK-DOCU-049
+   Title:  TASK-DOCU-049: Architecture Dashboard Shows Stale Task Status
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+40. Confidence: 83%
+   Reason: High content similarity (83%)
+
+   Task A: TASK-DOCU-051
+   Title:  TASK-DOCU-051: Goals System Guide References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051/task.md
+
+   Task B: TASK-DOCU-048
+   Title:  TASK-DOCU-048: SISO-Internal Patterns Documentation References Missing Templates
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+41. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-DOCU-025
+   Title:  TASK-DOCU-025: Skill Metrics Documentation Drift - Zero Usage Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-025/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+42. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-INFR-026
+   Title:  TASK-INFR-026: Test Results Template Not Populated
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-INFR-026/task.md
+
+   Task B: TASK-MANU-041
+   Title:  TASK-MANU-041: Manual Steps Required for GitHub Actions Setup
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-MANU-041/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+43. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   Task B: TASK-DOCU-034
+   Title:  TASK-DOCU-034: Inconsistent Directory Structure Documentation
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-034/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+44. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-DOCU-034
+   Title:  TASK-DOCU-034: Inconsistent Directory Structure Documentation
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-034/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+45. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-PROC-027
+   Title:  TASK-PROC-027: Improvement Effectiveness Scores Missing Validation Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-027/task.md
+
+   Task B: TASK-MANU-041
+   Title:  TASK-MANU-041: Manual Steps Required for GitHub Actions Setup
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-MANU-041/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+46. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   Task B: TASK-MANU-041
+   Title:  TASK-MANU-041: Manual Steps Required for GitHub Actions Setup
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-MANU-041/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+47. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-MANU-041
+   Title:  TASK-MANU-041: Manual Steps Required for GitHub Actions Setup
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-MANU-041/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+48. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-SKIL-050
+   Title:  TASK-SKIL-050: Unused Infrastructure Skills - Potential Waste
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-050/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+49. Confidence: 82%
+   Reason: High content similarity (82%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-PROC-015
+   Title:  TASK-PROC-015: Commit Compliance at 75% - Missing 25% of Task Commits
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-015/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+50. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   Task B: TASK-PROC-006
+   Title:  TASK-PROC-006: Skill Integration Plan Exists But Not Implemented
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-006/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+51. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-051
+   Title:  TASK-DOCU-051: Goals System Guide References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051/task.md
+
+   Task B: TASK-DOCU-034
+   Title:  TASK-DOCU-034: Inconsistent Directory Structure Documentation
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-034/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+52. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-INFR-026
+   Title:  TASK-INFR-026: Test Results Template Not Populated
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-INFR-026/task.md
+
+   Task B: TASK-DOCU-049
+   Title:  TASK-DOCU-049: Architecture Dashboard Shows Stale Task Status
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+53. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-044
+   Title:  TASK-DOCU-044: Task System Design References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-044/task.md
+
+   Task B: TASK-DOCU-034
+   Title:  TASK-DOCU-034: Inconsistent Directory Structure Documentation
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-034/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+54. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-PROC-033
+   Title:  TASK-PROC-033: Extraction Rate Below Target Without Root Cause Analysis
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-033/task.md
+
+   Task B: TASK-ARCH-021
+   Title:  TASK-ARCH-021: No Abstraction for Queue/Communication System
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-021/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+55. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   Task B: TASK-DOCU-049
+   Title:  TASK-DOCU-049: Architecture Dashboard Shows Stale Task Status
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+56. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-048
+   Title:  TASK-DOCU-048: SISO-Internal Patterns Documentation References Missing Templates
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048/task.md
+
+   Task B: TASK-ARCH-052
+   Title:  TASK-ARCH-052: Dry-Run Library Not Used Consistently
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-052/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+57. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-025
+   Title:  TASK-DOCU-025: Skill Metrics Documentation Drift - Zero Usage Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-025/task.md
+
+   Task B: TASK-PROC-015
+   Title:  TASK-PROC-015: Commit Compliance at 75% - Missing 25% of Task Commits
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-015/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+58. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-PROC-020
+   Title:  TASK-PROC-020: Duplicate Task Directories for Same Work
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020/task.md
+
+   Task B: TASK-PROC-015
+   Title:  TASK-PROC-015: Commit Compliance at 75% - Missing 25% of Task Commits
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-015/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+59. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-PROC-020
+   Title:  TASK-PROC-020: Duplicate Task Directories for Same Work
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020/task.md
+
+   Task B: TASK-DOCU-049
+   Title:  TASK-DOCU-049: Architecture Dashboard Shows Stale Task Status
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+60. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-SKIL-032
+   Title:  TASK-SKIL-032: Zero ROI Calculations Across All Skills
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+61. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-025
+   Title:  TASK-DOCU-025: Skill Metrics Documentation Drift - Zero Usage Data
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-025/task.md
+
+   Task B: TASK-DOCU-048
+   Title:  TASK-DOCU-048: SISO-Internal Patterns Documentation References Missing Templates
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+62. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-043
+   Title:  TASK-DOCU-043: Migration Plan References Non-Existent RALF-Core Content
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043/task.md
+
+   Task B: TASK-SKIL-007
+   Title:  TASK-SKIL-007: All Skills Have Null Effectiveness Metrics
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-007/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+63. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-DOCU-044
+   Title:  TASK-DOCU-044: Task System Design References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-044/task.md
+
+   Task B: TASK-DOCU-048
+   Title:  TASK-DOCU-048: SISO-Internal Patterns Documentation References Missing Templates
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+64. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-PROC-020
+   Title:  TASK-PROC-020: Duplicate Task Directories for Same Work
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020/task.md
+
+   Task B: TASK-SKIL-005
+   Title:  TASK-SKIL-005: Threshold Preventing Valid Skill Matches
+   Status: completed | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-005/task.md
+
+   → Suggestion: Task B is completed. Consider closing Task A as duplicate.
+
+--------------------------------------------------------------------------------
+
+65. Confidence: 81%
+   Reason: High content similarity (81%)
+
+   Task A: TASK-PROC-020
+   Title:  TASK-PROC-020: Duplicate Task Directories for Same Work
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020/task.md
+
+   Task B: TASK-PROC-030
+   Title:  TASK-PROC-030: Validation Checklist Usage Log Empty
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-030/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+66. Confidence: 80%
+   Reason: High content similarity (80%)
+
+   Task A: TASK-PROC-033
+   Title:  TASK-PROC-033: Extraction Rate Below Target Without Root Cause Analysis
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-033/task.md
+
+   Task B: TASK-PROC-015
+   Title:  TASK-PROC-015: Commit Compliance at 75% - Missing 25% of Task Commits
+   Status: pending | Priority: high
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-015/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+67. Confidence: 80%
+   Reason: High content similarity (80%)
+
+   Task A: TASK-PROC-020
+   Title:  TASK-PROC-020: Duplicate Task Directories for Same Work
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020/task.md
+
+   Task B: TASK-PROC-033
+   Title:  TASK-PROC-033: Extraction Rate Below Target Without Root Cause Analysis
+   Status: pending | Priority: medium
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-033/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------
+
+68. Confidence: 80%
+   Reason: High content similarity (80%)
+
+   Task A: TASK-DOCU-051
+   Title:  TASK-DOCU-051: Goals System Guide References Non-Existent Files
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051/task.md
+
+   Task B: TASK-ARCH-052
+   Title:  TASK-ARCH-052: Dry-Run Library Not Used Consistently
+   Status: pending | Priority: low
+   Path:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-052/task.md
+
+   → Suggestion: Review and merge or close one of these tasks.
+
+--------------------------------------------------------------------------------

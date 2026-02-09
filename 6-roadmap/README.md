@@ -41,10 +41,7 @@
 ├── research/               # Research documentation
 ├── first-principles/       # First principles analysis
 ├── frameworks/             # Framework research
-├── guides/                 # How-to guides
-│   ├── design/             # Design guides
-│   ├── implementation/     # Implementation guides
-│   └── strategy/           # Strategy guides
+├── (see ../../1-docs/guides/)  # How-to guides (moved to 1-docs)
 ├── archives/               # Historical summaries
 └── templates/              # Document templates
 ```
@@ -85,9 +82,9 @@
 ### Guides
 | Location | Contents |
 |----------|----------|
-| `guides/design/` | Design system documentation |
-| `guides/implementation/` | Implementation guides |
-| `guides/strategy/` | Testing and strategy guides |
+| `../../1-docs/guides/design/` | Design system documentation (moved) |
+| `../../1-docs/guides/implementation/` | Implementation guides (moved) |
+| `../../1-docs/guides/strategy/` | Testing and strategy guides (moved) |
 
 ---
 

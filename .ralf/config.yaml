@@ -1,0 +1,54 @@
+# RALF User Configuration
+# =======================
+# This file contains user-level RALF configuration.
+# It applies to all projects unless overridden by project config.
+# Location: ~/.config/ralf/config.yaml (or $XDG_CONFIG_HOME/ralf/config.yaml)
+
+ralf:
+  version: "3.0.0"
+
+# User-specific path preferences
+paths:
+  # Override default paths if needed
+  # project_root: "~/projects/my-project"
+  # engine_dir: "~/blackbox5/2-engine"
+
+# User agent preferences
+agents:
+  scout:
+    enabled: true
+    parallel: false  # User prefers sequential analysis
+
+  planner:
+    enabled: true
+
+  executor:
+    enabled: true
+    dry_run: false
+
+  verifier:
+    enabled: true
+
+# User logging preferences
+logging:
+  level: "INFO"
+  console: true
+  # User can specify a custom log file location
+  # file: "~/.ralf/logs/ralf.log"
+
+# User feature preferences
+features:
+  skills:
+    enabled: true
+    auto_trigger: true
+
+  improvement_loop:
+    enabled: true
+    max_iterations: 10
+
+  timeline:
+    enabled: true
+    auto_track: true
+
+  hooks:
+    enabled: true

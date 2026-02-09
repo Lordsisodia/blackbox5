@@ -82,3 +82,4 @@ htmlcov/
 # Build artifacts
 *.o
 *.a
+task-agent-env.txt

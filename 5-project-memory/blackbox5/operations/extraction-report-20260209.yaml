@@ -1,0 +1,542 @@
+generated_at: '2026-02-09T11:23:01.021886'
+active_tasks:
+  total_tasks: 54
+  tasks_with_learnings: 3
+  tasks_with_decisions: 0
+  tasks_with_both: 0
+  tasks_with_neither: 51
+  total_learnings: 19
+  total_decisions: 0
+  learning_extraction_rate: 5.6
+  decision_extraction_rate: 0.0
+  overall_extraction_rate: 2.8
+  by_type:
+    architecture:
+      count: 1
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    unknown:
+      count: 28
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    documentation:
+      count: 7
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    process:
+      count: 9
+      with_learnings: 3
+      with_decisions: 0
+      total_learnings: 19
+      total_decisions: 0
+    skills:
+      count: 6
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    infrastructure:
+      count: 2
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    manual:
+      count: 1
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+  low_extraction_tasks:
+  - id: TASK-ARCH-028
+    type: architecture
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-RALF-010
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-043
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-044
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-AUTONOMY-001
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-018
+    type: skills
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-HINDSIGHT-006
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-010-001-sessionstart-enhanced
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-1769978192
+    type: unknown
+    status: active
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-INFR-026
+    type: infrastructure
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-050
+    type: skills
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-INFR-010
+    type: infrastructure
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-003
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-032
+    type: skills
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-1738375000
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-analyze-mirror-candidates
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DEV-011-youtube-automation
+    type: unknown
+    status: unknown
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-033
+    type: process
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCS-010-youtube-pipeline-plan
+    type: unknown
+    status: active
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-005
+    type: skills
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-1770163374
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TEMPLATE
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-051
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-034
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-MEMORY-001-improve-persistent-memory
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-RALF-002
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: AGENT-SYSTEM-AUDIT
+    type: unknown
+    status: in_progress
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-RALF-003
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-049
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PLAN-001-youtube-pipeline
+    type: unknown
+    status: active
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-025
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-AUTONOMY-004
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DOCU-048
+    type: documentation
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-TEMPLATE-002
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-GOALS-001
+    type: unknown
+    status: unknown
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-MANU-041
+    type: manual
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-CC-REPO-ANALYSIS-001
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-014
+    type: skills
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-HINDSIGHT-005
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-007
+    type: skills
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-031
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-AUTO-021-persistent-memory
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-CLEANUP-LOOP
+    type: unknown
+    status: in_progress
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-008
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-030
+    type: process
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-006
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-001
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-RALF-001
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-DEV-010-cli-interface-f016
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-AUTO-010-agent-system-audit
+    type: unknown
+    status: in_progress
+    learnings_count: 0
+    decisions_count: 0
+  - id: ACTION-PLAN-youtube-pipeline
+    type: unknown
+    status: active
+    learnings_count: 0
+    decisions_count: 0
+completed_tasks:
+  total_tasks: 33
+  tasks_with_learnings: 0
+  tasks_with_decisions: 0
+  tasks_with_both: 0
+  tasks_with_neither: 33
+  total_learnings: 0
+  total_decisions: 0
+  learning_extraction_rate: 0.0
+  decision_extraction_rate: 0.0
+  overall_extraction_rate: 0.0
+  by_type:
+    architecture:
+      count: 3
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    unknown:
+      count: 25
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    skills:
+      count: 2
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+    process:
+      count: 3
+      with_learnings: 0
+      with_decisions: 0
+      total_learnings: 0
+      total_decisions: 0
+  low_extraction_tasks:
+  - id: TASK-ARCH-017
+    type: architecture
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-028
+    type: architecture
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-010
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-011
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-003D
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-005
+    type: skills
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-1770163374
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-001A
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-005
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-MEMORY-001-improve-persistent-memory
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-002
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-003
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-004
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-003A
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-TEMPLATE-002
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SSOT-002
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-015
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SSOT-004
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-014
+    type: skills
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-031
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SSOT-019
+    type: unknown
+    status: pending
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-AUTO-021-persistent-memory
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-PROC-008
+    type: process
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-SKIL-001
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-008
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-001
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-006
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-012-mirror-candidates
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-007
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-009
+    type: unknown
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: TASK-ARCH-036
+    type: architecture
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+  - id: subtasks
+    type: unknown
+    status: unknown
+    learnings_count: 0
+    decisions_count: 0
+  - id: subtasks
+    type: unknown
+    status: unknown
+    learnings_count: 0
+    decisions_count: 0
+autonomous_runs:
+  total_tasks: 2
+  tasks_with_learnings: 1
+  tasks_with_decisions: 1
+  tasks_with_both: 1
+  tasks_with_neither: 1
+  total_learnings: 4
+  total_decisions: 31
+  learning_extraction_rate: 50.0
+  decision_extraction_rate: 50.0
+  overall_extraction_rate: 50.0
+  by_type:
+    run:
+      count: 2
+      with_learnings: 1
+      with_decisions: 1
+      total_learnings: 4
+      total_decisions: 31
+  low_extraction_tasks:
+  - id: run-20260207_224106
+    type: run
+    status: completed
+    learnings_count: 0
+    decisions_count: 0
+summary:
+  total_tasks: 87
+  total_learnings: 23
+  total_decisions: 31
+  overall_extraction_rate: 1.4

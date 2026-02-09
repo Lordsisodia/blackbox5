@@ -1,0 +1,334 @@
+#!/bin/bash
+#
+# RALF-Planner
+# Purpose: Analyze codebase, plan tasks, fill queue
+# Runs: Continuously in background
+#
+
+set -euo pipefail
+
+# Configuration
+PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+COMM_DIR="$PROJECT_DIR/.autonomous/communications"
+QUEUE_FILE="$COMM_DIR/queue.yaml"
+EVENTS_FILE="$COMM_DIR/events.yaml"
+CHAT_FILE="$COMM_DIR/chat-log.yaml"
+HEARTBEAT_FILE="$COMM_DIR/heartbeat.yaml"
+STATE_FILE="$PROJECT_DIR/STATE.yaml"
+GOALS_FILE="$PROJECT_DIR/goals.yaml"
+
+# Load config from ralf-config.yaml if exists
+RALF_CONFIG_FILE="$PROJECT_DIR/ralf-config.yaml"
+if [[ -f "$RALF_CONFIG_FILE" ]]; then
+    # Parse basic settings from config
+    QUEUE_TARGET=$(yq '.queue_target // 5' "$RALF_CONFIG_FILE" 2>/dev/null || echo "5")
+    QUEUE_MIN=$(yq '.queue_min // 2' "$RALF_CONFIG_FILE" 2>/dev/null || echo "2")
+    LOOP_INTERVAL=$(yq '.loop_interval // 30' "$RALF_CONFIG_FILE" 2>/dev/null || echo "30")
+    SKILLS_ENABLED=$(yq '.skills_enabled // true' "$RALF_CONFIG_FILE" 2>/dev/null || echo "true")
+else
+    QUEUE_TARGET=5
+    QUEUE_MIN=2
+    LOOP_INTERVAL=30
+    SKILLS_ENABLED="true"
+fi
+
+# Environment overrides
+QUEUE_TARGET="${RALF_QUEUE_TARGET:-$QUEUE_TARGET}"
+QUEUE_MIN="${RALF_QUEUE_MIN:-$QUEUE_MIN}"
+LOOP_INTERVAL="${RALF_LOOP_INTERVAL:-$LOOP_INTERVAL}"
+SKILLS_ENABLED="${RALF_SKILLS_ENABLED:-$SKILLS_ENABLED}"
+
+# Logging
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] [PLANNER] $*"
+}
+
+# Update heartbeat using Python for reliable YAML manipulation
+update_heartbeat() {
+    local status="$1"
+    local action="${2:-idle}"
+
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
+
+heartbeat_file = "$HEARTBEAT_FILE"
+
+try:
+    with open(heartbeat_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {}
+except FileNotFoundError:
+    data = {}
+
+if not isinstance(data, dict):
+    data = {}
+if "heartbeats" not in data:
+    data["heartbeats"] = {}
+if "planner" not in data["heartbeats"]:
+    data["heartbeats"]["planner"] = {}
+if "executor" not in data["heartbeats"]:
+    data["heartbeats"]["executor"] = {}
+if "metadata" not in data:
+    data["metadata"] = {}
+
+now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+data["heartbeats"]["planner"]["last_seen"] = now
+data["heartbeats"]["planner"]["status"] = "$status"
+data["heartbeats"]["planner"]["current_action"] = "$action"
+
+# Preserve executor data if exists
+data["metadata"]["timeout_seconds"] = 120
+data["metadata"]["last_updated"] = now
+
+with open(heartbeat_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+PYEOF
+}
+
+# Get current queue depth
+get_queue_depth() {
+    yq '.queue | length' "$QUEUE_FILE" 2>/dev/null || echo "0"
+}
+
+# Read recent events
+read_events() {
+    local tail_count="${1:-10}"
+    yq ".events | .[-$tail_count:]" "$EVENTS_FILE" 2>/dev/null || echo "[]"
+}
+
+# Read new chat messages
+read_chat() {
+    yq '.messages' "$CHAT_FILE" 2>/dev/null || echo "[]"
+}
+
+# Add task to queue using Python for reliable YAML manipulation
+add_to_queue() {
+    local task_id="$1"
+    local task_type="$2"
+    local title="$3"
+    local priority="$4"
+    local estimated="$5"
+    local approach="$6"
+
+    python3 << PYEOF
+import yaml
+import sys
+from datetime import datetime, timezone
+
+queue_file = "$QUEUE_FILE"
+queue_target = $QUEUE_TARGET
+
+task = {
+    "id": "$task_id",
+    "type": "$task_type",
+    "title": "$title",
+    "priority": "$priority",
+    "estimated_minutes": $estimated,
+    "context_level": 2,
+    "approach": "$approach",
+    "status": "pending",
+    "added_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+}
+
+try:
+    with open(queue_file, 'r') as f:
+        data = yaml.safe_load(f)
+        if data is None:
+            data = {"queue": [], "metadata": {}}
+except FileNotFoundError:
+    data = {"queue": [], "metadata": {}}
+
+if not isinstance(data, dict):
+    data = {"queue": [], "metadata": {}}
+if "queue" not in data:
+    data["queue"] = []
+if "metadata" not in data:
+    data["metadata"] = {}
+
+data["queue"].append(task)
+data["metadata"]["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+data["metadata"]["updated_by"] = "planner"
+data["metadata"]["queue_depth_target"] = queue_target
+data["metadata"]["current_depth"] = len(data["queue"])
+
+with open(queue_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+
+print(f"Added task $task_id to queue")
+PYEOF
+
+    log "Added task $task_id to queue"
+}
+
+# Select skill for task if skills enabled
+select_skill_for_task() {
+    local task_type="$1"
+    local task_title="$2"
+
+    if [[ "$SKILLS_ENABLED" != "true" ]]; then
+        return
+    fi
+
+    # Check if skill provider is available
+    local skill_provider_lib="$HOME/.blackbox5/2-engine/.autonomous/lib/skill_provider.py"
+    if [[ ! -f "$skill_provider_lib" ]]; then
+        return
+    fi
+
+    # Try to select skill using Python provider
+    local selected_skill
+    selected_skill=$(python3 << PYEOF
+import sys
+sys.path.insert(0, "$HOME/.blackbox5/2-engine/.autonomous/lib")
+from skill_provider import get_skill_provider
+
+provider = get_skill_provider("$PROJECT_DIR")
+if provider.is_enabled():
+    skill = provider.select_skill("$task_title")
+    if skill:
+        print(skill)
+PYEOF
+)
+
+    if [[ -n "$selected_skill" ]]; then
+        log "Selected skill: $selected_skill"
+        echo "$selected_skill"
+    fi
+}
+
+# Plan next tasks based on STATE.yaml
+plan_tasks() {
+    local needed="$1"
+    log "Planning $needed tasks..."
+
+    # Read STATE.yaml to find what needs doing
+    local next_action
+    next_action=$(yq '.tasks.next_action' "$STATE_FILE" 2>/dev/null || echo "null")
+
+    if [[ "$next_action" == "null" ]]; then
+        log "No next_action in STATE.yaml, analyzing..."
+        # TODO: Implement deep analysis to find work
+        # For now, add a placeholder analysis task
+        add_to_queue \
+            "TASK-ANALYSIS-$(date +%s)" \
+            "analyze" \
+            "Analyze codebase for next priorities" \
+            "medium" \
+            30 \
+            "Read STATE.yaml, goals.yaml, recent runs. Identify highest priority work."
+        return
+    fi
+
+    # Try to select appropriate skill
+    local selected_skill
+    selected_skill=$(select_skill_for_task "implement" "Execute $next_action")
+
+    # Build approach based on skill selection
+    local approach="Read task from STATE.yaml and execute"
+    if [[ -n "$selected_skill" ]]; then
+        approach="Use skill: $selected_skill. Read task from STATE.yaml and execute"
+    fi
+
+    # Add the next action as a task
+    add_to_queue \
+        "$next_action" \
+        "implement" \
+        "Execute $next_action" \
+        "high" \
+        60 \
+        "$approach"
+
+    # TODO: Add more tasks based on dependency chain
+}
+
+# Answer questions from chat
+answer_questions() {
+    local messages
+    messages=$(read_chat)
+
+    # Check for unanswered questions
+    local unanswered
+    unanswered=$(echo "$messages" | yq '[.[] | select(.type == "question" and .from == "executor")] | length')
+
+    if [[ "$unanswered" -gt 0 ]]; then
+        log "Found $unanswered unanswered questions"
+        # TODO: Implement question answering logic
+        # For now, just log that we saw them
+    fi
+}
+
+# Analyze codebase during idle time
+analyze_codebase() {
+    log "Queue full, analyzing codebase..."
+
+    # TODO: Implement actual analysis
+    # - Check for tech debt
+    # - Look for patterns
+    # - Identify organization opportunities
+    # - Write to knowledge/analysis/
+
+    log "Analysis complete (placeholder)"
+}
+
+# Main loop
+main() {
+    log "RALF-Planner starting..."
+    log "Project: $PROJECT_DIR"
+    log "Queue target: $QUEUE_TARGET"
+
+    # Initialize heartbeat
+    update_heartbeat "starting" "initializing"
+
+    while true; do
+        # Update heartbeat
+        update_heartbeat "running" "checking_state"
+
+        # Read executor status
+        local events
+        events=$(read_events 5)
+
+        # Check for questions
+        answer_questions
+
+        # Check queue depth
+        local depth
+        depth=$(get_queue_depth)
+        log "Current queue depth: $depth"
+
+        if [[ "$depth" -lt "$QUEUE_MIN" ]]; then
+            # Need more tasks
+            local needed=$((QUEUE_TARGET - depth))
+            update_heartbeat "running" "planning"
+            plan_tasks "$needed"
+
+        elif [[ "$depth" -ge "$QUEUE_TARGET" ]]; then
+            # Queue full, do analysis
+            update_heartbeat "running" "analyzing"
+            analyze_codebase
+
+        else
+            # Queue healthy, brief pause
+            log "Queue healthy ($depth tasks)"
+        fi
+
+        # Sleep before next iteration
+        update_heartbeat "running" "sleeping"
+        sleep "$LOOP_INTERVAL"
+    done
+}
+
+# Handle shutdown
+cleanup() {
+    log "Shutting down..."
+    update_heartbeat "stopped" "shutdown"
+    exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Run
+main "$@"

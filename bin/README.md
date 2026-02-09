@@ -13,6 +13,8 @@ This directory contains executable scripts and entry points for Blackbox5.
 | `ralf-loop.sh` | RALF autonomous loop implementation |
 | `vibe_kanban_integration.py` | Vibe Kanban integration utilities |
 | `ralf.md` | RALF prompt file (autonomous daemon) |
+| `generate-docs-index.py` | Auto-generate 1-docs/INDEX.md |
+| `install-docs-hooks.sh` | Install git hooks for docs index |
 
 ## Usage
 

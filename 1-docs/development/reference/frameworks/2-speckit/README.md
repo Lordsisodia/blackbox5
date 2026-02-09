@@ -1,21 +1,34 @@
-# 2-speckit
+# Speckit Framework
 
-Component in Blackbox4.
+> Specification-driven development framework
 
-## Location
+## Overview
 
-```
-.blackbox4/2-frameworks/2-speckit
-```
+Speckit is a framework for specification-driven development, focusing on clear requirements and structured implementation planning.
 
-## Parent Directory
+## Subdirectories
 
-Part of: [`.blackbox4/2-frameworks/`](../)
+- **slash-commands/** - Speckit slash command definitions
+- **templates/** - Specification templates
+
+## Files
+
+- `RESEARCH.md` - Research on Speckit framework
 
 ## Purpose
 
-This directory contains: `2-speckit`
+Speckit enables:
+- Clear specification writing
+- Structured requirement gathering
+- Template-based development
+- Slash command interfaces
 
-## Usage
+## Parent Directory
 
-See parent directory documentation for usage information.
+Part of: [`frameworks/`](../)
+
+## Related
+
+- [1-bmad](../1-bmad/) - BMAD framework
+- [3-metagpt](../3-metagpt/) - MetaGPT framework
+- [4-swarm](../4-swarm/) - Swarm framework

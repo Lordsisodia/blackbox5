@@ -1,0 +1,60 @@
+#!/bin/bash
+# bb5-populate-template - Template population engine
+# Usage: bb5-populate-template [template-file] [output-file] [key=value ...]
+
+set -e
+# Source dry-run utility library
+source "$(dirname "$0")/../../2-engine/helpers/legacy/dry_run.sh" 2>/dev/null || true
+
+TEMPLATE_FILE="$1"
+OUTPUT_FILE="$2"
+shift 2
+
+# Check arguments
+if [ -z "$TEMPLATE_FILE" ] || [ -z "$OUTPUT_FILE" ]; then
+    echo "Usage: bb5-populate-template [template-file] [output-file] [key=value ...]"
+    echo ""
+    echo "Variables:"
+    echo "  {{ID}}          - Auto-generated ID"
+    echo "  {{NAME}}        - Item name"
+    echo "  {{DATE}}        - Today's date (YYYY-MM-DD)"
+    echo "  {{DATETIME}}    - ISO timestamp"
+    echo "  {{AGENT}}       - Current agent type"
+    echo "  {{PARENT_GOAL}} - Parent goal ID"
+    echo "  {{PARENT_PLAN}} - Parent plan ID"
+    exit 1
+fi
+
+if [ ! -f "$TEMPLATE_FILE" ]; then
+    echo "Template file not found: $TEMPLATE_FILE"
+    exit 1
+fi
+
+# Parse key=value pairs from arguments
+for arg in "$@"; do
+    key="${arg%%=*}"
+    value="${arg#*=}"
+    export "$key=$value"
+done
+
+# Set default variables if not provided
+export DATE="${DATE:-$(date +%Y-%m-%d)}"
+export DATETIME="${DATETIME:-$(date -Iseconds)}"
+export AGENT="${AGENT:-${RALF_AGENT_TYPE:-unknown}}"
+
+# Read template and substitute variables
+while IFS= read -r line || [ -n "$line" ]; do
+    processed="$line"
+
+    # Replace {{VAR}} with environment variable value
+    for var in ID NAME DATE DATETIME AGENT PARENT_GOAL PARENT_PLAN; do
+        eval "value=\$$var"
+        # Escape special characters for sed
+        value_escaped=$(printf '%s' "$value" | sed 's/[&/\]/\\&/g')
+        processed=$(echo "$processed" | sed "s/{{$var}}/$value_escaped/g")
+    done
+
+    echo "$processed"
+done < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
+
+echo "✓ Populated template: $OUTPUT_FILE"

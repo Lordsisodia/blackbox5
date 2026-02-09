@@ -1,0 +1,106 @@
+# RALF Project Configuration - BlackBox5
+# ======================================
+# This file contains project-specific RALF configuration for BlackBox5.
+# It overrides the engine defaults and user settings.
+
+ralf:
+  version: "3.0.0"
+
+# Project-specific paths (relative to project root)
+paths:
+  # BlackBox5 uses standard paths
+  tasks_dir: "tasks/active"
+  runs_dir: ".autonomous/runs"
+  analysis_dir: ".autonomous/analysis"
+
+# Agent overrides for BlackBox5
+agents:
+  scout:
+    enabled: true
+    output_dir: ".autonomous/analysis/scout-reports"
+    max_analyzers: 5
+
+  planner:
+    enabled: true
+    output_dir: "tasks/active"
+
+  executor:
+    enabled: true
+    output_dir: ".autonomous/analysis/executor-reports"
+
+  verifier:
+    enabled: true
+    output_dir: ".autonomous/analysis/verifier-reports"
+
+# Feature toggles
+features:
+  skills:
+    enabled: true
+    config_path: "operations/skill-selection.yaml"
+    auto_trigger: true
+
+  improvement_loop:
+    enabled: true
+    max_iterations: 10
+
+  timeline:
+    enabled: true
+    auto_track: true
+
+  hooks:
+    enabled: true
+
+# Project-specific logging
+logging:
+  level: "INFO"
+  file: ".autonomous/logs/ralf.log"
+
+# BlackBox5 specific task handlers
+task_handlers:
+  threshold_fix:
+    handler: "execute_threshold_fix"
+    validation_rules:
+      - "check_threshold_value"
+      - "check_documentation_updated"
+      - "check_yaml_valid"
+
+  engine_path_fix:
+    handler: "execute_fix_engine_path"
+    validation_rules:
+      - "check_no_old_references"
+      - "check_new_references_present"
+
+  standardize_thresholds:
+    handler: "execute_standardize_thresholds"
+    validation_rules:
+      - "check_all_thresholds_standardized"
+
+# Dependency rules
+dependency_rules:
+  skill_tasks: []
+  infrastructure_tasks: []
+  architecture_tasks: []
+  process_tasks: []
+
+# Task Selection Configuration
+# Controls how tasks are selected from the queue
+task_selection:
+  # Enable randomization among same-priority tasks
+  # When enabled, tasks within the same priority group are selected randomly
+  # When disabled, always picks the first task (highest priority_score)
+  randomization_enabled: true
+
+  # Randomization factor: 0.0 to 1.0
+  # 0.0 = Deterministic (always pick highest priority_score)
+  # 0.5 = Balanced (equal weight to priority and randomness)
+  # 1.0 = Fully random (ignore priority_score, pure random selection)
+  randomization_factor: 0.3
+
+  # Fairness window: Number of recent selections to track per task
+  # Tasks selected within this window get lower probability
+  # Prevents the same task from being selected repeatedly
+  fairness_window: 5
+
+  # Fairness boost factor: How much to boost tasks not recently selected
+  # Higher values = stronger preference for unselected tasks
+  fairness_boost_factor: 1.5

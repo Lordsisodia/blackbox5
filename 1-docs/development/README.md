@@ -7,10 +7,30 @@ Development, testing, and reference materials for the BlackBox5 Engine.
 This folder contains everything needed to develop with, test, and understand the engine.
 
 ```
-08-development/
-├── tests/           # Test suite (48 files)
-├── examples/        # Usage examples (5 files)
-└── reference/       # Reference material (56 files)
+development/
+├── ci-cd/                  # CI/CD workflows and setup
+├── examples/               # Usage examples
+│   ├── agents/             # Agent examples
+│   ├── basic/              # Basic examples
+│   ├── integrations/       # Integration examples
+│   └── workflows/          # Workflow examples
+├── prompt-compression/     # LLMLingua and compression research
+├── reference/              # Reference material
+│   ├── frameworks/         # Framework comparisons (BMAD, SpecKit, MetaGPT, Swarm)
+│   ├── templates/          # Document templates
+│   │   ├── general/        # General templates
+│   │   │   └── github/     # GitHub templates
+│   │   └── specs/          # Specification templates
+│   │       ├── epics/      # Epic templates
+│   │       ├── prds/       # PRD templates
+│   │       └── tasks/      # Task templates
+│   └── tools/              # Development tools
+│       ├── setup/          # Setup scripts
+│       └── verification/   # Verification scripts
+├── security/               # Security documentation
+└── tests/                  # Test suite
+    ├── numbers/            # Numbered test suites
+    └── unified/            # Unified test suite
 ```
 
 ## Tests (`tests/`)
@@ -146,8 +166,42 @@ Development utility scripts:
 3. **No duplicates**: Everything has one place
 4. **Scalable**: Easy to add new content
 
+## Subsections
+
+### ci-cd/
+GitHub Actions workflows for CI/CD.
+- [SETUP.md](ci-cd/SETUP.md) - CI/CD setup guide
+
+### examples/
+Code examples showing how to use the engine.
+- [agents/](examples/agents/) - Agent examples
+- [basic/](examples/basic/) - Basic examples
+- [integrations/](examples/integrations/) - Integration examples
+- [workflows/](examples/workflows/) - Workflow examples
+
+### prompt-compression/
+LLMLingua and prompt compression research.
+- [HUGGINGFACE-SETUP.md](prompt-compression/HUGGINGFACE-SETUP.md)
+- [LLMLINGUA-REQUIREMENTS.md](prompt-compression/LLMLINGUA-REQUIREMENTS.md)
+- [LLMLINGUA-SETUP-GUIDE.md](prompt-compression/LLMLINGUA-SETUP-GUIDE.md)
+
+### reference/
+Reference material for development.
+- [frameworks/](reference/frameworks/) - Framework comparisons (BMAD, SpecKit, MetaGPT, Swarm)
+- [templates/](reference/templates/) - Document templates
+- [tools/](reference/tools/) - Development utility scripts
+
+### security/
+Security documentation.
+- [credential-management.md](security/credential-management.md)
+
+### tests/
+All testing for the engine.
+- [numbers/](tests/numbers/) - Numbered test suites
+- [unified/](tests/unified/) - Unified test suite
+
 ## Related
 
-- Engine code: `../01-core/`, `../02-agents/`
+- Engine code: `../02-implementation/01-core/`, `../02-implementation/01-agents/`
 - Project memory: `../../5-project-memory/`
 - Documentation: `../../1-docs/`

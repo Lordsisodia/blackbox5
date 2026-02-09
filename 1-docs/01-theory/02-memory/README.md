@@ -193,6 +193,12 @@ See Comprehensive Memory Architecture for the full 8-component API.
 
 ---
 
+## Subdirectories
+
+- **design/** - Memory system design documents
+- **planning/** - Planning memory integration
+- **separation/** - Memory tier separation strategies
+
 ## Related Documentation
 
 - **Orchestrator**: `../../02-implementation/01-core/orchestration/`

@@ -9,6 +9,12 @@
 
 This directory contains quick start guides and getting started resources for BlackBox5. Multiple quick start documents have been consolidated here to serve as the entry point for new users.
 
+## Subdirectories
+
+- **quickstart/** - Quick start guides (START-NOW.md, QUICKSTART.md)
+- **setup/** - Setup instructions and configuration
+- **status/** - Status tracking and monitoring guides
+
 ## Primary Quick Start
 
 ### 🚀 START-NOW.md (Recommended First Read)

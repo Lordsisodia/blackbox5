@@ -1,0 +1,62 @@
+# ASSUMPTIONS - {AGENT_TYPE} Run {RUN_ID}
+
+**Agent:** {AGENT_NAME}
+**Run ID:** {RUN_ID}
+**Date:** {DATE}
+
+---
+
+## Technical Assumptions
+
+### Assumption 1: {Title}
+**Assumption:** [What is being assumed]
+**Basis:** [Why we think this is true]
+**Impact:** {critical|high|medium|low}
+**Validation Method:** [How to verify]
+**Validated:** {yes|no|pending}
+
+**If Wrong:**
+[What happens if this assumption is incorrect]
+
+**Mitigation:**
+[How to reduce risk]
+
+---
+
+## Business Assumptions
+
+### Assumption 1: {Title}
+**Assumption:** [What is being assumed about value/cost/etc]
+**Basis:** [Evidence or reasoning]
+**Impact:** {critical|high|medium|low}
+
+---
+
+## Context Assumptions
+
+### About the Source/Pattern/Task
+[Assumptions specific to what we're analyzing]
+
+### About the Environment
+[Assumptions about BB5, infrastructure, etc.]
+
+---
+
+## Validation Plan
+
+| Assumption | Validate By | Status |
+|------------|-------------|--------|
+| {Assumption} | {Method} | {status} |
+
+---
+
+## Assumption Changes
+
+**New assumptions this run:**
+- [List]
+
+**Assumptions validated:**
+- [List]
+
+**Assumptions invalidated:**
+- [List and what we learned]

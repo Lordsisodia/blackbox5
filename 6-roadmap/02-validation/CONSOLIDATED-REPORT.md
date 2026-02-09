@@ -129,8 +129,8 @@ blackbox5/2-engine/02-agents/capabilities/
 
 **Evidence:**
 ```
-ERROR: skills-dev/coding/development-workflow/autonomous/agent-orchestration/SKILL.md
-       Expected: skills-cap/development-workflow/autonomous/agent-orchestration/SKILL.md
+ERROR: skills-dev/coding/development-workflow/autonomous/VALIDATION-orchestration/SKILL.md
+       Expected: skills-cap/development-workflow/autonomous/VALIDATION-orchestration/SKILL.md
 ```
 
 **Root Cause:** Multiple reorganizations without cleaning up old systems
@@ -624,14 +624,14 @@ find . -name "*.py" -exec python3 -m py_compile {} \; 2>&1 | grep "ImportError"
 
 Detailed findings from each validation agent:
 
-1. **[Agent 1: Core Infrastructure](agent-1-core-infrastructure/VALIDATION-FINDINGS.md)** - 82% working
-2. **[Agent 2: Memory & Context](agent-2-memory-context/VALIDATION-FINDINGS.md)** - 94% working
-3. **[Agent 3: Agent System](agent-3-agent-system/VALIDATION-FINDINGS.md)** - 86% working
-4. **[Agent 4: Skills & Capabilities](agent-4-skills-capabilities/VALIDATION-FINDINGS.md)** - 45% working
-5. **[Agent 5: Safety & Resilience](agent-5-safety-resilience/VALIDATION-FINDINGS.md)** - 89% working
-6. **[Agent 6: Integration & MCP](agent-6-integrations-mcp/VALIDATION-FINDINGS.md)** - 78% working
-7. **[Agent 7: Ralphy & Workflow](agent-7-ralphy-workflow/VALIDATION-FINDINGS.md)** - 75% working
-8. **[Agent 8: Documentation & Redundancy](agent-8-documentation-redundancy/VALIDATION-FINDINGS.md)** - 56% working
+1. **[Agent 1: Core Infrastructure](VALIDATION-1-core-infrastructure/VALIDATION-FINDINGS.md)** - 82% working
+2. **[Agent 2: Memory & Context](VALIDATION-2-memory-context/VALIDATION-FINDINGS.md)** - 94% working
+3. **[Agent 3: Agent System](VALIDATION-3-VALIDATION-system/VALIDATION-FINDINGS.md)** - 86% working
+4. **[Agent 4: Skills & Capabilities](VALIDATION-4-skills-capabilities/VALIDATION-FINDINGS.md)** - 45% working
+5. **[Agent 5: Safety & Resilience](VALIDATION-5-safety-resilience/VALIDATION-FINDINGS.md)** - 89% working
+6. **[Agent 6: Integration & MCP](VALIDATION-6-integrations-mcp/VALIDATION-FINDINGS.md)** - 78% working
+7. **[Agent 7: Ralphy & Workflow](VALIDATION-7-ralphy-workflow/VALIDATION-FINDINGS.md)** - 75% working
+8. **[Agent 8: Documentation & Redundancy](VALIDATION-8-documentation-redundancy/VALIDATION-FINDINGS.md)** - 56% working
 
 ---
 

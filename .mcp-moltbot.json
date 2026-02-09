@@ -18,6 +18,20 @@
       "args": [
         "/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py"
       ]
+    },
+    "macmini-clawdbot": {
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "/Users/shaansisodia/.blackbox5/mcp-macmini-clawdbot.py"
+      ]
+    },
+    "moltbot-simple": {
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "/Users/shaansisodia/.blackbox5/mcp-server-moltbot-simple.py"
+      ]
     }
   }
 }

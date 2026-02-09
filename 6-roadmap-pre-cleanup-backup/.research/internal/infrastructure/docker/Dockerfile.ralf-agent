@@ -1,0 +1,87 @@
+# RALF Agent Container for Kubernetes
+# Runs the autonomous RALF loop with full Blackbox5 capabilities
+
+FROM ubuntu:22.04
+
+# Prevent interactive prompts during build
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    # Core tools
+    git curl wget jq \
+    # Python
+    python3 python3-pip python3-venv \
+    # Build tools
+    build-essential pkg-config \
+    # Network tools
+    netcat-openbsd dnsutils iputils-ping \
+    # Text processing
+    ripgrep fd-find fzf \
+    # Editors
+    nano vim \
+    # Redis client
+    redis-tools \
+    # Kubernetes tools
+    apt-transport-https ca-certificates gnupg \
+    # Cleanup
+    && rm -rf /var/lib/apt/lists/*
+
+# Install kubectl
+RUN curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && \
+    echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list && \
+    apt-get update && \
+    apt-get install -y kubectl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Claude CLI
+RUN curl -fsSL https://claude.ai/install.sh | sh
+
+# Install Node.js (for MCP servers)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create ralf user
+RUN useradd -m -s /bin/bash ralf && \
+    mkdir -p /home/ralf/.ssh /home/ralf/.config /home/ralf/.local/bin && \
+    chown -R ralf:ralf /home/ralf
+
+# Set up working directory
+WORKDIR /opt/blackbox5
+
+# Copy Blackbox5 codebase (will be mounted as volume in production)
+# For now, create directory structure
+RUN mkdir -p \
+    /opt/blackbox5/bin \
+    /opt/blackbox5/2-engine/.autonomous \
+    /opt/blackbox5/5-project-memory \
+    /opt/blackbox5/6-roadmap && \
+    chown -R ralf:ralf /opt/blackbox5
+
+# Install Python dependencies
+COPY requirements.txt /tmp/requirements.txt
+RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
+
+# Copy entrypoint script
+COPY k8s/ralf-entrypoint.sh /opt/blackbox5/k8s/ralf-entrypoint.sh
+RUN chmod +x /opt/blackbox5/k8s/ralf-entrypoint.sh
+
+# Environment variables
+ENV PATH="/home/ralf/.local/bin:$PATH"
+ENV RALF_MODE="daemon"
+ENV RALF_PROJECT_DIR="/opt/blackbox5/5-project-memory/blackbox5"
+ENV RALF_ENGINE_DIR="/opt/blackbox5/2-engine/.autonomous"
+ENV RALF_BLACKBOX5_DIR="/opt/blackbox5"
+ENV HOME="/home/ralf"
+
+# Switch to ralf user
+USER ralf
+
+# Health check
+HEALTHCHECK --interval=60s --timeout=10s --start-period=30s --retries=3 \
+    CMD pgrep -f "ralf-loop.sh" || exit 1
+
+# Entrypoint
+ENTRYPOINT ["/opt/blackbox5/k8s/ralf-entrypoint.sh"]

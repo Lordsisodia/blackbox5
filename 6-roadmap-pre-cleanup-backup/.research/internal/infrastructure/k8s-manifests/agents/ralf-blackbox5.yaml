@@ -1,0 +1,138 @@
+# RALF Agent Deployment for Blackbox5
+# Runs the autonomous RALF loop with GitHub integration
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ralf-blackbox5
+  namespace: blackbox5-agents
+  labels:
+    app: ralf
+    project: blackbox5
+    instance: ralf-blackbox5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ralf
+      project: blackbox5
+  template:
+    metadata:
+      labels:
+        app: ralf
+        project: blackbox5
+    spec:
+      serviceAccountName: ralf-agent
+      containers:
+        - name: ralf
+          image: blackbox5/ralf-agent:v2.0.0
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1000m"
+            limits:
+              memory: "8Gi"
+              cpu: "4000m"
+          env:
+            - name: RALF_PROJECT_DIR
+              value: "/opt/blackbox5/5-project-memory/blackbox5"
+            - name: RALF_ENGINE_DIR
+              value: "/opt/blackbox5/2-engine/.autonomous"
+            - name: RALF_BLACKBOX5_DIR
+              value: "/opt/blackbox5"
+            - name: RALF_MODE
+              value: "daemon"
+            - name: RALF_AGENT_ID
+              value: "ralf-blackbox5"
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: anthropic-api-key
+                  key: api-key
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: github-token
+                  key: token
+            - name: REDIS_URL
+              value: "redis://redis-cluster.blackbox5-storage.svc.cluster.local:6379"
+            - name: MCP_GITHUB_URL
+              value: "http://github-mcp.blackbox5-mcp.svc.cluster.local:3000/sse"
+          volumeMounts:
+            - name: code-volume
+              mountPath: /opt/blackbox5
+            - name: runs-volume
+              mountPath: /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs
+            - name: logs-volume
+              mountPath: /opt/blackbox5/5-project-memory/blackbox5/.autonomous/LOGS
+            - name: mcp-config
+              mountPath: /opt/blackbox5/.mcp.json
+              subPath: .mcp.json
+            - name: ssh-key
+              mountPath: /home/ralf/.ssh
+              readOnly: true
+          livenessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "ps aux | grep -v grep | grep ralf-loop.sh || exit 1"
+            initialDelaySeconds: 60
+            periodSeconds: 60
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - "test -f /opt/blackbox5/bin/ralf && test -d /opt/blackbox5/2-engine/.autonomous"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 10"]
+      volumes:
+        - name: code-volume
+          persistentVolumeClaim:
+            claimName: blackbox5-code-pvc
+            namespace: blackbox5-storage
+        - name: runs-volume
+          persistentVolumeClaim:
+            claimName: ralf-runs-pvc
+            namespace: blackbox5-storage
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: ralf-logs-pvc
+            namespace: blackbox5-storage
+        - name: mcp-config
+          configMap:
+            name: mcp-config
+            namespace: blackbox5-agents
+        - name: ssh-key
+          secret:
+            secretName: github-ssh-key
+            defaultMode: 0400
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 60
+---
+# Service for RALF agent (for metrics/debugging)
+apiVersion: v1
+kind: Service
+metadata:
+  name: ralf-blackbox5
+  namespace: blackbox5-agents
+  labels:
+    app: ralf
+    project: blackbox5
+spec:
+  selector:
+    app: ralf
+    project: blackbox5
+  ports:
+    - name: metrics
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP

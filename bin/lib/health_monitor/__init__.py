@@ -16,6 +16,7 @@ from .calculators import (
     calculate_queue_health,
     calculate_agent_health,
     calculate_throughput,
+    calculate_commit_compliance,
     detect_stuck_tasks
 )
 from .database import (
@@ -25,7 +26,7 @@ from .database import (
     get_recent_snapshots,
     get_metrics_range
 )
-from .utils import format_duration, parse_timestamp, get_bb5_root
+from .utils import format_duration, parse_timestamp, get_bb5_root, get_health_color, get_health_emoji
 from .alerts import AlertManager, AlertConfig
 
 __version__ = "1.0.0"
@@ -52,6 +53,7 @@ __all__ = [
     "calculate_queue_health",
     "calculate_agent_health",
     "calculate_throughput",
+    "calculate_commit_compliance",
     "detect_stuck_tasks",
     # Database
     "init_database",
@@ -63,6 +65,8 @@ __all__ = [
     "format_duration",
     "parse_timestamp",
     "get_bb5_root",
+    "get_health_color",
+    "get_health_emoji",
     # Alerts
     "AlertManager",
     "AlertConfig",

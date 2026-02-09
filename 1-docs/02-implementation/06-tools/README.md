@@ -4,6 +4,7 @@ Implementation guides for Blackbox5 tools.
 
 ## Subsections
 
+- **skills/** - Skills registry and documentation
 - **tools/** - Tool system implementation
 
 ## Purpose

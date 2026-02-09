@@ -4,17 +4,22 @@ This section contains example implementations, demos, and reference code for Bla
 
 ## Subsections
 
-### 01-basic/
+### basic/
 Basic examples and simple use cases.
+- [README](basic/README.md) - Basic examples overview
 
-### 02-intermediate/
+### intermediate/
 Intermediate complexity examples.
+- [README](intermediate/README.md) - Intermediate examples overview
 
 ### 03-advanced/
 Advanced patterns and complex implementations.
 
 ### 04-demos/
 Working demonstrations and showcase projects.
+
+### guides/
+Example guides and walkthroughs.
 
 ## Purpose
 

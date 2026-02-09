@@ -26,6 +26,12 @@ Comprehensive research into Moltbot, previously known as Claudebot:
 - **[TELEGRAM-BOT.md](moltbot/TELEGRAM-BOT.md)** - Telegram Bot integration
 - **[FILE-REFERENCE.md](moltbot/FILE-REFERENCE.md)** - Complete file reference
 
+## Research
+
+| File | Description |
+|------|-------------|
+| [macos-dictation-research.md](macos-dictation-research.md) | macOS dictation apps with custom system prompts - research and cost analysis |
+
 ## Related Documentation
 
 - `/docs/moltbot-ralf-architecture.md` - Original architecture doc

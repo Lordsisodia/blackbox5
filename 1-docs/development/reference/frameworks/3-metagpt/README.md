@@ -1,21 +1,33 @@
-# 3-metagpt
+# MetaGPT Framework
 
-Component in Blackbox4.
+> Multi-agent collaborative development framework
 
-## Location
+## Overview
 
-```
-.blackbox4/2-frameworks/3-metagpt
-```
+MetaGPT is a framework for multi-agent collaborative software development, where specialized agents work together like a software company.
 
-## Parent Directory
+## Subdirectories
 
-Part of: [`.blackbox4/2-frameworks/`](../)
+- **templates/** - MetaGPT role and process templates
+
+## Files
+
+- `RESEARCH.md` - Research on MetaGPT framework
 
 ## Purpose
 
-This directory contains: `3-metagpt`
+MetaGPT implements:
+- Role-based agent specialization
+- Collaborative workflows
+- SOP (Standard Operating Procedure) driven development
+- Multi-agent project management
 
-## Usage
+## Parent Directory
 
-See parent directory documentation for usage information.
+Part of: [`frameworks/`](../)
+
+## Related
+
+- [1-bmad](../1-bmad/) - BMAD framework
+- [2-speckit](../2-speckit/) - Speckit framework
+- [4-swarm](../4-swarm/) - Swarm framework

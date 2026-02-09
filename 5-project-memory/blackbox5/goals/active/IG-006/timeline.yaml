@@ -1,70 +1,30 @@
-# Goal Timeline: IG-006
+# Goal Timeline View: IG-006
 # =============================================================================
-# Structured events for agents - auto-updated
+# This is a FILTERED VIEW of the canonical root timeline.yaml
+# DO NOT ADD EVENTS HERE - Add to root timeline.yaml instead
 # =============================================================================
 
-goal_id: IG-006
-name: "Restructure BlackBox5 Architecture"
+view_definition:
+  goal_id: IG-006
+  name: "Restructure BlackBox5 Architecture"
+  canonical_source: "~/blackbox5/timeline.yaml"
+  filter_criteria:
+    related_items_contains: "IG-006"
 
-events:
-  - timestamp: "2026-02-01T08:00:00Z"
-    type: goal_created
-    description: "Identified need for architecture cleanup from audit"
-    linked_decision: DEC-2026-01-31-agent-context-architecture
-    progress_delta: 0
+  # Events from root timeline matching this goal:
+  # - 2026-02-01: Goal Created: IG-006
+  # - 2026-02-01: IG-006: Started Consolidating .autonomous Folders
+  # - 2026-02-02: IG-006: Migrated 107 Tasks to Root Folder
+  # - 2026-02-02: IG-006: Goals System Setup Complete
 
-  - timestamp: "2026-02-01T10:30:00Z"
-    type: sub_goal_started
-    sub_goal: SG-006-1
-    description: "Started consolidating .autonomous folders"
-    progress_delta: 0
+query_instructions: |
+  To see all events for this goal:
+  1. Open ~/blackbox5/timeline.yaml
+  2. Search for "IG-006" in related_items
+  3. Or use: grep -A 10 "IG-006" ~/blackbox5/timeline.yaml
 
-  - timestamp: "2026-02-01T14:00:00Z"
-    type: task_completed
-    task: TASK-001
-    description: "Analyzed .autonomous structure"
-    progress_delta: 5
-
-  - timestamp: "2026-02-01T16:00:00Z"
-    type: task_completed
-    task: TASK-002
-    description: "Created restructure plan"
-    progress_delta: 10
-
-  - timestamp: "2026-02-02T07:00:00Z"
-    type: task_completed
-    task: TASK-003
-    description: "Migrated tasks to root folder (107 tasks)"
-    progress_delta: 20
-    notes: "Successfully moved all tasks from .autonomous/tasks/ to root tasks/"
-
-  - timestamp: "2026-02-02T10:00:00Z"
-    type: milestone_reached
-    description: "Completed 85% of SG-006-1 (folder consolidation)"
-    progress_delta: 0
-    milestone: "Major consolidation complete"
-
-  - timestamp: "2026-02-02T11:00:00Z"
-    type: sub_goal_started
-    sub_goal: SG-006-3
-    description: "Started cleanup and validation"
-    progress_delta: 0
-
-  - timestamp: "2026-02-02T16:00:00Z"
-    type: task_completed
-    task: TASK-GOALS-001
-    description: "Completed goals system setup - all 6 improvement goals created"
-    progress_delta: 30
-    notes: "Goals infrastructure fully operational"
-
-  - timestamp: "2026-02-02T16:30:00Z"
-    type: sub_goal_completed
-    sub_goal: SG-006-2
-    description: "Documentation sub-goal complete"
-    progress_delta: 0
-
-# Next expected events:
-# - Complete SG-006-1 (folder consolidation)
-# - Start SG-006-2 (documentation)
-# - Validate all agents can find their data
-# - Move goal to completed/
+# Timeline Architecture:
+# - ROOT (canonical): ~/blackbox5/timeline.yaml
+# - VIEW (this file): Filtered reference to root
+# - All events MUST be added to root timeline
+# - This file only defines the view/filter

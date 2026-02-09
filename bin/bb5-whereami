@@ -1,8 +1,0 @@
-#!/bin/bash
-# bb5-whereami - Show current location in hierarchy
-# Source dry-run utility library
-source "$(dirname "$0")/../2-engine/.autonomous/lib/dry_run.sh" 2>/dev/null || true
-# Usage: bb5 whereami
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-"$SCRIPT_DIR/bb5-discover-context" human

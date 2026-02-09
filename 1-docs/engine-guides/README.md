@@ -4,6 +4,12 @@ This directory contains engine-specific guides and the knowledge base for Blackb
 
 ## Contents
 
+### core/
+Core engine guides and documentation.
+- System architecture guides
+- Core component documentation
+- Internal mechanics
+
 ### knowledge/
 Knowledge base modules and utilities.
 - `catalog.py` - Guide catalog management

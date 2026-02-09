@@ -1,0 +1,924 @@
+#!/bin/bash
+# bb5-claim - Task claiming commands for BlackBox5
+# Usage: bb5 claim [TASK-ID] [--force] | bb5 unclaim [TASK-ID]
+#
+# Commands:
+#   bb5 claim TASK-ID        Claim a task for execution
+#   bb5 claim --force TASK-ID Force claim (override existing)
+#   bb5 unclaim TASK-ID      Release a claimed task
+#
+# This script manages task claiming by:
+#   1. Validating task exists in tasks/active/
+#   2. Checking if already claimed (prevent double-claim unless --force)
+#   3. Creating run folder: runs/run-YYYYMMDD-HHMMSS-TASK-ID/
+#   4. Generating THOUGHTS.md with goal->plan->task hierarchy
+#   5. Creating DECISIONS.md, ASSUMPTIONS.md, LEARNINGS.md, RESULTS.md
+#   6. Updating queue.yaml (claimed_by, claimed_at, status)
+#   7. Logging event to events.yaml
+
+set -e
+
+# =============================================================================
+# SOURCE DEPENDENCIES
+# =============================================================================
+
+# Source dry-run utility library
+source "$(dirname "$0")/../../2-engine/helpers/legacy/dry_run.sh" 2>/dev/null || true
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BLACKBOX5_DIR="$PROJECT_ROOT/5-project-memory/blackbox5"
+TASKS_DIR="$BLACKBOX5_DIR/tasks/active"
+RUNS_DIR="$BLACKBOX5_DIR/runs"
+QUEUE_FILE="$BLACKBOX5_DIR/.autonomous/agents/communications/queue.yaml"
+EVENTS_FILE="$BLACKBOX5_DIR/.autonomous/agents/communications/events.yaml"
+
+# =============================================================================
+# COLOR CODES
+# =============================================================================
+
+if [ -t 1 ]; then
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    CYAN='\033[0;36m'
+    RED='\033[0;31m'
+    NC='\033[0m'
+else
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    CYAN=''
+    RED=''
+    NC=''
+fi
+
+# =============================================================================
+# UTILITY FUNCTIONS
+# =============================================================================
+
+# Get current user/agent identifier
+# Priority: RALF_AGENT_ID > USER > whoami > unknown
+get_current_agent() {
+    echo "${RALF_AGENT_ID:-${USER:-$(whoami 2>/dev/null || echo "unknown")}}"
+}
+
+# Get current timestamp in ISO format
+get_timestamp() {
+    date -Iseconds
+}
+
+# Generate run folder name with timestamp and task ID
+# Format: run-YYYYMMDD-HHMMSS-TASK-ID
+generate_run_id() {
+    local task_id="$1"
+    echo "run-$(date +%Y%m%d-%H%M%S)-${task_id}"
+}
+
+# Print header with consistent formatting
+# Usage: print_header "Title"
+print_header() {
+    local title="$1"
+    echo "═══════════════════════════════════════════════════════════════"
+    echo "  ${title}"
+    echo "═══════════════════════════════════════════════════════════════"
+}
+
+# Print footer with status
+# Usage: print_footer "success" "Message"
+print_footer() {
+    local status="$1"
+    local message="$2"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════"
+    if dry_run_is_active; then
+        echo -e "  ${YELLOW}[DRY-RUN] ${message}${NC}"
+    elif [ "$status" = "success" ]; then
+        echo -e "  ${GREEN}${message}${NC}"
+    else
+        echo -e "  ${RED}${message}${NC}"
+    fi
+    echo "═══════════════════════════════════════════════════════════════"
+}
+
+# =============================================================================
+# VALIDATION FUNCTIONS
+# =============================================================================
+
+# Validate that a task exists in the tasks/active/ directory
+# Usage: validate_task_exists TASK-ID
+# Returns: 0 if exists, 1 otherwise
+validate_task_exists() {
+    local task_id="$1"
+    local task_dir="$TASKS_DIR/$task_id"
+
+    if [ ! -d "$task_dir" ]; then
+        echo -e "${RED}Error: Task not found: $task_id${NC}"
+        echo ""
+        echo "Available tasks:"
+        "$SCRIPT_DIR/bb5-task" list 2>/dev/null || echo "  (unable to list tasks)"
+        return 1
+    fi
+    return 0
+}
+
+# =============================================================================
+# QUEUE OPERATIONS
+# =============================================================================
+
+# Get task field value from queue.yaml
+# Usage: get_task_info TASK-ID field_name
+get_task_info() {
+    local task_id="$1"
+    local field="$2"
+
+    if [ -f "$QUEUE_FILE" ]; then
+        # Find the task entry and extract the field value
+        grep -A 50 "^  - id: \"$task_id\"" "$QUEUE_FILE" 2>/dev/null | \
+            grep "^    $field:" | head -1 | sed 's/.*: "\(.*\)".*/\1/'
+    fi
+}
+
+# Check if a task is already claimed
+# Usage: check_task_claimed TASK-ID
+# Returns: echoes the claimed_by value if claimed, empty otherwise
+# Exit code: 0 if claimed, 1 if not claimed
+check_task_claimed() {
+    local task_id="$1"
+    local claimed_by
+
+    claimed_by=$(get_task_info "$task_id" "claimed_by")
+    if [ -n "$claimed_by" ] && [ "$claimed_by" != "null" ] && [ "$claimed_by" != "" ]; then
+        echo "$claimed_by"
+        return 0
+    fi
+    return 1
+}
+
+# Update queue.yaml with claim status
+# Usage: update_queue_claim TASK-ID agent timestamp status
+update_queue_claim() {
+    local task_id="$1"
+    local agent="$2"
+    local timestamp="$3"
+    local status="$4"
+
+    if [ ! -f "$QUEUE_FILE" ]; then
+        echo -e "${YELLOW}Warning: queue.yaml not found at $QUEUE_FILE${NC}"
+        return 1
+    fi
+
+    # Create backup before modification
+    local backup_file="$QUEUE_FILE.backup.$(date +%Y%m%d%H%M%S)"
+    dry_run_exec "cp \"$QUEUE_FILE\" \"$backup_file\"" "Backup queue.yaml to $backup_file"
+
+    if dry_run_is_active; then
+        dry_run_echo "Update queue.yaml: Set $task_id claimed_by=$agent, status=$status"
+        return 0
+    fi
+
+    # Use awk for more robust YAML manipulation with file locking
+    # This handles adding new fields if they don't exist
+    local temp_file
+    temp_file=$(mktemp)
+
+    (
+        flock -x 200
+        awk -v task_id="$task_id" -v agent="$agent" -v timestamp="$timestamp" -v status="$status" '
+            BEGIN { in_task = 0; task_found = 0; has_claimed_by = 0; has_claimed_at = 0; task_end = 0 }
+
+            # Detect start of our task
+            /^  - id: / {
+                if (in_task && task_found && !task_end) {
+                    # We were in our task and hit another task - add missing fields before this line
+                    if (!has_claimed_by) {
+                        print "    claimed_by: \"" agent "\""
+                    }
+                    if (!has_claimed_at) {
+                        print "    claimed_at: \"" timestamp "\""
+                    }
+                    in_task = 0
+                    task_end = 1
+                }
+            }
+
+            $0 ~ "^  - id: \"" task_id "\"" {
+                in_task = 1
+                task_found = 1
+            }
+
+            in_task && !task_end {
+                # Update status line
+                if (/^    status:/) {
+                    print "    status: \"" status "\""
+                    next
+                }
+                # Update or note claimed_by line
+                if (/^    claimed_by:/) {
+                    print "    claimed_by: \"" agent "\""
+                    has_claimed_by = 1
+                    next
+                }
+                # Update or note claimed_at line
+                if (/^    claimed_at:/) {
+                    print "    claimed_at: \"" timestamp "\""
+                    has_claimed_at = 1
+                    next
+                }
+            }
+
+            { print }
+
+            END {
+                # If task was the last one in file, add missing fields
+                if (in_task && task_found && !task_end) {
+                    if (!has_claimed_by) {
+                        print "    claimed_by: \"" agent "\""
+                    }
+                    if (!has_claimed_at) {
+                        print "    claimed_at: \"" timestamp "\""
+                    }
+                }
+            }
+        ' "$QUEUE_FILE" > "$temp_file"
+
+        mv "$temp_file" "$QUEUE_FILE"
+    ) 200>"$BLACKBOX5_DIR/.autonomous/agents/communications/.queue.lock"
+
+    if [ "${task_found:-0}" -eq 0 ] 2>/dev/null; then
+        # Check if task was actually found by looking for it
+        if ! grep -q "^  - id: \"$task_id\"" "$QUEUE_FILE"; then
+            echo -e "${YELLOW}Warning: Task $task_id not found in queue.yaml${NC}"
+            return 1
+        fi
+    fi
+
+    return 0
+}
+
+# =============================================================================
+# EVENT LOGGING
+# =============================================================================
+
+# Add an event to events.yaml
+# Usage: add_event TASK-ID event_type agent run_id [notes]
+add_event() {
+    local task_id="$1"
+    local event_type="$2"
+    local agent="$3"
+    local run_id="$4"
+    local notes="${5:-}"
+
+    if dry_run_is_active; then
+        dry_run_echo "Add event: type=$event_type, task=$task_id, agent=$agent"
+        return 0
+    fi
+
+    # Ensure events file exists with header
+    if [ ! -f "$EVENTS_FILE" ]; then
+        cat > "$EVENTS_FILE" << EOF
+events:
+EOF
+    fi
+
+    # Append event to events.yaml with file locking
+    (
+        flock -x 200
+        cat >> "$EVENTS_FILE" << EOF
+
+- timestamp: '$(get_timestamp)'
+  task_id: '$task_id'
+  type: $event_type
+  agent: $agent
+  run_id: ${run_id:-""}
+  notes: '${notes:-}'
+EOF
+    ) 200>"$BLACKBOX5_DIR/.autonomous/agents/communications/.events.lock"
+}
+
+# =============================================================================
+# HIERARCHY DISCOVERY
+# =============================================================================
+
+# Find the parent plan for a task by checking plan task symlinks
+# Usage: find_parent_plan TASK-ID
+# Returns: echoes plan_id if found, empty otherwise
+find_parent_plan() {
+    local task_id="$1"
+
+    # Search through plans for symlinks to this task
+    if [ -d "$BLACKBOX5_DIR/plans/active" ]; then
+        for plan_dir in "$BLACKBOX5_DIR/plans/active"/*/; do
+            if [ -d "$plan_dir/tasks" ]; then
+                for task_link in "$plan_dir/tasks"/*; do
+                    if [ -L "$task_link" ]; then
+                        local link_target
+                        link_target=$(readlink "$task_link")
+                        if [ "$(basename "$link_target")" = "$task_id" ]; then
+                            basename "$plan_dir"
+                            return 0
+                        fi
+                    fi
+                done
+            fi
+        done
+    fi
+    return 1
+}
+
+# Find the parent goal for a plan by checking goal.yaml references
+# Usage: find_parent_goal PLAN-ID
+# Returns: echoes goal_id if found, empty otherwise
+find_parent_goal() {
+    local plan_id="$1"
+
+    # Search through goals for references to this plan
+    if [ -d "$BLACKBOX5_DIR/goals/active" ]; then
+        for goal_dir in "$BLACKBOX5_DIR/goals/active"/*/; do
+            if [ -f "$goal_dir/goal.yaml" ]; then
+                if grep -q "$plan_id" "$goal_dir/goal.yaml" 2>/dev/null; then
+                    basename "$goal_dir"
+                    return 0
+                fi
+            fi
+        done
+    fi
+    return 1
+}
+
+# Get task title from task.md
+# Usage: get_task_details TASK-ID
+get_task_details() {
+    local task_id="$1"
+    local task_file="$TASKS_DIR/$task_id/task.md"
+
+    if [ -f "$task_file" ]; then
+        local title
+        title=$(grep "^# " "$task_file" 2>/dev/null | head -1 | sed 's/^# //' || echo "$task_id")
+        echo "$title"
+    else
+        echo "$task_id"
+    fi
+}
+
+# Get plan name from metadata.yaml or plan.md
+# Usage: get_plan_details PLAN-ID
+get_plan_details() {
+    local plan_id="$1"
+    local plan_file="$BLACKBOX5_DIR/plans/active/$plan_id/plan.md"
+    local metadata_file="$BLACKBOX5_DIR/plans/active/$plan_id/metadata.yaml"
+
+    if [ -f "$metadata_file" ]; then
+        grep "^name:" "$metadata_file" 2>/dev/null | sed 's/name: "\(.*\)"/\1/' | head -1
+    elif [ -f "$plan_file" ]; then
+        head -1 "$plan_file" | sed 's/^# //'
+    else
+        echo "$plan_id"
+    fi
+}
+
+# Get goal name from goal.yaml
+# Usage: get_goal_details GOAL-ID
+get_goal_details() {
+    local goal_id="$1"
+    local goal_file="$BLACKBOX5_DIR/goals/active/$goal_id/goal.yaml"
+
+    if [ -f "$goal_file" ]; then
+        grep "^name:" "$goal_file" 2>/dev/null | sed 's/name: "\(.*\)"/\1/' | head -1
+    else
+        echo "$goal_id"
+    fi
+}
+
+# =============================================================================
+# RUN FOLDER CREATION
+# =============================================================================
+
+# Create THOUGHTS.md content with hierarchy information
+# Usage: create_thoughts_md TASK-ID agent timestamp run_id task_title [plan_id [goal_id]]
+create_thoughts_md() {
+    local task_id="$1"
+    local agent="$2"
+    local timestamp="$3"
+    local run_id="$4"
+    local task_title="$5"
+    local parent_plan="${6:-}"
+    local parent_goal="${7:-}"
+
+    local content="# Thoughts - $task_id
+
+## Task Hierarchy
+
+**Claimed by:** $agent
+**Claimed at:** $timestamp
+**Run ID:** $run_id
+
+### Goal -> Plan -> Task Chain
+
+"
+
+    if [ -n "$parent_goal" ]; then
+        local goal_title
+        goal_title=$(get_goal_details "$parent_goal")
+        content+="- **Goal:** [$parent_goal] $goal_title
+"
+    fi
+    if [ -n "$parent_plan" ]; then
+        local plan_title
+        plan_title=$(get_plan_details "$parent_plan")
+        content+="- **Plan:** [$parent_plan] $plan_title
+"
+    fi
+    content+="- **Task:** [$task_id] $task_title
+"
+
+    content+="
+## Thought Log
+
+### $(date '+%Y-%m-%d %H:%M:%S') - Initial Claim
+
+- Task claimed for execution
+- Run folder initialized
+- Ready to begin work
+
+## Session Notes
+
+_Add your thoughts and notes here as you work_
+
+"
+
+    echo "$content"
+}
+
+# Create DECISIONS.md content
+# Usage: create_decisions_md TASK-ID run_id
+create_decisions_md() {
+    local task_id="$1"
+    local run_id="$2"
+
+    cat << EOF
+# Decisions - $task_id
+
+## Decision Log
+
+### $(date '+%Y-%m-%d %H:%M:%S') - Initial Setup
+
+- Claimed task: $task_id
+- Run: $run_id
+
+## Decisions Made
+
+| Timestamp | Decision | Rationale | Status |
+|-----------|----------|-----------|--------|
+| $(date '+%Y-%m-%d %H:%M:%S') | Task claimed | Beginning work | active |
+
+## Open Questions
+
+- _Add questions that need answers_
+
+EOF
+}
+
+# Create ASSUMPTIONS.md content
+# Usage: create_assumptions_md TASK-ID
+create_assumptions_md() {
+    local task_id="$1"
+
+    cat << EOF
+# Assumptions - $task_id
+
+## Assumption Log
+
+### $(date '+%Y-%m-%d %H:%M:%S') - Initial Assumptions
+
+- Task scope is as documented in task.md
+- All dependencies are satisfied
+- Required resources are available
+
+## Assumptions Being Tested
+
+| Assumption | Confidence | Validation Method |
+|------------|------------|-------------------|
+| _Add assumptions here_ | _High/Medium/Low_ | _How will you verify?_ |
+
+## Validated Assumptions
+
+| Assumption | Validated | Notes |
+|------------|-----------|-------|
+| _Add validated assumptions here_ | _Yes/No_ | _Notes_ |
+
+EOF
+}
+
+# Create LEARNINGS.md content
+# Usage: create_learnings_md TASK-ID run_id
+create_learnings_md() {
+    local task_id="$1"
+    local run_id="$2"
+
+    cat << EOF
+# Learnings - $task_id
+
+## Learning Log
+
+### $(date '+%Y-%m-%d %H:%M:%S') - Session Start
+
+- Beginning work on $task_id
+- Run: $run_id
+
+## Key Learnings
+
+| Timestamp | Learning | Category | Impact |
+|-----------|----------|----------|--------|
+| $(date '+%Y-%m-%d %H:%M:%S') | Task claimed and initialized | process | setup |
+
+## Patterns Identified
+
+- _Document patterns you discover_
+
+## What Worked Well
+
+- _Document successful approaches_
+
+## What to Improve
+
+- _Document areas for improvement_
+
+EOF
+}
+
+# Create RESULTS.md content
+# Usage: create_results_md TASK-ID agent run_id
+create_results_md() {
+    local task_id="$1"
+    local agent="$2"
+    local run_id="$3"
+
+    cat << EOF
+# Results - $task_id
+
+## Result Log
+
+### $(date '+%Y-%m-%d %H:%M:%S') - Claimed
+
+- Task claimed by $agent
+- Run folder: $run_id
+
+## Outcomes
+
+| Timestamp | Outcome | Status | Notes |
+|-----------|---------|--------|-------|
+| _Add outcomes here_ | _What was achieved_ | _success/partial/blocked_ | _Details_ |
+
+## Deliverables
+
+- [ ] _List deliverables here_
+
+## Metrics
+
+- **Time spent:** _Track your time_
+- **Files modified:** _List files changed_
+- **Tests added:** _Count tests written_
+
+EOF
+}
+
+# Create metadata.yaml for the run
+# Usage: create_metadata_yaml run_id task_id agent timestamp status [parent_plan [parent_goal]]
+create_metadata_yaml() {
+    local run_id="$1"
+    local task_id="$2"
+    local agent="$3"
+    local timestamp="$4"
+    local status="$5"
+    local parent_plan="${6:-}"
+    local parent_goal="${7:-}"
+
+    cat << EOF
+run_id: "$run_id"
+task_id: "$task_id"
+claimed_by: "$agent"
+claimed_at: "$timestamp"
+status: "$status"
+parent_plan: "${parent_plan:-}"
+parent_goal: "${parent_goal:-}"
+EOF
+}
+
+# =============================================================================
+# CLAIM COMMAND
+# =============================================================================
+
+# Main claim command implementation
+# Usage: cmd_claim [options] TASK-ID
+cmd_claim() {
+    local task_id=""
+    local force=false
+
+    # Parse arguments
+    for arg in "$@"; do
+        case "$arg" in
+            --force)
+                force=true
+                ;;
+            --dry-run)
+                # Already handled by dry_run_init
+                ;;
+            --verbose|-v)
+                # Already handled by dry_run_init
+                ;;
+            -*)
+                echo -e "${RED}Unknown option: $arg${NC}"
+                exit 1
+                ;;
+            *)
+                if [ -z "$task_id" ]; then
+                    task_id="$arg"
+                fi
+                ;;
+        esac
+    done
+
+    # Validate task ID provided
+    if [ -z "$task_id" ]; then
+        echo "Usage: bb5 claim TASK-ID [--force]"
+        echo "       bb5 claim --force TASK-ID"
+        echo ""
+        echo "Options:"
+        echo "  --force    Override existing claim"
+        echo "  --dry-run  Show what would happen without making changes"
+        echo ""
+        echo "Available tasks:"
+        "$SCRIPT_DIR/bb5-task" list 2>/dev/null || echo "  (unable to list tasks)"
+        exit 1
+    fi
+
+    # Validate task exists
+    if ! validate_task_exists "$task_id"; then
+        exit 1
+    fi
+
+    local task_dir="$TASKS_DIR/$task_id"
+    local agent
+    agent=$(get_current_agent)
+    local timestamp
+    timestamp=$(get_timestamp)
+
+    print_header "Task Claim"
+    echo ""
+    echo "Task: $task_id"
+    echo "Agent: $agent"
+    echo ""
+
+    # Check if already claimed (returns 1 if not claimed, which is ok)
+    local current_claim=""
+    current_claim=$(check_task_claimed "$task_id") || true
+    if [ -n "$current_claim" ]; then
+        if [ "$force" = true ]; then
+            echo -e "${YELLOW}Warning: Task already claimed by $current_claim${NC}"
+            echo -e "${YELLOW}Force flag set - overriding claim${NC}"
+            echo ""
+        else
+            echo -e "${RED}Error: Task already claimed by $current_claim${NC}"
+            echo ""
+            echo "Use --force to override:"
+            echo "  bb5 claim --force $task_id"
+            echo ""
+            exit 1
+        fi
+    fi
+
+    # Generate run ID and folder path
+    local run_id
+    run_id=$(generate_run_id "$task_id")
+    local run_dir="$RUNS_DIR/$run_id"
+
+    echo "Run ID: $run_id"
+    echo "Run Directory: $run_dir"
+    echo ""
+
+    # Discover hierarchy (goal -> plan -> task)
+    local parent_plan
+    parent_plan=$(find_parent_plan "$task_id" || echo "")
+    local parent_goal=""
+    if [ -n "$parent_plan" ]; then
+        parent_goal=$(find_parent_goal "$parent_plan" || echo "")
+    fi
+
+    # Get titles for hierarchy display
+    local task_title
+    task_title=$(get_task_details "$task_id")
+
+    # Create run folder
+    dry_run_mkdir "$run_dir"
+
+    # Create THOUGHTS.md with hierarchy
+    local thoughts_content
+    thoughts_content=$(create_thoughts_md "$task_id" "$agent" "$timestamp" "$run_id" "$task_title" "$parent_plan" "$parent_goal")
+    dry_run_write "$run_dir/THOUGHTS.md" "$thoughts_content"
+
+    # Create other data layer files
+    local decisions_content
+    decisions_content=$(create_decisions_md "$task_id" "$run_id")
+    dry_run_write "$run_dir/DECISIONS.md" "$decisions_content"
+
+    local assumptions_content
+    assumptions_content=$(create_assumptions_md "$task_id")
+    dry_run_write "$run_dir/ASSUMPTIONS.md" "$assumptions_content"
+
+    local learnings_content
+    learnings_content=$(create_learnings_md "$task_id" "$run_id")
+    dry_run_write "$run_dir/LEARNINGS.md" "$learnings_content"
+
+    local results_content
+    results_content=$(create_results_md "$task_id" "$agent" "$run_id")
+    dry_run_write "$run_dir/RESULTS.md" "$results_content"
+
+    # Create metadata.yaml
+    local metadata_content
+    metadata_content=$(create_metadata_yaml "$run_id" "$task_id" "$agent" "$timestamp" "in_progress" "$parent_plan" "$parent_goal")
+    dry_run_write "$run_dir/metadata.yaml" "$metadata_content"
+
+    # Update queue.yaml with claim information
+    echo "Updating queue.yaml..."
+    update_queue_claim "$task_id" "$agent" "$timestamp" "in_progress"
+
+    # Log event to events.yaml
+    echo "Logging event..."
+    add_event "$task_id" "claimed" "$agent" "$run_id" "Task claimed for execution"
+
+    # Output summary
+    echo ""
+    print_footer "success" "Task claimed successfully"
+    echo ""
+    echo "Task: $task_id"
+    echo "Claimed by: $agent"
+    echo "Run folder: $run_dir"
+    echo ""
+
+    # Display hierarchy if found
+    if [ -n "$parent_goal" ]; then
+        echo "Hierarchy:"
+        echo "  Goal: $parent_goal"
+        [ -n "$parent_plan" ] && echo "  Plan: $parent_plan"
+        echo "  Task: $task_id"
+        echo ""
+    fi
+
+    echo "Next steps:"
+    echo "  cd $run_dir"
+    echo "  bb5 task:show $task_id"
+    echo ""
+}
+
+# =============================================================================
+# UNCLAIM COMMAND
+# =============================================================================
+
+# Main unclaim command implementation
+# Usage: cmd_unclaim TASK-ID
+cmd_unclaim() {
+    local task_id="$1"
+
+    if [ -z "$task_id" ]; then
+        echo "Usage: bb5 unclaim TASK-ID"
+        echo ""
+        echo "Currently claimed tasks:"
+        # List claimed tasks from queue.yaml
+        if [ -f "$QUEUE_FILE" ]; then
+            grep -B 5 "claimed_by:" "$QUEUE_FILE" 2>/dev/null | grep "^  - id:" | sed 's/.*: "\(.*\)".*/  \1/' || echo "  (none)"
+        else
+            echo "  (queue.yaml not found)"
+        fi
+        exit 1
+    fi
+
+    # Validate task exists
+    if ! validate_task_exists "$task_id"; then
+        exit 1
+    fi
+
+    local agent
+    agent=$(get_current_agent)
+    local timestamp
+    timestamp=$(get_timestamp)
+
+    print_header "Task Unclaim"
+    echo ""
+    echo "Task: $task_id"
+    echo "Agent: $agent"
+    echo ""
+
+    # Check if task is claimed and by whom (returns 1 if not claimed, which is ok)
+    local current_claim=""
+    current_claim=$(check_task_claimed "$task_id") || true
+    if [ -z "$current_claim" ]; then
+        echo -e "${YELLOW}Warning: Task is not currently claimed${NC}"
+        echo ""
+    elif [ "$current_claim" != "$agent" ]; then
+        echo -e "${YELLOW}Warning: Task claimed by $current_claim, not you${NC}"
+        echo "Proceeding anyway..."
+        echo ""
+    fi
+
+    # Find and archive run folder(s)
+    echo "Archiving run folders..."
+    local archived_count=0
+    for run_dir in "$RUNS_DIR"/run-*-"$task_id"/; do
+        if [ -d "$run_dir" ]; then
+            local run_name
+            run_name=$(basename "$run_dir")
+            local archive_dir="$RUNS_DIR/archived/$(date +%Y%m%d)-$run_name"
+
+            dry_run_mkdir "$(dirname "$archive_dir")"
+            dry_run_mv "$run_dir" "$archive_dir"
+
+            echo "  Archived: $run_name"
+            archived_count=$((archived_count + 1))
+        fi
+    done
+
+    if [ $archived_count -eq 0 ]; then
+        echo "  (no run folders found)"
+    fi
+    echo ""
+
+    # Update queue.yaml to clear claim
+    echo "Updating queue.yaml..."
+    update_queue_claim "$task_id" "" "" "pending"
+
+    # Log event to events.yaml
+    echo "Logging event..."
+    add_event "$task_id" "unclaimed" "$agent" "" "Task unclaimed, returned to pending"
+
+    # Output summary
+    print_footer "success" "Task unclaimed successfully"
+    echo ""
+    echo "Task: $task_id"
+    echo "Status: returned to pending"
+    echo "Archived runs: $archived_count"
+    echo ""
+}
+
+# =============================================================================
+# MAIN ENTRY POINT
+# =============================================================================
+
+# Initialize dry-run mode by parsing arguments
+# This extracts --dry-run and --verbose before processing subcommands
+for arg in "$@"; do
+    case "$arg" in
+        --dry-run)
+            DRY_RUN=true
+            ;;
+        --verbose|-v)
+            DRY_RUN_VERBOSE=true
+            ;;
+    esac
+done
+
+# Display dry-run banner if active
+if dry_run_is_active; then
+    echo -e "${YELLOW}[DRY-RUN MODE ENABLED]${NC}"
+    echo -e "${YELLOW}This is a simulation. No changes will be made.${NC}"
+    echo ""
+fi
+
+# Get the subcommand (claim/unclaim)
+SUBCOMMAND="${1:-}"
+shift || true
+
+case "$SUBCOMMAND" in
+    claim)
+        cmd_claim "$@"
+        ;;
+    unclaim)
+        cmd_unclaim "$@"
+        ;;
+    *)
+        echo "BlackBox5 Task Claim Commands"
+        echo ""
+        echo "Usage:"
+        echo "  bb5 claim TASK-ID [--force]     Claim a task for execution"
+        echo "  bb5 unclaim TASK-ID             Release a claimed task"
+        echo ""
+        echo "Options:"
+        echo "  --force       Override existing claim"
+        echo "  --dry-run     Show what would happen without making changes"
+        echo "  --verbose     Show detailed output in dry-run mode"
+        echo ""
+        echo "Examples:"
+        echo "  bb5 claim TASK-ARCH-021"
+        echo "  bb5 claim --force TASK-ARCH-021"
+        echo "  bb5 unclaim TASK-ARCH-021"
+        echo ""
+        exit 1
+        ;;
+esac
+
+# Print dry-run summary if active
+dry_run_summary

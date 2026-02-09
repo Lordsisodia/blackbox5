@@ -1,11 +1,15 @@
 """Health calculators for BB5 Health Monitor."""
 
 import logging
+import re
+import subprocess
+from collections import defaultdict
 from datetime import datetime, timedelta
+from pathlib import Path
 from typing import List, Dict, Any, Tuple
 
 from .models import Task, Agent, Event, StuckTask, HealthStatus
-from .utils import format_duration
+from .utils import format_duration, get_bb5_root
 
 logger = logging.getLogger(__name__)
 
@@ -185,3 +189,107 @@ def calculate_health_score(
     }
 
     return score, status, details
+
+
+def calculate_commit_compliance(days: int = 30, threshold: float = 75.0) -> Dict[str, Any]:
+    """Calculate commit compliance for completed tasks.
+
+    Returns compliance metrics showing what percentage of completed tasks
+    have associated git commits with task ID references.
+    """
+    bb5_root = get_bb5_root()
+    completed_tasks_dir = bb5_root / "5-project-memory/blackbox5/tasks/completed"
+
+    # Get commits with task references
+    since_date = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+
+    try:
+        result = subprocess.run(
+            ["git", "log", "--all", f"--since={since_date}",
+             "--pretty=format:%s", "--grep=TASK-"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        commit_messages = result.stdout
+    except subprocess.CalledProcessError:
+        commit_messages = ""
+
+    # Extract task IDs from commits
+    task_pattern = re.compile(r'TASK-[A-Z0-9-]+')
+    committed_task_ids = set(task_pattern.findall(commit_messages))
+
+    # Get completed tasks from filesystem
+    completed_tasks = []
+    if completed_tasks_dir.exists():
+        for path in completed_tasks_dir.rglob("TASK-*"):
+            if path.is_dir():
+                completed_tasks.append(path.name)
+
+    # Categorize tasks
+    tasks_with_commits = []
+    tasks_without_commits = []
+
+    category_stats = defaultdict(lambda: {'total': 0, 'with_commits': 0})
+
+    for task_id in completed_tasks:
+        # Find task directory and read metadata
+        task_dir = None
+        for path in completed_tasks_dir.rglob(task_id):
+            if path.is_dir():
+                task_dir = path
+                break
+
+        # Default metadata
+        category = 'uncategorized'
+        priority = 'medium'
+
+        if task_dir and (task_dir / 'task.md').exists():
+            try:
+                content = (task_dir / 'task.md').read_text()
+                cat_match = re.search(r'\*\*Category:\*\*\s*(\S+)', content)
+                if cat_match:
+                    category = cat_match.group(1).strip()
+                pri_match = re.search(r'\*\*Priority:\*\*\s*(\S+)', content)
+                if pri_match:
+                    priority = pri_match.group(1).strip()
+            except Exception:
+                pass
+
+        has_commit = task_id in committed_task_ids
+
+        task_info = {
+            'id': task_id,
+            'category': category,
+            'priority': priority,
+        }
+
+        if has_commit:
+            tasks_with_commits.append(task_info)
+            category_stats[category]['with_commits'] += 1
+        else:
+            tasks_without_commits.append(task_info)
+
+        category_stats[category]['total'] += 1
+
+    # Calculate compliance
+    total_tasks = len(tasks_with_commits) + len(tasks_without_commits)
+    compliance_rate = (len(tasks_with_commits) / total_tasks * 100) if total_tasks > 0 else 0
+
+    return {
+        'total_tasks': total_tasks,
+        'with_commits': len(tasks_with_commits),
+        'without_commits': len(tasks_without_commits),
+        'compliance_rate': round(compliance_rate, 1),
+        'threshold': threshold,
+        'meets_threshold': compliance_rate >= threshold,
+        'by_category': {
+            cat: {
+                'total': stats['total'],
+                'with_commits': stats['with_commits'],
+                'rate': round(stats['with_commits'] / stats['total'] * 100, 1) if stats['total'] > 0 else 0
+            }
+            for cat, stats in category_stats.items()
+        },
+        'tasks_without_commits': tasks_without_commits[:10]  # Limit to first 10
+    }

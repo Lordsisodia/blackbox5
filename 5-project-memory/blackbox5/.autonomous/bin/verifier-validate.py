@@ -25,6 +25,15 @@ from dataclasses import dataclass, asdict
 _engine_lib = Path(os.environ.get('RALF_ENGINE_DIR', Path.home() / '.blackbox5' / '2-engine')) / '.autonomous' / 'lib'
 sys.path.insert(0, str(_engine_lib))
 from paths import get_ralf_project_dir, get_ralf_engine_dir, validate_ralf_paths
+from config import get_config
+
+# Load RALF configuration
+config = get_config()
+
+# Import StorageBackend - use RALF paths
+_project_lib = get_ralf_project_dir() / '.autonomous' / 'lib'
+sys.path.insert(0, str(_project_lib))
+from storage import get_storage
 
 # Configuration - use RALF paths with environment variable support
 try:
@@ -33,7 +42,15 @@ except FileNotFoundError as e:
     print(f"Error: {e}")
     sys.exit(1)
 
-EXECUTOR_REPORT_DIR = PROJECT_DIR / ".autonomous" / "analysis" / "executor-reports"
+# Override with config paths if available
+PROJECT_DIR = config.get_path('paths.project_root') or PROJECT_DIR
+ENGINE_DIR = config.get_path('paths.engine_dir') or ENGINE_DIR
+
+EXECUTOR_REPORT_DIR = config.get_path('paths.analysis_dir') / "executor-reports" if config.get_path('paths.analysis_dir') else (PROJECT_DIR / ".autonomous" / "analysis" / "executor-reports")
+
+# Agent configuration
+VERIFIER_CONFIG = config.get_agent_config('verifier')
+TIMEOUT_SECONDS = config.get_int('agents.verifier.timeout_seconds', 180)
 
 
 @dataclass
@@ -240,7 +257,9 @@ class VerifierAgent:
         return results
 
     def save_validation_report(self, results: List[ValidationResult]) -> Path:
-        """Save validation results to a report."""
+        """Save validation results to a report using StorageBackend."""
+        storage = get_storage()
+
         report_dir = PROJECT_DIR / ".autonomous" / "analysis" / "verifier-reports"
         report_dir.mkdir(parents=True, exist_ok=True)
 
@@ -272,6 +291,20 @@ class VerifierAgent:
         json_file = report_dir / f"{report_id}.json"
         with open(json_file, 'w') as f:
             json.dump(report, f, indent=2)
+
+        # Log validation event via StorageBackend
+        storage.communication.log_event(
+            event_type="validation_complete",
+            agent_id="verifier",
+            data={
+                "report_id": report_id,
+                "total_validated": len(results),
+                "passed": validated_count,
+                "failed": failed_count,
+                "yaml_path": str(yaml_file),
+                "json_path": str(json_file)
+            }
+        )
 
         print(f"\n✅ Validation report saved:")
         print(f"   YAML: {yaml_file}")
