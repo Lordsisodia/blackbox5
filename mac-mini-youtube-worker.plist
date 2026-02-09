@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.siso.youtube-transcript-worker</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/shaansisodia/Projects/youtube-ai-research/venv/bin/python</string>
+        <string>/Users/shaansisodia/Projects/youtube-ai-research/scripts/worker/worker.py</string>
+        <string>--output-dir</string>
+        <string>/Users/shaansisodia/Projects/youtube-ai-research/content/transcripts</string>
+        <string>--state-dir</string>
+        <string>/Users/shaansisodia/Projects/youtube-ai-research/.state</string>
+        <string>--daily-limit</string>
+        <string>300</string>
+        <string>--request-delay</string>
+        <string>1.5</string>
+        <string>--batch-size</string>
+        <string>20</string>
+        <string>--continuous</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/shaansisodia/Projects/youtube-ai-research</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PYTHONPATH</key>
+        <string>/Users/shaansisodia/Projects/youtube-ai-research/scripts</string>
+        <key>PATH</key>
+        <string>/Users/shaansisodia/Projects/youtube-ai-research/venv/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+        <key>Crashed</key>
+        <true/>
+    </dict>
+
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/shaansisodia/Projects/youtube-ai-research/.logs/worker.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/shaansisodia/Projects/youtube-ai-research/.logs/worker-error.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>Nice</key>
+    <integer>10</integer>
+</dict>
+</plist>

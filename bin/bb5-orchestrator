@@ -1,0 +1,347 @@
+#!/bin/bash
+#
+# BB5 Orchestrator - Central coordination script
+# Routes requests to appropriate workflows and manages agent execution
+#
+
+set -e
+
+BB5_ROOT="${HOME}/.blackbox5"
+PROJECT_MEMORY="${BB5_ROOT}/5-project-memory/blackbox5"
+RUNS_DIR="${PROJECT_MEMORY}/.autonomous/runs"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Logging functions
+log_info() { echo -e "${BLUE}[BB5]${NC} $1"; }
+log_success() { echo -e "${GREEN}[BB5]${NC} $1"; }
+log_warn() { echo -e "${YELLOW}[BB5]${NC} $1"; }
+log_error() { echo -e "${RED}[BB5]${NC} $1"; }
+
+# Show usage
+usage() {
+    cat << EOF
+BB5 Orchestrator - Central coordination for BlackBox5 agents
+
+Usage: bb5-orchestrator <command> [options]
+
+Commands:
+    route <request>     Route a request to appropriate workflow
+    research <target>   Run research suite on target
+    plan <goal>         Create implementation plan
+    execute <plan>      Execute a plan with wave-based parallelism
+    validate <task>     Validate task completion
+    debug <issue>       Debug a failure
+    team <task>         Create agent team for parallel work
+    status              Show current BB5 status
+    help                Show this help
+
+Examples:
+    bb5-orchestrator route "Add user authentication"
+    bb5-orchestrator research "current codebase"
+    bb5-orchestrator plan "Implement OAuth2"
+    bb5-orchestrator team "Review PR #142 from multiple angles"
+
+EOF
+}
+
+# Get flows for request type
+get_flows() {
+    local request_type="$1"
+    case "$request_type" in
+        research)
+            echo "    - research"
+            ;;
+        architecture)
+            echo "    - research
+    - planning"
+            ;;
+        implementation)
+            echo "    - research
+    - planning
+    - execution
+    - verification"
+            ;;
+        bugfix)
+            echo "    - execution
+    - verification"
+            ;;
+        optimization)
+            echo "    - research
+    - execution"
+            ;;
+        *)
+            echo "    - research
+    - planning
+    - execution
+    - verification"
+            ;;
+    esac
+}
+
+# Get skill for request type
+get_skill() {
+    local request_type="$1"
+    case "$request_type" in
+        research) echo "research-suite" ;;
+        architecture) echo "bmad-architect" ;;
+        implementation) echo "planner" ;;
+        bugfix) echo "debug-workflow" ;;
+        optimization) echo "performance-analysis" ;;
+        *) echo "research-suite" ;;
+    esac
+}
+
+# Route request to appropriate workflow
+route_request() {
+    local request="$1"
+    log_info "Routing request: $request"
+
+    # Create run folder
+    local timestamp=$(date +%Y%m%d_%H%M%S)
+    local run_folder="${RUNS_DIR}/run-${timestamp}"
+    mkdir -p "$run_folder"
+
+    # Determine request type
+    local request_type="unknown"
+    if echo "$request" | grep -qiE "(research|analyze|understand|investigate)"; then
+        request_type="research"
+    elif echo "$request" | grep -qiE "(design|architect|structure|refactor)"; then
+        request_type="architecture"
+    elif echo "$request" | grep -qiE "(implement|build|create|add)"; then
+        request_type="implementation"
+    elif echo "$request" | grep -qiE "(fix|debug|error|broken)"; then
+        request_type="bugfix"
+    elif echo "$request" | grep -qiE "(optimize|improve|performance)"; then
+        request_type="optimization"
+    fi
+
+    log_info "Request type: $request_type"
+
+    # Get flows and skill
+    local flows=$(get_flows "$request_type")
+    local skill=$(get_skill "$request_type")
+
+    # Create orchestrator plan
+    cat > "$run_folder/orchestrator_plan.yaml" << EOF
+orchestrator_plan:
+  version: "1.0"
+  timestamp: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  request: "$request"
+  request_type: "$request_type"
+  run_folder: "$run_folder"
+
+  selected_flows:
+$flows
+
+  next_action:
+    flow: "$request_type"
+    skill: "$skill"
+EOF
+
+    log_success "Orchestrator plan created: $run_folder/orchestrator_plan.yaml"
+    echo ""
+    cat "$run_folder/orchestrator_plan.yaml"
+    echo ""
+    log_info "To proceed, activate the '$skill' skill or run: bb5-orchestrator execute $run_folder"
+}
+
+# Run research suite
+run_research() {
+    local target="$1"
+    log_info "Running research suite on: $target"
+
+    local timestamp=$(date +%Y%m%d_%H%M%S)
+    local run_folder="${RUNS_DIR}/research-${timestamp}"
+    mkdir -p "$run_folder"
+
+    # Create research request
+    cat > "$run_folder/research_request.yaml" << EOF
+research_request:
+  version: "1.0"
+  timestamp: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  target: "$target"
+  modes:
+    - stack
+    - architecture
+    - convention
+    - risk
+  output_dir: "$run_folder"
+EOF
+
+    log_success "Research request created: $run_folder/research_request.yaml"
+    log_info "Activate 'research-suite' skill with this request to proceed"
+}
+
+# Create agent team
+create_team() {
+    local task="$1"
+    log_info "Creating agent team for: $task"
+
+    # Check if Agent Teams is enabled
+    if [ -z "$CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS" ]; then
+        log_warn "Agent Teams not enabled. Set CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1"
+        log_info "Falling back to sub-agent parallel execution..."
+        create_subagent_team "$task"
+        return
+    fi
+
+    log_success "Agent Teams enabled!"
+    log_info "To create a team, tell Claude: 'Create an agent team to $task'"
+    log_info ""
+    log_info "Suggested team structure:"
+    echo "  - Researcher: Analyze the problem from all angles"
+    echo "  - Architect: Design the solution"
+    echo "  - Critic: Challenge assumptions and find edge cases"
+}
+
+# Fallback: Create parallel sub-agents
+create_subagent_team() {
+    local task="$1"
+    log_info "Creating parallel sub-agents for: $task"
+
+    local timestamp=$(date +%Y%m%d_%H%M%S)
+    local run_folder="${RUNS_DIR}/team-${timestamp}"
+    mkdir -p "$run_folder"
+
+    # Create team spec
+    cat > "$run_folder/team_spec.yaml" << EOF
+parallel_team:
+  version: "1.0"
+  task: "$task"
+  timestamp: "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  run_folder: "$run_folder"
+
+  agents:
+    - name: researcher
+      type: research-agent
+      prompt: "Research all aspects of: $task"
+      output: "$run_folder/researcher_output.yaml"
+
+    - name: architect
+      type: architect
+      prompt: "Design approach for: $task"
+      depends_on: [researcher]
+      output: "$run_folder/architect_output.yaml"
+
+    - name: validator
+      type: validator
+      prompt: "Validate approach for: $task"
+      depends_on: [architect]
+      output: "$run_folder/validator_output.yaml"
+
+  workflow:
+    type: wave_based
+    waves:
+      - wave: 1
+        agents: [researcher]
+      - wave: 2
+        agents: [architect]
+      - wave: 3
+        agents: [validator]
+EOF
+
+    log_success "Team spec created: $run_folder/team_spec.yaml"
+    log_info "Use Task tool to spawn each agent in parallel waves"
+}
+
+# Show BB5 status
+show_status() {
+    log_info "BlackBox5 System Status"
+    echo ""
+
+    # Check directories
+    echo "Directories:"
+    echo "  BB5 Root: $BB5_ROOT"
+    echo "  Project Memory: $PROJECT_MEMORY"
+    echo "  Runs: $RUNS_DIR"
+    echo ""
+
+    # Check skills
+    echo "Core Skills:"
+    for skill in orchestrator triage research-suite planner validator debug-workflow scribe security-audit git-workflows superintelligence-protocol workflow-engine; do
+        if [ -f "${HOME}/.claude/skills/${skill}/SKILL.md" ]; then
+            echo "  ✓ $skill"
+        else
+            echo "  ✗ $skill (missing)"
+        fi
+    done
+    echo ""
+
+    # Check sub-agents
+    echo "Sub-Agents:"
+    for agent in validator bookkeeper context-scout planner research-agent architect first-principles concept-analyzer documentation-agent; do
+        if [ -f "${BB5_ROOT}/2-engine/agents/definitions/sub-agents/${agent}/SUBAGENT.md" ]; then
+            echo "  ✓ $agent"
+        else
+            echo "  ✗ $agent (missing)"
+        fi
+    done
+    echo ""
+
+    # Check Agent Teams
+    echo "Agent Teams:"
+    if [ -n "$CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS" ]; then
+        echo "  ✓ Enabled (CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)"
+    else
+        echo "  ✗ Disabled (set CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 to enable)"
+    fi
+    echo ""
+
+    # Recent runs
+    echo "Recent Runs:"
+    if [ -d "$RUNS_DIR" ]; then
+        ls -lt "$RUNS_DIR" 2>/dev/null | head -6 | tail -5 || echo "  No runs yet"
+    else
+        echo "  No runs yet"
+    fi
+}
+
+# Main command handler
+case "${1:-}" in
+    route)
+        shift
+        route_request "$*"
+        ;;
+    research)
+        shift
+        run_research "$*"
+        ;;
+    plan)
+        shift
+        log_info "Use 'planner' skill or bb5-planner command"
+        ;;
+    execute)
+        shift
+        log_info "Execution requires Claude Code with bb5-executor skill"
+        log_info "Run folder: $1"
+        ;;
+    validate)
+        shift
+        log_info "Use 'validator' skill or bb5-validator command"
+        ;;
+    debug)
+        shift
+        log_info "Use 'debug-workflow' skill"
+        ;;
+    team)
+        shift
+        create_team "$*"
+        ;;
+    status)
+        show_status
+        ;;
+    help|--help|-h)
+        usage
+        ;;
+    *)
+        log_error "Unknown command: ${1:-}"
+        usage
+        exit 1
+        ;;
+esac

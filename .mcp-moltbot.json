@@ -12,6 +12,16 @@
         "import json, sys, subprocess; exec(open('/opt/ralf/mcp-server.py').read())"
       ]
     },
+    "moltbot-macmini": {
+      "type": "stdio",
+      "command": "ssh",
+      "args": [
+        "mac-mini",
+        "python3",
+        "-c",
+        "import json, sys, subprocess; exec(open('/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py').read())"
+      ]
+    },
     "moltbot-vps": {
       "type": "stdio",
       "command": "python3",

@@ -1,0 +1,14 @@
+{
+  "state": "active",
+  "trigger_time": null,
+  "trigger_reason": null,
+  "trigger_message": null,
+  "trigger_count": 1,
+  "recovery_count": 1,
+  "last_updated": "2026-02-09T13:19:07.167831",
+  "expected_agents": [],
+  "acknowledgments": {},
+  "compliance_verified": false,
+  "force_kill_used": false,
+  "test_count": 0
+}

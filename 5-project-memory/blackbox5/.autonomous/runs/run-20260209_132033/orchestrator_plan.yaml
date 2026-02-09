@@ -1,0 +1,34 @@
+orchestrator_plan:
+  version: "1.0"
+  timestamp: "2026-02-09T06:20:33Z"
+  request: "Add user authentication with JWT tokens"
+  request_type: "implementation"
+  run_folder: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-20260209_132033"
+
+  selected_flows:
+ echo "    - research" ;;
+    architecture) echo "    - research
+    - planning" ;;
+    implementation) echo "    - research
+    - planning
+    - execution
+    - verification" ;;
+    bugfix) echo "    - execution
+    - verification" ;;
+    optimization) echo "    - research
+    - execution" ;;
+    *) echo "    - research
+    - planning
+    - execution
+    - verification" ;;
+esac)
+
+  next_action:
+    flow: "implementation"
+    skill:  echo "research-suite" ;;
+        architecture) echo "bmad-architect" ;;
+        implementation) echo "planner" ;;
+        bugfix) echo "debug-workflow" ;;
+        optimization) echo "performance-analysis" ;;
+        *) echo "research-suite" ;;
+esac)
