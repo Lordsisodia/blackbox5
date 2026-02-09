@@ -1,0 +1,59 @@
+# {{PROJECT_NAME}} - Claude Guidance
+
+## Project Overview
+
+{{PROJECT_DESCRIPTION}}
+
+## Key Context
+
+- **Stakeholders**: See [context/stakeholders.md](context/stakeholders.md)
+- **Tech Stack**: See [context/tech-stack.md](context/tech-stack.md)
+- **Architecture**: See [context/architecture.md](context/architecture.md)
+- **Requirements**: See [context/requirements.md](context/requirements.md)
+
+## Working Patterns
+
+1. **Always check goals.yaml** before starting work
+2. **Document decisions** in `decisions/` folder
+3. **Capture learnings** in `learnings/` folder
+4. **Use tasks folder** for tracking active work
+5. **Run context collector** at session start
+
+## BB5 Integration
+
+This project uses the BB5 (BlackBox5) autonomous infrastructure:
+
+- Agent teams activate automatically
+- Runs are tracked in `.autonomous/runs/`
+- Skills are available via the skill system
+- Memory is persisted in `.autonomous/memory/`
+
+## Project Structure
+
+```
+{{PROJECT_NAME}}/
+├── .autonomous/       # Autonomous system data
+├── context/           # Project context files
+├── goals/             # Active and completed goals
+├── runs/              # Run history
+├── knowledge/         # Knowledge base
+├── decisions/         # Decision log
+├── learnings/         # Learnings and patterns
+├── plans/             # Project plans
+├── CLAUDE.md          # This file
+├── goals.yaml         # Project goals
+└── STATE.yaml         # Current state
+```
+
+## Quick Commands
+
+- Check status: Review `STATE.yaml`
+- View goals: Read `goals.yaml`
+- Start work: Create task in `.autonomous/tasks/active/`
+- End session: Run context collector
+
+## Notes
+
+- Project created: {{TIMESTAMP}}
+- BB5 version: 1.0.0
+- Status: Active
