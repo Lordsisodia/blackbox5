@@ -1,0 +1,247 @@
+# Context Gathering Optimization Configuration
+# SISO-Internal - Operations
+#
+# Purpose: Reduce "missed file" errors and improve task execution efficiency
+#
+# Usage: Reference this configuration during run initialization to optimize context gathering
+
+# =============================================================================
+# METADATA
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created_at: "2026-02-09T14:00:00Z"
+  created_by: "Claude"
+  source_task: "TASK-12"
+  update_frequency: "as-needed"
+  last_updated: "2026-02-09T14:00:00Z"
+
+# =============================================================================
+# CONTEXT GATHERING HEURISTICS
+# =============================================================================
+
+heuristics:
+  - id: state_file_detection
+    name: "STATE.yaml Detection"
+    pattern: "Task involves project structure or status"
+    indicators:
+      - "STATE.yaml mentioned"
+      - "Project status referenced"
+      - "Task management mentioned"
+    required_reads:
+      - path: "STATE.yaml"
+        reason: "Single source of truth for project state"
+    priority: high
+
+  - id: operations_dashboard_detection
+    name: "Operations Dashboard Detection"
+    pattern: "Task involves metrics, quality, or monitoring"
+    indicators:
+      - "metrics mentioned"
+      - "quality gates referenced"
+      - "dashboard mentioned"
+      - "operations/ path referenced"
+    required_reads:
+      - path: "operations/metrics-dashboard.yaml"
+        reason: "Project metrics and health status"
+      - path: "operations/quality-gates.yaml"
+        reason: "Quality gate definitions"
+    priority: high
+
+  - id: skill_registry_detection
+    name: "Skill Registry Detection"
+    pattern: "Task involves skills or BMAD framework"
+    indicators:
+      - "skill mentioned"
+      - "BMAD referenced"
+      - "2-engine path referenced"
+    required_reads:
+      - path: "operations/skill-registry.yaml"
+        reason: "Local skill registry"
+      - path: "2-engine/.autonomous/routes.yaml"
+        reason: "BMAD command routing"
+    priority: high
+
+  - id: cross_project_documentation
+    name: "Cross-Project Documentation"
+    pattern: "Creating documentation that applies to multiple projects"
+    indicators:
+      - "Documentation creation mentioned"
+      - "Multiple project paths referenced"
+      - "Pattern replication mentioned"
+    required_reads:
+      - path: "operations/project-map.yaml"
+        reason: "Identify affected projects"
+    priority: medium
+
+  - id: shared_config_detection
+    name: "Shared Configuration Detection"
+    pattern: "Task involves CLAUDE.md or other shared files"
+    indicators:
+      - "CLAUDE.md mentioned"
+      - "~/.claude/ path referenced"
+      - "Global configuration mentioned"
+    required_reads:
+      - path: "~/.claude/CLAUDE.md"
+        reason: "Core agent instructions"
+    priority: high
+
+# =============================================================================
+# AUTOMATIC READS - Files to read based on task type
+# =============================================================================
+
+automatic_reads:
+  all_tasks:
+    - path: "STATE.yaml"
+      reason: "Project state and structure"
+      condition: "always"
+
+  implementation_tasks:
+    - path: "operations/validation-checklist.yaml"
+      reason: "Pre-execution validation"
+      condition: "always"
+    - path: "operations/testing-guidelines.yaml"
+      reason: "Testing requirements"
+      condition: "if_code_changes"
+
+  analysis_tasks:
+    - path: "operations/metrics-dashboard.yaml"
+      reason: "Current project metrics"
+      condition: "always"
+    - path: "operations/executor-dashboard.yaml"
+      reason: "Execution history"
+      condition: "always"
+
+  documentation_tasks:
+    - path: "operations/documentation-audit.yaml"
+      reason: "Documentation status"
+      condition: "if_exists"
+
+# =============================================================================
+# CACHED FILES - Frequently accessed files that should be cached
+# =============================================================================
+
+cached_files:
+  - path: "~/.claude/CLAUDE.md"
+    cache_duration: "1 hour"
+    reason: "Frequently referenced, rarely changes"
+    priority: high
+
+  - path: "STATE.yaml"
+    cache_duration: "15 minutes"
+    reason: "Project state changes frequently"
+    priority: high
+
+  - path: "operations/project-map.yaml"
+    cache_duration: "1 hour"
+    reason: "Cross-project reference"
+    priority: medium
+
+# =============================================================================
+# PATH VALIDATION - Validate paths before file operations
+# =============================================================================
+
+path_validation:
+  enabled: true
+  fail_action: "warn_and_continue"
+  validation_rules:
+    - rule: "absolute_paths_only"
+      description: "Use absolute paths, never relative"
+      enforcement: strict
+
+    - rule: "verify_before_read"
+      description: "Verify file exists before attempting read"
+      enforcement: strict
+
+    - rule: "check_state_yaml"
+      description: "For project structure, check STATE.yaml first"
+      enforcement: recommended
+
+  cross_project_paths:
+    - pattern: "~/.claude/"
+      validation: "check_exists"
+    - pattern: "2-engine/"
+      validation: "check_engine_routes"
+
+# =============================================================================
+# INTEGRATION GUIDE
+# =============================================================================
+
+integration:
+  for_executor:
+    initialization_steps:
+      - step: 1
+        action: "Read STATE.yaml"
+        reason: "Get project state"
+      - step: 2
+        action: "Check task for operations indicators"
+        reason: "Determine if dashboard files needed"
+      - step: 3
+        action: "Apply heuristics from this config"
+        reason: "Optimize context gathering"
+      - step: 4
+        action: "Validate paths before reads"
+        reason: "Prevent missed file errors"
+
+    run_initialization:
+      description: "Steps to run at start of each execution"
+      steps:
+        - "Read this configuration file"
+        - "Analyze task file for indicators"
+        - "Execute automatic_reads based on task type"
+        - "Apply path validation rules"
+        - "Cache frequently accessed files"
+
+  for_planner:
+    planning_steps:
+      - step: 1
+        action: "Check operations/ directory for relevant dashboards"
+        reason: "Identify metrics and constraints"
+      - step: 2
+        action: "Reference context_gathering.recommendations"
+        reason: "Follow documented heuristics"
+
+# =============================================================================
+# EFFECTIVENESS METRICS
+# =============================================================================
+
+metrics:
+  tracking:
+    - metric: "missed_file_errors"
+      description: "Count of file not found errors per run"
+      target: "< 1 per run"
+
+    - metric: "context_gathering_time"
+      description: "Time spent gathering context before execution"
+      target: "< 2 minutes"
+
+  review_schedule:
+    frequency: "monthly"
+    action: "Review metrics and update heuristics"
+
+# =============================================================================
+# CHANGE LOG
+# =============================================================================
+
+changelog:
+  - version: "1.0.0"
+    date: "2026-02-09"
+    changes:
+      - "Initial context gathering optimization configuration for SISO-Internal"
+      - "Defined 5 heuristics for task detection"
+      - "Specified automatic reads by task type"
+      - "Created path validation rules"
+      - "Defined effectiveness metrics"
+
+# =============================================================================
+# RELATED FILES
+# =============================================================================
+
+related_files:
+  - path: "operations/project-map.yaml"
+    relationship: "source_of_cross_project_data"
+  - path: "operations/validation-checklist.yaml"
+    relationship: "complementary_validation"
+  - path: "STATE.yaml"
+    relationship: "project_state"

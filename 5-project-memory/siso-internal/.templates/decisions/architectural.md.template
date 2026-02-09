@@ -1,0 +1,79 @@
+# DEC-YYYY-MM-DD-ARCH-slug: FILL_ME (Decision Title)
+
+**Status**: FILL_ME (Proposed | Accepted | Deprecated | Superseded)
+**Date**: FILL_ME (YYYY-MM-DD)
+**Author**: FILL_ME
+**Type**: Architectural
+
+---
+
+## Context
+
+What led to this decision?
+
+FILL_ME
+
+---
+
+## Decision
+
+What was decided?
+
+FILL_ME
+
+---
+
+## Rationale
+
+Why was this choice made?
+
+FILL_ME
+
+---
+
+## Alternatives Considered
+
+| Option | Pros | Cons | Decision |
+|--------|------|------|----------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Consequences
+
+### Positive
+
+- FILL_ME
+
+### Negative
+
+- FILL_ME
+
+### Risks
+
+- FILL_ME
+
+---
+
+## Implementation
+
+| Field | Value |
+|-------|-------|
+| Status | FILL_ME (Planned / In Progress / Complete) |
+| Steps | FILL_ME |
+| Testing | FILL_ME |
+| Rollback Plan | FILL_ME |
+
+---
+
+## Related
+
+- FILL_ME (links to related ADRs, issues, PRs)
+
+---
+
+## Lessons Learned
+
+FILL_ME

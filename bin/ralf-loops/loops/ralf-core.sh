@@ -215,7 +215,14 @@ EOF
     export RALF_RUN_FOLDER="$RUN_FOLDER"
     export RALF_LOOP_COUNT="$LOOP_COUNT"
 
-    if ! claude -p --dangerously-skip-permissions < "$PROMPT_FILE" 2>&1 | tee "$RUN_FOLDER/ralf-output.log"; then
+    # Skip --dangerously-skip-permissions when running as root (VPS)
+    if [ "$(id -u)" -eq 0 ]; then
+        CLAUDE_CMD="claude -p"
+    else
+        CLAUDE_CMD="claude -p --dangerously-skip-permissions"
+    fi
+
+    if ! $CLAUDE_CMD < "$PROMPT_FILE" 2>&1 | tee "$RUN_FOLDER/ralf-output.log"; then
         log_error "RALF execution failed"
         echo "FAILED" > "$RUN_FOLDER/status.txt"
 

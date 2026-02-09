@@ -1,0 +1,123 @@
+# ============================================================================
+# QUALITY GATE REPORT
+# ============================================================================
+# Purpose: Track CI/CD quality metrics and test results over time
+# Updated by: roadmap_sync.py after task completion
+# ============================================================================
+
+quality_gate_report:
+  last_updated: "2026-02-09T14:00:00Z"
+  last_updated_by: "claude-setup"
+
+  # -------------------------------------------------------------------------
+  # SUMMARY METRICS
+  # -------------------------------------------------------------------------
+  summary:
+    total_runs: 0
+    passed_runs: 0
+    failed_runs: 0
+    pass_rate: 0.0  # percentage
+
+  # -------------------------------------------------------------------------
+  # RECENT RUNS (last 10)
+  # -------------------------------------------------------------------------
+  recent_runs: []
+
+  # -------------------------------------------------------------------------
+  # TRENDS (last 10 runs)
+  # -------------------------------------------------------------------------
+  trends:
+    test_pass_rate_last_10: 0.0
+    linting_errors_last_10: 0
+    validation_failures_last_10: 0
+    avg_test_duration_last_10: 0.0  # seconds
+
+  # -------------------------------------------------------------------------
+  # QUALITY GATE STATUS
+  # -------------------------------------------------------------------------
+  status:
+    overall_health: "unknown"  # excellent | good | warning | critical
+    last_quality_gate: "not_run"  # passed | failed | not_run
+    blocked_commits: 0
+    blocked_merges: 0
+
+  # -------------------------------------------------------------------------
+  # COMPONENT HEALTH
+  # -------------------------------------------------------------------------
+  components:
+    unit_tests:
+      status: "unknown"
+      pass_rate: 0.0
+      last_run: null
+
+    integration_tests:
+      status: "unknown"
+      pass_rate: 0.0
+      last_run: null
+
+    linting:
+      status: "unknown"
+      errors_last_run: 0
+      last_run: null
+
+    yaml_validation:
+      status: "unknown"
+      errors_last_run: 0
+      last_run: null
+
+  # -------------------------------------------------------------------------
+  # THRESHOLDS (for quality gate enforcement)
+  # -------------------------------------------------------------------------
+  thresholds:
+    min_test_pass_rate: 100.0  # percentage - all tests must pass
+    max_linting_errors: 0  # no linting errors allowed
+    max_yaml_errors: 0  # no YAML validation errors allowed
+    max_test_duration: 300  # seconds - max test suite duration
+
+  # -------------------------------------------------------------------------
+  # NOTES
+  # -------------------------------------------------------------------------
+  notes: |
+    Quality Gate Report initialized for SISO-Internal.
+
+    This file tracks:
+    - Test pass rates over time
+    - Linting error trends
+    - YAML validation failures
+    - Quality gate enforcement statistics
+
+    Quality gate enforcement:
+    - Pre-commit hooks block commits on failures
+    - GitHub Actions blocks merges on CI failures
+    - Task completion triggers test runs
+
+    Update frequency: After every task completion
+
+# ============================================================================
+# RUN HISTORY TEMPLATE
+# ============================================================================
+# Use this template when adding runs to recent_runs:
+#
+# - timestamp: "2026-02-09T12:00:00Z"
+#   task_id: "TASK-001"
+#   agent: "executor"
+#   run_number: 1
+#   result: "passed"  # passed | failed
+#   duration_seconds: 45
+#   components:
+#     unit_tests:
+#       status: "passed"
+#       tests_run: 10
+#       tests_passed: 10
+#       tests_failed: 0
+#     integration_tests:
+#       status: "skipped"
+#       reason: "no integration tests"
+#     linting:
+#       status: "passed"
+#       errors: 0
+#     yaml_validation:
+#       status: "passed"
+#       errors: 0
+#   commit_hash: "abc123"
+#   notes: "All checks passed"

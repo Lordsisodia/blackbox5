@@ -1,0 +1,188 @@
+# Executor Run Monitoring Dashboard
+# SISO-Internal - Operations
+# Auto-generated: 2026-02-09T14:00:00Z
+# Description: Centralized dashboard for tracking executor runs and key metrics
+
+metadata:
+  version: "1.0.0"
+  created: "2026-02-09T14:00:00Z"
+  last_updated: "2026-02-09T14:00:00Z"
+  update_frequency: "per-run"
+  total_runs_tracked: 0
+
+# =============================================================================
+# OVERVIEW METRICS
+# =============================================================================
+overview:
+  total_executions: 0
+  successful_completions: 0
+  failed_tasks: 0
+  partial_completions: 0
+  blocked_tasks: 0
+  success_rate_percent: 0.0
+
+  # Task type distribution
+  task_types:
+    implement: 0
+    analyze: 0
+    fix: 0
+    organize: 0
+    audit: 0
+    research: 0
+    validate: 0
+    other: 0
+
+  # Priority distribution
+  priority_distribution:
+    critical: 0
+    high: 0
+    medium: 0
+    low: 0
+
+# =============================================================================
+# PERFORMANCE METRICS
+# =============================================================================
+performance:
+  # Average completion times by task type (seconds)
+  average_completion_time:
+    overall: 0
+    by_type:
+      implement: 0
+      analyze: 0
+      fix: 0
+      organize: 0
+      audit: 0
+      research: 0
+      validate: 0
+
+  # Completion time trends (last 10 runs)
+  recent_trend: []
+
+  # Estimation accuracy
+  estimation_accuracy:
+    average_variance_percent: 0.0
+    tendency: "unknown"
+    notes: "Insufficient data for analysis"
+
+# =============================================================================
+# SKILL USAGE METRICS
+# =============================================================================
+skill_usage:
+  total_skill_invocations: 0
+  skill_considerations: 0
+  invocation_rate_percent: 0.0
+
+  # Skills considered but not invoked (threshold blocking)
+  threshold_blocked: []
+
+  # Phase 1.5 compliance (skill checking)
+  phase_1_5_compliance:
+    compliant_runs: 0
+    total_runs_since_fix: 0
+    compliance_rate_percent: 0.0
+
+  # Most relevant skills by task type
+  skill_relevance_by_type:
+    implement:
+      - bmad-dev
+      - bmad-quick-flow
+    analyze:
+      - bmad-analyst
+      - bmad-research
+    fix:
+      - bmad-dev
+      - bmad-qa
+    organize:
+      - bmad-quick-flow
+
+# =============================================================================
+# QUALITY METRICS
+# =============================================================================
+quality:
+  # Documentation compliance
+  documentation_compliance:
+    thoughts_md_present: 0
+    results_md_present: 0
+    decisions_md_present: 0
+    compliance_rate_percent: 0.0
+
+  # Commit compliance
+  commit_compliance:
+    tasks_committed: 0
+    total_completed: 0
+    compliance_rate_percent: 0.0
+
+  # Task movement compliance
+  task_movement:
+    properly_moved: 0
+    total_completed: 0
+    compliance_rate_percent: 0.0
+
+# =============================================================================
+# FAILURE PATTERNS
+# =============================================================================
+failure_patterns:
+  total_failures: 0
+  failure_types: {}
+
+  # Common blockers (from notes)
+  common_blockers: []
+
+# =============================================================================
+# HISTORICAL RUN DATA (Last 20 Runs)
+# =============================================================================
+runs: []
+
+# =============================================================================
+# IMPROVEMENT METRICS INTEGRATION
+# =============================================================================
+improvement_metrics:
+  linked_dashboard: "operations/improvement-pipeline.yaml"
+  last_sync: "2026-02-09T14:00:00Z"
+
+  pipeline_overview:
+    learnings_captured: 0
+    improvements_created: 0
+    tasks_created: 0
+    improvements_completed: 0
+
+  conversion_rates:
+    learning_to_improvement: 0.0
+    improvement_to_task: 0.0
+    task_to_completion: 0.0
+
+  backlog_status:
+    high_priority_pending: 0
+    medium_priority_pending: 0
+    low_priority_pending: 0
+    total_pending: 0
+
+  recent_completions: []
+
+# =============================================================================
+# ALERTS & RECOMMENDATIONS
+# =============================================================================
+alerts:
+  active: []
+
+  resolved: []
+
+recommendations: []
+
+# =============================================================================
+# DASHBOARD METADATA
+# =============================================================================
+dashboard:
+  schema_version: "1.0"
+  next_update: "after-next-run"
+  automated_metrics:
+    - success_rate
+    - average_completion_time
+    - skill_invocation_rate
+    - documentation_compliance
+    - commit_compliance
+
+  manual_metrics:
+    - task_quality_score
+    - user_satisfaction
+    - code_review_feedback

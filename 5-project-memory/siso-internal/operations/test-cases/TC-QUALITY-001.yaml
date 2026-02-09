@@ -1,0 +1,51 @@
+# Test Case: Universal Quality Gates
+# ID: TC-QUALITY-001
+# Category: Quality
+# Status: active
+# Automation: partial
+
+test_case:
+  id: "TC-QUALITY-001"
+  name: "Universal Quality Gates Validation"
+  category: "quality"
+  priority: "critical"
+  status: "active"
+  automation_status: "partial"
+
+  description: |
+    Validates that all universal quality gates are properly
+    checked and documented for every task execution.
+
+  preconditions:
+    - Task file exists
+    - Run directory created
+    - Quality gates defined
+
+  steps:
+    - "Verify UG-001: Pre-Execution Research Completed"
+    - "Verify UG-002: Files Read Before Modification"
+    - "Verify UG-003: Documentation Complete"
+    - "Verify UG-004: Task Tracked"
+    - "Verify UG-005: Changes Committed"
+
+  expected_result: |
+    All universal gates are checked and documented in RESULTS.md.
+    Any failures are flagged for review.
+
+  related_requirements:
+    - "REQ-QUALITY-001"
+
+  related_tasks:
+    - "TASK-QUALITY-001"
+
+  automated_test_file: null
+  automated_test_function: null
+
+  notes: |
+    Partial automation - checks can be automated but validation
+    of content quality requires human review.
+
+  last_executed: null
+  last_result: null
+
+  execution_history: []

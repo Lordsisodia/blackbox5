@@ -1,0 +1,53 @@
+# Test Case: Complete RALF Workflow
+# ID: TC-E2E-001
+# Category: End-to-End
+# Status: draft
+# Automation: manual
+
+test_case:
+  id: "TC-E2E-001"
+  name: "Complete RALF Workflow Test"
+  category: "e2e"
+  priority: "high"
+  status: "draft"
+  automation_status: "manual"
+
+  description: |
+    End-to-end test of a complete RALF execution cycle from
+    task initialization through all phases to completion.
+
+  preconditions:
+    - Clean test environment
+    - Task file created
+    - All systems operational
+
+  steps:
+    - "Initialize RALF run"
+    - "Execute Phase 1: Understanding"
+    - "Execute Phase 2: Execution"
+    - "Execute Phase 3: Validation"
+    - "Verify all artifacts created"
+    - "Verify quality gates passed"
+
+  expected_result: |
+    Complete workflow executes successfully. All phases complete.
+    All required artifacts are created. Quality gates are satisfied.
+
+  related_requirements:
+    - "REQ-RALF-001"
+    - "REQ-RALF-002"
+
+  related_tasks:
+    - "TASK-RALF-001"
+
+  automated_test_file: null
+  automated_test_function: null
+
+  notes: |
+    This is a manual test until full automation is implemented.
+    Represents GAP-005 from test-tracking-system.yaml.
+
+  last_executed: null
+  last_result: null
+
+  execution_history: []

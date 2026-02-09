@@ -1,0 +1,69 @@
+# Task Folder Structure Template
+# =============================================================================
+# This template defines the structure for a task folder in tasks/active/
+# =============================================================================
+
+TASK-XXX-{description}/
+├── task.md                    # Task specification (REQUIRED)
+├── THOUGHTS.md               # Execution thinking and progress (REQUIRED)
+├── DECISIONS.md              # Key decisions made (REQUIRED)
+├── RESULTS.md                # Final results and deliverables (REQUIRED)
+├── LEARNINGS.md              # Post-completion insights (OPTIONAL)
+├── ASSUMPTIONS.md            # Validated assumptions (OPTIONAL)
+├── PLAN.md                   # Detailed execution plan (OPTIONAL)
+├── timeline/                 # Daily progress tracking (OPTIONAL)
+│   ├── 2026-02-09.md
+│   └── 2026-02-10.md
+├── subtasks/                 # Nested subtasks (OPTIONAL)
+│   └── SUBTASK-001.md
+└── artifacts/                # Generated files (OPTIONAL)
+    ├── diagram.png
+    └── data.json
+
+# =============================================================================
+# REQUIRED FILES
+# =============================================================================
+
+# task.md
+# - Task specification with acceptance criteria
+# - Dependencies and blockers
+# - Rollback strategy
+# Template: .templates/tasks/task-specification.md.template
+
+# THOUGHTS.md
+# - Session-by-session thinking
+# - Progress log
+# - Issues encountered
+# Template: .templates/tasks/THOUGHTS.md.template
+
+# DECISIONS.md
+# - Key decisions made
+# - Alternatives considered
+# - Consequences
+# Template: .templates/tasks/DECISIONS.md.template
+
+# RESULTS.md
+# - What was completed
+# - Validation results
+# - Next steps
+# Template: .templates/tasks/RESULTS.md.template
+
+# =============================================================================
+# OPTIONAL FILES
+# =============================================================================
+
+# LEARNINGS.md
+# - Post-completion insights
+# - Patterns detected
+# - Action items
+# Template: .templates/tasks/LEARNINGS.md.template
+
+# ASSUMPTIONS.md
+# - Assumptions made
+# - Validation status
+# - Confidence levels
+
+# PLAN.md
+# - Detailed execution plan
+# - Phase breakdown
+# - Timeline estimates

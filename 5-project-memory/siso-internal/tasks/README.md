@@ -1,65 +1,30 @@
-# Task Memory
+# Tasks
 
-This folder contains **TaskMemory** - all task-related information.
+**Purpose:** Track what needs to be done
 
-## Structure
+## Subfolders
 
-```
-tasks/
-├── working/             # Active tasks
-│   └── {task-id}/
-│       ├── task.md           # Task description
-│       ├── progress.md       # Progress updates
-│       ├── context.json      # Task context
-│       └── artifacts/        # Generated files
-│
-├── completed/           # Completed tasks
-│   └── {task-id}/
-│       ├── task.md
-│       ├── final-report.md   # Final summary
-│       ├── outcome.json      # Results, patterns, gotchas
-│       └── artifacts/
-│
-└── archived/            # Old tasks (compressed)
-```
+- `active/` - Active task folders
+- `backlog/` - Backlogged tasks
+- `completed/` - Completed tasks
+- `cancelled/` - Cancelled tasks
+- `improvements/` - Improvement tasks
+- `template/` - Task template
 
-## Task Flow
-
-### 1. Create Task
-
-When starting a task, create folder in `working/`:
+## Quick Navigation
 
 ```bash
-tasks/working/task-{timestamp}-{slug}/
+bb5 task:list
+bb5 task:current
 ```
 
-### 2. Track Progress
+## Task Folder Structure
 
-Update `progress.md` with developments:
-
-```markdown
-# Progress
-
-## 2025-01-19 10:00
-- Started work on feature X
-- Created initial component structure
-
-## 2025-01-19 11:30
-- Implemented core functionality
-- Added tests
-```
-
-### 3. Complete Task
-
-When done, move to `completed/` and create:
-
-- `final-report.md` - What was accomplished
-- `outcome.json` - Patterns discovered, gotchas found
-
-### 4. Archive
-
-After 30 days, compress and move to `archived/`.
-
-## Task Template
-
-See `working/_template/` for task template.
+Each task folder contains:
+- `task.md` - Task specification (REQUIRED)
+- `THOUGHTS.md` - Execution thinking (REQUIRED)
+- `DECISIONS.md` - Key decisions (REQUIRED)
+- `RESULTS.md` - Final results (REQUIRED)
+- `LEARNINGS.md` - Post-completion insights (OPTIONAL)
+- `ASSUMPTIONS.md` - Validated assumptions (OPTIONAL)
+- `PLAN.md` - Detailed plan (OPTIONAL)

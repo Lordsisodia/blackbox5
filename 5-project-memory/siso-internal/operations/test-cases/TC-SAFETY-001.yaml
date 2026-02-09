@@ -1,0 +1,54 @@
+# Test Case: Kill Switch Integration
+# ID: TC-SAFETY-001
+# Category: Safety
+# Status: active
+# Automation: automated
+
+test_case:
+  id: "TC-SAFETY-001"
+  name: "Kill Switch Integration Test"
+  category: "safety"
+  priority: "critical"
+  status: "active"
+  automation_status: "automated"
+
+  description: |
+    Verifies that the kill switch mechanism properly terminates
+    agent execution when triggered. Critical safety feature for
+    preventing runaway agent processes.
+
+  preconditions:
+    - Kill switch file exists at configured location
+    - Agent execution is in progress
+    - Test environment is isolated
+
+  steps:
+    - "Start agent execution"
+    - "Verify agent is running"
+    - "Trigger kill switch (create kill file)"
+    - "Wait for termination"
+    - "Verify agent process terminated"
+    - "Verify cleanup completed"
+
+  expected_result: |
+    Agent execution terminates within 5 seconds of kill switch
+    trigger. All resources are properly cleaned up.
+
+  related_requirements:
+    - "REQ-SAFETY-001"
+    - "REQ-SAFETY-002"
+
+  related_tasks:
+    - "TASK-SAFETY-001"
+
+  automated_test_file: "2-engine/safety/tests/test_kill_switch_integration.py"
+  automated_test_function: "test_kill_switch_terminates_agent"
+
+  last_executed: "2026-02-09T00:00:00Z"
+  last_result: "passed"
+
+  execution_history:
+    - date: "2026-02-09"
+      result: "passed"
+      duration_ms: 1200
+      executor: "ci"

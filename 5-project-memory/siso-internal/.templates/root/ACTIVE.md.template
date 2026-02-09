@@ -1,0 +1,86 @@
+# Active Work Dashboard
+
+**Project:** {{PROJECT_NAME}}
+**Last Updated:** FILL_ME - ISO timestamp
+**Updated By:** FILL_ME - Agent name
+
+---
+
+## Quick Stats
+
+| Metric | Value |
+|--------|-------|
+| Project Status | FILL_ME |
+| Active Goals | FILL_ME |
+| Active Plans | FILL_ME |
+| Active Tasks | FILL_ME |
+| Active Features | FILL_ME |
+
+---
+
+## Active Goals
+
+### Goal: FILL_ME (IG-XXX)
+- **Status:** FILL_ME
+- **Progress:** FILL_ME%
+- **Priority:** FILL_ME
+
+---
+
+## Active Plans
+
+### Plan: FILL_ME
+- **Status:** FILL_ME
+- **Linked Goal:** FILL_ME
+- **Progress:** FILL_ME%
+
+---
+
+## Active Tasks
+
+| ID | Title | Priority | Status | Assigned |
+|----|-------|----------|--------|----------|
+| TASK-XXX | FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Active Features
+
+### FILL_ME
+- **Status:** FILL_ME
+- **Progress:** FILL_ME%
+- **Target Completion:** FILL_ME
+
+---
+
+## Next Actions
+
+1. FILL_ME
+2. FILL_ME
+3. FILL_ME
+
+---
+
+## Blockers
+
+| Item | Blocker | Impact | Owner |
+|------|---------|--------|-------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Quick Navigation
+
+```bash
+# List all goals
+bb5 goal:list
+
+# List all plans
+bb5 plan:list
+
+# List all tasks
+bb5 task:list
+
+# Show current task
+bb5 task:current
+```

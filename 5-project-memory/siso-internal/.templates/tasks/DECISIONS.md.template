@@ -1,0 +1,72 @@
+# DECISIONS - Run {RUN_ID}
+
+**Run:** {RUN_ID}
+**Date:** {YYYY-MM-DD}
+**Task:** {TASK_ID}
+
+---
+
+## Decision 1: [Decision Title]
+
+**ID:** DEC-{timestamp}-001
+**Date:** {YYYY-MM-DD}
+**Status:** proposed|accepted|rejected|superseded
+
+### Context
+What led to this decision?
+
+FILL_ME
+
+### Decision
+What was decided?
+
+FILL_ME
+
+### Rationale
+Why was this choice made?
+
+FILL_ME
+
+### Alternatives Considered
+
+| Option | Pros | Cons | Decision |
+|--------|------|------|----------|
+| FILL_ME | FILL_ME | FILL_ME | rejected |
+| FILL_ME | FILL_ME | FILL_ME | accepted |
+
+### Consequences
+
+**Positive:**
+- FILL_ME
+
+**Negative:**
+- FILL_ME
+
+**Risks:**
+- FILL_ME
+
+---
+
+## Decision 2: [Decision Title]
+
+**ID:** DEC-{timestamp}-002
+**Date:** {YYYY-MM-DD}
+**Status:** proposed|accepted|rejected|superseded
+
+### Context
+FILL_ME
+
+### Decision
+FILL_ME
+
+### Rationale
+FILL_ME
+
+---
+
+## Decision Registry Summary
+
+| ID | Title | Status | Date |
+|----|-------|--------|------|
+| DEC-{timestamp}-001 | FILL_ME | FILL_ME | FILL_ME |
+| DEC-{timestamp}-002 | FILL_ME | FILL_ME | FILL_ME |

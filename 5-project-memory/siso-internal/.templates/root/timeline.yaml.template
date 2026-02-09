@@ -1,0 +1,75 @@
+# =============================================================================
+# TIMELINE.yaml - Project Timeline and Milestones
+# =============================================================================
+# Purpose: Track milestones, events, and project progress over time
+# Updated: FILL_ME - ISO timestamp
+# =============================================================================
+
+project:
+  name: "{{PROJECT_NAME}}"
+  start_date: "FILL_ME - YYYY-MM-DD"
+  target_completion: "FILL_ME - YYYY-MM-DD or null"
+  current_phase: "FILL_ME - Current phase description"
+
+# =============================================================================
+# MILESTONES - Major project achievements
+# =============================================================================
+
+milestones:
+  - id: "M-001"
+    name: "Project Kickoff"
+    description: "Initial project setup"
+    target_date: "FILL_ME - YYYY-MM-DD"
+    completed_date: "FILL_ME - YYYY-MM-DD or null"
+    status: "FILL_ME - not_started|in_progress|completed|blocked"
+    deliverables:
+      - "FILL_ME - Deliverable 1"
+      - "FILL_ME - Deliverable 2"
+    criteria: "FILL_ME - Completion criteria"
+
+  - id: "M-002"
+    name: "FILL_ME"
+    description: "FILL_ME"
+    target_date: "FILL_ME - YYYY-MM-DD"
+    completed_date: "FILL_ME - YYYY-MM-DD or null"
+    status: "FILL_ME"
+    deliverables:
+      - "FILL_ME"
+    criteria: "FILL_ME"
+
+# =============================================================================
+# EVENTS - Significant project events
+# =============================================================================
+
+events:
+  - date: "FILL_ME - YYYY-MM-DD"
+    type: "FILL_ME - milestone|decision|infrastructure|process|analysis"
+    title: "FILL_ME - Event title"
+    description: "FILL_ME - Event description"
+    impact: "FILL_ME - high|medium|low"
+    related_items:
+      - "FILL_ME - Related item reference"
+
+# =============================================================================
+# PROGRESS METRICS
+# =============================================================================
+
+progress:
+  - date: "FILL_ME - YYYY-MM-DD"
+    metrics:
+      overall_completion: "FILL_ME - Percentage"
+      goals_completed: "FILL_ME - Count"
+      goals_total: "FILL_ME - Count"
+      tasks_completed: "FILL_ME - Count"
+      tasks_total: "FILL_ME - Count"
+    notes: "FILL_ME - Progress notes"
+
+# =============================================================================
+# CHANGE LOG
+# =============================================================================
+
+changelog:
+  - date: "FILL_ME - YYYY-MM-DD"
+    version: "FILL_ME - Version number"
+    changes:
+      - "FILL_ME - Change description"

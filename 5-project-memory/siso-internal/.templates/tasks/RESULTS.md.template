@@ -1,0 +1,86 @@
+# RESULTS - Run {RUN_ID}
+
+**Run:** {RUN_ID}
+**Date:** {YYYY-MM-DD}
+**Task:** {TASK_ID}
+**Status:** COMPLETE|PARTIAL|BLOCKED
+
+---
+
+## Summary
+
+[1-2 sentence summary of what was accomplished]
+
+---
+
+## What Was Completed
+
+### Deliverables
+- [x] FILL_ME - Deliverable 1
+- [x] FILL_ME - Deliverable 2
+- [ ] FILL_ME - Deliverable 3 (if partial)
+
+### Files Created
+- FILL_ME - Path to file
+- FILL_ME - Path to file
+
+### Files Modified
+- FILL_ME - Path to file
+- FILL_ME - Path to file
+
+---
+
+## Acceptance Criteria Status
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| FILL_ME | pass|fail|partial | FILL_ME |
+| FILL_ME | pass|fail|partial | FILL_ME |
+
+---
+
+## Metrics
+
+| Metric | Target | Actual | Status |
+|--------|--------|--------|--------|
+| FILL_ME | FILL_ME | FILL_ME | pass|fail |
+
+---
+
+## Validation Results
+
+### Tests
+- [x] Test 1: FILL_ME - Result
+- [x] Test 2: FILL_ME - Result
+
+### Code Review
+- [x] Reviewed by: FILL_ME
+- [x] Issues found: FILL_ME
+
+### Documentation
+- [x] Updated: FILL_ME
+
+---
+
+## Issues Encountered
+
+| Issue | Severity | Resolution |
+|-------|----------|------------|
+| FILL_ME | high|medium|low | FILL_ME |
+
+---
+
+## Next Steps
+
+1. FILL_ME
+2. FILL_ME
+
+---
+
+## Artifacts
+
+### Generated Files
+- FILL_ME
+
+### References
+- FILL_ME

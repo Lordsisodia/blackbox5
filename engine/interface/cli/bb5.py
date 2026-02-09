@@ -14,10 +14,13 @@ Usage:
 import sys
 import asyncio
 import json
+import uuid
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any
+from datetime import datetime, timezone
 
 import click
+import yaml
 
 # Add engine directory to path to import main
 engine_dir = Path(__file__).parent.parent.parent
@@ -29,6 +32,145 @@ sys.path.insert(0, str(core_dir))
 
 # Import from infrastructure module
 from infrastructure.main import get_blackbox5
+
+
+class BB5RunTracker:
+    """Tracks BB5 CLI runs with full lifecycle management."""
+
+    def __init__(self):
+        self.run_id: Optional[str] = None
+        self.run_dir: Optional[Path] = None
+        self.start_time: Optional[datetime] = None
+        self.runs_base = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5" / "runs" / "cli"
+        self.runs_base.mkdir(parents=True, exist_ok=True)
+        self.events_file = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5" / ".autonomous" / "agents" / "communications" / "events.yaml"
+
+    def start_run(self, query: str, context: Optional[Dict] = None) -> str:
+        """Initialize a new run with full tracking setup."""
+        self.run_id = f"run-{int(datetime.now(timezone.utc).timestamp())}"
+        self.start_time = datetime.now(timezone.utc)
+        self.run_dir = self.runs_base / self.run_id
+        self.run_dir.mkdir(parents=True, exist_ok=True)
+
+        # Initialize run files
+        self._init_run_files(query, context)
+
+        # Write start event
+        self._write_event("started", query)
+
+        return self.run_id
+
+    def _init_run_files(self, query: str, context: Optional[Dict]):
+        """Create RUN.yaml, THOUGHTS.md, RESULTS.md, etc."""
+        timestamp = self.start_time.isoformat()
+
+        # RUN.yaml - Unified output
+        run_yaml = {
+            "metadata": {
+                "run_id": self.run_id,
+                "timestamp": timestamp,
+                "agent": "bb5-cli",
+                "query": query,
+                "context": context or {}
+            },
+            "thoughts": [],
+            "decisions": [],
+            "assumptions": [],
+            "results": {},
+            "learnings": []
+        }
+        with open(self.run_dir / "RUN.yaml", "w") as f:
+            yaml.dump(run_yaml, f, default_flow_style=False)
+
+        # THOUGHTS.md
+        with open(self.run_dir / "THOUGHTS.md", "w") as f:
+            f.write(f"# Run: {self.run_id}\n\n**Started:** {timestamp}\n**Query:** {query}\n\n## Execution Log\n\n")
+
+        # RESULTS.md
+        with open(self.run_dir / "RESULTS.md", "w") as f:
+            f.write(f"# Results: {self.run_id}\n\n**Status:** active\n\n## Outcomes\n\n")
+
+        # metadata.yaml
+        metadata = {
+            "loop": {
+                "number": 1,
+                "agent": "bb5-cli",
+                "timestamp_start": timestamp,
+                "status": "active"
+            },
+            "query": query,
+            "actions": [],
+            "discoveries": []
+        }
+        with open(self.run_dir / "metadata.yaml", "w") as f:
+            yaml.dump(metadata, f, default_flow_style=False)
+
+    def log_thought(self, thought: str):
+        """Append thought to THOUGHTS.md."""
+        if self.run_dir:
+            with open(self.run_dir / "THOUGHTS.md", "a") as f:
+                f.write(f"- {datetime.now(timezone.utc).isoformat()}: {thought}\n")
+
+    def complete_run(self, result: Dict[str, Any]):
+        """Mark run as completed."""
+        if not self.run_dir:
+            return
+
+        duration = (datetime.now(timezone.utc) - self.start_time).total_seconds()
+
+        # Update RESULTS.md
+        with open(self.run_dir / "RESULTS.md", "w") as f:
+            f.write(f"# Results: {self.run_id}\n\n")
+            f.write(f"**Status:** completed\n")
+            f.write(f"**Completed:** {datetime.now(timezone.utc).isoformat()}\n")
+            f.write(f"**Duration:** {duration:.1f}s\n\n")
+            f.write(f"## Outcomes\n\n")
+            f.write(f"```\n{result.get('output', 'No output')[:2000]}\n```\n")
+
+        # Update metadata.yaml
+        with open(self.run_dir / "metadata.yaml", "r") as f:
+            metadata = yaml.safe_load(f)
+        metadata["loop"]["status"] = "completed"
+        metadata["loop"]["timestamp_end"] = datetime.now(timezone.utc).isoformat()
+        metadata["loop"]["duration_seconds"] = int(duration)
+        with open(self.run_dir / "metadata.yaml", "w") as f:
+            yaml.dump(metadata, f, default_flow_style=False)
+
+        # Write completion event
+        self._write_event("completed", result.get('output', '')[:100])
+
+    def fail_run(self, error: str):
+        """Mark run as failed."""
+        if not self.run_dir:
+            return
+
+        with open(self.run_dir / "RESULTS.md", "w") as f:
+            f.write(f"# Results: {self.run_id}\n\n**Status:** failed\n\n## Error\n\n{error}\n")
+
+        self._write_event("failed", error[:100])
+
+    def _write_event(self, event_type: str, data: str):
+        """Write event to events.yaml."""
+        try:
+            event = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "type": event_type,
+                "agent": "bb5-cli",
+                "run_id": self.run_id,
+                "data": data[:200]
+            }
+
+            events = []
+            if self.events_file.exists():
+                with open(self.events_file, "r") as f:
+                    events = yaml.safe_load(f) or []
+
+            events.append(event)
+
+            with open(self.events_file, "w") as f:
+                yaml.dump(events, f, default_flow_style=False)
+        except Exception:
+            pass  # Silent fail - don't break CLI for tracking
 
 
 @click.group()
@@ -48,8 +190,9 @@ def cli():
               help='Execution strategy')
 @click.option("--json", "-j", "as_json", is_flag=True, help="Output as JSON")
 @click.option("--verbose", "-v", is_flag=True, help="Show detailed output")
+@click.option("--track", is_flag=True, default=True, help="Track this run (default: enabled)")
 def ask(query: str, session: Optional[str], agent: Optional[str],
-        strategy: str, as_json: bool, verbose: bool):
+        strategy: str, as_json: bool, verbose: bool, track: bool):
     """
     Ask Blackbox 5 a question or give it a task.
 
@@ -60,13 +203,21 @@ def ask(query: str, session: Optional[str], agent: Optional[str],
         bb5 ask --session abc123 "Follow-up"
         bb5 ask --json "Output as JSON"
     """
-    asyncio.run(_handle_ask(query, session, agent, strategy, as_json, verbose))
+    asyncio.run(_handle_ask(query, session, agent, strategy, as_json, verbose, track))
 
 
 async def _handle_ask(query: str, session: Optional[str], agent: Optional[str],
-                      strategy: str, as_json: bool, verbose: bool):
-    """Handle the ask command asynchronously."""
+                      strategy: str, as_json: bool, verbose: bool, track: bool = True):
+    """Handle the ask command asynchronously with optional tracking."""
+    tracker = BB5RunTracker()
+    run_id = None
+
     try:
+        # Initialize tracking
+        if track:
+            run_id = tracker.start_run(query, {"session": session, "agent": agent, "strategy": strategy})
+            tracker.log_thought(f"Run started: {run_id}")
+
         # Import safety checks
         from safety.kill_switch import get_kill_switch
         from safety.classifier import get_classifier, ContentType
@@ -115,7 +266,12 @@ async def _handle_ask(query: str, session: Optional[str], agent: Optional[str],
 
         # Process request
         click.echo(f"Processing request...", err=True)
+        if track:
+            tracker.log_thought(f"Processing with strategy: {strategy}")
         result = await bb5.process_request(query, session, context)
+
+        if track:
+            tracker.log_thought(f"Agent selected: {result.get('routing', {}).get('agent')}")
 
         # 4. Validate output
         if isinstance(result, dict) and 'result' in result:
@@ -134,7 +290,15 @@ async def _handle_ask(query: str, session: Optional[str], agent: Optional[str],
         else:
             _output_human_readable(result, verbose)
 
+        # Complete tracking
+        if track:
+            tracker.complete_run(result)
+            if run_id:
+                click.echo(f"\n📊 Run tracked: {run_id}", err=True)
+
     except Exception as e:
+        if track:
+            tracker.fail_run(str(e))
         click.echo(f"Error: {e}", err=True)
         if verbose:
             import traceback

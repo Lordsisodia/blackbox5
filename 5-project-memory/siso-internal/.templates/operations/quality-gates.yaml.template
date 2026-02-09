@@ -1,0 +1,110 @@
+# =============================================================================
+# Quality Gates Configuration
+# =============================================================================
+# Purpose: Define quality gates for task completion
+# Version: 1.0.0
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "FILL_ME - ISO timestamp"
+  last_updated: "FILL_ME - ISO timestamp"
+
+# =============================================================================
+# GATE DEFINITIONS
+# =============================================================================
+
+gates:
+  pre_execution:
+    name: "Pre-Execution Validation"
+    description: "Checks to run before starting work"
+    required: true
+    checks:
+      - id: duplicate_check
+        name: "Duplicate Check"
+        description: "Search completed/ for similar tasks"
+        type: manual
+        required: true
+      - id: path_validation
+        name: "Path Validation"
+        description: "Verify all target paths exist"
+        type: automated
+        required: true
+      - id: commit_check
+        name: "Commit Check"
+        description: "Check recent commits for related work"
+        type: manual
+        required: false
+      - id: assumptions
+        name: "Assumptions Validation"
+        description: "List and validate all assumptions"
+        type: manual
+        required: true
+
+  code_quality:
+    name: "Code Quality"
+    description: "Code quality checks"
+    required: true
+    checks:
+      - id: linting
+        name: "Linting"
+        description: "Run linters"
+        type: automated
+        required: true
+      - id: type_checking
+        name: "Type Checking"
+        description: "Run type checker"
+        type: automated
+        required: true
+      - id: tests
+        name: "Tests"
+        description: "Run test suite"
+        type: automated
+        required: true
+
+  documentation:
+    name: "Documentation"
+    description: "Documentation completeness"
+    required: true
+    checks:
+      - id: code_comments
+        name: "Code Comments"
+        description: "Key code sections are commented"
+        type: manual
+        required: true
+      - id: readme_updated
+        name: "README Updated"
+        description: "README updated if needed"
+        type: manual
+        required: false
+
+  review:
+    name: "Review"
+    description: "Review requirements"
+    required: false
+    checks:
+      - id: self_review
+        name: "Self Review"
+        description: "Review own changes"
+        type: manual
+        required: true
+      - id: peer_review
+        name: "Peer Review"
+        description: "Peer review for complex changes"
+        type: manual
+        required: false
+
+# =============================================================================
+# SEVERITY LEVELS
+# =============================================================================
+
+severity:
+  critical:
+    description: "Must pass - blocks completion"
+    action: block
+  warning:
+    description: "Should pass - warns but allows override"
+    action: warn
+  info:
+    description: "Nice to have - informational only"
+    action: log

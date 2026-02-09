@@ -1,0 +1,57 @@
+# Epic Metadata
+# =============================================================================
+
+epic:
+  name: "FILL_ME"
+  status: "FILL_ME - draft|active|completed|archived"
+  priority: "FILL_ME - critical|high|medium|low"
+  created: "FILL_ME - YYYY-MM-DD"
+  started: "FILL_ME - YYYY-MM-DD"
+  target_completion: "FILL_ME - YYYY-MM-DD"
+  completed: "FILL_ME - YYYY-MM-DD or null"
+  owner: "FILL_ME - Agent or team"
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  overall: 0  # Percentage 0-100
+  by_phase:
+    phase_1: 0
+    phase_2: 0
+    phase_3: 0
+
+# =============================================================================
+# ESTIMATES
+# =============================================================================
+
+estimates:
+  total_tasks: 0
+  completed_tasks: 0
+  remaining_tasks: 0
+  total_effort_hours: 0
+  completed_effort_hours: 0
+  remaining_effort_hours: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  goal: "FILL_ME - Goal ID"
+  tasks: []
+    # - TASK-XXX
+  decisions: []
+    # - DEC-XXX
+  research: []
+    # - research/STACK.md
+
+# =============================================================================
+# METRICS
+# =============================================================================
+
+metrics:
+  velocity_tasks_per_week: null
+  quality_score: null
+  rework_rate: null

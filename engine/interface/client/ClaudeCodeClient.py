@@ -235,8 +235,12 @@ class ClaudeCodeClient:
             # Build environment
             cli_env = self._build_claude_command(request)
 
-            # Prepare command
-            cmd = [self.claude_path]
+            # Prepare command with auto-execution flags
+            cmd = [
+                self.claude_path,
+                "--dangerously-skip-permissions",  # Bypass all permission checks
+                "--print"  # Print response and exit (non-interactive)
+            ]
 
             # Add context file if provided
             if request.context:

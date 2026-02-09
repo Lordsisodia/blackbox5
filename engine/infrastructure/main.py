@@ -66,9 +66,109 @@ class BlackBox5:
         
         # Initialize guide registry (placeholder - implement as needed)
         self._guide_registry = None
-        
+
+        # Keyword to agent mapping for smart routing
+        self._routing_keywords = {
+            'database': ['database', 'schema', 'postgres', 'mysql', 'query', 'table', 'migration'],
+            'security': ['security', 'vulnerability', 'audit', 'penetration', 'owasp', 'auth', 'encrypt', 'injection', 'xss', 'csrf', 'breach', 'exploit'],
+            'frontend': ['react', 'vue', 'angular', 'frontend', 'ui', 'css', 'html', 'component', 'dom'],
+            'backend': ['api', 'backend', 'server', 'endpoint', 'rest', 'graphql', 'microservice'],
+            'devops': ['docker', 'kubernetes', 'k8s', 'ci/cd', 'pipeline', 'deploy', 'infrastructure', 'terraform'],
+            'testing': ['test', 'testing', 'pytest', 'jest', 'cypress', 'unit test', 'integration test'],
+            'performance': ['performance', 'optimization', 'slow', 'bottleneck', 'cache', 'latency'],
+            'ml': ['machine learning', 'ml', 'ai model', 'tensorflow', 'pytorch', 'neural', 'training'],
+            'mobile': ['mobile', 'ios', 'android', 'react native', 'flutter', 'app'],
+            'data': ['data', 'analytics', 'etl', 'pipeline', 'warehouse', 'bigquery', 'snowflake'],
+        }
+
+        # Security keywords that should override other matches
+        self._security_override = ['injection', 'xss', 'csrf', 'vulnerability', 'exploit', 'breach', 'penetration']
+
         self._initialized = True
         logger.info("BlackBox5 system initialized")
+
+    def _route_request(self, query: str, forced_agent: Optional[str], strategy: str) -> tuple:
+        """Route request to appropriate agent based on query content."""
+        query_lower = query.lower()
+
+        # If agent is forced and exists, use it
+        if forced_agent:
+            if forced_agent in self._agents:
+                return self._agents[forced_agent], {
+                    'strategy': 'single_agent',
+                    'agent': forced_agent,
+                    'complexity': 0.5,
+                    'confidence': 0.9
+                }
+            else:
+                # Invalid agent - return error
+                return None, {'strategy': 'none', 'agent': forced_agent, 'error': f'Agent "{forced_agent}" not found'}
+
+        # Try keyword matching
+        best_match = None
+        best_score = 0
+
+        # Check for security override keywords first
+        for sec_keyword in self._security_override:
+            if sec_keyword in query_lower:
+                # Force security specialist if security keywords found
+                for agent_name in self._agents.keys():
+                    if 'security' in agent_name.lower():
+                        return self._agents[agent_name], {
+                            'strategy': 'single_agent',
+                            'agent': agent_name,
+                            'complexity': 0.5,
+                            'confidence': 0.9
+                        }
+
+        for agent_name, agent in self._agents.items():
+            score = 0
+
+            # Check agent capabilities
+            caps = getattr(agent, 'config', None)
+            if caps and hasattr(caps, 'capabilities'):
+                for cap in caps.capabilities:
+                    if cap.lower() in query_lower:
+                        score += 2
+
+            # Check routing keywords
+            for category, keywords in self._routing_keywords.items():
+                if category in agent_name.lower():
+                    for keyword in keywords:
+                        if keyword in query_lower:
+                            score += 3
+
+            if score > best_score:
+                best_score = score
+                best_match = agent_name
+
+        # If we found a match, use it
+        if best_match:
+            return self._agents[best_match], {
+                'strategy': 'single_agent',
+                'agent': best_match,
+                'complexity': 0.5,
+                'confidence': min(0.5 + (best_score * 0.1), 0.95)
+            }
+
+        # Fallback: use DeveloperAgent if available, otherwise first agent
+        if 'DeveloperAgent' in self._agents:
+            return self._agents['DeveloperAgent'], {
+                'strategy': 'single_agent',
+                'agent': 'DeveloperAgent',
+                'complexity': 0.5,
+                'confidence': 0.6
+            }
+        elif self._agents:
+            first = list(self._agents.keys())[0]
+            return self._agents[first], {
+                'strategy': 'single_agent',
+                'agent': first,
+                'complexity': 0.5,
+                'confidence': 0.5
+            }
+
+        return None, {'strategy': 'none', 'agent': None, 'error': 'No agents available'}
     
     async def process_request(
         self, 
@@ -96,26 +196,10 @@ class BlackBox5:
         strategy = context.get('strategy', 'auto')
         forced_agent = context.get('forced_agent')
         
-        # Simple routing logic
-        if forced_agent and forced_agent in self._agents:
-            agent = self._agents[forced_agent]
-            routing = {
-                'strategy': 'single_agent',
-                'agent': forced_agent,
-                'complexity': 0.5,
-                'confidence': 0.9
-            }
-        elif len(self._agents) > 0:
-            # Use first available agent as default
-            agent_name = list(self._agents.keys())[0]
-            agent = self._agents[agent_name]
-            routing = {
-                'strategy': strategy if strategy != 'auto' else 'single_agent',
-                'agent': agent_name,
-                'complexity': 0.5,
-                'confidence': 0.8
-            }
-        else:
+        # Smart routing logic with keyword matching
+        agent, routing = self._route_request(query, forced_agent, strategy)
+
+        if agent is None:
             # No agents available
             return {
                 'success': False,

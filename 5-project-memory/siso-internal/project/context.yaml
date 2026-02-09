@@ -1,0 +1,39 @@
+# Project Context
+# =============================================================================
+# Purpose: Project identity and direction
+# =============================================================================
+
+project:
+  name: "SISO-Internal"
+  description: "Internal project management and AI agent coordination system"
+  version: "0.1.0"
+  status: "active"
+  started: "2026-01-18"
+
+identity:
+  mission: "Enable efficient AI agent collaboration and project tracking"
+  vision: "Seamless human-AI collaboration for software development"
+  values:
+    - "Transparency"
+    - "Traceability"
+    - "Efficiency"
+    - "Quality"
+
+direction:
+  current_phase: "Infrastructure"
+  next_phase: "Implementation"
+  primary_goal: "Establish robust project memory system"
+
+stakeholders:
+  - name: "Development Team"
+    role: "Primary users"
+  - name: "AI Agents"
+    role: "Autonomous workers"
+
+timeline:
+  start_date: "2026-01-18"
+  target_completion: null
+  milestones:
+    - "Project Kickoff (completed)"
+    - "Memory System (in progress)"
+    - "User Profile (pending)"

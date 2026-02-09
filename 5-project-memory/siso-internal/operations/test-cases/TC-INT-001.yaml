@@ -1,0 +1,53 @@
+# Test Case: Agent Spawning Integration
+# ID: TC-INT-001
+# Category: Integration
+# Status: draft
+# Automation: partial
+
+test_case:
+  id: "TC-INT-001"
+  name: "Agent Spawning Integration Test"
+  category: "integration"
+  priority: "critical"
+  status: "draft"
+  automation_status: "partial"
+
+  description: |
+    Tests the full agent spawning pipeline from queue detection
+    to actual agent execution. Currently agents are queued but
+    not actually spawned - this test verifies the gap.
+
+  preconditions:
+    - Spawn queue exists and is accessible
+    - Agent definitions are loaded
+    - Task tool is available
+
+  steps:
+    - "Add agent to spawn queue"
+    - "Trigger spawn processor"
+    - "Verify agent is spawned via Task tool"
+    - "Verify agent execution begins"
+    - "Verify completion tracking"
+
+  expected_result: |
+    Agent is successfully spawned via Task tool, executes its
+    assigned task, and completion is properly tracked.
+
+  related_requirements:
+    - "REQ-AGENT-002"
+    - "REQ-AGENT-003"
+
+  related_tasks:
+    - "TASK-AGENT-002"
+
+  automated_test_file: null
+  automated_test_function: null
+
+  notes: |
+    This test case identifies GAP-004 from test-tracking-system.yaml.
+    The infrastructure exists but actual spawning is not implemented.
+
+  last_executed: null
+  last_result: null
+
+  execution_history: []

@@ -1,0 +1,174 @@
+# Run Documentation Validation Configuration
+# SISO-Internal - Ensures run folder documentation is properly populated
+#
+# Purpose: Define minimum content thresholds and validation rules for run folder
+#          documentation files (THOUGHTS.md, LEARNINGS.md, DECISIONS.md, RESULTS.md)
+
+validation:
+  # Validation mode:
+  # - "warn": Print warnings but allow session to end (exit code 0)
+  # - "block": Block session end if validation fails (exit code 1)
+  # - "strict": Block and require all files to meet maximum thresholds
+  mode: "warn"
+
+  # Version tracking
+  version: "1.0.0"
+  last_updated: "2026-02-09"
+
+# Minimum content thresholds for each documentation file
+# Files below these thresholds are considered "unfilled"
+thresholds:
+  THOUGHTS.md:
+    min_chars: 500
+    min_sections: 2
+    required_headers:
+      - "## "
+    forbidden_patterns:
+      - "{AGENT_TYPE}"
+      - "{RUN_ID}"
+      - "{TIMESTAMP}"
+      - "{TARGET_NAME}"
+      - "[What was learned from previous runs/memory]"
+      - "[What needs clarification]"
+      - "[Detailed reasoning and actions taken]"
+      - "RALF_TEMPLATE: UNFILLED"
+    description: "Execution reasoning and thought process"
+
+  LEARNINGS.md:
+    min_chars: 300
+    min_sections: 1
+    required_headers:
+      - "## "
+    forbidden_patterns:
+      - "{RUN_ID}"
+      - "{TASK_ID}"
+      - "[Brief 1-2 sentence summary]"
+      - "[What was learned - specific observation]"
+      - "[Expand on the observation]"
+      - "[How often observed]"
+      - "[Thing that worked]"
+      - "[Difficulty encountered]"
+      - "[Alternative approach]"
+      - "RALF_TEMPLATE: UNFILLED"
+    description: "Insights and improvement opportunities"
+
+  DECISIONS.md:
+    min_chars: 200
+    min_sections: 1
+    required_headers:
+      - "## "
+    forbidden_patterns:
+      - "{AGENT_TYPE}"
+      - "{RUN_ID}"
+      - "{Decision Title}"
+      - "[What situation led to this decision]"
+      - "[Description]"
+      - "[List]"
+      - "[Which option was chosen]"
+      - "[Why this option was selected]"
+      - "[Assumption 1]"
+      - "[How easy to undo if wrong]"
+      - "RALF_TEMPLATE: UNFILLED"
+    description: "Decision records and rationale"
+
+  RESULTS.md:
+    min_chars: 400
+    min_sections: 2
+    required_headers:
+      - "## Summary"
+    forbidden_patterns:
+      - "{AGENT_TYPE}"
+      - "{RUN_ID}"
+      - "{START_TIME}"
+      - "{END_TIME}"
+      - "{PERCENTAGE}"
+      - "[Brief summary of what was accomplished]"
+      - "[Description and location]"
+      - "{BUDGET}"
+      - "{USED}"
+      - "{PERCENT}"
+      - "RALF_TEMPLATE: UNFILLED"
+    description: "Outcomes and success/failure metrics"
+
+  ASSUMPTIONS.md:
+    min_chars: 100
+    min_sections: 1
+    required_headers: []
+    forbidden_patterns:
+      - "{RUN_ID}"
+      - "[Assumption statement]"
+      - "[Why this assumption was made]"
+      - "[high|medium|low]"
+      - "[What to do if wrong]"
+      - "RALF_TEMPLATE: UNFILLED"
+    description: "Assumptions made during execution"
+    optional: true  # This file is optional
+
+# Severity levels for different validation failures
+severity:
+  # Template placeholders still present (critical - indicates copy-paste without editing)
+  template_placeholders: "error"
+
+  # Below minimum character count
+  insufficient_content: "warning"
+
+  # Missing required sections
+  missing_sections: "warning"
+
+  # Missing optional files
+  missing_optional: "info"
+
+# Exit code behavior by mode
+exit_codes:
+  warn:
+    validation_failed: 0  # Allow session to end
+    validation_passed: 0
+  block:
+    validation_failed: 1  # Block session end
+    validation_passed: 0
+  strict:
+    validation_failed: 1  # Block session end
+    validation_passed: 0
+
+# Output formatting
+output:
+  # Enable colorized output
+  colors: true
+
+  # Show file content statistics
+  show_stats: true
+
+  # Show specific errors found
+  show_details: true
+
+  # Maximum errors to display per file
+  max_errors_per_file: 5
+
+# Integration settings
+integration:
+  # Hook into session-end.sh
+  session_end_hook: true
+
+  # Allow bypass with environment variable
+  bypass_env_var: "SISO_SKIP_RUN_VALIDATION"
+
+  # Create validation report in run folder
+  create_report: true
+  report_filename: "validation-report.json"
+
+# Exemptions
+# Certain run types may be exempt from validation
+exemptions:
+  # Runs with these tags are exempt
+  tags:
+    - "quick-fix"
+    - "emergency"
+    - "exploration"
+
+  # Runs shorter than this many minutes are exempt (if metadata available)
+  min_duration_minutes: 5
+
+  # Specific run name patterns that are exempt
+  patterns:
+    - "run-test-*"
+    - "run-debug-*"

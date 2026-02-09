@@ -1,0 +1,72 @@
+# Naming Conventions
+
+**Project:** {{PROJECT_NAME}}
+**Last Updated:** FILL_ME
+
+---
+
+## File Naming
+
+### Tasks
+- Format: `TASK-{YYYY-MM-DD}-{NNN}.md` or `TASK-{TIMESTAMP}.md`
+- Examples:
+  - `TASK-2026-02-09-001.md`
+  - `TASK-1769978192.md`
+
+### Goals
+- Format: `IG-{NNN}-{description}` (Improvement Goal)
+- Format: `CG-{NNN}` (Core Goal)
+- Examples:
+  - `IG-006`
+  - `CG-001`
+
+### Plans
+- Format: `{descriptive-name}`
+- Examples:
+  - `user-profile`
+  - `navigation-system`
+
+### Decisions
+- Format: `DEC-{YYYY-MM-DD}-{TYPE}-{slug}.md`
+- Types: ARCH (architectural), SCOPE, TECH (technical)
+- Examples:
+  - `DEC-2026-02-09-ARCH-folder-structure.md`
+
+### Research
+- Format: `{DIMENSION}.md`
+- Examples:
+  - `STACK.md`
+  - `ARCHITECTURE.md`
+
+---
+
+## Folder Naming
+
+### Goals
+- Format: `IG-{NNN}/` or `IG-{NNN}-{description}/`
+- Examples:
+  - `IG-006/`
+  - `IG-011-production-readiness/`
+
+### Tasks
+- Format: `TASK-{ID}/`
+- Examples:
+  - `TASK-010-001-sessionstart-enhanced/`
+
+---
+
+## Backup Naming
+
+- Format: `{FILENAME}.backup.{TIMESTAMP}`
+- Examples:
+  - `STATE.yaml.backup.1770341176`
+  - `STATE.yaml.backup.20260204_093350`
+
+---
+
+## Run Folders
+
+- Format: `run-{TIMESTAMP}/`
+- Examples:
+  - `run-1769799687/`
+  - `run-20260209_143052/`

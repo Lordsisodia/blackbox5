@@ -1,0 +1,170 @@
+# =============================================================================
+# MAP.yaml - Project File Map
+# =============================================================================
+# Purpose: Complete file-level project map for navigation
+# Updated: 2026-02-09T14:11:05Z
+# =============================================================================
+
+meta:
+  generated_at: "2026-02-09T14:11:05Z"
+  version: "1.0.0"
+  project: "SISO-Internal"
+
+# =============================================================================
+# ROOT FILES
+# =============================================================================
+
+root_files:
+  - name: "STATE.yaml"
+    purpose: "Single source of truth for project state"
+    type: "config"
+  - name: "ACTIVE.md"
+    purpose: "Current work dashboard"
+    type: "documentation"
+  - name: "WORK-LOG.md"
+    purpose: "Chronological activity log"
+    type: "documentation"
+  - name: "_NAMING.md"
+    purpose: "Naming conventions"
+    type: "documentation"
+  - name: "QUERIES.md"
+    purpose: "Common queries for AI agents"
+    type: "documentation"
+  - name: "timeline.yaml"
+    purpose: "Project timeline and milestones"
+    type: "config"
+  - name: "feature_backlog.yaml"
+    purpose: "Pending features queue"
+    type: "config"
+  - name: "MAP.yaml"
+    purpose: "This file - project map"
+    type: "config"
+  - name: "README.md"
+    purpose: "Project overview"
+    type: "documentation"
+  - name: "CODE-INDEX.yaml"
+    purpose: "Code index"
+    type: "config"
+
+# =============================================================================
+# FOLDER STRUCTURE
+# =============================================================================
+
+folders:
+  - path: ".archived"
+    purpose: "Archived historical content"
+    contents:
+      - "runs/ - Old run folders"
+      - "backups/ - File backups"
+
+  - path: ".autonomous"
+    purpose: "RALF autonomous agent system"
+    contents:
+      - "agents/ - Agent-specific data"
+      - "runs/ - Current run folders"
+      - "tasks/ - Task management"
+      - "memory/ - Persistent agent memory"
+      - "lib/ - Shared libraries"
+      - "bin/ - Scripts and executables"
+      - "config/ - Configuration files"
+      - "logs/ - Session logs"
+
+  - path: ".docs"
+    purpose: "AI-managed documentation"
+    contents:
+      - "System guides and specifications"
+
+  - path: ".templates"
+    purpose: "Templates for consistent documentation"
+    contents:
+      - "root/ - Root file templates"
+      - "tasks/ - Task templates"
+      - "goals/ - Goal templates"
+      - "epic/ - Epic templates"
+      - "decisions/ - Decision templates"
+      - "research/ - Research templates"
+      - "operations/ - Operations templates"
+
+  - path: "goals"
+    purpose: "WHAT are we working toward?"
+    contents:
+      - "active/ - Active goals"
+      - "core/ - Core goals"
+      - "completed/ - Completed goals"
+      - "templates/ - Goal templates"
+
+  - path: "plans"
+    purpose: "WHAT are we building?"
+    contents:
+      - "active/ - Active epics and features"
+      - "archived/ - Completed/archived plans"
+      - "briefs/ - Product briefs"
+      - "features/ - Feature management"
+      - "prds/ - Product requirements"
+
+  - path: "tasks"
+    purpose: "WHAT needs to be done?"
+    contents:
+      - "active/ - Active task folders"
+      - "backlog/ - Backlogged tasks"
+      - "completed/ - Completed tasks"
+      - "cancelled/ - Cancelled tasks"
+      - "improvements/ - Improvement tasks"
+      - "template/ - Task template"
+
+  - path: "decisions"
+    purpose: "WHY are we doing it this way?"
+    contents:
+      - "architectural/ - Architecture decisions"
+      - "scope/ - Scope decisions"
+      - "technical/ - Technical decisions"
+      - "infrastructure/ - Infrastructure decisions"
+
+  - path: "knowledge"
+    purpose: "HOW does it work?"
+    contents:
+      - "architecture/ - System architecture"
+      - "codebase/ - Code patterns"
+      - "frameworks/ - Framework research"
+      - "research/ - Research findings"
+      - "validation/ - Validation results"
+      - "first_principles/ - First principles analysis"
+
+  - path: "operations"
+    purpose: "System operations"
+    contents:
+      - "dashboard/ - Dashboard files"
+      - "agents/ - Agent-specific memory"
+      - "logs/ - System logs"
+      - "sessions/ - Session transcripts"
+      - "workflows/ - Workflow definitions"
+
+  - path: "project"
+    purpose: "WHO are we?"
+    contents:
+      - "Project identity and direction"
+
+  - path: "data"
+    purpose: "Project data"
+    contents:
+      - "Project-specific data files"
+
+  - path: "config"
+    purpose: "Configuration files"
+    contents:
+      - "Configuration files"
+
+  - path: "runs"
+    purpose: "Run folders"
+    contents:
+      - "Execution run folders"
+
+  - path: "learnings"
+    purpose: "Project learnings"
+    contents:
+      - "Insights and lessons learned"
+
+  - path: "bin"
+    purpose: "Executables and scripts"
+    contents:
+      - "bb5 CLI scripts"

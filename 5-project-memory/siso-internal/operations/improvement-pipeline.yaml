@@ -1,0 +1,346 @@
+# =============================================================================
+# Improvement Pipeline - Learning to Implementation
+# =============================================================================
+# Purpose: Structured pipeline converting learnings into actionable improvements
+# Version: 1.0.0
+# Created: 2026-02-09
+# Project: SISO-Internal
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  created: "2026-02-09"
+  last_updated: "2026-02-09"
+  owner: "autonomous-agent"
+
+# =============================================================================
+# PIPELINE STATES
+# =============================================================================
+# Learnings flow through these states:
+# captured → reviewed → prioritized → tasked → implemented → validated
+# =============================================================================
+
+pipeline_states:
+  captured:
+    description: "Learning documented in LEARNINGS.md"
+    entry_trigger: "Run completion with LEARNINGS.md created"
+    exit_criteria: "Learning has required fields (observation, action_item)"
+    next_state: "reviewed"
+    owner: "executor"
+
+  reviewed:
+    description: "Learning analyzed for improvement potential"
+    entry_trigger: "First principles review or manual review"
+    exit_criteria: "Category assigned, impact assessed, action item validated"
+    next_state: "prioritized"
+    owner: "planner"
+
+  prioritized:
+    description: "Improvement ranked in backlog"
+    entry_trigger: "Learning converted to improvement task"
+    exit_criteria: "Priority assigned, effort estimated, queue position set"
+    next_state: "tasked"
+    owner: "planner"
+
+  tasked:
+    description: "Improvement task created and queued"
+    entry_trigger: "IMP-*.md file created in tasks/improvements/"
+    exit_criteria: "Task has clear acceptance criteria, assigned to executor"
+    next_state: "implemented"
+    owner: "planner"
+
+  implemented:
+    description: "Improvement code/documentation changes applied"
+    entry_trigger: "Executor completes improvement task"
+    exit_criteria: "Changes committed, tests pass, integration verified"
+    next_state: "validated"
+    owner: "executor"
+
+  validated:
+    description: "Improvement effectiveness measured"
+    entry_trigger: "Post-implementation metrics collected"
+    exit_criteria: "Before/after metrics compared, success determined"
+    next_state: "complete"
+    owner: "planner"
+
+  complete:
+    description: "Improvement cycle finished"
+    entry_trigger: "Validation complete"
+    exit_criteria: "Learning marked as applied, metrics recorded"
+    next_state: null
+    owner: "system"
+
+# =============================================================================
+# LEARNING FORMAT
+# =============================================================================
+# Structured format for capturing actionable learnings
+# =============================================================================
+
+learning_format:
+  required_fields:
+    - id
+    - category
+    - observation
+    - impact
+    - action_item
+
+  optional_fields:
+    - proposed_task
+    - related_learnings
+    - validation_metrics
+
+  categories:
+    process:
+      description: "Workflow, execution, or operational improvements"
+      examples:
+        - "Pre-execution research prevents duplicate work"
+        - "Todo tracking improves task completion"
+
+    technical:
+      description: "Code patterns, implementation, or technical discoveries"
+      examples:
+        - "Import path resolution strategy"
+        - "Async testing patterns"
+
+    documentation:
+      description: "Docs, guides, or knowledge base improvements"
+      examples:
+        - "Template files need .template extension"
+        - "STATE.yaml drifts from reality"
+
+    skills:
+      description: "Skill definitions, triggers, or effectiveness"
+      examples:
+        - "Skill X triggers too often"
+        - "Missing skill for common task Y"
+
+    infrastructure:
+      description: "System, tooling, or automation improvements"
+      examples:
+        - "CI/CD pipeline needs shellcheck"
+        - "Run initialization too slow"
+
+  impact_levels:
+    high:
+      description: "Significant improvement to core metrics"
+      criteria:
+        - "Affects >50% of tasks"
+        - "Saves >10 minutes per task"
+        - "Prevents common errors"
+      priority_boost: 30
+
+    medium:
+      description: "Moderate improvement to efficiency or quality"
+      criteria:
+        - "Affects 20-50% of tasks"
+        - "Saves 5-10 minutes per task"
+        - "Reduces friction"
+      priority_boost: 15
+
+    low:
+      description: "Minor improvement or nice-to-have"
+      criteria:
+        - "Affects <20% of tasks"
+        - "Saves <5 minutes per task"
+        - "Cosmetic or convenience"
+      priority_boost: 5
+
+# =============================================================================
+# IMPROVEMENT TASK FORMAT
+# =============================================================================
+# Format for improvement tasks derived from learnings
+# =============================================================================
+
+improvement_task_format:
+  id_pattern: "IMP-{timestamp}-{seq}"
+  file_pattern: "IMP-{timestamp}-{name}.md"
+  location: ".autonomous/tasks/improvements/"
+
+  required_fields:
+    - id
+    - source_learning
+    - title
+    - category
+    - priority
+    - acceptance_criteria
+
+  template_sections:
+    - context
+    - objective
+    - success_criteria
+    - approach
+    - validation_method
+
+  priority_calculation:
+    base: "learning.impact priority value"
+    boost_frequency: "+5 if mentioned in 3+ learnings"
+    boost_recency: "+3 if learning from last 5 runs"
+    boost_blocker: "+10 if blocking other improvements"
+
+# =============================================================================
+# REVIEW PROCESS
+# =============================================================================
+
+treview_process:
+  first_principles_review:
+    frequency: "every 5 runs"
+    trigger: "current_loop % 5 == 0"
+    duration_max: "40 minutes"
+    owner: "planner"
+
+    steps:
+      - name: "Gather Data"
+        duration: "10 minutes"
+        actions:
+          - "Read LEARNINGS.md from last 5 runs"
+          - "Review current improvement backlog"
+          - "Check metrics trends"
+
+      - name: "Pattern Recognition"
+        duration: "15 minutes"
+        actions:
+          - "Identify recurring themes (3+ mentions)"
+          - "Categorize learnings by type"
+          - "Assess impact of past improvements"
+
+      - name: "Course Correction"
+        duration: "10 minutes"
+        actions:
+          - "Create improvement tasks for top themes"
+          - "Update priorities based on patterns"
+          - "Archive stale improvements"
+
+      - name: "Set Next Focus"
+        duration: "5 minutes"
+        actions:
+          - "Define 3 priorities for next 5 runs"
+          - "Update STATE.yaml improvement_metrics"
+          - "Document review outcomes"
+
+  continuous_review:
+    trigger: "Every run completion"
+    actions:
+      - "Check if LEARNINGS.md has action_item"
+      - "If high impact, create immediate improvement task"
+      - "Queue medium/low for next first principles review"
+
+# =============================================================================
+# QUEUE MANAGEMENT
+# =============================================================================
+
+queue_management:
+  main_queue:
+    path: ".autonomous/tasks/active/"
+    max_size: 10
+    priority_threshold_high: 80
+
+  improvement_queue:
+    path: ".autonomous/tasks/improvements/"
+    max_size: 15
+    reserve_slots: 2
+
+  selection_rules:
+    - "If main_queue < 3: Pull from improvement_queue"
+    - "If improvement has priority > 80: Can preempt main queue"
+    - "Every 3rd task from main queue: Check improvement_queue"
+    - "First principles review: Pause main queue, process improvements"
+
+  priority_boosts:
+    improvement_task: 20
+    recurring_theme: 15
+    recent_learning: 10
+    blocker: 25
+
+# =============================================================================
+# VALIDATION FRAMEWORK
+# =============================================================================
+
+validation:
+  metrics_to_track:
+    task_completion_time:
+      description: "Minutes to complete a task"
+      before_source: "Average of last 10 tasks"
+      after_source: "Average of next 10 tasks"
+      improvement_threshold: "10% reduction"
+
+    error_rate:
+      description: "Tasks requiring rework or fixes"
+      before_source: "Failed/block tasks in last 10 runs"
+      after_source: "Failed/block tasks in next 10 runs"
+      improvement_threshold: "20% reduction"
+
+    context_efficiency:
+      description: "Context usage vs task complexity"
+      before_source: "Average context % for task type"
+      after_source: "Average context % after improvement"
+      improvement_threshold: "15% reduction"
+
+    learning_quality:
+      description: "Actionable learnings per run"
+      before_source: "Learnings with action_items / total learnings"
+      after_source: "Same metric after improvement"
+      improvement_threshold: "25% increase"
+
+  validation_schedule:
+    immediate: "Check after 3 tasks post-improvement"
+    short_term: "Check after 10 tasks (next review)"
+    long_term: "Check after 30 tasks (monthly review)"
+
+  success_criteria:
+    must_improve: "At least 1 metric shows improvement"
+    no_regression: "No metric degrades significantly (>10%)"
+    sustained: "Improvement holds for 10+ tasks"
+
+# =============================================================================
+# METRICS AND TARGETS
+# =============================================================================
+
+metrics:
+  current:
+    improvement_application_rate: 0
+    learnings_with_action_items: 0
+    first_principles_reviews: 0
+    avg_time_learning_to_task: null
+
+  targets:
+    improvement_application_rate: 50
+    learnings_with_action_items: 80
+    first_principles_reviews: 1
+    avg_time_learning_to_task: "5 runs"
+
+  timeline:
+    phase_1: "Immediate - Create pipeline structure"
+    phase_2: "14 days - Structured learnings, automated reviews"
+    phase_3: "30 days - Validation tracking, 50% application rate"
+
+# =============================================================================
+# IMPLEMENTATION CHECKLIST
+# =============================================================================
+
+checklist:
+  created:
+    - improvement_pipeline_yaml: true
+    - learnings_template: false
+    - pipeline_guide: false
+    - improvements_directory: false
+
+  pending:
+    - extract_existing_learnings: "Pending"
+    - automate_first_principles: "Pending"
+    - update_goals_yaml: false
+    - validate_pipeline: "After 5 runs"
+
+# =============================================================================
+# CHANGE LOG
+# =============================================================================
+
+changelog:
+  - date: "2026-02-09"
+    version: "1.0.0"
+    changes:
+      - "Initial pipeline structure created for SISO-Internal"
+      - "6-state pipeline defined (captured → validated)"
+      - "Learning format with action_item field"
+      - "Improvement task format and queue management"
+      - "Validation framework with metrics"
+      - "First principles review process"

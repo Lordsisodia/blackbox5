@@ -1,131 +1,151 @@
-# Operations Documentation
+# Operations
 
-**Purpose**: Complete guide for agent orchestration and operations in BlackBox5.
+> Operational dashboards, monitoring, and procedures for SISO-Internal
 
----
+## Overview
 
-## Quick Links
+This directory contains operational dashboards, quality gates, metrics tracking, and procedures for maintaining and operating the SISO-Internal project.
 
-### 🚀 Getting Started
-- **[Agent Orchestration Quick Start](./QUICK-START.md)** - 3 commands to get started
-- **[Setup Checklist](./SETUP-CHECKLIST.md)** - Step-by-step setup guide
-- **[Verification Guide](./VERIFICATION.md)** - How to verify everything works
+## Dashboard Files
 
-### 📚 Complete Guides
-- **[Agent Orchestration Workflow](./AGENT-ORCHESTRATION-WORKFLOW.md)** - Complete workflow explanation
-- **[Ralphy Integration Guide](./RALPHY-INTEGRATION.md)** - Ralphy-Blackbox integration
-- **[Vibe Kanban Guide](./VIBE-KANBAN.md)** - Vibe Kanban setup and usage
+### Core Dashboards
 
-### 🎯 Reference
-- **[API Reference](./API.md)** - Python API reference
-- **[Troubleshooting](./TROUBLESHOOTING.md)** - Common issues and solutions
-- **[Best Practices](./BEST-PRACTICES.md)** - Recommended patterns
+| File | Purpose | Size |
+|------|---------|------|
+| `skill-registry.yaml` | Unified skill registry with metrics and usage tracking | 4.3KB |
+| `quality-gates.yaml` | Quality gate definitions for task completion | 3.2KB |
+| `metrics-dashboard.yaml` | Project and agent metrics tracking | 2.1KB |
+| `executor-dashboard.yaml` | Run monitoring and performance metrics | 12KB |
+| `improvement-pipeline.yaml` | Learning to implementation pipeline | 11KB |
+| `project-map.yaml` | Cross-project dependencies and relationships | 14KB |
 
----
+### Guidelines & Checklists
 
-## System Overview
+| File | Purpose | Size |
+|------|---------|------|
+| `testing-guidelines.yaml` | TDD workflow and testing standards | 12KB |
+| `context-gathering.yaml` | Context optimization and path validation | 12KB |
+| `estimation-guidelines.md` | Task time estimation with multipliers | 7.6KB |
+| `validation-checklist.yaml` | Pre-execution validation checks | 6.3KB |
+| `workflow-integration-checklist.yaml` | Workflow integration verification | 9.3KB |
+| `agent-setup-checklist.yaml` | Agent version setup procedures | 8.6KB |
 
-The BlackBox5 operations system consists of:
+### Reports & Audits
 
-1. **Planning Agent** - Creates tasks from requirements
-2. **Vibe Kanban** - Visual task board
-3. **Orchestrator** - Coordinates parallel agents
-4. **Execution Agents** - Perform tasks (with or without Ralphy)
-5. **Project Memory** - Tracks all activity
+| File | Purpose | Size |
+|------|---------|------|
+| `documentation-audit.yaml` | Documentation freshness and references | 5.4KB |
+| `run-validation.yaml` | Run folder documentation validation | 4.7KB |
+| `quality-gate-report.yaml` | CI/CD quality metrics tracking | 4.1KB |
 
----
+## Quick Navigation
 
-## Quick Start
+### For Task Execution
+
+1. Start with `validation-checklist.yaml` - Pre-execution validation
+2. Reference `estimation-guidelines.md` - Time estimation
+3. Check `context-gathering.yaml` - Optimize context gathering
+4. Follow `testing-guidelines.yaml` - Testing standards
+
+### For Quality Assurance
+
+1. Review `quality-gates.yaml` - Quality gate definitions
+2. Check `quality-gate-report.yaml` - Current quality status
+3. Reference `run-validation.yaml` - Run documentation validation
+
+### For Process Improvement
+
+1. Check `improvement-pipeline.yaml` - Improvement workflow
+2. Review `executor-dashboard.yaml` - Performance metrics
+3. Reference `metrics-dashboard.yaml` - Project metrics
+
+### For Cross-Project Work
+
+1. Check `project-map.yaml` - Project dependencies
+2. Reference `context-gathering.yaml` - Cross-project heuristics
+
+## Directory Structure
+
+```
+operations/
+├── Dashboards
+│   ├── skill-registry.yaml          # Skill metrics and registry
+│   ├── metrics-dashboard.yaml       # Project metrics
+│   ├── executor-dashboard.yaml      # Run monitoring
+│   ├── improvement-pipeline.yaml    # Learning pipeline
+│   └── quality-gate-report.yaml     # Quality metrics
+│
+├── Guidelines
+│   ├── testing-guidelines.yaml      # TDD and testing
+│   ├── estimation-guidelines.yaml   # Time estimation
+│   └── context-gathering.yaml       # Context optimization
+│
+├── Checklists
+│   ├── validation-checklist.yaml    # Pre-execution checks
+│   ├── workflow-integration-checklist.yaml  # Workflow verification
+│   └── agent-setup-checklist.yaml   # Agent setup
+│
+├── Reports
+│   ├── documentation-audit.yaml     # Documentation health
+│   ├── run-validation.yaml          # Run validation config
+│   └── quality-gate-report.yaml     # Quality tracking
+│
+└── README.md                        # This file
+```
+
+## Usage Patterns
+
+### Before Starting a Task
 
 ```bash
-# 1. Check prerequisites
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+# 1. Check validation checklist
+cat operations/validation-checklist.yaml
 
-# 2. Run test
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+# 2. Review estimation guidelines
+cat operations/estimation-guidelines.yaml
 
-# 3. Use it!
-python -c "
-from blackbox5.engine.agents.workflows.planning_agent import PlanningAgent
-from blackbox5.engine.agents.workflows.orchestrator_agent import OrchestratorAgent
-
-plan = PlanningAgent().plan_and_push('Your project idea')
-results = OrchestratorAgent().orchestrate_parallel_execution()
-"
+# 3. Check context gathering config
+cat operations/context-gathering.yaml
 ```
 
----
+### During Task Execution
 
-## Architecture
+```bash
+# Check testing guidelines
+cat operations/testing-guidelines.yaml
 
-```
-User → Planning Agent → Vibe Kanban → Orchestrator → Parallel Agents → Project Memory
-```
-
-**Data Flow**:
-1. User provides requirements
-2. Planning Agent creates PRD, Epic, Tasks
-3. Tasks pushed to Vibe Kanban board
-4. Orchestrator assigns tasks to agents
-5. Agents execute (parallel)
-6. Results stored in Project Memory
-
----
-
-## Key Locations
-
-### Documentation
-```
-.blackbox5/1-docs/03-guides/02-tutorials/
-├── README.md  # Quick start
-├── check-prerequisites.sh  # Setup checker
-└── test-complete-workflow.py  # Test script
+# Reference quality gates
+cat operations/quality-gates.yaml
 ```
 
-### Integration Code
-```
-.blackbox5/2-engine/07-operations/runtime/ralphy/
-├── blackbox_integration.py  # Ralphy bridge
-└── ralphy-bb5-integrated.sh  # Integrated wrapper
-```
+### After Task Completion
 
-### Project Memory
-```
-.blackbox5/5-project-memory/siso-internal/operations/
-├── agents/  # Agent sessions
-├── ralphy/  # Ralphy sessions
-└── workflows/  # Workflow execution
+```bash
+# Update metrics dashboard
+# (Automated via task completion)
+
+# Check improvement pipeline
+cat operations/improvement-pipeline.yaml
 ```
 
----
+## Integration with BlackBox5
 
-## For Agents
+SISO-Internal operations dashboards are designed to align with BlackBox5 structure while being specific to SISO-Internal needs:
 
-When agents need to understand the orchestration system, they should read:
+- **Shared patterns**: Both use YAML for structured data
+- **Cross-references**: `project-map.yaml` documents relationships
+- **Consistent structure**: Similar file naming and organization
+- **SISO-specific**: Tailored to SISO-Internal project requirements
 
-1. **[AGENT-ORCHESTRATION-WORKFLOW.md](./AGENT-ORCHESTRATION-WORKFLOW.md)** - Complete workflow
-2. **[RALPHY-INTEGRATION.md](./RALPHY-INTEGRATION.md)** - How to use Ralphy
-3. **[VIBE-KANBAN.md](./VIBE-KANBAN.md)** - How to use Vibe Kanban
+## Maintenance
 
----
+- **Update frequency**: Dashboards update per-run or as-needed
+- **Version tracking**: Each file has version metadata
+- **Changelog**: Major changes documented in file headers
+- **Review cycle**: Review monthly for accuracy
 
-## Monitoring
+## Related Documentation
 
-- **Vibe Kanban**: http://localhost:3001
-- **Project Memory**: `.blackbox5/5-project-memory/siso-internal/operations/`
-- **Git Commits**: `git log --oneline`
-
----
-
-## Support
-
-For issues or questions:
-1. Check [Troubleshooting](./TROUBLESHOOTING.md)
-2. Run `check-prerequisites.sh`
-3. Review test output
-4. Check Project Memory logs
-
----
-
-**Last Updated**: 2026-01-19
-**Version**: 1.0
+- `STATE.yaml` - Project state and navigation
+- `.autonomous/` - Autonomous task management
+- `2-engine/.autonomous/` - BMAD skills and workflows

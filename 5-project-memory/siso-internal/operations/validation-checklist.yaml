@@ -1,0 +1,206 @@
+# Pre-Execution Validation Checklist
+# SISO-Internal - Operations
+#
+# Purpose: Prevent wasted work on duplicate tasks and invalid assumptions
+# Usage: Run these checks before starting any task execution
+#
+# Exit Codes:
+#   0 = All required checks passed, proceed with task
+#   1 = Warnings present, review but may proceed
+#   2 = Critical check failed, abort task execution
+
+# =============================================================================
+# Pre-Execution Validation Checks
+# =============================================================================
+
+pre_execution:
+  - id: duplicate_task_check
+    name: "Duplicate Task Check"
+    description: "Search completed/ for similar tasks"
+    command: "grep -r '[task keyword]' tasks/completed/"
+    required: true
+    fail_action: abort
+    category: verification
+    estimated_time_seconds: 3
+
+  - id: path_validation
+    name: "Path Validation"
+    description: "Verify all referenced paths exist"
+    command: "ls -la [path]"
+    required: true
+    fail_action: warn
+    category: verification
+    estimated_time_seconds: 1
+
+  - id: state_freshness
+    name: "STATE.yaml Freshness"
+    description: "Check if state is stale (> 7 days)"
+    command: "stat STATE.yaml"
+    required: false
+    fail_action: warn
+    category: verification
+    estimated_time_seconds: 1
+
+  - id: active_tasks_check
+    name: "Active Tasks Check"
+    description: "Ensure active tasks exist"
+    command: "ls tasks/active/"
+    required: true
+    fail_action: warn
+    category: verification
+    estimated_time_seconds: 1
+
+  - id: recent_commits_check
+    name: "Recent Commits Check"
+    description: "Check if similar work was recently committed"
+    command: "git log --oneline --since='1 week ago' | grep -i '[keyword]'"
+    required: false
+    fail_action: warn
+    category: verification
+    estimated_time_seconds: 2
+
+  - id: file_history_check
+    name: "File History Check"
+    description: "Check recent changes to target files"
+    command: "git log --oneline --since='1 week ago' -- [target paths]"
+    required: false
+    fail_action: warn
+    category: verification
+    estimated_time_seconds: 2
+
+# =============================================================================
+# Assumption Validation Requirements
+# =============================================================================
+
+assumption_validation:
+  - id: file_existence_assumptions
+    name: "File Existence Assumptions"
+    pattern: "assumes.*exists"
+    validation: "must_verify_before_proceeding"
+    severity: high
+    remediation: "Add explicit file existence check before proceeding"
+
+  - id: state_assumptions
+    name: "State Assumptions"
+    pattern: "assumes.*state"
+    validation: "must_check_timestamp"
+    severity: medium
+    remediation: "Verify STATE.yaml timestamp before relying on state"
+
+  - id: dependency_assumptions
+    name: "Dependency Assumptions"
+    pattern: "assumes.*dependency"
+    validation: "must_verify_availability"
+    severity: high
+    remediation: "Check dependency status before proceeding"
+
+  - id: api_assumptions
+    name: "API Assumptions"
+    pattern: "assumes.*api"
+    validation: "must_test_connectivity"
+    severity: medium
+    remediation: "Test API connectivity before relying on it"
+
+# =============================================================================
+# Quick Validation Commands
+# =============================================================================
+
+quick_commands:
+  check_duplicate:
+    description: "Quick duplicate task search"
+    command: |
+      KEYWORD="$1"
+      grep -r "$KEYWORD" ~/.blackbox5/5-project-memory/siso-internal/.autonomous/tasks/completed/ 2>/dev/null | head -5
+
+  check_commits:
+    description: "Check recent commits for keyword"
+    command: |
+      KEYWORD="$1"
+      cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "$KEYWORD" | head -5
+
+  check_paths:
+    description: "Verify multiple paths exist"
+    command: |
+      for path in "$@"; do
+        if [ ! -e "$path" ]; then
+          echo "MISSING: $path"
+        else
+          echo "EXISTS: $path"
+        fi
+      done
+
+  full_validation:
+    description: "Run full validation for a task"
+    command: |
+      TASK_FILE="$1"
+      echo "=== Pre-Execution Validation ==="
+      echo "Task: $TASK_FILE"
+      echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+      echo ""
+      # Extract keywords from task file
+      KEYWORDS=$(grep -i "title\|objective" "$TASK_FILE" 2>/dev/null | head -3)
+      echo "Keywords: $KEYWORDS"
+      echo ""
+      # Run checks
+      echo "Running checks..."
+
+# =============================================================================
+# Validation Report Template
+# =============================================================================
+
+report_template:
+  header: |
+    # Validation Report
+
+    **Task:** {task_id}
+    **Timestamp:** {timestamp}
+    **Validator:** {validator}
+
+  section_checks: |
+    ## Checks Performed
+
+    | Check | Status | Required | Action |
+    |-------|--------|----------|--------|
+    | {check_name} | {status} | {required} | {action} |
+
+  section_assumptions: |
+    ## Assumptions Validated
+
+    | Assumption | Validated | Method |
+    |------------|-----------|--------|
+    | {assumption} | {validated} | {method} |
+
+  footer: |
+    ## Result
+
+    **Status:** {overall_status}
+    **Proceed:** {proceed}
+
+    {notes}
+
+# =============================================================================
+# Metadata
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "2026-02-09T14:00:00Z"
+  last_updated: "2026-02-09T14:00:00Z"
+  author: "Claude"
+  estimated_validation_time_seconds: 10
+
+# =============================================================================
+# Usage Log (append-only)
+# =============================================================================
+
+usage_log: []
+
+# =============================================================================
+# Analysis & Insights
+# =============================================================================
+
+analysis:
+  last_review: null
+  common_failure_patterns: []
+  recommendations: []
+  effectiveness_score: null

@@ -1,0 +1,308 @@
+# SISO-Internal Project Relationship Map
+# =============================================================================
+# Purpose: Comprehensive map of cross-project dependencies within SISO ecosystem
+# Created: 2026-02-09
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created_at: "2026-02-09T14:00:00Z"
+  created_by: "Claude"
+  update_frequency: "monthly"
+  last_updated: "2026-02-09T14:00:00Z"
+
+# =============================================================================
+# PROJECTS - All projects in the SISO ecosystem
+# =============================================================================
+
+projects:
+  - name: "siso-internal"
+    path: "5-project-memory/siso-internal"
+    type: "project-memory"
+    description: "SISO web application - internal tools and ecosystem management"
+    status: "active"
+    priority: "critical"
+    routes_file: null
+    state_file: "STATE.yaml"
+    goals_file: null
+    dependencies:
+      - project: "2-engine"
+        type: "tool_usage"
+        reason: "Uses BMAD skills and workflows from engine"
+        references:
+          - "../../2-engine/.autonomous/skills/"
+    referenced_by:
+      - project: "blackbox5"
+        type: "pattern_source"
+        reason: "Reference for project memory structure"
+        references:
+          - ".docs/siso-internal-patterns.md"
+    shared_files:
+      - "~/.claude/CLAUDE.md"
+
+  - name: "2-engine"
+    path: "2-engine/.autonomous"
+    type: "engine"
+    description: "RALF autonomous agent engine with BMAD framework"
+    status: "active"
+    priority: "critical"
+    routes_file: "routes.yaml"
+    state_file: null
+    goals_file: null
+    dependencies: []
+    referenced_by:
+      - project: "siso-internal"
+        type: "engine_consumer"
+        reason: "Uses engine for task execution"
+      - project: "blackbox5"
+        type: "engine_consumer"
+        reason: "Uses engine for task execution"
+    shared_files:
+      - "~/.claude/CLAUDE.md"
+
+  - name: "blackbox5"
+    path: "5-project-memory/blackbox5"
+    type: "project-memory"
+    description: "Global AI Infrastructure for multi-agent orchestration - self-improvement project"
+    status: "active"
+    priority: "high"
+    routes_file: ".autonomous/routes.yaml"
+    state_file: "STATE.yaml"
+    goals_file: "goals.yaml"
+    dependencies:
+      - project: "2-engine"
+        type: "core_dependency"
+        reason: "RALF engine provides BMAD skills, workflows, and execution framework"
+        references:
+          - "../../2-engine/.autonomous/routes.yaml"
+          - "../../2-engine/.autonomous/skills/"
+          - "../../2-engine/.autonomous/workflows/"
+      - project: "siso-internal"
+        type: "pattern_reference"
+        reason: "Reference implementation for project memory structure"
+        references:
+          - "../../5-project-memory/siso-internal/STATE.yaml"
+    referenced_by:
+      - project: "2-engine"
+        type: "feedback_loop"
+        reason: "Engine receives feedback from blackbox5 improvements"
+    shared_files:
+      - "~/.claude/CLAUDE.md"
+
+# =============================================================================
+# RELATIONSHIPS - Cross-project relationship patterns
+# =============================================================================
+
+relationships:
+  - type: "shared-config"
+    description: "CLAUDE.md shared across all projects for consistent agent behavior"
+    files:
+      - "~/.claude/CLAUDE.md"
+    projects_affected:
+      - "siso-internal"
+      - "blackbox5"
+      - "2-engine"
+    impact: "high"
+    notes: "Changes to CLAUDE.md affect all projects immediately"
+
+  - type: "ralf-integration"
+    description: "RALF engine connects to all project memories"
+    projects:
+      - "2-engine"
+      - "siso-internal"
+      - "blackbox5"
+    integration_points:
+      - "routes.yaml defines project paths"
+      - "BMAD skills provide common functionality"
+      - "Shell scripts execute across projects"
+    impact: "critical"
+
+  - type: "pattern-replication"
+    description: "siso-internal serves as gold standard for other projects"
+    source: "siso-internal"
+    targets:
+      - "blackbox5"
+    replication_items:
+      - "STATE.yaml structure"
+      - "Project organization patterns"
+      - "Task management patterns"
+    impact: "medium"
+
+  - type: "feedback-loop"
+    description: "blackbox5 improves the engine that serves all projects"
+    source: "blackbox5"
+    target: "2-engine"
+    mechanism:
+      - "Skills created in 2-engine/.autonomous/skills/"
+      - "Workflows defined in 2-engine/.autonomous/workflows/"
+      - "Improvements tested in blackbox5 first"
+    impact: "high"
+
+# =============================================================================
+# SHARED FILES - Files referenced across multiple projects
+# =============================================================================
+
+shared_files:
+  - path: "~/.claude/CLAUDE.md"
+    type: "user-instructions"
+    description: "Core agent instructions with decision framework"
+    referenced_in:
+      - "5-project-memory/siso-internal/operations/"
+      - "5-project-memory/blackbox5/goals.yaml"
+    access_pattern: "read-only"
+    update_frequency: "monthly"
+
+  - path: "2-engine/.autonomous/routes.yaml"
+    type: "configuration"
+    description: "BMAD command routing and skill registry"
+    referenced_in:
+      - "5-project-memory/blackbox5/.autonomous/routes.yaml"
+    access_pattern: "read-only"
+    update_frequency: "as-needed"
+
+# =============================================================================
+# COMMON PATTERNS - Cross-project patterns detected
+# =============================================================================
+
+common_patterns:
+  - name: "STATE.yaml Pattern"
+    description: "Single source of truth for project state"
+    projects_using:
+      - "siso-internal"
+      - "blackbox5"
+    benefits:
+      - "Consistent project navigation"
+      - "Machine-readable status"
+      - "Self-documenting structure"
+
+  - name: "routes.yaml Pattern"
+    description: "Project routing configuration for RALF"
+    projects_using:
+      - "blackbox5"
+      - "2-engine"
+    benefits:
+      - "Centralized path management"
+      - "BMAD command routing"
+      - "Cross-project navigation"
+
+  - name: "Autonomous Task System"
+    description: "tasks/active/, tasks/completed/, runs/ structure"
+    projects_using:
+      - "siso-internal"
+      - "blackbox5"
+    benefits:
+      - "Clear task lifecycle"
+      - "Execution history"
+      - "Continuous improvement data"
+
+  - name: "Operations Dashboards"
+    description: "Centralized operations monitoring and metrics"
+    projects_using:
+      - "siso-internal"
+      - "blackbox5"
+    benefits:
+      - "Consistent metrics tracking"
+      - "Quality gate enforcement"
+      - "Performance monitoring"
+
+# =============================================================================
+# CONTEXT GATHERING OPTIMIZATION
+# =============================================================================
+
+context_gathering:
+  recommendations:
+    - priority: "high"
+      action: "Always read STATE.yaml first"
+      reason: "Single source of truth for project navigation"
+      applies_to:
+        - "siso-internal"
+        - "blackbox5"
+
+    - priority: "high"
+      action: "Check operations/ directory for dashboards"
+      reason: "Contains metrics, quality gates, and monitoring"
+      applies_to:
+        - "siso-internal"
+        - "blackbox5"
+
+    - priority: "medium"
+      action: "Use project-map.yaml for cross-project work"
+      reason: "Prevents missed file errors"
+      applies_to:
+        - "all-projects"
+
+    - priority: "medium"
+      action: "Cache frequently accessed cross-project files"
+      reason: "Reduce redundant reads"
+      cache_candidates:
+        - "~/.claude/CLAUDE.md"
+        - "2-engine/.autonomous/routes.yaml"
+
+  heuristics:
+    - name: "Engine Dependency Detection"
+      pattern: "If task involves BMAD commands or skills"
+      action: "Read 2-engine/.autonomous/routes.yaml and relevant skill files"
+
+    - name: "Pattern Reference Detection"
+      pattern: "If task involves project structure or organization"
+      action: "Reference siso-internal patterns and STATE.yaml"
+
+# =============================================================================
+# RISK AREAS - Potential cross-project issues
+# =============================================================================
+
+risk_areas:
+  - area: "CLAUDE.md Changes"
+    risk: "Changes affect all projects simultaneously"
+    mitigation: "Test changes in siso-internal first, validate before applying"
+    severity: "high"
+
+  - area: "Engine Updates"
+    risk: "2-engine changes may break project memory integrations"
+    mitigation: "Version routes.yaml, maintain backward compatibility"
+    severity: "high"
+
+  - area: "Path References"
+    risk: "Hardcoded paths may break if structure changes"
+    mitigation: "Use routes.yaml for all path resolution"
+    severity: "medium"
+
+# =============================================================================
+# USAGE GUIDE
+# =============================================================================
+
+usage_guide:
+  for_planner: |
+    When planning cross-project tasks:
+    1. Check this map for project dependencies
+    2. Identify which projects will be affected
+    3. Reference shared_files for common resources
+    4. Use context_gathering recommendations
+
+  for_executor: |
+    When executing cross-project tasks:
+    1. Read STATE.yaml for the target project
+    2. Check if shared_files are involved
+    3. Follow context_gathering heuristics
+    4. Validate assumptions about project structure
+
+  for_maintenance: |
+    When updating this map:
+    1. Run grep for cross-project references
+    2. Update relationships when new dependencies found
+    3. Review risk_areas quarterly
+    4. Update last_updated timestamp
+
+# =============================================================================
+# CHANGE LOG
+# =============================================================================
+
+changelog:
+  - date: "2026-02-09"
+    version: "1.0.0"
+    changes:
+      - "Initial project map created for SISO-Internal"
+      - "Documented 3 projects in ecosystem"
+      - "Identified 4 relationship types"
+      - "Listed 4 common patterns"
+      - "Created context gathering recommendations"

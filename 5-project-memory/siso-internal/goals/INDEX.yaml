@@ -1,0 +1,60 @@
+# Goals Index
+# =============================================================================
+# Auto-generated: Quick lookup for all goals
+# Generated: 2026-02-09T14:11:05Z
+# =============================================================================
+
+meta:
+  generated_at: "2026-02-09T14:11:05Z"
+  version: "1.0.0"
+  last_synced: "2026-02-09T14:11:05Z"
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+
+summary:
+  total: 2
+  by_priority:
+    critical: [CG-001]
+    high: [IG-001]
+    medium: []
+    low: []
+
+  by_status:
+    not_started: []
+    in_progress: [CG-001, IG-001]
+    completed: []
+    draft: []
+    cancelled: []
+    merged: []
+    active: [CG-001, IG-001]
+
+# =============================================================================
+# GOALS DETAIL (Derived from goal.yaml files)
+# =============================================================================
+
+goals:
+  - id: CG-001
+    name: "Establish Robust Project Memory System"
+    status: in_progress
+    progress: 75%
+    priority: critical
+    owner: Claude
+    file: "goals/core/CG-001.yaml"
+
+  - id: IG-001
+    name: "User Profile Implementation"
+    status: in_progress
+    progress: 0%
+    priority: high
+    owner: Arthur
+    file: "goals/active/IG-001-user-profile-implementation.yaml"
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# This file is auto-generated from goals in active/ and core/
+# Source of truth: goals/active/IG-*/goal.yaml and goals/core/CG-*/goal.yaml
+# DO NOT EDIT MANUALLY - Run sync-goal-index.sh to regenerate

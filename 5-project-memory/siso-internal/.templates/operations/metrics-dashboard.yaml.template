@@ -1,0 +1,73 @@
+# =============================================================================
+# Metrics Dashboard
+# =============================================================================
+# Purpose: Track project and agent metrics
+# Version: 1.0.0
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "FILL_ME - ISO timestamp"
+  last_updated: "FILL_ME - ISO timestamp"
+  reporting_period: weekly
+
+# =============================================================================
+# PROJECT METRICS
+# =============================================================================
+
+project_metrics:
+  velocity:
+    tasks_completed_last_7d: 0
+    tasks_completed_last_30d: 0
+    avg_completion_time_hours: 0
+
+  quality:
+    bug_escape_rate: 0  # Bugs found after completion
+    rework_rate: 0      # Tasks requiring rework
+    test_pass_rate: 0
+
+  progress:
+    goals_completed: 0
+    goals_total: 0
+    milestones_completed: 0
+    milestones_total: 0
+
+# =============================================================================
+# AGENT METRICS
+# =============================================================================
+
+agent_metrics:
+  # planner-agent:
+  #   tasks_assigned: 0
+  #   tasks_completed: 0
+  #   avg_task_duration: 0
+  #   quality_score: 0
+  #
+  # executor-agent:
+  #   tasks_assigned: 0
+  #   tasks_completed: 0
+  #   avg_task_duration: 0
+  #   quality_score: 0
+
+# =============================================================================
+# SKILL METRICS
+# =============================================================================
+
+skill_metrics:
+  # skill-id:
+  #   usage_count: 0
+  #   success_rate: 0
+  #   avg_time_saved: 0
+
+# =============================================================================
+# SYSTEM HEALTH
+# =============================================================================
+
+system_health:
+  last_health_check: null
+  overall_status: ok|warning|error
+  issues: []
+    # - id: "ISSUE-001"
+    #   description: "FILL_ME"
+    #   severity: high|medium|low
+    #   status: open|in_progress|resolved
