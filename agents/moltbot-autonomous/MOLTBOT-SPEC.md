@@ -1,371 +1,287 @@
-# MoltBot Autonomous Agent Specification
+# MoltBot Autonomous Agent v2 - Specification
 
 ## Overview
-A standardized autonomous agent that runs continuously on the VPS, analyzes BlackBox5, identifies issues, proposes solutions, and executes them via Claude Code instances - all while keeping you informed via Telegram.
+An intelligent autonomous agent that runs continuously on the VPS, monitors BB5 activity, and sends detailed, metrics-rich reports via Telegram.
 
 ## Core Concept
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│   Telegram  │◄───►│  MoltBot     │◄───►│  BlackBox5  │
-│   (You)     │     │  Autonomous  │     │  Analysis   │
+│   Telegram  │◄────│   MoltBot    │◄────│    BB5      │
+│   (You)     │     │   Agent v2   │     │  Metrics    │
 └─────────────┘     └──────────────┘     └─────────────┘
-                            │
-                            ▼
-                     ┌──────────────┐
-                     │  Claude Code │
-                     │  Instances   │
-                     │  (Execution) │
-                     └──────────────┘
 ```
 
-## Operating Modes
+## What MoltBot Reports
 
-### Mode 1: Safe Observation (Default)
-- Analyzes BB5 continuously
-- Reports findings via Telegram
-- **Waits for your approval** before any action
-- No automatic code changes
+### Real Metrics (Not Bullshit)
 
-### Mode 2: Semi-Autonomous
-- Analyzes and proposes solutions
-- Creates GitHub branches for changes
-- **Shows you diffs** via Telegram
-- Executes only after your "yes" reply
+**Git Activity:**
+- Number of commits
+- Number of pushes to GitHub
+- Authors who contributed
+- Files changed
+- Lines added/removed
 
-### Mode 3: Full Autonomous (Future)
-- Handles low-risk improvements automatically
-- Still reports everything via Telegram
-- Escalates risky changes to you
+**Task Tracking:**
+- Tasks completed
+- Tasks started
+- Tasks in progress
+- Tasks pending
 
-## Branch Strategy
+**Agent Activity:**
+- Which agents ran
+- How many agent runs
+- What tasks they worked on
 
+**Token Usage:**
+- Total tokens consumed
+- Input/output breakdown
+
+**Accomplishments:**
+- Key achievements from completed runs
+- What actually got done
+
+## Report Types
+
+### 1. Hourly Activity Report
 ```
-main (production)
-├── vps/moltbot-analysis-20260209-001 (analysis findings)
-├── vps/moltbot-fix-20260209-001 (proposed fixes)
-├── vps/moltbot-improvement-20260209-001 (improvements)
-└── vps/moltbot-emergency-20260209-001 (critical fixes)
-```
+📊 BB5 Activity Report
+Last 1 hour(s)
+━━━━━━━━━━━━━━━━━━━━━━━
 
-All MoltBot work happens in `vps/*` branches. Never touches `main` directly.
+🔄 Git Activity
+• Commits: 5
+• Pushed: 3
+• Branches: 12
+• Authors: Claude, vps-agent
 
-## Communication Protocol (Telegram)
+✅ Tasks
+• Completed: 2
+• Started: 3
+• In Progress: 1
+• Pending: 4
 
-### Message Types FROM MoltBot
+🤖 Agents
+• Active: 3
+• Runs: 5
+• Types: executor, planner, scout
 
-**1. Analysis Report (Daily)**
-```
-🔍 BB5 Daily Analysis
+📁 Work Output
+• Files Changed: 23
+• Insertions: +456
+• Deletions: -123
 
-Issues Found: 3
-━━━━━━━━━━━━━━━
+🏆 Key Accomplishments
+1. Implemented BB5 Core Skills System
+2. Fixed autonomous improver branch issues
+3. Created agent team coordinator
 
-1. [MEDIUM] Orphaned tasks in 5-project-memory
-   12 tasks have no linked plan
-   → Propose: Auto-link or archive
-
-2. [LOW] Documentation drift detected
-   3 ADRs reference non-existent files
-   → Propose: Update or remove references
-
-3. [HIGH] Skill registry out of sync
-   5 skills declared but not implemented
-   → Propose: Implement or remove
-
-Reply:
-• "1" - Fix issue #1
-• "2" - Fix issue #2
-• "3" - Fix issue #3
-• "all" - Fix all issues
-• "status" - Get detailed status
-• "pause" - Stop autonomous mode
-```
-
-**2. Action Proposal**
-```
-⚡ Proposed Action
-
-Issue: Orphaned tasks in 5-project-memory
-Solution: Auto-link 12 tasks to nearest plan
-Branch: vps/moltbot-fix-20260209-001
-
-Estimated time: 15 minutes
-Risk level: LOW
-
-Reply:
-• "yes" - Execute this action
-• "no" - Skip this issue
-• "details" - Show full analysis
-• "modify" - Suggest changes
+Reply 'details' for full breakdown
 ```
 
-**3. Execution Report**
+### 2. Daily Summary
 ```
-✅ Action Complete
+📊 BB5 Daily Summary
+2026-02-09
+━━━━━━━━━━━━━━━━━━━━━━━
 
-Branch: vps/moltbot-fix-20260209-001
-Commits: 3
-Files changed: 12
+🎯 Key Metrics (24h)
+• Commits: 12
+• Tasks Completed: 5
+• Agent Runs: 15
+• Files Changed: 67
+• Lines: +1,234/-456
 
-Summary:
-• Linked 8 tasks to Plan-A
-• Linked 4 tasks to Plan-B
-• Created ADR-047 documenting decision
+🏆 Top Accomplishments
+1. Implemented BB5 Core Skills System...
+2. Fixed autonomous improver branch issues...
+3. Created agent team coordinator...
 
-Review: https://github.com/Lordsisodia/blackbox5/pull/xxx
-
-Reply:
-• "merge" - Merge to main
-• "review" - Show full diff
-• "revert" - Undo changes
-• "next" - Continue to next issue
-```
-
-**4. Emergency Alert**
-```
-🚨 EMERGENCY
-
-Critical issue detected:
-STATE.yaml corruption - 47 tasks in invalid state
-
-Immediate action required.
-Safe recovery mode activated.
-
-Reply:
-• "fix" - Attempt automatic recovery
-• "hold" - Wait for manual review
-• "backup" - Create backup first
+📊 Current Status
+• Active Tasks: 3
+• Pending: 4
+• In Progress: 1
 ```
 
-### Commands TO MoltBot
+### 3. Detailed Breakdown (on request)
+```
+📋 Detailed Activity Breakdown
+Last 24 hour(s)
+
+📝 Commits (12)
+8b4a61e feat: Add BB5 Simple Autonomous Improver...
+b207c5c fix: Update BB5 improver to use allowedTools...
+ed582c2 feat: Add BB5 Autonomous Improver...
+...
+
+✅ Completed Tasks (5)
+• TASK-001: Implement Core Skills System
+• TASK-002: Fix branch naming issues
+...
+
+🤖 Agent Runs (15)
+• executor: TASK-001
+• planner: queue_refilled
+• scout: codebase_analysis
+...
+
+📁 Files Changed (67)
+• .claude/agents/bb5-team-coordinator.md
+• agents/moltbot-autonomous/moltbot-agent.py
+...
+```
+
+## Telegram Commands
 
 | Command | Action |
 |---------|--------|
-| `status` | Current analysis status |
-| `analyze` | Run full analysis now |
-| `issues` | List all open issues |
-| `fix [n]` | Fix issue number n |
-| `mode safe` | Switch to safe mode |
-| `mode semi` | Switch to semi-autonomous |
-| `pause` | Stop all activity |
-| `resume` | Resume activity |
-| `branches` | List active branches |
-| `merge [branch]` | Merge branch to main |
-| `learn` | Show what MoltBot has learned |
+| `status` | Current system status |
+| `report` | Immediate hourly report |
+| `report 6` | Report for last 6 hours |
+| `daily` | Daily summary |
+| `details` | Full detailed breakdown |
+| `git` | Git stats only |
+| `tasks` | Task list |
+| `pause` | Stop reports |
+| `resume` | Resume reports |
 
-## Implementation Architecture
+## How Metrics Are Collected
 
-### Components
-
-```
-moltbot-autonomous/
-├── moltbot-agent.py          # Main agent loop
-├── analyzers/
-│   ├── task_analyzer.py      # Find orphaned tasks
-│   ├── doc_analyzer.py       # Find doc drift
-│   ├── skill_analyzer.py     # Check skill registry
-│   └── git_analyzer.py       # Check git health
-├── executors/
-│   ├── claude_executor.py    # Spawn Claude Code
-│   ├── git_executor.py       # Git operations
-│   └── telegram_notifier.py  # Send notifications
-├── config/
-│   ├── moltbot.yaml          # Agent configuration
-│   └── rules.yaml            # Safety rules
-└── state/
-    ├── current_analysis.json # Last analysis
-    ├── pending_actions.json  # Actions awaiting approval
-    └── executed_actions.json # History
-```
-
-### Safety Rules (Hardcoded)
-
-1. **Never push to main** - Always use `vps/*` branches
-2. **Never delete files** - Only archive/rename
-3. **Never modify secrets** - Skip `.env`, `.secrets` files
-4. **Max 3 actions per hour** - Rate limiting
-5. **Auto-pause on error** - Stop if 3 consecutive failures
-6. **Require approval for HIGH risk** - Never auto-execute high risk
-
-### Analysis Schedule
-
-```yaml
-schedule:
-  full_analysis: "0 */6 * * *"      # Every 6 hours
-  quick_scan: "*/15 * * * *"        # Every 15 minutes
-  health_check: "*/5 * * * *"       # Every 5 minutes
-  daily_report: "0 9 * * *"         # Daily at 9 AM
-  weekly_review: "0 9 * * 1"        # Monday 9 AM
-```
-
-## Claude Code Integration
-
-### How MoltBot Spawns Claude
-
+### Git Metrics
 ```python
-# Example: Fix orphaned tasks
-subprocess.run([
-    "claude", "--mcp-config", "/opt/blackbox5/.mcp-moltbot.json",
-    "--prompt", """
-    You are fixing orphaned tasks in BlackBox5.
-
-    Context: 12 tasks in 5-project-memory/blackbox5/.autonomous/tasks/active/
-    have no linked plan in 6-roadmap/
-
-    Task: Link each orphaned task to the most appropriate plan,
-    or create a new plan if needed.
-
-    Rules:
-    - Work in branch: vps/moltbot-fix-{timestamp}
-    - Create ADR documenting decisions
-    - Update STATE.yaml
-    - Never delete tasks, only link them
-
-    Report back via Telegram when complete.
-    """
-])
+# Uses git log with --shortstat
+git log --since="24 hours ago" --pretty=format:%H|%s|%an|%ci --shortstat
 ```
+- Parses commit SHAs, messages, authors, dates
+- Extracts insertions/deletions from shortstat
+- Counts branches
+- Detects pushed commits via --decorate
 
-### Execution Flow
-
+### Task Metrics
+```python
+# Reads from filesystem
+.autonomous/tasks/active/TASK-*.md
+.autonomous/tasks/completed/TASK-*.md
 ```
-1. MoltBot detects issue
-2. Creates branch vps/moltbot-fix-xxx
-3. Spawns Claude Code instance
-4. Claude works on branch
-5. Claude reports completion
-6. MoltBot notifies you via Telegram
-7. You approve/reject
-8. If approved, MoltBot merges PR
+- Parses task status from markdown files
+- Extracts descriptions
+- Tracks completion state
+
+### Agent Metrics
+```python
+# Reads from events.yaml
+.autonomous/agents/communications/events.yaml
 ```
+- Parses agent_start, agent_complete events
+- Tracks which agents ran
+- Counts total runs
 
-## State Management
-
-### What MoltBot Tracks
-
-```yaml
-# current_analysis.json
-{
-  "timestamp": "2026-02-09T10:00:00Z",
-  "issues": [
-    {
-      "id": "ISS-001",
-      "severity": "medium",
-      "type": "orphaned_task",
-      "description": "12 tasks have no linked plan",
-      "proposed_action": "auto_link_tasks",
-      "status": "pending_approval"
-    }
-  ],
-  "metrics": {
-    "total_tasks": 156,
-    "orphaned_tasks": 12,
-    "completed_tasks": 89,
-    "documentation_drift": 3
-  }
-}
-
-# pending_actions.json
-{
-  "actions": [
-    {
-      "id": "ACT-001",
-      "issue_id": "ISS-001",
-      "branch": "vps/moltbot-fix-20260209-001",
-      "proposed_at": "2026-02-09T10:05:00Z",
-      "status": "awaiting_approval",
-      "risk_level": "low"
-    }
-  ]
-}
+### Token Metrics
+```python
+# Reads from chat logs
+.autonomous/memory/chat-logs/*.jsonl
 ```
+- Extracts token usage from metadata
+- Sums input/output tokens
 
-## Deployment on VPS
+### Accomplishments
+```python
+# Reads from RESULTS.md files
+.autonomous/runs/run-*/RESULTS.md
+```
+- Finds completed runs
+- Extracts key achievements
+- Surfaces what actually got done
 
-### Installation
+## Schedule
+
+- **Hourly reports**: Every hour during business hours (9 AM - 9 PM)
+- **Daily summary**: Every day at 9 AM
+- **Command responses**: Immediate
+
+## Deployment
 
 ```bash
 # On VPS (77.42.66.40)
-cd /opt/blackbox5
+cd /opt/blackbox5/agents/moltbot-autonomous
 
-# Create agent directory
-mkdir -p agents/moltbot-autonomous
+# Install dependencies
+pip3 install pyyaml schedule requests
 
-# Install systemd service
-sudo tee /etc/systemd/system/moltbot-autonomous.service << 'EOF'
-[Unit]
-Description=MoltBot Autonomous Agent
-After=network.target moltbot.service
+# Copy the updated agent
+cp moltbot-agent.py /opt/blackbox5/agents/moltbot-autonomous/
 
-[Service]
-Type=simple
-User=root
-WorkingDirectory=/opt/blackbox5
-Environment="HOME=/root"
-Environment="TELEGRAM_BOT_TOKEN=8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo"
-Environment="TELEGRAM_CHAT_ID=7643203581"
-Environment="GITHUB_TOKEN=xxx"
-Environment="RALF_ENGINE_DIR=/opt/blackbox5/2-engine/.autonomous"
-Environment="RALF_PROJECT_DIR=/opt/blackbox5/5-project-memory/blackbox5"
-ExecStart=/usr/bin/python3 /opt/blackbox5/agents/moltbot-autonomous/moltbot-agent.py
-Restart=always
-RestartSec=60
+# Restart the service
+sudo systemctl restart moltbot-autonomous
 
-[Install]
-WantedBy=multi-user.target
-EOF
-
-sudo systemctl daemon-reload
-sudo systemctl enable moltbot-autonomous
-sudo systemctl start moltbot-autonomous
-```
-
-### Monitoring
-
-```bash
 # Check status
 sudo systemctl status moltbot-autonomous
-
-# View logs
 sudo journalctl -u moltbot-autonomous -f
-
-# Telegram test
-python3 -c "
-import requests
-requests.post('https://api.telegram.org/bot8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo/sendMessage',
-    json={'chat_id': '7643203581', 'text': '🤖 MoltBot Autonomous is online'})
-"
 ```
 
-## Success Metrics
+## Configuration
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Issues detected/day | 5-10 | Analysis reports |
-| False positive rate | <20% | User "no" responses |
-| Time to fix (low risk) | <30 min | Execution logs |
-| User approval rate | >70% | Action history |
-| System uptime | >95% | Service status |
+Edit `moltbot-agent.py` to configure:
 
-## Next Steps
+```python
+# Telegram settings (already set)
+TELEGRAM_BOT_TOKEN = "8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo"
+TELEGRAM_CHAT_ID = "7643203581"
 
-1. **Build MVP** (Today)
-   - Basic analyzer framework
-   - Telegram integration
-   - Single issue type (orphaned tasks)
-   - Safe mode only
+# To use a specific topic (like your Blackbox topic):
+self.topic_id = YOUR_TOPIC_ID  # Set this in __init__
+```
 
-2. **Add Executors** (This week)
-   - Claude Code spawning
-   - Git branch management
-   - PR creation
+## File Structure
 
-3. **Enhance Intelligence** (Next week)
-   - Multiple analyzers
-   - Risk assessment
-   - Learning from feedback
+```
+moltbot-autonomous/
+├── moltbot-agent.py          # Main agent (intelligent reporting)
+├── MOLTBOT-SPEC.md           # This specification
+├── moltbot-autonomous.service # systemd service file
+└── state/                     # Runtime state
+    └── agent_state.json
+```
 
-4. **Full Autonomy** (Future)
-   - Semi-autonomous mode
-   - Predictive fixes
-   - Workflow optimization
+## Why This Is Better
+
+**Before (v1):**
+- Generic "analysis reports"
+- Counted "issues" (who cares?)
+- No real metrics
+- Bullshit summaries
+
+**Now (v2):**
+- Real git metrics (commits, pushes, authors)
+- Actual task tracking
+- Token usage reporting
+- File change statistics
+- Meaningful accomplishments
+- Detailed breakdowns on demand
+
+## Testing
+
+```bash
+# Test Telegram connection
+python3 -c "
+import requests
+requests.post(
+    'https://api.telegram.org/bot8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo/sendMessage',
+    json={'chat_id': '7643203581', 'text': '🤖 MoltBot v2 test'}
+)
+"
+
+# Test metrics collection
+python3 -c "
+from pathlib import Path
+import sys
+sys.path.insert(0, '/opt/blackbox5/agents/moltbot-autonomous')
+
+# Import and test
+from moltbot_agent import BB5MetricsCollector
+collector = BB5MetricsCollector(Path('/opt/blackbox5'))
+print('Git:', collector.collect_git_metrics(24))
+print('Tasks:', collector.collect_task_metrics())
+print('Agents:', collector.collect_agent_metrics(24))
+"
+```
