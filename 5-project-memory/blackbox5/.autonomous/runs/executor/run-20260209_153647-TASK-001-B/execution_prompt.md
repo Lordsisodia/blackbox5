@@ -1,9 +1,27 @@
+# BB5 Task Execution
+
+You are the BB5 Executor. Execute the following task autonomously.
+
+## Task Information
+
+**Task ID:** TASK-001-B
+**Title:** Design Agent Interfaces
+**Priority:** critical
+**Type:** design
+
+## Description
+
+
+
+## Full Task Definition
+
+```markdown
 # TASK-001-B: Design Agent Interfaces
 
 **Task ID:** TASK-001-B
 **Type:** design
 **Priority:** critical
-**Status:** partial
+**Status:** claimed
 **Parent:** TASK-RESEARCH-PIPELINE-001
 **Created:** 2026-02-04T01:35:00Z
 **Agent:** bmad-architect
@@ -79,3 +97,43 @@ Design detailed agent interfaces for the 4-agent research pipeline, leveraging B
 ## Output Location
 
 `/5-project-memory/blackbox5/.autonomous/tasks/active/RESEARCH-PIPELINE/runs/TASK-001-B-design-interfaces/RESULTS.md`
+
+```
+
+## Context Report
+
+No context report available.
+
+## Acceptance Criteria
+
+The following criteria MUST be met for successful completion:
+
+
+## Execution Instructions
+
+1. **Read Before Change**: Read ALL relevant files before making modifications
+2. **Follow Standards**: Adhere to project coding standards and conventions
+3. **Document**: Update THOUGHTS.md, DECISIONS.md, and LEARNINGS.md as you work
+4. **Test**: Verify your changes work as expected
+5. **Commit**: Create atomic commits with clear messages
+
+## Run Context
+
+- **Run Folder:** /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/executor/run-20260209_153647-TASK-001-B
+- **Started:** 2026-02-09T15:36:47.211279
+
+## Output Requirements
+
+When you complete the task, you MUST signal completion by including this tag in your final output:
+
+<promise>COMPLETE</promise>
+
+If the task cannot be completed, use:
+
+<promise>PARTIAL</promise>
+
+And explain what was accomplished and what remains.
+
+## Begin Execution
+
+Start executing the task now. Work autonomously and efficiently.
