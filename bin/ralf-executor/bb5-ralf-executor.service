@@ -11,7 +11,7 @@ Environment="ANTHROPIC_API_KEY=9199f096657444eda30ffce701e6b46b.zggFTGemqS5Oez2w
 Environment="ANTHROPIC_BASE_URL=https://api.glm.ai/coding/"
 Environment="CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1"
 Environment="BB5_MODE=autonomous"
-ExecStart=/opt/blackbox5/bin/ralf-executor/ralf-executor.sh
+ExecStart=/opt/blackbox5/bin/ralf-executor/ralf-core.sh
 Restart=always
 RestartSec=30
 StandardOutput=append:/var/log/bb5-ralf-executor.log
