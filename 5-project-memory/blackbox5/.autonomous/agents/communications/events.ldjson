@@ -2317,3 +2317,34 @@ read the output file to retrieve the result: /priv"}
   "agents": "executor,planner,validator,scribe,context-gatherer,git-commit",
   "prompt_preview": "okay, so what i want to do is now i want to push e"
 }
+{
+  "timestamp": "2026-02-09T19:49:33+07:00",
+  "event": "agent_suggested",
+  "agent": "executor",
+  "prompt_preview": "yes add teh rest pelase fro me "
+}
+{
+  "timestamp": "2026-02-09T19:49:33+07:00",
+  "event": "agent_suggested",
+  "agent": "planner",
+  "prompt_preview": "yes add teh rest pelase fro me "
+}
+{
+  "timestamp": "2026-02-09T19:49:33+07:00",
+  "event": "agent_suggested",
+  "agent": "scribe",
+  "prompt_preview": "yes add teh rest pelase fro me "
+}
+{
+  "timestamp": "2026-02-09T19:49:33+07:00",
+  "event": "agent_suggested",
+  "agent": "context-gatherer",
+  "prompt_preview": "yes add teh rest pelase fro me "
+}
+{
+  "timestamp": "2026-02-09T19:49:33+07:00",
+  "event": "pattern_detected",
+  "count": 4,
+  "agents": "executor,planner,scribe,context-gatherer",
+  "prompt_preview": "yes add teh rest pelase fro me "
+}
