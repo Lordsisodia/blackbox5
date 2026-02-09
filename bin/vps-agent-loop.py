@@ -20,6 +20,8 @@ SPAWN_QUEUE = BB5_DIR / "5-project-memory/blackbox5/.autonomous/agents/communica
 SIGNALS_DIR = BB5_DIR / "5-project-memory/blackbox5/.autonomous/signals"
 RUNS_DIR = BB5_DIR / "5-project-memory/blackbox5/.autonomous/runs"
 LOG_FILE = BB5_DIR / ".autonomous/logs/vps-agent-loop.log"
+MESSAGES_FILE = BB5_DIR / "agents" / "moltbot-autonomous" / "saved-messages.jsonl"
+LAST_UPDATE_ID_FILE = BB5_DIR / "agents" / "moltbot-autonomous" / ".last_update_id"
 
 # Telegram configuration
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8581639813:AAFA13wDTKEX2x6J-lVfpq9QHnsGRnB1EZo")
@@ -287,6 +289,94 @@ def check_git_changes():
         log(f"Error checking git: {e}")
         return git_info
 
+def save_incoming_messages():
+    """Check for and save incoming Telegram messages"""
+    try:
+        last_id = 0
+        if LAST_UPDATE_ID_FILE.exists():
+            try:
+                last_id = int(LAST_UPDATE_ID_FILE.read_text().strip())
+            except:
+                pass
+
+        response = requests.get(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates",
+            params={"offset": last_id + 1, "limit": 100},
+            timeout=10
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if not data.get("ok"):
+            return
+
+        updates = data.get("result", [])
+        if not updates:
+            return
+
+        saved_count = 0
+        for update in updates:
+            update_id = update["update_id"]
+
+            if "message" not in update:
+                LAST_UPDATE_ID_FILE.parent.mkdir(parents=True, exist_ok=True)
+                LAST_UPDATE_ID_FILE.write_text(str(update_id))
+                continue
+
+            message = update["message"]
+            chat_id = message.get("chat", {}).get("id")
+
+            # Only save messages from authorized chat
+            if str(chat_id) != TELEGRAM_CHAT_ID:
+                LAST_UPDATE_ID_FILE.parent.mkdir(parents=True, exist_ok=True)
+                LAST_UPDATE_ID_FILE.write_text(str(update_id))
+                continue
+
+            # Skip bot commands (messages starting with /)
+            text = message.get("text", "")
+            if text.startswith("/"):
+                LAST_UPDATE_ID_FILE.parent.mkdir(parents=True, exist_ok=True)
+                LAST_UPDATE_ID_FILE.write_text(str(update_id))
+                continue
+
+            # Build message record
+            msg_data = {
+                "saved_at": datetime.now().isoformat(),
+                "update_id": update_id,
+                "message_id": message.get("message_id"),
+                "date": message.get("date"),
+                "text": text,
+                "from": {
+                    "id": message.get("from", {}).get("id"),
+                    "username": message.get("from", {}).get("username"),
+                    "first_name": message.get("from", {}).get("first_name")
+                },
+                "chat": {
+                    "id": chat_id,
+                    "type": message.get("chat", {}).get("type"),
+                    "title": message.get("chat", {}).get("title")
+                }
+            }
+
+            # Add topic info if present
+            if "message_thread_id" in message:
+                msg_data["topic_id"] = message["message_thread_id"]
+
+            # Save the message
+            MESSAGES_FILE.parent.mkdir(parents=True, exist_ok=True)
+            with open(MESSAGES_FILE, "a") as f:
+                f.write(json.dumps(msg_data, default=str) + "\n")
+
+            saved_count += 1
+            LAST_UPDATE_ID_FILE.parent.mkdir(parents=True, exist_ok=True)
+            LAST_UPDATE_ID_FILE.write_text(str(update_id))
+
+        if saved_count > 0:
+            log(f"Saved {saved_count} incoming message(s)")
+
+    except Exception as e:
+        log(f"Error saving messages: {e}")
+
 def send_cycle_summary(entries_processed, git_info, duration):
     """Send summary of the cycle to Telegram"""
     try:
@@ -323,6 +413,9 @@ def run_cycle():
 
     # Record cycle start time
     cycle_start_time = time.time()
+
+    # 0. Save any incoming Telegram messages
+    save_incoming_messages()
 
     # 1. Read spawn queue
     entries = read_spawn_queue()
