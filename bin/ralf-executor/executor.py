@@ -155,7 +155,7 @@ class BB5Executor:
         Get the next highest priority pending task from the queue.
         Returns None if no pending tasks.
         """
-        self.log("Scanning for pending tasks...", LogLevel.INFO)
+        self.log("Scanning for pending and partial tasks...", LogLevel.INFO)
 
         active_dir = TASKS_DIR / "active"
         if not active_dir.exists():
@@ -172,14 +172,15 @@ class BB5Executor:
             try:
                 task = self.parse_task_file(task_file)
                 self.log(f"Task {task.task_id}: status={task.status.value}, priority={task.priority}", LogLevel.DEBUG)
-                if task.status == TaskStatus.PENDING:
+                # Process both PENDING and PARTIAL tasks
+                if task.status in (TaskStatus.PENDING, TaskStatus.PARTIAL):
                     pending_tasks.append(task)
             except Exception as e:
                 self.log(f"Failed to parse {task_file}: {e}", LogLevel.WARNING)
                 continue
 
         if not pending_tasks:
-            self.log("No pending tasks found", LogLevel.INFO)
+            self.log("No pending or partial tasks found", LogLevel.INFO)
             return None
 
         # Sort by priority (high > medium > low) and creation date
