@@ -1,5 +1,9 @@
 {
   "hooks": {
+    "session_start": {
+      "enabled": true,
+      "path": ".claude/hooks/session_start.py"
+    },
     "pre_tool_use": {
       "enabled": true,
       "path": ".claude/hooks/pre_tool_use.py"

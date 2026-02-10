@@ -1,12 +1,18 @@
+You are the BB5 Autonomous Executor. Your mission is to execute tasks and improve the BlackBox5 system.
+
+## Current Task
+
+Task File: /opt/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/IMPROVING-V2-HOOKS/tasks/TASK-20260203171821-enhance-session-start.md
+Run Folder: /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-20260210_042527-TASK-20260203171821-enhance-session-start
+
 # TASK-20260203171821: Enhance SessionStart Hook with Git Status and Context Loading
 
 **Task ID:** TASK-20260203171821
 **Type:** enhance
 **Priority:** high
-**Status:** completed
+**Status:** partial
 **Created:** 2026-02-03T17:18:21Z
 **Estimated Lines:** 200
-**Completed:** 2026-02-10T04:30:00Z
 
 ---
 
@@ -26,27 +32,16 @@ From analysis: "session_start.py - Much more sophisticated than our current hook
 
 ## Success Criteria
 
-- [x] Hook gets git branch and uncommitted changes count
-- [x] Hook loads `.claude/CONTEXT.md` if exists
-- [x] Hook loads `.claude/TODO.md` if exists
-- [x] Hook loads `TODO.md` if exists
-- [x] Hook returns `additionalContext` to Claude via JSON output
-- [x] Hook logs to JSON (`logs/session_start.json`)
+- [ ] Hook gets git branch and uncommitted changes count
+- [ ] Hook loads `.claude/CONTEXT.md` if exists
+- [ ] Hook loads `.claude/TODO.md` if exists
+- [ ] Hook loads `TODO.md` if exists
+- [ ] Hook returns `additionalContext` to Claude via JSON output
+- [ ] Hook logs to JSON (`logs/session_start.json`)
 - [ ] Hook tested in fresh session (source: startup)
 - [ ] Hook tested in resumed session (source: resume)
 - [ ] Hook tested after clear (source: clear)
-- [x] Documentation updated
-
-## Completion Summary
-
-**Implemented**:
-- Created `.claude/hooks/session_start.py` with git status, context loading, JSON logging
-- Registered hook in `.claude/settings.json`
-- Created run folder documentation (THOUGHTS.md, DECISIONS.md, LEARNINGS.md, RESULTS.md)
-
-**Pending Testing**:
-- Hook will be tested during actual BB5 sessions (startup/resume/clear)
-- Testing results logged to `logs/session_start.json`
+- [ ] Documentation updated
 
 ---
 
@@ -144,3 +139,39 @@ This is powerful - it injects context directly into Claude's prompt without user
 
 **Source Handling:**
 SessionStart receives `source` field: "startup", "resume", or "clear". Handle each appropriately.
+
+## Instructions
+
+1. Read the task description carefully
+2. Analyze the current BB5 state related to this task
+3. Implement the improvements described
+4. Make SMALL, focused changes (30 minutes max)
+5. Test your changes if applicable
+6. Update the task file to mark it as complete:
+   - Change **Status:** from pending/partial to completed
+   - Add a summary of what was done
+7. Document your work in the run folder:
+   - /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-20260210_042527-TASK-20260203171821-enhance-session-start/THOUGHTS.md - Your reasoning
+   - /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-20260210_042527-TASK-20260203171821-enhance-session-start/DECISIONS.md - What you decided
+   - /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-20260210_042527-TASK-20260203171821-enhance-session-start/LEARNINGS.md - What you learned
+   - /opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-20260210_042527-TASK-20260203171821-enhance-session-start/RESULTS.md - What was accomplished
+8. Commit changes with a descriptive message
+
+## Critical Rules
+
+- ONLY work on THIS specific task
+- Do NOT modify other tasks
+- Do NOT break existing functionality
+- If you cannot complete the task, mark it as partial and explain why
+- When done, output: <promise>COMPLETE</promise>
+- If partially done, output: <promise>PARTIAL</promise>
+
+## Git Commands
+
+After making changes:
+```bash
+git add -A
+git commit -m "ralf: [TASK-20260203171821-enhance-session-start] brief description of changes"
+```
+
+Begin execution now.
