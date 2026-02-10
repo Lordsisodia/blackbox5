@@ -1,0 +1,50 @@
+# ============================================================================
+# BLACKBOX5 - PROJECT BOARD SYNC
+# ============================================================================
+# Purpose: Sync GitHub Issues to Project Board
+# Trigger: Issues or PRs created/edited/closed
+# ============================================================================
+
+name: Project Board Sync
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, labeled]
+  pull_request:
+    types: [opened, edited, closed, reopened, labeled]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  projects: write
+
+jobs:
+  sync-to-projects:
+    name: Sync to Project Board
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Sync issue to project board
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJECT_TOKEN || secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title || github.event.pull_request.title }}
+          ISSUE_STATE: ${{ github.event.issue.state || github.event.pull_request.state }}
+          ISSUE_LABELS: ${{ toJSON(github.event.issue.labels) || toJSON(github.event.pull_request.labels) }}
+        run: |
+          python bin/sync_to_project_board.py
+        continue-on-error: true

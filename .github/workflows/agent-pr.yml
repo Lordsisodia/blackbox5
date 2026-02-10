@@ -1,0 +1,89 @@
+# ============================================================================
+# BLACKBOX5 - AUTOMATED PR CREATION FROM AGENTS
+# ============================================================================
+# Purpose: Automatically create PRs from agent-generated changes
+# Trigger: Workflow dispatch from agents or scheduled
+# ============================================================================
+
+name: Agent PR Creator
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent_name:
+        description: 'Name of the agent creating the PR'
+        required: true
+        type: string
+      branch_name:
+        description: 'Source branch name'
+        required: true
+        type: string
+      pr_title:
+        description: 'PR title'
+        required: true
+        type: string
+      pr_description:
+        description: 'PR description'
+        required: false
+        type: string
+      labels:
+        description: 'Comma-separated labels'
+        required: false
+        type: string
+      target_branch:
+        description: 'Target branch (default: main)'
+        required: false
+        type: string
+        default: 'main'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    name: Create Automated PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch_name }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "BlackBox5 Agent"
+          git config user.email "agents@blackbox5.internal"
+
+      - name: Create PR
+        id: create-pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: ${{ github.event.inputs.pr_title }}
+          body: |
+            ## Automated PR from ${{ github.event.inputs.agent_name }}
+
+            ${{ github.event.inputs.pr_description }}
+
+            ---
+            *This PR was automatically created by a BlackBox5 agent*
+          branch: ${{ github.event.inputs.branch_name }}
+          base: ${{ github.event.inputs.target_branch }}
+          labels: ${{ github.event.inputs.labels }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+
+      - name: Comment on PR
+        if: steps.create-pr.outputs.pull-request-number != ''
+        run: |
+          gh pr comment ${{ steps.create-pr.outputs.pull-request-number }} \
+            --body "✨ **Automated PR created by agent:** ${{ github.event.inputs.agent_name }}" \
+            --repo ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Output PR URL
+        run: |
+          echo "PR created: ${{ steps.create-pr.outputs.pull-request-url }}"

@@ -1,0 +1,18 @@
+# ============================================================================
+# BLACKBOX5 - GITHUB INTEGRATION DEPENDENCIES
+# ============================================================================
+# Purpose: Dependencies specifically for GitHub integration
+# ============================================================================
+
+# GitHub API client
+PyYAML>=6.0.1
+requests>=2.31.0
+markdown>=3.5.0
+
+# GitHub Actions
+# No additional runtime dependencies needed for workflows
+
+# CLI tools
+# Install separately:
+# - GitHub CLI (gh): https://cli.github.com/
+# - jq: apt-get install jq

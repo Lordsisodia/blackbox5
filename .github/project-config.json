@@ -1,0 +1,68 @@
+{
+  "project_name": "BlackBox5 Development",
+  "description": "Main project board for BlackBox5 autonomous AI development",
+  "columns": [
+    {
+      "name": "Backlog",
+      "description": "Tasks not yet prioritized",
+      "labels": ["🌱 Low Priority", "icebox"]
+    },
+    {
+      "name": "Planning",
+      "description": "Tasks being planned and estimated",
+      "labels": ["📝 Planning", "triage"]
+    },
+    {
+      "name": "To Do",
+      "description": "Tasks ready to start",
+      "labels": ["ready", "🔥 High Priority", "⚡ Medium Priority"]
+    },
+    {
+      "name": "In Progress",
+      "description": "Currently being worked on",
+      "labels": ["🔄 In Progress", "wip"]
+    },
+    {
+      "name": "Review",
+      "description": "PRs awaiting review",
+      "labels": ["🔍 Review", "needs-review"]
+    },
+    {
+      "name": "Done",
+      "description": "Completed tasks",
+      "labels": ["✅ Done", "completed"]
+    }
+  ],
+  "labels": {
+    "status": {
+      "🔄 In Progress": "Task is being actively worked on",
+      "✅ Done": "Task is complete",
+      "❌ Failed": "Task failed to complete",
+      "📝 Planning": "Task in planning phase",
+      "🔍 Review": "Awaiting review"
+    },
+    "priority": {
+      "🔥 High Priority": "Urgent, requires immediate attention",
+      "⚡ Medium Priority": "Normal priority",
+      "🌱 Low Priority": "Nice to have, can defer"
+    },
+    "type": {
+      "blackbox5-task": "Standard BlackBox5 task",
+      "enhancement": "New feature or enhancement",
+      "bug": "Bug report",
+      "documentation": "Documentation update",
+      "refactor": "Code refactoring",
+      "performance": "Performance improvement"
+    }
+  },
+  "automation": {
+    "auto_archive": {
+      "enabled": true,
+      "days": 7,
+      "status": "Done"
+    },
+    "auto_assign": {
+      "enabled": false
+    }
+  }
+}

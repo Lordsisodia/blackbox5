@@ -1,0 +1,95 @@
+# ============================================================================
+# BLACKBOX5 - DOCUMENTATION GENERATION
+# ============================================================================
+# Purpose: Generate documentation from code changes and README files
+# Trigger: Push to main, PRs, manual dispatch
+# ============================================================================
+
+name: Documentation Generator
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      generate_all:
+        description: 'Regenerate all documentation'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-docs:
+    name: Generate Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml markdown
+
+      - name: Generate API documentation
+        run: |
+          python bin/generate_api_docs.py
+        continue-on-error: true
+
+      - name: Generate module index
+        run: |
+          python bin/generate_module_index.py
+        continue-on-error: true
+
+      - name: Update README table of contents
+        run: |
+          python bin/update_readme_toc.py
+        continue-on-error: true
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Documentation changes detected"
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No documentation changes"
+          fi
+
+      - name: Commit documentation changes
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |
+          git config user.name "Documentation Bot"
+          git config user.email "docs@blackbox5.internal"
+          git add .
+          git commit -m "docs: auto-generated documentation [skip ci]" || true
+          git push
+        continue-on-error: true
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && steps.check-changes.outputs.changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '📝 **Documentation Auto-Generated**\n\nDocumentation has been updated based on code changes.'
+            })
