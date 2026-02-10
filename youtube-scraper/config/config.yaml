@@ -1,0 +1,90 @@
+# YouTube Scraper Configuration for BlackBox5
+# Location: /opt/blackbox5/youtube-scraper/config/config.yaml
+
+# Playlist to monitor
+playlist:
+  url: "https://www.youtube.com/watch?v=ZrBvPoFBVUo&list=PLwyznWCpE24c3tepHAdTqFwHsQ-xTXDkN"
+  check_interval: 600  # seconds (10 minutes)
+  max_videos_per_run: 20  # Process at most N new videos per run
+
+# YouTube API settings
+youtube:
+  # Prefer youtube-transcript-api (no API key needed)
+  use_api_key: false  # Set to true if you have a YouTube Data API key
+  api_key: ""  # Optional: YouTube Data API v3 key
+  region: "US"
+  language: "en"
+
+# Rate limiting
+rate_limit:
+  # Delays between requests (in seconds)
+  delay_between_videos: 5
+  delay_between_transcripts: 3
+  delay_between_metadata: 2
+
+  # Retry settings
+  max_retries: 7
+  base_backoff: 3  # seconds
+  max_backoff: 120  # seconds
+
+  # Concurrent requests
+  max_concurrent_metadata: 1
+  max_concurrent_transcripts: 1
+
+# Transcript settings
+transcript:
+  languages: ["en"]  # Priority order
+  preserve_formatting: false
+  prefer_manual: true  # Prefer manually created over auto-generated
+  require_transcript: true  # Skip videos without transcripts
+
+# Storage paths
+storage:
+  base_dir: "/opt/blackbox5/5-project-memory/blackbox5/knowledge/youtube"
+  transcripts_dir: "transcripts"
+  metadata_dir: "metadata"
+  summaries_dir: "summaries"
+  state_db: "/opt/blackbox5/youtube-scraper/data/scraper_state.db"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARN, ERROR
+  log_dir: "/opt/blackbox5/youtube-scraper/logs"
+  max_log_size: 10485760  # 10MB
+  backup_count: 5
+
+# Knowledge extraction
+knowledge:
+  enable_summarization: true  # Generate AI summaries
+  extract_insights: true  # Extract key insights
+  extract_patterns: true  # Extract recurring patterns
+  min_transcript_length: 500  # Minimum characters for processing
+
+# Monitoring
+monitoring:
+  enable_metrics: true
+  metrics_file: "/opt/blackbox5/youtube-scraper/data/metrics.json"
+  health_check_url: ""  # Optional webhook for health checks
+
+# Agent integration
+agent:
+  notify_on_new_videos: true  # Send notification via Redis/NATS
+  notification_channel: "youtube-scraper"
+  auto_summarize: true  # Auto-generate summaries with AI
+
+# Anti-blocking
+anti_blocking:
+  user_agent_rotation: true
+  random_delay_jitter: 0.5  # 50% random variation
+  respect_429: true  # Respect rate limit headers
+  cookie_handling: true  # Use cookies when possible
+  cookies_file: ""  # Path to cookies.txt file (optional)
+  cookies_from_browser: ""  # Browser to extract cookies from: chrome, firefox, safari, edge (optional)
+  extract_flat: true  # Use flat extraction (faster, less likely to be blocked)
+
+# Output format
+output:
+  format: "markdown"  # markdown, json, both
+  include_timestamps: true
+  include_metadata: true
+  include_url: true

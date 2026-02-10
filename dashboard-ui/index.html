@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackBox5 Agent Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: rgba(255,255,255,255,0.8);
+            font-size: 1.1em;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .controls button {
+            background: rgba(255,255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.2s;
+        }
+        .controls button:hover {
+            background: rgba(255,255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        .controls button:active {
+            transform: translateY(0);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .agent-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        .agent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        .agent-card.running {
+            border-left: 4px solid #10b981;
+        }
+        .agent-card.idle {
+            border-left: 4px solid #95a5a6;
+        }
+        .agent-card.error {
+            border-left: 4px solid #ef4444;
+        }
+        .agent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .agent-name {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #333;
+        }
+        .agent-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-badge.running {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        .status-badge.idle {
+            background: #e0e7e5;
+            color: white;
+        }
+        .status-badge.error {
+            background: #ef4444;
+            color: white;
+        }
+        .agent-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .agent-actions button {
+            flex: 1;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #f8fafc;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+        .agent-actions button:hover {
+            background: #e0e7e5;
+            border-color: #059669;
+        }
+        .agent-actions button.danger {
+            background: #fef2f2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+        .agent-actions button.danger:hover {
+            background: #ef4444;
+        color: white;
+        }
+        .agent-meta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        font-size: 0.9em;
+            color: #64748b;
+        }
+        .agent-meta-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .agent-meta-label {
+            font-weight: 500;
+        color: #6b7280;
+        }
+        .agent-meta-value {
+            color: #333;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            transition: width 0.5s;
+        }
+        .new-agent-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,255,0.3);
+            border-radius: 12px;
+        }
+        .new-agent-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .new-agent-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+        }
+        .stats-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 12px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            z-index: 1000;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #667eea;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #e2e8f0;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .spinner.running {
+            border-top-color: #10b981;
+            border-right-color: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 BlackBox5 Agent Dashboard</h1>
+            <p>Manage all your autonomous agents in one place</p>
+        </div>
+        
+        <div class="controls">
+            <button onclick="refreshAll()">🔄 Refresh Status</button>
+            <button onclick="refreshStats()">📊 Get Stats</button>
+            <button onclick="openSettings()">⚙️ Settings</button>
+        </div>
+        
+        <div class="grid" id="agent-grid">
+            <!-- Agents will be populated here -->
+        </div>
+        
+        <div class="new-agent-section">
+            <button class="new-agent-btn" onclick="createNewAgent()">
+                <span>+</span> Create New Agent
+            </button>
+        </div>
+    </div>
+    
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-label">Active Agents:</span>
+            <span class="stat-value" id="active-count">-</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Running:</span>
+            <span class="stat-value" id="running-count">-</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Idle:</span>
+            <span class="stat-value" id="idle-count">-</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Errors:</span>
+            <span class="stat-value" id="error-count">-</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Total Tasks Completed:</span>
+            <span class="stat-value" id="tasks-count">-</span>
+        </div>
+    </div>
+
+    <script>
+        // Real OpenClaw integration - calls our simple gateway
+        const API_BASE = 'http://77.42.66.40:8001';
+        
+        async function fetchAgents() {
+            try {
+                const response = await fetch(`${API_BASE}/api/agents`);
+                if (!response.ok) throw new Error('Failed to fetch agents');
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching agents:', error);
+                return [];
+            }
+        }
+        
+        async function startAgent(agentId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/start`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!response.ok) throw new Error('Failed to start agent');
+                return await response.json();
+            } catch (error) {
+                console.error('Error starting agent:', error);
+                return { success: false, error: error.message };
+            }
+        }
+        
+        async function stopAgent(agentId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/agents/stop`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!response.ok) throw new Error('Failed to stop agent');
+                return await response.json();
+            } catch (error) {
+                console.error('Error stopping agent:', error);
+                return { success: false, error: error.message };
+            }
+        }
+        
+        const agents = [
+            {
+                id: 'blackbox5-scribe',
+                name: 'BlackBox5 Scribe',
+                description: 'Documents all tasks, decisions, and knowledge',
+                status: 'running',
+                task: 'Building task documentation system',
+                uptime: '3h 15m',
+                tokensUsed: '13k',
+                lastUpdate: '2 min ago'
+            },
+            {
+                id: 'autonomous-improvement',
+                name: 'Autonomous Improvement',
+                description: 'Self-improvement loop - runs every 30 min',
+                status: 'running',
+                task: 'Designing improvement strategies',
+                uptime: '8h 42m',
+                tokensUsed: '0',
+                lastUpdate: '1 min ago'
+            },
+            {
+                id: 'youtube-knowledge-pipeline',
+                name: 'YouTube Knowledge Pipeline',
+                description: 'Processes 200 transcripts/day for AI learning',
+                status: 'running',
+                task: 'Analyzing litellm downloader',
+                uptime: '4h 20m',
+                tokensUsed: '50.5k',
+                lastUpdate: '3 min ago'
+            },
+            {
+                id: 'kimi-load-balancer',
+                name: 'Kimi Load Balancer',
+                description: 'Smart API key rotation and health management',
+                status: 'running',
+                task: 'Researching load balancing strategies',
+                uptime: '6h 30m',
+                tokensUsed: '0',
+                lastUpdate: '5 min ago'
+            },
+            {
+                id: 'multi-agent-dashboard',
+                name: 'Multi-Agent Dashboard UI',
+                description: 'This very dashboard!',
+                status: 'running',
+                task: 'Building this interface',
+                uptime: '0m',
+                tokensUsed: '66.5k',
+                lastUpdate: 'Just now'
+            },
+            {
+                id: 'task-consolidation',
+                name: 'Task Consolidation',
+                description: 'Analyze and merge duplicate tasks',
+                status: 'completed',
+                task: 'Reduced 66 tasks to 40',
+                uptime: 'N/A',
+                tokensUsed: '37.4k',
+                lastUpdate: '20 min ago'
+            },
+            {
+                id: 'skill-fixer',
+                name: 'Skill Fixer',
+                description: 'Fixed 23 broken Tier 2 skills',
+                status: 'completed',
+                task: 'Added proper YAML frontmatter',
+                uptime: 'N/A',
+                tokensUsed: '16.8k',
+                lastUpdate: '1 hour ago'
+            }
+        ];
+        
+        function getStatusClass(status) {
+            switch(status) {
+                case 'running': return 'running';
+                case 'idle': return 'idle';
+                case 'error': return 'error';
+                case 'completed': return 'idle';
+                default: return 'idle';
+            }
+        }
+        
+        function formatUptime(uptime) {
+            if (!uptime || uptime === 'N/A') return '-';
+            const parts = uptime.split(' ');
+            if (parts.length === 2 && parts[1].startsWith('h')) {
+                return parts[0];
+            }
+            return uptime;
+        }
+        
+        function renderAgents() {
+            const grid = document.getElementById('agent-grid');
+            grid.innerHTML = '';
+            
+            agents.forEach(agent => {
+                const statusClass = getStatusClass(agent.status);
+                const uptime = formatUptime(agent.uptime);
+                
+                const card = document.createElement('div');
+                card.className = `agent-card ${statusClass}`;
+                card.innerHTML = `
+                    <div class="agent-header">
+                        <div class="agent-name">🤖 ${agent.name}</div>
+                        <div class="agent-status">
+                            <span class="status-badge ${statusClass}">${agent.status.toUpperCase()}</span>
+                        </div>
+                    </div>
+                    <p style="color: #666; margin-bottom: 12px;">${agent.description}</p>
+                    
+                    ${agent.task ? `
+                    <div class="agent-meta">
+                        <div class="agent-meta-row">
+                            <span class="agent-meta-label">Current Task:</span>
+                            <span class="agent-meta-value">${agent.task}</span>
+                        </div>
+                        <div class="agent-meta-row">
+                            <span class="agent-meta-label">Uptime:</span>
+                            <span class="agent-meta-value">${uptime}</span>
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="agent-actions">
+                        <button onclick="talkToAgent('${agent.id}')">💬 Talk to Agent</button>
+                        <button onclick="viewLogs('${agent.id}')">📋 View Logs</button>
+                        ${agent.status === 'running' ? `
+                        <button class="danger" onclick="stopAgent('${agent.id}')">⏹ Stop Agent</button>
+                        ` : `
+                        <button onclick="startAgent('${agent.id}')">▶ Start Agent</button>
+                        `}
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            updateStats();
+        }
+        
+        function updateStats() {
+            const active = agents.filter(a => a.status !== 'completed' && a.status !== 'error').length;
+            const running = agents.filter(a => a.status === 'running').length;
+            const idle = agents.filter(a => a.status === 'idle').length;
+            const errors = agents.filter(a => a.status === 'error').length;
+            const completed = agents.filter(a => a.status === 'completed').length;
+            const totalTokens = agents.reduce((sum, a) => sum + (a.tokensUsed || 0), 0);
+            
+            document.getElementById('active-count').textContent = active;
+            document.getElementById('running-count').textContent = running;
+            document.getElementById('idle-count').textContent = idle;
+            document.getElementById('error-count').textContent = errors;
+            document.getElementById('tasks-count').textContent = completed;
+        }
+        
+        function refreshAll() {
+            fetchAgents();
+            updateStats();
+            console.log('Refreshing agents...');
+        }
+        
+        function refreshStats() {
+            updateStats();
+        }
+        
+        function talkToAgent(agentId) {
+            alert(`Starting new chat with ${agents.find(a => a.id === agentId).name}`);
+        }
+        
+        function viewLogs(agentId) {
+            alert(`Opening logs for ${agents.find(a => a.id === agentId).name}`);
+        }
+        
+        async function stopAgent(agentId) {
+            const result = await stopAgent(agentId);
+            if (result.success) {
+                alert(`Agent stopped successfully`);
+                fetchAgents();
+            } else {
+                alert(`Error: ${result.error}`);
+            }
+        }
+        
+        async function startAgent(agentId) {
+            const agent = agents.find(a => a.id === agentId);
+            agent.status = 'running';
+            agent.task = 'Idle - ready for tasks';
+            agent.uptime = '0m';
+            renderAgents();
+            updateStats();
+            
+            const result = await startAgent(agentId);
+            if (result.success) {
+                alert(`Agent started via OpenClaw`);
+            } else {
+                alert(`Error: ${result.error}`);
+            }
+        }
+            {
+                id: 'blackbox5-scribe',
+                name: 'BlackBox5 Scribe',
+                description: 'Documents all tasks, decisions, and knowledge',
+                status: 'running',
+                task: 'Building task documentation system',
+                uptime: '3h 15m',
+                tokensUsed: '13k',
+                lastUpdate: '2 min ago'
+            },
+            {
+                id: 'autonomous-improvement',
+                name: 'Autonomous Improvement',
+                description: 'Self-improvement loop - runs every 30 min',
+                status: 'idle',
+                task: 'Designing improvement strategies',
+                uptime: '8h 42m',
+                tokensUsed: '0',
+                lastUpdate: '1 min ago'
+            },
+            {
+                id: 'youtube-knowledge-pipeline',
+                name: 'YouTube Knowledge Pipeline',
+                description: 'Processes 200 transcripts/day for AI learning',
+                status: 'running',
+                task: 'Analyzing litellm downloader',
+                uptime: '4h 20m',
+                tokensUsed: '50.5k',
+                lastUpdate: '3 min ago'
+            },
+            {
+                id: 'kimi-load-balancer',
+                name: 'Kimi Load Balancer',
+                description: 'Smart API key rotation and health management',
+                status: 'idle',
+                task: 'Researching load balancing strategies',
+                uptime: '6h 30m',
+                tokensUsed: '0',
+                lastUpdate: '5 min ago'
+            },
+            {
+                id: 'multi-agent-dashboard',
+                name: 'Multi-Agent Dashboard UI',
+                description: 'This very dashboard!',
+                status: 'running',
+                task: 'Building this interface',
+                uptime: '0m',
+                tokensUsed: '66.5k',
+                lastUpdate: 'Just now'
+            },
+            {
+                id: 'task-consolidation',
+                name: 'Task Consolidation',
+                description: 'Analyze and merge duplicate tasks',
+                status: 'completed',
+                task: 'Reduced 66 tasks to 40',
+                uptime: 'N/A',
+                tokensUsed: '37.4k',
+                lastUpdate: '20 min ago'
+            },
+            {
+                id: 'skill-fixer',
+                name: 'Skill Fixer',
+                description: 'Fixed 23 broken Tier 2 skills',
+                status: 'completed',
+                task: 'Added proper YAML frontmatter',
+                uptime: 'N/A',
+                tokensUsed: '16.8k',
+                lastUpdate: '1 hour ago'
+            }
+        ];
+        
+        function getStatusClass(status) {
+            switch(status) {
+                case 'running': return 'running';
+                case 'idle': return 'idle';
+                case 'error': return 'error';
+                case 'completed': return 'idle';
+                default: return 'idle';
+            }
+        }
+        
+        function renderAgents() {
+            const grid = document.getElementById('agent-grid');
+            grid.innerHTML = '';
+            
+            agents.forEach(agent => {
+                const statusClass = getStatusClass(agent.status);
+                const uptime = formatUptime(agent.uptime);
+                
+                const card = document.createElement('div');
+                card.className = `agent-card ${statusClass}`;
+                card.innerHTML = `
+                    <div class="agent-header">
+                        <div class="agent-name">🤖 ${agent.name}</div>
+                        <div class="agent-status">
+                            <span class="status-badge ${statusClass}">${agent.status.toUpperCase()}</span>
+                        </div>
+                    </div>
+                    <p style="color: #666; margin-bottom: 12px;">${agent.description}</p>
+                    
+                    ${agent.task ? `
+                    <div class="agent-meta">
+                        <div class="agent-meta-row">
+                            <span class="agent-meta-label">Current Task:</span>
+                            <span class="agent-meta-value">${agent.task}</span>
+                        </div>
+                        <div class="agent-meta-row">
+                            <span class="agent-meta-label">Uptime:</span>
+                            <span class="agent-meta-value">${uptime}</span>
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="agent-actions">
+                        <button onclick="talkToAgent('${agent.id}')">💬 Talk to Agent</button>
+                        <button onclick="viewLogs('${agent.id}')">📋 View Logs</button>
+                        ${agent.status === 'running' ? `
+                        <button class="danger" onclick="stopAgent('${agent.id}')">⏹ Stop Agent</button>
+                        ` : `
+                        <button onclick="startAgent('${agent.id}')">▶ Start Agent</button>
+                        `}
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            updateStats();
+        }
+        
+        function formatUptime(uptime) {
+            if (!uptime || uptime === 'N/A') return '-';
+            const parts = uptime.split(' ');
+            if (parts.length === 2 && parts[1].startsWith('h')) {
+                return parts[0];
+            }
+            return uptime;
+        }
+        
+        function updateStats() {
+            const active = agents.filter(a => a.status !== 'completed' && a.status !== 'error').length;
+            const running = agents.filter(a => a.status === 'running').length;
+            const idle = agents.filter(a => a.status === 'idle').length;
+            const errors = agents.filter(a => a.status === 'error').length;
+            const completed = agents.filter(a => a.status === 'completed').length;
+            const totalTokens = agents.reduce((sum, a) => sum + (a.tokensUsed || 0), 0);
+            
+            document.getElementById('active-count').textContent = active;
+            document.getElementById('running-count').textContent = running;
+            document.getElementById('idle-count').textContent = idle;
+            document.getElementById('error-count').textContent = errors;
+            document.getElementById('tasks-count').textContent = completed;
+        }
+        
+        function refreshAll() {
+            // In production, call OpenClaw API to get real-time status
+            console.log('Refreshing all agents...');
+            // Simulate updates
+            agents[0].lastUpdate = 'Just now';
+            renderAgents();
+            updateStats();
+        }
+        
+        function refreshStats() {
+            console.log('Getting detailed stats...');
+            updateStats();
+        }
+        
+        function talkToAgent(agentId) {
+            console.log(`Talking to agent: ${agentId}`);
+            // In production, this would create new session with that agent
+            alert(`Starting new chat with ${agents.find(a => a.id === agentId).name}`);
+        }
+        
+        function viewLogs(agentId) {
+            console.log(`Viewing logs for: ${agentId}`);
+            alert(`Opening logs for ${agents.find(a => a.id === agentId).name}`);
+        }
+        
+        function stopAgent(agentId) {
+            if (confirm('Stop this agent?')) {
+                const agent = agents.find(a => a.id === agentId);
+                agent.status = 'idle';
+                agent.task = 'Stopped by user';
+                renderAgents();
+                updateStats();
+            }
+        }
+        
+        function startAgent(agentId) {
+            const agent = agents.find(a => a.id === agentId);
+            agent.status = 'running';
+            agent.task = 'Idle - ready for tasks';
+            agent.uptime = '0m';
+            renderAgents();
+            updateStats();
+        }
+        
+        function createNewAgent() {
+            const name = prompt('Enter agent name:', 'New Agent');
+            if (name) {
+                const newAgent = {
+                    id: 'agent-' + Date.now(),
+                    name: name,
+                    description: 'Custom agent created by user',
+                    status: 'idle',
+                    task: 'Waiting for tasks',
+                    uptime: '0m',
+                    tokensUsed: '0',
+                    lastUpdate: 'Just now'
+                };
+                agents.push(newAgent);
+                renderAgents();
+                updateStats();
+            }
+        }
+        
+        function openSettings() {
+            alert('Settings panel would open here\n\n- Configure OpenClaw gateway\n- Set up cron jobs\n- Manage API keys\n- Configure agent teams');
+        }
+        
+        // Initial render
+        renderAgents();
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "conversational-task-planner",
+  "description": "Transforms natural conversation into BlackBox5 task plans automatically",
+  "version": "1.0.0",
+  "category": "planning",
+  "triggers": [
+    "make a plan for",
+    "plan for",
+    "create a task for",
+    "task for",
+    "need to fix",
+    "need to implement",
+    "need to build",
+    "I need to",
+    "status of",
+    "what's the status",
+    "work on"
+  ],
+  "parameters": {
+    "task_name": {
+      "type": "string",
+      "description": "Extracted from natural language request"
+    },
+    "task_type": {
+      "type": "enum",
+      "values": ["implement", "fix", "refactor", "analyze", "organize", "research", "improve", "optimize"],
+      "description": "Inferred from request context"
+    },
+    "priority": {
+      "type": "enum",
+      "values": ["critical", "high", "medium", "low"],
+      "description": "Inferred from urgency indicators (urgent, ASAP, need, want)"
+    },
+    "context": {
+      "type": "string",
+      "description": "Additional context extracted from conversation"
+    }
+  },
+  "estimated_effort": {
+    "spec_lines": 400,
+    "code_lines": 600,
+    "docs_lines": 300,
+    "total_lines": 1300,
+    "estimated_minutes": 4.1
+  }
+}

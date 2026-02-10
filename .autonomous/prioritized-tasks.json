@@ -1,0 +1,1146 @@
+{
+  "generated_at": "2026-02-10T21:48:09.474598",
+  "total_tasks": 63,
+  "tasks": [
+    {
+      "name": "TASK-AUTONOMY-001",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTONOMY-001",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "**Goal:** IG-AUTONOMY-001 - Close the Feedback Loops\n**Plan:** PLAN-AUTONOMY-001\n**Status:** completed\n**Priority:** CRITICAL\n**Created:** 2026-02-06\n**Started:** 2026-02-06",
+      "age_hours": 30.35997460861111,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-018-3",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-018-3",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
+      "age_hours": 30.359976327222224,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "AGENT-SYSTEM-AUDIT",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/AGENT-SYSTEM-AUDIT",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "## Principle 1: Task System as Foundation",
+      "age_hours": 30.3599771725,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-1770163374",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1770163374",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "**Status:** completed\n**Priority:** critical\n**Type:** architecture\n**Created:** 2026-02-04\n**Completed:** 2026-02-04",
+      "age_hours": 30.359977236666666,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-AUTO-010-agent-system-audit",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTO-010-agent-system-audit",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "## Principle 1: Task System as Foundation",
+      "age_hours": 30.359977381666667,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-CC-REPO-ANALYSIS-001",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-CC-REPO-ANALYSIS-001",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.555535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "**Status:** pending\n**Priority:** high\n**Created:** 2026-02-04\n**Parent:** None (Top-level research task)",
+      "age_hours": 30.359977365555558,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-TEMPLATE-002",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-TEMPLATE-002",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.555535",
+      "complexity": "medium",
+      "blocking": true,
+      "description": "**Status:** completed\n**Priority:** critical\n**Type:** architecture\n**Created:** 2026-02-04\n**Completed:** 2026-02-04",
+      "age_hours": 30.35997744111111,
+      "score": 50.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written",
+        "Blocking other work - unblock soon"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-HINDSIGHT-006",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-HINDSIGHT-006",
+      "priority": "high",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "",
+      "age_hours": 30.35997395472222,
+      "score": 45.0,
+      "improvement_opportunities": [
+        "High priority - consider accelerating",
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [
+        "Missing or unclear description"
+      ],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-HINDSIGHT-005",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-HINDSIGHT-005",
+      "priority": "high",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "",
+      "age_hours": 30.359976750833336,
+      "score": 45.0,
+      "improvement_opportunities": [
+        "High priority - consider accelerating",
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [
+        "Missing or unclear description"
+      ],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DEV-011-youtube-automation",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DEV-011-youtube-automation",
+      "priority": "high",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.555535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "Status: pending\nPriority: HIGH\nCreated: 2026-02-03\nProject: AI-Improvement-Research (YouTube Scraper)",
+      "age_hours": 30.359977391111112,
+      "score": 45.0,
+      "improvement_opportunities": [
+        "High priority - consider accelerating",
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-032-3",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-032-3",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 75 minutes\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-032",
+      "age_hours": 30.359972755833333,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-RALF-001",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-RALF-001",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** CRITICAL\n**Parent:** Issue #4 - RALF Knows Project Structure\n**Completed:** 2026-02-08",
+      "age_hours": 30.3599728425,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-INFR-010",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-INFR-010",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** infrastructure\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949919\n**Source:** Scout opportunity metrics-003 (Score: 13.5)",
+      "age_hours": 30.359972875555556,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "ACTION-PLAN-youtube-pipeline",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/ACTION-PLAN-youtube-pipeline",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** ACTIVE\n**Goal:** Get auto-scraping operational TODAY, then build analysis pipeline",
+      "age_hours": 30.359973161388886,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-RALF-002",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-RALF-002",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** CRITICAL\n**Parent:** Issue #4 - RALF Knows Project Structure",
+      "age_hours": 30.359973240277778,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-007-1",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-1",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-007",
+      "age_hours": 30.35997331638889,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-1738375000",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1738375000",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Type:** implement\n**Priority:** high\n**Status:** pending\n**Created:** 2026-02-01T16:01:00Z\n**Estimated Lines:** 2330",
+      "age_hours": 30.35997342111111,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-MANU-041",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-MANU-041",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** manual\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950080\n**Source:** Scout opportunity process-008 (Score: 7.0)",
+      "age_hours": 30.35997346166667,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-018-1",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-018-1",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 20 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
+      "age_hours": 30.359973546666666,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-051",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-051",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950131\n**Source:** Scout opportunity docs-010 (Score: 5.0)",
+      "age_hours": 30.359973594722224,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-007-2",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-2",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-007",
+      "age_hours": 30.359973705833333,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-044",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-044",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950095\n**Source:** Scout opportunity docs-006 (Score: 7.0)",
+      "age_hours": 30.359973755,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-050-3",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-050-3",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-09T12:45:00Z\n**Parent Task:** TASK-SKIL-050\n**Depends On:** TASK-FIX-SKIL-050-2 (implem",
+      "age_hours": 30.35997386388889,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-005",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-005",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.949891\n**Source:** Scout opportunity skill-003 (Score: 14.5)",
+      "age_hours": 30.359973905833332,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-RALF-003",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-RALF-003",
+      "priority": "medium",
+      "type": "auto",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Parent:** Issue #4 - RALF Knows Project Structure\n**Completed:** 2026-02-08",
+      "age_hours": 30.35997405666667,
+      "score": 35.0,
+      "improvement_opportunities": [],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-049",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-049",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.950121\n**Source:** Scout opportunity docs-008 (Score: 6.5)",
+      "age_hours": 30.3599741075,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-043",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-043",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950090\n**Source:** Scout opportunity docs-004 (Score: 7.0)",
+      "age_hours": 30.35997416111111,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-ARCH-028",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-028",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** architecture\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.950014\n**Source:** Scout opportunity arch-010 (Score: 9.5)",
+      "age_hours": 30.359974231666666,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-031",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-031",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 45 minutes\n**Created:** 2026-02-09\n**Completed:** 2026-02-09\n**Source:** Process improvement initiative",
+      "age_hours": 30.35997434361111,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-006",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-006",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** process\n**Estimated Effort:** 240 minutes\n**Actual Effort:** 45 minutes\n**Created:** 2026-02-05T01:57:10.949897\n**Completed:** 2026-02-09\n**Sourc",
+      "age_hours": 30.359974535000003,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-032-1",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-032-1",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 45 minutes\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-032",
+      "age_hours": 30.359974666388887,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-INFR-026",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-INFR-026",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** infrastructure\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950004\n**Source:** Scout opportunity metrics-006 (Score: 10.0)",
+      "age_hours": 30.359974699166663,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-007",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-007",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949904\n**Source:** Scout opportunity skill-002 (Score: 14.0)",
+      "age_hours": 30.359974723333334,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-RALF-010",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-RALF-010",
+      "priority": "medium",
+      "type": "str",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Parent:** Issue #4 - RALF Knows Project Structure",
+      "age_hours": 30.359974885555555,
+      "score": 35.0,
+      "improvement_opportunities": [],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-050-2",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-050-2",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 30-45 minutes\n**Created:** 2026-02-09T12:45:00Z\n**Parent Task:** TASK-SKIL-050\n**Depends On:** TASK-FIX-SKIL-050-1 (",
+      "age_hours": 30.359974947500003,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-018-4",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-018-4",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
+      "age_hours": 30.359975043055556,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-analyze-mirror-candidates",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-analyze-mirror-candidates",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Created:** 2026-02-03\n**Context:** Mirror system now exists, need to identify what else to mirror",
+      "age_hours": 30.35997508666667,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-024",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-024",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949993\n**Completed:** 2026-02-09\n**Source:** Scout opportunity proces",
+      "age_hours": 30.35997516388889,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-033",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-033",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950039\n**Completed:** 2026-02-09\n**Source:** Scout opportunity metric",
+      "age_hours": 30.359975213333335,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCS-010-youtube-pipeline-plan",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCS-010-youtube-pipeline-plan",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** ACTIVE\n**Goal:** Get auto-scraping operational TODAY, then build analysis pipeline",
+      "age_hours": 30.359975411111108,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-003",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-003",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** CRITICAL\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949879\n**Completed:** 2026-02-09\n**Source:** Scout opportunity proc",
+      "age_hours": 30.359975479166668,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-018-2",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-018-2",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 45 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
+      "age_hours": 30.359975555277778,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-034",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-034",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950045\n**Source:** Scout opportunity docs-005 (Score: 8.0)",
+      "age_hours": 30.359975586388888,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-050-1",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-050-1",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-09T12:45:00Z\n**Parent Task:** TASK-SKIL-050\n**Source:** Root cause analysis - 3 infr",
+      "age_hours": 30.359975635555557,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-007-3",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-3",
+      "priority": "medium",
+      "type": "implement",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-007",
+      "age_hours": 30.35997570361111,
+      "score": 35.0,
+      "improvement_opportunities": [],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-050",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-050",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950126\n**Source:** Scout opportunity skill-010 (Score: 5.0)",
+      "age_hours": 30.35997572888889,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-018",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-018",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949961\n**Source:** Scout opportunity skill-004 (Score: 11.0)",
+      "age_hours": 30.35997575722222,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-032",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-032",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950034\n**Source:** Scout opportunity skill-006 (Score: 8.5)",
+      "age_hours": 30.359975783055557,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-025",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-025",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** documentation\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949999\n**Source:** Scout opportunity docs-003 (Score: 10.0)",
+      "age_hours": 30.359975814166667,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-001",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-001",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Created:** 2026-02-05T00:00:00Z\n**Completed:** 2026-02-05T00:00:00Z",
+      "age_hours": 30.359975946666665,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DEV-010-cli-interface-f016",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DEV-010-cli-interface-f016",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Type:** implement\n**Priority:** high\n**Status:** pending\n**Created:** 2026-02-01T16:01:00Z\n**Estimated Lines:** 2330",
+      "age_hours": 30.359976013333334,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-010-001-sessionstart-enhanced",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Reviewer:** Senior Code Reviewer (20 years bash experience)\n**Date:** 2026-02-06\n**File:** `/Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh`\n**Claimed Quality:** 88/100 (Prod",
+      "age_hours": 30.35997623722222,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-SKIL-014",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-014",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.949940\n**Source:** Scout opportunity skill-008 (Score: 12.5)",
+      "age_hours": 30.359976381944445,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TEMPLATE",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TEMPLATE",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Task ID:** TASK-[timestamp]\n**Type:** implement | fix | refactor | analyze | organize | research\n**Priority:** critical | high | medium | low\n**Status:** pending\n**Created:** YYYY-MM-DDTHH:MM:SSZ\n**",
+      "age_hours": 30.35997643388889,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-1769978192",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1769978192",
+      "priority": "medium",
+      "type": "command",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Task ID:** TASK-1769978192\n**Type:** design\n**Priority:** critical\n**Status:** active\n**Created:** 2026-02-02T14:16:32Z\n**Estimated Lines:** 800",
+      "age_hours": 30.359976706111112,
+      "score": 35.0,
+      "improvement_opportunities": [],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-008",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-008",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** process\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949909\n**Source:** Scout opportunity process-003 (Score: 14.0)\n**Comple",
+      "age_hours": 30.359976805555558,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PLAN-001-youtube-pipeline",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PLAN-001-youtube-pipeline",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** ACTIVE\n**Goal:** Get auto-scraping operational TODAY, then build analysis pipeline",
+      "age_hours": 30.35997701138889,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-020",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-020",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949971\n**Completed:** 2026-02-09\n**Source:** Scout opportunity proces",
+      "age_hours": 30.359977091666668,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-FIX-SKIL-032-2",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-032-2",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-032",
+      "age_hours": 30.3599773025,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-AUTONOMY-004",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTONOMY-004",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.554535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Goal:** IG-AUTONOMY-001 - Close the Feedback Loops\n**Plan:** PLAN-AUTONOMY-001 - Phase 4: System Health Dashboard\n**Status:** completed\n**Priority:** CRITICAL\n**Created:** 2026-02-06\n**Started:** 20",
+      "age_hours": 30.359977496111114,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-027",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-027",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.555535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950009\n**Source:** Scout opportunity metrics-009 (Score: 10.0)\n**Comp",
+      "age_hours": 30.35997728722222,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-DOCU-048",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-DOCU-048",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-09T15:26:33.555535",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.950116\n**Source:** Scout opportunity docs-007 (Score: 6.5)",
+      "age_hours": 30.359977468333334,
+      "score": 35.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    },
+    {
+      "name": "TASK-PROC-030",
+      "path": "/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-PROC-030",
+      "priority": "medium",
+      "type": "code",
+      "status": "pending",
+      "created_at": "2026-02-10T18:51:35.071046",
+      "complexity": "medium",
+      "blocking": false,
+      "description": "**Task ID:** TASK-PROC-030  \n**Priority:** MEDIUM  \n**Estimated Effort:** 4-6 hours  \n**Importance Rating:** 75/100  \n**Created:** 2026-02-06",
+      "age_hours": 2.9428865291666666,
+      "score": 25.0,
+      "improvement_opportunities": [
+        "Code task - ensure tests are written"
+      ],
+      "current_issues": [],
+      "estimated_time": "2h"
+    }
+  ]
+}

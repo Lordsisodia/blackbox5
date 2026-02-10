@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimi API Load Balancer Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+        }
+
+        .card h3 {
+            font-size: 0.9em;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+
+        .card .value.green { color: #4ade80; }
+        .card .value.red { color: #f87171; }
+        .card .value.yellow { color: #fbbf24; }
+        .card .value.blue { color: #60a5fa; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+        }
+
+        .section h2 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #60a5fa;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background: #0f172a;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        tr:hover {
+            background: #0f172a;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #059669;
+            color: white;
+        }
+
+        .status-disabled {
+            background: #dc2626;
+            color: white;
+        }
+
+        .status-degraded {
+            background: #d97706;
+            color: white;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            transition: width 0.3s ease;
+        }
+
+        .progress-fill.high {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+
+        .progress-fill.medium {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+
+        .refresh-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-bottom: 20px;
+            transition: background 0.2s;
+        }
+
+        .refresh-btn:hover {
+            background: #2563eb;
+        }
+
+        .alerts-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+            margin-bottom: 30px;
+        }
+
+        .alert {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: #1e293b;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            border-left-color: #f59e0b;
+            background: #1e293b;
+        }
+
+        .alert-error {
+            border-left-color: #ef4444;
+            background: #1e293b;
+        }
+
+        .alert-info {
+            border-left-color: #3b82f6;
+            background: #1e293b;
+        }
+
+        .last-updated {
+            color: #94a3b8;
+            font-size: 0.9em;
+            text-align: right;
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔑 Kimi API Load Balancer Dashboard</h1>
+        <p class="subtitle">Real-time monitoring of 9 Kimi API keys with intelligent load balancing</p>
+
+        <button class="refresh-btn" onclick="loadData()">🔄 Refresh</button>
+
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Total Requests</h3>
+                <div class="value blue" id="total-requests">0</div>
+            </div>
+            <div class="card">
+                <h3>Success Rate</h3>
+                <div class="value green" id="success-rate">0%</div>
+            </div>
+            <div class="card">
+                <h3>Total Cost</h3>
+                <div class="value yellow" id="total-cost">$0.00</div>
+            </div>
+            <div class="card">
+                <h3>Active Keys</h3>
+                <div class="value" id="active-keys">0/9</div>
+            </div>
+        </div>
+
+        <div class="alerts-section" id="alerts-section" style="display: none;">
+            <h2>⚠️ Alerts</h2>
+            <div id="alerts"></div>
+        </div>
+
+        <div class="grid">
+            <div class="section">
+                <h2>📊 Key Status</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Status</th>
+                            <th>Requests</th>
+                            <th>Success Rate</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody id="key-status">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>💰 Cost Breakdown</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Tokens In</th>
+                            <th>Tokens Out</th>
+                            <th>Cost</th>
+                            <th>% of Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cost-breakdown">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Usage Overview (Last 24 Hours)</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Tokens Used</h3>
+                    <div class="value" id="tokens-total">0</div>
+                </div>
+                <div class="card">
+                    <h3>Avg Latency</h3>
+                    <div class="value" id="avg-latency">0ms</div>
+                </div>
+                <div class="card">
+                    <h3>Error Rate</h3>
+                    <div class="value" id="error-rate">0%</div>
+                </div>
+                <div class="card">
+                    <h3>Failed Requests</h3>
+                    <div class="value red" id="failed-requests">0</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px; color: #94a3b8;">Per-Key Usage</h3>
+            <div id="key-usage-bars">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔬 Recent Health Checks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Status</th>
+                        <th>Latency</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="health-checks">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="last-updated">
+            Last updated: <span id="last-updated">Never</span>
+        </div>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                // Load summary
+                const summaryResponse = await fetch('/api/kimi/summary');
+                const summary = await summaryResponse.json();
+
+                // Load key stats
+                const statsResponse = await fetch('/api/kimi/stats');
+                const stats = await statsResponse.json();
+
+                // Load health checks
+                const healthResponse = await fetch('/api/kimi/health');
+                const health = await healthResponse.json();
+
+                updateSummary(summary);
+                updateKeyStats(stats, summary);
+                updateHealthChecks(health);
+                updateLastUpdated();
+
+            } catch (error) {
+                console.error('Failed to load data:', error);
+                alert('Failed to load data. Make sure the API server is running.');
+            }
+        }
+
+        function updateSummary(summary) {
+            document.getElementById('total-requests').textContent = formatNumber(summary.total_requests);
+            document.getElementById('success-rate').textContent = formatPercent(summary.success_rate);
+            document.getElementById('total-cost').textContent = formatCurrency(summary.total_cost);
+            document.getElementById('active-keys').textContent = `${summary.active_keys}/9`;
+            document.getElementById('tokens-total').textContent = formatNumber(summary.total_tokens_input + summary.total_tokens_output);
+            document.getElementById('failed-requests').textContent = formatNumber(summary.total_failed);
+            document.getElementById('error-rate').textContent = formatPercent(1 - summary.success_rate);
+        }
+
+        function updateKeyStats(stats, summary) {
+            const statusTable = document.getElementById('key-status');
+            const costTable = document.getElementById('cost-breakdown');
+            const usageBars = document.getElementById('key-usage-bars');
+
+            statusTable.innerHTML = '';
+            costTable.innerHTML = '';
+            usageBars.innerHTML = '';
+
+            for (const [keyId, stat] of Object.entries(stats)) {
+                const successRate = stat.requests_total > 0
+                    ? (stat.requests_success / stat.requests_total) * 100
+                    : 0;
+
+                const costPercent = summary.total_cost > 0
+                    ? (stat.cost_total / summary.total_cost) * 100
+                    : 0;
+
+                // Status row
+                const statusRow = document.createElement('tr');
+                statusRow.innerHTML = `
+                    <td><strong>${stat.name}</strong></td>
+                    <td><span class="status-badge status-${stat.status}">${stat.status}</span></td>
+                    <td>${formatNumber(stat.requests_total)}</td>
+                    <td>${formatPercent(successRate / 100)}</td>
+                    <td>${formatCurrency(stat.cost_total)}</td>
+                `;
+                statusTable.appendChild(statusRow);
+
+                // Cost row
+                const costRow = document.createElement('tr');
+                costRow.innerHTML = `
+                    <td><strong>${stat.name}</strong></td>
+                    <td>${formatNumber(stat.tokens_input)}</td>
+                    <td>${formatNumber(stat.tokens_output)}</td>
+                    <td>${formatCurrency(stat.cost_total)}</td>
+                    <td>${formatPercent(costPercent / 100)}</td>
+                `;
+                costTable.appendChild(costRow);
+
+                // Usage bar
+                const usageDiv = document.createElement('div');
+                usageDiv.style.marginBottom = '15px';
+                usageDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <strong>${stat.name}</strong>
+                        <span>${formatNumber(stat.requests_total)} requests</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ${costPercent > 70 ? 'high' : costPercent > 40 ? 'medium' : ''}"
+                             style="width: ${costPercent}%"></div>
+                    </div>
+                `;
+                usageBars.appendChild(usageDiv);
+            }
+        }
+
+        function updateHealthChecks(health) {
+            const table = document.getElementById('health-checks');
+            table.innerHTML = '';
+
+            for (const check of health.slice(0, 10)) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${check.key_name}</strong></td>
+                    <td><span class="status-badge status-${check.status === 'healthy' ? 'active' : 'disabled'}">${check.status}</span></td>
+                    <td>${check.latency_ms ? Math.round(check.latency_ms) + 'ms' : 'N/A'}</td>
+                    <td>${new Date(check.timestamp).toLocaleTimeString()}</td>
+                `;
+                table.appendChild(row);
+            }
+        }
+
+        function updateLastUpdated() {
+            document.getElementById('last-updated').textContent = new Date().toLocaleString();
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toLocaleString();
+        }
+
+        function formatPercent(decimal) {
+            return (decimal * 100).toFixed(1) + '%';
+        }
+
+        function formatCurrency(amount) {
+            return '$' + amount.toFixed(4);
+        }
+
+        // Auto-refresh every 30 seconds
+        loadData();
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>

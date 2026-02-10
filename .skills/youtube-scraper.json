@@ -1,0 +1,97 @@
+{
+  "name": "youtube-scraper",
+  "description": "Search and scrape YouTube videos for BlackBox5 knowledge base. Extracts metadata and transcripts for AI learning.",
+  "version": "1.0.0",
+  "author": "BlackBox5",
+  "enabled": true,
+  "commands": [
+    {
+      "name": "scrape",
+      "description": "Search YouTube and scrape videos by query",
+      "usage": "youtube-scraper scrape --query \"search term\" [--max-results N]",
+      "exec": "/opt/blackbox5/youtube-scraper/scraper.py",
+      "args": [
+        "--query",
+        "{{query}}",
+        "--max-results",
+        "{{max_results|10}}"
+      ],
+      "timeout": 300,
+      "permissions": ["network", "filesystem"],
+      "examples": [
+        "youtube-scraper scrape --query \"machine learning tutorial\" --max-results 5",
+        "youtube-scraper scrape --query \"AI agents autonomous\" --max-results 10"
+      ]
+    },
+    {
+      "name": "video",
+      "description": "Scrape a specific YouTube video by ID",
+      "usage": "youtube-scraper video --video VIDEO_ID",
+      "exec": "/opt/blackbox5/youtube-scraper/scraper.py",
+      "args": [
+        "--video",
+        "{{video_id}}"
+      ],
+      "timeout": 60,
+      "permissions": ["network", "filesystem"],
+      "examples": [
+        "youtube-scraper video --video dQw4w9WgXcQ",
+        "youtube-scraper video --video abc123def456"
+      ]
+    },
+    {
+      "name": "stats",
+      "description": "Show YouTube scraper statistics",
+      "usage": "youtube-scraper stats",
+      "exec": "/opt/blackbox5/youtube-scraper/scraper.py",
+      "args": [
+        "--stats"
+      ],
+      "timeout": 10,
+      "permissions": ["filesystem"],
+      "examples": [
+        "youtube-scraper stats"
+      ]
+    },
+    {
+      "name": "scheduled",
+      "description": "Run all scheduled queries from config file",
+      "usage": "youtube-scraper scheduled [--config PATH]",
+      "exec": "/opt/blackbox5/youtube-scraper/scraper.py",
+      "args": [
+        "--config",
+        "{{config|/opt/blackbox5/youtube-scraper/config/config.yaml}}",
+        "--scheduled"
+      ],
+      "timeout": 3600,
+      "permissions": ["network", "filesystem"],
+      "examples": [
+        "youtube-scraper scheduled"
+      ]
+    }
+  ],
+  "configuration": {
+    "config_path": "/opt/blackbox5/youtube-scraper/config/config.yaml",
+    "database_path": "/opt/blackbox5/youtube-scraper/data/scraper.db",
+    "transcripts_dir": "/opt/blackbox5/5-project-memory/youtube-scraper/knowledge/transcripts"
+  },
+  "dependencies": [
+    "yt-dlp>=2024.1.1",
+    "youtube-transcript-api>=0.6.2",
+    "pyyaml>=6.0.1"
+  ],
+  "integration": {
+    "moltbot": {
+      "description": "Moltbot can use this for autonomous research",
+      "example": "Use 'youtube-scraper scrape' when researching new topics"
+    },
+    "openclaw": {
+      "description": "OpenClaw can schedule scrapes via cron or hooks",
+      "example": "Add to daily autonomous routine"
+    },
+    "clawdbot": {
+      "description": "ClawDBot can log scraping activities",
+      "example": "Track statistics via 'youtube-scraper stats'"
+    }
+  }
+}

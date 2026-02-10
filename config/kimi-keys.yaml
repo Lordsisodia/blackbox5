@@ -1,0 +1,161 @@
+# Kimi API Load Balancer Configuration for BlackBox5
+# This configuration manages 9 Kimi API keys for optimal distribution
+
+# Global Settings
+kimi_api:
+  base_url: "https://api.moonshot.cn/v1"
+  model: "moonshot-v1-128k"  # Kimi K2.5 model (moonshot-v1-128k)
+  timeout: 120  # seconds
+  max_retries: 3
+  retry_delay: 1  # seconds
+
+# Load Balancing Strategy
+# Options: round-robin, least-used, priority, health-first
+load_balancing:
+  strategy: "health-first"
+  # Health-first: prefer healthy keys, fall back to round-robin
+  # Round-robin: rotate through all keys equally
+  # Least-used: always use key with lowest request count
+  # Priority: use keys in priority order
+
+# Rate Limiting
+rate_limits:
+  # Per-key limits (Kimi typical limits)
+  requests_per_minute: 100
+  tokens_per_minute: 50000
+  # Global limits (across all keys)
+  global_requests_per_minute: 900  # 9 keys * 100
+  global_tokens_per_minute: 450000  # 9 keys * 50000
+
+# API Keys Configuration
+# 1 CISO Kimi1 + 8 trial keys
+keys:
+  - name: "kimi-ciso-primary"
+    key_id: "KEY_001"
+    api_key: "${KIMI_CISO_KEY}"
+    priority: 1  # Highest priority (CISO key)
+    max_tokens: 1000000  # Monthly limit
+    expires: null  # No expiration for CISO key
+    status: "active"
+    assigned_agents:
+      - "main"
+      - "claude-mac"
+      - "planner"
+      - "analyzer"
+    usage_tracking: true
+
+  - name: "kimi-trial-01"
+    key_id: "KEY_002"
+    api_key: "${KIMI_TRIAL_KEY_01}"
+    priority: 2
+    max_tokens: 100000  # Trial key limit
+    expires: "2026-03-01"  # Set actual expiration
+    status: "active"
+    assigned_agents:
+      - "executor"
+      - "researcher"
+    usage_tracking: true
+
+  - name: "kimi-trial-02"
+    key_id: "KEY_003"
+    api_key: "${KIMI_TRIAL_KEY_02}"
+    priority: 2
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "executor"
+      - "moltbot-vps-ai"
+    usage_tracking: true
+
+  - name: "kimi-trial-03"
+    key_id: "KEY_004"
+    api_key: "${KIMI_TRIAL_KEY_03}"
+    priority: 3
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "researcher"
+      - "analyzer"
+    usage_tracking: true
+
+  - name: "kimi-trial-04"
+    key_id: "KEY_005"
+    api_key: "${KIMI_TRIAL_KEY_04}"
+    priority: 3
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "executor"
+    usage_tracking: true
+
+  - name: "kimi-trial-05"
+    key_id: "KEY_006"
+    api_key: "${KIMI_TRIAL_KEY_05}"
+    priority: 4
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "researcher"
+    usage_tracking: true
+
+  - name: "kimi-trial-06"
+    key_id: "KEY_007"
+    api_key: "${KIMI_TRIAL_KEY_06}"
+    priority: 4
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "analyzer"
+    usage_tracking: true
+
+  - name: "kimi-trial-07"
+    key_id: "KEY_008"
+    api_key: "${KIMI_TRIAL_KEY_07}"
+    priority: 5
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "researcher"
+    usage_tracking: true
+
+  - name: "kimi-trial-08"
+    key_id: "KEY_009"
+    api_key: "${KIMI_TRIAL_KEY_08}"
+    priority: 5
+    max_tokens: 100000
+    expires: "2026-03-01"
+    status: "active"
+    assigned_agents:
+      - "analyzer"
+    usage_tracking: true
+
+# Failover Strategy
+failover:
+  enabled: true
+  strategy: "skip-unhealthy"
+  # skip-unhealthy: skip keys that have failed recently
+  # all-keys: try all keys before giving up
+  health_check_interval: 60  # seconds
+  max_failures_before_disable: 5
+  recheck_disabled_after: 300  # seconds
+
+# Cost Tracking (estimated costs)
+costs:
+  input_tokens_per_million: 12.0  # $12 per 1M input tokens (Kimi pricing)
+  output_tokens_per_million: 60.0  # $60 per 1M output tokens
+  currency: "USD"
+
+# Alerting
+alerts:
+  enabled: true
+  # Alert thresholds
+  key_error_rate_threshold: 0.10  # Alert if error rate > 10%
+  key_usage_threshold: 0.90  # Alert if usage > 90% of limit
+  global_usage_threshold: 0.80  # Alert if global usage > 80%
+  trial_expiry_warning_days: 7  # Warn 7 days before trial expires

@@ -1,0 +1,372 @@
+# BlackBox5 Multi-API Configuration
+# Sorted API keys by capability and priority
+# Primary model: GLM-4.7 (as requested)
+
+providers:
+  # =====================================================
+  # GLM-4.7 - Primary Model (Z.AI)
+  # =====================================================
+  glm:
+    enabled: true
+    priority: 1  # Primary for general tasks
+    model: "glm-4.7"
+    api_key: "sk-kimi-YC3tlmLzogkd2ZMHdPwMMth3hV9r72aC5lk3kQTYI014GFjBN0VPcKfe6wczYlGr"
+    base_url: "https://api.kimi.com/coding/"
+    capabilities:
+      - long_context
+      - reliable
+      - general
+      - affordable
+    context_window: 2000000  # 2M tokens
+    max_tokens: 100000
+    timeout: 120
+    rate_limits:
+      requests_per_minute: 60
+      tokens_per_minute: 300000
+    costs:
+      input_per_million: 0.5  # Estimated
+      output_per_million: 2.0  # Estimated
+      currency: "USD"
+    use_cases:
+      - General tasks
+      - Long context conversations
+      - Default fallback when specialized APIs unavailable
+    fallback_providers: ["kimi", "claude_code"]
+
+  # =====================================================
+  # Kimi K2.5 (Moonshot) - Smart Coding & Multimodal
+  # 9 keys: 1 CISO + 8 trials
+  # =====================================================
+  kimi:
+    enabled: true
+    priority: 0.8  # High priority for coding/reasoning
+    model: "moonshot-v1-128k"
+    base_url: "https://api.moonshot.cn/v1"
+    capabilities:
+      - long_context
+      - multimodal
+      - coding
+      - reasoning
+      - video_processing
+    context_window: 128000
+    max_tokens: 100000
+    timeout: 120
+    load_balancing:
+      strategy: "priority_with_health"
+      # priority_with_health: use CISO first, rotate trials by health
+      # round_robin: rotate through all keys
+      # least_used: use key with lowest usage
+    keys:
+      # CISO Key - 30 pound plan, most reliable
+      - id: "kimi_ciso_primary"
+        name: "kimi-ciso-primary"
+        key: "${KIMI_CISO_KEY:-sk-kimi-YC3tlmLzogkd2ZMHdPwMMth3hV9r72aC5lk3kQTYI014GFjBN0VPcKfe6wczYlGr}"
+        priority: 0  # Highest priority
+        trial: false
+        max_tokens: 1000000
+        expires: null
+        assigned_agents:
+          - "main"
+          - "claude-mac"
+          - "planner"
+        status: "active"
+        usage_tracking: true
+
+      # Trial Keys (8 total) - use after CISO exhausted
+      - id: "kimi_trial_01"
+        name: "kimi-trial-01"
+        key: "${KIMI_TRIAL_KEY_01:-sk-kimi-p6MUSaSEpcb3L3dw2xBNGdLST5EdDDq5zWp28ziOepoPhbCBP3Z7g5iXeBROE7Zf}"
+        priority: 2
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["executor", "researcher"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_02"
+        name: "kimi-trial-02"
+        key: "${KIMI_TRIAL_KEY_02}"
+        priority: 2
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["executor", "moltbot-vps-ai"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_03"
+        name: "kimi-trial-03"
+        key: "${KIMI_TRIAL_KEY_03}"
+        priority: 3
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["researcher", "analyzer"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_04"
+        name: "kimi-trial-04"
+        key: "${KIMI_TRIAL_KEY_04}"
+        priority: 3
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["executor"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_05"
+        name: "kimi-trial-05"
+        key: "${KIMI_TRIAL_KEY_05}"
+        priority: 4
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["researcher"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_06"
+        name: "kimi-trial-06"
+        key: "${KIMI_TRIAL_KEY_06}"
+        priority: 4
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["analyzer"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_07"
+        name: "kimi-trial-07"
+        key: "${KIMI_TRIAL_KEY_07}"
+        priority: 5
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["researcher"]
+        status: "active"
+        usage_tracking: true
+
+      - id: "kimi_trial_08"
+        name: "kimi-trial-08"
+        key: "${KIMI_TRIAL_KEY_08}"
+        priority: 5
+        trial: true
+        max_tokens: 100000
+        expires: "2026-03-01"
+        assigned_agents: ["analyzer"]
+        status: "active"
+        usage_tracking: true
+
+    rate_limits:
+      requests_per_minute: 100
+      tokens_per_minute: 50000
+      global_requests_per_minute: 900  # 9 keys * 100
+      global_tokens_per_minute: 450000  # 9 keys * 50000
+
+    costs:
+      input_per_million: 12.0
+      output_per_million: 60.0
+      currency: "USD"
+
+    failover:
+      enabled: true
+      strategy: "skip_unhealthy"
+      health_check_interval: 60
+      max_failures_before_disable: 5
+      recheck_disabled_after: 300
+
+    use_cases:
+      - Coding tasks (smarter than GLM)
+      - Video processing
+      - Multimodal tasks
+      - Complex reasoning
+      - Vision tasks
+
+    fallback_providers: ["glm", "claude_code"]
+
+  # =====================================================
+  # Claude Code CLI (Anthropic) - Give Yourself More Power
+  # =====================================================
+  claude_code:
+    enabled: true
+    priority: 0.5  # Use when needed (expensive but powerful)
+    model: "claude-sonnet-4-5-20250214"
+    api_key: "${ANTHROPIC_API_KEY}"
+    base_url: "https://api.anthropic.com"
+    capabilities:
+      - long_context
+      - reasoning
+      - coding
+      - artifact_management
+      - complex_analysis
+    context_window: 200000
+    max_tokens: 8192
+    timeout: 180
+    rate_limits:
+      requests_per_minute: 50
+      tokens_per_minute: 200000
+    costs:
+      input_per_million: 3.0
+      output_per_million: 15.0
+      currency: "USD"
+    use_cases:
+      - Tasks needing better reasoning
+      - Complex coding challenges
+      - Artifact management
+      - Critical tasks requiring highest quality
+
+    fallback_providers: ["kimi", "glm"]
+
+  # =====================================================
+  # Nvidia Kimi - Video & Vision Specialized
+  # =====================================================
+  nvidia_kimi:
+    enabled: true
+    priority: 0.4  # Specialized for video/vision
+    model: "kimi-k2.5"
+    api_key: "${NVIDIA_KIMI_KEY}"
+    base_url: "https://api.kimi.com"
+    capabilities:
+      - vision
+      - multimodal
+      - video_processing
+      - image_analysis
+    context_window: 128000
+    max_tokens: 100000
+    timeout: 180
+    rate_limits:
+      requests_per_minute: 50  # Conservative for trial key
+      tokens_per_minute: 30000
+    costs:
+      # Trial key - estimated or free tier
+      input_per_million: 0.0
+      output_per_million: 0.0
+      currency: "USD"
+      note: "Trial/Test key - verify actual costs"
+    use_cases:
+      - Video processing
+      - Vision tasks
+      - Image analysis
+      - Multimodal applications
+
+    fallback_providers: ["kimi", "glm"]
+
+# =====================================================
+# Task Type to Provider Mapping
+# =====================================================
+task_routing:
+  # Tasks needing long context
+  long_context:
+    providers: ["glm", "claude_code", "kimi"]
+    strategy: "cost_optimized"
+    # cost_optimized: use cheapest capable provider first
+
+  # Coding tasks
+  coding:
+    providers: ["kimi", "claude_code", "glm"]
+    strategy: "quality_first"
+    # quality_first: use best coder first
+
+  # Tasks needing better reasoning
+  reasoning:
+    providers: ["claude_code", "kimi", "glm"]
+    strategy: "quality_first"
+
+  # Video processing
+  video_processing:
+    providers: ["nvidia_kimi", "kimi"]
+    strategy: "specialized_first"
+    # specialized_first: use provider with video capability
+
+  # Vision/image tasks
+  vision:
+    providers: ["nvidia_kimi", "kimi"]
+    strategy: "specialized_first"
+
+  # General tasks
+  general:
+    providers: ["glm", "kimi", "claude_code"]
+    strategy: "availability_first"
+    # availability_first: use most available provider
+
+# =====================================================
+# Global Settings
+# =====================================================
+global_settings:
+  # Default provider if no specific task type
+  default_provider: "glm"
+
+  # Health check interval for all providers
+  health_check_interval: 60
+
+  # Automatic fallback on provider failure
+  auto_fallback: true
+
+  # Max retries before giving up
+  max_retries: 3
+
+  # Retry delay in seconds
+  retry_delay: 1
+
+  # Enable usage tracking
+  usage_tracking: true
+
+  # Track per-agent usage
+  per_agent_tracking: true
+
+  # Alert thresholds
+  alerts:
+    error_rate_threshold: 0.10  # Alert if error rate > 10%
+    latency_threshold_ms: 5000  # Alert if latency > 5s
+    usage_warning_threshold: 0.80  # Warn at 80% usage
+    usage_critical_threshold: 0.90  # Critical at 90% usage
+
+# =====================================================
+# Usage Tracking
+# =====================================================
+usage_tracking:
+  enabled: true
+  database_path: "/opt/blackbox5/data/api-usage.db"
+  retention_days: 90
+  metrics:
+    - tokens_used
+    - requests_count
+    - errors_count
+    - latency_ms
+    - cost_estimate
+
+# =====================================================
+# Cost Optimization
+# =====================================================
+cost_optimization:
+  enabled: true
+  # Prefer cheaper providers for non-critical tasks
+  prefer_cheap_for_non_critical: true
+  # Budget limits (optional)
+  daily_budget_limit: null  # No limit by default
+  provider_budget_limits:
+    claude_code:
+      daily_limit: 10.0  # $10/day max for Claude
+      currency: "USD"
+
+# =====================================================
+# Monitoring & Observability
+# =====================================================
+monitoring:
+  # Enable Prometheus metrics
+  prometheus_enabled: true
+  prometheus_port: 9090
+  prometheus_path: "/metrics"
+
+  # Enable structured logging
+  structured_logging: true
+  log_level: "INFO"
+  log_path: "/opt/blackbox5/logs/api-selector.log"
+
+  # Dashboard integration
+  dashboard_enabled: true
+  dashboard_refresh_interval: 5  # seconds

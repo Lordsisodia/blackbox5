@@ -1,0 +1,15 @@
+# BlackBox5 Autonomous Self-Improvement Cron Job Configuration
+# Run every 30 minutes
+
+# Format: minute hour day month day-of-week command
+# */30 * * * * = Every 30 minutes (at :00 and :30)
+
+# BlackBox5 Self-Improvement Loop
+*/30 * * * * /opt/blackbox5/bin/self-improvement/run-improvement-loop.sh
+
+# Note: To install this cron job, run:
+#   crontab -l | { cat; echo '*/30 * * * * /opt/blackbox5/bin/self-improvement/run-improvement-loop.sh'; } | crontab -
+#
+# Or manually with:
+#   crontab -e
+# Then add the line above

@@ -1,0 +1,92 @@
+# litellm Configuration for Kimi API Load Balancer
+# This file configures litellm proxy to balance requests across 9 Kimi keys
+
+model_list:
+  # Primary Kimi K2.5 model configuration with load balancing
+  - model_name: "moonshot-v1-128k"
+    litellm_params:
+      model: "moonshot/v1"
+      api_key: "${KIMI_CISO_KEY}"  # Default fallback (will be overridden)
+      api_base: "https://api.moonshot.cn/v1"
+      max_tokens: 128000
+      timeout: 120
+
+# Load Balancer Configuration
+litellm_settings:
+  # Drop parameters - don't pass extra params to model
+  drop_params: true
+  # Set cache type
+  set_verbose: true
+  # Enable caching for performance
+  cache:
+    type: "simple"
+    ttl: 3600  # Cache for 1 hour
+  # Retry configuration
+  num_retries: 3
+  # Timeout
+  timeout: 120
+  # Context window
+  max_budget: 1.0  # 1.0 means 100% of context window
+  # Fallback models
+  fallbacks: []
+
+# Health Check Configuration
+health_checks:
+  enabled: true
+  interval: 60  # Check every 60 seconds
+  timeout: 10  # Health check timeout
+  # Disable keys that fail health checks
+  disable_on_failure: true
+  # Re-enable failed keys after success
+  reenable_on_success: true
+
+# Rate Limiting
+rate_limits:
+  # Per-key rate limiting
+  rpm: 100  # Requests per minute per key
+  tpm: 50000  # Tokens per minute per key
+  # Use sliding window for accurate rate limiting
+  strategy: "sliding_window"
+
+# Logging
+general_settings:
+  master_key: "${LITELLM_MASTER_KEY}"  # For admin access to metrics
+  database_url: "sqlite:///opt/blackbox5/data/litellm_usage.db"  # Usage tracking DB
+  # Enable observability
+  alerting:
+    enabled: true
+    webhook_url: "${ALERT_WEBHOOK_URL}"  # Optional webhook for alerts
+    thresholds:
+      error_rate: 0.10  # Alert on 10% error rate
+      latency_p95: 5000  # Alert on 5s p95 latency
+
+# Prometheus Metrics (for monitoring dashboards)
+otel_settings:
+  level: "detailed"  # Request, response, error metrics
+  # Enable Prometheus endpoint
+  port: 8081
+  metrics_path: "/metrics"
+
+# Environment variable fallbacks for load balancing
+# These will be rotated by the load balancer script
+environment_variables:
+  KIMI_CISO_KEY: "${KIMI_CISO_KEY}"
+  KIMI_TRIAL_KEY_01: "${KIMI_TRIAL_KEY_01}"
+  KIMI_TRIAL_KEY_02: "${KIMI_TRIAL_KEY_02}"
+  KIMI_TRIAL_KEY_03: "${KIMI_TRIAL_KEY_03}"
+  KIMI_TRIAL_KEY_04: "${KIMI_TRIAL_KEY_04}"
+  KIMI_TRIAL_KEY_05: "${KIMI_TRIAL_KEY_05}"
+  KIMI_TRIAL_KEY_06: "${KIMI_TRIAL_KEY_06}"
+  KIMI_TRIAL_KEY_07: "${KIMI_TRIAL_KEY_07}"
+  KIMI_TRIAL_KEY_08: "${KIMI_TRIAL_KEY_08}"
+
+# Proxy Configuration (for running litellm as a proxy server)
+proxy:
+  host: "0.0.0.0"
+  port: 4000
+  # Enable SSL/TLS
+  ssl_enabled: false
+  # CORS
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"

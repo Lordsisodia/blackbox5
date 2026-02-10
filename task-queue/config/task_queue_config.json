@@ -1,0 +1,53 @@
+{
+  "database": {
+    "path": "/opt/blackbox5/task-queue/data/task_queue.db",
+    "backup_enabled": true,
+    "backup_interval_hours": 24,
+    "backup_retention_days": 30
+  },
+  "execution": {
+    "max_concurrent_tasks": 3,
+    "poll_interval_seconds": 5,
+    "task_timeout_seconds": 3600,
+    "heartbeat_interval_seconds": 30,
+    "retry_max_attempts": 3,
+    "retry_delay_seconds": 60
+  },
+  "priorities": {
+    "critical": 100,
+    "high": 75,
+    "medium": 50,
+    "low": 25
+  },
+  "deadlines": {
+    "check_interval_seconds": 60,
+    "overdue_action": "escalate",
+    "escalation_notification": true
+  },
+  "logging": {
+    "level": "INFO",
+    "scribe_integration": true,
+    "scribe_skill": "blackbox5-scribe",
+    "log_file": "/opt/blackbox5/task-queue/logs/executor.log",
+    "rotation_size_mb": 10,
+    "rotation_count": 5
+  },
+  "monitoring": {
+    "enabled": true,
+    "alert_on_stalled": true,
+    "stalled_threshold_minutes": 30,
+    "alert_on_overdue": true,
+    "progress_update_interval_seconds": 60
+  },
+  "scribe": {
+    "enabled": true,
+    "task_docs_path": "/opt/blackbox5/5-project-memory/blackbox5/tasks",
+    "knowledge_base_path": "/opt/blackbox5/5-project-memory/blackbox5/knowledge/scribe-knowledge.md",
+    "log_all_events": true
+  },
+  "agents": {
+    "executor_name": "task-executor",
+    "monitor_name": "task-monitor",
+    "coordinator_name": "task-coordinator"
+  }
+}
