@@ -21,6 +21,7 @@ Environment Variables:
 """
 
 import argparse
+import json
 import os
 import sys
 from datetime import datetime
@@ -28,6 +29,9 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+
+# Import shared JSON logger
+from hooks.utils.json_logger import log_hook_data
 
 
 def load_yaml_file(filepath: Path) -> dict:
@@ -87,6 +91,14 @@ def record_usage_log(usage_data: dict, entry: dict) -> dict:
         usage_data['usage_log'].append(entry)
         print(f"Added usage log entry for skill: {entry['skill']}")
 
+        # Also log to JSON for analytics
+        log_hook_data("task-completion-skill-recorder", {
+            "timestamp": entry.get('timestamp'),
+            "task_id": entry.get('task_id'),
+            "skill": entry.get('skill'),
+            "result": entry.get('result')
+        })
+
         # Update skill aggregate stats
         skill_name = entry['skill']
         for skill in usage_data.get('skills', []):
@@ -125,6 +137,15 @@ def record_event(events_file: Path, event: dict) -> None:
 
     with open(events_file, 'w') as f:
         yaml.dump(events, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+
+    # Also log to JSON for analytics
+    log_entry = {
+        "timestamp": event.get("timestamp", datetime.now().isoformat()),
+        "type": event.get("type"),
+        "task_id": event.get("task_id"),
+        "data": event.get("data", {})
+    }
+    log_hook_data("task-completion-skill-recorder", log_entry)
 
 
 def get_env_or_default(env_var: str, default: Any = None) -> Any:
@@ -196,6 +217,14 @@ def main():
 
     timestamp = datetime.now().isoformat()
 
+    # Log the initial hook invocation
+    log_hook_data("task-completion-skill-recorder", {
+        "hook": "task-completion-skill-recorder",
+        "task_id": task_id,
+        "skill_used": skill_used,
+        "timestamp": timestamp
+    })
+
     # Build task outcome entry
     task_outcome = {
         'task_id': task_id,
@@ -249,6 +278,15 @@ def main():
     if events_file.exists():
         record_event(events_file, event_entry)
         print(f"Recorded event in: {events_file}")
+
+    # Log final completion
+    log_hook_data("task-completion-skill-recorder", {
+        "hook": "task-completion-skill-recorder",
+        "task_id": task_id,
+        "skill_used": skill_used,
+        "outcome": outcome,
+        "timestamp": datetime.now().isoformat()
+    })
 
     print(f"\nSkill usage recorded successfully!")
     print(f"  Task: {task_id}")

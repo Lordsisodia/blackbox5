@@ -12,14 +12,19 @@ Usage:
 
 import argparse
 import asyncio
+import json
 import os
 import sys
+from datetime import datetime
 from pathlib import Path
 
 # Add parent to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from operations.retain import RetainEngine
+
+# Import shared JSON logger
+from hooks.utils.json_logger import log_hook_data
 
 
 async def retain_from_run(run_dir: Path, task_id: str = None):
@@ -31,6 +36,15 @@ async def retain_from_run(run_dir: Path, task_id: str = None):
         task_id: Optional task ID (auto-detected if not provided)
     """
     print(f"RETAIN Hook: Processing run {run_dir.name}")
+
+    # Log the hook invocation
+    log_data = {
+        "hook": "retain-on-complete",
+        "run_dir": str(run_dir),
+        "task_id": task_id,
+        "timestamp": datetime.now().isoformat()
+    }
+    log_hook_data("retain-on-complete", log_data)
 
     if not run_dir.exists():
         print(f"Error: Run directory not found: {run_dir}")
@@ -65,6 +79,10 @@ async def retain_from_run(run_dir: Path, task_id: str = None):
     print(f"  Task: {task_id or 'unknown'}")
     print(f"  Files to process: {len(files_to_process)}")
 
+    # Update log with task ID
+    if task_id:
+        log_data["task_id"] = task_id
+
     # Initialize RETAIN engine
     engine = RetainEngine()
 
@@ -75,10 +93,18 @@ async def retain_from_run(run_dir: Path, task_id: str = None):
             memories = await engine.process_file(filepath, dry_run=False)
             total_memories += len(memories)
             print(f"  ✓ {filepath.name}: {len(memories)} memories")
+
+            # Update log with result
+            log_data[f"{filepath.name}_memories"] = len(memories)
         except Exception as e:
             print(f"  ✗ {filepath.name}: {e}")
+            log_data[f"{filepath.name}_error"] = str(e)
 
     print(f"\n  Total memories extracted: {total_memories}")
+
+    # Update log with final result
+    log_data["total_memories"] = total_memories
+    log_data["status"] = "success" if total_memories > 0 else "no_memories"
 
     # Save to output for reference
     output_dir = run_dir / ".retain_output"
@@ -98,6 +124,15 @@ def main():
     run_dir = Path(args.run_dir)
 
     success = asyncio.run(retain_from_run(run_dir, args.task_id))
+
+    # Log completion
+    log_hook_data("retain-on-complete", {
+        "hook": "retain-on-complete",
+        "run_dir": str(run_dir),
+        "task_id": args.task_id,
+        "status": "success" if success else "failed",
+        "timestamp": datetime.now().isoformat()
+    })
 
     return 0 if success else 1
 

@@ -17,8 +17,10 @@ Integration:
 """
 
 import argparse
+import json
 import os
 import sys
+from datetime import datetime
 from pathlib import Path
 
 # Add project root to path for imports
@@ -40,6 +42,9 @@ log_skill_usage = log_skill_module.log_skill_usage
 find_thoughts_in_run = log_skill_module.find_thoughts_in_run
 parse_run_metadata = log_skill_module.parse_run_metadata
 
+# Import shared JSON logger
+from hooks.utils.json_logger import log_hook_data
+
 
 def log_skill_from_run(run_dir: Path, task_id: str = None) -> bool:
     """
@@ -53,6 +58,14 @@ def log_skill_from_run(run_dir: Path, task_id: str = None) -> bool:
         True if skill usage was logged, False otherwise
     """
     print(f"[SKILL-LOG] Processing run: {run_dir.name}")
+
+    # Log the hook invocation
+    log_hook_data("log-skill-on-complete", {
+        "hook": "log-skill-on-complete",
+        "run_dir": str(run_dir),
+        "task_id": task_id,
+        "timestamp": datetime.now().isoformat()
+    })
 
     if not run_dir.exists():
         print(f"[ERROR] Run directory not found: {run_dir}")
@@ -91,8 +104,28 @@ def log_skill_from_run(run_dir: Path, task_id: str = None) -> bool:
             'outcome': 'unknown'
         }
 
+        # Log the no-skill result
+        log_hook_data("log-skill-on-complete", {
+            "hook": "log-skill-on-complete",
+            "run_dir": str(run_dir),
+            "task_id": task_id,
+            "skill_invoked": None,
+            "outcome": "no_section",
+            "timestamp": datetime.now().isoformat()
+        })
+
     # Log to skill-usage.yaml
     success = log_skill_usage(task_id, skill_data, run_id)
+
+    # Log final result
+    log_hook_data("log-skill-on-complete", {
+        "hook": "log-skill-on-complete",
+        "run_dir": str(run_dir),
+        "task_id": task_id,
+        "skill_invoked": skill_data.get('skill_invoked'),
+        "outcome": "success" if success else "failed",
+        "timestamp": datetime.now().isoformat()
+    })
 
     if success:
         print(f"[OK] Skill usage logged for {task_id}")

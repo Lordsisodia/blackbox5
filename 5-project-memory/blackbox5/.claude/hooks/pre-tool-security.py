@@ -7,7 +7,11 @@ Blocks dangerous commands while allowing legitimate agent operations
 import json
 import sys
 import re
+from datetime import datetime
 from pathlib import Path
+
+# Import shared JSON logger
+from hooks.utils.json_logger import log_hook_data
 
 def detect_agent_type():
     """Detect which agent is running based on context."""
@@ -75,42 +79,6 @@ def is_dangerous_command(tool_name, tool_input, agent_type):
 
     return False, None
 
-def log_security_event(tool_name, tool_input, blocked, reason, agent_type):
-    """Log security check to JSON file."""
-    import os
-    from datetime import datetime
-
-    log_entry = {
-        'timestamp': datetime.now().isoformat(),
-        'agent_type': agent_type,
-        'tool_name': tool_name,
-        'command': tool_input.get('command', ''),
-        'blocked': blocked,
-        'reason': reason
-    }
-
-    # Determine log path - always use canonical location
-    bb5_root = Path.home() / '.blackbox5'
-    log_dir = bb5_root / '.logs'
-    log_dir.mkdir(exist_ok=True)
-
-    log_file = log_dir / 'security_checks.json'
-
-    # Read existing or create new
-    if log_file.exists():
-        try:
-            with open(log_file, 'r') as f:
-                logs = json.load(f)
-        except:
-            logs = []
-    else:
-        logs = []
-
-    logs.append(log_entry)
-
-    with open(log_file, 'w') as f:
-        json.dump(logs, f, indent=2)
-
 def main():
     try:
         # Read input from stdin
@@ -125,8 +93,15 @@ def main():
         # Check if dangerous
         is_blocked, reason = is_dangerous_command(tool_name, tool_input, agent_type)
 
-        # Log the check
-        log_security_event(tool_name, tool_input, is_blocked, reason, agent_type)
+        # Log using standardized JSON logger
+        log_hook_data("pre-tool-security", {
+            "hook": "pre-tool-security",
+            "agent_type": agent_type,
+            "tool_name": tool_name,
+            "command": tool_input.get('command', ''),
+            "blocked": is_blocked,
+            "reason": reason
+        })
 
         if is_blocked:
             print(f"SECURITY BLOCK: {reason}", file=sys.stderr)
