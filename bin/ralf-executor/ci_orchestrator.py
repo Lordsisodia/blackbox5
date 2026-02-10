@@ -151,7 +151,7 @@ class CIOrchestrator:
         events_dir = os.path.dirname(event_bus.events_file)
 
         i = inotify.adapters.Inotify()
-        i.add_watch(events_dir.encode())
+        i.add_watch(events_dir)
 
         try:
             for event in i.event_gen(yield_nones=False):
@@ -168,7 +168,7 @@ class CIOrchestrator:
         except KeyboardInterrupt:
             pass
         finally:
-            i.remove_watch(events_dir.encode())
+            i.remove_watch(events_dir)
 
     def _start_watchdog(self):
         """Start watchdog-based monitoring (event-driven)."""
