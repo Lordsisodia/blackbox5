@@ -1,12 +1,30 @@
 #!/usr/bin/env python3
-"""CI Orchestrator for BB5 - Coordinates the continuous improvement pipeline."""
+"""CI Orchestrator for BB5 - Coordinates the continuous improvement pipeline.
+
+Event-driven using inotify (Linux) or watchdog (cross-platform).
+Inspired by snarktank/ralph and mikeyobrien/ralph-orchestrator.
+"""
 import os
 import sys
 import time
 import json
 import subprocess
+import threading
 from datetime import datetime
 from pathlib import Path
+
+# Try to use inotify on Linux, fallback to polling watchdog
+try:
+    import inotify.adapters  # type: ignore
+    HAS_INOTIFY = True
+except ImportError:
+    HAS_INOTIFY = False
+    try:
+        from watchdog.observers import Observer  # type: ignore
+        from watchdog.events import FileSystemEventHandler  # type: ignore
+        HAS_WATCHDOG = True
+    except ImportError:
+        HAS_WATCHDOG = False
 
 # Add parent to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -59,27 +77,135 @@ AGENTS = {
 }
 
 
+class EventHandler:
+    """Handles filesystem events."""
+
+    def __init__(self, orchestrator):
+        self.orchestrator = orchestrator
+        self.last_position = 0
+
+    def on_event(self, event_path=None):
+        """Called when events file changes."""
+        # Read new events from file
+        events = self._read_new_events()
+        for event in events:
+            self.orchestrator._handle_event(event)
+
+    def _read_new_events(self):
+        """Read events added since last check."""
+        events = []
+        if not os.path.exists(event_bus.events_file):
+            return events
+
+        with open(event_bus.events_file, 'r') as f:
+            # Seek to last position
+            f.seek(self.last_position)
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    events.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+            # Update position
+            self.last_position = f.tell()
+
+        return events
+
+
 class CIOrchestrator:
-    """Orchestrates the CI pipeline."""
+    """Orchestrates the CI pipeline using event-driven architecture."""
 
     def __init__(self):
         self.running = False
         self.cycle_count = 0
+        self.event_handler = EventHandler(self)
+        self._processed_events = set()  # Track processed event IDs
 
     def start(self):
-        """Start the orchestrator loop."""
+        """Start the event-driven orchestrator."""
         self.running = True
         print(f"[{datetime.now().isoformat()}] CI Orchestrator starting...")
         print(f"Monitoring events at: {event_bus.events_file}")
 
+        # Ensure events file exists
+        os.makedirs(os.path.dirname(event_bus.events_file), exist_ok=True)
+
+        # Get initial file position
+        if os.path.exists(event_bus.events_file):
+            self.event_handler.last_position = os.path.getsize(event_bus.events_file)
+
+        # Start event-driven monitoring
+        if HAS_INOTIFY:
+            self._start_inotify()
+        elif HAS_WATCHDOG:
+            self._start_watchdog()
+        else:
+            print("Warning: No inotify/watchdog available, falling back to polling")
+            self._start_polling()
+
+    def _start_inotify(self):
+        """Start Linux inotify-based monitoring (event-driven)."""
+        print("Using inotify for event-driven monitoring")
+        events_dir = os.path.dirname(event_bus.events_file)
+
+        i = inotify.adapters.Inotify()
+        i.add_watch(events_dir.encode())
+
+        try:
+            for event in i.event_gen(yield_nones=False):
+                if not self.running:
+                    break
+
+                (_, type_names, path, filename) = event
+
+                # Check if our events file was modified
+                if filename == os.path.basename(event_bus.events_file):
+                    if 'IN_MODIFY' in type_names or 'IN_CLOSE_WRITE' in type_names:
+                        self.cycle_count += 1
+                        self.event_handler.on_event()
+        except KeyboardInterrupt:
+            pass
+        finally:
+            i.remove_watch(events_dir.encode())
+
+    def _start_watchdog(self):
+        """Start watchdog-based monitoring (event-driven)."""
+        print("Using watchdog for event-driven monitoring")
+        events_dir = os.path.dirname(event_bus.events_file)
+
+        class WatchdogHandler(FileSystemEventHandler):
+            def __init__(self, handler):
+                self.handler = handler
+
+            def on_modified(self, event):
+                if not event.is_directory:
+                    if os.path.basename(event.src_path) == os.path.basename(event_bus.events_file):
+                        self.handler.on_event()
+
+        observer = Observer()
+        observer.schedule(WatchdogHandler(self.event_handler), events_dir, recursive=False)
+        observer.start()
+
+        try:
+            while self.running:
+                time.sleep(0.1)  # Small sleep to prevent CPU spin
+        except KeyboardInterrupt:
+            pass
+        finally:
+            observer.stop()
+            observer.join()
+
+    def _start_polling(self):
+        """Fallback polling mode (not event-driven)."""
+        print("Using polling fallback (5 second interval)")
         while self.running:
             self.cycle_count += 1
             try:
-                self._process_cycle()
+                self.event_handler.on_event()
             except Exception as e:
                 print(f"Error in cycle {self.cycle_count}: {e}")
-
-            # Sleep between cycles
             time.sleep(5)
 
     def stop(self):
@@ -87,20 +213,19 @@ class CIOrchestrator:
         self.running = False
         print(f"[{datetime.now().isoformat()}] CI Orchestrator stopping...")
 
-    def _process_cycle(self):
-        """Process one cycle of the event loop."""
-        # Get recent events
-        events = event_bus.get_events()
-
-        # Process events in order
-        for event in events:
-            self._handle_event(event)
-
-        # Also check for pending work that needs agents spawned
-        self._check_pending_work()
-
     def _handle_event(self, event):
-        """Handle a single event."""
+        """Handle a single event (idempotent)."""
+        event_id = event.get("id")
+
+        # Skip already processed events
+        if event_id in self._processed_events:
+            return
+        self._processed_events.add(event_id)
+
+        # Limit memory usage
+        if len(self._processed_events) > 10000:
+            self._processed_events = set(list(self._processed_events)[-5000:])
+
         event_type = event.get("type")
         payload = event.get("payload", {})
 
