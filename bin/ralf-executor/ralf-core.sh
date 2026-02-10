@@ -43,9 +43,8 @@ mkdir -p "$(dirname "$QUEUE_FILE")"
 
 # Detect AI provider
 detect_ai_provider() {
-    if [ -n "$ANTHROPIC_AUTH_TOKEN" ] && command -v claude &> /dev/null; then
-        echo "claude"
-    elif [ -n "$ANTHROPIC_API_KEY" ] && command -v claude &> /dev/null; then
+    # Check if claude is available - settings.json may have the auth config
+    if command -v claude &> /dev/null; then
         echo "claude"
     elif command -v glm &> /dev/null; then
         echo "glm"
