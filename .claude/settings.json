@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "pre_tool_use": {
+      "enabled": true,
+      "path": ".claude/hooks/pre_tool_use.py"
+    },
+    "pre_message": {
+      "enabled": true,
+      "path": ".claude/hooks/pre-message.py"
+    },
+    "post_message": {
+      "enabled": true,
+      "path": ".claude/hooks/post-message.py"
+    }
+  }
+}
