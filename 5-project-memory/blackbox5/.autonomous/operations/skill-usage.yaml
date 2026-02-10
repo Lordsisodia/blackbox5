@@ -16,8 +16,9 @@ skills:
   usage_count: 1
   success_count: 0
   failure_count: 0
-  last_used: '2026-02-07T16:08:38.955351+00:00'
-  first_used: '2026-02-07T16:08:38.955351+00:00'
+  last_used: '2026-02-07T16:08:38.955055+00:00'
+  first_used: '2026-02-07T16:08:38.955055+00:00'
+  trigger_accuracy: 0.0%
 metadata:
-  last_updated: '2026-02-07T16:08:38.955353+00:00'
-  total_invocations: 1
+  last_updated: '2026-02-10T22:33:52.072933'
+  total_invocations: 6

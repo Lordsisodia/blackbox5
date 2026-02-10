@@ -1,9 +1,10 @@
 # TASK-FIX-SKIL-007-2: Fix calculate-skill-metrics.py to target correct file
 
-**Status:** pending
+**Status:** completed
 **Priority:** HIGH
 **Created:** 2026-02-09T12:00:00Z
 **Parent:** TASK-SKIL-007
+**Completed:** 2026-02-10
 
 ## Objective
 Fix the `calculate-skill-metrics.py` script to read from and write to `skill-registry.yaml` instead of the deprecated `skill-metrics.yaml`.
@@ -12,13 +13,13 @@ Fix the `calculate-skill-metrics.py` script to read from and write to `skill-reg
 The `calculate-skill-metrics.py` script currently targets `skill-metrics.yaml` (line 503: `metrics_file = operations_dir / 'skill-metrics.yaml'`), but this file has been deprecated and replaced by `skill-registry.yaml`. The unified skill registry now contains all skill data including metrics, usage, and selection criteria. The script needs to be updated to work with the new file structure.
 
 ## Success Criteria
-- [ ] Update script to read from `skill-registry.yaml` instead of `skill-metrics.yaml`
-- [ ] Update script to write metrics to correct location in `skill-registry.yaml` structure
-- [ ] Update script to read task_outcomes from `skill-registry.yaml` (line 513)
-- [ ] Update script to read skills list from `skill-registry.yaml` skills section
-- [ ] Update script to save calculated metrics back to `skill-registry.yaml` under correct paths
-- [ ] Script runs successfully and produces non-null metrics when data exists
-- [ ] Update any hardcoded paths or references to the old file
+- [x] Update script to read from `skill-registry.yaml` instead of `skill-metrics.yaml`
+- [x] Update script to write metrics to correct location in `skill-registry.yaml` structure
+- [x] Update script to read task_outcomes from `skill-registry.yaml` (line 513)
+- [x] Update script to read skills list from `skill-registry.yaml` skills section
+- [x] Update script to save calculated metrics back to `skill-registry.yaml` under correct paths
+- [x] Script runs successfully and produces non-null metrics when data exists
+- [x] Update any hardcoded paths or references to the old file
 
 ## Files to Modify
 - Modify: `~/.blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py`

@@ -1,0 +1,71 @@
+name: YouTube Scraper - Hourly
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every hour at minute 0
+  workflow_dispatch:      # Allow manual trigger
+
+jobs:
+  scrape-youtube:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Maximum run time per scrape
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install --upgrade yt-dlp
+
+      - name: Run YouTube scraper
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 scraper.py --config config/config.yaml --scheduled
+
+      - name: Check for new videos
+        id: check_videos
+        run: |
+          VIDEO_COUNT=$(find /opt/blackbox5/5-project-memory/blackbox5/knowledge/youtube -name "*.md" -mmin -60 2>/dev/null | wc -l)
+          echo "video_count=$VIDEO_COUNT" >> $GITHUB_OUTPUT
+          echo "New videos in last hour: $VIDEO_COUNT"
+
+      - name: Commit new data
+        if: steps.check_videos.outputs.video_count > 0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "YouTube Scraper Bot"
+          git config user.email "actions@github.com"
+
+          # Add all new data
+          git add knowledge/ data/
+
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "scrape: $(date -u '+%Y-%m-%d %H:%M UTC') - New videos collected"
+            git push
+          fi
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-logs
+          path: logs/
+          retention-days: 7
+
+      - name: Generate summary
+        run: |
+          python3 scraper.py --stats > /tmp/scrape_stats.txt
+          cat /tmp/scrape_stats.txt

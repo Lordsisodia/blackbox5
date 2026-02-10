@@ -1246,6 +1246,8 @@ tasks:
   parallel_group: wave_1
 - id: TASK-010-001
   type: implement
+  status: completed
+  type: implement
   status: pending
   priority: CRITICAL
   priority_score: 2.5

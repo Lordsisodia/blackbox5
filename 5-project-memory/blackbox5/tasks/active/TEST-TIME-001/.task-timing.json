@@ -1,0 +1,17 @@
+{
+  "task_id": "TEST-TIME-001",
+  "start_time": "2026-02-10T22:31:40.421185",
+  "start_timestamp": 1770762700.421193,
+  "end_time": "2026-02-10T22:31:46.283659",
+  "duration_minutes": 0.1,
+  "sessions": [
+    {
+      "session_id": "20260210_223140",
+      "start_time": "2026-02-10T22:31:40.421185",
+      "end_time": "2026-02-10T22:31:46.283659",
+      "duration_minutes": 0.1
+    }
+  ],
+  "current_session_id": "20260210_223140",
+  "end_timestamp": 1770762706.283659
+}

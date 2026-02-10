@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Skill Metrics Calculator
+Skill Metrics Calculator - Updated for Unified Skill Registry
 
 Calculates effectiveness metrics for all skills based on task outcomes data.
-Updates skill-metrics.yaml with calculated values.
+Updates skill-registry.yaml with calculated values.
 
 Usage:
-    python calculate-skill-metrics.py [--dry-run]
+    python calculate-skill-metrics.py [--dry-run] [--project-dir PATH]
 
 Exit Codes:
     0 - Success
@@ -221,6 +221,20 @@ def determine_confidence_level(effectiveness_score: float | None) -> str:
     return 'low'
 
 
+def dict_to_skill_list(skills_dict: dict) -> list[dict]:
+    """Convert skills dict to list for processing."""
+    skills_list = []
+    for skill_id, skill_data in skills_dict.items():
+        # skill_id might be like "bmad-dev", skill_data contains all the details
+        if isinstance(skill_data, dict):
+            skill = skill_data.copy()
+            # Ensure name is set from key if not present
+            if 'name' not in skill:
+                skill['name'] = skill_id
+            skills_list.append(skill)
+    return skills_list
+
+
 def calculate_category_performance(skills: list[dict], outcomes: list[dict]) -> list[dict]:
     """Calculate performance metrics by category."""
     categories = {}
@@ -267,7 +281,7 @@ def calculate_roi_summary(skills: list[dict], outcomes: list[dict]) -> dict:
 
     for skill in skills:
         skill_outcomes = get_outcomes_for_skill(outcomes, skill['name'])
-        baseline = skill.get('baseline_minutes', 30)
+        baseline = skill.get('roi', {}).get('baseline_minutes', 30)
 
         saved = calculate_time_saved(skill_outcomes, baseline)
         if saved:
@@ -283,7 +297,7 @@ def calculate_roi_summary(skills: list[dict], outcomes: list[dict]) -> dict:
     # Overall cost-benefit: total time saved / total setup costs
     total_setup_cost = len(skills) * 30  # 30 min per skill
     cost_benefit = None
-    if total_time_saved > 0 and total_setup_cost > 0:
+    if total_time_saved and total_setup_cost > 0:
         cost_benefit = round(total_time_saved / total_setup_cost, 2)
 
     return {
@@ -293,14 +307,17 @@ def calculate_roi_summary(skills: list[dict], outcomes: list[dict]) -> dict:
     }
 
 
-def update_skill_metrics(metrics_data: dict, outcomes: list[dict]) -> dict:
+def update_skill_metrics(registry_data: dict, outcomes: list[dict]) -> dict:
     """Update all skill metrics based on task outcomes."""
-    skills = metrics_data.get('skills', [])
+    skills_dict = registry_data.get('skills', {})
+    skills_list = dict_to_skill_list(skills_dict)
 
-    for skill in skills:
+    for skill in skills_list:
         skill_name = skill['name']
         skill_outcomes = get_outcomes_for_skill(outcomes, skill_name)
-        baseline = skill.get('baseline_minutes', 30)
+
+        # Get baseline from ROI section
+        baseline = skill.get('roi', {}).get('baseline_minutes', 30)
 
         # Calculate individual metrics
         metrics = {
@@ -314,50 +331,77 @@ def update_skill_metrics(metrics_data: dict, outcomes: list[dict]) -> dict:
         # Calculate effectiveness score
         effectiveness = calculate_effectiveness_score(metrics)
 
-        # Update skill data
-        skill['effectiveness_score'] = effectiveness
-        skill['metrics'] = metrics
+        # Update skill metrics in nested structure
+        if skill_name in skills_dict:
+            # Ensure nested structures exist
+            if 'metrics' not in skills_dict[skill_name]:
+                skills_dict[skill_name]['metrics'] = {}
+            if 'roi' not in skills_dict[skill_name]:
+                skills_dict[skill_name]['roi'] = {}
+            if 'usage' not in skills_dict[skill_name]:
+                skills_dict[skill_name]['usage'] = {}
 
-        # Update ROI calculations
-        skill['roi_calculation'] = {
-            'time_saved_minutes': calculate_time_saved(skill_outcomes, baseline),
-            'quality_improvement': calculate_quality_improvement(skill_outcomes),
-            'cost_benefit_ratio': calculate_cost_benefit_ratio(skill_outcomes, baseline),
-        }
+            # Update metrics
+            skills_dict[skill_name]['metrics']['effectiveness_score'] = effectiveness
+            for key, value in metrics.items():
+                skills_dict[skill_name]['metrics'][key] = value
 
-        # Update recommendation confidence
-        skill['recommendations']['confidence'] = determine_confidence_level(effectiveness)
+            # Update ROI calculations
+            skills_dict[skill_name]['roi']['time_saved_minutes'] = calculate_time_saved(skill_outcomes, baseline)
+            skills_dict[skill_name]['roi']['quality_improvement'] = calculate_quality_improvement(skill_outcomes)
+            skills_dict[skill_name]['roi']['cost_benefit_ratio'] = calculate_cost_benefit_ratio(skill_outcomes, baseline)
+
+            # Update usage counts from outcomes
+            if skill_outcomes:
+                skills_dict[skill_name]['usage']['usage_count'] = len(skill_outcomes)
+                skills_dict[skill_name]['usage']['success_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'success')
+                skills_dict[skill_name]['usage']['failure_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'failure')
+
+                # Update timestamps
+                timestamps = [o.get('timestamp') for o in skill_outcomes if o.get('timestamp')]
+                if timestamps:
+                    skills_dict[skill_name]['usage']['first_used'] = min(timestamps)
+                    skills_dict[skill_name]['usage']['last_used'] = max(timestamps)
+
+            # Update selection confidence if present
+            if 'selection' in skills_dict[skill_name]:
+                skills_dict[skill_name]['selection']['confidence'] = determine_confidence_level(effectiveness)
 
     # Update analysis section
-    metrics_data['analysis'] = {
+    registry_data['analysis'] = {
         'last_calculated': datetime.now().isoformat(),
-        'top_skills': get_top_skills(skills),
-        'underperforming_skills': get_underperforming_skills(skills),
-        'category_performance': calculate_category_performance(skills, outcomes),
-        'roi_summary': calculate_roi_summary(skills, outcomes),
-        'skill_selection_recommendations': generate_recommendations(skills),
+        'top_skills': get_top_skills(skills_list),
+        'underperforming_skills': get_underperforming_skills(skills_list),
+        'category_performance': calculate_category_performance(skills_list, outcomes),
+        'roi_summary': calculate_roi_summary(skills_list, outcomes),
+        'skill_selection_recommendations': generate_recommendations(skills_list),
         'trigger_insights': generate_trigger_insights(outcomes),
     }
 
     # Update metadata
-    metrics_data['metadata']['last_updated'] = datetime.now().isoformat()
-    metrics_data['metadata']['total_tasks_tracked'] = len(outcomes)
+    registry_data['metadata']['last_updated'] = datetime.now().isoformat()
+    registry_data['metadata']['total_tasks_tracked'] = len(outcomes)
 
-    return metrics_data
+    return registry_data
 
 
 def get_top_skills(skills: list[dict], limit: int = 5) -> list[dict]:
     """Get top performing skills by effectiveness score."""
-    scored = [(s, s.get('effectiveness_score') or 0) for s in skills]
+    # Extract effectiveness scores from nested metrics
+    scored = []
+    for s in skills:
+        score = s.get('metrics', {}).get('effectiveness_score') or 0
+        scored.append((s, score))
+
     scored.sort(key=lambda x: x[1], reverse=True)
 
     return [
         {
             'name': s['name'],
-            'effectiveness_score': s['effectiveness_score'],
+            'effectiveness_score': s.get('metrics', {}).get('effectiveness_score'),
             'category': s.get('category', 'unknown'),
         }
-        for s, _ in scored[:limit] if s['effectiveness_score'] is not None
+        for s, _ in scored[:limit] if s.get('metrics', {}).get('effectiveness_score') is not None
     ]
 
 
@@ -365,7 +409,7 @@ def get_underperforming_skills(skills: list[dict], threshold: float = 50) -> lis
     """Get skills with effectiveness below threshold."""
     underperforming = []
     for skill in skills:
-        score = skill.get('effectiveness_score')
+        score = skill.get('metrics', {}).get('effectiveness_score')
         if score is not None and score < threshold:
             underperforming.append({
                 'name': skill['name'],
@@ -382,37 +426,41 @@ def generate_recommendations(skills: list[dict]) -> list[dict]:
     # Quick fixes recommendation
     quick_flow = next((s for s in skills if s['name'] == 'bmad-quick-flow'), None)
     if quick_flow:
+        conf = quick_flow.get('selection', {}).get('confidence', 'low')
         recommendations.append({
             'scenario': 'Quick fixes (< 30 min)',
             'recommended_skill': 'bmad-quick-flow',
-            'confidence': quick_flow['recommendations']['confidence'],
+            'confidence': conf,
         })
 
     # Architecture recommendation
     architect = next((s for s in skills if s['name'] == 'bmad-architect'), None)
     if architect:
+        conf = architect.get('selection', {}).get('confidence', 'low')
         recommendations.append({
             'scenario': 'Architecture decisions',
             'recommended_skill': 'bmad-architect',
-            'confidence': architect['recommendations']['confidence'],
+            'confidence': conf,
         })
 
     # Research recommendation
     analyst = next((s for s in skills if s['name'] == 'bmad-analyst'), None)
     if analyst:
+        conf = analyst.get('selection', {}).get('confidence', 'low')
         recommendations.append({
             'scenario': 'Research and analysis',
             'recommended_skill': 'bmad-analyst',
-            'confidence': analyst['recommendations']['confidence'],
+            'confidence': conf,
         })
 
     # Complex problems recommendation
     superintel = next((s for s in skills if s['name'] == 'superintelligence-protocol'), None)
     if superintel:
+        conf = superintel.get('selection', {}).get('confidence', 'low')
         recommendations.append({
             'scenario': 'Complex multi-step problems',
             'recommended_skill': 'superintelligence-protocol',
-            'confidence': superintel['recommendations']['confidence'],
+            'confidence': conf,
         })
 
     return recommendations
@@ -434,59 +482,17 @@ def generate_trigger_insights(outcomes: list[dict]) -> dict:
                 'reason': notes[:100] if notes else 'Unknown',
             })
 
-        if 'would have added value' in notes.lower():
+        if 'would have' in notes.lower():
             missed_opportunities.append({
                 'task_id': outcome.get('task_id'),
-                'skill': outcome.get('skill_used') or 'unknown',
+                'reason': notes[:100] if notes else 'Unknown',
             })
 
     return {
-        'common_false_positives': false_positives,
-        'common_missed_opportunities': missed_opportunities,
-        'trigger_keywords_that_work': working_keywords,
+        'common_false_positives': false_positives[:5],
+        'common_missed_opportunities': missed_opportunities[:5],
+        'trigger_keywords_that_work': working_keywords[:5],
     }
-
-
-def update_skill_usage(usage_data: dict, outcomes: list[dict]) -> dict:
-    """Update skill usage statistics based on task outcomes."""
-    skills = usage_data.get('skills', [])
-
-    for skill in skills:
-        skill_name = skill['name']
-        skill_outcomes = get_outcomes_for_skill(outcomes, skill_name)
-
-        if not skill_outcomes:
-            continue
-
-        # Update usage counts
-        skill['usage_count'] = len(skill_outcomes)
-        skill['success_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'success')
-        skill['failure_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'failure')
-
-        # Update timestamps
-        timestamps = [o.get('timestamp') for o in skill_outcomes if o.get('timestamp')]
-        if timestamps:
-            skill['first_used'] = min(timestamps)
-            skill['last_used'] = max(timestamps)
-
-        # Calculate average execution time
-        durations = [o.get('duration_minutes') for o in skill_outcomes if o.get('duration_minutes')]
-        if durations:
-            avg_minutes = sum(durations) / len(durations)
-            skill['avg_execution_time_ms'] = int(avg_minutes * 60 * 1000)
-
-        # Update trigger accuracy
-        valid_outcomes = [o for o in skill_outcomes if 'trigger_was_correct' in o]
-        if valid_outcomes:
-            correct = sum(1 for o in valid_outcomes if o.get('trigger_was_correct') is True)
-            accuracy = (correct / len(valid_outcomes)) * 100
-            skill['trigger_accuracy'] = f"{accuracy:.1f}%"
-
-    # Update metadata
-    usage_data['metadata']['last_updated'] = datetime.now().isoformat()
-    usage_data['metadata']['total_invocations'] = len(outcomes)
-
-    return usage_data
 
 
 def main():
@@ -496,21 +502,30 @@ def main():
                        help='Project directory containing operations/ folder')
     args = parser.parse_args()
 
-    project_dir = Path(args.project_dir).resolve()
+    # Determine project directory - support both /opt/blackbox5 and ~/.blackbox5 locations
+    if args.project_dir == '.':
+        home_path = Path.home() / '.blackbox5' / '5-project-memory' / 'blackbox5'
+        opt_path = Path('/opt/blackbox5/5-project-memory/blackbox5')
+
+        if opt_path.exists():
+            project_dir = opt_path
+        elif home_path.exists():
+            project_dir = home_path
+        else:
+            project_dir = Path(args.project_dir).resolve()
+    else:
+        project_dir = Path(args.project_dir).resolve()
+
     operations_dir = project_dir / 'operations'
 
     # Load data files
-    metrics_file = operations_dir / 'skill-metrics.yaml'
-    usage_file = operations_dir / 'skill-usage.yaml'
+    registry_file = operations_dir / 'skill-registry.yaml'
 
-    print(f"Loading metrics from: {metrics_file}")
-    metrics_data = load_yaml_file(metrics_file)
-
-    print(f"Loading usage data from: {usage_file}")
-    usage_data = load_yaml_file(usage_file)
+    print(f"Loading registry from: {registry_file}")
+    registry_data = load_yaml_file(registry_file)
 
     # Get task outcomes
-    outcomes = metrics_data.get('task_outcomes', [])
+    outcomes = registry_data.get('task_outcomes', [])
     print(f"Found {len(outcomes)} task outcomes")
 
     if not outcomes:
@@ -518,20 +533,18 @@ def main():
 
     # Calculate and update metrics
     print("\nCalculating skill metrics...")
-    updated_metrics = update_skill_metrics(metrics_data, outcomes)
-
-    print("Updating skill usage statistics...")
-    updated_usage = update_skill_usage(usage_data, outcomes)
+    updated_registry = update_skill_metrics(registry_data, outcomes)
 
     # Print summary
     print("\n" + "=" * 60)
     print("CALCULATION SUMMARY")
     print("=" * 60)
 
-    for skill in updated_metrics.get('skills', []):
+    skills_list = dict_to_skill_list(updated_registry.get('skills', {}))
+    for skill in skills_list[:10]:  # Show first 10 skills
         name = skill['name']
-        score = skill['effectiveness_score']
-        metrics = skill['metrics']
+        metrics = skill.get('metrics', {})
+        score = metrics.get('effectiveness_score')
 
         print(f"\n{name}:")
         print(f"  Effectiveness Score: {score if score is not None else 'N/A'}")
@@ -541,18 +554,21 @@ def main():
         print(f"  Quality Score: {metrics.get('quality_score') if metrics.get('quality_score') is not None else 'N/A'}")
         print(f"  Reuse Rate: {metrics.get('reuse_rate') if metrics.get('reuse_rate') is not None else 'N/A'}%")
 
+    if len(skills_list) > 10:
+        print(f"\n... and {len(skills_list) - 10} more skills")
+
     # Category performance
     print("\n" + "-" * 60)
     print("CATEGORY PERFORMANCE")
     print("-" * 60)
-    for cat in updated_metrics.get('analysis', {}).get('category_performance', []):
+    for cat in updated_registry.get('analysis', {}).get('category_performance', []):
         print(f"\n{cat['category']}:")
         print(f"  Avg Effectiveness: {cat['avg_effectiveness'] if cat['avg_effectiveness'] is not None else 'N/A'}")
         print(f"  Total Tasks: {cat['total_tasks']}")
         print(f"  Success Rate: {cat['success_rate'] if cat['success_rate'] is not None else 'N/A'}%")
 
     # ROI Summary
-    roi = updated_metrics.get('analysis', {}).get('roi_summary', {})
+    roi = updated_registry.get('analysis', {}).get('roi_summary', {})
     print("\n" + "-" * 60)
     print("ROI SUMMARY")
     print("-" * 60)
@@ -565,11 +581,8 @@ def main():
         return 0
 
     # Save updated files
-    print(f"\nSaving updated metrics to: {metrics_file}")
-    save_yaml_file(metrics_file, updated_metrics)
-
-    print(f"Saving updated usage to: {usage_file}")
-    save_yaml_file(usage_file, updated_usage)
+    print(f"\nSaving updated registry to: {registry_file}")
+    save_yaml_file(registry_file, updated_registry)
 
     print("\nSkill metrics calculation complete!")
     return 0

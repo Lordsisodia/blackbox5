@@ -1,7 +1,7 @@
 metadata:
   version: 2.0.0
   created: '2026-02-06T00:00:00Z'
-  last_updated: '2026-02-10T22:29:35.073081Z'
+  last_updated: '2026-02-10T22:34:36.765061'
   schema_version: '2.0'
   replaces_files:
   - skill-metrics.yaml
@@ -9,10 +9,11 @@ metadata:
   - skill-selection.yaml
   - improvement-metrics.yaml
   total_skills: 23
-  total_usage_records: 2
+  total_usage_records: 1
   calculation_frequency: weekly
   next_calculation_due: '2026-02-08T09:00:00Z'
   total_invocations: 1
+  total_tasks_tracked: 6
 metrics_schema:
   version: 1.0.0
   calculation_method: weighted_composite
@@ -999,9 +1000,21 @@ task_outcomes:
   trigger_was_correct: null
   would_use_again: null
   notes: Logged from task TASK-SSOT-025
+- task_id: TEST-TIME-001
+  timestamp: '2026-02-10T22:31:40.421185'
+  skill_used: null
+  task_type: unknown
+  duration_minutes: 0.1
+  outcome: success
+  quality_rating: null
+  trigger_was_correct: null
+  would_use_again: null
+  notes: Time tracked by task_time_tracker.py
 selection_framework:
-  version: 1.2.0
+  version: 1.3.0
   confidence_threshold: 70
+  clear_trigger_threshold: 85
+  discretionary_threshold: 70
   auto_trigger_rules:
   - rule_id: ATR-001
     name: Implementation Tasks
@@ -1020,6 +1033,7 @@ selection_framework:
     - workflow
     action: MUST check for matching skill in domain_mapping
     priority: high
+    trigger_type: discretionary
   - rule_id: ATR-002
     name: Analysis Tasks
     condition: Task contains 'analyze' or 'research'
@@ -1034,6 +1048,7 @@ selection_framework:
     - web-search
     action: MUST check bmad-analyst and web-search skills
     priority: high
+    trigger_type: discretionary
   - rule_id: ATR-003
     name: Architecture Tasks
     condition: Task contains architecture/design keywords
@@ -1047,6 +1062,7 @@ selection_framework:
     - bmad-architect
     action: MUST check bmad-architect skill
     priority: high
+    trigger_type: discretionary
   - rule_id: ATR-004
     name: Decision Questions
     condition: Task contains decision question format
@@ -1057,8 +1073,9 @@ selection_framework:
     - best approach
     required_skills:
     - superintelligence-protocol
-    action: MUST check superintelligence-protocol skill
+    action: MUST invoke superintelligence-protocol skill
     priority: critical
+    trigger_type: clear
   - rule_id: ATR-005
     name: Product Management Tasks
     condition: Task contains PM keywords
@@ -1071,8 +1088,9 @@ selection_framework:
     - epic
     required_skills:
     - bmad-pm
-    action: MUST check bmad-pm skill
+    action: MUST invoke bmad-pm skill
     priority: high
+    trigger_type: clear
   - rule_id: ATR-006
     name: Quality Assurance Tasks
     condition: Task contains QA keywords
@@ -1086,6 +1104,7 @@ selection_framework:
     - bmad-qa
     action: MUST check bmad-qa skill
     priority: high
+    trigger_type: discretionary
   - rule_id: ATR-007
     name: Multi-File Tasks
     condition: Task involves multiple files or systems
@@ -1096,6 +1115,7 @@ selection_framework:
     - system-wide
     action: MUST check all relevant domain skills
     priority: medium
+    trigger_type: discretionary
   - rule_id: ATR-008
     name: Git Operations
     condition: Task involves git operations
@@ -1110,6 +1130,7 @@ selection_framework:
     - git-commit
     action: MUST check git-commit skill
     priority: high
+    trigger_type: discretionary
   - rule_id: ATR-009
     name: Database Operations
     condition: Task involves database work
@@ -1124,6 +1145,7 @@ selection_framework:
     - supabase-operations
     action: MUST check supabase-operations skill
     priority: high
+    trigger_type: discretionary
   - rule_id: ATR-010
     name: Continuous Improvement
     condition: Task involves optimization or improvement
@@ -1138,6 +1160,7 @@ selection_framework:
     - continuous-improvement
     action: MUST check continuous-improvement skill
     priority: medium
+    trigger_type: discretionary
   confidence_calculation:
     description: Calculate confidence score (0-100%) for skill selection
     threshold: 70
@@ -1170,7 +1193,7 @@ selection_framework:
       documentation: 'Note in THOUGHTS.md: ''Multiple skills applicable, selected
         X because...'''
 analysis:
-  last_calculated: '2026-02-05T23:10:34.782073'
+  last_calculated: '2026-02-10T22:34:36.764940'
   top_skills: []
   underperforming_skills: []
   category_performance:
@@ -1198,30 +1221,19 @@ analysis:
     total_time_saved_minutes: 0
     avg_quality_improvement: null
     cost_benefit_ratio: null
-  skill_selection_recommendations:
-  - scenario: Quick fixes (< 30 min)
-    recommended_skill: bmad-quick-flow
-    confidence: low
-  - scenario: Architecture decisions
-    recommended_skill: bmad-architect
-    confidence: low
-  - scenario: Research and analysis
-    recommended_skill: bmad-analyst
-    confidence: low
-  - scenario: Complex multi-step problems
-    recommended_skill: superintelligence-protocol
-    confidence: low
+  skill_selection_recommendations: []
   trigger_insights:
     common_false_positives:
     - task_id: TASK-1769909001
       reason: bmad-analyst identified as applicable (70% confidence) but not invoked
-        due to 80% threshold. Task was pattern analysis
+        due to 80% threshold. Task wa
     - task_id: TASK-1769910000
       reason: Skill system recovery analysis. bmad-analyst applicable but confidence
-        below threshold
+        below threshold. Analysis com
     common_missed_opportunities:
     - task_id: TASK-1769909001
-      skill: unknown
+      reason: bmad-analyst identified as applicable (70% confidence) but not invoked
+        due to 80% threshold. Task wa
     trigger_keywords_that_work: []
 recovery_metrics:
   analysis_date: '2026-02-01T09:10:00Z'
@@ -1294,7 +1306,7 @@ quality_rating_scale:
   1: Poor - Failed to meet requirements, major issues
 improvement_pipeline:
   pipeline:
-    description: "Learning \u2192 Improvement \u2192 Task \u2192 Completion Pipeline"
+    description: Learning → Improvement → Task → Completion Pipeline
     stages:
     - name: learnings_captured
       description: Raw insights captured from runs

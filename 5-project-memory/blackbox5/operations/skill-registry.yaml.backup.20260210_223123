@@ -1,7 +1,7 @@
 metadata:
   version: 2.0.0
   created: '2026-02-06T00:00:00Z'
-  last_updated: '2026-02-10T22:31:46.413358Z'
+  last_updated: '2026-02-10T22:29:35.073081Z'
   schema_version: '2.0'
   replaces_files:
   - skill-metrics.yaml
@@ -9,7 +9,7 @@ metadata:
   - skill-selection.yaml
   - improvement-metrics.yaml
   total_skills: 23
-  total_usage_records: 1
+  total_usage_records: 2
   calculation_frequency: weekly
   next_calculation_due: '2026-02-08T09:00:00Z'
   total_invocations: 1
@@ -999,16 +999,6 @@ task_outcomes:
   trigger_was_correct: null
   would_use_again: null
   notes: Logged from task TASK-SSOT-025
-- task_id: TEST-TIME-001
-  timestamp: '2026-02-10T22:31:40.421185'
-  skill_used: null
-  task_type: unknown
-  duration_minutes: 0.1
-  outcome: success
-  quality_rating: null
-  trigger_was_correct: null
-  would_use_again: null
-  notes: Time tracked by task_time_tracker.py
 selection_framework:
   version: 1.3.0
   confidence_threshold: 70
@@ -1060,7 +1050,6 @@ selection_framework:
     - bmad-architect
     action: MUST check bmad-architect skill
     priority: high
-    trigger_type: discretionary
   - rule_id: ATR-004
     name: Decision Questions
     condition: Task contains decision question format
@@ -1073,7 +1062,6 @@ selection_framework:
     - superintelligence-protocol
     action: MUST check superintelligence-protocol skill
     priority: critical
-    trigger_type: clear
   - rule_id: ATR-005
     name: Product Management Tasks
     condition: Task contains PM keywords
@@ -1088,7 +1076,6 @@ selection_framework:
     - bmad-pm
     action: MUST check bmad-pm skill
     priority: high
-    trigger_type: clear
   - rule_id: ATR-006
     name: Quality Assurance Tasks
     condition: Task contains QA keywords
@@ -1102,7 +1089,6 @@ selection_framework:
     - bmad-qa
     action: MUST check bmad-qa skill
     priority: high
-    trigger_type: discretionary
   - rule_id: ATR-007
     name: Multi-File Tasks
     condition: Task involves multiple files or systems
@@ -1311,7 +1297,7 @@ quality_rating_scale:
   1: Poor - Failed to meet requirements, major issues
 improvement_pipeline:
   pipeline:
-    description: Learning → Improvement → Task → Completion Pipeline
+    description: "Learning \u2192 Improvement \u2192 Task \u2192 Completion Pipeline"
     stages:
     - name: learnings_captured
       description: Raw insights captured from runs

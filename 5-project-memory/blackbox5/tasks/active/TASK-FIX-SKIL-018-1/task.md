@@ -1,10 +1,11 @@
 # TASK-FIX-SKIL-018-1: Update Skill Selection Rule to "MUST Invoke"
 
-**Status:** pending
+**Status:** completed
 **Priority:** HIGH
 **Category:** skills
 **Estimated Effort:** 20 minutes
 **Created:** 2026-02-09
+**Completed:** 2026-02-10T22:33:00Z
 **Parent Task:** TASK-SKIL-018
 
 ---
@@ -17,11 +18,11 @@ Change the skill selection rule from "MUST check" to "MUST invoke" for clear tri
 
 ## Success Criteria
 
-- [ ] Update rule 004-phase-1-5-skill-check.md to say "MUST invoke" for clear triggers
-- [ ] Update CLAUDE.md skill selection section with same change
-- [ ] Define "clear triggers" explicitly (confidence >= 85%)
-- [ ] Document when agents MAY still use judgment (confidence 70-84%)
-- [ ] Update skill-selection.yaml with clear/unclear trigger distinction
+- [x] Update rule 004-phase-1-5-skill-check.md to say "MUST invoke" for clear triggers
+- [x] Update CLAUDE.md skill selection section with same change
+- [x] Define "clear triggers" explicitly (confidence >= 85%)
+- [x] Document when agents MAY still use judgment (confidence 70-84%)
+- [x] Update skill-selection.yaml with clear/unclear trigger distinction
 
 ---
 
@@ -98,3 +99,53 @@ If changes cause issues:
 - "implement" + related domain
 - "analyze" + partial match
 - "test" + unclear scope
+
+## Implementation Summary
+
+### Changes Made
+
+**1. Updated `.claude/rules/004-phase-1-5-skill-check.md`:**
+- Changed "MUST check" to "MUST invoke" for clear triggers (>= 85% confidence)
+- Added "Clear vs Discretionary Triggers" section explaining the distinction
+- Updated Auto-Trigger Rules table with Confidence and Override Allowed columns
+- Clear triggers: >= 85% confidence, MUST invoke, NO override
+- Discretionary triggers: 70-84% confidence, SHOULD invoke, YES override allowed
+- Low confidence: < 70%, MAY check, YES override allowed
+
+**2. Updated `.claude/CLAUDE.md` Phase 1.5 section:**
+- Same changes as rule file for consistency
+- Added Clear vs Discretionary Triggers table
+- Expanded Auto-Trigger Rules table with confidence levels
+- Updated skill-selection.yaml path reference to point to skill-registry.yaml
+
+**3. Updated `operations/skill-registry.yaml` selection_framework section:**
+- Updated version from 1.2.0 to 1.3.0
+- Added `clear_trigger_threshold: 85`
+- Added `discretionary_threshold: 70`
+- Added `trigger_type: clear` to high-priority rules (ATR-004, ATR-005)
+- Added `trigger_type: discretionary` to other rules (ATR-001, ATR-002, ATR-003, ATR-006, ATR-007, ATR-008, ATR-009, ATR-010)
+
+### Clear Trigger Rules (85%+ confidence - MUST Invoke)
+- ATR-004: Decision Questions ("Should we..." + architecture)
+- ATR-005: Product Management Tasks ("PRD" + feature definition)
+
+### Discretionary Trigger Rules (70-84% - SHOULD Invoke)
+- ATR-001: Implementation Tasks (with domain keywords)
+- ATR-002: Analysis Tasks
+- ATR-003: Architecture Tasks
+- ATR-006: Quality Assurance Tasks
+- ATR-007: Multi-File Tasks
+- ATR-008: Git Operations
+- ATR-009: Database Operations
+- ATR-010: Continuous Improvement
+
+### All Success Criteria Met
+
+- [x] Update rule 004-phase-1-5-skill-check.md to say "MUST invoke" for clear triggers
+- [x] Update CLAUDE.md skill selection section with same change
+- [x] Define "clear triggers" explicitly (confidence >= 85%)
+- [x] Document when agents MAY still use judgment (confidence 70-84%)
+- [x] Update skill-selection.yaml (skill-registry.yaml) with clear/unclear trigger distinction
+
+### Impact
+This change eliminates subjective threshold overrides for clear triggers (85%+ confidence), ensuring that high-confidence skill selections are automatically invoked without agent discretion. This improves automation and reduces decision latency for clear-cut cases.

@@ -3,7 +3,7 @@
 Task Completion Hook - Skill Recording
 
 Automatically records skill usage when tasks complete.
-Updates skill-metrics.yaml task_outcomes and skill-usage.yaml usage_log.
+Updates skill-registry.yaml task_outcomes and .autonomous/operations/skill-usage.yaml usage_log.
 
 Usage:
     Called automatically by task completion system or manually:
@@ -53,28 +53,32 @@ def save_yaml_file(filepath: Path, data: dict) -> None:
         sys.exit(3)
 
 
-def record_task_outcome(metrics_data: dict, outcome: dict) -> dict:
-    """Record a new task outcome in skill-metrics.yaml."""
-    if 'task_outcomes' not in metrics_data:
-        metrics_data['task_outcomes'] = []
+def record_task_outcome(registry_data: dict, outcome: dict) -> dict:
+    """Record a new task outcome in skill-registry.yaml."""
+    if 'task_outcomes' not in registry_data:
+        registry_data['task_outcomes'] = []
 
     # Check if outcome already exists for this task
     existing = None
-    for i, o in enumerate(metrics_data['task_outcomes']):
+    for i, o in enumerate(registry_data['task_outcomes']):
         if o.get('task_id') == outcome['task_id']:
             existing = i
             break
 
     if existing is not None:
-        # Update existing outcome
-        metrics_data['task_outcomes'][existing].update(outcome)
+        # Update existing outcome (preserve existing fields if not in new outcome)
+        existing_outcome = registry_data['task_outcomes'][existing]
+        for key, value in outcome.items():
+            # Only update if value is not None (allows partial updates)
+            if value is not None:
+                existing_outcome[key] = value
         print(f"Updated existing outcome for {outcome['task_id']}")
     else:
         # Add new outcome
-        metrics_data['task_outcomes'].append(outcome)
+        registry_data['task_outcomes'].append(outcome)
         print(f"Added new outcome for {outcome['task_id']}")
 
-    return metrics_data
+    return registry_data
 
 
 def record_usage_log(usage_data: dict, entry: dict) -> dict:
@@ -182,16 +186,17 @@ def main():
 
     project_dir = Path(args.project_dir).resolve()
     operations_dir = project_dir / 'operations'
+    autonomous_ops_dir = project_dir / '.autonomous' / 'operations'
     agents_dir = project_dir / '.autonomous' / 'agents' / 'communications'
 
     # Load data files
-    metrics_file = operations_dir / 'skill-metrics.yaml'
-    usage_file = operations_dir / 'skill-usage.yaml'
+    registry_file = operations_dir / 'skill-registry.yaml'  # Unified registry
+    usage_file = autonomous_ops_dir / 'skill-usage.yaml'
     events_file = agents_dir / 'events.yaml'
 
     print(f"Recording skill usage for task: {task_id}")
 
-    metrics_data = load_yaml_file(metrics_file)
+    registry_data = load_yaml_file(registry_file)
     usage_data = load_yaml_file(usage_file)
 
     timestamp = datetime.now().isoformat()
@@ -238,11 +243,11 @@ def main():
     }
 
     # Record in all locations
-    metrics_data = record_task_outcome(metrics_data, task_outcome)
+    registry_data = record_task_outcome(registry_data, task_outcome)
     usage_data = record_usage_log(usage_data, usage_entry)
 
     # Save updates
-    save_yaml_file(metrics_file, metrics_data)
+    save_yaml_file(registry_file, registry_data)
     save_yaml_file(usage_file, usage_data)
 
     # Record event if events file exists

@@ -1,0 +1,88 @@
+# YouTube Channels Configuration for GitHub Actions Scraper
+# Location: /opt/blackbox5/youtube-scraper/config/channels.yaml
+
+channels:
+  # AI/ML Research Channels
+  - name: "Fireship"
+    url: "https://www.youtube.com/@Fireship"
+    max_videos: 50
+
+  - name: "AI Grid"
+    url: "https://www.youtube.com/@AI-Grid"
+    max_videos: 50
+
+  - name: "Latent Space"
+    url: "https://www.youtube.com/@LatentSpace"
+    max_videos: 50
+
+  - name: "AI Labs"
+    url: "https://www.youtube.com/@AILabs"
+    max_videos: 50
+
+  - name: "AI Engineer"
+    url: "https://www.youtube.com/@AI-Engineer"
+    max_videos: 50
+
+  - name: "AI Jason"
+    url: "https://www.youtube.com/@AI-Jason"
+    max_videos: 50
+
+  - name: "Bijan Bowen"
+    url: "https://www.youtube.com/@BijanBowen"
+    max_videos: 50
+
+  - name: "Andre Mikalsen"
+    url: "https://www.youtube.com/@AndreMikalsen"
+    max_videos: 50
+
+  - name: "Aichievable"
+    url: "https://www.youtube.com/@Aichievable"
+    max_videos: 50
+
+  - name: "InTheWorldOfAI"
+    url: "https://www.youtube.com/@InTheWorldOfAI"
+    max_videos: 50
+
+  - name: "Greg Isenberg"
+    url: "https://www.youtube.com/@GregIsenberg"
+    max_videos: 50
+
+  - name: "IndyDevDan"
+    url: "https://www.youtube.com/@IndyDevDan"
+    max_videos: 50
+
+  - name: "Matthew Berman"
+    url: "https://www.youtube.com/@MatthewBerman"
+    max_videos: 50
+
+  - name: "Sean Kochel"
+    url: "https://www.youtube.com/@SeanKochel"
+    max_videos: 50
+
+  # DevOps/Infrastructure Channels
+  - name: "David Ondrej"
+    url: "https://www.youtube.com/@DavidOndrej"
+    max_videos: 50
+
+  - name: "Vrsen"
+    url: "https://www.youtube.com/@Vrsen"
+    max_videos: 50
+
+  - name: "Rasmus"
+    url: "https://www.youtube.com/@Rasmus"
+    max_videos: 50
+
+  - name: "Theo"
+    url: "https://www.youtube.com/@Theo"
+    max_videos: 50
+
+  # Product/Startup Channels
+  - name: "User Playlist 1"
+    url: "https://www.youtube.com/playlist?list=PLwyznWCpE24c3tepHAdTqFwHsQ-xTXDkN"
+    max_videos: 20
+
+# Collection settings
+collection:
+  max_videos_per_channel: 50  # Default max videos to collect per channel
+  skip_existing: true  # Skip videos already in database
+  dedup: true  # Remove duplicate videos

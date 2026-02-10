@@ -204,22 +204,43 @@ This project uses the rules-based approach. See `.claude/rules/` for specific be
 
 BEFORE starting Phase 2 (Execution) of ANY task, you MUST:
 
-1. **Read skill-selection.yaml** at `~/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+1. **Read skill-selection.yaml** at `~/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` (section: selection_framework)
 2. **Check domain_mapping** for matching keywords in your task
 3. **Calculate confidence** using the formula in the file
 4. **Document decision** in THOUGHTS.md under "## Skill Usage for This Task"
 
+### Clear vs Discretionary Triggers
+
+| Confidence | Action | Override Allowed |
+|------------|--------|------------------|
+| **>= 85%** | MUST invoke | NO - Automatic |
+| **70-84%** | SHOULD invoke | YES - Agent discretion |
+| **< 70%** | MAY check | YES - Agent discretion |
+
+### Clear Trigger Examples (85%+ confidence)
+- "implement" + exact domain match (e.g., "implement git commit")
+- "Should we..." + architecture keyword
+- "PRD" + feature definition
+
+### Discretionary Examples (70-84% confidence)
+- "implement" + related domain
+- "analyze" + partial match
+- "test" + unclear scope
+
 **Auto-Trigger Rules:**
 
-| Trigger Condition | Action Required |
-|-------------------|-----------------|
-| Task contains "implement" + domain keyword (git, n8n, supabase, etc.) | MUST check for matching skill |
-| Task contains "analyze" or "research" | MUST check bmad-analyst, web-search |
-| Task contains "architecture", "design", "refactor" | MUST check bmad-architect |
-| Task contains "Should we...", "How should we..." | MUST check superintelligence-protocol |
-| Task contains "PRD", "requirements", "feature" | MUST check bmad-pm |
-| Task contains "test", "QA", "quality" | MUST check bmad-qa |
-| Multiple files or systems involved | MUST check relevant skills |
+| Trigger Condition | Confidence | Action Required | Override Allowed |
+|-------------------|------------|-----------------|------------------|
+| "implement" + exact domain match (e.g., "implement git commit") | >= 85% | MUST invoke | NO - Automatic |
+| "Should we..." + architecture keyword | >= 85% | MUST invoke | NO - Automatic |
+| "PRD" + feature definition | >= 85% | MUST invoke | NO - Automatic |
+| Task contains "implement" + domain keyword (git, n8n, supabase, etc.) | 70-84% | SHOULD invoke | YES - Agent discretion |
+| Task contains "analyze" or "research" | 70-84% | SHOULD invoke | YES - Agent discretion |
+| Task contains "architecture", "design", "refactor" | 70-84% | SHOULD invoke | YES - Agent discretion |
+| Task contains "Should we...", "How should we..." | 70-84% | SHOULD invoke | YES - Agent discretion |
+| Task contains "PRD", "requirements", "feature" | 70-84% | SHOULD invoke | YES - Agent discretion |
+| Task contains "test", "QA", "quality" | 70-84% | SHOULD invoke | YES - Agent discretion |
+| Multiple files or systems involved | 70-84% | SHOULD invoke | YES - Agent discretion |
 
 ### Domain-to-Skill Mapping
 
