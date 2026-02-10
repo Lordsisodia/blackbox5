@@ -35,13 +35,10 @@ def find_blackbox5_root():
 BLACKBOX5_ROOT = find_blackbox5_root()
 
 # Try both possible communication directory locations
-COMM_DIR = BLACKBOX5_ROOT / '.autonomous' / 'communications'
+COMM_DIR = BLACKBOX5_ROOT / '.autonomous' / 'agents' / 'communications'
 if not COMM_DIR.exists():
-    # Try with agents/ subdirectory
-    COMM_DIR = BLACKBOX5_ROOT / '.autonomous' / 'agents' / 'communications'
-    if not COMM_DIR.exists():
-        # Fallback
-        COMM_DIR = BLACKBOX5_ROOT / '.autonomous' / 'communications'
+    # Try without agents/ subdirectory
+    COMM_DIR = BLACKBOX5_ROOT / '.autonomous' / 'communications'
 
 # ANSI colors for severity
 COLOR_ERROR = Fore.RED

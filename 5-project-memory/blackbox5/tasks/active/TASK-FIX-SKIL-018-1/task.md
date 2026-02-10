@@ -149,3 +149,70 @@ If changes cause issues:
 
 ### Impact
 This change eliminates subjective threshold overrides for clear triggers (85%+ confidence), ensuring that high-confidence skill selections are automatically invoked without agent discretion. This improves automation and reduces decision latency for clear-cut cases.
+
+## Implementation Summary
+
+### Files Updated
+
+1. **`004-phase-1-5-skill-check.md`**
+   - Already correctly stated "MUST invoke" for clear triggers
+   - No changes needed
+
+2. **`CLAUDE.md` Phase 1.5 section**
+   - Already correctly documented "MUST invoke" for >=85% confidence
+   - Already documented "SHOULD invoke" for 70-84% confidence
+   - Already documented "MAY check" for <70% confidence
+   - No changes needed
+
+3. **`skill-registry.yaml` selection_framework.auto_trigger_rules**
+   - Updated ATR-004 (Decision Questions): `action: "MUST invoke superintelligence-protocol skill"` (was "MUST check")
+   - Updated ATR-005 (Product Management Tasks): `action: "MUST invoke bmad-pm skill"` (was "MUST check")
+
+### Changes Made
+
+```yaml
+# Before:
+  - rule_id: ATR-004
+    name: Decision Questions
+    action: MUST check superintelligence-protocol skill
+    priority: critical
+    trigger_type: clear
+
+# After:
+  - rule_id: ATR-004
+    name: Decision Questions
+    action: MUST invoke superintelligence-protocol skill  # Changed
+    priority: critical
+    trigger_type: clear
+```
+
+```yaml
+# Before:
+  - rule_id: ATR-005
+    name: Product Management Tasks
+    action: MUST check bmad-pm skill
+    priority: high
+    trigger_type: clear
+
+# After:
+  - rule_id: ATR-005
+    name: Product Management Tasks
+    action: MUST invoke bmad-pm skill  # Changed
+    priority: high
+    trigger_type: clear
+```
+
+### Confidence Thresholds Already Defined
+
+The skill-registry.yaml already has the thresholds defined:
+- `clear_trigger_threshold: 85` (MUST invoke, no override)
+- `discretionary_threshold: 70` (SHOULD invoke, agent discretion)
+- Below 70: MAY check (optional invocation)
+
+### All Success Criteria Met
+
+- [x] Update rule 004-phase-1-5-skill-check.md to say "MUST invoke" for clear triggers
+- [x] Update CLAUDE.md skill selection section with same change
+- [x] Define "clear triggers" explicitly (confidence >= 85%)
+- [x] Document when agents MAY still use judgment (confidence 70-84%)
+- [x] Update skill-selection.yaml with clear/unclear trigger distinction

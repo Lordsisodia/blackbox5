@@ -899,7 +899,7 @@ tasks:
   parallel_group: wave_1
 - id: TASK-1738375000
   type: implement
-  status: pending
+  status: completed
   priority: HIGH
   priority_score: 18.0
   title: 'TASK-1738375000: Implement Feature F-016 (CLI Interface & Tooling Suite)'
@@ -1245,8 +1245,6 @@ tasks:
   resource_type: cpu_bound
   parallel_group: wave_1
 - id: TASK-010-001
-  type: implement
-  status: completed
   type: implement
   status: pending
   priority: CRITICAL
