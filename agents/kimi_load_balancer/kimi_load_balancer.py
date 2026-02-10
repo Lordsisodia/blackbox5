@@ -117,10 +117,28 @@ class KimiLoadBalancer:
 
             for key_config in keys_config:
                 key_id = key_config.get('id')
-                api_key = os.getenv(
-                    key_config.get('name', '').upper().replace('-', '_'),
-                    key_config.get('key', '')
-                )
+                
+                # Get key value, expand shell-style ${VAR:-default} syntax
+                key_value = key_config.get('key', '')
+                
+                # Try environment variable based on key name first
+                env_var_name = key_config.get('name', '').upper().replace('-', '_')
+                api_key = os.getenv(env_var_name, '')
+                
+                # If not found, try expanding ${VAR:-default} syntax
+                if not api_key and key_value.startswith('${') and key_value.endswith('}'):
+                    # Parse ${VAR:-default} format
+                    inner = key_value[2:-1]  # Remove ${ and }
+                    if ':-' in inner:
+                        var_name, default_value = inner.split(':-', 1)
+                        api_key = os.getenv(var_name, default_value)
+                    elif '-' in inner:
+                        var_name, default_value = inner.split('-', 1)
+                        api_key = os.getenv(var_name, default_value)
+                    else:
+                        api_key = os.getenv(inner, '')
+                elif not api_key:
+                    api_key = key_value
 
                 if not api_key or api_key.startswith('${'):
                     logger.warning(f"No API key found for {key_id}, skipping")

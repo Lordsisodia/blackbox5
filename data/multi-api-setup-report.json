@@ -1,0 +1,160 @@
+{
+  "setup_timestamp": "2026-02-10T21:49:23.324963",
+  "configuration": {
+    "config_path": "/opt/blackbox5/config/api-keys.yaml",
+    "valid": true,
+    "api_keys_configured": {
+      "KIMI_CISO_KEY": {
+        "configured": false,
+        "name": "Kimi CISO key",
+        "has_value": false
+      },
+      "NVIDIA_KIMI_KEY": {
+        "configured": false,
+        "name": "Nvidia Kimi key",
+        "has_value": false
+      },
+      "ANTHROPIC_API_KEY": {
+        "configured": false,
+        "name": "Anthropic Claude key",
+        "has_value": false
+      }
+    }
+  },
+  "providers": {
+    "nvidia_kimi": {
+      "name": "Nvidia Kimi",
+      "enabled": true,
+      "health_status": "active",
+      "error_count": 0,
+      "avg_latency_ms": 0.0,
+      "capabilities": [
+        "vision",
+        "multimodal",
+        "video_processing",
+        "image_analysis"
+      ]
+    },
+    "claude_code": {
+      "name": "Claude Code CLI",
+      "enabled": true,
+      "health_status": "active",
+      "error_count": 0,
+      "avg_latency_ms": 0.0,
+      "capabilities": [
+        "long_context",
+        "reasoning",
+        "coding",
+        "artifact_management",
+        "complex_analysis"
+      ]
+    },
+    "kimi": {
+      "name": "Kimi K2.5",
+      "enabled": true,
+      "health_status": "active",
+      "error_count": 0,
+      "avg_latency_ms": 0.0,
+      "capabilities": [
+        "long_context",
+        "multimodal",
+        "coding",
+        "reasoning",
+        "video_processing"
+      ]
+    },
+    "glm": {
+      "name": "GLM-4.7",
+      "enabled": true,
+      "health_status": "active",
+      "error_count": 0,
+      "avg_latency_ms": 0.0,
+      "capabilities": [
+        "long_context",
+        "reliable",
+        "general",
+        "affordable"
+      ]
+    }
+  },
+  "kimi_keys": {
+    "total_keys": 0,
+    "available_keys": 0,
+    "details": {}
+  },
+  "nvidia_kimi": {
+    "enabled": true,
+    "model": "kimi-k2.5",
+    "capabilities": [
+      "vision",
+      "multimodal",
+      "video_processing",
+      "image_analysis"
+    ],
+    "request_count": 0,
+    "success_rate": 100.0,
+    "avg_latency_ms": 0.0,
+    "requests_this_minute": 0,
+    "tokens_this_minute": 0,
+    "rate_limit_status": "ok"
+  },
+  "components": {
+    "api_selector": "initialized",
+    "usage_tracker": "initialized",
+    "kimi_load_balancer": "initialized",
+    "nvidia_client": "available"
+  },
+  "task_routing": {
+    "long_context": {
+      "providers": [
+        "glm",
+        "claude_code",
+        "kimi"
+      ],
+      "strategy": "cost_optimized"
+    },
+    "coding": {
+      "providers": [
+        "kimi",
+        "claude_code",
+        "glm"
+      ],
+      "strategy": "quality_first"
+    },
+    "reasoning": {
+      "providers": [
+        "claude_code",
+        "kimi",
+        "glm"
+      ],
+      "strategy": "quality_first"
+    },
+    "video_processing": {
+      "providers": [
+        "nvidia_kimi",
+        "kimi"
+      ],
+      "strategy": "specialized_first"
+    },
+    "vision": {
+      "providers": [
+        "nvidia_kimi",
+        "kimi"
+      ],
+      "strategy": "specialized_first"
+    },
+    "general": {
+      "providers": [
+        "glm",
+        "kimi",
+        "claude_code"
+      ],
+      "strategy": "availability_first"
+    }
+  },
+  "recommendations": [
+    "Set KIMI_CISO_KEY environment variable for Kimi CISO key",
+    "Set NVIDIA_KIMI_KEY environment variable for Nvidia Kimi key",
+    "Set ANTHROPIC_API_KEY environment variable for Anthropic Claude key"
+  ]
+}
