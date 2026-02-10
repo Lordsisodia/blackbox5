@@ -17,6 +17,9 @@ import sys
 import re
 from pathlib import Path
 
+# Import shared JSON logger
+from hooks.utils.json_logger import log_hook_data
+
 
 def is_dangerous_rm_command(command):
     """
@@ -116,27 +119,8 @@ def main():
                 print("BLOCKED: Dangerous rm command detected and prevented", file=sys.stderr)
                 sys.exit(2)
 
-        # Ensure log directory exists
-        log_dir = Path.cwd() / 'logs'
-        log_dir.mkdir(parents=True, exist_ok=True)
-        log_path = log_dir / 'pre_tool_use.json'
-
-        # Read existing log data or initialize empty list
-        if log_path.exists():
-            with open(log_path, 'r') as f:
-                try:
-                    log_data = json.load(f)
-                except (json.JSONDecodeError, ValueError):
-                    log_data = []
-        else:
-            log_data = []
-
-        # Append new data
-        log_data.append(input_data)
-
-        # Write back to file with formatting
-        with open(log_path, 'w') as f:
-            json.dump(log_data, f, indent=2)
+        # Use shared JSON logger
+        log_hook_data("pre_tool_use", input_data)
 
         sys.exit(0)
 

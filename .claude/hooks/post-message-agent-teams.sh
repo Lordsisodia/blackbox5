@@ -7,6 +7,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BB5_DIR="$(cd "$SCRIPT_DIR/../../../" && pwd)"
 RUN_DIR="$BB5_DIR/runs/current"
+LOG_FILE="$BB5_DIR/logs/post-message-agent-teams.json"
 
 # Read the user message from stdin (if provided)
 USER_MESSAGE="${1:-}"
@@ -38,14 +39,17 @@ for keyword in "${TRIGGER_KEYWORDS[@]}"; do
   fi
 done
 
-# Log the check
-echo "{
-  \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\",
-  \"event\": \"post_message_check\",
-  \"hook\": \"post-message-agent-teams.sh\",
-  \"should_activate\": $SHOULD_ACTIVATE,
-  \"message_preview\": \"$(echo "$USER_MESSAGE" | cut -c1-100)\"
-}" >> "$BB5_DIR/.autonomous/agents/communications/events.yaml"
+# Standard JSON logging for hooks
+mkdir -p "$BB5_DIR/logs"
+{
+  echo "{"
+  echo "  \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\","
+  echo "  \"hook\": \"post-message-agent-teams.sh\","
+  echo "  \"event\": \"post_message_check\","
+  echo "  \"should_activate\": $SHOULD_ACTIVATE,"
+  echo "  \"message_preview\": \"$(echo "$USER_MESSAGE" | cut -c1-100)\""
+  echo "}"
+} >> "$LOG_FILE"
 
 # If should activate, create agent team instruction
 if [ "$SHOULD_ACTIVATE" = true ]; then
