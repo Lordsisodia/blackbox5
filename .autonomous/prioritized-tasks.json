@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-10T22:40:01.592188",
+  "generated_at": "2026-02-10T22:45:02.057590",
   "total_tasks": 64,
   "tasks": [
     {
@@ -12,7 +12,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "**Goal:** IG-AUTONOMY-001 - Close the Feedback Loops\n**Plan:** PLAN-AUTONOMY-001\n**Status:** completed\n**Priority:** CRITICAL\n**Created:** 2026-02-06\n**Started:** 2026-02-06",
-      "age_hours": 31.22445157916667,
+      "age_hours": 31.307914561944447,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -31,7 +31,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
-      "age_hours": 31.224453324722223,
+      "age_hours": 31.307916125833334,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -50,7 +50,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "## Principle 1: Task System as Foundation",
-      "age_hours": 31.22445411111111,
+      "age_hours": 31.30791679972222,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -69,7 +69,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "**Status:** completed\n**Priority:** critical\n**Type:** architecture\n**Created:** 2026-02-04\n**Completed:** 2026-02-04",
-      "age_hours": 31.224454166388888,
+      "age_hours": 31.307916873333333,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -88,7 +88,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "## Principle 1: Task System as Foundation",
-      "age_hours": 31.224454303055555,
+      "age_hours": 31.30791699083333,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -107,7 +107,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "**Status:** pending\n**Priority:** high\n**Created:** 2026-02-04\n**Parent:** None (Top-level research task)",
-      "age_hours": 31.22445432916667,
+      "age_hours": 31.307916968055554,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -126,7 +126,7 @@
       "complexity": "medium",
       "blocking": true,
       "description": "**Status:** completed\n**Priority:** critical\n**Type:** architecture\n**Created:** 2026-02-04\n**Completed:** 2026-02-04",
-      "age_hours": 31.224454560277778,
+      "age_hours": 31.307917161944445,
       "score": 50.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written",
@@ -145,7 +145,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 20 minutes\n**Created:** 2026-02-09\n**Completed:** 2026-02-10T22:33:00Z\n**Parent Task:** TASK-SKIL-018",
-      "age_hours": 31.22445094277778,
+      "age_hours": 31.30791378888889,
       "score": 45.0,
       "improvement_opportunities": [
         "High priority - consider accelerating"
@@ -163,7 +163,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "",
-      "age_hours": 31.22445117638889,
+      "age_hours": 31.3079140325,
       "score": 45.0,
       "improvement_opportunities": [
         "High priority - consider accelerating",
@@ -184,7 +184,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "",
-      "age_hours": 31.2244537,
+      "age_hours": 31.307916430000002,
       "score": 45.0,
       "improvement_opportunities": [
         "High priority - consider accelerating",
@@ -205,7 +205,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 75 minutes\n**Created:** 2026-02-09T12:00:00Z\n**Completed:** 2026-02-10T22:34:00Z\n**Parent:** TASK-SKIL-032",
-      "age_hours": 31.224450104444443,
+      "age_hours": 31.307912910000002,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -223,7 +223,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** CRITICAL\n**Parent:** Issue #4 - RALF Knows Project Structure\n**Completed:** 2026-02-08",
-      "age_hours": 31.224450175555557,
+      "age_hours": 31.30791300888889,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -241,7 +241,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** infrastructure\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949919\n**Source:** Scout opportunity metrics-003 (Score: 13.5)",
-      "age_hours": 31.22445020916667,
+      "age_hours": 31.30791304027778,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -259,7 +259,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** ACTIVE\n**Goal:** Get auto-scraping operational TODAY, then build analysis pipeline",
-      "age_hours": 31.22445048777778,
+      "age_hours": 31.307913329166666,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -277,7 +277,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** CRITICAL\n**Parent:** Issue #4 - RALF Knows Project Structure",
-      "age_hours": 31.224450563055555,
+      "age_hours": 31.307913406111112,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -295,7 +295,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Created:** 2026-02-09T12:00:00Z\n**Completed:** 2026-02-10T22:29:00Z\n**Parent:** TASK-SKIL-007",
-      "age_hours": 31.224450639444445,
+      "age_hours": 31.307913490555556,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -313,7 +313,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Type:** implement\n**Priority:** high\n**Status:** completed\n**Created:** 2026-02-01T16:01:00Z\n**Completed:** 2026-02-10T22:40:00Z\n**Estimated Lines:** 2330",
-      "age_hours": 31.224450793333332,
+      "age_hours": 31.30791363861111,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -331,7 +331,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** manual\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950080\n**Source:** Scout opportunity process-008 (Score: 7.0)",
-      "age_hours": 31.22445084111111,
+      "age_hours": 31.30791368666667,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -349,7 +349,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950131\n**Source:** Scout opportunity docs-010 (Score: 5.0)",
-      "age_hours": 31.224450968333336,
+      "age_hours": 31.307913819444444,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -367,7 +367,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-007\n**Completed:** 2026-02-10",
-      "age_hours": 31.22445104333333,
+      "age_hours": 31.307913890555557,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -385,7 +385,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950095\n**Source:** Scout opportunity docs-006 (Score: 7.0)",
-      "age_hours": 31.22445106916667,
+      "age_hours": 31.307913914999997,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -403,7 +403,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-09T12:45:00Z\n**Parent Task:** TASK-SKIL-050\n**Depends On:** TASK-FIX-SKIL-050-2 (implem",
-      "age_hours": 31.22445112611111,
+      "age_hours": 31.307913975555554,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -421,7 +421,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.949891\n**Source:** Scout opportunity skill-003 (Score: 14.5)",
-      "age_hours": 31.22445114916667,
+      "age_hours": 31.307913999722224,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -439,7 +439,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Parent:** Issue #4 - RALF Knows Project Structure\n**Completed:** 2026-02-08",
-      "age_hours": 31.224451237222222,
+      "age_hours": 31.307914098611114,
       "score": 35.0,
       "improvement_opportunities": [],
       "current_issues": [],
@@ -455,7 +455,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.950121\n**Source:** Scout opportunity docs-008 (Score: 6.5)",
-      "age_hours": 31.224451261944445,
+      "age_hours": 31.307914158888888,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -473,7 +473,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950090\n**Source:** Scout opportunity docs-004 (Score: 7.0)",
-      "age_hours": 31.22445128527778,
+      "age_hours": 31.30791421333333,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -491,7 +491,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** architecture\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.950014\n**Source:** Scout opportunity arch-010 (Score: 9.5)",
-      "age_hours": 31.224451328888886,
+      "age_hours": 31.307914275833333,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -509,7 +509,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 45 minutes\n**Created:** 2026-02-09\n**Completed:** 2026-02-09\n**Source:** Process improvement initiative",
-      "age_hours": 31.224451395,
+      "age_hours": 31.307914370555554,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -527,7 +527,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** process\n**Estimated Effort:** 240 minutes\n**Actual Effort:** 45 minutes\n**Created:** 2026-02-05T01:57:10.949897\n**Completed:** 2026-02-09\n**Sourc",
-      "age_hours": 31.224451509722222,
+      "age_hours": 31.307914490555554,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -545,7 +545,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 45 minutes\n**Created:** 2026-02-09T12:00:00Z\n**Completed:** 2026-02-10T22:32:00Z\n**Parent:** TASK-SKIL-032",
-      "age_hours": 31.224451701666666,
+      "age_hours": 31.307914689166665,
       "score": 35.0,
       "improvement_opportunities": [],
       "current_issues": [],
@@ -561,7 +561,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** infrastructure\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950004\n**Source:** Scout opportunity metrics-006 (Score: 10.0)",
-      "age_hours": 31.224451728333335,
+      "age_hours": 31.307914718055557,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -579,7 +579,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949904\n**Source:** Scout opportunity skill-002 (Score: 14.0)",
-      "age_hours": 31.224451751666667,
+      "age_hours": 31.30791476222222,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -597,7 +597,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Parent:** Issue #4 - RALF Knows Project Structure",
-      "age_hours": 31.224451926666664,
+      "age_hours": 31.30791494638889,
       "score": 35.0,
       "improvement_opportunities": [],
       "current_issues": [],
@@ -613,7 +613,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 30-45 minutes\n**Created:** 2026-02-09T12:45:00Z\n**Parent Task:** TASK-SKIL-050\n**Depends On:** TASK-FIX-SKIL-050-1 (",
-      "age_hours": 31.224451985277778,
+      "age_hours": 31.30791500611111,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -631,7 +631,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
-      "age_hours": 31.224452078055556,
+      "age_hours": 31.30791509166667,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -649,7 +649,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Created:** 2026-02-03\n**Context:** Mirror system now exists, need to identify what else to mirror",
-      "age_hours": 31.22445212111111,
+      "age_hours": 31.307915133888887,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -667,7 +667,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949993\n**Completed:** 2026-02-09\n**Source:** Scout opportunity proces",
-      "age_hours": 31.224452203333332,
+      "age_hours": 31.30791520777778,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -685,7 +685,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950039\n**Completed:** 2026-02-09\n**Source:** Scout opportunity metric",
-      "age_hours": 31.224452246111113,
+      "age_hours": 31.30791524527778,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -703,7 +703,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** ACTIVE\n**Goal:** Get auto-scraping operational TODAY, then build analysis pipeline",
-      "age_hours": 31.224452455555554,
+      "age_hours": 31.30791539722222,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -721,7 +721,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** CRITICAL\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949879\n**Completed:** 2026-02-09\n**Source:** Scout opportunity proc",
-      "age_hours": 31.224452517777777,
+      "age_hours": 31.307915448333333,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -739,7 +739,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 45 minutes\n**Created:** 2026-02-09\n**Parent Task:** TASK-SKIL-018",
-      "age_hours": 31.22445258138889,
+      "age_hours": 31.307915510833332,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -757,7 +757,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** documentation\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950045\n**Source:** Scout opportunity docs-005 (Score: 8.0)",
-      "age_hours": 31.224452612777778,
+      "age_hours": 31.307915533888888,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -775,7 +775,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-09T12:45:00Z\n**Parent Task:** TASK-SKIL-050\n**Source:** Root cause analysis - 3 infr",
-      "age_hours": 31.22445266277778,
+      "age_hours": 31.307915573333336,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -793,7 +793,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** HIGH\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-007",
-      "age_hours": 31.22445273472222,
+      "age_hours": 31.3079156275,
       "score": 35.0,
       "improvement_opportunities": [],
       "current_issues": [],
@@ -809,7 +809,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.950126\n**Source:** Scout opportunity skill-010 (Score: 5.0)",
-      "age_hours": 31.224452759722222,
+      "age_hours": 31.30791564722222,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -827,7 +827,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949961\n**Source:** Scout opportunity skill-004 (Score: 11.0)",
-      "age_hours": 31.224452784999997,
+      "age_hours": 31.307915670833335,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -845,7 +845,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** skills\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950034\n**Source:** Scout opportunity skill-006 (Score: 8.5)",
-      "age_hours": 31.224452808333336,
+      "age_hours": 31.307915695555554,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -863,7 +863,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** MEDIUM\n**Category:** documentation\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949999\n**Source:** Scout opportunity docs-003 (Score: 10.0)",
-      "age_hours": 31.2244528325,
+      "age_hours": 31.30791571611111,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -881,7 +881,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Created:** 2026-02-05T00:00:00Z\n**Completed:** 2026-02-05T00:00:00Z",
-      "age_hours": 31.22445296722222,
+      "age_hours": 31.307915831666666,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -899,7 +899,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Type:** implement\n**Priority:** high\n**Status:** pending\n**Created:** 2026-02-01T16:01:00Z\n**Estimated Lines:** 2330",
-      "age_hours": 31.224453039444445,
+      "age_hours": 31.30791588638889,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -917,7 +917,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Reviewer:** Senior Code Reviewer (20 years bash experience)\n**Date:** 2026-02-06\n**File:** `/Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh`\n**Claimed Quality:** 88/100 (Prod",
-      "age_hours": 31.224453237222225,
+      "age_hours": 31.30791606111111,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -935,7 +935,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.949940\n**Source:** Scout opportunity skill-008 (Score: 12.5)",
-      "age_hours": 31.224453368055556,
+      "age_hours": 31.30791616111111,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -953,7 +953,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Task ID:** TASK-[timestamp]\n**Type:** implement | fix | refactor | analyze | organize | research\n**Priority:** critical | high | medium | low\n**Status:** pending\n**Created:** YYYY-MM-DDTHH:MM:SSZ\n**",
-      "age_hours": 31.2244534175,
+      "age_hours": 31.30791620138889,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -971,7 +971,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Task ID:** TASK-1769978192\n**Type:** design\n**Priority:** critical\n**Status:** active\n**Created:** 2026-02-02T14:16:32Z\n**Estimated Lines:** 800",
-      "age_hours": 31.224453665000002,
+      "age_hours": 31.30791640111111,
       "score": 35.0,
       "improvement_opportunities": [],
       "current_issues": [],
@@ -987,7 +987,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Category:** process\n**Estimated Effort:** 30 minutes\n**Created:** 2026-02-05T01:57:10.949909\n**Source:** Scout opportunity process-003 (Score: 14.0)\n**Comple",
-      "age_hours": 31.224453755,
+      "age_hours": 31.30791648027778,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1005,7 +1005,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** ACTIVE\n**Goal:** Get auto-scraping operational TODAY, then build analysis pipeline",
-      "age_hours": 31.224453945833336,
+      "age_hours": 31.307916656666666,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1023,7 +1023,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.949971\n**Completed:** 2026-02-09\n**Source:** Scout opportunity proces",
-      "age_hours": 31.22445402888889,
+      "age_hours": 31.307916726388886,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1041,7 +1041,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** HIGH\n**Category:** skills\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-09T12:00:00Z\n**Parent:** TASK-SKIL-032",
-      "age_hours": 31.224454223333332,
+      "age_hours": 31.30791692444444,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1059,7 +1059,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Goal:** IG-AUTONOMY-001 - Close the Feedback Loops\n**Plan:** PLAN-AUTONOMY-001 - Phase 4: System Health Dashboard\n**Status:** completed\n**Priority:** CRITICAL\n**Created:** 2026-02-06\n**Started:** 20",
-      "age_hours": 31.224454434444443,
+      "age_hours": 31.307917101388888,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1077,7 +1077,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** MEDIUM\n**Category:** process\n**Estimated Effort:** 60 minutes\n**Created:** 2026-02-05T01:57:10.950009\n**Source:** Scout opportunity metrics-009 (Score: 10.0)\n**Comp",
-      "age_hours": 31.224454231666666,
+      "age_hours": 31.307916890277777,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1095,7 +1095,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** completed\n**Priority:** HIGH\n**Created:** 2026-02-03\n**Completed:** 2026-02-10T22:35:00Z\n**Project:** AI-Improvement-Research (YouTube Scraper)",
-      "age_hours": 31.224454509444445,
+      "age_hours": 31.307917111111113,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1113,7 +1113,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** pending\n**Priority:** LOW\n**Category:** documentation\n**Estimated Effort:** 15 minutes\n**Created:** 2026-02-05T01:57:10.950116\n**Source:** Scout opportunity docs-007 (Score: 6.5)",
-      "age_hours": 31.22445458138889,
+      "age_hours": 31.307917184444445,
       "score": 35.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1131,7 +1131,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Status:** in_progress\n**Priority:** MEDIUM\n**Created:** 2026-02-10",
-      "age_hours": 0.13921028777777777,
+      "age_hours": 0.22267313305555556,
       "score": 25.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
@@ -1149,7 +1149,7 @@
       "complexity": "medium",
       "blocking": false,
       "description": "**Task ID:** TASK-PROC-030  \n**Priority:** MEDIUM  \n**Estimated Effort:** 4-6 hours  \n**Importance Rating:** 75/100  \n**Created:** 2026-02-06",
-      "age_hours": 3.8073635291666665,
+      "age_hours": 3.8908265111111113,
       "score": 25.0,
       "improvement_opportunities": [
         "Code task - ensure tests are written"
