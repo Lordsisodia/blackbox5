@@ -1,0 +1,6 @@
+name: vps
+host: 77.42.66.40
+user: root
+ssh_key: ~/.ssh/ralf_hetzner
+ralf_path: /opt/ralf
+openclaw_path: /opt/openclaw

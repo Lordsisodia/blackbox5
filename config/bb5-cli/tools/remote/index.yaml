@@ -1,0 +1,7 @@
+# Remote Tools Index
+# Minimal metadata for discovery (~100 tokens)
+
+exec: Execute commands on remote host via SSH
+transfer: Transfer files to/from remote host
+ralf: Execute RALF commands on remote host
+claw: Execute OpenClaw/MoltBot commands on remote host

@@ -1,0 +1,14 @@
+#!/bin/bash
+# BB5 CLI Discovery Tool
+# Usage: bb5 discover [category]
+
+BB5_DIR="${BB5_DIR:-$HOME/.blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_discovery.sh"
+
+if [[ $# -eq 0 ]]; then
+    # Root discovery
+    bb5_discover_root
+else
+    # Category discovery
+    bb5_discover_category "$1"
+fi

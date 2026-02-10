@@ -1,0 +1,112 @@
+#!/bin/bash
+# BB5 Remote Exec Tool
+# Execute commands on remote hosts via SSH
+
+BB5_DIR="${BB5_DIR:-$HOME/.blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+
+# Parse arguments
+CONTEXT=""
+COMMAND=""
+INTERACTIVE=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -c|--context)
+            CONTEXT="$2"
+            shift 2
+            ;;
+        -i|--interactive)
+            INTERACTIVE=true
+            shift
+            ;;
+        -h|--help)
+            cat << 'EOF'
+Usage: bb5 remote exec [CONTEXT] [COMMAND] [OPTIONS]
+
+Execute commands on remote hosts via SSH
+
+ARGUMENTS:
+  CONTEXT               Remote context name (optional, uses current if omitted)
+  COMMAND               Command to execute (required unless -i)
+
+OPTIONS:
+  -c, --context <name>  Use specific context
+  -i, --interactive     Interactive SSH session
+  -h, --help           Show this help
+
+EXAMPLES:
+  bb5 remote exec vps "ls -la"
+  bb5 remote exec "ps aux | grep ralf"
+  bb5 remote exec vps -i
+  bb5 remote exec macmini "tail -f /var/log/ralf.log"
+
+EOF
+            exit 0
+            ;;
+        *)
+            if [[ -z "$COMMAND" && "$1" != -* ]]; then
+                # First non-option argument could be context or command
+                if [[ -f "$BB5_DIR/config/bb5-cli/contexts/remote/${1}.yaml" ]]; then
+                    CONTEXT="$1"
+                else
+                    COMMAND="$1"
+                fi
+            else
+                COMMAND="$COMMAND $1"
+            fi
+            shift
+            ;;
+    esac
+done
+
+# Trim command
+COMMAND=$(echo "$COMMAND" | sed 's/^ *//;s/ *$//')
+
+# Get context
+if [[ -z "$CONTEXT" ]]; then
+    CONTEXT=$(bb5_remote_context_current 2>/dev/null)
+    if [[ "$CONTEXT" == "none" || -z "$CONTEXT" ]]; then
+        bb5_print_error "No remote context selected"
+        echo "Run: bb5 remote context use <name> or specify context as first argument" >&2
+        exit 1
+    fi
+fi
+
+# Get context values
+HOST=$(bb5_remote_get_context_value "host" "$CONTEXT" 2>/dev/null)
+USER=$(bb5_remote_get_context_value "user" "$CONTEXT" 2>/dev/null)
+SSH_KEY=$(bb5_remote_get_context_value "ssh_key" "$CONTEXT" 2>/dev/null)
+
+if [[ -z "$HOST" || -z "$USER" ]]; then
+    bb5_print_error "Invalid context configuration for '$CONTEXT'"
+    exit 1
+fi
+
+# Expand SSH key path
+SSH_KEY="${SSH_KEY/#\~/$HOME}"
+
+bb5_print_info "Connecting to $CONTEXT ($USER@$HOST)"
+
+if [[ "$INTERACTIVE" == true ]]; then
+    # Interactive SSH session
+    exec ssh -i "$SSH_KEY" "${USER}@${HOST}"
+else
+    # Execute command
+    if [[ -z "$COMMAND" ]]; then
+        bb5_print_error "No command specified (use -i for interactive mode)"
+        exit 1
+    fi
+
+    ssh -i "$SSH_KEY" "${USER}@${HOST}" "$COMMAND"
+    EXIT_CODE=$?
+
+    if [[ $EXIT_CODE -eq 0 ]]; then
+        bb5_print_success "Command completed"
+    else
+        bb5_print_error "Command failed with exit code $EXIT_CODE"
+    fi
+
+    exit $EXIT_CODE
+fi

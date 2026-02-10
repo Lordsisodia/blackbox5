@@ -1,0 +1,63 @@
+#!/bin/bash
+# BB5 Database CLI
+# Supabase operations with multi-client context support
+
+BB5_DIR="${BB5_DIR:-$HOME/.blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_discovery.sh"
+
+COMMAND="${1:-list}"
+shift || true
+
+case "$COMMAND" in
+    context)
+        SUBCOMMAND="${1:-current}"
+        shift || true
+        case "$SUBCOMMAND" in
+            list|ls)
+                bb5_db_context_list
+                ;;
+            current)
+                bb5_db_context_current
+                ;;
+            use)
+                bb5_db_context_use "$1"
+                ;;
+            show)
+                bb5_db_context_show
+                ;;
+            create)
+                bb5_db_context_create "$@"
+                ;;
+            delete|rm)
+                bb5_db_context_delete "$1"
+                ;;
+            *)
+                echo "Unknown context command: $SUBCOMMAND"
+                echo "Usage: bb5 db context {list|current|use|show|create|delete}"
+                exit 1
+                ;;
+        esac
+        ;;
+    query)
+        exec "$BB5_DIR/bin/bb5-cli/tools/db-query" "$@"
+        ;;
+    migrate)
+        exec "$BB5_DIR/bin/bb5-cli/tools/db-migrate" "$@"
+        ;;
+    backup)
+        exec "$BB5_DIR/bin/bb5-cli/tools/db-backup" "$@"
+        ;;
+    restore)
+        exec "$BB5_DIR/bin/bb5-cli/tools/db-restore" "$@"
+        ;;
+    list|ls)
+        bb5_discover_category "db"
+        ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        bb5_discover_category "db"
+        exit 1
+        ;;
+esac

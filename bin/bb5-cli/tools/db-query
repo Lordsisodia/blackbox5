@@ -1,0 +1,119 @@
+#!/bin/bash
+# BB5 DB Query Tool
+# Execute SQL queries against Supabase
+
+BB5_DIR="${BB5_DIR:-$HOME/.blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+
+# Parse arguments
+SQL=""
+FORMAT="table"
+CONTEXT=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -s|--sql)
+            SQL="$2"
+            shift 2
+            ;;
+        -f|--format)
+            FORMAT="$2"
+            shift 2
+            ;;
+        -c|--context)
+            CONTEXT="$2"
+            shift 2
+            ;;
+        -h|--help)
+            cat << 'EOF'
+Usage: bb5 db query [OPTIONS]
+
+Execute SQL query against Supabase database
+
+OPTIONS:
+  -s, --sql <query>      SQL query to execute (required)
+  -f, --format <format>  Output format: table|json|csv (default: table)
+  -c, --context <name>   Use specific context (default: current)
+  -h, --help            Show this help
+
+EXAMPLES:
+  bb5 db query -s "SELECT * FROM users LIMIT 10"
+  bb5 db query -s "SELECT * FROM orders" -f json
+  bb5 db query -s "SELECT *" -c client-b
+
+EOF
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done
+
+# Validate required arguments
+if [[ -z "$SQL" ]]; then
+    bb5_print_error "SQL query is required. Use -s or --sql"
+    exit 1
+fi
+
+# Get context
+if [[ -z "$CONTEXT" ]]; then
+    CONTEXT=$(bb5_db_context_current 2>/dev/null)
+    if [[ "$CONTEXT" == "none" || -z "$CONTEXT" ]]; then
+        bb5_print_error "No database context selected"
+        echo "Run: bb5 db context use <name>" >&2
+        exit 1
+    fi
+fi
+
+# Get context values
+PROJECT_REF=$(bb5_db_get_context_value "project_ref" 2>/dev/null)
+URL=$(bb5_db_get_context_value "url" 2>/dev/null)
+API_KEY=$(bb5_db_get_context_value "api_key" 2>/dev/null)
+
+if [[ -z "$PROJECT_REF" || -z "$URL" || -z "$API_KEY" ]]; then
+    bb5_print_error "Invalid context configuration for '$CONTEXT'"
+    exit 1
+fi
+
+bb5_print_info "Executing query on context: $CONTEXT"
+
+# Execute query using Supabase REST API
+# Note: This uses the PostgREST API directly
+RESPONSE=$(curl -s -X POST \
+    -H "apikey: $API_KEY" \
+    -H "Authorization: Bearer $API_KEY" \
+    -H "Content-Type: application/json" \
+    -H "Prefer: params=multiple-objects" \
+    -d "{\"query\": \"$SQL\"}" \
+    "$URL/rest/v1/rpc/execute_sql" 2>/dev/null)
+
+# Check if we got an error
+if echo "$RESPONSE" | grep -q '"error"'; then
+    bb5_print_error "Query failed"
+    echo "$RESPONSE" | jq '.' 2>/dev/null || echo "$RESPONSE"
+    exit 1
+fi
+
+# Format output
+case "$FORMAT" in
+    json)
+        echo "$RESPONSE" | jq '.' 2>/dev/null || echo "$RESPONSE"
+        ;;
+    csv)
+        # Convert JSON to CSV using jq
+        echo "$RESPONSE" | jq -r '.[] | @csv' 2>/dev/null || echo "$RESPONSE"
+        ;;
+    table|*)
+        # Pretty print as table
+        if command -v jq &>/dev/null; then
+            echo "$RESPONSE" | jq '.' 2>/dev/null || echo "$RESPONSE"
+        else
+            echo "$RESPONSE"
+        fi
+        ;;
+esac
+
+bb5_print_success "Query completed"
