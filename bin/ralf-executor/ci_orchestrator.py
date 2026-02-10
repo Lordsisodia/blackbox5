@@ -114,14 +114,150 @@ class EventHandler:
         return events
 
 
+class CircuitBreaker:
+    """Circuit breaker pattern to prevent cascade failures."""
+
+    def __init__(self, failure_threshold=5, recovery_timeout=60):
+        self.failure_threshold = failure_threshold
+        self.recovery_timeout = recovery_timeout
+        self.failures = 0
+        self.last_failure_time = None
+        self.state = "closed"  # closed, open, half-open
+
+    def call(self, func, *args, **kwargs):
+        """Execute function with circuit breaker protection."""
+        if self.state == "open":
+            if self._should_attempt_reset():
+                self.state = "half-open"
+            else:
+                raise Exception("Circuit breaker is open")
+
+        try:
+            result = func(*args, **kwargs)
+            self._on_success()
+            return result
+        except Exception as e:
+            self._on_failure()
+            raise e
+
+    def _should_attempt_reset(self):
+        """Check if enough time has passed to try again."""
+        if not self.last_failure_time:
+            return True
+        return (time.time() - self.last_failure_time) > self.recovery_timeout
+
+    def _on_success(self):
+        """Handle successful call."""
+        if self.state == "half-open":
+            self.state = "closed"
+        self.failures = 0
+
+    def _on_failure(self):
+        """Handle failed call."""
+        self.failures += 1
+        self.last_failure_time = time.time()
+        if self.failures >= self.failure_threshold:
+            self.state = "open"
+
+
+class RateLimiter:
+    """Rate limiter for agent spawning."""
+
+    def __init__(self, max_per_minute=10):
+        self.max_per_minute = max_per_minute
+        self.spawn_times = []
+
+    def can_spawn(self):
+        """Check if spawn is allowed under rate limit."""
+        now = time.time()
+        # Remove spawns older than 1 minute
+        self.spawn_times = [t for t in self.spawn_times if now - t < 60]
+        return len(self.spawn_times) < self.max_per_minute
+
+    def record_spawn(self):
+        """Record a spawn attempt."""
+        self.spawn_times.append(time.time())
+
+    def get_wait_time(self):
+        """Get seconds until next spawn allowed."""
+        if self.can_spawn():
+            return 0
+        now = time.time()
+        oldest = min(self.spawn_times)
+        return max(0, 60 - (now - oldest))
+
+
+class AgentMonitor:
+    """Monitors health of spawned agents."""
+
+    def __init__(self, timeout_seconds=300):
+        self.timeout_seconds = timeout_seconds
+        self.active_agents = {}  # agent_id -> {started_at, issue_id, pid}
+        self.completed_agents = []
+        self._lock = threading.Lock()
+
+    def record_start(self, agent_id, issue_id, pid=None):
+        """Record agent start."""
+        with self._lock:
+            self.active_agents[agent_id] = {
+                "started_at": time.time(),
+                "issue_id": issue_id,
+                "pid": pid,
+                "last_heartbeat": time.time()
+            }
+
+    def record_heartbeat(self, agent_id):
+        """Update agent heartbeat."""
+        with self._lock:
+            if agent_id in self.active_agents:
+                self.active_agents[agent_id]["last_heartbeat"] = time.time()
+
+    def record_complete(self, agent_id, success=True):
+        """Record agent completion."""
+        with self._lock:
+            if agent_id in self.active_agents:
+                info = self.active_agents.pop(agent_id)
+                info["completed_at"] = time.time()
+                info["success"] = success
+                self.completed_agents.append(info)
+                # Keep only last 100 completed
+                if len(self.completed_agents) > 100:
+                    self.completed_agents = self.completed_agents[-100:]
+
+    def get_stuck_agents(self):
+        """Get agents that have timed out."""
+        now = time.time()
+        stuck = []
+        with self._lock:
+            for agent_id, info in list(self.active_agents.items()):
+                if now - info["last_heartbeat"] > self.timeout_seconds:
+                    stuck.append((agent_id, info))
+        return stuck
+
+    def get_stats(self):
+        """Get monitoring stats."""
+        with self._lock:
+            return {
+                "active": len(self.active_agents),
+                "completed": len(self.completed_agents),
+                "stuck": len(self.get_stuck_agents())
+            }
+
+
 class CIOrchestrator:
     """Orchestrates the CI pipeline using event-driven architecture."""
 
-    def __init__(self):
+    def __init__(self, max_agents_per_minute=10, circuit_threshold=5, agent_timeout=300):
         self.running = False
         self.cycle_count = 0
         self.event_handler = EventHandler(self)
         self._processed_events = set()  # Track processed event IDs
+        self.rate_limiter = RateLimiter(max_agents_per_minute)
+        self.circuit_breaker = CircuitBreaker(failure_threshold=circuit_threshold)
+        self.agent_monitor = AgentMonitor(timeout_seconds=agent_timeout)
+        self._spawn_stats = {"success": 0, "failed": 0, "rate_limited": 0}
+        self._health_check_interval = 30
+        self._last_health_check = 0
 
     def start(self):
         """Start the event-driven orchestrator."""
@@ -165,6 +301,7 @@ class CIOrchestrator:
                     if 'IN_MODIFY' in type_names or 'IN_CLOSE_WRITE' in type_names:
                         self.cycle_count += 1
                         self.event_handler.on_event()
+                        self._check_health()
         except KeyboardInterrupt:
             pass
         finally:
@@ -208,6 +345,24 @@ class CIOrchestrator:
                 print(f"Error in cycle {self.cycle_count}: {e}")
             time.sleep(5)
 
+    def _check_health(self):
+        """Check health of active agents."""
+        now = time.time()
+        if now - self._last_health_check < self._health_check_interval:
+            return
+        self._last_health_check = now
+
+        stuck = self.agent_monitor.get_stuck_agents()
+        for agent_id, info in stuck:
+            print(f"[{datetime.now().isoformat()}] Agent {agent_id} stuck, marking failed")
+            self.agent_monitor.record_complete(agent_id, success=False)
+            # Publish failure event
+            event_bus.publish(
+                "agent.failed",
+                {"agent_id": agent_id, "issue_id": info.get("issue_id"), "reason": "timeout"},
+                source="ci-orchestrator"
+            )
+
     def stop(self):
         """Stop the orchestrator."""
         self.running = False
@@ -250,7 +405,7 @@ class CIOrchestrator:
         # (This would require listing plans, skipping for now)
 
     def _spawn_agent(self, agent_key, payload):
-        """Spawn an agent to handle work."""
+        """Spawn an agent to handle work with rate limiting and circuit breaker."""
         agent = AGENTS.get(agent_key)
         if not agent:
             return
@@ -260,6 +415,23 @@ class CIOrchestrator:
 
         if not os.path.exists(agent_file):
             print(f"Agent file not found: {agent_file}")
+            return
+
+        # Check rate limiter
+        if not self.rate_limiter.can_spawn():
+            wait_time = self.rate_limiter.get_wait_time()
+            print(f"[{datetime.now().isoformat()}] Rate limit hit for {agent_name}, waiting {wait_time:.1f}s")
+            self._spawn_stats["rate_limited"] += 1
+            # Re-queue the event by publishing it again
+            time.sleep(wait_time)
+            # Re-check after wait
+            if not self.rate_limiter.can_spawn():
+                print(f"[{datetime.now().isoformat()}] Still rate limited, skipping {agent_name}")
+                return
+
+        # Check circuit breaker
+        if self.circuit_breaker.state == "open":
+            print(f"[{datetime.now().isoformat()}] Circuit breaker open, skipping {agent_name}")
             return
 
         # Create spawn event
@@ -275,9 +447,14 @@ class CIOrchestrator:
 
         print(f"[{datetime.now().isoformat()}] Spawning {agent_name} with payload: {payload}")
 
-        # Spawn the agent using Claude Code
-        # This uses the Task tool equivalent via CLI
-        self._spawn_claude_agent(agent_name, payload)
+        # Spawn with circuit breaker protection
+        try:
+            self.circuit_breaker.call(self._spawn_claude_agent, agent_name, payload)
+            self.rate_limiter.record_spawn()
+            self._spawn_stats["success"] += 1
+        except Exception as e:
+            print(f"[{datetime.now().isoformat()}] Failed to spawn {agent_name}: {e}")
+            self._spawn_stats["failed"] += 1
 
     def _spawn_claude_agent(self, agent_name, payload):
         """Spawn a Claude Code agent."""
@@ -366,6 +543,17 @@ Complete your task and exit.
 
         print(f"\nOrchestrator cycles: {self.cycle_count}")
         print(f"Running: {self.running}")
+        print(f"\nSpawn Statistics:")
+        print(f"  Success: {self._spawn_stats['success']}")
+        print(f"  Failed: {self._spawn_stats['failed']}")
+        print(f"  Rate Limited: {self._spawn_stats['rate_limited']}")
+        print(f"\nCircuit Breaker: {self.circuit_breaker.state}")
+        print(f"Rate Limit: {len(self.rate_limiter.spawn_times)}/{self.rate_limiter.max_per_minute} agents/min")
+        stats = self.agent_monitor.get_stats()
+        print(f"\nAgent Monitor:")
+        print(f"  Active: {stats['active']}")
+        print(f"  Completed: {stats['completed']}")
+        print(f"  Stuck: {stats['stuck']}")
 
 
 # CLI interface
