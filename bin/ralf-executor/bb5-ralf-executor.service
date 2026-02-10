@@ -4,14 +4,15 @@ After=network.target
 
 [Service]
 Type=simple
-User=bb5-runner
+User=root
 WorkingDirectory=/opt/blackbox5
 Environment="BB5_DIR=/opt/blackbox5"
-Environment="ANTHROPIC_API_KEY=9199f096657444eda30ffce701e6b46b.zggFTGemqS5Oez2w"
-Environment="ANTHROPIC_BASE_URL=https://api.glm.ai/coding/"
+Environment="ANTHROPIC_AUTH_TOKEN=18849801bb674d08b2df2d27822a5037.aW3s8UbOhKjMRxan"
+Environment="ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic"
+Environment="CLAUDE_MODEL=glm-4.7-flash"
 Environment="CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1"
 Environment="BB5_MODE=autonomous"
-ExecStart=/opt/blackbox5/bin/ralf-executor/ralf-core.sh
+ExecStart=/opt/blackbox5/bin/ralf-executor/ralf-wrapper.sh
 Restart=always
 RestartSec=30
 StandardOutput=append:/var/log/bb5-ralf-executor.log

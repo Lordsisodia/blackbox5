@@ -43,7 +43,8 @@ mkdir -p "$(dirname "$QUEUE_FILE")"
 
 # Detect AI provider
 detect_ai_provider() {
-    if [ -n "$ANTHROPIC_API_KEY" ] && command -v claude &> /dev/null; then
+    # Check if claude is available - settings.json may have the auth config
+    if command -v claude &> /dev/null; then
         echo "claude"
     elif command -v glm &> /dev/null; then
         echo "glm"
@@ -179,8 +180,11 @@ run_claude() {
 
     log "Running Claude Code..."
 
-    # Run Claude with the prompt
-    if echo "$prompt" | claude -p --dangerously-skip-permissions > "$output_file" 2>&1; then
+    # Use cheaper model for most tasks, allow override for complex tasks
+    local model="${CLAUDE_MODEL:-glm-4.7-flash}"
+
+    # Run Claude with the prompt and model
+    if echo "$prompt" | claude -p --dangerously-skip-permissions --model "$model" > "$output_file" 2>&1; then
         return 0
     else
         return 1
