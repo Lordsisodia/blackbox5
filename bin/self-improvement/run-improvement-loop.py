@@ -378,8 +378,9 @@ def execute_log_rotation(log_files: List[str]) -> bool:
             try:
                 subprocess.run(["gzip", str(archive_path)], check=True, capture_output=True)
                 log(f"      Compressed: {archive_name}.gz")
-            except:
-                pass  # Compression is optional
+            except (subprocess.CalledProcessError, FileNotFoundError) as e:
+                log(f"      Compression failed (optional): {e}")
+                # Compression is optional, continue without it
 
         except Exception as e:
             log(f"      Failed to rotate {log_path}: {e}", "ERROR")

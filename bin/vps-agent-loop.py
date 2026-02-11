@@ -296,8 +296,9 @@ def save_incoming_messages():
         if LAST_UPDATE_ID_FILE.exists():
             try:
                 last_id = int(LAST_UPDATE_ID_FILE.read_text().strip())
-            except:
-                pass
+            except (ValueError, IOError) as e:
+                log(f"Error reading last update ID: {e}")
+                last_id = 0
 
         response = requests.get(
             f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates",
