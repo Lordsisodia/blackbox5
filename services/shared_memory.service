@@ -1,0 +1,16 @@
+[Unit]
+Description=Shared Memory Service for Multi-Agent Systems
+After=network.target
+
+[Service]
+Type=notify
+ExecStart=/opt/blackbox5/services/shared_memory_service.py
+WorkingDirectory=/opt/blackbox5
+Environment=REDIS_HOST=0.0.0.0
+Restart=always
+RestartSec=10
+StandardOutput=journal
+SyslogIdentifier=shared-memory
+
+[Install]
+WantedBy=multi-user.target
