@@ -82,7 +82,7 @@ class SharedMemoryService:
                 if insight_ids:
                     for insight_id in insight_ids[:limit]:
                         insight_key = f"shared_memory:insight:{insight_id}"
-                        insight_json = self.redis.hget(insight_key)
+                        insight_json = self.redis.hget(insight_key, "data")
                         if insight_json:
                             try:
                                 results.append(json.loads(insight_json))
@@ -90,32 +90,9 @@ class SharedMemoryService:
                                 pass
             
             else:
-                query_lower = query.lower()
-                search_key = f"shared_memory:search_index"
-                
-                try:
-                    import redis.commands.search
-                    has_search = True
-                    
-                    search_result = self.redis.ft_search(
-                        index_name=search_key,
-                        query=query,
-                        limit=limit
-                    )
-                    
-                    if hasattr(search_result, 'documents'):
-                        doc_ids = [doc.id for doc in search_result.documents]
-                    else:
-                        doc_ids = []
-                    
-                    if doc_ids:
-                        for doc_id in doc_ids:
-                            doc_key = f"shared_memory:insight:{doc_id}"
-                            doc_json = self.redis.hgetall(doc_key)
-                            if doc_json:
-                                for field_name, field_value in doc_json.items():
-                                    if field_value:
-                                        results.append(json.loads(field_value))
+                # Full-text search not implemented yet - return empty for now
+                # This would use Redis Search module when available
+                pass
             
             return results
             
@@ -191,7 +168,10 @@ def main():
             else:
                 print("✗ FAIL: Insight not found")
                 sys.exit(1)
-            
+        except Exception as e:
+            print(f"✗ FAIL: {e}")
+            sys.exit(1)
+        
         print("\n=== Test 3: Health Check ===")
         is_healthy = service.health_check()
         print(f"✓ PASS" if is_healthy else "✗ FAIL")
