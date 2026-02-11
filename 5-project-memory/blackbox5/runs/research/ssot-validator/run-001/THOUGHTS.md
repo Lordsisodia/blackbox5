@@ -59,10 +59,10 @@ Pipeline is initialized but Auditor Worker hasn't started yet. The worker's run 
 ## Key Discovery
 
 The Auditor Worker correctly identified that the main STATE.yaml is at:
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml` (639 lines)
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml` (639 lines)
 
 Not the smaller one I initially found at:
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/STATE.yaml` (38 lines)
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/STATE.yaml` (38 lines)
 
 This is the correct approach - the worker audited the actual project SSOT, not the research-pipeline sub-component.
 

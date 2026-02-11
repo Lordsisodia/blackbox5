@@ -120,7 +120,7 @@ drwxr-xr-x@  12 shaansisodia  staff      384 Jan 18 05:44 ..
 drwxr-xr-x@   7 shaansisodia  staff      224 Jan 18 12:45 .archived-code
 drwxr-xr-x@  54 shaansisodia  staff     1728 Jan 18 14:07 .blackbox
 drwxr-xr-x@  63 shaansisodia  staff     2016 Jan 19 09:12 .blackbox-transfer
-drwxr-xr-x@  28 shaansisodia  staff      896 Jan 19 09:17 .blackbox5
+drwxr-xr-x@  28 shaansisodia  staff      896 Jan 19 09:17 blackbox5
 drwxr-xr-x@   4 shaansisodia  staff      128 Jan 18 15:04 .claude
 drwxr-xr-x@   2 shaansisodia  staff       64 Jan 18 14:25 .deepeval
 drwxr-xr-x@   4 shaansisodia  staff      128 Jan 18 12:08 .docs

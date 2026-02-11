@@ -1,0 +1,77 @@
+# Goals Index
+# =============================================================================
+# Auto-generated: Quick lookup for all goals
+# Generated: FILL_ME - ISO timestamp
+# =============================================================================
+
+meta:
+  generated_at: "FILL_ME - ISO timestamp"
+  version: "1.0.0"
+  # NOTE: Goal counts are dynamically derived from goals/active/ directory.
+  # Use get_goal_counts() or count from the goals list below.
+  # Do not cache counts in this file - always derive from source of truth.
+  last_synced: "FILL_ME - ISO timestamp"
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+# NOTE: All counts below are dynamically derived from goals/active/ directory.
+# Use get_goal_counts() or count from the goals list below.
+# Do not cache counts in this file - always derive from source of truth.
+
+summary:
+  # Derived from goals list - count statuses dynamically
+  # not_started: count goals with status=not_started
+  # in_progress: count goals with status=in_progress
+  # completed: count goals with status=completed
+  # draft: count goals with status=draft
+  # cancelled: count goals with status=cancelled
+  # merged: count goals with status=merged
+  # active: count goals with status=active
+
+by_priority:
+  critical: []
+    # - IG-XXX
+  high: []
+    # - IG-XXX
+  medium: []
+    # - IG-XXX
+  low: []
+    # - IG-XXX
+
+by_status:
+  not_started: []
+    # - IG-XXX
+  in_progress: []
+    # - IG-XXX
+  completed: []
+    # - IG-XXX
+  draft: []
+    # - IG-XXX
+  cancelled: []
+    # - IG-XXX
+  merged: []
+    # - IG-XXX
+  active: []
+    # - IG-XXX
+
+# =============================================================================
+# GOALS DETAIL (Derived from goal.yaml files)
+# =============================================================================
+
+goals: []
+  # - id: IG-XXX
+  #   name: "FILL_ME - Goal name"
+  #   status: not_started
+  #   progress: 0%
+  #   priority: high
+  #   owner: FILL_ME - Agent name
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# This file is auto-generated from goals in active/
+# Source of truth: goals/active/IG-*/goal.yaml
+# DO NOT EDIT MANUALLY - Run sync-goal-index.sh to regenerate
+# Last synced: FILL_ME - ISO timestamp

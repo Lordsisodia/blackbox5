@@ -45,7 +45,7 @@
 pip install {LIBRARY_NAME}
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 {LIBRARY_NAME}>=1.0.0
 ```
@@ -115,7 +115,7 @@ except {ServiceName}Error as e:
 
 ```bash
 # Run tests
-python .blackbox5/integration/{SERVICE_LOWER}/tests/test_integration.py
+python blackbox5/integration/{SERVICE_LOWER}/tests/test_integration.py
 ```
 
 ## Troubleshooting

@@ -23,7 +23,7 @@ relates_to: []      # Related IDs
 parent_improvement: null  # Part of larger improvement
 
 # Tasks
-related_tasks: []   # Links to .blackbox5/tasks/
+related_tasks: []   # Links to blackbox5/tasks/
 parent_prd: null
 parent_epic: null
 

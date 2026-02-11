@@ -128,7 +128,7 @@ class VibeKanbanManager:
         base_url: Optional[str] = None,
         project_id: str = "48ec7737-b706-4817-b86c-5786163a0139",
         repo_id: str = "b5b86bc2-fbfb-4276-b15e-01496d647a81",
-        repo_path: str = "/Users/shaansisodia/.blackbox5"
+        repo_path: str = "/Users/shaansisodia/blackbox5"
     ):
         """
         Initialize Vibe Kanban Manager

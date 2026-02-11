@@ -22,7 +22,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Default run directory base
-RUNS_BASE="${HOME}/.blackbox5/5-project-memory/blackbox5/runs"
+RUNS_BASE="${HOME}/blackbox5/5-project-memory/blackbox5/runs"
 
 # Dry run flag
 DRY_RUN=false

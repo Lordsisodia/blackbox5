@@ -3,7 +3,7 @@
 ## Validation Results
 
 ### Functional Validation
-- [x] All hardcoded paths replaced with `~/.blackbox5/` notation
+- [x] All hardcoded paths replaced with `~/blackbox5/` notation
 - [x] 0 occurrences of old path remaining (verified with grep)
 - [x] Git commits created successfully (2 atomic commits)
 - [x] Files modified: 35 (28 markdown + 3 Python + task file)
@@ -31,7 +31,7 @@
 ## Success Criteria Status
 - [x] All 35 affected files updated
 - [x] critical-paths.md paths verified correct
-- [x] Python files updated (use `~/.blackbox5/` notation)
+- [x] Python files updated (use `~/blackbox5/` notation)
 - [x] Git commits created with atomic changes
 - [x] No regressions - paths resolve correctly
 

@@ -16,7 +16,7 @@ BlackBox5 contains **2,702 markdown documentation files** across multiple direct
 - **311 files** in 5-project-memory
 - **162 files** in 1-docs (theory & implementation)
 - **138 files** in 6-roadmap (planning & status)
-- **1,184+ files** with outdated `.blackbox5` references
+- **1,184+ files** with outdated `blackbox5` references
 - **20+ truly orphaned files** with zero references
 - **3 identical code_index.md files** (duplicates)
 - **144 files** referencing old "Auto-Claude" system
@@ -153,9 +153,9 @@ Files in old session directories that may never be referenced:
 
 ## 4. OUTDATED REFERENCES (Need Updating)
 
-### 4.1 Critical: `.blackbox5` References
+### 4.1 Critical: `blackbox5` References
 
-**Impact:** 1,184+ files contain references to `.blackbox5` (old path with dot prefix)
+**Impact:** 1,184+ files contain references to `blackbox5` (old path with dot prefix)
 
 **Files Affected:**
 - Implementation summaries
@@ -166,7 +166,7 @@ Files in old session directories that may never be referenced:
 **Example:**
 ```markdown
 # Old (incorrect)
-See .blackbox5/1-docs/...
+See blackbox5/1-docs/...
 
 # New (correct)
 See blackbox5/1-docs/...
@@ -175,7 +175,7 @@ See blackbox5/1-docs/...
 **Action Required:**
 ```bash
 # Bulk replace command
-find blackbox5 -type f -name "*.md" -exec sed -i '' 's/\.blackbox5\//blackbox5\//g' {} \;
+find blackbox5 -type f -name "*.md" -exec sed -i '' 's/\blackbox5\//blackbox5\//g' {} \;
 ```
 
 ### 4.2 Old System References
@@ -269,10 +269,10 @@ Multiple files with "manager" in the name suggest potential consolidation:
 
 ### Priority 1: Immediate Actions (High Impact)
 
-1. **Update all `.blackbox5` references** (1,184+ files)
+1. **Update all `blackbox5` references** (1,184+ files)
    ```bash
    cd blackbox5
-   find . -type f -name "*.md" -exec sed -i '' 's/\.blackbox5\//blackbox5\//g' {} \;
+   find . -type f -name "*.md" -exec sed -i '' 's/\blackbox5\//blackbox5\//g' {} \;
    ```
 
 2. **Delete duplicate code_index files** (save 432KB)
@@ -375,7 +375,7 @@ Multiple files with "manager" in the name suggest potential consolidation:
 ### D. Files with Outdated References
 
 ```
-[Generated from: grep -r '\.blackbox5' --include="*.md"]
+[Generated from: grep -r '\blackbox5' --include="*.md"]
 ```
 
 ---

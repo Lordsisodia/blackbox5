@@ -125,11 +125,11 @@ planned → ready → claimed → in_progress → completed → archived
 
 ## Files to Modify
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Add status values
-2. `/Users/shaansisodia/.blackbox5/bin/ralf-task-select.sh` - Set claimed status
-3. `/Users/shaansisodia/.blackbox5/bin/ralf-task-start.sh` - NEW: Set in_progress status
-4. `/Users/shaansisodia/.blackbox5/bin/ralf-stop-hook.sh` - Set completed/failed, move task
-5. `/Users/shaansisodia/.blackbox5/bin/ralf-task-status.sh` - NEW: Status sync utility
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Add status values
+2. `/Users/shaansisodia/blackbox5/bin/ralf-task-select.sh` - Set claimed status
+3. `/Users/shaansisodia/blackbox5/bin/ralf-task-start.sh` - NEW: Set in_progress status
+4. `/Users/shaansisodia/blackbox5/bin/ralf-stop-hook.sh` - Set completed/failed, move task
+5. `/Users/shaansisodia/blackbox5/bin/ralf-task-status.sh` - NEW: Status sync utility
 
 ---
 
@@ -138,12 +138,12 @@ planned → ready → claimed → in_progress → completed → archived
 This task is a **DUPLICATE** of the following completed tasks:
 
 1. **TASK-ARCH-015-status-lifecycle** (completed)
-   - Location: `~/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-015-status-lifecycle/`
+   - Location: `~/blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-015-status-lifecycle/`
    - Same action plan content
    - Marked as completed with success criteria met
 
 2. **TASK-AUTONOMY-001** (completed)
-   - Location: `~/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTONOMY-001/`
+   - Location: `~/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-AUTONOMY-001/`
    - Status: completed
    - Implemented the actual state machine hook library
 

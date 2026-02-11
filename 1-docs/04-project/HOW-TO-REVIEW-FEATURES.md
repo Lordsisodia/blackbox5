@@ -18,7 +18,7 @@
 
 ### Step 1: Check the Feature Matrix
 
-**Open:** `.blackbox5/FEATURE-COMPARISON-MATRIX.md`
+**Open:** `blackbox5/FEATURE-COMPARISON-MATRIX.md`
 
 **Look for:**
 - 🟢 **GREEN** = Feature already exists (DON'T BUILD)
@@ -41,7 +41,7 @@ If feature is 🟢 GREEN or 🟡 YELLOW, read the code:
 **Find the file:**
 ```bash
 # Find safety/resilience modules
-find .blackbox5/2-engine/01-core/resilience -name "*.py"
+find blackbox5/2-engine/01-core/resilience -name "*.py"
 
 # Find specific feature
 find blackbox5 -name "*circuit*" -o -name "*breaker*" -o -name "*safety*"
@@ -49,7 +49,7 @@ find blackbox5 -name "*circuit*" -o -name "*breaker*" -o -name "*safety*"
 
 **Read the implementation:**
 ```bash
-cat .blackbox5/2-engine/01-core/resilience/circuit_breaker.py
+cat blackbox5/2-engine/01-core/resilience/circuit_breaker.py
 ```
 
 **Check for:**
@@ -64,7 +64,7 @@ cat .blackbox5/2-engine/01-core/resilience/circuit_breaker.py
 
 **Open research session summaries:**
 ```bash
-.blackbox5/roadmap/01-research/execution-safety/session-summaries/
+blackbox5/roadmap/01-research/execution-safety/session-summaries/
 ```
 
 **For each research recommendation:**
@@ -157,7 +157,7 @@ cat .blackbox5/2-engine/01-core/resilience/circuit_breaker.py
 
 ```bash
 # Find all safety/resilience modules
-find .blackbox5/2-engine/01-core/resilience -name "*.py"
+find blackbox5/2-engine/01-core/resilience -name "*.py"
 
 # Find circuit breakers
 find blackbox5 -name "*circuit*" -o -name "*breaker*"
@@ -176,12 +176,12 @@ find blackbox5 -name "*check*" -o -name "*validate*"
 
 ```bash
 # Search for specific patterns in code
-grep -r "circuit.*breaker" .blackbox5/2-engine
-grep -r "kill.*switch" .blackbox5/2-engine
-grep -r "safe.*mode" .blackbox5/2-engine
+grep -r "circuit.*breaker" blackbox5/2-engine
+grep -r "kill.*switch" blackbox5/2-engine
+grep -r "safe.*mode" blackbox5/2-engine
 
 # Find all Python files with safety-related content
-find .blackbox5/2-engine -name "*.py" | xargs grep -l "circuit\|breaker\|safety\|valid"
+find blackbox5/2-engine -name "*.py" | xargs grep -l "circuit\|breaker\|safety\|valid"
 ```
 
 ---
@@ -259,7 +259,7 @@ find .blackbox5/2-engine -name "*.py" | xargs grep -l "circuit\|breaker\|safety\
 
 ### Before Implementing Anything:
 
-1. **Check the matrix:** `.blackbox5/FEATURE-COMPARISON-MATRIX.md`
+1. **Check the matrix:** `blackbox5/FEATURE-COMPARISON-MATRIX.md`
 2. **Search existing code:** `find blackbox5 -name "*keyword*"`
 3. **Read implementation:** If found, read the file
 4. **Compare with research:** Match to findings
@@ -282,8 +282,8 @@ find .blackbox5/2-engine -name "*.py" | xargs grep -l "circuit\|breaker\|safety\
 
 - **`CURRENT-SAFETY-FEATURES.md`** - Detailed feature inventory
 - **`FEATURE-COMPARISON-MATRIX.md`** - Visual comparison matrix
-- **`.blackbox5/roadmap/01-research/`** - Research findings
-- **`.blackbox5/2-engine/01-core/resilience/`** - Existing implementations
+- **`blackbox5/roadmap/01-research/`** - Research findings
+- **`blackbox5/2-engine/01-core/resilience/`** - Existing implementations
 
 ---
 

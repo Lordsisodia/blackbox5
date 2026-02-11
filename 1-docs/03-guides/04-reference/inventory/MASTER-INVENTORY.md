@@ -22,7 +22,7 @@
 
 ## 🎯 FRAMEWORKS EXTRACTED (Source Material)
 
-### 1. BMAD (`.blackbox5/engine/frameworks/1-bmad/`)
+### 1. BMAD (`blackbox5/engine/frameworks/1-bmad/`)
 **Source**: BMAD methodology
 **What we have**:
 - 4-phase methodology docs
@@ -53,7 +53,7 @@
 
 ---
 
-### 2. SpecKit (`.blackbox5/engine/frameworks/2-speckit/`)
+### 2. SpecKit (`blackbox5/engine/frameworks/2-speckit/`)
 **Source**: SpecKit framework
 **What we have**:
 - Spec-driven development docs
@@ -71,7 +71,7 @@
 
 ---
 
-### 3. MetaGPT (`.blackbox5/engine/frameworks/3-metagpt/`)
+### 3. MetaGPT (`blackbox5/engine/frameworks/3-metagpt/`)
 **Source**: MetaGPT framework
 **What we have**:
 - SOP (Standard Operating Procedure) docs
@@ -86,7 +86,7 @@
 
 ---
 
-### 4. Swarm (`.blackbox5/engine/frameworks/4-swarm/`)
+### 4. Swarm (`blackbox5/engine/frameworks/4-swarm/`)
 **Source**: Swarm framework
 **What we have**:
 - Emergent behavior patterns
@@ -102,7 +102,7 @@
 
 ---
 
-## 🔧 CORE SYSTEMS (`.blackbox5/engine/core/`)
+## 🔧 CORE SYSTEMS (`blackbox5/engine/core/`)
 
 ### ✅ WORKING (3/13 modules)
 
@@ -292,7 +292,7 @@
 
 ---
 
-## 🤖 AGENT SYSTEM (`.blackbox5/engine/.agents/`)
+## 🤖 AGENT SYSTEM (`blackbox5/engine/.agents/`)
 
 ### Agent Definitions (YAML specs only)
 
@@ -324,7 +324,7 @@
 
 ---
 
-## 🛠️ SKILLS SYSTEM (`.blackbox5/engine/.skills/`)
+## 🛠️ SKILLS SYSTEM (`blackbox5/engine/.skills/`)
 
 **Total**: 57 skill definitions (markdown only)
 
@@ -400,7 +400,7 @@ mypy>=1.7.0
 
 ---
 
-## 🧪 TESTS (`.blackbox5/engine/tests/`)
+## 🧪 TESTS (`blackbox5/engine/tests/`)
 
 **Total**: 21 test files
 
@@ -418,7 +418,7 @@ mypy>=1.7.0
 
 ---
 
-## 🎨 CUSTOM AGENTS (`.blackbox5/custom_agents/`)
+## 🎨 CUSTOM AGENTS (`blackbox5/custom_agents/`)
 
 **Created**: 6 agent definitions (markdown only)
 
@@ -437,11 +437,11 @@ mypy>=1.7.0
 ## 📝 CLI & INTERFACES
 
 ### Files Created
-- `.blackbox5/bb5.py` - CLI interface
-- `.blackbox5/START-NOW.md` - Quick start guide
-- `.blackbox5/QUICKSTART.md` - Detailed guide
-- `.blackbox5/verify-setup.sh` - Verification script
-- `.blackbox5/examples/real-world-tasks.py` - Examples
+- `blackbox5/bb5.py` - CLI interface
+- `blackbox5/START-NOW.md` - Quick start guide
+- `blackbox5/QUICKSTART.md` - Detailed guide
+- `blackbox5/verify-setup.sh` - Verification script
+- `blackbox5/examples/real-world-tasks.py` - Examples
 
 **Status**: ❌ All broken - reference non-existent modules
 

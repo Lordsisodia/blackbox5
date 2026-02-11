@@ -1,0 +1,376 @@
+# BlackBox5 Project Memory - Folder Structure
+# =============================================================================
+# This document defines the complete folder structure for a BlackBox5-style
+# project memory system.
+# =============================================================================
+
+~/.blackbox5/5-project-memory/{project-name}/
+│
+# =============================================================================
+# ROOT FILES - Core project files
+# =============================================================================
+│
+├── STATE.yaml                    # Single source of truth - project state
+├── goals.yaml                    # Goals definition and hierarchy
+├── MAP.yaml                      # Complete file-level project map
+├── timeline.yaml                 # Project timeline and milestones
+├── ACTIVE.md                     # Current work dashboard
+├── WORK-LOG.md                   # Chronological activity log
+├── README.md                     # Project overview and navigation
+├── _NAMING.md                    # Naming conventions
+├── QUERIES.md                    # Common queries for AI agents
+├── feature_backlog.yaml          # Pending features queue
+├── test_results.yaml             # Test outcomes and coverage
+├── NAVIGATION-GUIDE.md           # bb5 CLI navigation guide
+├── AGENT_CONTEXT.md              # Current agent context
+├── ralf-config.yaml              # RALF configuration
+└── RALF-CONTEXT.md               # RALF context documentation
+│
+# =============================================================================
+# .archived/ - Archived historical content
+# =============================================================================
+│
+├── .archived/
+│   └── runs/
+│       └── run-{timestamp}/      # Individual run folders
+│           ├── THOUGHTS.md
+│           ├── DECISIONS.md
+│           ├── RESULTS.md
+│           ├── LEARNINGS.md
+│           ├── ASSUMPTIONS.md
+│           └── metadata.yaml
+│
+# =============================================================================
+# .autonomous/ - RALF autonomous agent system
+# =============================================================================
+│
+├── .autonomous/
+│   ├── agents/                   # Agent-specific data
+│   │   ├── planner/
+│   │   ├── executor/
+│   │   └── architect/
+│   ├── runs/                     # Current run folders
+│   │   └── run-{timestamp}/
+│   ├── tasks/                    # Task management
+│   │   ├── active/
+│   │   ├── completed/
+│   │   └── improvements/
+│   ├── memory/                   # Persistent agent memory
+│   ├── analysis/                 # Analysis results
+│   ├── bin/                      # Scripts and executables
+│   ├── lib/                      # Shared libraries
+│   ├── config/                   # Configuration files
+│   ├── logs/                     # Session logs
+│   ├── research-pipeline/        # Research pipeline
+│   ├── testing/                  # Testing framework
+│   ├── timeline/                 # Timeline tracking
+│   ├── validations/              # Validation results
+│   ├── archive/                  # Archive staging
+│   ├── prompts/                  # Agent prompts
+│   ├── decisions/                # Decision registry
+│   ├── context/                  # Context files
+│   ├── data/                     # Data files
+│   ├── operations/               # Operations data
+│   ├── templates/                # Run templates
+│   ├── README.md
+│   ├── ralf-daemon.sh
+│   ├── state.json
+│   ├── routes.yaml
+│   ├── decision_registry.md
+│   ├── DUAL-RALF-ARCHITECTURE.md
+│   └── RESTRUCTURE-PLAN.md
+│
+# =============================================================================
+# .claude/ - Claude-specific configuration
+# =============================================================================
+│
+├── .claude/
+│   └── hooks/                    # Claude hooks
+│       ├── session-start/
+│       ├── pre-tool/
+│       └── stop/
+│
+# =============================================================================
+# .docs/ - AI-managed documentation
+# =============================================================================
+│
+├── .docs/
+│   ├── ai-template-usage-guide.md
+│   ├── dot-docs-system.md
+│   ├── migration-plan.md
+│   ├── siso-internal-patterns.md
+│   ├── CLAUDE-MEMORY-SYSTEM.md
+│   ├── goals-system-guide.md
+│   ├── task-system-design.md
+│   ├── timeline-architecture.md
+│   └── ... (other guides)
+│
+# =============================================================================
+# .templates/ - Templates for consistent documentation
+# =============================================================================
+│
+├── .templates/
+│   ├── root/                     # Root file templates
+│   │   ├── STATE.yaml.template
+│   │   ├── ACTIVE.md.template
+│   │   ├── WORK-LOG.md.template
+│   │   ├── timeline.yaml.template
+│   │   ├── feature_backlog.yaml.template
+│   │   ├── test_results.yaml.template
+│   │   ├── _NAMING.md.template
+│   │   └── QUERIES.md.template
+│   ├── tasks/                    # Task templates
+│   │   ├── task-specification.md.template
+│   │   ├── task-completion.md.template
+│   │   ├── task-context-bundle.md.template
+│   │   ├── LEARNINGS.md.template
+│   │   ├── THOUGHTS.md.template
+│   │   ├── DECISIONS.md.template
+│   │   ├── RESULTS.md.template
+│   │   └── task-folder.template
+│   ├── goals/                    # Goal templates
+│   │   ├── INDEX.yaml.template
+│   │   └── goal.yaml.template
+│   ├── epic/                     # Epic templates
+│   │   ├── epic.md.template
+│   │   ├── README.md.template
+│   │   ├── INDEX.md.template
+│   │   ├── XREF.md.template
+│   │   ├── ARCHITECTURE.md.template
+│   │   ├── TASK-SUMMARY.md.template
+│   │   └── metadata.yaml.template
+│   ├── decisions/                # Decision templates
+│   │   ├── architectural.md.template
+│   │   ├── scope.md.template
+│   │   └── technical.md.template
+│   ├── research/                 # Research templates
+│   │   ├── STACK.md.template
+│   │   ├── ARCHITECTURE.md.template
+│   │   ├── FEATURES.md.template
+│   │   ├── PITFALLS.md.template
+│   │   └── SUMMARY.md.template
+│   └── operations/               # Operations templates
+│       ├── skill-registry.yaml.template
+│       ├── quality-gates.yaml.template
+│       └── metrics-dashboard.yaml.template
+│
+# =============================================================================
+# goals/ - WHAT are we working toward?
+# =============================================================================
+│
+├── goals/
+│   ├── README.md                 # Goals system documentation
+│   ├── goals.yaml                # Goals definition
+│   ├── INDEX.yaml                # Auto-generated goals index
+│   ├── templates/                # Goal templates
+│   ├── active/                   # Active goals
+│   │   └── IG-XXX-{description}/
+│   │       ├── goal.yaml         # Goal definition
+│   │       ├── timeline.yaml     # Progress tracking
+│   │       ├── journal/          # Daily notes
+│   │       │   └── YYYY-MM-DD.md
+│   │       └── plans/            # Symlinks to linked plans
+│   │       │   └── PLAN-NAME -> ../../../plans/active/PLAN-NAME
+│   │       └── tasks/            # Symlinks to linked tasks
+│   │           └── TASK-XXX -> ../../../tasks/active/TASK-XXX
+│   ├── core/                     # Core goals
+│   └── archived/                 # Archived goals
+│
+# =============================================================================
+# plans/ - WHAT are we building?
+# =============================================================================
+│
+├── plans/
+│   ├── README.md
+│   ├── active/                   # Active epics and features
+│   │   └── {epic-name}/
+│   │       ├── epic.md           # Epic specification
+│   │       ├── README.md         # Epic overview
+│   │       ├── INDEX.md          # Epic index
+│   │       ├── XREF.md           # Cross-references
+│   │       ├── ARCHITECTURE.md   # Epic architecture
+│   │       ├── TASK-SUMMARY.md   # Task breakdown
+│   │       ├── metadata.yaml     # Estimates, status
+│   │       ├── research/         # Research findings
+│   │       │   ├── STACK.md
+│   │       │   ├── ARCHITECTURE.md
+│   │       │   ├── FEATURES.md
+│   │       │   ├── PITFALLS.md
+│   │       │   └── SUMMARY.md
+│   │       └── tasks/            # Symlinks to linked tasks
+│   │           └── TASK-XXX -> ../../../tasks/active/TASK-XXX
+│   ├── archived/                 # Completed/archived plans
+│   ├── briefs/                   # Product briefs
+│   ├── features/                 # Feature management
+│   └── prds/                     # Product requirements
+│
+# =============================================================================
+# tasks/ - WHAT needs to be done?
+# =============================================================================
+│
+├── tasks/
+│   ├── README.md                 # Task system documentation
+│   ├── TEMPLATE.md               # Task template guide
+│   ├── active/                   # Active task folders
+│   │   └── TASK-XXX-{description}/
+│   │       ├── task.md           # Task specification (REQUIRED)
+│   │       ├── THOUGHTS.md       # Execution thinking (REQUIRED)
+│   │       ├── DECISIONS.md      # Key decisions (REQUIRED)
+│   │       ├── RESULTS.md        # Final results (REQUIRED)
+│   │       ├── LEARNINGS.md      # Post-completion insights (OPTIONAL)
+│   │       ├── ASSUMPTIONS.md    # Validated assumptions (OPTIONAL)
+│   │       ├── PLAN.md           # Detailed plan (OPTIONAL)
+│   │       ├── timeline/         # Daily progress
+│   │       │   └── YYYY-MM-DD.md
+│   │       ├── subtasks/         # Nested subtasks
+│   │       │   └── SUBTASK-XXX.md
+│   │       └── artifacts/        # Generated files
+│   │           ├── diagram.png
+│   │           └── data.json
+│   ├── backlog/                  # Backlogged tasks
+│   ├── completed/                # Completed tasks
+│   │   └── TASK-XXX/             # Same structure as active
+│   ├── cancelled/                # Cancelled tasks
+│   ├── improvements/             # Improvement tasks
+│   ├── working/                  # Working task state
+│   │   └── TASK-XXX/
+│   │       └── state.json
+│   └── template/                 # Task template
+│       └── task.md
+│
+# =============================================================================
+# decisions/ - WHY are we doing it this way?
+# =============================================================================
+│
+├── decisions/
+│   ├── README.md
+│   ├── architectural/            # Architecture decisions
+│   │   └── DEC-YYYY-MM-DD-ARCH-{slug}.md
+│   ├── scope/                    # Scope decisions
+│   │   └── DEC-YYYY-MM-DD-SCOPE-{slug}.md
+│   ├── technical/                # Technical decisions
+│   │   └── DEC-YYYY-MM-DD-TECH-{slug}.md
+│   └── infrastructure/           # Infrastructure decisions
+│       └── DEC-YYYY-MM-DD-INFRA-{slug}.md
+│
+# =============================================================================
+# knowledge/ - HOW does it work?
+# =============================================================================
+│
+├── knowledge/
+│   ├── README.md
+│   ├── architecture/             # System architecture
+│   ├── codebase/                 # Code patterns
+│   ├── frameworks/               # Framework research
+│   ├── research/                 # Research findings
+│   ├── validation/               # Validation results
+│   ├── first_principles/         # First principles analysis
+│   ├── ralf_patterns/            # RALF patterns
+│   └── archives/                 # Archived knowledge
+│
+# =============================================================================
+# operations/ - System operations
+# =============================================================================
+│
+├── operations/
+│   ├── README.md
+│   ├── .docs/                    # Operations documentation
+│   ├── skill-registry.yaml       # Unified skill registry
+│   ├── skill-registry-schema.yaml
+│   ├── quality-gates.yaml        # Quality gate definitions
+│   ├── metrics-dashboard.yaml    # Metrics tracking
+│   ├── improvement-pipeline.yaml
+│   ├── improvement-backlog.yaml
+│   ├── context-gathering.yaml
+│   ├── estimation-guidelines.yaml
+│   ├── testing-guidelines.yaml
+│   ├── validation-checklist.yaml
+│   ├── workflow-integration-checklist.yaml
+│   ├── agent-setup-checklist.yaml
+│   ├── documentation-audit.yaml
+│   ├── executor-dashboard.yaml
+│   ├── quality-gate-report.yaml
+│   ├── run-validation.yaml
+│   ├── project-map.yaml
+│   ├── dashboard/                # Dashboard files
+│   ├── agents/                   # Agent-specific memory
+│   ├── logs/                     # System logs
+│   ├── sessions/                 # Session transcripts
+│   └── workflows/                # Workflow definitions
+│
+# =============================================================================
+# project/ - WHO are we?
+# =============================================================================
+│
+├── project/
+│   ├── README.md
+│   └── context.yaml              # Project identity and direction
+│
+# =============================================================================
+# data/ - Project data
+# =============================================================================
+│
+├── data/
+│   └── (project-specific data files)
+│
+# =============================================================================
+# config/ - Configuration files
+# =============================================================================
+│
+├── config/
+│   └── (configuration files)
+│
+# =============================================================================
+# action-plans/ - Action plans
+# =============================================================================
+│
+├── action-plans/
+│   └── (action plan files)
+│
+# =============================================================================
+# bin/ - Executables and scripts
+# =============================================================================
+│
+└── bin/
+    └── bb5*                      # bb5 CLI scripts
+
+# =============================================================================
+# KEY PATTERNS
+# =============================================================================
+
+1. INDEX.yaml in every major directory
+   - Auto-generated index for quick lookup
+   - Source of truth is the folder contents
+   - Run sync script to regenerate
+
+2. README.md in every folder
+   - Explains folder purpose
+   - Provides quick navigation
+   - Documents conventions
+
+3. Backup naming convention
+   - {FILENAME}.backup.{TIMESTAMP}
+   - Examples:
+     - STATE.yaml.backup.1770341176
+     - STATE.yaml.backup.20260204_093350
+
+4. YAML structure patterns
+   - meta: at top with version, timestamp
+   - Sections with clear headers
+   - Consistent indentation (2 spaces)
+
+5. Task folder structure
+   - Folder-per-task pattern
+   - Required files: task.md, THOUGHTS.md, DECISIONS.md, RESULTS.md
+   - Optional files: LEARNINGS.md, ASSUMPTIONS.md, PLAN.md
+   - Subfolders: timeline/, subtasks/, artifacts/
+
+6. Goal/Plan/Task hierarchy
+   - goals/ -> plans/ (via symlinks)
+   - plans/ -> tasks/ (via symlinks)
+   - Creates navigable hierarchy
+
+7. .docs/ folders
+   - AI-managed documentation
+   - System guides and specifications
+   - Auto-generated from patterns

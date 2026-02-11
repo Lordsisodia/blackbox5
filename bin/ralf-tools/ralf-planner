@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # Configuration
-PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+PROJECT_DIR="${RALF_PROJECT_DIR:-$HOME/blackbox5/5-project-memory/blackbox5}"
 COMM_DIR="$PROJECT_DIR/.autonomous/communications"
 QUEUE_FILE="$COMM_DIR/queue.yaml"
 EVENTS_FILE="$COMM_DIR/events.yaml"
@@ -174,7 +174,7 @@ select_skill_for_task() {
     fi
 
     # Check if skill provider is available
-    local skill_provider_lib="$HOME/.blackbox5/2-engine/.autonomous/lib/skill_provider.py"
+    local skill_provider_lib="$HOME/blackbox5/2-engine/.autonomous/lib/skill_provider.py"
     if [[ ! -f "$skill_provider_lib" ]]; then
         return
     fi
@@ -183,7 +183,7 @@ select_skill_for_task() {
     local selected_skill
     selected_skill=$(python3 << PYEOF
 import sys
-sys.path.insert(0, "$HOME/.blackbox5/2-engine/.autonomous/lib")
+sys.path.insert(0, "$HOME/blackbox5/2-engine/.autonomous/lib")
 from skill_provider import get_skill_provider
 
 provider = get_skill_provider("$PROJECT_DIR")

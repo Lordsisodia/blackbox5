@@ -314,19 +314,19 @@ Comprehensive test suite in `tests/test_state_manager.py`:
 
 ```bash
 # Run all tests
-pytest .blackbox5/tests/test_state_manager.py -v
+pytest blackbox5/tests/test_state_manager.py -v
 
 # Run specific test class
-pytest .blackbox5/tests/test_state_manager.py::TestStateManager -v
+pytest blackbox5/tests/test_state_manager.py::TestStateManager -v
 
 # Run with coverage
-pytest .blackbox5/tests/test_state_manager.py --cov=.blackbox5/engine/core/state_manager
+pytest blackbox5/tests/test_state_manager.py --cov=blackbox5/engine/core/state_manager
 ```
 
 ## File Locations
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── core/
 │       ├── state_manager.py       # StateManager implementation

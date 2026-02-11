@@ -154,7 +154,7 @@ Files that are not referenced by any other documentation:
 
 ### 9. Outdated Reference Locations
 
-Files containing `.blackbox5` references (sample):
+Files containing `blackbox5` references (sample):
 - `1-docs/02-implementation/06-tools/skills/SKILLS-CONVERSION-FINAL-SUMMARY.md`
 - `1-docs/02-implementation/06-tools/skills/SKILLS-CONVERSION-SUMMARY.md`
 - `1-docs/02-implementation/06-tools/skills/SKILLS-IMPORT-COMPLETE.md`
@@ -186,7 +186,7 @@ Files containing "BlackBox" (without 5): 118 files
 ## Recommendations Priority Matrix
 
 ### High Impact, Low Effort (Do First):
-1. Update `.blackbox5` → `blackbox5` references (automated)
+1. Update `blackbox5` → `blackbox5` references (automated)
 2. Delete duplicate code_index.md files (manual, safe)
 3. Archive orphaned implementation summaries (automated move)
 

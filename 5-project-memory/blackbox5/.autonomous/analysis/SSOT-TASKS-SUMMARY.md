@@ -126,10 +126,10 @@ The `STRUCTURAL_ISSUES_MASTER_LIST.md` now includes:
 ## Files Created
 
 ### Analysis Reports (10)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/ssot-*-violations.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/ssot-*-violations.md`
 
 ### Task Files (20)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SSOT-001/` through `TASK-SSOT-020/`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SSOT-001/` through `TASK-SSOT-020/`
 
 ### Updated Documentation
 - `STRUCTURAL_ISSUES_MASTER_LIST.md` - Added Issues #11-20

@@ -1,0 +1,292 @@
+# First Principles Review
+
+**Review ID:** REV-FP-YYYY-MM-DD-XXX
+**Date:** FILL_ME - YYYY-MM-DD
+**Reviewer:** FILL_ME - Agent or person name
+**Scope:** FILL_ME - What is being reviewed
+**Status:** FILL_ME (in_progress|completed|deferred)
+
+---
+
+## Review Context
+
+### Purpose
+Why is this first principles review being conducted?
+
+FILL_ME
+
+### Scope
+What is included and excluded from this review?
+
+**In Scope:**
+- FILL_ME
+- FILL_ME
+
+**Out of Scope:**
+- FILL_ME
+- FILL_ME
+
+### Trigger
+What triggered this review?
+- [ ] Scheduled (every 5 runs)
+- [ ] Post-milestone
+- [ ] Problem detected
+- [ ] User request
+- [ ] Continuous improvement initiative
+- [ ] Other: FILL_ME
+
+---
+
+## Current State Assessment
+
+### What We're Reviewing
+FILL_ME - Description of the current approach/system/process
+
+### Assumptions Challenged
+List the fundamental assumptions being questioned:
+
+1. **Assumption:** FILL_ME
+   - **Source:** FILL_ME - Where did this come from?
+   - **Evidence:** FILL_ME - What supports this?
+   - **Validity:** valid|questionable|invalid
+   - **Notes:** FILL_ME
+
+2. **Assumption:** FILL_ME
+   - **Source:** FILL_ME
+   - **Evidence:** FILL_ME
+   - **Validity:** valid|questionable|invalid
+   - **Notes:** FILL_ME
+
+---
+
+## First Principles Analysis
+
+### Breaking Down the Problem
+
+#### What is the fundamental problem we're solving?
+FILL_ME - Strip away all assumptions and describe the core problem
+
+#### What are the fundamental truths?
+List the irreducible truths about this domain:
+
+1. FILL_ME
+2. FILL_ME
+3. FILL_ME
+
+#### What are we actually trying to achieve?
+FILL_ME - Core objective without implementation details
+
+---
+
+### Rebuilding from First Principles
+
+#### If we started from scratch today...
+FILL_ME - How would we approach this if we knew nothing about current implementation?
+
+#### What would the ideal solution look like?
+FILL_ME - Describe without constraints
+
+#### What constraints actually matter?
+| Constraint | Real or Assumed? | Impact if Removed |
+|------------|------------------|-------------------|
+| FILL_ME | real/assumed | FILL_ME |
+
+---
+
+## Current Approach Analysis
+
+### What's Working Well
+1. FILL_ME
+   - **Evidence:** FILL_ME
+   - **Why it works:** FILL_ME
+
+2. FILL_ME
+   - **Evidence:** FILL_ME
+   - **Why it works:** FILL_ME
+
+### What's Not Working
+1. FILL_ME
+   - **Evidence:** FILL_ME
+   - **Root cause:** FILL_ME
+   - **Impact:** FILL_ME
+
+### Inefficiencies Detected
+| Inefficiency | Current Cost | Root Cause | Potential Savings |
+|--------------|--------------|------------|-------------------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Alternative Approaches
+
+### Option 1: FILL_ME
+**Description:** FILL_ME
+
+**Pros:**
+- FILL_ME
+- FILL_ME
+
+**Cons:**
+- FILL_ME
+- FILL_ME
+
+**First Principles Alignment:** FILL_ME - How well does this align?
+
+### Option 2: FILL_ME
+**Description:** FILL_ME
+
+**Pros:**
+- FILL_ME
+
+**Cons:**
+- FILL_ME
+
+**First Principles Alignment:** FILL_ME
+
+### Option 3: Status Quo (Do Nothing)
+**Description:** Continue with current approach
+
+**Pros:**
+- No change required
+- Known behavior
+
+**Cons:**
+- FILL_ME
+
+**First Principles Alignment:** FILL_ME
+
+---
+
+## Recommendations
+
+### Primary Recommendation
+**Recommendation:** FILL_ME
+
+**Rationale:**
+FILL_ME
+
+**Implementation:**
+1. FILL_ME
+2. FILL_ME
+3. FILL_ME
+
+**Expected Outcomes:**
+- FILL_ME
+- FILL_ME
+
+### Alternative Recommendation
+**Recommendation:** FILL_ME (if primary is rejected)
+
+**When to use:** FILL_ME
+
+---
+
+## Improvement Opportunities
+
+### Immediate Actions (This Week)
+- [ ] FILL_ME - Quick win
+- [ ] FILL_ME - Quick win
+
+### Short-term Improvements (This Month)
+- [ ] FILL_ME
+- [ ] FILL_ME
+
+### Long-term Improvements (This Quarter)
+- [ ] FILL_ME
+- [ ] FILL_ME
+
+---
+
+## Pattern Analysis
+
+### Patterns Detected
+| Pattern | Frequency | Impact | Recommendation |
+|---------|-----------|--------|----------------|
+| FILL_ME | high/medium/low | high/medium/low | FILL_ME |
+
+### Anti-Patterns Detected
+| Anti-Pattern | Location | Impact | Remediation |
+|--------------|----------|--------|-------------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Knowledge Gaps
+
+### What We Don't Know
+1. FILL_ME
+   - **Impact:** FILL_ME
+   - **Research needed:** FILL_ME
+
+### Questions for Further Investigation
+- FILL_ME
+- FILL_ME
+
+---
+
+## Risk Assessment
+
+### Risks of Current Approach
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| FILL_ME | high/medium/low | high/medium/low | FILL_ME |
+
+### Risks of Recommended Changes
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| FILL_ME | high/medium/low | high/medium/low | FILL_ME |
+
+---
+
+## Validation Plan
+
+### How to Validate Recommendations
+1. FILL_ME - Validation step 1
+2. FILL_ME - Validation step 2
+
+### Success Metrics
+| Metric | Current | Target | Measurement |
+|--------|---------|--------|-------------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Related Reviews
+
+| Review ID | Date | Scope | Key Finding | Link |
+|-----------|------|-------|-------------|------|
+| REV-FP-YYYY-MM-DD-XXX | FILL_ME | FILL_ME | FILL_ME | [Link](FILL_ME) |
+
+---
+
+## Appendix
+
+### Data Sources
+- FILL_ME - What data informed this review
+
+### Methodology
+FILL_ME - How the review was conducted
+
+### Raw Notes
+FILL_ME - Unprocessed observations
+
+---
+
+## Sign-Off
+
+**Review Conducted By:** FILL_ME
+**Date Completed:** FILL_ME
+**Next Review Date:** FILL_ME
+
+**Approved By:**
+- [ ] FILL_ME - Role/Name
+- [ ] FILL_ME - Role/Name
+
+---
+
+## Action Items
+
+| ID | Action | Owner | Due Date | Status |
+|----|--------|-------|----------|--------|
+| 1 | FILL_ME | FILL_ME | FILL_ME | open |
+| 2 | FILL_ME | FILL_ME | FILL_ME | open |

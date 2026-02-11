@@ -48,7 +48,7 @@ This guide establishes secure credential management practices for the Blackbox5 
 
 ### File Locations
 
-- **Project root:** `~/.blackbox5/.env` (for global settings)
+- **Project root:** `~/blackbox5/.env` (for global settings)
 - **Component-specific:** `2-engine/runtime/memory/brain/databases/.env`
 - **Integration-specific:** Each integration manager reads from environment
 

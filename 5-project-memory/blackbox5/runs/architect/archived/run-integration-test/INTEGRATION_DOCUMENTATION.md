@@ -16,11 +16,11 @@ RALF v2.3 (The Integration Release) introduces enforcement systems that transfor
 
 | System | Purpose | Location |
 |--------|---------|----------|
-| **Phase Gates** | Validates phase completion criteria | `~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py` |
-| **Context Budget** | Monitors token usage, triggers actions | `~/.blackbox5/2-engine/.autonomous/lib/context_budget.py` |
+| **Phase Gates** | Validates phase completion criteria | `~/blackbox5/2-engine/.autonomous/lib/phase_gates.py` |
+| **Context Budget** | Monitors token usage, triggers actions | `~/blackbox5/2-engine/.autonomous/lib/context_budget.py` |
 | **Decision Registry** | Records decisions with reversibility tracking | `decision_registry.yaml` |
-| **Goals System** | Prioritizes human-directed work | `~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/` |
-| **Telemetry** | Tracks events, metrics, phases | `~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh` |
+| **Goals System** | Prioritizes human-directed work | `~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/` |
+| **Telemetry** | Tracks events, metrics, phases | `~/blackbox5/2-engine/.autonomous/shell/telemetry.sh` |
 
 ---
 
@@ -43,7 +43,7 @@ cp templates/decision_registry.yaml "$RUN_DIR/decision_registry.yaml"
 
 ```bash
 # 4. Check for active goals first
-ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md
+ls ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md
 
 # 5. Record telemetry
 telemetry.sh phase "task_selection" "complete" "$TELEMETRY_FILE"
@@ -239,7 +239,7 @@ else:
 ### Goals Directory Structure
 
 ```
-~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/
+~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/
 ├── active/
 │   └── GOAL-001-ralf-v23-integration-release.md
 ├── completed/
@@ -306,14 +306,14 @@ telemetry.sh status "$TELEMETRY_FILE"
 
 ```bash
 # Run all integration tests
-python3 ~/.blackbox5/2-engine/.autonomous/lib/integration_test.py run \
-    --run-dir ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-TEST
+python3 ~/blackbox5/2-engine/.autonomous/lib/integration_test.py run \
+    --run-dir ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-TEST
 
 # List all tests
-python3 ~/.blackbox5/2-engine/.autonomous/lib/integration_test.py list
+python3 ~/blackbox5/2-engine/.autonomous/lib/integration_test.py list
 
 # Quick verification
-python3 ~/.blackbox5/2-engine/.autonomous/lib/integration_test.py verify-all
+python3 ~/blackbox5/2-engine/.autonomous/lib/integration_test.py verify-all
 ```
 
 ### Test Coverage
@@ -450,7 +450,7 @@ python3 ~/.blackbox5/2-engine/.autonomous/lib/integration_test.py verify-all
 
 ## Key Integration Points in ralf.md
 
-The following sections in `~/.blackbox5/bin/ralf.md` contain the integration code:
+The following sections in `~/blackbox5/bin/ralf.md` contain the integration code:
 
 | Section | Line Range | Purpose |
 |---------|-----------|---------|
@@ -487,7 +487,7 @@ The following sections in `~/.blackbox5/bin/ralf.md` contain the integration cod
 **Problem:** Decision registry not initialized
 **Solution:**
 ```bash
-cp ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml \
+cp ~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml \
    "$RUN_DIR/decision_registry.yaml"
 ```
 
@@ -520,7 +520,7 @@ cp ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/
 
 ### Deliverables
 
-1. **Integration Test Suite** - `~/.blackbox5/2-engine/.autonomous/lib/integration_test.py`
+1. **Integration Test Suite** - `~/blackbox5/2-engine/.autonomous/lib/integration_test.py`
 2. **This Documentation** - Integration guide and flowcharts
 3. **Verified Integration** - All 21 tests passing
 

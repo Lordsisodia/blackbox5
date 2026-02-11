@@ -428,7 +428,7 @@ This plan implements a comprehensive, industry-leading hook system for BlackBox5
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-enhanced.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-enhanced.sh"
           }
         ]
       }
@@ -439,7 +439,7 @@ This plan implements a comprehensive, industry-leading hook system for BlackBox5
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /Users/shaansisodia/.blackbox5/.claude/hooks/git-safety-guard.py"
+            "command": "python3 /Users/shaansisodia/blackbox5/.claude/hooks/git-safety-guard.py"
           }
         ]
       }
@@ -449,11 +449,11 @@ This plan implements a comprehensive, industry-leading hook system for BlackBox5
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-validate-docs.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/stop-validate-docs.sh"
           },
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-checkpoint.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/stop-checkpoint.sh"
           }
         ]
       }
@@ -463,7 +463,7 @@ This plan implements a comprehensive, industry-leading hook system for BlackBox5
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-end-finalize.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-end-finalize.sh"
           }
         ]
       }

@@ -7,7 +7,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 ## Deliverables
 
 ### 1. Core Implementation
-**File**: `.blackbox5/engine/core/MCPIntegration.py` (13KB, ~450 lines)
+**File**: `blackbox5/engine/core/MCPIntegration.py` (13KB, ~450 lines)
 
 **Classes**:
 - `MCPServerConfig`: Configuration model for MCP servers
@@ -23,7 +23,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 - ✅ Context manager support
 
 ### 2. Test Suite
-**File**: `.blackbox5/tests/test_mcp_integration.py` (15KB, ~550 lines)
+**File**: `blackbox5/tests/test_mcp_integration.py` (15KB, ~550 lines)
 
 **Test Coverage**:
 - ✅ 15+ unit tests covering all functionality
@@ -34,7 +34,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 - ✅ Real configuration loading
 
 ### 3. Standalone Demo
-**File**: `.blackbox5/tests/test_mcp_integration_standalone.py` (8.2KB, ~300 lines)
+**File**: `blackbox5/tests/test_mcp_integration_standalone.py` (8.2KB, ~300 lines)
 
 **Features**:
 - ✅ Runs without full BlackBox5 environment
@@ -44,7 +44,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 - ✅ Successfully loaded 6 servers from real config
 
 ### 4. Integration Examples
-**File**: `.blackbox5/examples/mcp_integration_example.py` (7KB, ~250 lines)
+**File**: `blackbox5/examples/mcp_integration_example.py` (7KB, ~250 lines)
 
 **Examples**:
 - ✅ Basic agent with MCP servers
@@ -188,7 +188,7 @@ All success criteria have been met:
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── core/
 │       ├── MCPIntegration.py              # Core implementation (450 lines)
@@ -351,10 +351,10 @@ manager.stop_server("context7")
 ### Testing
 ```bash
 # Run standalone demo
-python3 .blackbox5/tests/test_mcp_integration_standalone.py
+python3 blackbox5/tests/test_mcp_integration_standalone.py
 
 # Run examples
-python3 .blackbox5/examples/mcp_integration_example.py
+python3 blackbox5/examples/mcp_integration_example.py
 ```
 
 ---

@@ -1,0 +1,25 @@
+---
+id: "TASK-SKILL-001"
+title: "Debug and Fix Skill Invocation"
+status: "pending"
+priority: "critical"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-SKILL-SUBAGENT-001"
+phase: "Phase 1"
+
+# Task Details
+description: |
+  23 skills are defined but have zero invocations. Debug why Phase 1.5
+  skill checking doesn't result in actual skill usage.
+
+acceptance_criteria:
+  - Root cause of zero invocations identified
+  - Fix implemented (skill-selection.yaml, CLAUDE.md, or hooks)
+  - Skills trigger when criteria match
+  - At least 5 skill invocations in next week
+  - Phase 1.5 compliance reaches 100%
+
+estimated_hours: 8

@@ -1,7 +1,7 @@
 #!/bin/bash
 # RALF Performance Dashboard
 
-BLACKBOX5_DIR="${BLACKBOX5_HOME:-$HOME/.blackbox5}"
+BLACKBOX5_DIR="${BLACKBOX5_HOME:-$HOME/blackbox5}"
 METRICS_FILE="$BLACKBOX5_DIR/ralf-metrics.jsonl"
 RUNS_DIR="$BLACKBOX5_DIR/5-project-memory/ralf-core/.autonomous/runs"
 

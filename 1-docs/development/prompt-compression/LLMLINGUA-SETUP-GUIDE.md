@@ -283,5 +283,5 @@ pip3 install --upgrade urllib3
 **Document Version:** 1.0
 **Last Updated:** 2026-01-19
 **Related:**
-- Implementation: `.blackbox5/engine/core/LLMLINGUA-IMPLEMENTATION-SUMMARY.md`
-- Requirements: `.blackbox5/engine/core/LLMLINGUA-REQUIREMENTS.md`
+- Implementation: `blackbox5/engine/core/LLMLINGUA-IMPLEMENTATION-SUMMARY.md`
+- Requirements: `blackbox5/engine/core/LLMLINGUA-REQUIREMENTS.md`

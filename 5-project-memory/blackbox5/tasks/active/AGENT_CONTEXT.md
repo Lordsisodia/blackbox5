@@ -1,7 +1,7 @@
 # Agent Context (Auto-Generated)
 
 **Detected Agent Type:** unknown
-**Run Directory:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active
+**Run Directory:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active
 **Timestamp:** 2026-02-06T04:48:15+07:00
 
 ---

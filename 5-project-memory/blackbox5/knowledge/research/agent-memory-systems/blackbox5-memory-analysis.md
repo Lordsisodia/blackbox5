@@ -189,7 +189,7 @@ simplicity and performance is a recurring theme for me."
 
 ### Storage Layer
 - **Type:** File system (markdown)
-- **Location:** `~/.blackbox5/5-project-memory/blackbox5/`
+- **Location:** `~/blackbox5/5-project-memory/blackbox5/`
 - **Structure:** Hierarchical by project/task/run
 - **Version Control:** Git
 

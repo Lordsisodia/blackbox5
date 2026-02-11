@@ -327,7 +327,7 @@ cat "$RALF_PROJECT_DIR/operations/skill-usage.yaml"
 
 ```bash
 echo "=== VERIFICATION: File Existence ==="
-ls -la /Users/shaansisodia/.blackbox5/[claimed_file_path] 2>&1 || echo "FAILED: [filename] does not exist"
+ls -la /Users/shaansisodia/blackbox5/[claimed_file_path] 2>&1 || echo "FAILED: [filename] does not exist"
 ```
 
 **Rule:** If any claimed file doesn't exist, the task is NOT complete.
@@ -336,7 +336,7 @@ ls -la /Users/shaansisodia/.blackbox5/[claimed_file_path] 2>&1 || echo "FAILED: 
 
 ```bash
 echo "=== VERIFICATION: Python Imports ==="
-cd /Users/shaansisodia/.blackbox5
+cd /Users/shaansisodia/blackbox5
 python3 -c "
 import sys
 sys.path.insert(0, '2-engine/.autonomous/lib')

@@ -49,7 +49,7 @@ See `.docs/research/FRAMEWORK-CODE-INVENTORY.md` for complete inventory of 10 mo
 **Objective**: Create command-line interface for BlackBox5
 
 **Deliverables**:
-1. `.blackbox5/cli/main.py` - Main CLI entry point
+1. `blackbox5/cli/main.py` - Main CLI entry point
 2. Command routing system
 3. Help system
 4. Error handling
@@ -58,7 +58,7 @@ See `.docs/research/FRAMEWORK-CODE-INVENTORY.md` for complete inventory of 10 mo
 
 **Step 1**: Create CLI directory structure
 ```bash
-mkdir -p .blackbox5/cli
+mkdir -p blackbox5/cli
 ```
 
 **Step 2**: Create main CLI file (adapted from OpenSpec)
@@ -91,15 +91,15 @@ mkdir -p .blackbox5/cli
 **Step 4**: Add to PATH
 ```bash
 # Add to ~/.zshrc
-export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/cli"
+export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/cli"
 ```
 
 **Testing**:
 ```bash
-python .blackbox5/cli/main.py --help
-python .blackbox5/cli/main.py status
-python .blackbox5/cli/main.py agent:list
-python .blackbox5/cli/main.py skill:list
+python blackbox5/cli/main.py --help
+python blackbox5/cli/main.py status
+python blackbox5/cli/main.py agent:list
+python blackbox5/cli/main.py skill:list
 ```
 
 **Acceptance Criteria**:
@@ -121,7 +121,7 @@ python .blackbox5/cli/main.py skill:list
 **Objective**: Create client for agent interactions with caching and capabilities
 
 **Deliverables**:
-1. `.blackbox5/engine/core/AgentClient.py` - Agent client factory
+1. `blackbox5/engine/core/AgentClient.py` - Agent client factory
 2. Project index caching (5-minute TTL)
 3. Capability detection system
 4. Tool permission management
@@ -170,7 +170,7 @@ TOOL_PERMISSIONS = {
 
 **Testing**:
 ```bash
-python .blackbox5/tests/test_agent_client.py
+python blackbox5/tests/test_agent_client.py
 ```
 
 **Acceptance Criteria**:
@@ -193,7 +193,7 @@ python .blackbox5/tests/test_agent_client.py
 **Objective**: Implement 3-layer security (input validation, sandbox, output verification)
 
 **Deliverables**:
-1. `.blackbox5/engine/core/Security.py` - Security validators
+1. `blackbox5/engine/core/Security.py` - Security validators
 2. Command pattern validation
 3. Filesystem sandbox
 4. Operation validation
@@ -244,7 +244,7 @@ def validate_operation(self, operation: str, params: dict) -> tuple[bool, str]:
 
 **Testing**:
 ```bash
-python .blackbox5/tests/test_security.py
+python blackbox5/tests/test_security.py
 # Should block: rm -rf /, dd if=, fork bombs
 # Should allow: ls, cat, grep, python, npm
 ```
@@ -271,7 +271,7 @@ python .blackbox5/tests/test_security.py
 **Objective**: Connect agents with XML-structured skills
 
 **Deliverables**:
-1. `.blackbox5/engine/core/AgentSkillBridge.py` - Skill loader and executor
+1. `blackbox5/engine/core/AgentSkillBridge.py` - Skill loader and executor
 2. XML tag extraction
 3. Skill validation
 4. Skill execution with context
@@ -341,7 +341,7 @@ def execute_skill(self, skill_path: str, agent_context: dict) -> str:
 
 **Testing**:
 ```bash
-python .blackbox5/tests/test_skill_bridge.py
+python blackbox5/tests/test_skill_bridge.py
 ```
 
 **Acceptance Criteria**:
@@ -359,7 +359,7 @@ python .blackbox5/tests/test_skill_bridge.py
 
 ### Day 11-12: Skill Manager Enhancement
 
-**Source**: Existing `.blackbox5/engine/core/SkillManager.py`
+**Source**: Existing `blackbox5/engine/core/SkillManager.py`
 
 **Objective**: Update SkillManager to use AgentSkillBridge
 
@@ -420,7 +420,7 @@ def validate_all_skills(self):
 **Objective**: Create first concrete agent implementation
 
 **Deliverables**:
-1. `.blackbox5/engine/agents/implementations/DeveloperAgent.py`
+1. `blackbox5/engine/agents/implementations/DeveloperAgent.py`
 2. Task processing logic
 3. Skill routing
 4. Security integration
@@ -467,7 +467,7 @@ def process_task(self, task: str) -> str:
 
 **Testing**:
 ```bash
-python .blackbox5/tests/test_developer_agent.py
+python blackbox5/tests/test_developer_agent.py
 ```
 
 **Acceptance Criteria**:
@@ -492,7 +492,7 @@ python .blackbox5/tests/test_developer_agent.py
 **Objective**: Implement context management for better agent performance
 
 **Deliverables**:
-1. `.blackbox5/engine/core/ContextManager.py`
+1. `blackbox5/engine/core/ContextManager.py`
 2. Keyword extraction
 3. Relevant file discovery
 4. Pattern detection
@@ -551,7 +551,7 @@ def _find_relevant_files(self, keywords: list[str]) -> list[str]:
 **Objective**: Create system to discover agents and skills
 
 **Deliverables**:
-1. `.blackbox5/engine/core/ServiceDiscovery.py`
+1. `blackbox5/engine/core/ServiceDiscovery.py`
 2. Agent discovery
 3. Skill discovery
 4. Agent-skill matching
@@ -595,7 +595,7 @@ class ServiceDiscovery:
 **Objective**: Implement git worktree management for isolated development
 
 **Deliverables**:
-1. `.blackbox5/engine/core/WorkspaceManager.py`
+1. `blackbox5/engine/core/WorkspaceManager.py`
 2. Worktree creation
 3. Worktree merging
 4. Worktree cleanup
@@ -634,7 +634,7 @@ class WorkspaceManager:
 **Objective**: Implement robust configuration system
 
 **Deliverables**:
-1. `.blackbox5/engine/core/ConfigManager.py`
+1. `blackbox5/engine/core/ConfigManager.py`
 2. YAML-based config
 3. Environment detection
 
@@ -651,7 +651,7 @@ class WorkspaceManager:
 **Objective**: Create template management system
 
 **Deliverables**:
-1. `.blackbox5/engine/core/TemplateManager.py`
+1. `blackbox5/engine/core/TemplateManager.py`
 2. Template rendering
 3. Variable substitution
 
@@ -668,7 +668,7 @@ class WorkspaceManager:
 **Objective**: Create comprehensive test suite
 
 **Deliverables**:
-1. `.blackbox5/tests/conftest.py` - Test fixtures
+1. `blackbox5/tests/conftest.py` - Test fixtures
 2. Unit tests for all components
 3. Integration tests
 

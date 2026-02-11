@@ -24,7 +24,7 @@ Framework: Claude Code (by Anthropic)
 Task System: Async agent spawning
 Session Management: Per-agent conversation contexts
 Output Storage: /tmp/claude/.../tasks/{agentId}.output
-Working Directory: .blackbox5/roadmap/01-research/{category}/
+Working Directory: blackbox5/roadmap/01-research/{category}/
 ```
 
 ---
@@ -55,16 +55,16 @@ TaskOutput(task_id="a5f6e4d", block=True, timeout=30000)
 
 ```bash
 # View research logs (main deliverables)
-cat .blackbox5/roadmap/01-research/memory-context/research-log.md
+cat blackbox5/roadmap/01-research/memory-context/research-log.md
 
 # List all research logs
-find .blackbox5/roadmap/01-research -name "research-log.md"
+find blackbox5/roadmap/01-research -name "research-log.md"
 
 # Check for session summaries
-find .blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
+find blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
 
 # View findings
-find .blackbox5/roadmap/01-research -path "*/findings/*/*.md"
+find blackbox5/roadmap/01-research -path "*/findings/*/*.md"
 ```
 
 ---
@@ -104,7 +104,7 @@ Looking at the actual output, the agent:
 
 ### Actual Deliverable Created
 
-The agent created: `.blackbox5/roadmap/01-research/memory-context/research-log.md`
+The agent created: `blackbox5/roadmap/01-research/memory-context/research-log.md`
 
 **Contents include:**
 - ✅ Session summary (1 session, 4 hours, 20+ sources, 5 whitepapers, 8 repos, 15 findings)
@@ -134,10 +134,10 @@ This means the agent is:
 The research log file shows real-time updates:
 ```bash
 # Watch the file grow
-tail -f .blackbox5/roadmap/01-research/memory-context/research-log.md
+tail -f blackbox5/roadmap/01-research/memory-context/research-log.md
 
 # Check recent changes
-stat .blackbox5/roadmap/01-research/*/research-log.md
+stat blackbox5/roadmap/01-research/*/research-log.md
 ```
 
 ### Checkpoint 3: Output File Growth
@@ -199,7 +199,7 @@ wc -l /tmp/claude/-Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/tasks/a5f
 
 Each session creates a separate summary file:
 ```bash
-.blackbox5/roadmap/01-research/{category}/session-summaries/session-20260119-{timestamp}.md
+blackbox5/roadmap/01-research/{category}/session-summaries/session-20260119-{timestamp}.md
 ```
 
 ---
@@ -218,29 +218,29 @@ ls -la /tmp/claude/-Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/tasks/
 tail -f /tmp/claude/-Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/tasks/a5f6e4d.output
 
 # 3. Check all research logs
-find .blackbox5/roadmap/01-research -name "research-log.md" -exec tail -20 {} \;
+find blackbox5/roadmap/01-research -name "research-log.md" -exec tail -20 {} \;
 
 # 4. View completed research
-find .blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
+find blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
 
 # 5. Check findings
-find .blackbox5/roadmap/01-research/findings -name "*.md" -type f
+find blackbox5/roadmap/01-research/findings -name "*.md" -type f
 
 # 6. See recent file changes
-find .blackbox5/roadmap/01-research -name "*.md" -mmin -60 -ls
+find blackbox5/roadmap/01-research -name "*.md" -mmin -60 -ls
 
 # ========================================
 # UNDERSTAND RESEARCH PROGRESS
 # ========================================
 
 # 7. Count research sessions
-grep -h "Total Sessions:" .blackbox5/roadmap/01-research/*/research-log.md
+grep -h "Total Sessions:" blackbox5/roadmap/01-research/*/research-log.md
 
 # 8. Count sources analyzed
-grep -h "Sources Analyzed:" .blackbox5/roadmap/01-research/*/research-log.md
+grep -h "Sources Analyzed:" blackbox5/roadmap/01-research/*/research-log.md
 
 # 9. Count key findings
-grep -h "Key Findings:" .blackbox5/roadmap/01-research/*/research-log.md
+grep -h "Key Findings:" blackbox5/roadmap/01-research/*/research-log.md
 
 # 10. Total token usage (from system reminders)
 # (Counted automatically by Claude Code)
@@ -302,10 +302,10 @@ cat /tmp/claude/.../tasks/{agent_id}.output | grep "429"
 
 ```bash
 # Check file permissions
-ls -la .blackbox5/roadmap/01-research/*/research-log.md
+ls -la blackbox5/roadmap/01-research/*/research-log.md
 
 # Check if agent is working directory
-pwd  # Should be: .../.blackbox5/roadmap/01-research
+pwd  # Should be: .../blackbox5/roadmap/01-research
 ```
 
 ---

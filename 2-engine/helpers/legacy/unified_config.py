@@ -8,7 +8,7 @@ into a unified hierarchy with clear precedence.
 
 Configuration Hierarchy (Highest to Lowest Precedence):
     1. Environment Variables (deployment-specific)
-    2. User Config (~/.blackbox5/config/user.yaml)
+    2. User Config (~/blackbox5/config/user.yaml)
     3. Project Config (5-project-memory/[project]/.autonomous/config/project.yaml)
     4. Engine Config (2-engine/configuration/engine.yaml)
     5. Base Defaults (2-engine/configuration/base.yaml)
@@ -95,8 +95,8 @@ class UnifiedConfig:
         if root:
             return os.path.expanduser(root)
 
-        # Default to ~/.blackbox5
-        return os.path.expanduser('~/.blackbox5')
+        # Default to ~/blackbox5
+        return os.path.expanduser('~/blackbox5')
 
     def _resolve_config_paths(self) -> ConfigPaths:
         """Resolve all configuration file paths."""
@@ -118,7 +118,7 @@ class UnifiedConfig:
         paths.project_config = str(project_config_dir / 'project.yaml')
 
         # User config (highest precedence file-based)
-        paths.user_config = os.path.expanduser('~/.blackbox5/config/user.yaml')
+        paths.user_config = os.path.expanduser('~/blackbox5/config/user.yaml')
 
         return paths
 
@@ -298,7 +298,7 @@ class UnifiedConfig:
 
         Examples:
             >>> config.get("paths.engine")
-            "/Users/.../.blackbox5/2-engine"
+            "/Users/.../blackbox5/2-engine"
             >>> config.get("system.log_level")
             "INFO"
             >>> config.get("missing.key", "default")
@@ -598,7 +598,7 @@ class PathResolver:
         memory_path = self.config.get('paths.memory')
         if memory_path:
             return Path(os.path.expanduser(memory_path))
-        return self.blackbox5_root / '5-project-memory'
+        return selfblackbox5_root / '5-project-memory'
 
     @property
     def knowledge_root(self) -> Path:
@@ -606,7 +606,7 @@ class PathResolver:
         knowledge_path = self.config.get('paths.knowledge')
         if knowledge_path:
             return Path(os.path.expanduser(knowledge_path))
-        return self.blackbox5_root / '1-docs'
+        return selfblackbox5_root / '1-docs'
 
     @property
     def tools_root(self) -> Path:
@@ -614,7 +614,7 @@ class PathResolver:
         tools_path = self.config.get('paths.tools')
         if tools_path:
             return Path(os.path.expanduser(tools_path))
-        return self.blackbox5_root / 'bin'
+        return selfblackbox5_root / 'bin'
 
     @property
     def templates_root(self) -> Path:
@@ -786,7 +786,7 @@ if __name__ == "__main__":
 
     print("\nPath Resolution:")
     resolver = config.get_path_resolver()
-    print(f"  BlackBox5 Root: {resolver.blackbox5_root}")
+    print(f"  BlackBox5 Root: {resolverblackbox5_root}")
     print(f"  Engine Root: {resolver.engine_root}")
     print(f"  Memory Root: {resolver.memory_root}")
     print(f"  Project Path: {resolver.get_project_path()}")

@@ -148,8 +148,8 @@ The circuit breaker is part of BlackBox 5 core. No additional installation neede
 
 ```bash
 # Already available in
-.blackbox5/engine/core/circuit_breaker.py
-.blackbox5/engine/core/circuit_breaker_types.py
+blackbox5/engine/core/circuit_breaker.py
+blackbox5/engine/core/circuit_breaker_types.py
 ```
 
 ### Dependencies

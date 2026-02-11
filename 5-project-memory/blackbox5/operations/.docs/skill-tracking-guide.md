@@ -1,6 +1,6 @@
 # Skill Tracking Guide
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml`
 
 ## Purpose
 

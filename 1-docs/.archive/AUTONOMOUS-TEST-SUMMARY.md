@@ -95,13 +95,13 @@ Each issue is automatically categorized:
 bash check-framework-research-progress.sh
 
 # Check state file
-cat .blackbox5/engine/operations/runtime/ralph/github_state.json | python3 -m json.tool
+cat blackbox5/engine/operations/runtime/ralph/github_state.json | python3 -m json.tool
 
 # List output files
-ls -lh .blackbox5/engine/development/framework-research/
+ls -lh blackbox5/engine/development/framework-research/
 
 # View specific analysis
-cat .blackbox5/engine/development/framework-research/FoundationAgents-MetaGPT-ANALYSIS.md
+cat blackbox5/engine/development/framework-research/FoundationAgents-MetaGPT-ANALYSIS.md
 
 # Check if still running
 ps aux | grep run-autonomous-research.py

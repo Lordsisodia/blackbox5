@@ -47,8 +47,8 @@ This creates:
 #!/bin/bash
 # migrate-runs.sh
 
-ENGINE_RUNS="$HOME/.blackbox5/2-engine/runs"
-PROJECT_RUNS="$HOME/.blackbox5/5-project-memory/blackbox5/runs"
+ENGINE_RUNS="$HOME/blackbox5/2-engine/runs"
+PROJECT_RUNS="$HOME/blackbox5/5-project-memory/blackbox5/runs"
 
 for run in "$ENGINE_RUNS"/run-*; do
     if [ -d "$run" ]; then

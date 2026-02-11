@@ -49,13 +49,13 @@ pip install gunicorn
 2. **Copy configuration template:**
 
 ```bash
-cp 2-engine/.autonomous/config/api-config.yaml ~/.blackbox5/api-config.yaml
+cp 2-engine/.autonomous/config/api-config.yaml ~/blackbox5/api-config.yaml
 ```
 
 3. **Edit configuration:**
 
 ```bash
-vim ~/.blackbox5/api-config.yaml
+vim ~/blackbox5/api-config.yaml
 ```
 
 Update at minimum:
@@ -70,11 +70,11 @@ Update at minimum:
 python -m 2_engine.autonomous.lib.api_server
 
 # Or with custom config
-python -m 2_engine.autonomous.lib.api_server --config ~/.blackbox5/api-config.yaml
+python -m 2_engine.autonomous.lib.api_server --config ~/blackbox5/api-config.yaml
 
 # Production with gunicorn
 gunicorn -w 4 -b 0.0.0.0:5000 \
-  "2_engine.autonomous.lib.api_server:create_app('~/.blackbox5/api-config.yaml')"
+  "2_engine.autonomous.lib.api_server:create_app('~/blackbox5/api-config.yaml')"
 ```
 
 5. **Test the API:**
@@ -600,7 +600,7 @@ server:
   cors_enabled: true
   cors_origins:
     - "http://localhost:3000"
-    - "https://dashboard.blackbox5.com"
+    - "https://dashboardblackbox5.com"
 ```
 
 ### Security Headers
@@ -631,7 +631,7 @@ The API automatically adds:
 - Check connector enabled in config
 - Verify credentials
 - Test connector: `POST /api/v1/connectors/:name/test`
-- Check logs: `~/.blackbox5/logs/api-errors.log`
+- Check logs: `~/blackbox5/logs/api-errors.log`
 
 **4. Webhook signature verification fails**
 - Verify webhook secret matches
@@ -644,15 +644,15 @@ The API automatically adds:
 
 ### Logs
 
-**API access log:** `~/.blackbox5/logs/api-access.log`
-**Error log:** `~/.blackbox5/logs/api-errors.log`
-**Webhook log:** `~/.blackbox5/logs/webhooks.log`
+**API access log:** `~/blackbox5/logs/api-access.log`
+**Error log:** `~/blackbox5/logs/api-errors.log`
+**Webhook log:** `~/blackbox5/logs/webhooks.log`
 
 **Enable file logging:**
 ```yaml
 logging:
   level: "DEBUG"
-  file: "~/.blackbox5/logs/api-server.log"
+  file: "~/blackbox5/logs/api-server.log"
 ```
 
 ### Testing
@@ -699,12 +699,12 @@ After=network.target
 Type=simple
 User=ralf
 WorkingDirectory=/home/ralf/blackbox5
-Environment="RALF_CONFIG=/home/ralf/.blackbox5/api-config.yaml"
+Environment="RALF_CONFIG=/home/ralf/blackbox5/api-config.yaml"
 ExecStart=/usr/bin/python3 -m gunicorn \
   -w 4 -b 0.0.0.0:5000 \
   --access-logfile /var/log/ralf-api/access.log \
   --error-logfile /var/log/ralf-api/error.log \
-  "2_engine.autonomous.lib.api_server:create_app('~/.blackbox5/api-config.yaml')"
+  "2_engine.autonomous.lib.api_server:create_app('~/blackbox5/api-config.yaml')"
 Restart=always
 
 [Install]
@@ -723,7 +723,7 @@ sudo systemctl status ralf-api
 ```nginx
 server {
     listen 80;
-    server_name api.blackbox5.com;
+    server_name apiblackbox5.com;
 
     location / {
         proxy_pass http://localhost:5000;
@@ -760,9 +760,9 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ~/.blackbox5:/root/.blackbox5
+      - ~/blackbox5:/root/blackbox5
     environment:
-      - RALF_CONFIG=/root/.blackbox5/api-config.yaml
+      - RALF_CONFIG=/root/blackbox5/api-config.yaml
     restart: always
 ```
 
@@ -773,7 +773,7 @@ For production, use environment variables:
 ```python
 import os
 
-config_file = os.getenv('RALF_CONFIG', '~/.blackbox5/api-config.yaml')
+config_file = os.getenv('RALF_CONFIG', '~/blackbox5/api-config.yaml')
 api_key = os.getenv('RALF_API_KEY')
 slack_webhook = os.getenv('SLACK_WEBHOOK_URL')
 ```

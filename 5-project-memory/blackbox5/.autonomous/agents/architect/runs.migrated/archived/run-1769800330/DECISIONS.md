@@ -92,7 +92,7 @@
 **Reversibility:** N/A - This is a validation decision
 
 **Verification Required:** Yes
-- File exists at `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml`
+- File exists at `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml`
 - YAML parses without errors
 - Template can be copied successfully
 

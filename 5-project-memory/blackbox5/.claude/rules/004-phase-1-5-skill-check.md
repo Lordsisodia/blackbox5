@@ -16,7 +16,7 @@ priority: 95
 BEFORE starting Phase 2 (Execution) of ANY task, you MUST check for applicable skills.
 
 ## Process
-1. Read `skill-selection.yaml` at `~/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+1. Read `skill-selection.yaml` at `~/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
 2. Check `domain_mapping` for matching keywords in your task
 3. Calculate confidence using the formula in the file
 4. Invoke skill only if confidence >= 70%

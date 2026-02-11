@@ -7,18 +7,18 @@ Successfully extracted and adapted the Persistent Memory system from Auto-Claude
 ## Files Created
 
 ### Core Implementation
-- **`.blackbox5/engine/memory/AgentMemory.py`** (673 lines)
+- **`blackbox5/engine/memory/AgentMemory.py`** (673 lines)
   - Main memory class with session tracking, insight storage, and context management
   - Thread-safe operations with locks
   - JSON-based persistence (no external dependencies)
   - Per-agent memory isolation
 
 ### Module Package
-- **`.blackbox5/engine/memory/__init__.py`**
+- **`blackbox5/engine/memory/__init__.py`**
   - Package initialization with public API exports
 
 ### Testing
-- **`.blackbox5/tests/test_agent_memory.py`** (581 lines)
+- **`blackbox5/tests/test_agent_memory.py`** (581 lines)
   - 30 comprehensive test cases covering:
     - Basic functionality (initialization, persistence)
     - Session tracking (add, retrieve, statistics)
@@ -31,7 +31,7 @@ Successfully extracted and adapted the Persistent Memory system from Auto-Claude
     - Concurrency (thread-safe operations)
 
 ### Documentation
-- **`.blackbox5/engine/memory/README.md`** (453 lines)
+- **`blackbox5/engine/memory/README.md`** (453 lines)
   - Complete API reference
   - Usage examples
   - Architecture documentation
@@ -39,7 +39,7 @@ Successfully extracted and adapted the Persistent Memory system from Auto-Claude
   - Comparison with Graphiti
 
 ### Demo
-- **`.blackbox5/engine/memory/demo.py`** (280 lines)
+- **`blackbox5/engine/memory/demo.py`** (280 lines)
   - Interactive demonstration of all features
   - 6 demo scenarios showing real-world usage
   - Runnable script that creates sample data
@@ -112,7 +112,7 @@ new_memory.import_memory(data, merge=True)
 
 ### Storage Structure
 ```
-.blackbox5/data/memory/
+blackbox5/data/memory/
 ├── {agent_id}/
 │   ├── sessions.json    # Execution history
 │   ├── insights.json    # Learned insights
@@ -241,7 +241,7 @@ Run `python3 engine/memory/demo.py` to see:
 ## Success Criteria - All Met ✓
 
 - ✅ AgentMemory.py created with JSON-based persistence
-- ✅ Memory files created per agent in .blackbox5/data/memory/
+- ✅ Memory files created per agent in blackbox5/data/memory/
 - ✅ Test demonstrates sessions, insights, and context working
 - ✅ Each agent has isolated memory environment
 
@@ -257,7 +257,7 @@ Run `python3 engine/memory/demo.py` to see:
 ## Files Summary
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── memory/
 │       ├── __init__.py          # Package exports

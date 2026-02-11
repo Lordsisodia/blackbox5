@@ -53,7 +53,7 @@ Built a comprehensive navigation system with:
 
 | Component | Status | Location |
 |-----------|--------|----------|
-| bb5 CLI | ✅ Complete | `~/.blackbox5/bin/bb5*` |
+| bb5 CLI | ✅ Complete | `~/blackbox5/bin/bb5*` |
 | Context Discovery | ✅ Complete | `bb5-discover-context` |
 | Template Population | ✅ Complete | `bb5-populate-template` |
 | Session Start Hook | ✅ Complete | `.claude/hooks/session-start-navigation.sh` |

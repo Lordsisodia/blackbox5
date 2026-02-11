@@ -45,7 +45,7 @@ Add to your `.claude/settings.json`:
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-timeline-memory.sh"
+            "command": "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-timeline-memory.sh"
           }
         ]
       }
@@ -154,7 +154,7 @@ stats: {}                # Performance statistics
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-timeline-memory.sh",
+            "command": "$HOME/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-timeline-memory.sh",
             "timeout": 30
           }
         ]
@@ -166,7 +166,7 @@ stats: {}                # Performance statistics
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/validate-pattern-write.sh"
+            "command": "$HOME/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/validate-pattern-write.sh"
           }
         ]
       }
@@ -182,7 +182,7 @@ stats: {}                # Performance statistics
 ### Manual Test
 ```bash
 # Test the hook directly
-cd ~/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline
+cd ~/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline
 echo '{"source": "startup", "session_id": "test-123"}' | ./.claude/hooks/session-start-timeline-memory.sh
 ```
 
@@ -216,5 +216,5 @@ echo '{"source": "startup", "session_id": "test-123"}' | ./.claude/hooks/session
 ## References
 
 - [Claude Code Hooks Reference](https://code.claude.com/docs/en/hooks)
-- [Multi-Agent Ralph Loop Hooks](~/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/)
+- [Multi-Agent Ralph Loop Hooks](~/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/)
 - [RALF Loop Implementation](../../../2-engine/.autonomous/shell/ralf-loop.sh)

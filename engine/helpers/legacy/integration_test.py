@@ -43,18 +43,18 @@ class IntegrationTest:
         self.run_dir = Path(run_dir).expanduser().resolve()
 
         # Calculate blackbox5 root from run_dir
-        # run_dir is typically: ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-XXXX
+        # run_dir is typically: ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-XXXX
         # We need to find the blackbox5 root
         parts = self.run_dir.parts
-        if ".blackbox5" in parts:
-            idx = parts.index(".blackbox5")
-            self.blackbox5 = Path(*parts[:idx+1])
+        if "blackbox5" in parts:
+            idx = parts.index("blackbox5")
+            selfblackbox5 = Path(*parts[:idx+1])
         else:
             # Fallback: assume blackbox5 is 5 levels up from runs/
-            self.blackbox5 = self.run_dir.parent.parent.parent.parent.parent
+            selfblackbox5 = self.run_dir.parent.parent.parent.parent.parent
 
-        self.engine_lib = self.blackbox5 / "2-engine" / ".autonomous" / "lib"
-        self.engine_shell = self.blackbox5 / "2-engine" / ".autonomous" / "shell"
+        self.engine_lib = selfblackbox5 / "2-engine" / ".autonomous" / "lib"
+        self.engine_shell = selfblackbox5 / "2-engine" / ".autonomous" / "shell"
         self.goals_dir = self.run_dir.parent.parent / "goals"
 
     def log(self, message: str, level: str = "info"):
@@ -79,7 +79,7 @@ class IntegrationTest:
         self.log("RALF v2.3 Integration Test Suite")
         self.log("=" * 60)
         self.log(f"Run directory: {self.run_dir}")
-        self.log(f"Blackbox5 root: {self.blackbox5}")
+        self.log(f"Blackbox5 root: {selfblackbox5}")
         self.log("")
 
         # System 1: Phase Gates
@@ -330,7 +330,7 @@ class IntegrationTest:
         self.log("Testing: Decision Registry System")
 
         # Test 1: Template exists
-        template_dir = self.blackbox5 / "2-engine" / ".autonomous" / "prompt-progression" / "versions" / "v2.2" / "templates"
+        template_dir = selfblackbox5 / "2-engine" / ".autonomous" / "prompt-progression" / "versions" / "v2.2" / "templates"
         template = template_dir / "decision_registry.yaml"
 
         if template.exists():
@@ -500,7 +500,7 @@ class IntegrationTest:
         results = []
         self.log("Testing: Unified Loop Integration")
 
-        ralf_md = self.blackbox5 / "bin" / "ralf.md"
+        ralf_md = selfblackbox5 / "bin" / "ralf.md"
 
         # Test 1: ralf.md exists
         if not ralf_md.exists():
@@ -603,7 +603,7 @@ def main():
         print("  verify-all               - Quick verification of all systems")
         print("")
         print("Examples:")
-        print("  python3 integration_test.py run --run-dir ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0005")
+        print("  python3 integration_test.py run --run-dir ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-0005")
         sys.exit(1)
 
     command = sys.argv[1]
@@ -665,7 +665,7 @@ def main():
 
     elif command == "verify-all":
         # Quick verification - just check files exist
-        blackbox5 = Path.home() / ".blackbox5"
+        blackbox5 = Path.home() / "blackbox5"
         systems = {
             "Phase Gates": blackbox5 / "2-engine" / ".autonomous" / "lib" / "phase_gates.py",
             "Context Budget": blackbox5 / "2-engine" / ".autonomous" / "lib" / "context_budget.py",
@@ -684,7 +684,7 @@ def main():
                 all_ok = False
 
         # Check goals directory
-        goals = Path.home() / ".blackbox5" / "5-project-memory" / "ralf-core" / ".autonomous" / "goals"
+        goals = Path.home() / "blackbox5" / "5-project-memory" / "ralf-core" / ".autonomous" / "goals"
         status = "[OK]" if goals.exists() else "[MISSING]"
         print(f"{status} Goals System: {goals}")
         if not goals.exists():

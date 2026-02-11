@@ -176,13 +176,13 @@ Task Execution
 
 ```bash
 # Run tests
-pytest .blackbox5/tests/test_deviation_handling.py -v
+pytest blackbox5/tests/test_deviation_handling.py -v
 
 # Run specific test
-pytest .blackbox5/tests/test_deviation_handling.py::TestDeviationDetection -v
+pytest blackbox5/tests/test_deviation_handling.py::TestDeviationDetection -v
 
 # With coverage
-pytest .blackbox5/tests/test_deviation_handling.py --cov=engine.core.deviation_handler
+pytest blackbox5/tests/test_deviation_handling.py --cov=engine.core.deviation_handler
 ```
 
 ## Common Use Cases
@@ -268,7 +268,7 @@ if stats['by_type']['bug'] > 5:
 ## File Locations
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── core/
 │       ├── deviation_handler.py          # Main implementation

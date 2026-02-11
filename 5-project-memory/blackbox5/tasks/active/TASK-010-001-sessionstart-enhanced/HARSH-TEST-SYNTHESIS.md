@@ -304,7 +304,7 @@ The hook will:
 
 All 5 test reports are in:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/
 ├── TEST-SECURITY.md (42/100)
 ├── TEST-CORRECTNESS.md (42/100)
 ├── TEST-PERFORMANCE.md (42/100)

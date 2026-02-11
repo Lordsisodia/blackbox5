@@ -25,7 +25,7 @@ This analysis uncovers **transaction-like patterns** that previous scouts missed
 
 ### 1.1 State Manager - THE ONLY PROPER IMPLEMENTATION
 
-**File:** `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/state/state_manager.py`
+**File:** `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/state/state_manager.py`
 
 This is the ONLY file in BlackBox5 with proper transaction-like behavior:
 
@@ -89,7 +89,7 @@ def _lock_state(self):
 
 #### Pattern A: Routes.yaml Backup (Manual)
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh`
 
 ```bash
 # Lines 26-31: Create backup before modification
@@ -115,7 +115,7 @@ fi
 
 #### Pattern B: Queue.yaml Backups (Evidence of Problems)
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/`
 
 **Backup Files Found:**
 ```
@@ -137,7 +137,7 @@ queue.yaml.backup.20260205 (9,105 bytes)
 
 #### Pattern C: STATE.yaml Backups
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/`
 
 **Backup Files Found:**
 ```
@@ -153,7 +153,7 @@ STATE.yaml.backup.20260204_093350
 
 ### 2.1 Manual Rollback Scripts
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-060-engine-project-boundary/PLAN.md`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-060-engine-project-boundary/PLAN.md`
 
 ```bash
 # Lines 233-235: Documented rollback procedure
@@ -161,7 +161,7 @@ STATE.yaml.backup.20260204_093350
 - One-command restore: `cp routes.yaml.backup.* routes.yaml`
 
 # Lines 255: Rollback command
-cp /backup/routes.yaml.backup.* /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml
+cp /backup/routes.yaml.backup.* /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml
 ```
 
 **Assessment:**
@@ -174,7 +174,7 @@ cp /backup/routes.yaml.backup.* /Users/shaansisodia/.blackbox5/5-project-memory/
 
 ### 2.2 State Manager Recovery (Partial)
 
-**File:** `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/state/state_manager.py`
+**File:** `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/state/state_manager.py`
 
 ```python
 # Lines 175-177: Backup restoration capability
@@ -194,7 +194,7 @@ if backup_content:
 
 ### 3.1 State Manager Validation
 
-**File:** `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/state/state_manager.py`
+**File:** `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/state/state_manager.py`
 
 ```python
 # Lines 261-302: Comprehensive validation
@@ -292,7 +292,7 @@ def record_event(events_file: Path, event: dict) -> None:
 
 ### 5.1 Events.yaml (Partial Journal)
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
 
 **Purpose:** Event logging (append-only)
 
@@ -306,7 +306,7 @@ def record_event(events_file: Path, event: dict) -> None:
 
 ### 5.2 Timeline.yaml (Human-Readable Only)
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline.yaml`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/timeline.yaml`
 
 **Purpose:** Human-readable progress tracking
 
@@ -421,12 +421,12 @@ BlackBox5 has **islands of transaction awareness** in a sea of unsafe I/O. The s
 ## APPENDIX: Files with Transaction-Like Patterns
 
 ### Proper Implementation (1 file)
-1. `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/state/state_manager.py`
+1. `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/state/state_manager.py`
 
 ### Manual Backup Patterns (5+ files)
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh`
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` (backups exist)
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml` (backups exist)
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` (backups exist)
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml` (backups exist)
 
 ### No Transaction Support (25+ files)
 - All other bin/ scripts

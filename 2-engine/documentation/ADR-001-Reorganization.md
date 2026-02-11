@@ -212,7 +212,7 @@ The BlackBox5 codebase had grown to **10,234 files** with significant structural
 ### 4.3 New Directory Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── 1-docs/                    # Documentation (guides, references)
 │   ├── engine/               # Engine-specific docs
 │   ├── usage/                # User guides
@@ -311,26 +311,26 @@ The BlackBox5 codebase had grown to **10,234 files** with significant structural
 
 ```bash
 # Import verification
-find /Users/shaansisodia/.blackbox5/2-engine -name "*.py" | xargs python -m py_compile
+find /Users/shaansisodia/blackbox5/2-engine -name "*.py" | xargs python -m py_compile
 
 # Broken symlink check
-find /Users/shaansisodia/.blackbox5/2-engine -type l ! -exec test -e {} \; -print
+find /Users/shaansisodia/blackbox5/2-engine -type l ! -exec test -e {} \; -print
 
 # Empty directory check
-find /Users/shaansisodia/.blackbox5/2-engine -type d -empty
+find /Users/shaansisodia/blackbox5/2-engine -type d -empty
 
 # Test execution
-cd /Users/shaansisodia/.blackbox5/2-engine && python -m pytest tests/ -v
+cd /Users/shaansisodia/blackbox5/2-engine && python -m pytest tests/ -v
 ```
 
 ---
 
 ## 6. References
 
-- **Consolidation Analysis:** `/Users/shaansisodia/.blackbox5/2-engine/CONSOLIDATION_ANALYSIS.md`
-- **Detailed Consolidation Plan:** `/Users/shaansisodia/.blackbox5/2-engine/CONSOLIDATION_PLAN_DETAILED.md`
-- **Consolidation Report:** `/Users/shaansisodia/.blackbox5/2-engine/documentation/CONSOLIDATION-REPORT.md`
-- **Project Memory Report:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/CONSOLIDATION-REPORT.md`
+- **Consolidation Analysis:** `/Users/shaansisodia/blackbox5/2-engine/CONSOLIDATION_ANALYSIS.md`
+- **Detailed Consolidation Plan:** `/Users/shaansisodia/blackbox5/2-engine/CONSOLIDATION_PLAN_DETAILED.md`
+- **Consolidation Report:** `/Users/shaansisodia/blackbox5/2-engine/documentation/CONSOLIDATION-REPORT.md`
+- **Project Memory Report:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/CONSOLIDATION-REPORT.md`
 
 ---
 

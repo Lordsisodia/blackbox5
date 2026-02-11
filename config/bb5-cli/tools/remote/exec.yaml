@@ -1,0 +1,42 @@
+tool: remote:exec
+category: remote
+description: Execute commands on remote host via SSH
+context_aware: true
+
+arguments:
+  - name: context
+    type: string
+    required: false
+    description: Remote context name (uses current if omitted)
+    example: vps
+
+  - name: command
+    type: string
+    required: true
+    description: Command to execute on remote host
+    example: "ls -la /opt/ralf"
+
+  - name: interactive
+    type: boolean
+    flag: -i
+    required: false
+    description: Start interactive SSH session
+
+examples:
+  - command: bb5 remote exec vps "ls -la"
+    description: Execute command on VPS
+
+  - command: bb5 remote exec "ps aux | grep ralf"
+    description: Execute with current context
+
+  - command: bb5 remote exec vps -i
+    description: Interactive SSH session
+
+  - command: bb5 remote exec macmini "tail -f /var/log/ralf.log"
+    description: Stream logs from Mac Mini
+
+notes:
+  - Uses current remote context unless context is specified
+  - SSH key must be configured in context
+  - Command output is streamed in real-time
+  - Exit code is preserved from remote command

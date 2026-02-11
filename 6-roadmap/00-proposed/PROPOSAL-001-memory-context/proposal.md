@@ -93,9 +93,9 @@ Without these capabilities, agents cannot:
 - 47% migration progress - many components not yet integrated
 
 **Locations:**
-- `.blackbox5/engine/memory/`
-- `.blackbox5/engine/knowledge/`
-- `.blackbox5/engine/memory-templates/`
+- `blackbox5/engine/memory/`
+- `blackbox5/engine/knowledge/`
+- `blackbox5/engine/memory-templates/`
 
 ## Proposed Solution
 

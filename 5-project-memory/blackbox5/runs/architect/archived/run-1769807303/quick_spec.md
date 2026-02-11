@@ -5,7 +5,7 @@ Fix import path errors throughout the codebase that prevent modules from being f
 
 ## Files to Modify
 
-### 1. `/Users/shaansisodia/.blackbox5/2-engine/core/interface/api/server.py`
+### 1. `/Users/shaansisodia/blackbox5/2-engine/core/interface/api/server.py`
 **Issue:** Imports from non-existent `infrastructure` module
 - `from infrastructure.kernel import kernel, SystemStatus, RunLevel`
 - `from infrastructure.config import ConfigManager`
@@ -20,7 +20,7 @@ Fix import path errors throughout the codebase that prevent modules from being f
 - Option B: Comment out non-functional API server code
 - Option C: Update imports to use existing modules
 
-### 2. `/Users/shaansisodia/.blackbox5/2-engine/tools/integrations/_template/config.py`
+### 2. `/Users/shaansisodia/blackbox5/2-engine/tools/integrations/_template/config.py`
 **Issue:** Template file with invalid Python syntax (template placeholders not escaped)
 - Line 14: `class {ServiceName}Config:` - invalid syntax
 

@@ -40,7 +40,7 @@ The BlackBox5 CLI infrastructure provides a robust, extensible command-line inte
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── cli/
 │   ├── bb5                          # Main CLI entry point (executable)
 │   ├── __init__.py
@@ -138,7 +138,7 @@ Becomes:
 
 ## Configuration
 
-Configuration is loaded from `.blackbox5/config.yml` and can be overridden by environment variables.
+Configuration is loaded from `blackbox5/config.yml` and can be overridden by environment variables.
 
 ### Config Structure
 
@@ -290,7 +290,7 @@ If you get import errors:
 ### Configuration Issues
 
 If configuration fails to load:
-1. Check YAML syntax in `.blackbox5/config.yml`
+1. Check YAML syntax in `blackbox5/config.yml`
 2. Verify required fields for enabled features
 3. Use `--debug` flag for detailed error messages
 4. Check environment variable overrides

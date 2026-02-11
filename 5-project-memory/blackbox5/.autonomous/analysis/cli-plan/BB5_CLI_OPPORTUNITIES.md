@@ -518,15 +518,15 @@ subprocess.run([
 ## File Locations
 
 ### New CLI Scripts
-- `/Users/shaansisodia/.blackbox5/bin/bb5-claim`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-complete`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-release`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-queue`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-next`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-validate`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-sync`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-status`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-reanalyze`
+- `/Users/shaansisodia/blackbox5/bin/bb5-claim`
+- `/Users/shaansisodia/blackbox5/bin/bb5-complete`
+- `/Users/shaansisodia/blackbox5/bin/bb5-release`
+- `/Users/shaansisodia/blackbox5/bin/bb5-queue`
+- `/Users/shaansisodia/blackbox5/bin/bb5-next`
+- `/Users/shaansisodia/blackbox5/bin/bb5-validate`
+- `/Users/shaansisodia/blackbox5/bin/bb5-sync`
+- `/Users/shaansisodia/blackbox5/bin/bb5-status`
+- `/Users/shaansisodia/blackbox5/bin/bb5-reanalyze`
 
 ### Integration Points
 - `bb5` main dispatcher needs new command mappings

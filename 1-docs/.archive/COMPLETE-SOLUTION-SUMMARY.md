@@ -10,7 +10,7 @@
 
 ### 1. Complete Agent Orchestration Workflow
 
-**Document**: `.blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md`
+**Document**: `blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md`
 
 **What it shows**:
 - How to talk to Planning Agent
@@ -28,10 +28,10 @@ You → Planning Agent → Vibe Kanban → Orchestrator → Parallel Agents → 
 ### 2. Ralphy-Blackbox Integration
 
 **Files**:
-- `.blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py`
-- `.blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh`
-- `.blackbox5/2-engine/07-operations/runtime/ralphy/BLACKBOX-INTEGRATION.md`
-- `.blackbox5/2-engine/07-operations/runtime/ralphy/INTEGRATION-SUMMARY.md`
+- `blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py`
+- `blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh`
+- `blackbox5/2-engine/07-operations/runtime/ralphy/BLACKBOX-INTEGRATION.md`
+- `blackbox5/2-engine/07-operations/runtime/ralphy/INTEGRATION-SUMMARY.md`
 
 **What it does**:
 - Tracks all Ralphy sessions in Blackbox Memory
@@ -42,11 +42,11 @@ You → Planning Agent → Vibe Kanban → Orchestrator → Parallel Agents → 
 ### 3. Easy Setup System
 
 **Files**:
-- `.blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh`
-- `.blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py`
-- `.blackbox5/1-docs/03-guides/02-tutorials/AGENT-ORCHESTRATION-SETUP-CHECKLIST.md`
-- `.blackbox5/1-docs/03-guides/02-tutorials/EASY-SETUP-GUIDE.md`
-- `.blackbox5/1-docs/03-guides/02-tutorials/README.md`
+- `blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh`
+- `blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py`
+- `blackbox5/1-docs/03-guides/02-tutorials/AGENT-ORCHESTRATION-SETUP-CHECKLIST.md`
+- `blackbox5/1-docs/03-guides/02-tutorials/EASY-SETUP-GUIDE.md`
+- `blackbox5/1-docs/03-guides/02-tutorials/README.md`
 
 **What it provides**:
 - Automated prerequisites checking
@@ -62,7 +62,7 @@ You → Planning Agent → Vibe Kanban → Orchestrator → Parallel Agents → 
 ### Command 1: Check Prerequisites
 
 ```bash
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ```
 
 **Output**:
@@ -75,7 +75,7 @@ bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ### Command 2: Run Test
 
 ```bash
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 **Output**:
@@ -105,7 +105,7 @@ results = OrchestratorAgent().orchestrate_parallel_execution()
 
 ### 1. Goals and Objectives
 
-**Where**: `.blackbox5/5-project-memory/siso-internal/operations/ralphy/history/sessions/ralphy/sessions.json`
+**Where**: `blackbox5/5-project-memory/siso-internal/operations/ralphy/history/sessions/ralphy/sessions.json`
 
 ```json
 {
@@ -182,7 +182,7 @@ BACKLOG → DOING → DONE
 ✅ All 12 tasks complete!
 
 # You check results:
-ls -la .blackbox5/5-project-memory/siso-internal/operations/agents/
+ls -la blackbox5/5-project-memory/siso-internal/operations/agents/
 # agent-1/sessions.json
 # agent-2/sessions.json (RALPHY: 5 iterations)
 # agent-3/sessions.json (RALPHY: 3 iterations)
@@ -201,7 +201,7 @@ git log --oneline
 ## 📁 All Files Created
 
 ```
-.blackbox5/
+blackbox5/
 ├── 1-docs/
 │   └── 01-theory/03-workflows/production/
 │       └── COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md  # Main workflow guide
@@ -245,7 +245,7 @@ git log --oneline
 ### Monitoring
 
 - [ ] Open http://localhost:3001 (Vibe Kanban)
-- [ ] Check `.blackbox5/5-project-memory/` (sessions)
+- [ ] Check `blackbox5/5-project-memory/` (sessions)
 - [ ] Review git commits (code created)
 
 ---
@@ -288,19 +288,19 @@ git log --oneline
 ### Step 1: Read the Quick Start
 
 ```bash
-cat .blackbox5/1-docs/03-guides/02-tutorials/README.md
+cat blackbox5/1-docs/03-guides/02-tutorials/README.md
 ```
 
 ### Step 2: Run the Setup
 
 ```bash
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ```
 
 ### Step 3: Run the Test
 
 ```bash
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 ### Step 4: Start Building
@@ -321,10 +321,10 @@ results = OrchestratorAgent().orchestrate_parallel_execution()
 
 ```bash
 # Check prerequisites
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 
 # Run test
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 # Start Vibe Kanban
 docker run -d -p 3001:3001 vibekanban/server
@@ -349,7 +349,7 @@ print(f"Completed: {len(results)}")
 open http://localhost:3001
 
 # Project Memory
-ls -la .blackbox5/5-project-memory/siso-internal/operations/
+ls -la blackbox5/5-project-memory/siso-internal/operations/
 
 # Git commits
 git log --oneline
@@ -393,7 +393,7 @@ results = OrchestratorAgent().orchestrate_parallel_execution()
 - ✅ Timestamps (when and how long)
 
 **Location**:
-- ✅ `.blackbox5/5-project-memory/siso-internal/operations/`
+- ✅ `blackbox5/5-project-memory/siso-internal/operations/`
 
 ---
 

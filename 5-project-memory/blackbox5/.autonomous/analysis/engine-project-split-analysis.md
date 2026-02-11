@@ -36,14 +36,14 @@ Based on analysis by 5 specialized sub-agents, the boundary between `2-engine/` 
 
 1. **Engine scripts hardcode project paths** - All 6 agent scripts in `2-engine/.autonomous/bin/` contain:
    ```python
-   PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-   ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+   PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+   ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
    ```
    This violates the engine/project boundary.
 
 2. **routes.yaml has incorrect paths** - Project routes.yaml contains paths like:
    ```yaml
-   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/
+   /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/
    ```
    This incorrectly nests `2-engine` inside `5-project-memory/blackbox5/`.
 

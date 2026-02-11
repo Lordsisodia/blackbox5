@@ -347,10 +347,10 @@ Wrap existing agent execution:
         print(f"Blocked by safety: {e}")
 
 For more details, see:
-- Kill Switch: .blackbox5/2-engine/01-core/safety/kill_switch.py
-- Safe Mode: .blackbox5/2-engine/01-core/safety/safe_mode.py
-- Classifier: .blackbox5/2-engine/01-core/safety/constitutional_classifier.py
-- Tests: .blackbox5/2-engine/01-core/safety/tests/test_safety_system.py
+- Kill Switch: blackbox5/2-engine/01-core/safety/kill_switch.py
+- Safe Mode: blackbox5/2-engine/01-core/safety/safe_mode.py
+- Classifier: blackbox5/2-engine/01-core/safety/constitutional_classifier.py
+- Tests: blackbox5/2-engine/01-core/safety/tests/test_safety_system.py
     """)
 
 

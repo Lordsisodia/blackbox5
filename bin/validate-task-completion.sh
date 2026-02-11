@@ -120,7 +120,7 @@ validate_task_file() {
 # MAIN EXECUTION
 # =============================================================================
 
-PROJECT_MEMORY_DIR="${HOME}/.blackbox5/5-project-memory"
+PROJECT_MEMORY_DIR="${HOME}/blackbox5/5-project-memory"
 
 # If specific task path provided, validate just that task
 if [ -n "$1" ]; then

@@ -4,7 +4,7 @@
 workflows:
   github-scout:
     name: "GitHub Repository Scout"
-    command: "claude -p ~/.blackbox5/2-engine/.autonomous/prompts/ralf-scout.md"
+    command: "claude -p ~/blackbox5/2-engine/.autonomous/prompts/ralf-scout.md"
     working_dir: "/opt/ralf"
     schedule: "0 2 * * *"  # Daily at 2 AM (low GitHub traffic)
     conditions:
@@ -22,7 +22,7 @@ workflows:
 
   codebase-audit:
     name: "Internal Codebase Audit"
-    command: "claude -p ~/.blackbox5/2-engine/.autonomous/prompts/ralf-audit.md"
+    command: "claude -p ~/blackbox5/2-engine/.autonomous/prompts/ralf-audit.md"
     working_dir: "/opt/ralf"
     schedule: "0 4 * * 0"  # Sunday 4 AM
     conditions:
@@ -40,7 +40,7 @@ workflows:
 
   optimizer:
     name: "Workflow Optimizer"
-    command: "claude -p ~/.blackbox5/2-engine/.autonomous/prompts/ralf-optimizer.md"
+    command: "claude -p ~/blackbox5/2-engine/.autonomous/prompts/ralf-optimizer.md"
     working_dir: "/opt/ralf"
     trigger: "idle"  # Run when CPU idle and no other workflows
     conditions:
@@ -57,7 +57,7 @@ workflows:
 
   execution-pool:
     name: "Task Execution Pool"
-    command: "claude -p ~/.blackbox5/2-engine/.autonomous/prompts/ralf-executor.md"
+    command: "claude -p ~/blackbox5/2-engine/.autonomous/prompts/ralf-executor.md"
     working_dir: "/opt/ralf"
     trigger: "queue_depth"  # Run when tasks in queue
     conditions:

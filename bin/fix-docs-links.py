@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import List, Tuple, Optional
 from dataclasses import dataclass
 
-DOCS_ROOT = Path("/Users/shaansisodia/.blackbox5/1-docs")
+DOCS_ROOT = Path("/Users/shaansisodia/blackbox5/1-docs")
 
 @dataclass
 class OrphanedFile:

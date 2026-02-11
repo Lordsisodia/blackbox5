@@ -169,7 +169,7 @@ sudo systemctl start [agent]-bridge
 
 **Launchd (macOS):**
 ```bash
-launchctl load ~/Library/LaunchAgents/com.blackbox5.[agent].plist
+launchctl load ~/Library/LaunchAgents/comblackbox5.[agent].plist
 ```
 
 ### Step 5: Verify Connection

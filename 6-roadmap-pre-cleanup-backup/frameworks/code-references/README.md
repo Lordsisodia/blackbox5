@@ -8,37 +8,37 @@
 ## Core Frameworks (Integrated)
 
 ### BMAD
-**Implementation:** `.blackbox5/engine/frameworks/1-bmad/`
+**Implementation:** `blackbox5/engine/frameworks/1-bmad/`
 ```bash
 # Main components
-.blackbox5/engine/frameworks/1-bmad/core/bmad-master.agent.yaml
-.blackbox5/engine/frameworks/1-bmad/modules/analyst.agent.yaml
-.blackbox5/engine/frameworks/1-bmad/modules/architect.agent.yaml
-.blackbox5/engine/frameworks/1-bmad/modules/dev.agent.yaml
-.blackbox5/engine/frameworks/1-bmad/modules/pm.agent.yaml
+blackbox5/engine/frameworks/1-bmad/core/bmad-master.agent.yaml
+blackbox5/engine/frameworks/1-bmad/modules/analyst.agent.yaml
+blackbox5/engine/frameworks/1-bmad/modules/architect.agent.yaml
+blackbox5/engine/frameworks/1-bmad/modules/dev.agent.yaml
+blackbox5/engine/frameworks/1-bmad/modules/pm.agent.yaml
 ```
 
 ### SpecKit
-**Implementation:** `.blackbox5/engine/frameworks/2-speckit/`
+**Implementation:** `blackbox5/engine/frameworks/2-speckit/`
 ```bash
 # Main components
-.blackbox5/engine/frameworks/2-speckit/slash-commands/
-.blackbox5/engine/frameworks/2-speckit/templates/
+blackbox5/engine/frameworks/2-speckit/slash-commands/
+blackbox5/engine/frameworks/2-speckit/templates/
 ```
 
 ### MetaGPT
-**Implementation:** `.blackbox5/engine/frameworks/3-metagpt/`
+**Implementation:** `blackbox5/engine/frameworks/3-metagpt/`
 ```bash
 # Main components
-.blackbox5/engine/frameworks/3-metagpt/templates/
+blackbox5/engine/frameworks/3-metagpt/templates/
 ```
 
 ### Swarm
-**Implementation:** `.blackbox5/engine/frameworks/4-swarm/`
+**Implementation:** `blackbox5/engine/frameworks/4-swarm/`
 ```bash
 # Main components
-.blackbox5/engine/frameworks/4-swarm/examples/
-.blackbox5/engine/frameworks/4-swarm/patterns/
+blackbox5/engine/frameworks/4-swarm/examples/
+blackbox5/engine/frameworks/4-swarm/patterns/
 ```
 
 ---
@@ -46,12 +46,12 @@
 ## Additional Framework Copies
 
 ### Development Directory
-**Location:** `.blackbox5/engine/development/frameworks/`
+**Location:** `blackbox5/engine/development/frameworks/`
 ```bash
-.blackbox5/engine/development/frameworks/1-bmad/
-.blackbox5/engine/development/frameworks/2-speckit/
-.blackbox5/engine/development/frameworks/3-metagpt/
-.blackbox5/engine/development/frameworks/4-swarm/
+blackbox5/engine/development/frameworks/1-bmad/
+blackbox5/engine/development/frameworks/2-speckit/
+blackbox5/engine/development/frameworks/3-metagpt/
+blackbox5/engine/development/frameworks/4-swarm/
 ```
 
 **Purpose:** Development and testing copies
@@ -61,30 +61,30 @@
 ## Research & Analysis Files
 
 ### Framework Research Directory
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 #### Analysis Files (16 total)
 ```bash
 # Core Frameworks
-.blackbox5/engine/development/framework-research/BMAD-ANALYSIS.md
-.blackbox5/engine/development/framework-research/bmad-code-org-BMAD-METHOD-ANALYSIS.md
-.blackbox5/engine/development/framework-research/METAGPT-GITHUB-ANALYSIS.md
-.blackbox5/engine/development/framework-research/FoundationAgents-MetaGPT-ANALYSIS.md
-.blackbox5/engine/development/framework-research/openai-swarm-ANALYSIS.md
+blackbox5/engine/development/framework-research/BMAD-ANALYSIS.md
+blackbox5/engine/development/framework-research/bmad-code-org-BMAD-METHOD-ANALYSIS.md
+blackbox5/engine/development/framework-research/METAGPT-GITHUB-ANALYSIS.md
+blackbox5/engine/development/framework-research/FoundationAgents-MetaGPT-ANALYSIS.md
+blackbox5/engine/development/framework-research/openai-swarm-ANALYSIS.md
 
 # Production Frameworks
-.blackbox5/engine/development/framework-research/agentscope-ai-agentscope-ANALYSIS.md
-.blackbox5/engine/development/framework-research/AGENTSCOPE-GITHUB-ANALYSIS.md
-.blackbox5/engine/development/framework-research/bytedance-deer-flow-ANALYSIS.md
-.blackbox5/engine/development/framework-research/DEERFLOW-ANALYSIS.md
-.blackbox5/engine/development/framework-research/iflytek-astron-agent-ANALYSIS.md
+blackbox5/engine/development/framework-research/agentscope-ai-agentscope-ANALYSIS.md
+blackbox5/engine/development/framework-research/AGENTSCOPE-GITHUB-ANALYSIS.md
+blackbox5/engine/development/framework-research/bytedance-deer-flow-ANALYSIS.md
+blackbox5/engine/development/framework-research/DEERFLOW-ANALYSIS.md
+blackbox5/engine/development/framework-research/iflytek-astron-agent-ANALYSIS.md
 
 # Enterprise Frameworks
-.blackbox5/engine/development/framework-research/google-adk-python-ANALYSIS.md
-.blackbox5/engine/development/framework-research/GOOGLE-ADK-ANALYSIS.md
-.blackbox5/engine/development/framework-research/microsoft-agent-framework-ANALYSIS.md
-.blackbox5/engine/development/framework-research/MervinPraison-PraisonAI-ANALYSIS.md
-.blackbox5/engine/development/framework-research/PRAISONAI-ANALYSIS.md
+blackbox5/engine/development/framework-research/google-adk-python-ANALYSIS.md
+blackbox5/engine/development/framework-research/GOOGLE-ADK-ANALYSIS.md
+blackbox5/engine/development/framework-research/microsoft-agent-framework-ANALYSIS.md
+blackbox5/engine/development/framework-research/MervinPraison-PraisonAI-ANALYSIS.md
+blackbox5/engine/development/framework-research/PRAISONAI-ANALYSIS.md
 ```
 
 ---
@@ -114,11 +114,11 @@
 ## Documentation Files
 
 ### Framework Documentation
-**Location:** `.blackbox5/docs/`
+**Location:** `blackbox5/docs/`
 ```bash
-.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md       # 4-week implementation plan
-.blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md         # Feature comparison
-.blackbox5/docs/FRAMEWORK-COMPARISON.md                # Side-by-side comparison
+blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md       # 4-week implementation plan
+blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md         # Feature comparison
+blackbox5/docs/FRAMEWORK-COMPARISON.md                # Side-by-side comparison
 ```
 
 ### Root Documentation
@@ -195,18 +195,18 @@ CLAUDE-CODE-AUTONOMOUS-FRAMEWORKS.md                  # Claude Code extensions
 ## Quick Navigation
 
 ### For Implementation
-1. **Code:** `.blackbox5/engine/frameworks/{1-bmad,2-speckit,3-metagpt,4-swarm}/`
-2. **Plans:** `.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
-3. **Features:** `.blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
+1. **Code:** `blackbox5/engine/frameworks/{1-bmad,2-speckit,3-metagpt,4-swarm}/`
+2. **Plans:** `blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
+3. **Features:** `blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
 
 ### For Research
-1. **Analysis:** `.blackbox5/engine/development/framework-research/*.md`
+1. **Analysis:** `blackbox5/engine/development/framework-research/*.md`
 2. **Inspiration:** `.docs/frameworks-analysis/{automaker,Maestro}/`
 3. **Deep Dive:** `FRAMEWORKS-DEEP-DIVE.md`
 
 ### For Integration
-1. **Comparison:** `.blackbox5/engine/development/frameworks/FRAMEWORK-COMPARISON.md`
-2. **Roadmap:** `.blackbox5/engine/development/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md`
+1. **Comparison:** `blackbox5/engine/development/frameworks/FRAMEWORK-COMPARISON.md`
+2. **Roadmap:** `blackbox5/engine/development/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md`
 3. **Patterns:** `.docs/frameworks-analysis/inspirations.md`
 
 ---
@@ -217,7 +217,7 @@ To make navigation easier, consider creating symbolic links:
 
 ```bash
 # Create shortcuts from roadmap to actual code
-cd .blackbox5/roadmap/frameworks/code-references/
+cd blackbox5/roadmap/frameworks/code-references/
 
 # Core frameworks
 ln -s ../../../engine/frameworks/1-bmad bmad-code

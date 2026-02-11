@@ -47,14 +47,14 @@ Workflows are data that should be:
 
 ## Files Created
 
-1. `~/.blackbox5/2-engine/.autonomous/lib/workflow_loader.py` (430 lines)
+1. `~/blackbox5/2-engine/.autonomous/lib/workflow_loader.py` (430 lines)
    - Workflow dataclasses
    - WorkflowLoader class
    - Validation methods
    - Statistics and export
    - CLI interface
 
-2. `~/.blackbox5/2-engine/.autonomous/lib/test_workflow_loader.py` (24 tests)
+2. `~/blackbox5/2-engine/.autonomous/lib/test_workflow_loader.py` (24 tests)
    - Unit tests for all components
    - Integration tests with real workflows
    - Edge case coverage
@@ -93,7 +93,7 @@ No impact on existing functionality.
 
 ## Completion
 
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800176
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800176
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow
 **Phase Gates:** N/A (library creation)

@@ -6,8 +6,8 @@ This is a legacy/generic task template file that appears to be a placeholder or 
 
 ## Key Files Involved
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-TEMPLATE-001/task.md` - The template file itself
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/templates/` - Official templates location
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-TEMPLATE-001/task.md` - The template file itself
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/templates/` - Official templates location
 
 ## Estimated Complexity
 
@@ -23,7 +23,7 @@ None - This is a standalone template file
 ## Recommended Approach
 
 1. **Determine purpose** - Is this an active task or an example template?
-2. **Compare with official template** - Check `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/templates/goal-template.yaml`
+2. **Compare with official template** - Check `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/templates/goal-template.yaml`
 3. **Action**:
    - If active task: Fill in all FILL_ME sections
    - If example: Move to `.templates/` directory

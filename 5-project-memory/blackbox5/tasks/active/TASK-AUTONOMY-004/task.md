@@ -126,7 +126,7 @@ HealthMonitor Core (Python)
 ## File Locations
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── bin/
 │   ├── bb5-health           # CLI snapshot
 │   ├── bb5-dashboard        # TUI dashboard
@@ -163,14 +163,14 @@ HealthMonitor Core (Python)
 
 | File | Purpose |
 |------|---------|
-| `~/.blackbox5/bin/bb5-health` | CLI snapshot tool (table/json/csv output) |
-| `~/.blackbox5/bin/bb5-dashboard` | Live terminal UI with rich library |
-| `~/.blackbox5/bin/bb5-watch` | Daemon control script |
-| `~/.blackbox5/bin/lib/health_monitor/` | Python package with core library |
-| `~/.blackbox5/.autonomous/health/bb5-watch.service` | Systemd service template |
-| `~/.blackbox5/.autonomous/health/environment` | Environment configuration template |
-| `~/.blackbox5/.autonomous/health/DEPLOYMENT.md` | VPS deployment documentation |
-| `~/.blackbox5/.autonomous/health/health.db` | SQLite time-series database |
+| `~/blackbox5/bin/bb5-health` | CLI snapshot tool (table/json/csv output) |
+| `~/blackbox5/bin/bb5-dashboard` | Live terminal UI with rich library |
+| `~/blackbox5/bin/bb5-watch` | Daemon control script |
+| `~/blackbox5/bin/lib/health_monitor/` | Python package with core library |
+| `~/blackbox5/.autonomous/health/bb5-watch.service` | Systemd service template |
+| `~/blackbox5/.autonomous/health/environment` | Environment configuration template |
+| `~/blackbox5/.autonomous/health/DEPLOYMENT.md` | VPS deployment documentation |
+| `~/blackbox5/.autonomous/health/health.db` | SQLite time-series database |
 
 ### Features Implemented
 

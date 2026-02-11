@@ -11,7 +11,7 @@ Successfully implemented automatic, per-task atomic commits for BlackBox5. Every
 ## What Was Delivered
 
 ### 1. Enhanced GitOps Class
-**File:** `.blackbox5/engine/operations/tools/git_ops.py`
+**File:** `blackbox5/engine/operations/tools/git_ops.py`
 
 **New Methods:**
 - `get_modified_files()` - Auto-detect changed files
@@ -23,7 +23,7 @@ Successfully implemented automatic, per-task atomic commits for BlackBox5. Every
 **Status:** ✅ Complete and tested
 
 ### 2. AtomicCommitManager
-**File:** `.blackbox5/engine/core/atomic_commit_manager.py`
+**File:** `blackbox5/engine/core/atomic_commit_manager.py`
 
 **Features:**
 - Auto-detect changed files after task execution
@@ -45,7 +45,7 @@ Successfully implemented automatic, per-task atomic commits for BlackBox5. Every
 **Status:** ✅ Complete and tested
 
 ### 3. Orchestrator Integration
-**File:** `.blackbox5/engine/core/Orchestrator.py`
+**File:** `blackbox5/engine/core/Orchestrator.py`
 
 **Integration Points:**
 - AtomicCommitManager initialized in `__init__`
@@ -70,7 +70,7 @@ orchestrator.rollback_task("developer_1")
 **Status:** ✅ Complete and tested
 
 ### 4. Comprehensive Test Suite
-**File:** `.blackbox5/tests/test_atomic_commits.py`
+**File:** `blackbox5/tests/test_atomic_commits.py`
 
 **Test Results:** ✅ 21/21 tests pass
 
@@ -95,7 +95,7 @@ orchestrator.rollback_task("developer_1")
 **Status:** ✅ All tests passing
 
 ### 5. Documentation
-**File:** `.blackbox5/docs/ATOMIC-COMMITS-IMPLEMENTATION.md`
+**File:** `blackbox5/docs/ATOMIC-COMMITS-IMPLEMENTATION.md`
 
 **Contents:**
 - Architecture overview
@@ -184,7 +184,7 @@ stats = orchestrator.get_commit_statistics()
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   ├── operations/
 │   │   └── tools/
@@ -280,13 +280,13 @@ The atomic commits system is ready for production use:
 ## Files Modified/Created
 
 ### Modified
-- `.blackbox5/engine/operations/tools/git_ops.py` - +150 lines
-- `.blackbox5/engine/core/Orchestrator.py` - +200 lines
+- `blackbox5/engine/operations/tools/git_ops.py` - +150 lines
+- `blackbox5/engine/core/Orchestrator.py` - +200 lines
 
 ### Created
-- `.blackbox5/engine/core/atomic_commit_manager.py` - +480 lines
-- `.blackbox5/tests/test_atomic_commits.py` - +470 lines
-- `.blackbox5/docs/ATOMIC-COMMITS-IMPLEMENTATION.md` - +800 lines
+- `blackbox5/engine/core/atomic_commit_manager.py` - +480 lines
+- `blackbox5/tests/test_atomic_commits.py` - +470 lines
+- `blackbox5/docs/ATOMIC-COMMITS-IMPLEMENTATION.md` - +800 lines
 
 **Total:** ~2,100 lines of production code and documentation
 

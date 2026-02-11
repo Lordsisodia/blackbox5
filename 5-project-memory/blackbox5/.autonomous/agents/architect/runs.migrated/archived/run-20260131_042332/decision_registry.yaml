@@ -21,7 +21,7 @@ decisions:
     options_considered:
       - id: "OPT-001"
         description: "Use skills/ as canonical system (NO CHANGE)"
-        location: "~/.blackbox5/2-engine/.autonomous/skills/"
+        location: "~/blackbox5/2-engine/.autonomous/skills/"
         pros:
           - "Already referenced by skill_router.py (line 166)"
           - "Contains 10 BMAD skill files"
@@ -70,7 +70,7 @@ decisions:
       verified_by: "Agent-2.3"
       verified_at: "2026-01-31T04:30:00Z"
       criteria:
-        - "Confirmed skills/ directory exists at ~/.blackbox5/2-engine/.autonomous/skills/"
+        - "Confirmed skills/ directory exists at ~/blackbox5/2-engine/.autonomous/skills/"
         - "Confirmed 10 BMAD skill files present"
         - "Confirmed skill_router.py references correct path"
         - "Confirmed skills-cap/ and .skills-new do not exist"

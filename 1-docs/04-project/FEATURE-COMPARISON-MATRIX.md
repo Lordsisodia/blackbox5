@@ -22,7 +22,7 @@
 | **Context Manager** | ℹ️ Not mentioned | ✅ with cb.protect() context | 🟢 INNOVATION |
 | **Global Management** | ℹ️ Not mentioned | ✅ CircuitBreakerManager | 🟢 INNOVATION |
 
-**Location:** `.blackbox5/2-engine/01-core/resilience/circuit_breaker.py` (724 lines)
+**Location:** `blackbox5/2-engine/01-core/resilience/circuit_breaker.py` (724 lines)
 
 **Conclusion:** DON'T REBUILD - This is production-ready and exceeds research recommendations!
 
@@ -41,7 +41,7 @@
 | **Policy Interception** | ✅ Required | ❌ MISSING | 🟡 ENHANCE |
 | **Headless Operation** | ✅ Required | ❌ UNKNOWN | 🟡 VERIFY |
 
-**Location:** `.blackbox5/2-engine/01-core/resilience/atomic_commit_manager.py` (~400 lines)
+**Location:** `blackbox5/2-engine/01-core/resilience/atomic_commit_manager.py` (~400 lines)
 
 **Conclusion:** GOOD FOUNDATION - Add filesystem snapshots and policy layer
 
@@ -57,7 +57,7 @@
 | **Early Warning** | ❌ Not mentioned | ✅ Pre-failure detection | 🔵 INNOVATION |
 | **Behavioral Analysis** | ❌ Not mentioned | ✅ Agent behavior tracking | 🔵 INNOVATION |
 
-**Location:** `.blackbox5/2-engine/01-core/resilience/anti_pattern_detector.py` (~350 lines)
+**Location:** `blackbox5/2-engine/01-core/resilience/anti_pattern_detector.py` (~350 lines)
 
 **Conclusion:** BLACKBOX5 INNOVATION - Unique feature not found in research!
 
@@ -249,7 +249,7 @@
 
 1. ✅ **Search existing code:**
    ```bash
-   find .blackbox5/2-engine -name "*.py" | xargs grep -l "keyword"
+   find blackbox5/2-engine -name "*.py" | xargs grep -l "keyword"
    ```
 
 2. ✅ **Read this matrix:**

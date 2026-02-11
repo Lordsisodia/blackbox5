@@ -33,7 +33,7 @@ except ImportError:
 
 # Configuration - uses unified config hierarchy
 # Priority: Environment variable > Default
-BB5_HOME = Path(os.environ.get('BLACKBOX5_HOME', os.path.expanduser('~/.blackbox5')))
+BB5_HOME = Path(os.environ.get('BLACKBOX5_HOME', os.path.expanduser('~/blackbox5')))
 DEFAULT_PROJECT_DIR = BB5_HOME / '5-project-memory' / 'blackbox5'
 METRICS_FILE = DEFAULT_PROJECT_DIR / "operations" / "skill-metrics.yaml"
 

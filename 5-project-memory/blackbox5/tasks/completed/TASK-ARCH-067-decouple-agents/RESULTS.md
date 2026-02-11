@@ -11,7 +11,7 @@ Successfully decoupled the 6-agent pipeline from BlackBox5-specific hardcoded ta
 ## Changes Made
 
 ### 1. Created agent-config.yaml
-**File:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/agent-config.yaml`
+**File:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/agent-config.yaml`
 
 Contains 4 sections:
 - **task_handlers** - Maps task IDs to handler methods and validation rules

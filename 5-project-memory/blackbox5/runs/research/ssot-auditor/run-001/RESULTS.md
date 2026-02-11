@@ -31,7 +31,7 @@ Audited STATE.yaml against actual project state. Found 14 validation errors acro
 
 ### 2. YAML PARSE ERROR (Lines 360-361)
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml`
 **Lines:** 360-361
 
 **Current (BROKEN):**
@@ -119,12 +119,12 @@ Running `bin/validate-ssot.py` confirmed all findings:
 
 ## Files Audited
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml` - Main SSOT file
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/project/context.yaml` - Project context
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-006/goal.yaml` - Goal file
-4. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-007/goal.yaml` - Goal file
-5. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-009/goal.yaml` - Goal file (bonus audit)
-6. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py` - Validation script
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml` - Main SSOT file
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/project/context.yaml` - Project context
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-006/goal.yaml` - Goal file
+4. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-007/goal.yaml` - Goal file
+5. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-009/goal.yaml` - Goal file (bonus audit)
+6. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py` - Validation script
 
 ## Recommendations for Fixer Worker
 

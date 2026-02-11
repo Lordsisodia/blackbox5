@@ -365,14 +365,14 @@ The most impactful change is lowering the skill invocation threshold from 80% to
 
 ## Files Referenced
 
-- `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md`
-- `~/.blackbox5/2-engine/.autonomous/prompts/ralf-executor.md`
-- `~/.blackbox5/5-project-memory/blackbox5/goals.yaml` (IG-002)
-- `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0020/THOUGHTS.md`
-- `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0021/THOUGHTS.md`
-- `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0022/THOUGHTS.md`
-- `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0023/THOUGHTS.md`
-- `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0024/THOUGHTS.md`
-- `~/.blackbox5/2-engine/.autonomous/skills/bmad-analyst/SKILL.md`
-- `~/.blackbox5/2-engine/.autonomous/skills/bmad-dev/SKILL.md`
-- `~/.blackbox5/2-engine/.autonomous/skills/run-initialization/SKILL.md`
+- `~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md`
+- `~/blackbox5/2-engine/.autonomous/prompts/ralf-executor.md`
+- `~/blackbox5/5-project-memory/blackbox5/goals.yaml` (IG-002)
+- `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0020/THOUGHTS.md`
+- `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0021/THOUGHTS.md`
+- `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0022/THOUGHTS.md`
+- `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0023/THOUGHTS.md`
+- `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0024/THOUGHTS.md`
+- `~/blackbox5/2-engine/.autonomous/skills/bmad-analyst/SKILL.md`
+- `~/blackbox5/2-engine/.autonomous/skills/bmad-dev/SKILL.md`
+- `~/blackbox5/2-engine/.autonomous/skills/run-initialization/SKILL.md`

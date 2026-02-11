@@ -30,7 +30,7 @@ Apply 1.35x estimation multiplier to account for consistent underestimation tren
 **Suggested Action:** Apply 1.35x multiplier to all future estimates
 
 **Files Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/estimation-guidelines.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/estimation-guidelines.yaml`
 
 ---
 
@@ -47,7 +47,7 @@ If changes cause issues:
 
 ### Changes Made
 
-Updated `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/estimation-guidelines.yaml`:
+Updated `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/estimation-guidelines.yaml`:
 
 1. **Added Universal Estimation Multiplier section** (lines 10-29)
    - Documented the 1.35x multiplier requirement

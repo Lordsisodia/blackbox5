@@ -17,7 +17,7 @@ Usage:
     export GITHUB_REPO="owner/repo"
 
     # Run demo
-    python .blackbox5/integration/github/demo.py
+    python blackbox5/integration/github/demo.py
 """
 
 import os

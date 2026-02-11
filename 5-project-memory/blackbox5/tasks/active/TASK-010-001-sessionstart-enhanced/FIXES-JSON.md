@@ -332,7 +332,7 @@ generate_json_output "blackbox5" "planner" "autonomous" "/tmp/run" "run-001"
 
 ## Files Modified
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/SPECIFICATION.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/SPECIFICATION.md`
   - Lines 349-374: `read_stdin_input()` function
   - Lines 316-318: `sanitize_for_json()` function
   - Lines 1095-1130: `generate_json_output()` function

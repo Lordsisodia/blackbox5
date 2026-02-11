@@ -179,7 +179,7 @@ Security Gates:
     - git clean -fd
     - git push --force
     - docker system prune
-    - Any destructive operation on .blackbox5/
+    - Any destructive operation on blackbox5/
 
 BB5-Specific Validations:
   Git Operations:
@@ -233,8 +233,8 @@ Command: rm -rf /important/path
 Reason: Destructive operation on protected directory
 
 Protected paths:
-- ~/.blackbox5/2-engine/.autonomous/agents/communications/
-- ~/.blackbox5/5-project-memory/*/tasks/active/*/task.md
+- ~/blackbox5/2-engine/.autonomous/agents/communications/
+- ~/blackbox5/5-project-memory/*/tasks/active/*/task.md
 
 Use --force flag or modify command to proceed.
 ```

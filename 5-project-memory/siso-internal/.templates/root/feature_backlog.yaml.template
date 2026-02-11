@@ -1,0 +1,185 @@
+# =============================================================================
+# FEATURE_BACKLOG.yaml - Project Feature Backlog
+# =============================================================================
+# Purpose: Track features from ideation through implementation
+# Updated: FILL_ME - ISO timestamp
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "FILL_ME - ISO timestamp"
+  updated_by: "FILL_ME - Agent or user name"
+
+# =============================================================================
+# BACKLOG OVERVIEW
+# =============================================================================
+
+backlog:
+  total_features: 0
+  by_status:
+    proposed: 0
+    accepted: 0
+    in_design: 0
+    in_development: 0
+    in_testing: 0
+    completed: 0
+    deferred: 0
+    rejected: 0
+
+# =============================================================================
+# FEATURES
+# =============================================================================
+
+features:
+  # ---------------------------------------------------------------------------
+  # PROPOSED - Ideas under consideration
+  # ---------------------------------------------------------------------------
+  proposed:
+    - id: "FEAT-001"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      motivation: "FILL_ME - Why this feature is needed"
+      proposed_by: "FILL_ME"
+      proposed_date: "FILL_ME - YYYY-MM-DD"
+      priority: "FILL_ME - critical|high|medium|low"
+      effort_estimate: "FILL_ME - small|medium|large|xlarge"
+      tags:
+        - "FILL_ME"
+      related_epics: []
+        # - EPIC-XXX
+
+  # ---------------------------------------------------------------------------
+  # ACCEPTED - Approved for implementation
+  # ---------------------------------------------------------------------------
+  accepted:
+    - id: "FEAT-002"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      accepted_date: "FILL_ME - YYYY-MM-DD"
+      accepted_by: "FILL_ME"
+      priority: "FILL_ME - critical|high|medium|low"
+      effort_estimate: "FILL_ME - small|medium|large|xlarge"
+      target_release: "FILL_ME - Release version or date"
+      assigned_to: "FILL_ME - Team or agent"
+      tags:
+        - "FILL_ME"
+      related_epics:
+        - "FILL_ME"
+
+  # ---------------------------------------------------------------------------
+  # IN DESIGN - Being designed/architected
+  # ---------------------------------------------------------------------------
+  in_design:
+    - id: "FEAT-003"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      design_owner: "FILL_ME"
+      design_start_date: "FILL_ME - YYYY-MM-DD"
+      design_docs: []
+        # - path/to/design.md
+      review_status: "FILL_ME - pending|in_review|approved"
+      blockers: []
+        # - "FILL_ME - Blocker description"
+
+  # ---------------------------------------------------------------------------
+  # IN DEVELOPMENT - Being implemented
+  # ---------------------------------------------------------------------------
+  in_development:
+    - id: "FEAT-004"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      developer: "FILL_ME"
+      start_date: "FILL_ME - YYYY-MM-DD"
+      progress_percentage: 0
+      branch: "FILL_ME - Git branch name"
+      tasks:
+        - "TASK-XXX"
+      blockers: []
+
+  # ---------------------------------------------------------------------------
+  # IN TESTING - Implementation complete, being tested
+  # ---------------------------------------------------------------------------
+  in_testing:
+    - id: "FEAT-005"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      tester: "FILL_ME"
+      test_start_date: "FILL_ME - YYYY-MM-DD"
+      test_plan: "FILL_ME - Path to test plan"
+      test_results: "FILL_ME - Path to test results"
+      bugs_found: 0
+      bugs_resolved: 0
+      sign_off_required_from: []
+        # - "FILL_ME - Stakeholder name"
+
+  # ---------------------------------------------------------------------------
+  # COMPLETED - Fully implemented and tested
+  # ---------------------------------------------------------------------------
+  completed:
+    - id: "FEAT-006"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      completed_date: "FILL_ME - YYYY-MM-DD"
+      completed_by: "FILL_ME"
+      release_version: "FILL_ME"
+      documentation: "FILL_ME - Path to docs"
+      lessons_learned: "FILL_ME"
+
+  # ---------------------------------------------------------------------------
+  # DEFERRED - Postponed for later
+  # ---------------------------------------------------------------------------
+  deferred:
+    - id: "FEAT-007"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      deferred_date: "FILL_ME - YYYY-MM-DD"
+      deferred_by: "FILL_ME"
+      reason: "FILL_ME - Why deferred"
+      reconsider_date: "FILL_ME - YYYY-MM-DD or null"
+      conditions_for_reactivation: "FILL_ME"
+
+  # ---------------------------------------------------------------------------
+  # REJECTED - Will not be implemented
+  # ---------------------------------------------------------------------------
+  rejected:
+    - id: "FEAT-008"
+      name: "FILL_ME - Feature name"
+      description: "FILL_ME - Feature description"
+      rejected_date: "FILL_ME - YYYY-MM-DD"
+      rejected_by: "FILL_ME"
+      reason: "FILL_ME - Why rejected"
+      alternative_approach: "FILL_ME - Suggested alternative or null"
+
+# =============================================================================
+# PRIORITIZATION
+# =============================================================================
+
+prioritization:
+  method: "FILL_ME - MoSCoW|RICE|Kano|Custom"
+  criteria:
+    - "FILL_ME - Criterion 1"
+    - "FILL_ME - Criterion 2"
+  last_review_date: "FILL_ME - YYYY-MM-DD"
+  next_review_date: "FILL_ME - YYYY-MM-DD"
+
+# =============================================================================
+# DEPENDENCIES
+# =============================================================================
+
+dependencies:
+  - feature_id: "FEAT-XXX"
+    depends_on:
+      - "FEAT-YYY"
+    dependency_type: "FILL_ME - blocks|requires|enhances"
+    notes: "FILL_ME"
+
+# =============================================================================
+# METRICS
+# =============================================================================
+
+metrics:
+  average_time_proposed_to_accepted: null  # days
+  average_time_accepted_to_completed: null  # days
+  completion_rate: null  # percentage
+  features_per_release: {}
+    # "v1.0": 5

@@ -40,7 +40,7 @@ PlanningAgent currently has placeholder logic. This task adds real BMAD analysis
 
 ## Completion
 **Completed:** 2026-01-31T12:32:00Z
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769862734
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769862734
 **Agent:** Agent-2.5
 **Path Used:** Quick Flow
 **Phase Gates:** All passed

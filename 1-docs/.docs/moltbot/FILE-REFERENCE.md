@@ -4,7 +4,7 @@
 
 ### MCP Configuration
 
-**~/.blackbox5/.mcp-moltbot.json**
+**~/blackbox5/.mcp-moltbot.json**
 ```json
 {
   "mcpServers": {
@@ -16,7 +16,7 @@
     "moltbot-vps": {
       "type": "stdio",
       "command": "python3",
-      "args": ["/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py"]
+      "args": ["/Users/shaansisodia/blackbox5/mcp-server-moltbot.py"]
     }
   }
 }
@@ -24,7 +24,7 @@
 
 ### User Context
 
-**~/.blackbox5/moltbot-user-context.json**
+**~/blackbox5/moltbot-user-context.json**
 - User profile and preferences
 - RALF integration file paths
 - Telegram ID
@@ -61,14 +61,14 @@
 
 ### MCP Server
 
-**~/.blackbox5/mcp-server-moltbot.py**
+**~/blackbox5/mcp-server-moltbot.py**
 - Local MCP server implementation
 - SSHs to VPS for command execution
 - Handles 5 tool calls
 
 ### Skills
 
-**~/.blackbox5/ralf-context-skill.js**
+**~/blackbox5/ralf-context-skill.js**
 - User context loading skill
 - Reads /opt/moltbot/user-context.json
 
@@ -79,17 +79,17 @@
 
 ### Scripts
 
-**~/.blackbox5/bin/moltbot-mcp-connect.sh**
+**~/blackbox5/bin/moltbot-mcp-connect.sh**
 - Tests MCP connections
 - Lists available tools
 
-**~/.blackbox5/2-engine/.autonomous/vps-deployment/moltbot-setup.sh**
+**~/blackbox5/2-engine/.autonomous/vps-deployment/moltbot-setup.sh**
 - VPS deployment script
 - Installs OpenClaw
 - Creates systemd service
 - Sets up cron jobs
 
-**~/.blackbox5/2-engine/.autonomous/vps-deployment/openclaw-telegram.json**
+**~/blackbox5/2-engine/.autonomous/vps-deployment/openclaw-telegram.json**
 - Telegram-specific OpenClaw config template
 
 ## RALF Communication Files (on VPS)
@@ -161,12 +161,12 @@ WantedBy=multi-user.target
 
 ## Documentation Files
 
-**~/.blackbox5/docs/moltbot-ralf-architecture.md**
+**~/blackbox5/docs/moltbot-ralf-architecture.md**
 - Complete architecture diagram
 - Communication patterns
 - MCP setup instructions
 
-**~/.blackbox5/1-docs/.docs/moltbot/** (this directory)
+**~/blackbox5/1-docs/.docs/moltbot/** (this directory)
 - README.md - Overview
 - ARCHITECTURE.md - Deep dive
 - RESEARCH-LOG.md - Research notes

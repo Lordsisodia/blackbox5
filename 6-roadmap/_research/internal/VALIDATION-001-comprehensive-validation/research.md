@@ -182,7 +182,7 @@
 ### Session Summaries (8 comprehensive documents)
 
 ```
-.blackbox5/roadmap/01-research/
+blackbox5/roadmap/01-research/
 ├── memory-context/
 │   └── session-summaries/session-2026-01-19.md       (18KB)
 ├── agent-types/
@@ -388,7 +388,7 @@
 ## 📞 Support & Questions
 
 **Review the research:**
-- Session summaries: `.blackbox5/roadmap/01-research/*/session-summaries/`
+- Session summaries: `blackbox5/roadmap/01-research/*/session-summaries/`
 - Status reports: `FINAL-STATUS-REPORT.md`, `QUICK-STATUS.md`
 - Monitoring guide: `HOW-TO-MONITOR.md`
 

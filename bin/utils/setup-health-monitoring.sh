@@ -6,9 +6,9 @@ set -e
 echo "Setting up BB5 Health Monitoring..."
 
 # Create directories
-mkdir -p ~/.blackbox5/.autonomous/health
-mkdir -p ~/.blackbox5/config
-mkdir -p ~/.blackbox5/bin/lib/health_monitor
+mkdir -p ~/blackbox5/.autonomous/health
+mkdir -p ~/blackbox5/config
+mkdir -p ~/blackbox5/bin/lib/health_monitor
 
 # Check Python version
 python3 --version
@@ -18,8 +18,8 @@ echo "Installing dependencies..."
 pip3 install --user pyyaml rich click python-telegram-bot 2>/dev/null || pip3 install pyyaml rich click python-telegram-bot
 
 # Create config from template
-if [ ! -f ~/.blackbox5/config/watch-config.yaml ]; then
-    cat > ~/.blackbox5/config/watch-config.yaml << 'EOF'
+if [ ! -f ~/blackbox5/config/watch-config.yaml ]; then
+    cat > ~/blackbox5/config/watch-config.yaml << 'EOF'
 daemon:
   check_interval_seconds: 30
   health_score_threshold: 60
@@ -61,27 +61,27 @@ alerts:
 
 logging:
   level: INFO
-  file: ~/.blackbox5/.autonomous/health/watch.log
+  file: ~/blackbox5/.autonomous/health/watch.log
   max_size_mb: 100
   backup_count: 5
 EOF
-    echo "Created config file. Please edit ~/.blackbox5/config/watch-config.yaml"
+    echo "Created config file. Please edit ~/blackbox5/config/watch-config.yaml"
 fi
 
 # Create environment file
-if [ ! -f ~/.blackbox5/config/watch.env ]; then
-    cat > ~/.blackbox5/config/watch.env << 'EOF'
+if [ ! -f ~/blackbox5/config/watch.env ]; then
+    cat > ~/blackbox5/config/watch.env << 'EOF'
 # BB5 Watch Environment
 # Get token from @BotFather on Telegram
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here
 EOF
-    echo "Created env file. Please edit ~/.blackbox5/config/watch.env"
+    echo "Created env file. Please edit ~/blackbox5/config/watch.env"
 fi
 
 # Set permissions
-chmod 600 ~/.blackbox5/config/watch.env
-chmod 644 ~/.blackbox5/config/watch-config.yaml
+chmod 600 ~/blackbox5/config/watch.env
+chmod 644 ~/blackbox5/config/watch-config.yaml
 
 # Initialize database
 echo "Initializing database..."
@@ -91,8 +91,8 @@ echo ""
 echo "Setup complete!"
 echo ""
 echo "Next steps:"
-echo "1. Edit ~/.blackbox5/config/watch.env with your Telegram credentials"
-echo "2. Edit ~/.blackbox5/config/watch-config.yaml with your preferences"
+echo "1. Edit ~/blackbox5/config/watch.env with your Telegram credentials"
+echo "2. Edit ~/blackbox5/config/watch-config.yaml with your preferences"
 echo "3. Test: bb5-health"
 echo "4. Start daemon: bb5-watch start"
 echo "5. Enable auto-start: sudo systemctl enable bb5-watch@$USER"

@@ -19,7 +19,7 @@ Per goals.yaml IG-002 (Improve LEGACY.md Operational Efficiency), the current is
 - Quality gates could be more specific
 - Run initialization could be optimized
 
-The LEGACY.md file at `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md` contains the operational procedures that guide RALF execution.
+The LEGACY.md file at `~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md` contains the operational procedures that guide RALF execution.
 
 ## Success Criteria
 
@@ -41,7 +41,7 @@ The LEGACY.md file at `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/L
 
 ## Files to Read
 
-- ~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md
+- ~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md
 - runs/completed/*/THOUGHTS.md (sample 5-10 recent)
 - goals.yaml (IG-002 section)
 - 2-engine/.autonomous/skills/ (understand skill structure)

@@ -26,7 +26,7 @@
 
 ### 1. ProductionMemorySystem (`ProductionMemorySystem.py`)
 
-**Location:** `.blackbox5/2-engine/03-knowledge/storage/ProductionMemorySystem.py`
+**Location:** `blackbox5/2-engine/03-knowledge/storage/ProductionMemorySystem.py`
 
 **What It Provides:**
 - ✅ Two-tier memory architecture:
@@ -57,7 +57,7 @@ class ProductionMemorySystem:
 
 ### 2. EnhancedProductionMemorySystem (`EnhancedProductionMemorySystem.py`)
 
-**Location:** `.blackbox5/2-engine/03-knowledge/storage/EnhancedProductionMemorySystem.py`
+**Location:** `blackbox5/2-engine/03-knowledge/storage/EnhancedProductionMemorySystem.py`
 
 **What It Provides:**
 - ✅ Extends ProductionMemorySystem with:
@@ -96,7 +96,7 @@ class EnhancedProductionMemorySystem:
 
 ### 3. Memory Consolidation (`MemoryConsolidation.py`)
 
-**Location:** `.blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py`
+**Location:** `blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py`
 
 **What It Provides:**
 - ✅ Automatic memory consolidation
@@ -133,7 +133,7 @@ class MemoryConsolidation:
 
 ### 4. LLMLingua Prompt Compression (`LLMLinguaCompressor.py`)
 
-**Location:** `.blackbox5/engine/core/LLMLinguaCompressor.py`
+**Location:** `blackbox5/engine/core/LLMLinguaCompressor.py`
 
 **What It Provides:**
 - ✅ 10x compression with 95%+ quality preservation (LLMLingua)

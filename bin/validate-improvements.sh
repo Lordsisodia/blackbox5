@@ -12,7 +12,7 @@ set -euo pipefail
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="${HOME}/.blackbox5"
+PROJECT_ROOT="${HOME}/blackbox5"
 OPERATIONS_DIR="${PROJECT_ROOT}/5-project-memory/blackbox5/operations"
 RUNS_DIR="${PROJECT_ROOT}/5-project-memory/blackbox5/runs"
 VALIDATION_DIR="${PROJECT_ROOT}/5-project-memory/blackbox5/.autonomous/validations"

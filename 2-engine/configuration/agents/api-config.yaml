@@ -4,7 +4,7 @@
 # Configuration file for RALF API Gateway, authentication, rate limiting,
 # webhook receiver, and service connectors.
 #
-# Copy this file to ~/.blackbox5/api-config.yaml and customize with your settings.
+# Copy this file to ~/blackbox5/api-config.yaml and customize with your settings.
 # NEVER commit this file to version control with real API keys or tokens!
 
 # ==============================================================================
@@ -23,7 +23,7 @@ server:
     - "http://localhost:3000"
     - "http://localhost:8080"
     # Add production origins:
-    # - "https://dashboard.blackbox5.com"
+    # - "https://dashboardblackbox5.com"
 
 # ==============================================================================
 # Authentication Configuration
@@ -164,7 +164,7 @@ connectors:
 logging:
   level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
   file: null  # Set to file path to enable file logging
-  # file: "~/.blackbox5/logs/api-server.log"
+  # file: "~/blackbox5/logs/api-server.log"
 
 # Performance tuning
 performance:

@@ -2,7 +2,7 @@
 
 **Role:** Architecture Scout
 **Goal:** IG-007 - Continuous Architecture Evolution
-**Location:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+**Location:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 
 ---
 
@@ -15,7 +15,7 @@ Analyze the BlackBox5 architecture and identify concrete improvement opportuniti
 ## BlackBox5 Directory Structure
 
 ```
-/Users/shaansisodia/.blackbox5/
+/Users/shaansisodia/blackbox5/
 ├── 1-docs/                          # Documentation
 ├── 2-engine/                        # Core engine (RALF, agents)
 │   ├── .autonomous/
@@ -119,7 +119,7 @@ Analyze the BlackBox5 architecture and identify concrete improvement opportuniti
 
 Save your report to:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-{timestamp}-{area}.json
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-{timestamp}-{area}.json
 ```
 
 ### Report Structure

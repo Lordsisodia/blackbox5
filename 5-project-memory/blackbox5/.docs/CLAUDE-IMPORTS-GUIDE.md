@@ -77,7 +77,7 @@ Imports from the user's home directory.
 **BB5 Example:**
 ```
 @~/.claude/CLAUDE.md
-@~/.blackbox5/5-project-memory/blackbox5/STATE.yaml
+@~/blackbox5/5-project-memory/blackbox5/STATE.yaml
 ```
 
 ### 2.4 Wildcard Patterns
@@ -591,13 +591,13 @@ Add comments explaining why you import each file:
 # Cross-Project Work
 
 ## BB5 State
-@~/.blackbox5/5-project-memory/blackbox5/STATE.yaml
+@~/blackbox5/5-project-memory/blackbox5/STATE.yaml
 
 ## Siso-Internal State
-@~/.blackbox5/5-project-memory/siso-internal/STATE.yaml
+@~/blackbox5/5-project-memory/siso-internal/STATE.yaml
 
 ## Engine State
-@~/.blackbox5/2-engine/STATE.yaml
+@~/blackbox5/2-engine/STATE.yaml
 ```
 
 **Use Case:** When working across multiple BB5 projects.
@@ -657,7 +657,7 @@ Add comments explaining why you import each file:
 **Error:** `@/file.yaml` not found
 
 **Solutions:**
-1. Check the file exists: `ls /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/file.yaml`
+1. Check the file exists: `ls /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/file.yaml`
 2. Use correct path from project root
 3. For home directory files, use `@~/`
 

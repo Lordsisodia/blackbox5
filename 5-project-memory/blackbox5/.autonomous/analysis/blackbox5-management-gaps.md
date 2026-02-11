@@ -18,7 +18,7 @@ BlackBox5's RALF (Recursive Autonomous Loop Framework) is a sophisticated file-b
 
 ### 1.1 Agent Registry Structure
 
-Located at `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/agent-registry.yaml`:
+Located at `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/agent-registry.yaml`:
 
 | Agent | Type | Status | Role |
 |-------|------|--------|------|
@@ -437,30 +437,30 @@ Phase 3: Redis + PostgreSQL (10+ agents)
 ### 7.1 Configuration Files
 | File | Purpose |
 |------|---------|
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/agent-registry.yaml` | Agent definitions |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/protocol.yaml` | Communication rules |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` | Task queue |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` | Event log |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/heartbeat.yaml` | Agent health |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/execution/execution-state.yaml` | Parallel execution state |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/agent-registry.yaml` | Agent definitions |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/protocol.yaml` | Communication rules |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` | Task queue |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` | Event log |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/heartbeat.yaml` | Agent health |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/execution/execution-state.yaml` | Parallel execution state |
 
 ### 7.2 MCP Servers
 | File | Purpose |
 |------|---------|
-| `~/.blackbox5/mcp-server-ralf.py` | RALF read-only MCP |
-| `~/.blackbox5/mcp-server-moltbot.py` | VPS SSH bridge |
-| `~/.blackbox5/mcp-openclaw-websocket.py` | OpenClaw WebSocket |
-| `~/.blackbox5/mcp-openclaw-ssh-bridge.py` | OpenClaw SSH bridge |
-| `~/.blackbox5/mcp-redis-bridge.py` | Redis pub/sub bridge |
+| `~/blackbox5/mcp-server-ralf.py` | RALF read-only MCP |
+| `~/blackbox5/mcp-server-moltbot.py` | VPS SSH bridge |
+| `~/blackbox5/mcp-openclaw-websocket.py` | OpenClaw WebSocket |
+| `~/blackbox5/mcp-openclaw-ssh-bridge.py` | OpenClaw SSH bridge |
+| `~/blackbox5/mcp-redis-bridge.py` | Redis pub/sub bridge |
 
 ### 7.3 CLI Tools
 | File | Purpose |
 |------|---------|
-| `~/.blackbox5/bin/bb5` | Main navigation CLI |
-| `~/.blackbox5/bin/ralf` | RALF launcher |
-| `~/.blackbox5/bin/ralf-executor` | Executor agent script |
-| `~/.blackbox5/bin/bb5-queue` | Queue management |
-| `~/.blackbox5/bin/bb5-status` | Status reporting |
+| `~/blackbox5/bin/bb5` | Main navigation CLI |
+| `~/blackbox5/bin/ralf` | RALF launcher |
+| `~/blackbox5/bin/ralf-executor` | Executor agent script |
+| `~/blackbox5/bin/bb5-queue` | Queue management |
+| `~/blackbox5/bin/bb5-status` | Status reporting |
 
 ---
 

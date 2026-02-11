@@ -8,10 +8,10 @@ WORKSPACE="$(pwd)"
 cd "$WORKSPACE"
 
 # Configuration
-STATE_FILE="$WORKSPACE/.blackbox5/engine/operations/runtime/ralph/github_state.json"
+STATE_FILE="$WORKSPACE/blackbox5/engine/operations/runtime/ralph/github_state.json"
 PID_FILE="$WORKSPACE/.blackbox/.plans/active/vibe-kanban-work/ralph.pid"
 LOG_DIR="$WORKSPACE/.blackbox/.plans/active/vibe-kanban-work"
-OUTPUT_DIR="$WORKSPACE/.blackbox5/engine/operations/runtime/ralph/framework-github"
+OUTPUT_DIR="$WORKSPACE/blackbox5/engine/operations/runtime/ralph/framework-github"
 
 # Colors
 RED='\033[0;31m'
@@ -41,7 +41,7 @@ if [ -f "$PID_FILE" ]; then
         echo -e "  Process $PID not found"
         echo ""
         echo "Ralph is not running. Start it with:"
-        echo "  bash .blackbox5/engine/operations/runtime/ralph/start-framework-research.sh"
+        echo "  bash blackbox5/engine/operations/runtime/ralph/start-framework-research.sh"
         exit 1
     fi
 else
@@ -49,7 +49,7 @@ else
     echo "  No PID file found"
     echo ""
     echo "Start Ralph with:"
-    echo "  bash .blackbox5/engine/operations/runtime/ralph/start-framework-research.sh"
+    echo "  bash blackbox5/engine/operations/runtime/ralph/start-framework-research.sh"
     exit 1
 fi
 

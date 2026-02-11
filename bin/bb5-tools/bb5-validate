@@ -374,7 +374,7 @@ import yaml
 import sys
 
 try:
-    with open('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml', 'r') as f:
+    with open('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml', 'r') as f:
         data = yaml.safe_load(f)
 
     skills = data.get('skills', {})

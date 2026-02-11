@@ -19,7 +19,7 @@ The First Principles System helps us:
 ## File Structure
 
 ```
-.blackbox5/roadmap/first-principles/
+blackbox5/roadmap/first-principles/
 ├── README.md                           # System overview
 ├── TEMPLATE.md                          # Template for feature docs
 │
@@ -52,8 +52,8 @@ When you want to analyze a feature from first principles:
 
 ```bash
 # Create a new feature document
-cp .blackbox5/roadmap/first-principles/TEMPLATE.md \
-   .blackbox5/roadmap/first-principles/features/my-feature.md
+cp blackbox5/roadmap/first-principles/TEMPLATE.md \
+   blackbox5/roadmap/first-principles/features/my-feature.md
 
 # Fill in the template:
 # - Purpose
@@ -78,7 +78,7 @@ Use the **assumption-challenger** skill to generate challenges:
 # - Priority ranking
 
 # Output saved to:
-# .blackbox5/roadmap/first-principles/challenges/my-feature-challenges.md
+# blackbox5/roadmap/first-principles/challenges/my-feature-challenges.md
 ```
 
 ### 3. Update the Registry
@@ -286,13 +286,13 @@ Priority Score = (Impact × 100) + ((100 - Confidence) × 50)
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  1. FEATURE DOC CREATED                                     │
-│     .blackbox5/roadmap/first-principles/features/{name}.md  │
+│     blackbox5/roadmap/first-principles/features/{name}.md  │
 │                                                              │
 │  2. ASSUMPTION CHALLENGER RUNS                              │
 │     Reads feature doc → Generates challenges                │
 │                                                              │
 │  3. CHALLENGES DOCUMENT CREATED                             │
-│     .blackbox5/roadmap/first-principles/challenges/         │
+│     blackbox5/roadmap/first-principles/challenges/         │
 │         {name}-challenges.md                                 │
 │                                                              │
 │  4. ASSUMPTIONS ADDED TO REGISTRY                           │
@@ -302,7 +302,7 @@ Priority Score = (Impact × 100) + ((100 - Confidence) × 50)
 │     Following challenges doc validation plan                │
 │                                                              │
 │  6. VALIDATION RESULTS DOCUMENTED                           │
-│     .blackbox5/roadmap/first-principles/validations/        │
+│     blackbox5/roadmap/first-principles/validations/        │
 │         {name}-validation.md                                │
 │                                                              │
 │  7. REGISTRY UPDATED                                        │
@@ -346,8 +346,8 @@ Priority Score = (Impact × 100) + ((100 - Confidence) × 50)
 - Invalidated assumptions create new improvements
 
 ### Skills
-- **assumption-challenger** - Generates challenges (see: `.blackbox5/engine/capabilities/skills/thinking-methodologies/assumption-challenger/SKILL.md`)
-- **first-principles-thinking** - Creates feature docs (see: `.blackbox5/engine/capabilities/skills/thinking-methodologies/first-principles-thinking/SKILL.md`)
+- **assumption-challenger** - Generates challenges (see: `blackbox5/engine/capabilities/skills/thinking-methodologies/assumption-challenger/SKILL.md`)
+- **first-principles-thinking** - Creates feature docs (see: `blackbox5/engine/capabilities/skills/thinking-methodologies/first-principles-thinking/SKILL.md`)
 
 ### Task Management
 - Validated assumptions improve task routing

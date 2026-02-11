@@ -3,7 +3,7 @@
 **Status:** Review Complete
 **Analyst:** Solutions Architect
 **Date:** 2026-02-06
-**Original Design:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md
+**Original Design:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md
 
 ---
 
@@ -286,7 +286,7 @@ touch tasks/active/TASK-001/.claim-request
 # bb5-claim - Claim a task and set up run environment
 
 TASK_ID="$1"
-PROJECT_ROOT="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+PROJECT_ROOT="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5"
 TASKS_DIR="$PROJECT_ROOT/tasks/active"
 QUEUE_FILE="$PROJECT_ROOT/.autonomous/agents/communications/queue.yaml"
 

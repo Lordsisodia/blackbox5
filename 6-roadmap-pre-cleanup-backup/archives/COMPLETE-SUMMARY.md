@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-19
 **Status:** ✅ SETUP COMPLETE & ACTIVE
-**Location:** `.blackbox5/roadmap/`
+**Location:** `blackbox5/roadmap/`
 
 ---
 
@@ -108,7 +108,7 @@ Each autonomous agent conducts:
 ### Deliverables Per Agent
 
 ```
-.blackbox5/roadmap/01-research/{category}/
+blackbox5/roadmap/01-research/{category}/
 ├── research-log.md              # Complete research timeline
 ├── session-summaries/           # Per-session findings
 │   └── session-{date}.md
@@ -141,7 +141,7 @@ Each autonomous agent conducts:
 ## 📁 Files Created
 
 ### Proposals (19 files)
-`.blackbox5/roadmap/00-proposed/`
+`blackbox5/roadmap/00-proposed/`
 - PROPOSAL-001 through PROPOSAL-019
 
 ### Documentation
@@ -152,7 +152,7 @@ Each autonomous agent conducts:
 - `roadmap.md` - Visual overview
 
 ### Research Infrastructure
-- `.blackbox5/roadmap/01-research/` - All 19 category directories
+- `blackbox5/roadmap/01-research/` - All 19 category directories
 - `launch-all-research-agents.sh` - Agent launcher
 - `master-launch.sh` - Master launch script
 - `research_executor.py` - Research execution engine
@@ -214,10 +214,10 @@ ls -la /tmp/claude/-Users-shaansisodia-DEV/SISO-ECOSYSTEM-SISO-INTERNAL/tasks/
 tail -f /tmp/claude/-Users-shaansisodia-DEV/SISO-ECOSYSTEM-SISO-INTERNAL/tasks/a5f6e4d.output
 
 # View research logs
-find .blackbox5/roadmap/01-research -name "research-log.md"
+find blackbox5/roadmap/01-research -name "research-log.md"
 
 # Check findings
-find .blackbox5/roadmap/01-research/findings -name "*.md"
+find blackbox5/roadmap/01-research/findings -name "*.md"
 ```
 
 ### Review Research
@@ -226,10 +226,10 @@ find .blackbox5/roadmap/01-research/findings -name "*.md"
 cat /tmp/claude/-Users-shaansisodia-DEV/SISO-ECOSYSTEM-SISO-INTERNAL/tasks/a5f6e4d.output
 
 # View session summaries
-find .blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
+find blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
 
 # Check all findings
-find .blackbox5/roadmap/01-research/findings -type f -name "*.md"
+find blackbox5/roadmap/01-research/findings -type f -name "*.md"
 ```
 
 ---
@@ -280,7 +280,7 @@ find .blackbox5/roadmap/01-research/findings -type f -name "*.md"
 ## 📞 Support
 
 ### Questions?
-- Review research logs in `.blackbox5/roadmap/01-research/`
+- Review research logs in `blackbox5/roadmap/01-research/`
 - Check agent status in this document
 - Monitor progress using commands above
 

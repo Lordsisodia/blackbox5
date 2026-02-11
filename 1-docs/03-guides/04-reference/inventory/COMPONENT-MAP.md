@@ -87,7 +87,7 @@
 ## Directory Structure Overview
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── core/                          # Core engine systems
 │   ├── kernel.py                 # EngineKernel singleton
 │   ├── config.py                 # ConfigManager
@@ -179,49 +179,49 @@
 
 ```bash
 # List all agent directories
-find .blackbox5/engine/agents -type d -maxdepth 1
+find blackbox5/engine/agents -type d -maxdepth 1
 
 # Find agent by name
-find .blackbox5/engine/agents -name "*agent-name*" -type d
+find blackbox5/engine/agents -name "*agent-name*" -type d
 
 # Search agent documentation
-grep -r "agent-name" .blackbox5/engine/agents --include="*.md"
+grep -r "agent-name" blackbox5/engine/agents --include="*.md"
 ```
 
 ### Find a Skill
 
 ```bash
 # List all skill categories
-find .blackbox5/engine/capabilities/skills -type d -maxdepth 1
+find blackbox5/engine/capabilities/skills -type d -maxdepth 1
 
 # Find specific skill
-find .blackbox5/engine/capabilities/skills -name "*skill-name*" -type f
+find blackbox5/engine/capabilities/skills -name "*skill-name*" -type f
 
 # Search skill registry
-grep -i "skill-name" .blackbox5/engine/capabilities/skills/SKILLS-REGISTRY.md
+grep -i "skill-name" blackbox5/engine/capabilities/skills/SKILLS-REGISTRY.md
 ```
 
 ### Find Documentation
 
 ```bash
 # Find all README files
-find .blackbox5/engine -name "README.md" -type f
+find blackbox5/engine -name "README.md" -type f
 
 # Search by keyword
-grep -r "keyword" .blackbox5/engine --include="*.md"
+grep -r "keyword" blackbox5/engine --include="*.md"
 
 # Find schema files
-find .blackbox5/engine/schemas -type f
+find blackbox5/engine/schemas -type f
 ```
 
 ### Find MCP Integrations
 
 ```bash
 # List MCP integrations
-ls .blackbox5/engine/capabilities/skills/integration-connectivity/mcp-integrations/
+ls blackbox5/engine/capabilities/skills/integration-connectivity/mcp-integrations/
 
 # Search MCP skills
-grep -l "mcp" .blackbox5/engine/capabilities/skills/integration-connectivity/mcp-integrations/*/*.md
+grep -l "mcp" blackbox5/engine/capabilities/skills/integration-connectivity/mcp-integrations/*/*.md
 ```
 
 ---
@@ -238,7 +238,7 @@ grep -l "mcp" .blackbox5/engine/capabilities/skills/integration-connectivity/mcp
 **Example:**
 ```bash
 # Find the deep-research agent
-cd .blackbox5/engine/agents/3-research/deep-research/
+cd blackbox5/engine/agents/3-research/deep-research/
 ls -la  # Shows: README.md, agent.md, prompt.md, runbook.md
 ```
 
@@ -252,7 +252,7 @@ ls -la  # Shows: README.md, agent.md, prompt.md, runbook.md
 **Example:**
 ```bash
 # Find the TDD skill
-cd .blackbox5/engine/capabilities/skills/development-workflow/coding-assistance/test-driven-development/
+cd blackbox5/engine/capabilities/skills/development-workflow/coding-assistance/test-driven-development/
 ls -la  # Shows: SKILL.md, examples/, workflows/
 ```
 
@@ -266,7 +266,7 @@ ls -la  # Shows: SKILL.md, examples/, workflows/
 **Example:**
 ```bash
 # Find all documentation about TDD
-grep -r "test-driven" .blackbox5/engine --include="*.md" -l
+grep -r "test-driven" blackbox5/engine --include="*.md" -l
 ```
 
 ### How to Find Core Components
@@ -280,7 +280,7 @@ grep -r "test-driven" .blackbox5/engine --include="*.md" -l
 **Example:**
 ```bash
 # View core engine files
-ls -la .blackbox5/engine/core/
+ls -la blackbox5/engine/core/
 # Output: kernel.py, config.py, registry.py, health.py, lifecycle.py
 ```
 
@@ -361,36 +361,36 @@ ls -la .blackbox5/engine/core/
 
 ```bash
 # Find all Python files
-find .blackbox5/engine -name "*.py" -type f
+find blackbox5/engine -name "*.py" -type f
 
 # Find all Markdown files
-find .blackbox5/engine -name "*.md" -type f
+find blackbox5/engine -name "*.md" -type f
 
 # Find all YAML files
-find .blackbox5/engine -name "*.yml" -o -name "*.yaml" -type f
+find blackbox5/engine -name "*.yml" -o -name "*.yaml" -type f
 ```
 
 ### Find by Content
 
 ```bash
 # Search for specific text
-grep -r "search term" .blackbox5/engine --include="*.md"
+grep -r "search term" blackbox5/engine --include="*.md"
 
 # Search in Python files only
-grep -r "search term" .blackbox5/engine --include="*.py"
+grep -r "search term" blackbox5/engine --include="*.py"
 
 # Case-insensitive search
-grep -ri "search term" .blackbox5/engine --include="*.md"
+grep -ri "search term" blackbox5/engine --include="*.md"
 ```
 
 ### Find by Status
 
 ```bash
 # Find verified skills
-grep -r "✅ Verified" .blackbox5/engine/capabilities/skills/SKILLS-REGISTRY.md
+grep -r "✅ Verified" blackbox5/engine/capabilities/skills/SKILLS-REGISTRY.md
 
 # Find pending skills
-grep -r "📋 Pending" .blackbox5/engine/capabilities/skills/SKILLS-REGISTRY.md
+grep -r "📋 Pending" blackbox5/engine/capabilities/skills/SKILLS-REGISTRY.md
 ```
 
 ---

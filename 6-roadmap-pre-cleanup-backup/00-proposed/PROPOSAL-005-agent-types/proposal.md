@@ -99,7 +99,7 @@ Without these capabilities, the agent system is:
 - Ad-hoc coordination
 
 **Locations:**
-- `.blackbox5/engine/agents/`
+- `blackbox5/engine/agents/`
 
 ## Proposed Solution
 

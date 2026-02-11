@@ -195,7 +195,7 @@ class MetricsCollector:
                 return path
 
         # Default to blackbox5 project
-        default = Path.home() / '.blackbox5' / '5-project-memory' / 'blackbox5'
+        default = Path.home() / 'blackbox5' / '5-project-memory' / 'blackbox5'
         if default.exists():
             return default
 

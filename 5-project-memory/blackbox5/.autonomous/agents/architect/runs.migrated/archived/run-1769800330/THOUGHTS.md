@@ -22,7 +22,7 @@ When starting RALF loop, I discovered there were no active tasks. Following the 
    - v2.2 has `templates/decision_registry.yaml`
    - v2.3 is missing `templates/` directory entirely
    - v2.3 IMPROVEMENTS.md states templates are "inherited from 2.2" but were never copied
-   - ralf.md line 405 references: `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml`
+   - ralf.md line 405 references: `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml`
 
 4. **Goal Cascade**: No active goals found
 

@@ -1233,7 +1233,7 @@ exit 0
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh"
           }
         ]
       }
@@ -1279,7 +1279,7 @@ exit 0
 #!/bin/bash
 # Test Suite for SessionStart Hook
 
-BB5_ROOT="/Users/shaansisodia/.blackbox5"
+BB5_ROOT="/Users/shaansisodia/blackbox5"
 HOOK="$BB5_ROOT/.claude/hooks/session-start-blackbox5.sh"
 
 run_test() {

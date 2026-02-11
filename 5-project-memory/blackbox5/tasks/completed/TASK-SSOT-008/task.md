@@ -18,7 +18,7 @@ Fix status mismatches between goal.yaml files and INDEX.yaml. Establish goal.yam
 
 ## Implementation
 
-Created `~/.blackbox5/bin/sync-goal-index.sh`:
+Created `~/blackbox5/bin/sync-goal-index.sh`:
 - Reads all `goals/active/IG-*/goal.yaml` files
 - Extracts status, progress, priority, owner, name fields
 - Generates new INDEX.yaml with derived data

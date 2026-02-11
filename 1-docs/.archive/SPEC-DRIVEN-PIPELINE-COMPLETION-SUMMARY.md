@@ -127,7 +127,7 @@ The BlackBox5 spec-driven development pipeline has been successfully implemented
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── cli/
 │   ├── bb5                           # Main CLI entry point
 │   ├── commands/
@@ -246,7 +246,7 @@ print(f"Estimated {sum(t.estimate.hours_expected for t in tasks.tasks if t.estim
 Run integration tests:
 
 ```bash
-cd .blackbox5
+cd blackbox5
 python -m pytest tests/integration/test_end_to_end_pipeline.py -v -s
 ```
 

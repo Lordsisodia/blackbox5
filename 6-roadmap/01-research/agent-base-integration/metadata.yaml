@@ -1,0 +1,32 @@
+id: "RESEARCH-001"
+name: "Agent Base Integration"
+slug: "agent-base-integration"
+status: "research"
+priority: "high"
+effort: "ongoing"
+domain: "integrations"
+category: "multi-agent-orchestration"
+
+created: "2026-02-10"
+updated: "2026-02-10"
+
+problem:
+  summary: "Need a visual interface for managing multiple AI coding agents"
+  impact: "Currently managing multiple AI agents requires multiple terminal windows with no overview"
+
+solution:
+  approach: "Integrate Agent Base - an open-source multi-agent orchestration canvas"
+
+success_criteria:
+  agent_base_installed: true
+  frame_node_implemented: true
+  customizations_documented: true
+  roadmap_updated: true
+
+confidence: "high"
+ready_to_execute: false
+
+related:
+  repo: "https://github.com/AgentOrchestrator/AgentBase"
+  local_path: "/Users/shaansisodia/agentbase"
+  app_path: "/Applications/Agent Base.app"

@@ -70,7 +70,7 @@ Part of IG-006: Restructure BlackBox5 Architecture. The unified hierarchy (GOALS
 
 ## Rollback Strategy
 
-- All scripts in ~/.blackbox5/bin/ (separate from system)
+- All scripts in ~/blackbox5/bin/ (separate from system)
 - Hooks can be disabled by removing from .claude/hooks/
 - Original templates remain untouched
 

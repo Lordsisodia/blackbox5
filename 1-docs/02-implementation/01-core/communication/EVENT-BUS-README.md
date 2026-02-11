@@ -36,16 +36,16 @@ Use the provided startup script:
 
 ```bash
 # Start Redis with defaults
-.blackbox5/engine/runtime/start-redis.sh
+blackbox5/engine/runtime/start-redis.sh
 
 # Start Redis on custom port
-REDIS_PORT=6380 .blackbox5/engine/runtime/start-redis.sh
+REDIS_PORT=6380 blackbox5/engine/runtime/start-redis.sh
 
 # Check Redis status
-.blackbox5/engine/runtime/start-redis.sh status
+blackbox5/engine/runtime/start-redis.sh status
 
 # Stop Redis
-.blackbox5/engine/runtime/start-redis.sh stop
+blackbox5/engine/runtime/start-redis.sh stop
 ```
 
 ## Quick Start
@@ -397,7 +397,7 @@ Priority.LOW
 
 ```bash
 # Check if Redis is running
-.blackbox5/engine/runtime/start-redis.sh status
+blackbox5/engine/runtime/start-redis.sh status
 
 # Check Redis logs
 tail -f /tmp/redis-blackbox5/redis.log

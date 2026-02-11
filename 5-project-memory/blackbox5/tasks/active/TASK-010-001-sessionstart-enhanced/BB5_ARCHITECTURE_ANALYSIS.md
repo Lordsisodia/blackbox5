@@ -9,7 +9,7 @@
 ## 1. BB5 Directory Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── .autonomous/              # Global autonomous state
 │   ├── communications/       # Global events, queue, heartbeat
 │   ├── routes.yaml           # Global route configuration
@@ -424,12 +424,12 @@ echo "{
 
 | File | Purpose |
 |------|---------|
-| `~/.blackbox5/.claude/hooks/session-start-blackbox5.sh` | Current implementation |
-| `~/.blackbox5/.claude/settings.json` | Hook registration |
-| `~/.blackbox5/bin/bb5-discover-context` | Context discovery |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` | Project routes |
-| `~/.blackbox5/5-project-memory/blackbox5/goals/INDEX.yaml` | Goals index |
-| `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` | Task queue |
+| `~/blackbox5/.claude/hooks/session-start-blackbox5.sh` | Current implementation |
+| `~/blackbox5/.claude/settings.json` | Hook registration |
+| `~/blackbox5/bin/bb5-discover-context` | Context discovery |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` | Project routes |
+| `~/blackbox5/5-project-memory/blackbox5/goals/INDEX.yaml` | Goals index |
+| `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` | Task queue |
 
 ---
 

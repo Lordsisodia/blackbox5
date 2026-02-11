@@ -101,7 +101,7 @@ echo "📝 Progress file created: $PROGRESS_FILE"
 echo ""
 
 # Check if Ralph Runtime module exists
-RALPH_MODULE="$WORKSPACE/.blackbox5/engine/runtime/ralph/ralph_runtime.py"
+RALPH_MODULE="$WORKSPACE/blackbox5/engine/runtime/ralph/ralph_runtime.py"
 if [ ! -f "$RALPH_MODULE" ]; then
     echo "❌ Error: Ralph Runtime module not found: $RALPH_MODULE"
     exit 1

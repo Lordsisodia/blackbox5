@@ -116,7 +116,7 @@ if echo "$file_path" | grep -qE "/tasks/active/[^/]+/task\.md$"; then
       {
         "hooks": [
           {
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh"
           }
         ]
       }

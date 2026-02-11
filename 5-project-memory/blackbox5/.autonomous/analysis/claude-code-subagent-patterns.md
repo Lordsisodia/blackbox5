@@ -601,7 +601,7 @@ permission_mode: acceptEdits
 1. **Agent YAML Schema**: Implement frontmatter-based agent definitions
 2. **Tool Restrictions**: Add allowlist/denylist capability
 3. **Model Selection**: Support per-agent model configuration
-4. **Auto-Discovery**: Scan `.blackbox5/agents/` directories
+4. **Auto-Discovery**: Scan `blackbox5/agents/` directories
 5. **Lifecycle Hooks**: Implement SubagentStart/SubagentStop events
 
 ### 8.2 Design Decisions to Mirror
@@ -629,9 +629,9 @@ permission_mode: acceptEdits
 ## 9. References
 
 **Source Files:**
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sub-agents.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-skills.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-hooks.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sub-agents.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-skills.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-hooks.md`
 
 **Related BlackBox5 Context:**
 - 10 active agents in registry

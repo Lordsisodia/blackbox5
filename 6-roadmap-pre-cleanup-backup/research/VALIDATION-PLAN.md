@@ -394,7 +394,7 @@ python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 2. Find duplicates by content hash
 3. Find orphaned files (not in any index/README)
 4. Find redundant code (same function names/signatures)
-5. Identify outdated references (e.g., ".blackbox5" → "blackbox5")
+5. Identify outdated references (e.g., "blackbox5" → "blackbox5")
 
 **Success Criteria:**
 - Complete documentation index created

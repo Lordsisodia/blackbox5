@@ -1027,12 +1027,12 @@ summary:
 
 ## 10. References
 
-- **GSD Framework:** `/Users/shaansisodia/.blackbox5/6-roadmap/_research/external/GitHub/get-shit-done/`
-- **Planner Sub-Agent:** `/Users/shaansisodia/.blackbox5/2-engine/agents/definitions/sub-agents/planner/SUBAGENT.md`
-- **Validator Sub-Agent:** `/Users/shaansisodia/.blackbox5/2-engine/agents/definitions/sub-agents/validator/SUBAGENT.md`
-- **BB5 Executor:** `/Users/shaansisodia/.blackbox5/2-engine/agents/definitions/claude-native/execution/bb5-executor.md`
-- **BB5 Verifier:** `/Users/shaansisodia/.blackbox5/2-engine/agents/definitions/claude-native/execution/bb5-verifier.md`
-- **Create Architecture Workflow:** `/Users/shaansisodia/.blackbox5/2-engine/instructions/workflows/create-architecture.yaml`
+- **GSD Framework:** `/Users/shaansisodia/blackbox5/6-roadmap/_research/external/GitHub/get-shit-done/`
+- **Planner Sub-Agent:** `/Users/shaansisodia/blackbox5/2-engine/agents/definitions/sub-agents/planner/SUBAGENT.md`
+- **Validator Sub-Agent:** `/Users/shaansisodia/blackbox5/2-engine/agents/definitions/sub-agents/validator/SUBAGENT.md`
+- **BB5 Executor:** `/Users/shaansisodia/blackbox5/2-engine/agents/definitions/claude-native/execution/bb5-executor.md`
+- **BB5 Verifier:** `/Users/shaansisodia/blackbox5/2-engine/agents/definitions/claude-native/execution/bb5-verifier.md`
+- **Create Architecture Workflow:** `/Users/shaansisodia/blackbox5/2-engine/instructions/workflows/create-architecture.yaml`
 
 ---
 

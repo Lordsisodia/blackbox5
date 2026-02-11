@@ -431,7 +431,7 @@ def parse_decisions_file(filepath: str) -> List[Dict[str, Any]]:
     if "No decisions" in content or "No decisions yet" in content or len(content.strip()) < 50:
         return []
 
-    source_file = filepath.replace(os.path.expanduser("~/.blackbox5/"), "")
+    source_file = filepath.replace(os.path.expanduser("~/blackbox5/"), "")
 
     all_decisions = []
 
@@ -523,8 +523,8 @@ def generate_registry(decisions: List[Dict[str, Any]], output_path: str):
 
 
 def main():
-    base_path = os.path.expanduser("~/.blackbox5")
-    output_path = os.path.expanduser("~/.blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml")
+    base_path = os.path.expanduser("~/blackbox5")
+    output_path = os.path.expanduser("~/blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml")
 
     print(f"Scanning for DECISIONS.md files in {base_path}...")
 

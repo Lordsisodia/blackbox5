@@ -16,7 +16,7 @@ This task folder contains similar content to `TASK-1738375000`.
 ## Reference
 
 See the comprehensive plan at:
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1738375000/PLAN.md`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-1738375000/PLAN.md`
 
 ## Quick Summary
 

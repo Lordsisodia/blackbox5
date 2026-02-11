@@ -15,19 +15,19 @@ data:
       "mcpServers": {
         "github": {
           "type": "sse",
-          "url": "http://github-mcp.blackbox5-mcp.svc.cluster.local:3000/sse"
+          "url": "http://github-mcpblackbox5-mcp.svc.cluster.local:3000/sse"
         },
         "filesystem": {
           "type": "sse",
-          "url": "http://filesystem-mcp.blackbox5-mcp.svc.cluster.local:3000/sse"
+          "url": "http://filesystem-mcpblackbox5-mcp.svc.cluster.local:3000/sse"
         },
         "serena": {
           "type": "sse",
-          "url": "http://serena-mcp.blackbox5-mcp.svc.cluster.local:3000/sse"
+          "url": "http://serena-mcpblackbox5-mcp.svc.cluster.local:3000/sse"
         },
         "sequential-thinking": {
           "type": "sse",
-          "url": "http://sequential-thinking.blackbox5-mcp.svc.cluster.local:3000/sse"
+          "url": "http://sequential-thinkingblackbox5-mcp.svc.cluster.local:3000/sse"
         }
       }
     }

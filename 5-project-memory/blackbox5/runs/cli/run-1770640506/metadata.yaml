@@ -1,0 +1,10 @@
+actions: []
+discoveries: []
+loop:
+  agent: bb5-cli
+  duration_seconds: 249
+  number: 1
+  status: completed
+  timestamp_end: '2026-02-09T12:39:16.795183+00:00'
+  timestamp_start: '2026-02-09T12:35:06.871975+00:00'
+query: test tracking system

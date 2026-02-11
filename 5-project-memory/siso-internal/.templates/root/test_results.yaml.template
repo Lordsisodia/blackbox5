@@ -1,0 +1,251 @@
+# =============================================================================
+# TEST_RESULTS.yaml - Comprehensive Test Results
+# =============================================================================
+# Purpose: Track all test execution results across test types
+# Updated: FILL_ME - ISO timestamp
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "FILL_ME - ISO timestamp"
+  updated_by: "FILL_ME - Agent or user name"
+  test_run_id: "FILL_ME - Unique test run identifier"
+
+# =============================================================================
+# TEST RUN METADATA
+# =============================================================================
+
+test_run:
+  id: "FILL_ME - Test run ID (e.g., TR-2026-02-09-001)"
+  name: "FILL_ME - Descriptive name for this test run"
+  description: "FILL_ME - What is being tested"
+  triggered_by: "FILL_ME - Agent name, user, or CI/CD"
+  trigger_type: "FILL_ME - manual|scheduled|pr|deployment|regression"
+  start_time: "FILL_ME - ISO timestamp"
+  end_time: "FILL_ME - ISO timestamp or null"
+  environment: "FILL_ME - dev|staging|production|ci"
+  branch: "FILL_ME - Git branch tested"
+  commit_hash: "FILL_ME - Git commit hash"
+
+# =============================================================================
+# SUMMARY
+# =============================================================================
+
+summary:
+  total_tests: 0
+  passed: 0
+  failed: 0
+  skipped: 0
+  error: 0
+  pass_rate: 0  # percentage
+  duration_seconds: 0
+  status: "FILL_ME - running|passed|failed|error|cancelled"
+
+# =============================================================================
+# RESULTS BY TEST TYPE
+# =============================================================================
+
+results:
+  # ---------------------------------------------------------------------------
+  # UNIT TESTS
+  # ---------------------------------------------------------------------------
+  unit:
+    total: 0
+    passed: 0
+    failed: 0
+    skipped: 0
+    error: 0
+    duration_seconds: 0
+    coverage:
+      lines: 0  # percentage
+      functions: 0  # percentage
+      branches: 0  # percentage
+    test_files: []
+      # - path: "tests/unit/test_example.py"
+      #   tests: 10
+      #   passed: 10
+      #   failed: 0
+      #   duration: 1.5
+    failures: []
+      # - test_name: "test_function_name"
+      #   file: "tests/unit/test_example.py"
+      #   error: "AssertionError: expected X but got Y"
+      #   stack_trace: "..."
+
+  # ---------------------------------------------------------------------------
+  # INTEGRATION TESTS
+  # ---------------------------------------------------------------------------
+  integration:
+    total: 0
+    passed: 0
+    failed: 0
+    skipped: 0
+    error: 0
+    duration_seconds: 0
+    test_files: []
+    failures: []
+
+  # ---------------------------------------------------------------------------
+  # E2E TESTS
+  # ---------------------------------------------------------------------------
+  e2e:
+    total: 0
+    passed: 0
+    failed: 0
+    skipped: 0
+    error: 0
+    duration_seconds: 0
+    test_files: []
+    failures: []
+
+  # ---------------------------------------------------------------------------
+  # PERFORMANCE TESTS
+  # ---------------------------------------------------------------------------
+  performance:
+    total: 0
+    passed: 0
+    failed: 0
+    skipped: 0
+    error: 0
+    duration_seconds: 0
+    benchmarks: []
+      # - name: "api_response_time"
+      #   metric: "p95_latency_ms"
+      #   target: 200
+      #   actual: 185
+      #   status: "passed"
+      #   unit: "milliseconds"
+    regressions: []
+      # - benchmark: "page_load_time"
+      #   previous: 1.2
+      #   current: 2.5
+      #   change_percent: 108
+
+  # ---------------------------------------------------------------------------
+  # SECURITY TESTS
+  # ---------------------------------------------------------------------------
+  security:
+    total: 0
+    passed: 0
+    failed: 0
+    skipped: 0
+    error: 0
+    duration_seconds: 0
+    vulnerabilities:
+      critical: 0
+      high: 0
+      medium: 0
+      low: 0
+      info: 0
+    findings: []
+      # - severity: "high"
+      #   title: "SQL Injection vulnerability"
+      #   location: "src/auth/login.py:45"
+      #   cwe: "CWE-89"
+      #   remediation: "Use parameterized queries"
+
+  # ---------------------------------------------------------------------------
+  # ACCESSIBILITY TESTS
+  # ---------------------------------------------------------------------------
+  accessibility:
+    total: 0
+    passed: 0
+    failed: 0
+    skipped: 0
+    error: 0
+    duration_seconds: 0
+    wcag_level: "FILL_ME - A|AA|AAA"
+    violations: []
+      # - rule: "color-contrast"
+      #   impact: "serious"
+      #   elements: ["#header", "#footer"]
+      #   help: "Elements must have sufficient color contrast"
+
+# =============================================================================
+# TEST DETAILS
+# =============================================================================
+
+details:
+  - test_id: "TEST-001"
+    name: "FILL_ME - Test name"
+    type: "FILL_ME - unit|integration|e2e|performance|security|accessibility"
+    file: "FILL_ME - Path to test file"
+    line: 0
+    status: "FILL_ME - passed|failed|skipped|error"
+    duration_ms: 0
+    message: "FILL_ME - Status message or error"
+    stack_trace: "FILL_ME - Stack trace if failed/error"
+    retries: 0
+    flaky: false
+
+# =============================================================================
+# COVERAGE REPORT
+# =============================================================================
+
+coverage:
+  overall:
+    lines: 0  # percentage
+    statements: 0  # percentage
+    functions: 0  # percentage
+    branches: 0  # percentage
+  by_module:
+    - name: "FILL_ME - Module name"
+      lines: 0
+      functions: 0
+      branches: 0
+  uncovered_lines: []
+    # - file: "src/module.py"
+    #   lines: [10, 11, 25, 26]
+
+# =============================================================================
+# ARTIFACTS
+# =============================================================================
+
+artifacts:
+  - name: "detailed-report.html"
+    path: "FILL_ME - Path to artifact"
+    type: "FILL_ME - html|json|xml|log"
+    description: "FILL_ME - Description of artifact"
+  - name: "coverage-report"
+    path: "FILL_ME - Path to artifact"
+    type: "FILL_ME - html|json|xml|log"
+    description: "FILL_ME - Description of artifact"
+
+# =============================================================================
+# ISSUES AND BLOCKERS
+# =============================================================================
+
+issues:
+  - id: "ISSUE-001"
+    severity: "FILL_ME - critical|high|medium|low"
+    type: "FILL_ME - test_failure|infrastructure|flaky|coverage"
+    description: "FILL_ME - Issue description"
+    affected_tests: []
+      # - "TEST-001"
+    ticket_reference: "FILL_ME - Jira/GitHub issue or null"
+    assigned_to: "FILL_ME"
+    status: "FILL_ME - open|in_progress|resolved"
+
+# =============================================================================
+# COMPARISON WITH PREVIOUS RUN
+# =============================================================================
+
+comparison:
+  previous_run_id: "FILL_ME - Previous test run ID"
+  new_failures: 0
+  fixed_failures: 0
+  new_tests: 0
+  removed_tests: 0
+  duration_change_percent: 0
+  coverage_change_percent: 0
+
+# =============================================================================
+# SIGN-OFF
+# =============================================================================
+
+sign_off:
+  required: false
+  completed: false
+  signed_by: "FILL_ME - Name or null"
+  signed_at: "FILL_ME - ISO timestamp or null"
+  notes: "FILL_ME - Sign-off notes or null"

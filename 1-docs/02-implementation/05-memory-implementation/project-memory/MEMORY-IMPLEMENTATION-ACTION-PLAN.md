@@ -30,7 +30,7 @@ This action plan implements a **production-grade memory system** for BlackBox5 t
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/core/capability.py
+# blackbox5/engine/memory/core/capability.py
 @dataclass(frozen=True)
 class MemoryCapability:
     token: bytes              # Cryptographic token
@@ -57,7 +57,7 @@ class Permission:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/core/
+blackbox5/engine/memory/core/
 ├── __init__.py
 ├── capability.py           # MemoryCapability, Permission
 ├── crypto.py               # Token generation and verification
@@ -78,7 +78,7 @@ class Permission:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/core/capability_memory.py
+# blackbox5/engine/memory/core/capability_memory.py
 class CapabilityMemory:
     """All memory access requires valid capability"""
 
@@ -100,7 +100,7 @@ class CapabilityMemory:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/core/
+blackbox5/engine/memory/core/
 ├── capability_memory.py     # CapabilityMemory class
 ├── memory_region.py         # MemoryRegion class
 └── tests/
@@ -120,7 +120,7 @@ class CapabilityMemory:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/core/hardware_enclave.py
+# blackbox5/engine/memory/core/hardware_enclave.py
 class HardwareEnclave:
     """Hardware-backed memory protection (PMP/MPU)"""
 
@@ -145,7 +145,7 @@ class HardwareEnclave:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/core/
+blackbox5/engine/memory/core/
 ├── hardware_enclave.py     # HardwareEnclave class
 ├── platforms/
 │   ├── __init__.py
@@ -174,7 +174,7 @@ class HardwareEnclave:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/core/atomic_executor.py
+# blackbox5/engine/memory/core/atomic_executor.py
 class AtomicTaskExecutor:
     """Execute tasks atomically using shadow buffering"""
 
@@ -195,7 +195,7 @@ class AtomicTaskExecutor:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/core/
+blackbox5/engine/memory/core/
 ├── atomic_executor.py      # AtomicTaskExecutor class
 ├── shadow_buffer.py        # Shadow buffering implementation
 └── tests/
@@ -218,7 +218,7 @@ class AtomicTaskExecutor:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/verification/verification_artifacts.py
+# blackbox5/engine/memory/verification/verification_artifacts.py
 class VerificationArtifacts:
     """Generate cryptographic proofs of task execution"""
 
@@ -241,7 +241,7 @@ class VerificationArtifacts:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/verification/
+blackbox5/engine/memory/verification/
 ├── __init__.py
 ├── verification_artifacts.py
 ├── execution_proof.py       # ExecutionProof dataclass
@@ -263,7 +263,7 @@ class VerificationArtifacts:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/verification/merkle_tree.py
+# blackbox5/engine/memory/verification/merkle_tree.py
 class MerkleTree:
     """Merkle tree for efficient verification"""
 
@@ -284,7 +284,7 @@ class MerkleTree:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/verification/
+blackbox5/engine/memory/verification/
 ├── merkle_tree.py           # MerkleTree class
 ├── proof_path.py            # Proof path generation
 └── tests/
@@ -306,7 +306,7 @@ class MerkleTree:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/tiers/working_memory.py
+# blackbox5/engine/memory/tiers/working_memory.py
 class WorkingMemory:
     """Working memory (10MB, session-based)"""
 
@@ -330,7 +330,7 @@ class WorkingMemory:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/tiers/
+blackbox5/engine/memory/tiers/
 ├── __init__.py
 ├── working_memory.py        # WorkingMemory class
 ├── memory_tier.py           # Base class for memory tiers
@@ -351,7 +351,7 @@ class WorkingMemory:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/tiers/extended_memory.py
+# blackbox5/engine/memory/tiers/extended_memory.py
 class ExtendedMemory:
     """Extended memory (500MB, persistent, searchable)"""
 
@@ -376,7 +376,7 @@ class ExtendedMemory:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/tiers/
+blackbox5/engine/memory/tiers/
 ├── extended_memory.py       # ExtendedMemory class
 ├── storage/
 │   ├── json_storage.py      # JSON file storage backend
@@ -400,7 +400,7 @@ class ExtendedMemory:
 
 **Deliverables:**
 ```python
-# .blackbox5/engine/memory/tiers/archival_memory.py
+# blackbox5/engine/memory/tiers/archival_memory.py
 class ArchivalMemory:
     """Archival memory (5GB, long-term, compressed)"""
 
@@ -424,7 +424,7 @@ class ArchivalMemory:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/tiers/
+blackbox5/engine/memory/tiers/
 ├── archival_memory.py       # ArchivalMemory class
 ├── compression.py           # Gzip compression utilities
 ├── export.py                # Data export implementations
@@ -449,7 +449,7 @@ class ArchivalMemory:
 
 **10.1 Agent Memory Manager (BMAD)**
 ```python
-# .blackbox5/engine/memory/frameworks/agent_memory.py
+# blackbox5/engine/memory/frameworks/agent_memory.py
 class AgentMemoryManager:
     """Manage memory for 12 BMAD agents"""
 
@@ -460,7 +460,7 @@ class AgentMemoryManager:
 
 **10.2 Task Memory Manager (GSD)**
 ```python
-# .blackbox5/engine/memory/frameworks/task_memory.py
+# blackbox5/engine/memory/frameworks/task_memory.py
 class TaskMemoryManager:
     """Manage atomic task memory with verification"""
 
@@ -472,7 +472,7 @@ class TaskMemoryManager:
 
 **10.3 Workflow Memory Manager (BMAD)**
 ```python
-# .blackbox5/engine/memory/frameworks/workflow_memory.py
+# blackbox5/engine/memory/frameworks/workflow_memory.py
 class WorkflowMemoryManager:
     """Manage memory for 50+ BMAD workflows"""
 
@@ -494,7 +494,7 @@ class WorkflowMemoryManager:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/frameworks/
+blackbox5/engine/memory/frameworks/
 ├── __init__.py
 ├── agent_memory.py          # AgentMemoryManager
 ├── task_memory.py           # TaskMemoryManager
@@ -523,7 +523,7 @@ class WorkflowMemoryManager:
 
 **11.1 Architecture Memory Manager (BMAD)**
 ```python
-# .blackbox5/engine/memory/frameworks/architecture_memory.py
+# blackbox5/engine/memory/frameworks/architecture_memory.py
 class ArchitectureMemoryManager:
     """Manage architecture enforcement memory"""
 
@@ -535,7 +535,7 @@ class ArchitectureMemoryManager:
 
 **11.2 GitHub Integration Memory (BlackBox5)**
 ```python
-# .blackbox5/engine/memory/frameworks/github_memory.py
+# blackbox5/engine/memory/frameworks/github_memory.py
 class GitHubMemoryManager:
     """Manage GitHub integration memory"""
 
@@ -547,7 +547,7 @@ class GitHubMemoryManager:
 
 **11.3 Codebase Memory Manager (Ralph)**
 ```python
-# .blackbox5/engine/memory/frameworks/codebase_memory.py
+# blackbox5/engine/memory/frameworks/codebase_memory.py
 class CodebaseMemoryManager:
     """Manage codebase knowledge (progressive learning)"""
 
@@ -559,7 +559,7 @@ class CodebaseMemoryManager:
 
 **11.4 Knowledge Graph Manager (MIRIX)**
 ```python
-# .blackbox5/engine/memory/frameworks/knowledge_memory.py
+# blackbox5/engine/memory/frameworks/knowledge_memory.py
 class KnowledgeGraphManager:
     """Manage knowledge graph (Neo4j + PostgreSQL)"""
 
@@ -581,7 +581,7 @@ class KnowledgeGraphManager:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/frameworks/
+blackbox5/engine/memory/frameworks/
 ├── architecture_memory.py   # ArchitectureMemoryManager
 ├── github_memory.py         # GitHubMemoryManager
 ├── codebase_memory.py       # CodebaseMemoryManager
@@ -615,7 +615,7 @@ class KnowledgeGraphManager:
 
 **12.1 Complete Memory System**
 ```python
-# .blackbox5/engine/memory/blackbox5_memory.py
+# blackbox5/engine/memory/blackbox5_memory.py
 class BlackBox5Memory:
     """Complete BlackBox5 memory system"""
 
@@ -627,7 +627,7 @@ class BlackBox5Memory:
 
 **12.2 Memory Initialization Script**
 ```bash
-# .blackbox5/engine/scripts/init_memory.sh
+# blackbox5/engine/scripts/init_memory.sh
 #!/bin/bash
 # Initialize BlackBox5 memory for a project
 
@@ -636,7 +636,7 @@ python -m blackbox5.engine.memory.init --project=$PROJECT_NAME
 
 **12.3 Memory Management CLI**
 ```bash
-# .blackbox5/engine/memory/memory_cli.py
+# blackbox5/engine/memory/memory_cli.py
 python -m blackbox5.engine.memory.cli
 
 Commands:
@@ -660,7 +660,7 @@ Commands:
 
 **File Structure:**
 ```
-.blackbox5/engine/memory/
+blackbox5/engine/memory/
 ├── blackbox5_memory.py      # Main memory system class
 ├── __init__.py
 ├── cli.py                   # CLI implementation
@@ -693,16 +693,16 @@ Commands:
 
 ```bash
 # Run all unit tests
-pytest .blackbox5/engine/memory/tests/ -v
+pytest blackbox5/engine/memory/tests/ -v
 
 # Run specific component tests
-pytest .blackbox5/engine/memory/core/tests/ -v
-pytest .blackbox5/engine/memory/verification/tests/ -v
-pytest .blackbox5/engine/memory/tiers/tests/ -v
-pytest .blackbox5/engine/memory/frameworks/tests/ -v
+pytest blackbox5/engine/memory/core/tests/ -v
+pytest blackbox5/engine/memory/verification/tests/ -v
+pytest blackbox5/engine/memory/tiers/tests/ -v
+pytest blackbox5/engine/memory/frameworks/tests/ -v
 
 # Coverage report
-pytest --cov=.blackbox5/engine/memory --cov-report=html
+pytest --cov=blackbox5/engine/memory --cov-report=html
 ```
 
 **Target Coverage:** >90%
@@ -712,7 +712,7 @@ pytest --cov=.blackbox5/engine/memory --cov-report=html
 **End-to-end workflow tests:**
 
 ```python
-# .blackbox5/engine/memory/tests/integration/test_complete_workflow.py
+# blackbox5/engine/memory/tests/integration/test_complete_workflow.py
 def test_complete_task_workflow():
     """Test complete workflow: execute → verify → audit"""
     memory = BlackBox5Memory(project_name="test")
@@ -735,7 +735,7 @@ def test_complete_task_workflow():
 **Verify security properties:**
 
 ```python
-# .blackbox5/engine/memory/tests/security/test_isolation.py
+# blackbox5/engine/memory/tests/security/test_isolation.py
 def test_task_isolation():
     """Verify tasks cannot access each other's memory"""
     task1_caps = get_task_capabilities("task-1")
@@ -761,7 +761,7 @@ def test_capability_unforgeable():
 **Measure overhead:**
 
 ```python
-# .blackbox5/engine/memory/tests/performance/test_overhead.py
+# blackbox5/engine/memory/tests/performance/test_overhead.py
 def test_memory_overhead():
     """Verify memory overhead <5%"""
     baseline = execute_without_protection()
@@ -778,28 +778,28 @@ def test_memory_overhead():
 ### 7.1 API Documentation
 
 ```markdown
-# .blackbox5/engine/memory/README.md
-# .blackbox5/engine/memory/API.md
-# .blackbox5/engine/memory/ARCHITECTURE.md
-# .blackbox5/engine/memory/VERIFICATION.md
+# blackbox5/engine/memory/README.md
+# blackbox5/engine/memory/API.md
+# blackbox5/engine/memory/ARCHITECTURE.md
+# blackbox5/engine/memory/VERIFICATION.md
 ```
 
 ### 7.2 User Guides
 
 ```markdown
-# .blackbox5/engine/memory/guides/GETTING_STARTED.md
-# .blackbox5/engine/memory/guides/ATOMIC_TASKS.md
-# .blackbox5/engine/memory/guides/VERIFICATION.md
-# .blackbox5/engine/memory/guides/TROUBLESHOOTING.md
+# blackbox5/engine/memory/guides/GETTING_STARTED.md
+# blackbox5/engine/memory/guides/ATOMIC_TASKS.md
+# blackbox5/engine/memory/guides/VERIFICATION.md
+# blackbox5/engine/memory/guides/TROUBLESHOOTING.md
 ```
 
 ### 7.3 Examples
 
 ```python
-# .blackbox5/engine/memory/examples/basic_usage.py
-# .blackbox5/engine/memory/examples/atomic_tasks.py
-# .blackbox5/engine/memory/examples/verification.py
-# .blackbox5/engine/memory/examples/integration.py
+# blackbox5/engine/memory/examples/basic_usage.py
+# blackbox5/engine/memory/examples/atomic_tasks.py
+# blackbox5/engine/memory/examples/verification.py
+# blackbox5/engine/memory/examples/integration.py
 ```
 
 ---
@@ -934,7 +934,7 @@ git checkout -b feature/capability-memory
 pip install -r requirements.txt
 
 # Run initial tests
-pytest .blackbox5/engine/memory/tests/ -v
+pytest blackbox5/engine/memory/tests/ -v
 ```
 
 ### 11.2 Staged Rollout
@@ -982,7 +982,7 @@ systemctl restart blackbox5-memory
 
 2. **Set up development environment**
    ```bash
-   cd .blackbox5/engine/memory
+   cd blackbox5/engine/memory
    mkdir -p {core,verification,tiers,frameworks,tests}
    ```
 

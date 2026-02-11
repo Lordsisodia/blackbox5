@@ -1,0 +1,66 @@
+# Goal: FILL_ME - Goal Name
+# =============================================================================
+goal_id: IG-XXX
+name: "FILL_ME - Goal name"
+description: "FILL_ME - Goal description"
+
+meta:
+  created: "FILL_ME - YYYY-MM-DD"
+  target_completion: "FILL_ME - YYYY-MM-DD"
+  owner: "FILL_ME - Agent name"
+  priority: FILL_ME - critical|high|medium|low
+  status: FILL_ME - not_started|in_progress|completed|draft|cancelled|merged
+  category: FILL_ME - architecture|process|documentation|skills|infrastructure
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals: []
+  # - id: SG-XXX-1
+  #   name: "FILL_ME - Sub-goal name"
+  #   description: "FILL_ME - Sub-goal description"
+  #   weight: 40
+  #   status: FILL_ME - not_started|in_progress|completed
+  #   acceptance_criteria:
+  #     - "FILL_ME - Criterion 1"
+  #     - "FILL_ME - Criterion 2"
+  #   linked_tasks:
+  #     - TASK-XXX
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 0
+  last_updated: "FILL_ME - YYYY-MM-DD"
+  by_sub_goal: {}
+    # SG-XXX-1: 0
+    # SG-XXX-2: 0
+  summary:
+    total_tasks: 0
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions: []
+    # - DEC-XXX
+  learnings: []
+    # - L-XXX
+  related_goals: []
+    # - IG-XXX
+  plans: []
+    # - plan-name
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  FILL_ME - Any additional notes about this goal

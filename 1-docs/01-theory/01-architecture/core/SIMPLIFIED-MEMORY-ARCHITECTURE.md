@@ -41,7 +41,7 @@ Academic research claims 94% success with complex memory systems, but:
 ### Directory Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── memory/
 │   ├── {project_name}/          # Per-project memory isolation
 │   │   ├── messages.db          # SQLite persistent storage
@@ -208,10 +208,10 @@ Production Memory System
 
 ## Files
 
-- `.blackbox5/engine/memory/ProductionMemorySystem.py` - Core implementation
-- `.blackbox5/engine/memory/__init__.py` - Package exports
-- `.blackbox5/FIRST-PRINCIPLES-MEMORY-ANALYSIS.md` - Analysis document
-- `.blackbox5/SIMPLIFIED-MEMORY-ARCHITECTURE.md` - This document
+- `blackbox5/engine/memory/ProductionMemorySystem.py` - Core implementation
+- `blackbox5/engine/memory/__init__.py` - Package exports
+- `blackbox5/FIRST-PRINCIPLES-MEMORY-ANALYSIS.md` - Analysis document
+- `blackbox5/SIMPLIFIED-MEMORY-ARCHITECTURE.md` - This document
 
 ## Testing
 

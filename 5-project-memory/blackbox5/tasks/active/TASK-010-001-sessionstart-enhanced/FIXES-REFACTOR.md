@@ -1219,10 +1219,10 @@ Environment variables for control:
 
 ```bash
 # Test 1: Agent type detection with lookup table
-cd ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner
+cd ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner
 # Should detect: planner
 
-cd ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor
+cd ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor
 # Should detect: executor
 
 # Test 2: Git info caching

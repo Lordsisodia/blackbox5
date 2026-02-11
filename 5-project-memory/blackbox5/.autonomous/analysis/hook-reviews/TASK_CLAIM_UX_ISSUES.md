@@ -2,7 +2,7 @@
 
 **Review Date:** 2026-02-06
 **Reviewer:** UX/Usability Expert
-**Design Under Review:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md
+**Design Under Review:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md
 **Severity Scale:** CRITICAL | HIGH | MEDIUM | LOW
 
 ---

@@ -243,8 +243,8 @@ SessionEnd Hook Flow:
       {
         "matcher": "*",
         "hooks": [
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh" },
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-navigation.sh" }
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh" },
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-navigation.sh" }
         ]
       }
     ],
@@ -252,8 +252,8 @@ SessionEnd Hook Flow:
       {
         "matcher": "*",
         "hooks": [
-          { "type": "command", "command": "python3 /Users/shaansisodia/.blackbox5/.claude/hooks/pre-tool-security.py" },
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/pre-tool-validation.sh" },
+          { "type": "command", "command": "python3 /Users/shaansisodia/blackbox5/.claude/hooks/pre-tool-security.py" },
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/pre-tool-validation.sh" },
           { "type": "command", "command": "bash /Users/shaansisodia/.claude/hooks/architecture-consistency.sh" }
         ]
       }
@@ -262,8 +262,8 @@ SessionEnd Hook Flow:
       {
         "matcher": "*",
         "hooks": [
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/post-tool-timeline.sh" },
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/post-tool-context-sync.sh" }
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/post-tool-timeline.sh" },
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/post-tool-context-sync.sh" }
         ]
       }
     ],
@@ -271,7 +271,7 @@ SessionEnd Hook Flow:
       {
         "matcher": "*",
         "hooks": [
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/subagent-tracking.sh start" }
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/subagent-tracking.sh start" }
         ]
       }
     ],
@@ -279,22 +279,22 @@ SessionEnd Hook Flow:
       {
         "matcher": "*",
         "hooks": [
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/subagent-tracking.sh stop" }
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/subagent-tracking.sh stop" }
         ]
       }
     ],
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-validate-docs.sh" },
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-hierarchy-update.sh" }
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/stop-validate-docs.sh" },
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/stop-hierarchy-update.sh" }
         ]
       }
     ],
     "SessionEnd": [
       {
         "hooks": [
-          { "type": "command", "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-end-finalize.sh" }
+          { "type": "command", "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-end-finalize.sh" }
         ]
       }
     ]

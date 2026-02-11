@@ -49,7 +49,7 @@ Comprehensive integration with Supabase for database operations, storage managem
 pip install httpx
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 httpx>=0.27.0
 ```
@@ -367,7 +367,7 @@ except httpx.RequestError as e:
 
 ```bash
 # Run the demo
-python .blackbox5/integration/supabase/demo.py
+python blackbox5/integration/supabase/demo.py
 ```
 
 ## Troubleshooting

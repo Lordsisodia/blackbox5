@@ -563,11 +563,11 @@ The BlackBox 5 circuit breaker implementation provides:
 ✅ **Easy Integration**: Works with existing BlackBox 5 components
 
 **Files Created**:
-- `.blackbox5/engine/core/circuit_breaker_types.py`
-- `.blackbox5/engine/core/circuit_breaker.py`
-- `.blackbox5/engine/core/circuit_breaker_examples.py`
-- `.blackbox5/engine/core/CIRCUIT_BREAKER_README.md`
-- `.blackbox5/engine/core/CIRCUIT_BREAKER_SUMMARY.md`
+- `blackbox5/engine/core/circuit_breaker_types.py`
+- `blackbox5/engine/core/circuit_breaker.py`
+- `blackbox5/engine/core/circuit_breaker_examples.py`
+- `blackbox5/engine/core/CIRCUIT_BREAKER_README.md`
+- `blackbox5/engine/core/CIRCUIT_BREAKER_SUMMARY.md`
 
 **Status**: ✅ Complete and Ready for Use
 **Version**: 1.0.0

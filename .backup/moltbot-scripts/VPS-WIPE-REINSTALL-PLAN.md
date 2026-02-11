@@ -9,7 +9,7 @@
 
 ### Scripts to Save (Already backed up to laptop)
 ```
-~/.blackbox5/.backup/moltbot-scripts/
+~/blackbox5/.backup/moltbot-scripts/
 ├── mcp-server-moltbot.py          ✅ Backed up
 ├── mcp-redis-bridge.py            ✅ Backed up
 └── VPS-WIPE-REINSTALL-PLAN.md     ✅ This file
@@ -223,4 +223,4 @@ Once you confirm the questions above, run:
 ```
 
 All scripts are backed up to your laptop at:
-`~/.blackbox5/.backup/moltbot-scripts/`
+`~/blackbox5/.backup/moltbot-scripts/`

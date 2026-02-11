@@ -14,7 +14,7 @@
 
 | Issue | Count | Impact | Action |
 |-------|-------|--------|--------|
-| Outdated `.blackbox5` refs | 1,184+ | High | Auto-fix |
+| Outdated `blackbox5` refs | 1,184+ | High | Auto-fix |
 | Duplicate code_index files | 3 | Medium | Delete 2 |
 | Orphaned summaries | 20+ | Medium | Archive |
 | Empty READMEs | 30+ | Low | Delete |
@@ -34,7 +34,7 @@ Total: 2,702 markdown files
 
 1. **Fix outdated references** (5 min)
    ```bash
-   find blackbox5 -name "*.md" -exec sed -i '' 's/\.blackbox5\//blackbox5\//g' {} \;
+   find blackbox5 -name "*.md" -exec sed -i '' 's/\blackbox5\//blackbox5\//g' {} \;
    ```
 
 2. **Delete duplicate code_index** (1 min)

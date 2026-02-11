@@ -288,7 +288,7 @@ From `SKILLS-CONVERSION-FINAL-SUMMARY.md`:
 - **Total Created**: 41 skills
 - **Status**: 59% complete (target was 70)
 - **Format**: XML-based Agent OS format
-- **Location**: `.blackbox5/engine/agents/.skills-new/`
+- **Location**: `blackbox5/engine/agents/.skills-new/`
 
 ### Categories Created
 

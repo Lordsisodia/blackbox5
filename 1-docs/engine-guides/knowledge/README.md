@@ -64,13 +64,13 @@ while result["action"] not in ["complete", "abort"]:
 
 ```bash
 # Interactive demo
-python .blackbox5/engine/guides/cli.py interactive
+python blackbox5/engine/guides/cli.py interactive
 
 # Automated execution
-python .blackbox5/engine/guides/cli.py automated
+python blackbox5/engine/guides/cli.py automated
 
 # See how a dumb agent uses it
-python .blackbox5/engine/guides/cli.py dumb
+python blackbox5/engine/guides/cli.py dumb
 ```
 
 ## Architecture

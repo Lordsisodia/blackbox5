@@ -1,0 +1,22 @@
+[Unit]
+Description=BB5 RALF Executor - Unified Task Execution Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/blackbox5
+Environment="BB5_DIR=/opt/blackbox5"
+Environment="ANTHROPIC_AUTH_TOKEN=18849801bb674d08b2df2d27822a5037.aW3s8UbOhKjMRxan"
+Environment="ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic"
+Environment="CLAUDE_MODEL=glm-4.7-flash"
+Environment="CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1"
+Environment="BB5_MODE=autonomous"
+ExecStart=/opt/blackbox5/bin/ralf-executor/ralf-wrapper.sh
+Restart=always
+RestartSec=30
+StandardOutput=append:/var/log/bb5-ralf-executor.log
+StandardError=append:/var/log/bb5-ralf-executor.log
+
+[Install]
+WantedBy=multi-user.target

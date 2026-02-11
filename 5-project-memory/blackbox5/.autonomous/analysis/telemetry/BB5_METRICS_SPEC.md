@@ -728,7 +728,7 @@ groups:
 ### Storage Backend
 
 Metrics are stored in:
-1. **Local files:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/data/metrics/`
+1. **Local files:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/data/metrics/`
 2. **Prometheus:** Remote write endpoint (optional)
 3. **Dashboard:** YAML-based metrics dashboard
 
@@ -778,6 +778,6 @@ sum(bb5_agent_active_sessions) / sum(bb5_agent_max_sessions)
 
 ## Related Documents
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/metrics-dashboard.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/data/metrics/metrics.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/metrics/metrics-dashboard.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/metrics-dashboard.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/data/metrics/metrics.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/metrics/metrics-dashboard.yaml`

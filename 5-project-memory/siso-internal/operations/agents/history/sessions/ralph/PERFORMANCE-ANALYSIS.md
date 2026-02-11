@@ -40,12 +40,12 @@ Ralph Runtime has been successfully tested and validated for autonomous task exe
 6. Create workflow recommendations
 
 **Output Files:**
-- `.blackbox5/engine/frameworks/1-bmad/RESEARCH.md`
-- `.blackbox5/engine/frameworks/2-speckit/RESEARCH.md`
-- `.blackbox5/engine/frameworks/3-metagpt/RESEARCH.md`
-- `.blackbox5/engine/frameworks/4-swarm/RESEARCH.md`
-- `.blackbox5/engine/frameworks/FRAMEWORK-COMPARISON.md`
-- `.blackbox5/engine/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md`
+- `blackbox5/engine/frameworks/1-bmad/RESEARCH.md`
+- `blackbox5/engine/frameworks/2-speckit/RESEARCH.md`
+- `blackbox5/engine/frameworks/3-metagpt/RESEARCH.md`
+- `blackbox5/engine/frameworks/4-swarm/RESEARCH.md`
+- `blackbox5/engine/frameworks/FRAMEWORK-COMPARISON.md`
+- `blackbox5/engine/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md`
 
 ### Test 2: Simple Document Creation (2 tasks)
 **PRD:** `prd-test-simple.json`
@@ -74,14 +74,14 @@ Ralph Runtime has been successfully tested and validated for autonomous task exe
 8. Synthesize findings
 
 **Output Files:**
-- `.blackbox5/engine/runtime/ralph/output/DOMAINS-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/output/LIB-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/output/AGENT-SYSTEM-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/output/FRAMEWORKS-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/output/RUNTIME-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/output/PROJECT-SUMMARY.md`
-- `.blackbox5/engine/runtime/ralph/output/PROGRESS-REPORT.md`
-- `.blackbox5/engine/runtime/ralph/output/FINAL-SYNTHESIS.md`
+- `blackbox5/engine/runtime/ralph/output/DOMAINS-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/output/LIB-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/output/AGENT-SYSTEM-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/output/FRAMEWORKS-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/output/RUNTIME-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/output/PROJECT-SUMMARY.md`
+- `blackbox5/engine/runtime/ralph/output/PROGRESS-REPORT.md`
+- `blackbox5/engine/runtime/ralph/output/FINAL-SYNTHESIS.md`
 
 ### Test 4: Long Duration Stress Test (30 tasks)
 **PRD:** `prd-long-run.json`
@@ -97,8 +97,8 @@ Ralph Runtime has been successfully tested and validated for autonomous task exe
 - Zero error rate under load
 
 **Output Files:**
-- `.blackbox5/engine/runtime/ralph/output/long-run/doc-001.md` through `doc-030.md`
-- `.blackbox5/engine/runtime/ralph/output/long-run/checkpoint-1.md`
+- `blackbox5/engine/runtime/ralph/output/long-run/doc-001.md` through `doc-030.md`
+- `blackbox5/engine/runtime/ralph/output/long-run/checkpoint-1.md`
 
 ---
 

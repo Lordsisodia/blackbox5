@@ -20,7 +20,7 @@
 
 **Storage Pattern:**
 ```
-.blackbox5/tasks/
+blackbox5/tasks/
 ├── backlog/           # Tasks not yet prioritized
 ├── active/            # Currently being worked on
 ├── review/            # Awaiting review
@@ -555,7 +555,7 @@ def search_tasks(query: str) -> list:
 ### Hierarchical Organization
 
 ```
-.blackbox5/tasks/
+blackbox5/tasks/
 │
 ├── backlog/              # Not yet prioritized
 │   ├── TASK-2026-01-18-001.md
@@ -586,7 +586,7 @@ def search_tasks(query: str) -> list:
 ### Index File
 
 ```
-.blackbox5/tasks/index.yaml
+blackbox5/tasks/index.yaml
 ```
 
 ```yaml

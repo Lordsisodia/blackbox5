@@ -138,7 +138,7 @@ decision_matrix:
 
 1. **Check for active goals**
    ```bash
-   ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md
+   ls ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md
    ```
 
 2. **Read highest priority goal**
@@ -161,8 +161,8 @@ decision_matrix:
 
 1. Copy the template:
    ```bash
-   cp ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/templates/goal-template.md \
-      ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/GOAL-{ID}-{title}.md
+   cp ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/templates/goal-template.md \
+      ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/GOAL-{ID}-{title}.md
    ```
 
 2. Fill in required fields:
@@ -234,7 +234,7 @@ When `tasks/active/` is empty:
 
 ```bash
 # Check goals directory for active goals
-ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/null
+ls ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/null
 ```
 
 **If active goals exist:**
@@ -378,7 +378,7 @@ This is a critical migration. Requires careful testing before rollout.
 
 ## Related Documentation
 
-- `~/.blackbox5/bin/ralf.md` - RALF execution loop
+- `~/blackbox5/bin/ralf.md` - RALF execution loop
 - `TASK-MANAGEMENT-SYSTEM.md` - Task tracking architecture
 - `FRAMEWORK-IMPLEMENTATION-PLAN.md` - RALF framework overview
 

@@ -977,7 +977,7 @@ Test scanning a typical Python source folder with modules.
 from folder_scanner import FolderScanner
 
 scanner = FolderScanner(max_depth=2, analyze_content=True)
-result = scanner.scan('/Users/shaansisodia/.blackbox5/2-engine')
+result = scanner.scan('/Users/shaansisodia/blackbox5/2-engine')
 
 # Expected Results:
 # - Detects Python as primary language
@@ -994,7 +994,7 @@ print(f"Organization score: {result.organization_score}")
 
 **Expected Output:**
 ```yaml
-folder_path: /Users/shaansisodia/.blackbox5/2-engine
+folder_path: /Users/shaansisodia/blackbox5/2-engine
 folder_name: 2-engine
 summary: "Folder '2-engine' contains 45 files primarily using python. Follows snake_case naming (85% of files). Mainly python files"
 file_count: 45
@@ -1021,7 +1021,7 @@ confidence_score: 0.90
 Test scanning a folder with configuration files.
 """
 scanner = FolderScanner(max_depth=2)
-result = scanner.scan('/Users/shaansisodia/.blackbox5/0-config')
+result = scanner.scan('/Users/shaansisodia/blackbox5/0-config')
 
 # Expected:
 # - Identifies config file types
@@ -1062,7 +1062,7 @@ except FileNotFoundError as e:
     print(f"Correctly raised FileNotFoundError: {e}")
 
 try:
-    result = scanner.scan('/Users/shaansisodia/.blackbox5/README.md')
+    result = scanner.scan('/Users/shaansisodia/blackbox5/README.md')
 except NotADirectoryError as e:
     print(f"Correctly raised NotADirectoryError: {e}")
 ```
@@ -1078,7 +1078,7 @@ except NotADirectoryError as e:
 Test scanning a folder with multiple languages.
 """
 scanner = FolderScanner(max_depth=3, analyze_content=True)
-result = scanner.scan('/Users/shaansisodia/.blackbox5/6-roadmap')
+result = scanner.scan('/Users/shaansisodia/blackbox5/6-roadmap')
 
 # Expected:
 # - Detects multiple languages (Python, JavaScript, Markdown)
@@ -1117,7 +1117,7 @@ naming_patterns:
 Test scanning a deeply nested folder structure.
 """
 scanner = FolderScanner(max_depth=5)
-result = scanner.scan('/Users/shaansisodia/.blackbox5')
+result = scanner.scan('/Users/shaansisodia/blackbox5')
 
 # Expected:
 # - Respects max_depth limit
@@ -1149,7 +1149,7 @@ structural_patterns:
 ### Full Analysis Example
 
 ```yaml
-folder_path: /Users/shaansisodia/.blackbox5/2-engine/src
+folder_path: /Users/shaansisodia/blackbox5/2-engine/src
 folder_name: src
 summary: "Folder 'src' contains 127 files primarily using python, typescript with flask, react. Follows snake_case naming (78% of files). Mainly python files"
 file_count: 127

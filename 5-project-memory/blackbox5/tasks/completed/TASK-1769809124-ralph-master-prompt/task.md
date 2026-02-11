@@ -5,7 +5,7 @@
 ## Completion
 
 **Completed:** 2026-01-31T05:05:00Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_050255
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_050255
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow
 **Phase Gates:** All passed

@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-19
 **Status:** 19 Research Proposals Created
-**Location:** `.blackbox5/6-roadmap/`
+**Location:** `blackbox5/6-roadmap/`
 
 ---
 
@@ -142,7 +142,7 @@ Documentation            (1%)  █
 ## Next Steps
 
 ### 1. Review Proposals
-All 19 proposals are in `.blackbox5/6-roadmap/00-proposed/`
+All 19 proposals are in `blackbox5/6-roadmap/00-proposed/`
 
 ### 2. Prioritize for Research
 Focus on Tier 1 (Critical) proposals first:
@@ -169,7 +169,7 @@ Create research agents for each tier that:
 ## Files Created
 
 ### Proposals (19 files)
-Location: `.blackbox5/6-roadmap/00-proposed/`
+Location: `blackbox5/6-roadmap/00-proposed/`
 
 - `memory-context-research.md`
 - `reasoning-planning-research.md`
@@ -192,9 +192,9 @@ Location: `.blackbox5/6-roadmap/00-proposed/`
 - `documentation-research.md`
 
 ### Documentation
-- `.blackbox5/6-roadmap/BLACKBOX5-RESEARCH-CATEGORIES.md` - Comprehensive analysis
-- `.blackbox5/6-roadmap/INDEX.yaml` - Updated with all proposals
-- `.blackbox5/6-roadmap/roadmap.md` - Updated with proposal summaries
+- `blackbox5/6-roadmap/BLACKBOX5-RESEARCH-CATEGORIES.md` - Comprehensive analysis
+- `blackbox5/6-roadmap/INDEX.yaml` - Updated with all proposals
+- `blackbox5/6-roadmap/roadmap.md` - Updated with proposal summaries
 
 ---
 

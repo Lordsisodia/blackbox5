@@ -1,0 +1,271 @@
+#!/bin/bash
+# BB5 HTTP CLI
+# API testing and HTTP requests
+
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_config.sh"
+
+COMMAND="${1:-help}"
+shift || true
+
+# Config directory for saved APIs
+API_CONFIG_DIR="$BB5_DIR/config/bb5-cli/apis"
+mkdir -p "$API_CONFIG_DIR"
+
+case "$COMMAND" in
+    get)
+        URL="$1"
+        shift || true
+
+        if [[ -z "$URL" ]]; then
+            bb5_print_error "URL required"
+            exit 1
+        fi
+
+        HEADERS=()
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                -H|--header)
+                    HEADERS+=("-H" "$2")
+                    shift 2
+                    ;;
+                *)
+                    shift
+                    ;;
+            esac
+        done
+
+        bb5_print_info "GET $URL"
+        echo ""
+
+        RESPONSE=$(curl -s -w "\n%{http_code}" "${HEADERS[@]}" "$URL")
+        HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+        BODY=$(echo "$RESPONSE" | sed '$d')
+
+        if [[ "$HTTP_CODE" -ge 200 && "$HTTP_CODE" -lt 300 ]]; then
+            bb5_print_success "HTTP $HTTP_CODE"
+        else
+            bb5_print_error "HTTP $HTTP_CODE"
+        fi
+
+        # Pretty print JSON if possible
+        if echo "$BODY" | jq . > /dev/null 2>&1; then
+            echo "$BODY" | jq .
+        else
+            echo "$BODY"
+        fi
+        ;;
+
+    post)
+        URL="$1"
+        shift || true
+
+        if [[ -z "$URL" ]]; then
+            bb5_print_error "URL required"
+            exit 1
+        fi
+
+        DATA=""
+        HEADERS=()
+
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                -d|--data)
+                    DATA="$2"
+                    shift 2
+                    ;;
+                -H|--header)
+                    HEADERS+=("-H" "$2")
+                    shift 2
+                    ;;
+                -f|--file)
+                    DATA="@$2"
+                    shift 2
+                    ;;
+                *)
+                    shift
+                    ;;
+            esac
+        done
+
+        bb5_print_info "POST $URL"
+        [[ -n "$DATA" ]] && echo "Data: $DATA"
+        echo ""
+
+        if [[ -n "$DATA" ]]; then
+            RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${HEADERS[@]}" -d "$DATA" "$URL")
+        else
+            RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${HEADERS[@]}" "$URL")
+        fi
+
+        HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+        BODY=$(echo "$RESPONSE" | sed '$d')
+
+        if [[ "$HTTP_CODE" -ge 200 && "$HTTP_CODE" -lt 300 ]]; then
+            bb5_print_success "HTTP $HTTP_CODE"
+        else
+            bb5_print_error "HTTP $HTTP_CODE"
+        fi
+
+        if echo "$BODY" | jq . > /dev/null 2>&1; then
+            echo "$BODY" | jq .
+        else
+            echo "$BODY"
+        fi
+        ;;
+
+    test)
+        API_NAME="$1"
+        shift || true
+
+        if [[ -z "$API_NAME" ]]; then
+            bb5_print_error "API name required"
+            echo "Saved APIs:"
+            ls -1 "$API_CONFIG_DIR" 2>/dev/null | sed 's/\.yaml$//' | sed 's/^/  - /'
+            exit 1
+        fi
+
+        API_FILE="$API_CONFIG_DIR/${API_NAME}.yaml"
+
+        if [[ ! -f "$API_FILE" ]]; then
+            bb5_print_error "API config not found: $API_NAME"
+            exit 1
+        fi
+
+        # Parse YAML (simple grep-based)
+        URL=$(grep "^url:" "$API_FILE" | cut -d':' -f2- | sed 's/^[[:space:]]*//')
+        METHOD=$(grep "^method:" "$API_FILE" | cut -d':' -f2- | sed 's/^[[:space:]]*//' | tr '[:lower:]' '[:upper:]')
+        METHOD="${METHOD:-GET}"
+
+        bb5_print_info "$METHOD $URL"
+        echo ""
+
+        # Build curl command
+        CURL_CMD=("curl" "-s" "-w" "\n%{http_code}")
+
+        # Add headers
+        while IFS= read -r line; do
+            if [[ "$line" =~ ^[[:space:]]*-[[:space:]]*(.+)$ ]]; then
+                CURL_CMD+=("-H" "${BASH_REMATCH[1]}")
+            fi
+        done < <(grep -A100 "^headers:" "$API_FILE" | tail -n +2 | grep "^  -" || true)
+
+        # Add auth if present
+        AUTH_TYPE=$(grep "^auth:" "$API_FILE" | cut -d':' -f2- | sed 's/^[[:space:]]*//')
+        if [[ "$AUTH_TYPE" == "bearer" ]]; then
+            TOKEN_VAR=$(grep "^token_env:" "$API_FILE" | cut -d':' -f2- | sed 's/^[[:space:]]*//')
+            TOKEN="${!TOKEN_VAR}"
+            CURL_CMD+=("-H" "Authorization: Bearer $TOKEN")
+        fi
+
+        CURL_CMD+=("-X" "$METHOD" "$URL")
+
+        RESPONSE=$("${CURL_CMD[@]}")
+        HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+        BODY=$(echo "$RESPONSE" | sed '$d')
+
+        if [[ "$HTTP_CODE" -ge 200 && "$HTTP_CODE" -lt 300 ]]; then
+            bb5_print_success "HTTP $HTTP_CODE"
+        else
+            bb5_print_error "HTTP $HTTP_CODE"
+        fi
+
+        if echo "$BODY" | jq . > /dev/null 2>&1; then
+            echo "$BODY" | jq .
+        else
+            echo "$BODY"
+        fi
+        ;;
+
+    save)
+        API_NAME="$1"
+        shift || true
+
+        if [[ -z "$API_NAME" ]]; then
+            bb5_print_error "API name required"
+            exit 1
+        fi
+
+        API_FILE="$API_CONFIG_DIR/${API_NAME}.yaml"
+
+        read -p "URL: " URL
+        read -p "Method (GET): " METHOD
+        METHOD="${METHOD:-GET}"
+        read -p "Auth type (none/bearer): " AUTH
+
+        cat > "$API_FILE" << EOF
+name: $API_NAME
+url: $URL
+method: $METHOD
+EOF
+
+        if [[ "$AUTH" == "bearer" ]]; then
+            read -p "Token environment variable name: " TOKEN_VAR
+            echo "auth: bearer" >> "$API_FILE"
+            echo "token_env: $TOKEN_VAR" >> "$API_FILE"
+        fi
+
+        read -p "Add headers? (y/N): " ADD_HEADERS
+        if [[ "$ADD_HEADERS" =~ ^[Yy]$ ]]; then
+            echo "headers:" >> "$API_FILE"
+            while true; do
+                read -p "Header (or empty to finish): " HEADER
+                [[ -z "$HEADER" ]] && break
+                echo "  - $HEADER" >> "$API_FILE"
+            done
+        fi
+
+        bb5_print_success "API saved: $API_NAME"
+        ;;
+
+    list)
+        bb5_print_info "Saved APIs"
+        echo ""
+
+        for api_file in "$API_CONFIG_DIR"/*.yaml; do
+            if [[ -f "$api_file" ]]; then
+                name=$(basename "$api_file" .yaml)
+                url=$(grep "^url:" "$api_file" | cut -d':' -f2- | sed 's/^[[:space:]]*//')
+                method=$(grep "^method:" "$api_file" | cut -d':' -f2- | sed 's/^[[:space:]]*//' | tr '[:lower:]' '[:upper:]')
+                echo "  $name (${method:-GET})"
+                echo "    $url"
+            fi
+        done
+        ;;
+
+    help|*)
+        cat << 'EOF'
+BB5 HTTP CLI - API Testing Tool
+
+USAGE:
+  bb5 http <command> [options]
+
+COMMANDS:
+  get <url> [options]       Make GET request
+  post <url> [options]      Make POST request
+  test <api-name>           Test saved API endpoint
+  save <api-name>           Save API configuration
+  list                      List saved APIs
+  help                      Show this help
+
+OPTIONS:
+  -H, --header <header>     Add request header
+  -d, --data <data>         POST data (JSON string)
+  -f, --file <path>         POST data from file
+
+EXAMPLES:
+  bb5 http get https://api.example.com/users
+  bb5 http get https://api.example.com/users -H "Authorization: Bearer token"
+  bb5 http post https://api.example.com/users -d '{"name":"John"}'
+  bb5 http save my-api
+  bb5 http test my-api
+  bb5 http list
+
+NOTES:
+  - JSON responses are automatically pretty-printed
+  - Saved APIs are stored in ~/blackbox5/config/bb5-cli/apis/
+  - Use environment variables for tokens in saved APIs
+EOF
+        ;;
+esac

@@ -554,7 +554,7 @@ If you have an existing hook that should be a CLI:
 ---
 
 *Document based on analysis in:*
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/FIRST_PRINCIPLES_HOOKS.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-reviews/TASK_CLAIM_ALTERNATIVES.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/OPERATIONS_HOOKS.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/FIRST_PRINCIPLES_HOOKS.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-reviews/TASK_CLAIM_ALTERNATIVES.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/OPERATIONS_HOOKS.md`

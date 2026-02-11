@@ -1,15 +1,22 @@
 # Goal: Improve LEGACY.md Operational Efficiency
 # =============================================================================
+# STATUS: MERGED into IG-001
+# Merged on: 2026-02-10
+# Reason: LEGACY.md and CLAUDE.md serve the same purpose - agent guidance.
+#         The distinction between "guidance" and "operations" was artificial.
+# =============================================================================
+
 goal_id: IG-002
-name: "Improve LEGACY.md Operational Efficiency"
-description: "Streamline the operational procedures to reduce friction and improve execution speed"
+name: "[MERGED] Improve LEGACY.md Operational Efficiency"
+description: "MERGED into IG-001: All operational efficiency improvements now part of agent guidance"
 
 meta:
   created: "2026-01-15"
-  target_completion: "2026-03-01"
+  merged: "2026-02-10"
+  merged_into: IG-001
   owner: "executor-agent"
   priority: high
-  status: not_started
+  status: merged
   category: process
 
 # =============================================================================

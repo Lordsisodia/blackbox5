@@ -34,8 +34,9 @@
 | 10 | **Anthropic API** | API | 78 | 60 | No | ? |
 | 11 | **Kubernetes** | Tool | 75 | 1000 | No | ? |
 | 12 | **GitHub Actions** | Tool | 72 | 120 | No | ? |
+| 13 | **Shopify** | Platform | 88 | 2000 | No | **APPROVE** |
 
-**Subtotal if all approved:** ~4,522 pages
+**Subtotal if all approved:** ~6,522 pages
 
 ---
 
@@ -65,6 +66,7 @@
 - **DevOps:** Docker, Kubernetes, Terraform, Ansible, GitHub Actions
 - **Observability:** Prometheus, Grafana
 - **Automation:** n8n
+- **E-commerce:** Shopify
 
 ---
 

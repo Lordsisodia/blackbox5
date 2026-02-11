@@ -56,9 +56,9 @@ spec:
                   name: github-token
                   key: token
             - name: REDIS_URL
-              value: "redis://redis-cluster.blackbox5-storage.svc.cluster.local:6379"
+              value: "redis://redis-clusterblackbox5-storage.svc.cluster.local:6379"
             - name: MCP_GITHUB_URL
-              value: "http://github-mcp.blackbox5-mcp.svc.cluster.local:3000/sse"
+              value: "http://github-mcpblackbox5-mcp.svc.cluster.local:3000/sse"
           volumeMounts:
             - name: code-volume
               mountPath: /opt/blackbox5

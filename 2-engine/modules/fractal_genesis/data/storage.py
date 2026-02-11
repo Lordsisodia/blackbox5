@@ -18,7 +18,7 @@ try:
     MEMORY_ROOT = str(_resolver.get_tasks_path())
 except ImportError:
     # Fallback to default
-    MEMORY_ROOT = "~/.blackbox5/5-project-memory/blackbox5/tasks"
+    MEMORY_ROOT = "~/blackbox5/5-project-memory/blackbox5/tasks"
 
 # Import caching layer
 try:

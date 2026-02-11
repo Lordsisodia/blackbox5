@@ -58,8 +58,8 @@ Multi-layered compression system with:
 
 ## Related Systems
 
-- `.blackbox5/engine/memory/` - Memory system implementation
-- `.blackbox5/engine/core/token_compressor.py` - Existing token compression
+- `blackbox5/engine/memory/` - Memory system implementation
+- `blackbox5/engine/core/token_compressor.py` - Existing token compression
 - `BLACKBOX5-RESEARCH-CATEGORIES.md` - Memory & Context category (18% weight)
 
 ---

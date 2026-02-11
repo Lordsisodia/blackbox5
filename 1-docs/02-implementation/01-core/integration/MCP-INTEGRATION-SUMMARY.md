@@ -7,7 +7,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 ## Files Created
 
 ### 1. Core Implementation
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/MCPIntegration.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/MCPIntegration.py`
 
 **Key Components**:
 - `MCPServerConfig`: Configuration class for MCP servers
@@ -19,7 +19,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 **Lines of Code**: ~450 lines
 
 ### 2. Test Suite
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/test_mcp_integration.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/test_mcp_integration.py`
 
 **Test Coverage**:
 - Server configuration validation
@@ -32,7 +32,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 **Lines of Code**: ~550 lines
 
 ### 3. Standalone Demo
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/test_mcp_integration_standalone.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/test_mcp_integration_standalone.py`
 
 **Features**:
 - Can run without full BlackBox5 environment
@@ -43,7 +43,7 @@ Successfully extracted and adapted the MCP (Model Context Protocol) Integration 
 **Lines of Code**: ~300 lines
 
 ### 4. Documentation
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/MCP_INTEGRATION_README.md`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/MCP_INTEGRATION_README.md`
 
 **Contents**:
 - Complete API reference

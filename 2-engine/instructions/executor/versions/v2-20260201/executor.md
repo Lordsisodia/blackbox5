@@ -71,7 +71,7 @@ This file persists across loops and builds institutional knowledge.
 
 ## Working Directory Structure
 
-**Root:** `~/.blackbox5/`
+**Root:** `~/blackbox5/`
 
 ### Task Infrastructure (`$RALF_PROJECT_DIR/.autonomous/tasks/`)
 - **active/** - Tasks from Planner (your input): Read .md files here
@@ -178,7 +178,7 @@ grep -r "[task keyword]" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/n
 grep -r "[task keyword]" $RALF_PROJECT_DIR/tasks/completed/ 2>/dev/null | head -3
 
 # 3. Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
 
 # 4. Verify target files exist
 ls -la [target paths] 2>/dev/null
@@ -364,7 +364,7 @@ python3 $RALF_ENGINE_DIR/lib/roadmap_sync.py both \
   $RALF_PROJECT_DIR/.autonomous/tasks/completed/[TASK-FILE]
 
 # Commit changes
-cd ~/.blackbox5
+cd ~/blackbox5
 git add -A
 git commit -m "executor: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
 git push origin main

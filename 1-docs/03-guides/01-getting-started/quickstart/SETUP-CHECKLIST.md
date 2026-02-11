@@ -12,26 +12,26 @@
 ### ✅ Fully Working (No Action Needed)
 
 **Core Engine**:
-- ✅ Circuit breaker system (`.blackbox5/engine/core/circuit_breaker.py`)
-- ✅ Task router (`.blackbox5/engine/core/task_router.py`)
-- ✅ Event bus (`.blackbox5/engine/core/event_bus.py`)
-- ✅ Exception handling (`.blackbox5/engine/core/exceptions.py`)
-- ✅ Complexity management (`.blackbox5/engine/core/complexity.py`)
+- ✅ Circuit breaker system (`blackbox5/engine/core/circuit_breaker.py`)
+- ✅ Task router (`blackbox5/engine/core/task_router.py`)
+- ✅ Event bus (`blackbox5/engine/core/event_bus.py`)
+- ✅ Exception handling (`blackbox5/engine/core/exceptions.py`)
+- ✅ Complexity management (`blackbox5/engine/core/complexity.py`)
 
 **Configuration**:
-- ✅ YAML-based config system (`.blackbox5/config/`)
+- ✅ YAML-based config system (`blackbox5/config/`)
 - ✅ Environment detection (dev/prod/local)
-- ✅ 130+ shell scripts (`.blackbox5/shell/`)
+- ✅ 130+ shell scripts (`blackbox5/shell/`)
 
 **Documentation**:
-- ✅ Complete specs system (`.blackbox5/specs/`)
-- ✅ 31 skills documented (`.blackbox5/engine/agents/.skills-new/`)
+- ✅ Complete specs system (`blackbox5/specs/`)
+- ✅ 31 skills documented (`blackbox5/engine/agents/.skills-new/`)
 - ✅ Research on 15 frameworks (`.docs/research/`)
 
 ### ⚠️ Partially Working (Needs Integration)
 
 **Agent System**:
-- ⚠️ AgentLoader exists (`.blackbox5/engine/core/AgentLoader.py`)
+- ⚠️ AgentLoader exists (`blackbox5/engine/core/AgentLoader.py`)
 - ❌ No concrete agent implementations
 - ❌ No agent registry
 - ❌ No agent lifecycle management
@@ -67,7 +67,7 @@
 
 ### Step 1: Create CLI Interface (Day 1-2)
 
-**File**: `.blackbox5/cli/main.py`
+**File**: `blackbox5/cli/main.py`
 
 ```python
 #!/usr/bin/env python3
@@ -167,14 +167,14 @@ if __name__ == '__main__':
 
 **Make it executable**:
 ```bash
-# Add to .blackbox5/cli/main.py
-chmod +x .blackbox5/cli/main.py
+# Add to blackbox5/cli/main.py
+chmod +x blackbox5/cli/main.py
 
 # Create symlink
-ln -s $(pwd)/.blackbox5/cli/main.py /usr/local/bin/bb5
+ln -s $(pwd)/blackbox5/cli/main.py /usr/local/bin/bb5
 
 # Or add to PATH in ~/.zshrc
-echo 'export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/cli"' >> ~/.zshrc
+echo 'export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/cli"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -188,7 +188,7 @@ bb5 status
 
 ### Step 2: Implement Agent-Skill Bridge (Day 3-4)
 
-**File**: `.blackbox5/engine/core/AgentSkillBridge.py`
+**File**: `blackbox5/engine/core/AgentSkillBridge.py`
 
 ```python
 """
@@ -314,7 +314,7 @@ class AgentSkillBridge:
         return True
 ```
 
-**File**: `.blackbox5/engine/core/SkillManager.py` (Update)
+**File**: `blackbox5/engine/core/SkillManager.py` (Update)
 
 ```python
 """
@@ -363,7 +363,7 @@ class SkillManager:
 
 ### Step 3: Create Service Discovery (Day 5)
 
-**File**: `.blackbox5/engine/core/ServiceDiscovery.py`
+**File**: `blackbox5/engine/core/ServiceDiscovery.py`
 
 ```python
 """
@@ -430,7 +430,7 @@ class ServiceDiscovery:
 
 ### Step 4: Create First Concrete Agent (Day 6-7)
 
-**File**: `.blackbox5/engine/agents/implementations/DeveloperAgent.py`
+**File**: `blackbox5/engine/agents/implementations/DeveloperAgent.py`
 
 ```python
 """
@@ -498,7 +498,7 @@ class DeveloperAgent(Agent):
 
 ### Step 5: Implement Data Persistence (Day 8-9)
 
-**File**: `.blackbox5/engine/core/Persistence.py`
+**File**: `blackbox5/engine/core/Persistence.py`
 
 ```python
 """
@@ -580,7 +580,7 @@ class Persistence:
 
 ### Step 6: Add Environment Setup (Day 10)
 
-**File**: `.blackbox5/setup.sh`
+**File**: `blackbox5/setup.sh`
 
 ```bash
 #!/bin/bash
@@ -592,16 +592,16 @@ echo "🚀 Setting up BlackBox5 environment..."
 
 # Create directories
 echo "📁 Creating directory structure..."
-mkdir -p .blackbox5/data/{agents,tasks,state}
-mkdir -p .blackbox5/logs
-mkdir -p .blackbox5/temp
+mkdir -p blackbox5/data/{agents,tasks,state}
+mkdir -p blackbox5/logs
+mkdir -p blackbox5/temp
 
 # Create virtual environment
 echo "🐍 Creating Python virtual environment..."
-python3 -m venv .blackbox5/venv
+python3 -m venv blackbox5/venv
 
 # Activate venv
-source .blackbox5/venv/bin/activate
+source blackbox5/venv/bin/activate
 
 # Install dependencies
 echo "📦 Installing dependencies..."
@@ -611,7 +611,7 @@ pip install python-dotenv
 
 # Create config
 echo "⚙️  Creating configuration..."
-cat > .blackbox5/config/local.yaml << EOF
+cat > blackbox5/config/local.yaml << EOF
 environment: local
 debug: true
 log_level: DEBUG
@@ -625,31 +625,31 @@ agents:
       - deployment-ops
 
 skills:
-  base_path: .blackbox5/engine/agents/.skills-new
+  base_path: blackbox5/engine/agents/.skills-new
 
 data:
-  path: .blackbox5/data
+  path: blackbox5/data
 
 logs:
-  path: .blackbox5/logs
+  path: blackbox5/logs
   level: DEBUG
 EOF
 
 # Make CLI executable
-chmod +x .blackbox5/cli/main.py
+chmod +x blackbox5/cli/main.py
 
 echo "✅ Setup complete!"
 echo ""
 echo "Next steps:"
-echo "  1. Activate venv: source .blackbox5/venv/bin/activate"
+echo "  1. Activate venv: source blackbox5/venv/bin/activate"
 echo "  2. Test CLI: bb5 status"
 echo "  3. Start agent: bb5 agent:start developer"
 ```
 
 **Run setup**:
 ```bash
-chmod +x .blackbox5/setup.sh
-.blackbox5/setup.sh
+chmod +x blackbox5/setup.sh
+blackbox5/setup.sh
 ```
 
 ---
@@ -658,7 +658,7 @@ chmod +x .blackbox5/setup.sh
 
 ### Step 7: Implement Security Layer (Day 11-12)
 
-**File**: `.blackbox5/engine/core/Security.py`
+**File**: `blackbox5/engine/core/Security.py`
 
 ```python
 """
@@ -735,7 +735,7 @@ class SecurityError(Exception):
 
 ### Step 8: Add Monitoring (Day 13)
 
-**File**: `.blackbox5/engine/core/Monitoring.py`
+**File**: `blackbox5/engine/core/Monitoring.py`
 
 ```python
 """
@@ -786,7 +786,7 @@ class SystemMonitor:
 
 ### Step 9: Create Test Suite (Day 14-15)
 
-**File**: `.blackbox5/tests/test_agent_skill_bridge.py`
+**File**: `blackbox5/tests/test_agent_skill_bridge.py`
 
 ```python
 """
@@ -844,7 +844,7 @@ if __name__ == '__main__':
 
 ### Step 10: Write User Documentation (Day 16-20)
 
-**File**: `.blackbox5/USER-GUIDE.md`
+**File**: `blackbox5/USER-GUIDE.md`
 
 ```markdown
 # BlackBox5 User Guide
@@ -852,8 +852,8 @@ if __name__ == '__main__':
 ## Installation
 
 1. Clone repository
-2. Run setup: `.blackbox5/setup.sh`
-3. Activate venv: `source .blackbox5/venv/bin/activate`
+2. Run setup: `blackbox5/setup.sh`
+3. Activate venv: `source blackbox5/venv/bin/activate`
 4. Test: `bb5 status`
 
 ## Basic Usage
@@ -920,10 +920,10 @@ After completing all phases, verify:
 **Solution**:
 ```bash
 # Add to PATH
-export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/cli"
+export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/cli"
 
 # Or create symlink
-sudo ln -s $(pwd)/.blackbox5/cli/main.py /usr/local/bin/bb5
+sudo ln -s $(pwd)/blackbox5/cli/main.py /usr/local/bin/bb5
 ```
 
 ### Issue: Skills not loading
@@ -931,7 +931,7 @@ sudo ln -s $(pwd)/.blackbox5/cli/main.py /usr/local/bin/bb5
 **Solution**:
 ```bash
 # Verify skills directory exists
-ls -la .blackbox5/engine/agents/.skills-new/
+ls -la blackbox5/engine/agents/.skills-new/
 
 # Validate all skills
 bb5 skill:validate --all
@@ -942,10 +942,10 @@ bb5 skill:validate --all
 **Solution**:
 ```bash
 # Check config
-cat .blackbox5/config/local.yaml
+cat blackbox5/config/local.yaml
 
 # Check logs
-cat .blackbox5/logs/agent.log
+cat blackbox5/logs/agent.log
 ```
 
 ---

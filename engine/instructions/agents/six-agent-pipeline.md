@@ -172,7 +172,7 @@ Pipeline completes when:
 ## Start Command
 
 ```bash
-cd ~/.blackbox5
+cd ~/blackbox5
 ./bin/ralf-six-agent-pipeline.sh
 ```
 

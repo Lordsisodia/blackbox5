@@ -1,0 +1,18 @@
+#!/bin/bash
+# BB5 CLI Schema Loader
+# Usage: bb5 schema <category>:<tool>
+
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_discovery.sh"
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: bb5 schema <category>:<tool>"
+    echo ""
+    echo "Examples:"
+    echo "  bb5 schema db:query"
+    echo "  bb5 schema remote:exec"
+    echo "  bb5 schema browser:screenshot"
+    exit 1
+fi
+
+bb5_discover_schema "$1"

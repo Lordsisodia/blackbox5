@@ -23,7 +23,7 @@ Fix import path errors throughout the codebase that prevent modules from being f
 ## Context
 
 ### Source: Goal Cascade (PLAN-004)
-From `/Users/shaansisodia/.blackbox5/6-roadmap/03-planned/PLAN-004-fix-import-paths/`:
+From `/Users/shaansisodia/blackbox5/6-roadmap/03-planned/PLAN-004-fix-import-paths/`:
 
 **Problem:**
 - ImportError / ModuleNotFoundError throughout codebase
@@ -75,7 +75,7 @@ Git revert all changes if imports become more broken
 ## Completion
 
 **Completed:** 2026-01-31T04:04:30Z
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769807303
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769807303
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow
 **Phase Gates:** All passed

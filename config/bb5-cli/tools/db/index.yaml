@@ -1,0 +1,9 @@
+# Database Tools Index
+# Minimal metadata for discovery (~100 tokens)
+
+query: Execute SQL queries against Supabase
+migrate: Run database migrations
+backup: Create database backup
+restore: Restore from backup
+seed: Seed database with data
+edge: Edge function operations

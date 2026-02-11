@@ -40,7 +40,7 @@
 ### Run Folder Creation Process
 
 Templates exist at:
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.templates/runs/`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.templates/runs/`
 
 ### Evidence of Problem
 
@@ -50,7 +50,7 @@ From INTELLIGENT-SCOUT-RESULTS.md:
 ### Existing Hook Infrastructure
 
 1. **Session End Hook**: `/Users/shaansisodia/.claude/hooks/session-end.sh`
-2. **Validation Pattern**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
+2. **Validation Pattern**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
 
 ---
 

@@ -24,7 +24,7 @@ The hardcoded paths issue was selected because:
 Spawned research sub-agent which discovered:
 - No existing work on this issue
 - 31 total files affected (28 markdown + 3 Python)
-- System designed for `~/.blackbox5/` notation
+- System designed for `~/blackbox5/` notation
 - `BLACKBOX5_HOME` environment variable available
 
 ### Execution Approach
@@ -44,4 +44,4 @@ Selected **Quick Flow** path because:
 ### Key Learnings
 - Path portability is critical for Agent-2.3's multi-project memory access
 - Hardcoded paths in documentation can break agent functionality
-- The `~/.blackbox5/` notation is the system standard for portability
+- The `~/blackbox5/` notation is the system standard for portability

@@ -1,0 +1,25 @@
+---
+id: "TASK-MEM-002"
+title: "Wire Auto-RETAIN on Task Completion"
+status: "pending"
+priority: "critical"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-MEMORY-HARDEN-001"
+phase: "Phase 2"
+
+# Task Details
+description: |
+  Ensure retain-on-complete.py hook actually runs on every task completion
+  and extracts memories from THOUGHTS.md, DECISIONS.md, LEARNINGS.md, RESULTS.md.
+
+acceptance_criteria:
+  - Hook registered in settings.json (Stop event)
+  - Processes all 4 memory files automatically
+  - Extracts entities, facts, opinions, experiences
+  - Stores in vector store
+  - 90%+ of completed tasks have memories retained
+
+estimated_hours: 4

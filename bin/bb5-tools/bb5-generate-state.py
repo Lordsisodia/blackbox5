@@ -52,7 +52,7 @@ def get_goal_statuses(goals_dir):
     return statuses
 
 def generate_state():
-    bb5_root = Path.home() / '.blackbox5'
+    bb5_root = Path.home() / 'blackbox5'
     project_dir = bb5_root / '5-project-memory/blackbox5'
 
     # Count tasks

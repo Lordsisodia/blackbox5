@@ -105,7 +105,7 @@ spec.loader.exec_module(blackbox5_main)
 get_blackbox5 = blackbox5_main.get_blackbox5
 ```
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/interface/api/main.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/interface/api/main.py`
 
 ### 2. Missing Dependency
 **Issue**: `click` package used by CLI but not in requirements.txt
@@ -117,7 +117,7 @@ Added to requirements.txt:
 click>=8.1.0
 ```
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/requirements.txt`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/requirements.txt`
 
 ---
 
@@ -320,13 +320,13 @@ The Blackbox 5 system is fully integrated and ready for:
 
 1. **CLI Usage**:
    ```bash
-   cd .blackbox5/engine
+   cd blackbox5/engine
    python -m interface.cli.bb5 ask "What is 2+2?"
    ```
 
 2. **API Usage**:
    ```bash
-   cd .blackbox5/engine/interface/api
+   cd blackbox5/engine/interface/api
    python main.py
    # Access at http://localhost:8000
    ```
@@ -362,7 +362,7 @@ The Blackbox 5 system is fully integrated and ready for:
 
 1. **Agent Implementation** (REQUIRED)
    - Implement concrete agent classes inheriting from BMADAgent, GSDAgent, or SpecialistAgent
-   - Add agents to `.blackbox5/engine/agents/` directory
+   - Add agents to `blackbox5/engine/agents/` directory
    - Each agent must implement the `initialize()` method
    - Current: Base classes ready, no concrete agents yet
    - Impact: System has 0 agents loaded until this is done

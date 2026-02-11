@@ -37,7 +37,7 @@ We've created a comprehensive agent kit of **8 Claude Code native sub-agents** t
 ## File Locations
 
 ```
-~/.blackbox5/5-project-memory/blackbox5/
+~/blackbox5/5-project-memory/blackbox5/
 ├── .claude/agents/
 │   ├── bb5-explorer.md
 │   ├── bb5-researcher.md

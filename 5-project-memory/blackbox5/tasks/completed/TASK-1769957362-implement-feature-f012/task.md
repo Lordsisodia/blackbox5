@@ -83,7 +83,7 @@ Implement API Gateway and External Service Integration layer to enable RALF to e
    - File: `2-engine/.autonomous/lib/connectors/trello_connector.py` - Trello cards
 
 6. **Create Configuration**
-   - File: `~/.blackbox5/api-config.yaml`
+   - File: `~/blackbox5/api-config.yaml`
    - API server settings (host, port, auth)
    - Connector configurations (Slack webhook, Jira API, Trello API)
    - Rate limiting and CORS settings
@@ -104,7 +104,7 @@ Implement API Gateway and External Service Integration layer to enable RALF to e
 - `2-engine/.autonomous/lib/connectors/jira_connector.py` - Jira connector
 - `2-engine/.autonomous/lib/connectors/trello_connector.py` - Trello connector
 - `2-engine/.autonomous/config/api-config.yaml` - Configuration template
-- `~/.blackbox5/api-config.yaml` - User config
+- `~/blackbox5/api-config.yaml` - User config
 - `operations/.docs/api-gateway-guide.md` - User guide
 - `operations/.docs/connector-development-guide.md` - Connector dev guide
 

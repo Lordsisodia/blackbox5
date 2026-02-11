@@ -20,7 +20,7 @@ This directory contains all analysis documents, research findings, and implement
 - `BMAD-ANALYSIS.md` - Comprehensive BMAD framework analysis
 - `bmad-code-org-BMAD-METHOD-ANALYSIS.md` - BMAD methodology deep dive
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - Master-agent orchestration pattern
@@ -32,7 +32,7 @@ This directory contains all analysis documents, research findings, and implement
 **Files:**
 - Referenced in `FRAMEWORK-COMPARISON.md`
 
-**Location:** `.blackbox5/engine/frameworks/2-speckit/`
+**Location:** `blackbox5/engine/frameworks/2-speckit/`
 
 **Key Findings:**
 - Spec-driven development approach
@@ -45,7 +45,7 @@ This directory contains all analysis documents, research findings, and implement
 - `METAGPT-GITHUB-ANALYSIS.md` - GitHub repository analysis
 - `FoundationAgents-MetaGPT-ANALYSIS.md` - Foundation Agents perspective
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - SOP-based agent coordination
@@ -57,7 +57,7 @@ This directory contains all analysis documents, research findings, and implement
 **Files:**
 - `openai-swarm-ANALYSIS.md` - OpenAI Swarm framework analysis
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - Lightweight orchestration
@@ -125,7 +125,7 @@ This directory contains all analysis documents, research findings, and implement
 - `agentscope-ai-agentscope-ANALYSIS.md` - AgentScope comprehensive analysis
 - `AGENTSCOPE-GITHUB-ANALYSIS.md` - GitHub repository analysis
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - **Middleware System** (high priority)
@@ -141,7 +141,7 @@ This directory contains all analysis documents, research findings, and implement
 - `bytedance-deer-flow-ANALYSIS.md` - DeerFlow analysis
 - `DEERFLOW-ANALYSIS.md` - Detailed DeerFlow study
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - **Token Compression** (solves context explosion)
@@ -155,7 +155,7 @@ This directory contains all analysis documents, research findings, and implement
 **Files:**
 - `iflytek-astron-agent-ANALYSIS.md` - Astron Agent analysis
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - Enterprise-grade framework
@@ -174,7 +174,7 @@ This directory contains all analysis documents, research findings, and implement
 - `google-adk-python-ANALYSIS.md` - Google ADK analysis
 - `GOOGLE-ADK-ANALYSIS.md` - Detailed ADK study
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - Official Google framework
@@ -188,7 +188,7 @@ This directory contains all analysis documents, research findings, and implement
 **Files:**
 - `microsoft-agent-framework-ANALYSIS.md` - Microsoft framework analysis
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - Microsoft ecosystem
@@ -203,7 +203,7 @@ This directory contains all analysis documents, research findings, and implement
 - `MervinPraison-PraisonAI-ANALYSIS.md` - PraisonAI analysis
 - `PRAISONAI-ANALYSIS.md` - Detailed PraisonAI study
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - Simplified orchestration
@@ -221,7 +221,7 @@ This directory contains all analysis documents, research findings, and implement
 **Files:**
 - `ralphy-ANALYSIS.md` - Ralph-y (Ralphy) comprehensive analysis
 
-**Location:** `.blackbox5/engine/development/framework-research/`
+**Location:** `blackbox5/engine/development/framework-research/`
 
 **Key Findings:**
 - **Git Worktree Parallel Execution** 🔥 (HIGHEST PRIORITY)
@@ -286,7 +286,7 @@ This directory contains all analysis documents, research findings, and implement
 ## Synthesis Documents
 
 ### Framework Comparison
-**File:** `.blackbox5/engine/development/frameworks/FRAMEWORK-COMPARISON.md`
+**File:** `blackbox5/engine/development/frameworks/FRAMEWORK-COMPARISON.md`
 
 **Contents:**
 - Side-by-side feature comparison
@@ -294,7 +294,7 @@ This directory contains all analysis documents, research findings, and implement
 - Recommendations for synthesis
 
 ### Framework Features Analysis
-**File:** `.blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
+**File:** `blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
 
 **Contents:**
 - Detailed feature breakdown
@@ -302,7 +302,7 @@ This directory contains all analysis documents, research findings, and implement
 - Code reuse opportunities
 
 ### Framework Implementation Plan
-**File:** `.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
+**File:** `blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
 
 **Contents:**
 - 4-week implementation roadmap
@@ -431,7 +431,7 @@ This directory contains all analysis documents, research findings, and implement
 ## Implementation Roadmap Reference
 
 ### 4-Week Plan
-**Document:** `.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
+**Document:** `blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
 
 **Week 1:** Core Patterns (Context, Git Worktrees)
 **Week 2:** Advanced Patterns (Layer Stack, Events)

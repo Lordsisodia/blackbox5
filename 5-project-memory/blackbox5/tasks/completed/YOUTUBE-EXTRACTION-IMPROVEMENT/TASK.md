@@ -56,8 +56,8 @@ This indicates that a single 3-iteration extraction misses significant content.
 
 ## Files to Modify
 
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/.docs/CLAUDE-EXTRACTION-PROCESS.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/scripts/extract_claude.py` (or create v2)
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/.docs/CLAUDE-EXTRACTION-PROCESS.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/scripts/extract_claude.py` (or create v2)
 
 ---
 

@@ -8,19 +8,19 @@
 
 ### Step 1: Always Read Index First
 ```bash
-cat .blackbox5/project-memory/INDEX.yaml
+cat blackbox5/project-memory/INDEX.yaml
 ```
 
 ### Step 2: Use Query Templates
 ```bash
 # Browse available queries
-cat .blackbox5/project-memory/QUERY-TEMPLATES.md
+cat blackbox5/project-memory/QUERY-TEMPLATES.md
 ```
 
 ### Step 3: Execute Workflow
 ```bash
 # Follow the workflow in AGENT-API.md
-cat .blackbox5/project-memory/AGENT-API.md
+cat blackbox5/project-memory/AGENT-API.md
 ```
 
 ---
@@ -63,7 +63,7 @@ files_to_read:
 ### 4. "Create task context"
 ```yaml
 # Copy this:
-command: "cp .blackbox5/project-memory/_template/tasks/_template.yaml .blackbox5/project-memory/siso-internal/tasks/active/[TASK-ID].yaml"
+command: "cp blackbox5/project-memory/_template/tasks/_template.yaml blackbox5/project-memory/siso-internal/tasks/active/[TASK-ID].yaml"
 # Then edit the YAML file
 ```
 
@@ -85,7 +85,7 @@ update:
 
 ### Core Files
 ```
-.blackbox5/project-memory/
+blackbox5/project-memory/
 ├── INDEX.yaml              # START HERE - Central index
 ├── AGENT-API.md            # API documentation
 ├── QUERY-TEMPLATES.md      # Copy-paste queries
@@ -94,7 +94,7 @@ update:
 
 ### Project Files
 ```
-.blackbox5/project-memory/siso-internal/
+blackbox5/project-memory/siso-internal/
 ├── project.yaml            # Project metadata
 ├── context.yaml            # Project context
 ├── timeline.yaml           # Project timeline
@@ -106,7 +106,7 @@ update:
 
 ### Templates
 ```
-.blackbox5/project-memory/_template/
+blackbox5/project-memory/_template/
 ├── research/_template.yaml
 ├── plans/_template-*.md
 ├── tasks/_template.yaml
@@ -222,10 +222,10 @@ next_immediate:
 ### Fastest Way to Find Something
 ```bash
 # 1. Read INDEX.yaml
-cat .blackbox5/project-memory/INDEX.yaml
+cat blackbox5/project-memory/INDEX.yaml
 
 # 2. Use grep to find keyword
-grep -i "[keyword]" .blackbox5/project-memory/INDEX.yaml
+grep -i "[keyword]" blackbox5/project-memory/INDEX.yaml
 
 # 3. Go to the file path
 # (found in INDEX.yaml)
@@ -234,7 +234,7 @@ grep -i "[keyword]" .blackbox5/project-memory/INDEX.yaml
 ### Fastest Way to Create Something
 ```bash
 # 1. Copy template
-cp .blackbox5/project-memory/_template/[type]/_template* [destination]
+cp blackbox5/project-memory/_template/[type]/_template* [destination]
 
 # 2. Edit the file
 # (fill in bracketed values)
@@ -294,7 +294,7 @@ cp .blackbox5/project-memory/_template/[type]/_template* [destination]
 solution:
   1. "Check INDEX.yaml - search_index"
   2. "Check INDEX.yaml - quick_find"
-  3. "Use find command: find .blackbox5/project-memory/ -name '*[keyword]*'"
+  3. "Use find command: find blackbox5/project-memory/ -name '*[keyword]*'"
 ```
 
 ### Problem: Don't know what to work on
@@ -449,7 +449,7 @@ Searches: DOMAIN-CONTEXT.md, FIRST-PRINCIPLES.md, and all context files
 
 Each task has a workspace:
 ```
-.blackbox5/memory/project-memory/siso-internal/tasks/working/TASK-XXXX-XX-XX-domain-name/
+blackbox5/memory/project-memory/siso-internal/tasks/working/TASK-XXXX-XX-XX-domain-name/
 ├── task.md                    # Task definition
 ├── workspace/
 │   ├── insights.md           # Learning and discoveries

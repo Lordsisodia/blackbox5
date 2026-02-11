@@ -1,0 +1,128 @@
+# =============================================================================
+# Unified Skill Registry
+# =============================================================================
+# Purpose: Single Source of Truth for all skill metrics, usage, and selection data
+# Created: FILL_ME - ISO timestamp
+# Version: 1.0.0
+#
+# This file consolidates all skill-related data into a unified registry for:
+# - Skill definitions and metadata
+# - Effectiveness metrics and scoring
+# - Usage tracking and history
+# - Selection criteria and triggers
+# - Improvement tracking
+# =============================================================================
+
+metadata:
+  version: "1.0.0"
+  created: "FILL_ME - ISO timestamp"
+  last_updated: "FILL_ME - ISO timestamp"
+  schema_version: "1.0"
+  total_skills: 0
+  total_usage_records: 0
+  calculation_frequency: weekly
+  next_calculation_due: "FILL_ME - ISO timestamp"
+
+# =============================================================================
+# METRICS SCHEMA
+# =============================================================================
+metrics_schema:
+  version: "1.0.0"
+  calculation_method: weighted_composite
+  components:
+    - name: success_rate
+      weight: 0.35
+      description: Percentage of tasks completed successfully using this skill
+      formula: (success_count / total_invocations) * 100
+    - name: time_efficiency
+      weight: 0.25
+      description: How quickly tasks are completed vs baseline
+      formula: (baseline_time - actual_time) / baseline_time * 100
+    - name: trigger_accuracy
+      weight: 0.20
+      description: How often the skill was the right choice for the task
+      formula: correct_selections / total_selections * 100
+    - name: quality_score
+      weight: 0.15
+      description: Average quality rating of task outcomes (1-5 scale)
+      formula: sum(quality_ratings) / count(quality_ratings) * 20
+    - name: reuse_rate
+      weight: 0.05
+      description: Percentage of tasks where skill was used again for similar work
+      formula: reuse_count / total_invocations * 100
+
+# =============================================================================
+# SKILLS INDEX
+# =============================================================================
+# All skills with complete metadata, metrics, usage stats, and selection criteria
+
+skills: []
+  # skill-id:
+  #   # Metadata
+  #   name: "Skill Name"
+  #   description: "Skill description"
+  #   category: agent|process|tool
+  #   agent: "Agent name"  # if category=agent
+  #   version: "1.0"
+  #   created: "YYYY-MM-DD"
+  #
+  #   # Current Metrics
+  #   metrics:
+  #     effectiveness_score: null
+  #     success_rate: null
+  #     time_efficiency: null
+  #     trigger_accuracy: null
+  #     quality_score: null
+  #     reuse_rate: null
+  #
+  #   # Usage Statistics
+  #   usage:
+  #     usage_count: 0
+  #     success_count: 0
+  #     failure_count: 0
+  #     first_used: null
+  #     last_used: null
+  #     avg_execution_time_ms: null
+  #
+  #   # ROI Calculation
+  #   roi:
+  #     baseline_minutes: 45
+  #     time_saved_minutes: null
+  #     quality_improvement: null
+  #     cost_benefit_ratio: null
+  #
+  #   # Selection Criteria
+  #   selection:
+  #     triggers: ["keyword1", "keyword2"]
+  #     confidence_threshold: 70
+  #     priority: 1
+  #     when_to_use: "Description"
+  #     when_to_avoid: "Description"
+  #     confidence: low|medium|high
+
+# =============================================================================
+# USAGE HISTORY
+# =============================================================================
+usage_history: []
+  # - timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+  #   skill_id: "skill-id"
+  #   task_id: "TASK-XXX"
+  #   outcome: success|failure|partial
+  #   execution_time_ms: 0
+  #   quality_rating: 1-5
+
+# =============================================================================
+# SELECTION RULES
+# =============================================================================
+selection_rules:
+  confidence_threshold_default: 70
+  max_skills_per_task: 1
+  fallback_skill: null
+
+# =============================================================================
+# IMPROVEMENT TRACKING
+# =============================================================================
+improvement_tracking:
+  last_review: null
+  improvements_applied: 0
+  improvements_pending: 0

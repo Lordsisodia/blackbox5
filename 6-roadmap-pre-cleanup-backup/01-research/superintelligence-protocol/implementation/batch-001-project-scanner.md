@@ -504,7 +504,7 @@ if __name__ == '__main__':
 
 ```python
 scanner = ProjectScanner()
-result = scanner.scan('/Users/shaansisodia/.blackbox5')
+result = scanner.scan('/Users/shaansisodia/blackbox5')
 
 # Expected:
 # - Detects Python
@@ -568,7 +568,7 @@ result = scanner.scan('/Users/shaansisodia/.blackbox5')
 **Results:**
 ```json
 {
-  "project_name": ".blackbox5",
+  "project_name": "blackbox5",
   "file_count": 5864,
   "directory_count": 848,
   "languages": ["markdown", "python"],

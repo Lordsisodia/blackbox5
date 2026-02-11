@@ -152,7 +152,7 @@ This document summarizes the comprehensive test suite created for Week 1 compone
 
 ### Quick Start
 ```bash
-cd .blackbox5/tests
+cd blackbox5/tests
 ./run_tests.sh              # Run all tests
 ./run_tests.sh -u           # Unit tests only
 ./run_tests.sh -i           # Integration tests only

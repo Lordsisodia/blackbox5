@@ -1,0 +1,89 @@
+# THOUGHTS - Run {RUN_ID}
+
+**Run:** {RUN_ID}
+**Date:** {YYYY-MM-DD}
+**Task:** {TASK_ID}
+**Agent:** {AGENT_NAME}
+
+---
+
+## Session Start
+
+### Context
+- **Current Task:** {TASK_ID}
+- **Goal:** {GOAL_ID}
+- **Plan:** {PLAN_ID}
+
+### Initial Assessment
+FILL_ME - Initial thoughts on the task
+
+---
+
+## Phase 1: Understanding
+
+### What I Need to Know
+1. FILL_ME
+2. FILL_ME
+
+### Files to Read
+- [ ] FILL_ME
+- [ ] FILL_ME
+
+### Key Findings
+FILL_ME
+
+---
+
+## Phase 2: Planning
+
+### Approach
+FILL_ME - High-level approach
+
+### Steps
+1. FILL_ME
+2. FILL_ME
+3. FILL_ME
+
+### Risks
+- FILL_ME
+
+---
+
+## Phase 3: Execution
+
+### Progress Log
+
+#### Step 1: FILL_ME
+**Time:** FILL_ME
+**Action:** FILL_ME
+**Result:** FILL_ME
+
+#### Step 2: FILL_ME
+**Time:** FILL_ME
+**Action:** FILL_ME
+**Result:** FILL_ME
+
+---
+
+## Phase 4: Validation
+
+### Verification
+- [ ] FILL_ME
+- [ ] FILL_ME
+
+### Results
+FILL_ME
+
+---
+
+## Session End
+
+### Summary
+FILL_ME - What was accomplished
+
+### Next Steps
+1. FILL_ME
+2. FILL_ME
+
+### Blockers
+FILL_ME - Any blockers for next session

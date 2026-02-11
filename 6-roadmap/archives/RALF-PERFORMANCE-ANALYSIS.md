@@ -76,7 +76,7 @@
 #### 1. **Add Loop Duration Tracking**
 ```bash
 # In c script, record duration
-echo "{\"loop\": $LOOP_COUNT, \"duration\": $DURATION, \"model\": \"$MODEL\", \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" >> ~/.blackbox5/5-project-memory/ralf-core/.autonomous/metrics.jsonl
+echo "{\"loop\": $LOOP_COUNT, \"duration\": $DURATION, \"model\": \"$MODEL\", \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" >> ~/blackbox5/5-project-memory/ralf-core/.autonomous/metrics.jsonl
 ```
 **Benefit:** Track performance trends, identify slow tasks
 

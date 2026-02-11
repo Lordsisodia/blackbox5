@@ -74,7 +74,7 @@ projects:
         reason: "Skills reference siso-internal patterns"
     shared_files:
       - "~/.claude/CLAUDE.md"
-      - "~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md"
+      - "~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md"
 
   - name: "2-engine"
     path: "2-engine/.autonomous"
@@ -211,7 +211,7 @@ shared_files:
     access_pattern: "read-only"
     update_frequency: "monthly"
 
-  - path: "~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md"
+  - path: "~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md"
     type: "operational-procedures"
     description: "Legacy operational procedures for RALF"
     referenced_in:

@@ -79,7 +79,7 @@
 ### ASM-006: Path Calculation Would Be Simple
 **Statement:** Initial assumption that navigating from run_dir to blackbox5 root would be straightforward with `parent.parent.parent`.
 
-**Actually:** The path structure is more complex. Fixed by searching for `.blackbox5` in the path components.
+**Actually:** The path structure is more complex. Fixed by searching for `blackbox5` in the path components.
 
 **Status:** PROVEN_WRONG - CORRECTED
 

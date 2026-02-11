@@ -60,7 +60,7 @@ You should see: `Login successful`
 Run this to verify everything works:
 
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core
 python3 verify_compression_setup.py
 ```
 

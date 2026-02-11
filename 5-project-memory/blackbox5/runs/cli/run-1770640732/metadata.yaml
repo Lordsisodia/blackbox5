@@ -1,0 +1,10 @@
+actions: []
+discoveries: []
+loop:
+  agent: bb5-cli
+  duration_seconds: 23
+  number: 1
+  status: completed
+  timestamp_end: '2026-02-09T12:39:15.869970+00:00'
+  timestamp_start: '2026-02-09T12:38:52.103227+00:00'
+query: say hello

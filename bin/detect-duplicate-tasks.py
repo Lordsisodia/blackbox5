@@ -365,8 +365,8 @@ Examples:
     parser.add_argument(
         "--tasks-dir",
         metavar="PATH",
-        default=os.environ.get("BB5_TASKS_DIR", "~/.blackbox5/5-project-memory/blackbox5/tasks"),
-        help="Path to tasks directory (default: ~/.blackbox5/5-project-memory/blackbox5/tasks)"
+        default=os.environ.get("BB5_TASKS_DIR", "~/blackbox5/5-project-memory/blackbox5/tasks"),
+        help="Path to tasks directory (default: ~/blackbox5/5-project-memory/blackbox5/tasks)"
     )
 
     parser.add_argument(

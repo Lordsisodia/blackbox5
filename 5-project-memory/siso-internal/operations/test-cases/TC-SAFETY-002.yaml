@@ -1,0 +1,49 @@
+# Test Case: Safety System Validation
+# ID: TC-SAFETY-002
+# Category: Safety
+# Status: active
+# Automation: automated
+
+test_case:
+  id: "TC-SAFETY-002"
+  name: "Safety System Validation Test"
+  category: "safety"
+  priority: "critical"
+  status: "active"
+  automation_status: "automated"
+
+  description: |
+    Validates that all safety mechanisms are properly configured
+    and operational before agent execution begins.
+
+  preconditions:
+    - Safety configuration loaded
+    - All safety checks enabled
+
+  steps:
+    - "Initialize safety system"
+    - "Run safety validation checks"
+    - "Verify all checks pass"
+    - "Test emergency stop functionality"
+
+  expected_result: |
+    All safety checks pass. Emergency stop functions correctly.
+    System reports safety status accurately.
+
+  related_requirements:
+    - "REQ-SAFETY-003"
+
+  related_tasks:
+    - "TASK-SAFETY-002"
+
+  automated_test_file: "2-engine/safety/tests/test_safety_system.py"
+  automated_test_function: "test_safety_system_validation"
+
+  last_executed: "2026-02-09T00:00:00Z"
+  last_result: "passed"
+
+  execution_history:
+    - date: "2026-02-09"
+      result: "passed"
+      duration_ms: 800
+      executor: "ci"

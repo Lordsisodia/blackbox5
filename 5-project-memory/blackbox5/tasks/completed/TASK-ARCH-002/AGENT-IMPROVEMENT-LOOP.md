@@ -10,12 +10,12 @@
 
 Run the Scout analysis:
 ```bash
-python3 ~/.blackbox5/2-engine/.autonomous/bin/scout-analyze.py
+python3 ~/blackbox5/2-engine/.autonomous/bin/scout-analyze.py
 ```
 
 View latest report:
 ```bash
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-*.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-*.yaml
 ```
 
 ---
@@ -150,10 +150,10 @@ total_score = (impact × 3) + (frequency × 2) - (effort × 1.5)
 ### Manual Trigger
 ```bash
 # Run full analysis
-python3 ~/.blackbox5/2-engine/.autonomous/bin/scout-analyze.py
+python3 ~/blackbox5/2-engine/.autonomous/bin/scout-analyze.py
 
 # View report
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-*.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-*.yaml
 ```
 
 ### Future: Automated Triggers

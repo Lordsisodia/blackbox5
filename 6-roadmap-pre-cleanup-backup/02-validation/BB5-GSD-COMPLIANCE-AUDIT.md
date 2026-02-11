@@ -33,7 +33,7 @@
 
 **Current State:**
 ```
-~/.blackbox5/bin/bb5-tools/
+~/blackbox5/bin/bb5-tools/
 ├── bb5-claim           # Hierarchical
 ├── bb5-complete        # Hierarchical
 ├── bb5-create          # Hierarchical
@@ -60,8 +60,8 @@
 - No `bb5:pause`, `bb5:resume`, `bb5:next` commands
 
 **Evidence:**
-- `/Users/shaansisodia/.blackbox5/bin/bb5-tools/` - All commands use kebab-case with hierarchical naming
-- `/Users/shaansisodia/.blackbox5/2-engine/interface/cli/bb5.py` - Uses click framework with hierarchical commands
+- `/Users/shaansisodia/blackbox5/bin/bb5-tools/` - All commands use kebab-case with hierarchical naming
+- `/Users/shaansisodia/blackbox5/2-engine/interface/cli/bb5.py` - Uses click framework with hierarchical commands
 
 ---
 
@@ -71,7 +71,7 @@
 
 **Current State:**
 ```
-~/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/
+~/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/
 └── TASK-BUILD-AUTOMATED-RESEARCH-PIPELINE-001.md  # Markdown format
 ```
 
@@ -85,8 +85,8 @@
 - No XML templates directory
 
 **Evidence:**
-- `find ~/.blackbox5 -name "*.xml" -type f` - Only external research files, no task XML
-- `ls ~/.blackbox5/2-engine/.autonomous/templates/` - Directory does not exist
+- `find ~/blackbox5 -name "*.xml" -type f` - Only external research files, no task XML
+- `ls ~/blackbox5/2-engine/.autonomous/templates/` - Directory does not exist
 
 ---
 
@@ -96,7 +96,7 @@
 
 **Current State:**
 ```yaml
-# ~/.blackbox5/5-project-memory/blackbox5/STATE.yaml
+# ~/blackbox5/5-project-memory/blackbox5/STATE.yaml
 meta:
   generated: '2026-02-07T11:05:22.855463'
   source: derived from filesystem
@@ -120,8 +120,8 @@ goals:
 - No performance metrics
 
 **Evidence:**
-- `ls ~/.blackbox5/5-project-memory/blackbox5/STATE.yaml` - Exists
-- `ls ~/.blackbox5/5-project-memory/blackbox5/STATE.md` - Does not exist
+- `ls ~/blackbox5/5-project-memory/blackbox5/STATE.yaml` - Exists
+- `ls ~/blackbox5/5-project-memory/blackbox5/STATE.md` - Does not exist
 
 ---
 
@@ -142,8 +142,8 @@ goals:
 - No capture of mental state
 
 **Evidence:**
-- `grep -r "continue-here" ~/.blackbox5/bin/ ~/.blackbox5/2-engine/` - No results
-- `grep -r "bb5 pause\|bb5:pause" ~/.blackbox5/bin/` - No results
+- `grep -r "continue-here" ~/blackbox5/bin/ ~/blackbox5/2-engine/` - No results
+- `grep -r "bb5 pause\|bb5:pause" ~/blackbox5/bin/` - No results
 
 ---
 
@@ -153,7 +153,7 @@ goals:
 
 **Current State:**
 ```bash
-# ~/.blackbox5/bin/ralf-tools/ralf-executor
+# ~/blackbox5/bin/ralf-tools/ralf-executor
 #!/bin/bash
 # Purpose: Execute tasks from queue, commit code, report status
 # Runs: Continuously in background
@@ -171,7 +171,7 @@ IDLE_TIMEOUT=300
 - Context likely accumulates over time
 
 **Evidence:**
-- `/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-executor` - Continuous loop executor
+- `/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-executor` - Continuous loop executor
 - No `thin_orchestrator.py` found
 
 **Partial Credit:** RALF exists and works, but not in "thin" mode
@@ -194,8 +194,8 @@ IDLE_TIMEOUT=300
 - Research happens sequentially
 
 **Evidence:**
-- `ls ~/.blackbox5/2-engine/.autonomous/workflows/` - Directory does not exist
-- `grep -r "parallel.*researcher\|stack.*researcher" ~/.blackbox5/2-engine/` - No results
+- `ls ~/blackbox5/2-engine/.autonomous/workflows/` - Directory does not exist
+- `grep -r "parallel.*researcher\|stack.*researcher" ~/blackbox5/2-engine/` - No results
 
 ---
 
@@ -215,8 +215,8 @@ IDLE_TIMEOUT=300
 - Sequential or simple parallel only
 
 **Evidence:**
-- `/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-executor` - Queue-based, not wave-based
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml` - Simple queue
+- `/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-executor` - Queue-based, not wave-based
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml` - Simple queue
 
 ---
 
@@ -257,7 +257,7 @@ IDLE_TIMEOUT=300
 - No `bb5:verify` command
 
 **Evidence:**
-- `grep -r "checkpoint" ~/.blackbox5/2-engine/ ~/.blackbox5/bin/` - No checkpoint system found
+- `grep -r "checkpoint" ~/blackbox5/2-engine/ ~/blackbox5/bin/` - No checkpoint system found
 
 ---
 

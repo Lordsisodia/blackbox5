@@ -20,7 +20,7 @@ Add comprehensive test coverage for the four untested core engine modules identi
 - [ ] `test_state_machine.py` created with >80% coverage of state_machine.py
 - [ ] `test_workspace.py` created with >80% coverage of workspace.py
 - [ ] All tests pass with pytest
-- [ ] Tests are co-located in `~/.blackbox5/2-engine/.autonomous/lib/`
+- [ ] Tests are co-located in `~/blackbox5/2-engine/.autonomous/lib/`
 - [ ] Git commit with atomic commits per module
 
 ## Context
@@ -57,7 +57,7 @@ For each module (in order):
 6. Move to next module
 
 ### Phase 3: CODE-REVIEW
-1. Run full test suite: `pytest ~/.blackbox5/2-engine/.autonomous/lib/`
+1. Run full test suite: `pytest ~/blackbox5/2-engine/.autonomous/lib/`
 2. Check coverage with `pytest --cov`
 3. Verify all tests pass
 4. Confirm no regressions in existing tests
@@ -91,7 +91,7 @@ If issues arise:
 ## Completion
 
 **Completed:** 2026-01-31T03:56:00Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_035653/
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_035653/
 **Agent:** Agent-2.3
 **Path Used:** quick
 **Phase Gates:** All passed

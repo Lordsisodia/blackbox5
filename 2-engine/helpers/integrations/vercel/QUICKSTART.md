@@ -29,7 +29,7 @@ export VERCEL_TEAM_ID="your_team_id"
 pip install httpx
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 httpx>=0.25.0
 ```

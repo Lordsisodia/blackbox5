@@ -48,7 +48,7 @@ def load_config(config_path: Path) -> DaemonConfig:
     """Load daemon configuration from file."""
     config = DaemonConfig(
         pid_file=get_default_pid_file(),
-        log_file=Path(os.path.expanduser("~/.blackbox5/.autonomous/health/watch.log")),
+        log_file=Path(os.path.expanduser("~/blackbox5/.autonomous/health/watch.log")),
     )
 
     if config_path.exists():
@@ -116,7 +116,7 @@ def cli():
 
 
 @cli.command()
-@click.option('--config', '-c', default='~/.blackbox5/config/watch-config.yaml')
+@click.option('--config', '-c', default='~/blackbox5/config/watch-config.yaml')
 @click.option('--foreground', '-f', is_flag=True, help='Run in foreground')
 @click.option('--debug', '-d', is_flag=True, help='Enable debug logging')
 def start(config, foreground, debug):
@@ -203,7 +203,7 @@ def status():
         click.echo(f"Daemon running (PID {pid})")
 
         # Try to get last check info from log
-        log_file = Path(os.path.expanduser("~/.blackbox5/.autonomous/health/watch.log"))
+        log_file = Path(os.path.expanduser("~/blackbox5/.autonomous/health/watch.log"))
         if log_file.exists():
             try:
                 lines = log_file.read_text().strip().split('\n')
@@ -225,7 +225,7 @@ def status():
 @click.option('--channel', type=click.Choice(['telegram', 'webhook']), default='telegram')
 def test_alert(channel):
     """Test alert channel."""
-    config_path = Path(os.path.expanduser("~/.blackbox5/config/watch-config.yaml"))
+    config_path = Path(os.path.expanduser("~/blackbox5/config/watch-config.yaml"))
     alert_config = load_alert_config(config_path)
 
     if channel == 'telegram' and not alert_config.telegram_enabled:
@@ -255,7 +255,7 @@ def test_alert(channel):
 @cli.command()
 def config():
     """Edit configuration file."""
-    config_path = Path(os.path.expanduser("~/.blackbox5/config/watch-config.yaml"))
+    config_path = Path(os.path.expanduser("~/blackbox5/config/watch-config.yaml"))
     config_path.parent.mkdir(parents=True, exist_ok=True)
 
     if not config_path.exists():
@@ -293,7 +293,7 @@ alerts:
 
 logging:
   level: INFO
-  file: ~/.blackbox5/.autonomous/health/watch.log
+  file: ~/blackbox5/.autonomous/health/watch.log
 """
         config_path.write_text(default_config)
 

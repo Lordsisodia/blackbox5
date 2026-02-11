@@ -539,7 +539,7 @@ class TestLinkValidation:
         pass
 
     def test_related_tasks_links(self):
-        """Test links to .blackbox5/tasks/"""
+        """Test links to blackbox5/tasks/"""
         pass
 ```
 
@@ -2116,7 +2116,7 @@ testing:
 ### 6.2 Test Structure
 
 ```
-.blackbox5/tests/roadmap/
+blackbox5/tests/roadmap/
 ├── __init__.py
 ├── conftest.py                    # Roadmap-specific fixtures
 ├── test_units/                    # Unit tests
@@ -2170,7 +2170,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -e .[test]
-      - run: pytest .blackbox5/tests/roadmap/test_units/ -v --cov=roadmap --cov-report=xml
+      - run: pytest blackbox5/tests/roadmap/test_units/ -v --cov=roadmap --cov-report=xml
 
   integration-tests:
     runs-on: ubuntu-latest
@@ -2181,7 +2181,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -e .[test]
-      - run: pytest .blackbox5/tests/roadmap/test_integration/ -v
+      - run: pytest blackbox5/tests/roadmap/test_integration/ -v
 
   e2e-tests:
     runs-on: ubuntu-latest
@@ -2192,7 +2192,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -e .[test]
-      - run: pytest .blackbox5/tests/roadmap/test_e2e/ -v
+      - run: pytest blackbox5/tests/roadmap/test_e2e/ -v
 
   performance-tests:
     runs-on: ubuntu-latest
@@ -2203,13 +2203,13 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -e .[test]
-      - run: pytest .blackbox5/tests/roadmap/test_performance/ -v
+      - run: pytest blackbox5/tests/roadmap/test_performance/ -v
 ```
 
 ### 6.4 Test Fixtures
 
 ```python
-# .blackbox5/tests/roadmap/conftest.py
+# blackbox5/tests/roadmap/conftest.py
 """
 Roadmap system test fixtures
 """
@@ -2324,28 +2324,28 @@ def mock_filesystem():
 
 ```bash
 # Run all roadmap tests
-pytest .blackbox5/tests/roadmap/ -v
+pytest blackbox5/tests/roadmap/ -v
 
 # Run only unit tests
-pytest .blackbox5/tests/roadmap/test_units/ -v
+pytest blackbox5/tests/roadmap/test_units/ -v
 
 # Run only integration tests
-pytest .blackbox5/tests/roadmap/test_integration/ -v
+pytest blackbox5/tests/roadmap/test_integration/ -v
 
 # Run only E2E tests
-pytest .blackbox5/tests/roadmap/test_e2e/ -v
+pytest blackbox5/tests/roadmap/test_e2e/ -v
 
 # Run with coverage
-pytest .blackbox5/tests/roadmap/ --cov=roadmap --cov-report=html
+pytest blackbox5/tests/roadmap/ --cov=roadmap --cov-report=html
 
 # Run specific test
-pytest .blackbox5/tests/roadmap/test_units/test_gates.py::test_proposal_has_idea_articulated -v
+pytest blackbox5/tests/roadmap/test_units/test_gates.py::test_proposal_has_idea_articulated -v
 
 # Run parallel (fast)
-pytest .blackbox5/tests/roadmap/ -n auto
+pytest blackbox5/tests/roadmap/ -n auto
 
 # Run performance tests
-pytest .blackbox5/tests/roadmap/test_performance/ -v
+pytest blackbox5/tests/roadmap/test_performance/ -v
 ```
 
 ---
@@ -2409,7 +2409,7 @@ pytest .blackbox5/tests/roadmap/test_performance/ -v
 **Day 1-2: Test Infrastructure**
 ```bash
 # 1. Create test directory structure
-mkdir -p .blackbox5/tests/roadmap/{test_units,test_integration,test_e2e,test_performance,fixtures}
+mkdir -p blackbox5/tests/roadmap/{test_units,test_integration,test_e2e,test_performance,fixtures}
 
 # 2. Create conftest.py with fixtures
 # - temp_roadmap_dir
@@ -2466,7 +2466,7 @@ pip install pytest pytest-cov pytest-mock pyfakefs
 **Week 3 Goals:**
 - Complete all integration tests (50 tests)
 - Complete all E2E scenarios (20 tests)
-- Test with real data from .blackbox5/
+- Test with real data from blackbox5/
 
 **Checklist:**
 - [ ] All stage transition tests passing
@@ -2509,7 +2509,7 @@ python -m roadmap.cli create proposal \
 **Quick Win 2: Validate First Gate (Day 2)**
 ```python
 # Automated test - validate gate logic
-python -m pytest .blackbox5/tests/roadmap/test_units/test_gates.py::test_proposal_has_idea_articulated -v
+python -m pytest blackbox5/tests/roadmap/test_units/test_gates.py::test_proposal_has_idea_articulated -v
 
 # Expected: Test passes
 ```
@@ -2517,7 +2517,7 @@ python -m pytest .blackbox5/tests/roadmap/test_units/test_gates.py::test_proposa
 **Quick Win 3: Complete Lifecycle (Day 3)**
 ```python
 # E2E test - full lifecycle
-python -m pytest .blackbox5/tests/roadmap/test_e2e/test_workflows.py::test_e2e_simple_feature -v
+python -m pytest blackbox5/tests/roadmap/test_e2e/test_workflows.py::test_e2e_simple_feature -v
 
 # Expected: Test passes, all stages visited
 ```
@@ -2533,7 +2533,7 @@ python -m roadmap.migrate --source docs/implementation-plan.md
 **Quick Win 5: Performance Check (Day 5)**
 ```python
 # Performance test
-python -m pytest .blackbox5/tests/roadmap/test_performance/test_gate_speed.py -v
+python -m pytest blackbox5/tests/roadmap/test_performance/test_gate_speed.py -v
 
 # Expected: Gate validation < 1s
 ```

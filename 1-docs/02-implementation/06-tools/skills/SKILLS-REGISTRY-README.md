@@ -23,17 +23,17 @@
 
 ```bash
 # Run verification script
-python3 .blackbox5/scripts/verify_skills.py
+python3 blackbox5/scripts/verify_skills.py
 ```
 
 ### Browse Skills
 
 ```bash
 # List all skill files
-find .blackbox5/engine/agents/skills -name "SKILL.md" -type f
+find blackbox5/engine/agents/skills -name "SKILL.md" -type f
 
 # View a specific skill
-cat .blackbox5/engine/agents/skills/integration-connectivity/api-integrations/rest-api/SKILL.md
+cat blackbox5/engine/agents/skills/integration-connectivity/api-integrations/rest-api/SKILL.md
 ```
 
 ### Load Skills in Python
@@ -57,7 +57,7 @@ print(skill.name, skill.description)
 ## Skills Directory Structure
 
 ```
-.blackbox5/engine/agents/skills/
+blackbox5/engine/agents/skills/
 ├── SKILLS-REGISTRY.yaml           # Main registry file
 ├── core-infrastructure/           # Development tools & version control
 │   ├── development-tools/
@@ -226,7 +226,7 @@ Team workflows, automation, and thinking methodologies
 Run the verification script to ensure all skills are present:
 
 ```bash
-python3 .blackbox5/scripts/verify_skills.py
+python3 blackbox5/scripts/verify_skills.py
 ```
 
 Expected output:
@@ -286,30 +286,30 @@ Medium Priority:
 
 ```bash
 # Edit verification script
-vim .blackbox5/scripts/verify_skills.py
+vim blackbox5/scripts/verify_skills.py
 
 # Run verification
-python3 .blackbox5/scripts/verify_skills.py
+python3 blackbox5/scripts/verify_skills.py
 ```
 
 ### Update Registry
 
 ```bash
 # Edit registry
-vim .blackbox5/engine/agents/.skills-new/SKILLS-REGISTRY.yaml
+vim blackbox5/engine/agents/.skills-new/SKILLS-REGISTRY.yaml
 
 # Verify changes
-python3 .blackbox5/scripts/verify_skills.py
+python3 blackbox5/scripts/verify_skills.py
 ```
 
 ---
 
 ## Resources
 
-- **BlackBox5 Engine**: `.blackbox5/engine/`
-- **Skills Directory**: `.blackbox5/engine/agents/.skills-new/`
-- **Verification Script**: `.blackbox5/scripts/verify_skills.py`
-- **Registry**: `.blackbox5/engine/agents/.skills-new/SKILLS-REGISTRY.yaml`
+- **BlackBox5 Engine**: `blackbox5/engine/`
+- **Skills Directory**: `blackbox5/engine/agents/.skills-new/`
+- **Verification Script**: `blackbox5/scripts/verify_skills.py`
+- **Registry**: `blackbox5/engine/agents/.skills-new/SKILLS-REGISTRY.yaml`
 
 ---
 

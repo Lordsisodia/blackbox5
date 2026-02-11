@@ -11,12 +11,12 @@ Fix 17 incorrect paths in project routes.yaml.
 
 ### Engine Paths (10 paths - WRONG)
 All engine paths incorrectly nest `2-engine` inside project:
-- engine: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine`
-- Should be: `/Users/shaansisodia/.blackbox5/2-engine`
+- engine: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine`
+- Should be: `/Users/shaansisodia/blackbox5/2-engine`
 
 ### Memory Paths (6 paths - WRONG)
 Duplicated segments: `5-project-memory/blackbox5/5-project-memory/blackbox5/...`
-- Should be: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/...`
+- Should be: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/...`
 
 ### Feedback Paths (3 paths - WRONG)
 Same duplication issue as memory paths.

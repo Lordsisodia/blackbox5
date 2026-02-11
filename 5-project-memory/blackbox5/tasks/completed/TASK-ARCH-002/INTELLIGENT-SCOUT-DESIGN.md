@@ -160,13 +160,13 @@ Generates both JSON (machine-readable) and YAML (human-readable) reports.
 ### Basic Usage
 ```bash
 # Run all analyzers sequentially
-python3 ~/.blackbox5/2-engine/.autonomous/bin/scout-intelligent.py
+python3 ~/blackbox5/2-engine/.autonomous/bin/scout-intelligent.py
 
 # Run in parallel (faster)
-python3 ~/.blackbox5/2-engine/.autonomous/bin/scout-intelligent.py --parallel
+python3 ~/blackbox5/2-engine/.autonomous/bin/scout-intelligent.py --parallel
 
 # Run specific analyzers
-python3 ~/.blackbox5/2-engine/.autonomous/bin/scout-intelligent.py \
+python3 ~/blackbox5/2-engine/.autonomous/bin/scout-intelligent.py \
     --analyzers skill-analyzer process-analyzer
 ```
 

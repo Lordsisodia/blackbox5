@@ -32,12 +32,12 @@ Integrate all RALF v2.3 enforcement systems (phase gates, context budget, decisi
 
 ### Systems to Integrate
 
-1. **Phase Gates** (`~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py`)
+1. **Phase Gates** (`~/blackbox5/2-engine/.autonomous/lib/phase_gates.py`)
    - Check at each phase transition
    - Enforce exit criteria
    - Block progress if gate fails
 
-2. **Context Budget** (`~/.blackbox5/2-engine/.autonomous/lib/context_budget.py`)
+2. **Context Budget** (`~/blackbox5/2-engine/.autonomous/lib/context_budget.py`)
    - Initialize at loop start
    - Check before each operation
    - Auto-actions at 70%/85%/95%
@@ -47,12 +47,12 @@ Integrate all RALF v2.3 enforcement systems (phase gates, context budget, decisi
    - Verify assumptions after implementation
    - Track reversibility
 
-4. **Goals System** (`~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/`)
+4. **Goals System** (`~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/`)
    - Check before autonomous task generation
    - Prioritize goal-derived tasks (90+ score)
    - Track goal progress
 
-5. **Telemetry** (`~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh`)
+5. **Telemetry** (`~/blackbox5/2-engine/.autonomous/shell/telemetry.sh`)
    - Initialize at loop start
    - Record phase transitions
    - Track metrics and events
@@ -114,7 +114,7 @@ MEDIUM - This is the final integration step. Issues could affect the entire auto
 
 ## Results
 
-- Integration test suite created: `~/.blackbox5/2-engine/.autonomous/lib/integration_test.py`
+- Integration test suite created: `~/blackbox5/2-engine/.autonomous/lib/integration_test.py`
 - All 21 integration tests PASSED
 - Integration documentation completed with flowcharts
 - All v2.3 systems verified working together:

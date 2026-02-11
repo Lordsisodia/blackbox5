@@ -31,7 +31,7 @@ Different operators have different preferences. Some want aggressive automation,
 
 ## Success Criteria
 
-- [ ] Configuration file created (~/.blackbox5/config.yaml)
+- [ ] Configuration file created (~/blackbox5/config.yaml)
 - [ ] Preference persistence layer implemented
 - [ ] Thresholds configurable (skill invocation, queue depth, etc.)
 - [ ] Custom routing rules supported
@@ -68,7 +68,7 @@ Different operators have different preferences. Some want aggressive automation,
 
 1. **Configuration File Structure:**
    ```yaml
-   # ~/.blackbox5/config.yaml
+   # ~/blackbox5/config.yaml
    user_preferences:
      name: "Operator Name"
      email: "operator@example.com"
@@ -204,7 +204,7 @@ Different operators have different preferences. Some want aggressive automation,
 - **Risk:** Too many config options (complexity)
 - **Mitigation:** Start with 5-10 key values, expand based on demand
 - **Risk:** Config file location unclear
-- **Mitigation:** Standard location (~/.blackbox5/config.yaml), document clearly
+- **Mitigation:** Standard location (~/blackbox5/config.yaml), document clearly
 
 **Dependencies:**
 - TASK-1769916004 (Feature Framework) ✅ COMPLETE
@@ -227,7 +227,7 @@ After completion, verify:
    ```
 
 2. **Configuration System Working:**
-   - Config file loads from ~/.blackbox5/config.yaml
+   - Config file loads from ~/blackbox5/config.yaml
    - Invalid config falls back to defaults
    - Config values accessible via config_manager.get()
    - Runtime config reload works (SIGUSR1 or command)

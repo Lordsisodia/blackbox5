@@ -195,7 +195,7 @@ Response
 ### Created Files
 
 ```
-.blackbox5/engine/core/
+blackbox5/engine/core/
 ├── LLMLinguaCompressor.py          (300 lines) - Main compression service
 ├── PromptCompressor.py             (180 lines) - Fallback compressor
 ├── LLMLINGUA-REQUIREMENTS.md       (200 lines) - Usage guide
@@ -206,7 +206,7 @@ Response
 ### Modified Files
 
 ```
-.blackbox5/2-engine/01-core/client/
+blackbox5/2-engine/01-core/client/
 └── GLMClient.py                     (70 lines changed)
     ├── Added: enable_prompt_compression parameter
     ├── Added: compression_config parameter
@@ -287,7 +287,7 @@ client = GLMClient(
 
 ## 📚 References
 
-- **Research:** `.blackbox5/roadmap/01-research/memory-context/`
+- **Research:** `blackbox5/roadmap/01-research/memory-context/`
 - **LLMLingua Paper:** https://arxiv.org/abs/2310.05709
 - **LLMLingua GitHub:** https://github.com/microsoft/LLMLingua
 - **Usage Guide:** `LLMLINGUA-REQUIREMENTS.md`

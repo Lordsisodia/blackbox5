@@ -1,6 +1,6 @@
 # Context Gathering Optimization Guide
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/context-gathering.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/context-gathering.yaml`
 
 **Purpose:** Reduce "missed file" errors and improve cross-project task execution efficiency
 

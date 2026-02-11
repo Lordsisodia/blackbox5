@@ -240,7 +240,7 @@
 1. **[Quick Win] Validate ASSUMPTION-0002** (2-3 hours)
    ```bash
    # See challenges doc for experiment design
-   # .blackbox5/roadmap/first-principles/challenges/task-analyzer-challenges.md
+   # blackbox5/roadmap/first-principles/challenges/task-analyzer-challenges.md
    ```
 
 2. **[High Priority] Validate ASSUMPTION-0001** (4-6 hours)

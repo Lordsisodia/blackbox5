@@ -72,4 +72,4 @@ for subtask in task.subtasks:
 
 Fractal Genesis integrates with:
 - **Atomic Timeline** - For atomic commit tracking
-- **Task Storage** - For persistence in `~/.blackbox5/5-project-memory/`
+- **Task Storage** - For persistence in `~/blackbox5/5-project-memory/`

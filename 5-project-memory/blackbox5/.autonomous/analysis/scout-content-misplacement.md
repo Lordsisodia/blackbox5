@@ -52,17 +52,17 @@ Analyzed content distribution between Engine (2-engine/) and Project (5-project-
 ## Correctly Placed Items (No Action Needed)
 
 **Engine (Generic):**
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/scout-analyze.py` - Generic repo analysis
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/intelligent-scout.sh` - Generic scout wrapper
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/shell/ralf-loop.sh` - Generic RALF loop (accepts project path)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/skill_router.py` - Generic skill routing
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/skill-registry.yaml` - Generic skill registry
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/skills/` - All BMAD skills are generic
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/scout-analyze.py` - Generic repo analysis
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/intelligent-scout.sh` - Generic scout wrapper
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/shell/ralf-loop.sh` - Generic RALF loop (accepts project path)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/skill_router.py` - Generic skill routing
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/skill-registry.yaml` - Generic skill registry
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/skills/` - All BMAD skills are generic
 
 **Project (Specific):**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/scout/scout-agent.sh` - BlackBox5-specific paths
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/planner-agent.sh` - BlackBox5-specific
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/` - Project-specific event queue
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/scout/scout-agent.sh` - BlackBox5-specific paths
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/planner-agent.sh` - BlackBox5-specific
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/` - Project-specific event queue
 
 ---
 
@@ -78,7 +78,7 @@ Analyzed content distribution between Engine (2-engine/) and Project (5-project-
    - `verifier-validate.py`
    - `scout-task-based.py`
 
-   **Rationale:** These scripts are hardcoded to analyze and improve BlackBox5 specifically. They reference `~/.blackbox5/5-project-memory/blackbox5` paths throughout and cannot function for other projects.
+   **Rationale:** These scripts are hardcoded to analyze and improve BlackBox5 specifically. They reference `~/blackbox5/5-project-memory/blackbox5` paths throughout and cannot function for other projects.
 
 ### MEDIUM PRIORITY
 

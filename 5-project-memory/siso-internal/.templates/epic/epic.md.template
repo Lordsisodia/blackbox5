@@ -1,0 +1,86 @@
+# Epic: FILL_ME
+
+**Status:** FILL_ME (draft|active|completed|archived)
+**Priority:** FILL_ME (critical|high|medium|low)
+**Started:** FILL_ME - YYYY-MM-DD
+**Target Completion:** FILL_ME - YYYY-MM-DD
+**Owner:** FILL_ME - Agent or team name
+
+---
+
+## Problem Statement
+
+What problem does this epic solve?
+
+FILL_ME
+
+---
+
+## Goals
+
+1. FILL_ME - Goal 1
+2. FILL_ME - Goal 2
+3. FILL_ME - Goal 3
+
+---
+
+## Success Criteria
+
+- [ ] FILL_ME - Criterion 1
+- [ ] FILL_ME - Criterion 2
+- [ ] FILL_ME - Criterion 3
+
+---
+
+## Technical Requirements
+
+FILL_ME
+
+---
+
+## Dependencies
+
+**Requires:**
+- FILL_ME
+
+**Blocks:**
+- FILL_ME
+
+---
+
+## Risks
+
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| FILL_ME | high|medium|low | FILL_ME |
+
+---
+
+## Timeline
+
+| Phase | Target Date | Status |
+|-------|-------------|--------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Research
+
+Research documents in `research/` folder:
+- STACK.md - Technology stack research
+- ARCHITECTURE.md - Architecture research
+- FEATURES.md - Feature analysis
+- PITFALLS.md - Known pitfalls
+- SUMMARY.md - Research summary
+
+---
+
+## Tasks
+
+See TASK-SUMMARY.md for task breakdown.
+
+---
+
+## Notes
+
+FILL_ME

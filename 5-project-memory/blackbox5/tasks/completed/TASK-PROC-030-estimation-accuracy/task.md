@@ -35,14 +35,14 @@ The system currently uses a 1.35x universal estimation multiplier based on histo
 
 ### Files Created
 
-1. **Estimation Tracking Script**: `~/.blackbox5/bin/track-estimation-accuracy.py`
+1. **Estimation Tracking Script**: `~/blackbox5/bin/track-estimation-accuracy.py`
    - Parses completed task files for estimates
    - Extracts actual durations from run metadata
    - Calculates accuracy metrics by task type
    - Generates text/JSON/YAML reports
    - Supports updating estimation guidelines
 
-2. **Accuracy Report**: `~/.blackbox5/5-project-memory/blackbox5/knowledge/analysis/estimation-accuracy-report-20260209.md`
+2. **Accuracy Report**: `~/blackbox5/5-project-memory/blackbox5/knowledge/analysis/estimation-accuracy-report-20260209.md`
 
 ### Key Features of Tracking Script
 
@@ -119,7 +119,7 @@ python3 track-estimation-accuracy.py --update-guidelines
 ## Rollback Strategy
 
 No changes to existing files - only additive:
-- Script can be removed: `rm ~/.blackbox5/bin/track-estimation-accuracy.py`
+- Script can be removed: `rm ~/blackbox5/bin/track-estimation-accuracy.py`
 - Report can be archived
 
 ---

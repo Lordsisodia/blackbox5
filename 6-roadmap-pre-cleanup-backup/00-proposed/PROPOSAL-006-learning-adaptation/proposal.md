@@ -87,7 +87,7 @@ Every session starts from scratch, making the same mistakes and missing the same
 - No performance improvement over time
 
 **Locations:**
-- `.blackbox5/engine/memory/`
+- `blackbox5/engine/memory/`
 
 ## Proposed Solution
 

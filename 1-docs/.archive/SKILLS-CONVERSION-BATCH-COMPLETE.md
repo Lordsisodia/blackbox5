@@ -97,7 +97,7 @@ Successfully converted **30 skills** to the new XML-based format using parallel 
 ## Directory Structure Created
 
 ```
-.blackbox5/engine/agents/.skills-new/
+blackbox5/engine/agents/.skills-new/
 ├── integration-connectivity/
 │   ├── api-integration/
 │   │   ├── rest-api/SKILL.md ✅
@@ -252,7 +252,7 @@ Total: 30 skills created successfully
 
 ```bash
 # Archive legacy .skills/ directory
-mv .blackbox5/engine/agents/.skills .blackbox5/engine/agents/.skills-archive
+mv blackbox5/engine/agents/.skills blackbox5/engine/agents/.skills-archive
 ```
 
 ### Option 2: Update Registry
@@ -291,11 +291,11 @@ Create quick reference guide for using the skills in agent workflows.
 
 ### Skill Files (30)
 
-All files located at `.blackbox5/engine/agents/.skills-new/[category]/[subcategory]/[skill]/SKILL.md`
+All files located at `blackbox5/engine/agents/.skills-new/[category]/[subcategory]/[skill]/SKILL.md`
 
 ### Documentation Files (1)
 
-`.blackbox5/SKILLS-CONVERSION-BATCH-COMPLETE.md` (this file)
+`blackbox5/SKILLS-CONVERSION-BATCH-COMPLETE.md` (this file)
 
 ---
 

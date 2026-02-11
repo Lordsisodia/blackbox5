@@ -77,11 +77,11 @@ grep "^import\|^from" client.py | head -20
 
 ```bash
 # Create target directory
-mkdir -p .blackbox5/engine/core
+mkdir -p blackbox5/engine/core
 
 # Copy the file
 cp .docs/research/agents/auto-claude/apps/backend/core/client.py \
-   .blackbox5/engine/core/AgentClient.py
+   blackbox5/engine/core/AgentClient.py
 
 # Edit to remove Claude SDK dependencies
 # We'll adapt this to use Anthropic API directly
@@ -89,7 +89,7 @@ cp .docs/research/agents/auto-claude/apps/backend/core/client.py \
 
 #### Step 4: Adapt for BlackBox5
 
-**File**: `.blackbox5/engine/core/AgentClient.py`
+**File**: `blackbox5/engine/core/AgentClient.py`
 
 **Key changes**:
 ```python
@@ -127,7 +127,7 @@ def create_client(
 
 ```bash
 # Create test file
-cat > .blackbox5/tests/test_agent_client.py << 'EOF'
+cat > blackbox5/tests/test_agent_client.py << 'EOF'
 from pathlib import Path
 import sys
 sys.path.insert(0, 'blackbox5/engine/core')
@@ -144,7 +144,7 @@ print(f"Allowed tools: {client.allowed_tools}")
 EOF
 
 # Run test
-python .blackbox5/tests/test_agent_client.py
+python blackbox5/tests/test_agent_client.py
 ```
 
 **Acceptance Criteria**:
@@ -185,11 +185,11 @@ grep -r "MCP" --include="*.py" -A 5 | head -50
 
 #### Step 3: Copy and Adapt
 
-**File**: `.blackbox5/engine/core/MCPIntegration.py`
+**File**: `blackbox5/engine/core/MCPIntegration.py`
 
 ```bash
 # Create MCP integration file
-cat > .blackbox5/engine/core/MCPIntegration.py << 'EOF'
+cat > blackbox5/engine/core/MCPIntegration.py << 'EOF'
 """
 MCP Integration for BlackBox5
 Adapted from Auto-Claude's MCP system
@@ -352,20 +352,20 @@ head -50 queries_pkg/queries.py
 
 ```bash
 # Create memory directory
-mkdir -p .blackbox5/engine/memory
+mkdir -p blackbox5/engine/memory
 
 # Copy Graphiti files
 cp .docs/research/agents/auto-claude/apps/backend/integrations/graphiti/queries_pkg/graphiti.py \
-   .blackbox5/engine/memory/GraphitiMemory.py
+   blackbox5/engine/memory/GraphitiMemory.py
 
 cp .docs/research/agents/auto-claude/apps/backend/integrations/graphiti/queries_pkg/client.py \
-   .blackbox5/engine/memory/MemoryClient.py
+   blackbox5/engine/memory/MemoryClient.py
 
 cp .docs/research/agents/auto-claude/apps/backend/integrations/graphiti/queries_pkg/queries.py \
-   .blackbox5/engine/memory/MemoryQueries.py
+   blackbox5/engine/memory/MemoryQueries.py
 
 cp .docs/research/agents/auto-claude/apps/backend/integrations/graphiti/queries_pkg/schema.py \
-   .blackbox5/engine/memory/MemorySchema.py
+   blackbox5/engine/memory/MemorySchema.py
 ```
 
 #### Step 4: Simplify (Remove LadybugDB Dependency)
@@ -373,7 +373,7 @@ cp .docs/research/agents/auto-claude/apps/backend/integrations/graphiti/queries_
 **Auto-Claude uses LadybugDB (embedded)**. We'll use a simpler approach initially:
 
 ```python
-# .blackbox5/engine/memory/AgentMemory.py
+# blackbox5/engine/memory/AgentMemory.py
 """
 Agent Memory System (Simplified)
 Adapted from Auto-Claude's Graphiti memory
@@ -525,7 +525,7 @@ head -100 agents/planner.py
 #### Step 3: Create Orchestrator
 
 ```bash
-cat > .blackbox5/engine/core/Orchestrator.py << 'EOF'
+cat > blackbox5/engine/core/Orchestrator.py << 'EOF'
 """
 Multi-Agent Orchestrator
 Adapted from Auto-Claude's orchestration system
@@ -722,7 +722,7 @@ cat epic-sync.md | head -100
 #### Step 3: Create GitHub Integration
 
 ```bash
-cat > .blackbox5/integration/github/GitHubManager.py << 'EOF'
+cat > blackbox5/integration/github/GitHubManager.py << 'EOF'
 """
 GitHub Integration for BlackBox5
 Adapted from CCPM's GitHub sync
@@ -838,7 +838,7 @@ EOF
 #### Step 4: Adapt for Vibe Kanban
 
 ```bash
-cat > .blackbox5/integration/vibe/VibeKanbanManager.py << 'EOF'
+cat > blackbox5/integration/vibe/VibeKanbanManager.py << 'EOF'
 """
 Vibe Kanban Integration for BlackBox5
 Adapted from CCPM's GitHub patterns
@@ -953,7 +953,7 @@ print('✅ GitHub integration ready')
 #### Step 1: Create End-to-End Test
 
 ```bash
-cat > .blackbox5/tests/test_integration.py << 'EOF'
+cat > blackbox5/tests/test_integration.py << 'EOF'
 """
 End-to-end integration test
 """
@@ -1004,7 +1004,7 @@ if __name__ == "__main__":
 EOF
 
 # Run integration test
-python .blackbox5/tests/test_integration.py
+python blackbox5/tests/test_integration.py
 ```
 
 ### Day 25-28: Documentation & Polish
@@ -1012,7 +1012,7 @@ python .blackbox5/tests/test_integration.py
 #### Step 1: Create Setup Guide
 
 ```bash
-cat > .blackbox5/SETUP-GUIDE.md << 'EOF'
+cat > blackbox5/SETUP-GUIDE.md << 'EOF'
 # BlackBox5 Setup Guide
 ## Multi-Agent Infrastructure System
 
@@ -1027,8 +1027,8 @@ cat > .blackbox5/SETUP-GUIDE.md << 'EOF'
 
 \`\`\`bash
 # 1. Create virtual environment
-python3 -m venv .blackbox5/venv
-source .blackbox5/venv/bin/activate
+python3 -m venv blackbox5/venv
+source blackbox5/venv/bin/activate
 
 # 2. Install dependencies
 pip install anthropic requests asyncio
@@ -1039,7 +1039,7 @@ export GITHUB_TOKEN="your-token"
 export VIBE_API_KEY="your-key"
 
 # 4. Run integration test
-python .blackbox5/tests/test_integration.py
+python blackbox5/tests/test_integration.py
 \`\`\`
 
 ### Usage
@@ -1069,15 +1069,15 @@ EOF
 
 ### Files Created (Phase 1):
 
-1. `.blackbox5/engine/core/AgentClient.py` (from Auto-Claude)
-2. `.blackbox5/engine/core/MCPIntegration.py` (from Auto-Claude)
-3. `.blackbox5/engine/memory/AgentMemory.py` (from Auto-Claude)
-4. `.blackbox5/engine/core/Orchestrator.py` (from Auto-Claude)
+1. `blackbox5/engine/core/AgentClient.py` (from Auto-Claude)
+2. `blackbox5/engine/core/MCPIntegration.py` (from Auto-Claude)
+3. `blackbox5/engine/memory/AgentMemory.py` (from Auto-Claude)
+4. `blackbox5/engine/core/Orchestrator.py` (from Auto-Claude)
 
 ### Files Created (Phase 2):
 
-5. `.blackbox5/integration/github/GitHubManager.py` (from CCPM)
-6. `.blackbox5/integration/vibe/VibeKanbanManager.py` (adapted from CCPM)
+5. `blackbox5/integration/github/GitHubManager.py` (from CCPM)
+6. `blackbox5/integration/vibe/VibeKanbanManager.py` (adapted from CCPM)
 
 ### Total Time: 14 days
 ### Code Reused: ~70%

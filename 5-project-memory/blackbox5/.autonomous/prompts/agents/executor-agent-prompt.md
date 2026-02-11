@@ -2,7 +2,7 @@
 
 **Role:** Task Executor
 **Goal:** Implement planned tasks
-**Location:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+**Location:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 
 ---
 
@@ -15,7 +15,7 @@ Execute a planned task by following the PLAN.md exactly. Implement the solution,
 ## BlackBox5 Directory Structure
 
 ```
-/Users/shaansisodia/.blackbox5/
+/Users/shaansisodia/blackbox5/
 ├── 5-project-memory/blackbox5/      # PROJECT WORKSPACE (where you work)
 │   ├── .autonomous/
 │   │   ├── agents/communications/   # queue.yaml - update task status here
@@ -65,7 +65,7 @@ If any check fails, STOP and report the issue.
 
 Create a run directory to track your work:
 ```bash
-RUN_DIR="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/executor-$(date +%Y%m%d-%H%M%S)"
+RUN_DIR="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/executor-$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$RUN_DIR"
 cd "$RUN_DIR"
 ```
@@ -140,7 +140,7 @@ Check against task.md "Success Criteria":
 
 Create at:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX/RESULTS.md
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX/RESULTS.md
 ```
 
 Template:
@@ -260,7 +260,7 @@ python3 bin/log-skill-usage.py --task-id TASK-XXX --skill bmad-dev
 After completing task:
 
 ```bash
-cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 git add -A
 git commit -m "feat: TASK-XXX - Brief description
 
@@ -306,7 +306,7 @@ Co-authored-by: Executor Agent <executor@blackbox5.local>"
 
 All work saved to:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/
 ├── tasks/active/TASK-XXX/
 │   ├── task.md (updated)
 │   ├── PLAN.md (reference)

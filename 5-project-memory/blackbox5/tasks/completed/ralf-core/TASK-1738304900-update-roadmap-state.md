@@ -12,7 +12,7 @@
 
 ## Completion
 
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131-060933
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131-060933
 **Path Used:** quick
 **Phase Gates:** All passed
 

@@ -814,13 +814,13 @@ For a minimal viable documentation system, BB5 needs **5 hooks**:
 
 | Component | Path |
 |-----------|------|
-| Run Templates | `~/.blackbox5/5-project-memory/blackbox5/.templates/run/` |
-| SessionStart Hook | `~/.blackbox5/2-engine/.autonomous/hooks/pipeline/session-start/` |
-| Stop Hook | `~/.blackbox5/2-engine/.autonomous/hooks/pipeline/stop/` |
-| PreCompact Hook | `~/.blackbox5/2-engine/.autonomous/hooks/pipeline/pre-compact/` |
-| Subagent Hooks | `~/.blackbox5/2-engine/.autonomous/hooks/pipeline/subagent-*/` |
-| Task Completion | `~/.blackbox5/2-engine/.autonomous/workflows/task-completion.yaml` |
-| Task Execution | `~/.blackbox5/2-engine/.autonomous/workflows/task-execution.yaml` |
+| Run Templates | `~/blackbox5/5-project-memory/blackbox5/.templates/run/` |
+| SessionStart Hook | `~/blackbox5/2-engine/.autonomous/hooks/pipeline/session-start/` |
+| Stop Hook | `~/blackbox5/2-engine/.autonomous/hooks/pipeline/stop/` |
+| PreCompact Hook | `~/blackbox5/2-engine/.autonomous/hooks/pipeline/pre-compact/` |
+| Subagent Hooks | `~/blackbox5/2-engine/.autonomous/hooks/pipeline/subagent-*/` |
+| Task Completion | `~/blackbox5/2-engine/.autonomous/workflows/task-completion.yaml` |
+| Task Execution | `~/blackbox5/2-engine/.autonomous/workflows/task-execution.yaml` |
 
 ---
 

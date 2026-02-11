@@ -365,7 +365,7 @@ class RalphRuntime:
 
 **Goal**: Single entry point that loads all systems
 
-**File**: `.blackbox5/engine/main.py`
+**File**: `blackbox5/engine/main.py`
 
 ```python
 """
@@ -625,7 +625,7 @@ async def get_blackbox5() -> Blackbox5:
 
 ### Phase 2: Wire Up CLI (Day 1)
 
-**File**: `.blackbox5/engine/interface/cli/bb5.py`
+**File**: `blackbox5/engine/interface/cli/bb5.py`
 
 ```python
 """
@@ -835,7 +835,7 @@ if __name__ == "__main__":
 
 ### Phase 3: Wire Up API (Day 2)
 
-**File**: `.blackbox5/engine/interface/api/main.py`
+**File**: `blackbox5/engine/interface/api/main.py`
 
 ```python
 """
@@ -1031,7 +1031,7 @@ if __name__ == "__main__":
 
 ### Phase 4: Add Decorator Registration (Day 2)
 
-**File**: `.blackbox5/engine/agents/core/decorators.py`
+**File**: `blackbox5/engine/agents/core/decorators.py`
 
 ```python
 """
@@ -1170,7 +1170,7 @@ def clear_tools():
 
 ### Phase 5: Integrate Guides to Agent Execution (Day 3)
 
-**File**: `.blackbox5/engine/core/guide_middleware.py`
+**File**: `blackbox5/engine/core/guide_middleware.py`
 
 ```python
 """
@@ -1337,7 +1337,7 @@ class BaseAgent:
 
 ### Phase 6: Add Memory Integration (Day 4)
 
-**File**: `.blackbox5/engine/memory/agent_memory.py`
+**File**: `blackbox5/engine/memory/agent_memory.py`
 
 ```python
 """
@@ -1417,7 +1417,7 @@ class AgentMemory:
 
 ### Phase 7: Testing & Validation (Day 5)
 
-**File**: `.blackbox5/engine/tests/integration/test_full_pipeline.py`
+**File**: `blackbox5/engine/tests/integration/test_full_pipeline.py`
 
 ```python
 """

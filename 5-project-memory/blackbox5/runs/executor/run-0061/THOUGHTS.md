@@ -178,12 +178,12 @@ The GitHub Integration Suite consists of 7 core libraries + configuration + docu
 **Dependencies:**
 - PyGithub: `pip install PyGithub` (documented in setup guide)
 - Environment variables: GITHUB_TOKEN, GITHUB_WEBHOOK_SECRET (recommended)
-- Configuration file: ~/.blackbox5/github-config.yaml
+- Configuration file: ~/blackbox5/github-config.yaml
 
 **Next Steps for Full Integration:**
 1. Install PyGithub: `pip install PyGithub`
 2. Set GITHUB_TOKEN environment variable
-3. Copy github-config.yaml to ~/.blackbox5/ and configure
+3. Copy github-config.yaml to ~/blackbox5/ and configure
 4. Test connection: `python3 -m github_client`
 5. Enable feature flags (auto_create_prs, auto_create_issues) when ready
 

@@ -201,7 +201,7 @@ Implemented GitHub Integration Suite (Feature F-011) with 7 core libraries, conf
 
 1. **Install Dependencies:** `pip install PyGithub`
 2. **Configure Environment:** Set GITHUB_TOKEN environment variable
-3. **Copy Config:** `cp 2-engine/.autonomous/config/github-config.yaml ~/.blackbox5/github-config.yaml`
+3. **Copy Config:** `cp 2-engine/.autonomous/config/github-config.yaml ~/blackbox5/github-config.yaml`
 4. **Test Connection:** `python3 2-engine/.autonomous/lib/github_client.py`
 5. **Enable Features:** Set feature flags in config when ready (auto_create_prs, auto_create_issues)
 6. **Integrate with Workflows:** Add PR creation to task_completor.py, issue sync to task_creator.py

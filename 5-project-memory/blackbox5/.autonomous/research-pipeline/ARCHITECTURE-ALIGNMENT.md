@@ -328,7 +328,7 @@ agents:
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh"
+            "command": "$HOME/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh"
           }
         ]
       }
@@ -449,7 +449,7 @@ Add to `~/.claude/settings.json`:
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh",
+            "command": "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh",
             "timeout": 30
           }
         ]

@@ -1,0 +1,15 @@
+[Unit]
+Description=BB5 CI Orchestrator
+After=network.target
+
+[Service]
+Type=simple
+User=shaansisodia
+WorkingDirectory=/Users/shaansisodia/blackbox5/bin/ralf-executor
+ExecStart=/Users/shaansisodia/blackbox5/bin/ralf-executor/bb5-ci-service.sh start
+ExecStop=/Users/shaansisodia/blackbox5/bin/ralf-executor/bb5-ci-service.sh stop
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

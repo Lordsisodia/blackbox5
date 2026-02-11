@@ -1,0 +1,394 @@
+# Test Tracking System
+# =============================================================================
+# Purpose: Centralized test tracking, execution, and reporting for BB5/SISO
+# Created: 2026-02-09
+# Updated: 2026-02-09
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "2026-02-09"
+  description: "Unified test tracking system for BlackBox5 and SISO-Internal projects"
+  maintainer: "Testing Specialist"
+  status: "active"
+
+# =============================================================================
+# System Overview
+# =============================================================================
+
+overview:
+  purpose: |
+    The Test Tracking System provides a centralized way to track test cases,
+    test executions, test results, and quality metrics across all BB5 and
+    SISO-Internal projects. It consolidates fragmented test tracking into
+    a single source of truth.
+
+  scope:
+    - Unit tests (Python pytest)
+    - Integration tests (component interactions)
+    - End-to-end tests (full workflows)
+    - Safety system tests
+    - Quality gate validations
+
+  integration_points:
+    - pytest for test execution
+    - GitHub Actions for CI/CD
+    - RALF executor for task-level testing
+    - Quality gates for validation
+
+# =============================================================================
+# Test Case Registry
+# =============================================================================
+
+test_case_registry:
+  format_version: "1.0"
+  location: "5-project-memory/siso-internal/operations/test-cases/"
+
+  test_case_schema:
+    required_fields:
+      - id: "TC-{CATEGORY}-{NUMBER}"
+      - name: "Descriptive test name"
+      - category: "unit|integration|e2e|safety|quality"
+      - priority: "critical|high|medium|low"
+      - status: "active|draft|deprecated|skipped"
+      - automation_status: "automated|manual|partial"
+    optional_fields:
+      - description: "Detailed test description"
+      - preconditions: "Setup required"
+      - steps: "Test steps"
+      - expected_result: "Expected outcome"
+      - related_requirements: ["REQ-001", "REQ-002"]
+      - related_tasks: ["TASK-001"]
+      - automated_test_file: "path/to/test_file.py"
+      - automated_test_function: "test_function_name"
+      - last_executed: "2026-02-09T00:00:00Z"
+      - last_result: "passed|failed|error|skipped"
+
+  categories:
+    unit:
+      description: "Individual function/class tests"
+      target_count: 100
+      current_count: 0
+      coverage_target: 70
+    integration:
+      description: "Component interaction tests"
+      target_count: 30
+      current_count: 0
+      coverage_target: 80
+    e2e:
+      description: "End-to-end workflow tests"
+      target_count: 15
+      current_count: 0
+      coverage_target: 90
+    safety:
+      description: "Safety system tests"
+      target_count: 10
+      current_count: 2
+      coverage_target: 100
+    quality:
+      description: "Quality gate validations"
+      target_count: 20
+      current_count: 0
+      coverage_target: 100
+
+# =============================================================================
+# Test Execution Tracking
+# =============================================================================
+
+test_execution:
+  execution_record_schema:
+    required_fields:
+      - execution_id: "TX-{TIMESTAMP}-{SEQUENCE}"
+      - timestamp: "2026-02-09T00:00:00Z"
+      - trigger: "manual|ci|scheduled|ralf"
+      - environment: "local|ci|staging|production"
+    results:
+      - test_case_id: "TC-001"
+        result: "passed|failed|error|skipped"
+        duration_ms: 100
+        output: "Test output or error message"
+        artifacts: ["path/to/artifact"]
+
+  execution_history:
+    location: "5-project-memory/siso-internal/operations/test-executions/"
+    retention: "90 days"
+    format: "yaml"
+
+  triggers:
+    manual:
+      description: "Developer-initiated test runs"
+      command: "pytest --tb=short"
+    ci:
+      description: "GitHub Actions triggered"
+      workflow: ".github/workflows/test.yml"
+    scheduled:
+      description: "Nightly test runs"
+      schedule: "0 2 * * *"
+    ralf:
+      description: "Task-level testing during RALF execution"
+      phase: "Phase 2.3 - Validation"
+
+# =============================================================================
+# Test Results Aggregation
+# =============================================================================
+
+test_results:
+  current_run:
+    location: "5-project-memory/siso-internal/operations/test-results/latest.yaml"
+    updated: "on every test execution"
+
+  historical:
+    location: "5-project-memory/siso-internal/operations/test-results/history/"
+    format: "{YYYY-MM-DD}-{execution_id}.yaml"
+
+  summary_schema:
+    execution_id: "TX-20260209-001"
+    timestamp: "2026-02-09T14:30:00Z"
+    summary:
+      total_tests: 0
+      passed: 0
+      failed: 0
+      skipped: 0
+      errors: 0
+      duration_seconds: 0
+      coverage_percent: 0
+    by_category:
+      unit:
+        total: 0
+        passed: 0
+        failed: 0
+      integration:
+        total: 0
+        passed: 0
+        failed: 0
+      e2e:
+        total: 0
+        passed: 0
+        failed: 0
+      safety:
+        total: 0
+        passed: 0
+        failed: 0
+    quality_gates:
+      - gate_id: "UG-001"
+        name: "Pre-Execution Research"
+        status: "passed"
+      - gate_id: "IMP-001"
+        name: "Requirements Understood"
+        status: "passed"
+
+# =============================================================================
+# Test Metrics Dashboard
+# =============================================================================
+
+test_metrics:
+  coverage:
+    overall_target: 70
+    critical_paths_target: 90
+    measurement_tool: "pytest-cov"
+    report_location: "5-project-memory/siso-internal/operations/test-results/coverage/"
+
+  reliability:
+    flaky_test_threshold: 3
+      # Mark test as flaky if fails 3+ times in 10 runs
+    pass_rate_target: 95
+    measurement_period: "7 days"
+
+  velocity:
+    tests_added_per_week_target: 5
+    test_execution_time_target: 60
+      # Total test suite should complete in 60 seconds
+
+  quality:
+    bugs_caught_by_tests_target: 80
+      # Percentage of bugs that should be caught by tests
+    test_documentation_coverage_target: 100
+      # All tests should have documentation
+
+  current_status:
+    last_updated: "2026-02-09"
+    overall_coverage: 0
+    pass_rate_7d: 0
+    total_tests: 0
+    tests_passing: 0
+    average_execution_time: 0
+    known_flaky_tests: []
+    critical_gaps: []
+
+# =============================================================================
+# Test Automation Integration
+# =============================================================================
+
+test_automation:
+  pytest:
+    configuration: "1-docs/development/tests/unified/pytest.ini"
+    markers:
+      - unit: "Fast, isolated tests"
+      - integration: "Tests requiring services"
+      - slow: "Tests taking >1 second"
+      - redis: "Tests requiring Redis"
+      - chromadb: "Tests requiring ChromaDB"
+      - neo4j: "Tests requiring Neo4j"
+    plugins:
+      - pytest-asyncio
+      - pytest-cov
+      - pytest-xdist
+      - pytest-timeout
+
+  ci_cd:
+    github_actions:
+      workflow: ".github/workflows/test.yml"
+      jobs:
+        - unit_tests:
+            python_versions: ["3.11", "3.12"]
+            timeout: 5 minutes
+        - integration_tests:
+            services: ["redis"]
+            timeout: 10 minutes
+        - safety_tests:
+            timeout: 5 minutes
+
+  ralf_integration:
+    test_phase: "Phase 2.3 - Validation"
+    quality_gates: "operations/quality-gates.yaml"
+    auto_test_on_implement: true
+
+# =============================================================================
+# Test Case Templates
+# =============================================================================
+
+templates:
+  unit_test:
+    path: "5-project-memory/siso-internal/.templates/tests/unit-test.py.template"
+    content: |
+      """
+      Test Case: {test_name}
+      ID: {test_id}
+      Category: Unit Test
+      """
+      import pytest
+
+      def {test_function_name}():
+          # Arrange
+          input_data = setup_test_data()
+          expected = calculate_expected()
+
+          # Act
+          result = function_under_test(input_data)
+
+          # Assert
+          assert result == expected
+
+  integration_test:
+    path: "5-project-memory/siso-internal/.templates/tests/integration-test.py.template"
+    content: |
+      """
+      Test Case: {test_name}
+      ID: {test_id}
+      Category: Integration Test
+      """
+      import pytest
+
+      @pytest.mark.integration
+      def {test_function_name}():
+          # Test component interactions
+          pass
+
+  e2e_test:
+    path: "5-project-memory/siso-internal/.templates/tests/e2e-test.sh.template"
+    content: |
+      #!/bin/bash
+      # Test Case: {test_name}
+      # ID: {test_id}
+      # Category: End-to-End Test
+
+      # Setup
+      setup_test_environment
+
+      # Execute workflow
+      execute_workflow
+
+      # Verify results
+      assert_expected_outcome
+
+# =============================================================================
+# Gaps and Action Items
+# =============================================================================
+
+gaps:
+  - id: "GAP-001"
+    description: "No active test execution - test_results.yaml shows 0 tests run"
+    priority: "critical"
+    action: "Set up automated test execution pipeline"
+
+  - id: "GAP-002"
+    description: "No test coverage reporting"
+    priority: "high"
+    action: "Integrate pytest-cov and generate coverage reports"
+
+  - id: "GAP-003"
+    description: "Fragmented test tracking between BB5 and SISO"
+    priority: "high"
+    action: "Consolidate into unified test tracking system"
+
+  - id: "GAP-004"
+    description: "Missing integration tests for agent execution"
+    priority: "high"
+    action: "Create tests for agent spawning and execution"
+
+  - id: "GAP-005"
+    description: "No end-to-end workflow tests"
+    priority: "medium"
+    action: "Create e2e tests for critical workflows"
+
+  - id: "GAP-006"
+    description: "No performance benchmarking"
+    priority: "medium"
+    action: "Add performance test suite"
+
+  - id: "GAP-007"
+    description: "No test result trending"
+    priority: "low"
+    action: "Implement historical test result tracking"
+
+# =============================================================================
+# Quick Reference
+# =============================================================================
+
+quick_reference:
+  run_tests: |
+    # Run all tests
+    pytest 1-docs/development/tests/unified/
+
+    # Run with coverage
+    pytest --cov=engine 1-docs/development/tests/unified/
+
+    # Run specific category
+    pytest -m unit 1-docs/development/tests/unified/
+    pytest -m integration 1-docs/development/tests/unified/
+
+  update_test_tracking: |
+    # After test execution, update tracking
+    python bin/update-test-results.py
+
+  view_dashboard: |
+    # View test metrics
+    cat 5-project-memory/siso-internal/operations/test-results/latest.yaml
+
+  add_test_case: |
+    # Use template to add new test case
+    cp .templates/tests/unit-test.py.template test-cases/TC-XXX.py
+
+# =============================================================================
+# Change Log
+# =============================================================================
+
+changelog:
+  - date: "2026-02-09"
+    version: "1.0.0"
+    changes:
+      - "Initial creation of unified test tracking system"
+      - "Consolidated BB5 and SISO test tracking"
+      - "Defined test case registry schema"
+      - "Created test execution tracking structure"
+      - "Identified 7 critical gaps to address"

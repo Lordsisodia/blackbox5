@@ -38,7 +38,7 @@ To integrate CCPM's GitHub functionality with BlackBox5, we need:
 2. Configure BlackBox5 to recognize these commands
 3. Use them WITHIN Claude (not as standalone scripts)
 
-**Location:** `.blackbox5/.workflows/` or `.blackbox5/engine/.workflows/`
+**Location:** `blackbox5/.workflows/` or `blackbox5/engine/.workflows/`
 
 **Problem:** This only works when you're IN a Claude session using BlackBox5
 
@@ -48,7 +48,7 @@ To integrate CCPM's GitHub functionality with BlackBox5, we need:
 
 ### File 1: GitHub Integration Module
 ```python
-# .blackbox5/engine/integrations/github.py
+# blackbox5/engine/integrations/github.py
 import subprocess
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -78,7 +78,7 @@ class GitHubIntegration:
 
 ### File 2: PRD System
 ```python
-# .blackbox5/engine/specs/prd.py
+# blackbox5/engine/specs/prd.py
 class PRDManager:
     """Manage Product Requirements Documents"""
 
@@ -93,7 +93,7 @@ class PRDManager:
 
 ### File 3: Task Decomposer
 ```python
-# .blackbox5/engine/specs/decomposer.py
+# blackbox5/engine/specs/decomposer.py
 class TaskDecomposer:
     """Break epics into tasks"""
 
@@ -104,7 +104,7 @@ class TaskDecomposer:
 
 ### File 4: BlackBox5 Integration
 ```python
-# .blackbox5/engine/core/github_agent.py
+# blackbox5/engine/core/github_agent.py
 from .agents import BaseAgent
 
 class GitHubAgent(BaseAgent):
@@ -134,7 +134,7 @@ class GitHubAgent(BaseAgent):
 ### To Make This Work
 
 **Option A: Use Within Claude (Simplest)**
-1. Move CCPM command files to `.blackbox5/.workflows/`
+1. Move CCPM command files to `blackbox5/.workflows/`
 2. Use them when in Claude Code with BlackBox5
 3. They work as-is (just need directory path adjustments)
 

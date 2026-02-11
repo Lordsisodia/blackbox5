@@ -69,5 +69,5 @@ Create directly in this directory (not as symlinks)
 
 ## References
 
-- Canonical prompts: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.templates/prompts/`
+- Canonical prompts: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.templates/prompts/`
 - Task: TASK-ARCH-062

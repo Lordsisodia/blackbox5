@@ -11,13 +11,13 @@
 
 ## Objective
 
-Fix hardcoded paths in `critical-paths.md` and 30 other files that break Agent-2.3's multi-project memory access. The files reference the old location `~/.blackbox5/` but the actual current location is `~/.blackbox5/` (expands to `/Users/shaansisodia/.blackbox5/`).
+Fix hardcoded paths in `critical-paths.md` and 30 other files that break Agent-2.3's multi-project memory access. The files reference the old location `~/blackbox5/` but the actual current location is `~/blackbox5/` (expands to `/Users/shaansisodia/blackbox5/`).
 
 ## Success Criteria
 
-- [x] All 35 affected files updated to use `~/.blackbox5/` notation
+- [x] All 35 affected files updated to use `~/blackbox5/` notation
 - [x] `critical-paths.md` paths verified correct
-- [x] Python files use `~/.blackbox5/` notation (system standard)
+- [x] Python files use `~/blackbox5/` notation (system standard)
 - [x] Git commits created with atomic changes (2 commits)
 - [x] No regressions - 0 old paths remain
 
@@ -32,13 +32,13 @@ Fix hardcoded paths in `critical-paths.md` and 30 other files that break Agent-2
     - `2-engine/tests/unit/test_managerial_agent.py`
     - `2-engine/modules/fractal_genesis/data/storage.py`
     - `2-engine/core/agents/definitions/managerial/memory/management_memory.py`
-  - System is designed to use `~/.blackbox5/` notation (see README.md and AGENT.md v2.3)
-  - `BLACKBOX5_HOME="$HOME/.blackbox5"` environment variable is available
+  - System is designed to use `~/blackbox5/` notation (see README.md and AGENT.md v2.3)
+  - `BLACKBOX5_HOME="$HOME/blackbox5"` environment variable is available
 
 ### Files Affected
 
 From research:
-- `~/.blackbox5/1-docs/04-project/critical-paths.md` - PRIMARY TARGET (Agent-2.3 dependency)
+- `~/blackbox5/1-docs/04-project/critical-paths.md` - PRIMARY TARGET (Agent-2.3 dependency)
 - Plus 30 other files with hardcoded paths
 
 ## Approach
@@ -59,7 +59,7 @@ From research:
 5. Commit each file type separately (markdown vs Python)
 
 ### Phase 3: CODE-REVIEW
-- Self-review: All paths use `~/.blackbox5/` notation
+- Self-review: All paths use `~/blackbox5/` notation
 - Verify: No old hardcoded paths remain
 - Confirm: Python code uses environment variables
 
@@ -75,7 +75,7 @@ Git revert if paths don't resolve correctly. Atomic commits by file type make ta
 ## Completion
 
 **Completed:** 2026-01-30T22:30:23Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_052931
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_052931
 **Agent:** Agent-2.3
 **Path Used:** quick
 **Phase Gates:** All passed

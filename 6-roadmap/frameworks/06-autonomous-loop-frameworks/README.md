@@ -207,7 +207,7 @@ class GitWorktreeManager:
 
 ### Analysis Documentation
 
-**Comprehensive Analysis:** `.blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
+**Comprehensive Analysis:** `blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
 
 **Key Sections:**
 - Executive Summary
@@ -224,7 +224,7 @@ class GitWorktreeManager:
 
 **Original Repository:** https://github.com/michaelshimeles/ralphy
 
-**Analysis Location:** `.blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
+**Analysis Location:** `blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
 
 **Implementation Pattern:** Lines 194-232 (Git Worktree Manager)
 

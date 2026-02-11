@@ -11,21 +11,21 @@
 
 ## Files Validated
 
-1. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/main.py`
-2. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/agents/core/BaseAgent.py`
-3. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/guide_middleware.py`
-4. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/interface/cli/bb5.py`
-5. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/interface/api/main.py`
+1. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/main.py`
+2. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/agents/core/BaseAgent.py`
+3. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/guide_middleware.py`
+4. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/interface/cli/bb5.py`
+5. ✅ `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/interface/api/main.py`
 
 ## Fixes Applied
 
 ### 1. Circular Import (API)
-- **File**: `.blackbox5/engine/interface/api/main.py`
+- **File**: `blackbox5/engine/interface/api/main.py`
 - **Issue**: Circular import with engine main module
 - **Fix**: Used dynamic import with `importlib.util`
 
 ### 2. Missing Dependency
-- **File**: `.blackbox5/engine/requirements.txt`
+- **File**: `blackbox5/engine/requirements.txt`
 - **Issue**: `click` package missing
 - **Fix**: Added `click>=8.1.0` to requirements
 
@@ -44,13 +44,13 @@
 
 ### CLI
 ```bash
-cd .blackbox5/engine
+cd blackbox5/engine
 python -m interface.cli.bb5 ask "Your question"
 ```
 
 ### API
 ```bash
-cd .blackbox5/engine/interface/api
+cd blackbox5/engine/interface/api
 python main.py
 # http://localhost:8000
 ```

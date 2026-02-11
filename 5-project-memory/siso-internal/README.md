@@ -225,9 +225,9 @@ Build production-ready features for SISO ecosystem
 
 ## Related Documentation
 
-- `.blackbox5/5-project-memory/REORGANIZATION-COMPLETE.md` - Complete reorganization details
-- `.blackbox5/5-project-memory/OPTIMIZED-REORGANIZATION.md` - Design rationale
-- `.blackbox5/5-project-memory/_template/` - Project template (use this for new projects)
+- `blackbox5/5-project-memory/REORGANIZATION-COMPLETE.md` - Complete reorganization details
+- `blackbox5/5-project-memory/OPTIMIZED-REORGANIZATION.md` - Design rationale
+- `blackbox5/5-project-memory/_template/` - Project template (use this for new projects)
 
 ## Best Practices for Agents
 

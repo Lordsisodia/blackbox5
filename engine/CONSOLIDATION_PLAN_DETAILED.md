@@ -576,7 +576,7 @@ Three executables are bash stubs:
 Each contains:
 ```bash
 #!/bin/bash
-exec python3 /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/[script].py "$@"
+exec python3 /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/[script].py "$@"
 ```
 
 But those paths may not exist.

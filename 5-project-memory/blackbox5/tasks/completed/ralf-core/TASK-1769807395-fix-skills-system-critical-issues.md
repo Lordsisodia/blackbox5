@@ -24,7 +24,7 @@ Fix the skills system by consolidating 3 different implementations into a single
 ## Context
 
 ### Source: Goal Cascade (PLAN-001)
-From `/Users/shaansisodia/.blackbox5/6-roadmap/03-planned/PLAN-001-fix-skills-system/`:
+From `/Users/shaansisodia/blackbox5/6-roadmap/03-planned/PLAN-001-fix-skills-system/`:
 
 **Problem:**
 - 3 different skills systems exist:

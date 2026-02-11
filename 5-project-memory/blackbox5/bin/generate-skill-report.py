@@ -7,7 +7,7 @@ from pathlib import Path
 
 def load_skill_metrics():
     """Load current skill-metrics.yaml."""
-    metrics_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml')
+    metrics_path = Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml')
     with open(metrics_path, 'r') as f:
         return yaml.safe_load(f)
 
@@ -142,7 +142,7 @@ def main():
     report = generate_report(data)
 
     # Save report
-    report_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.docs/skill-effectiveness-report.md')
+    report_path = Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.docs/skill-effectiveness-report.md')
     with open(report_path, 'w') as f:
         f.write(report)
 

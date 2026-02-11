@@ -48,10 +48,10 @@ Analyzed executor runs 29, 30, 31:
 ## Files Created/Modified
 
 ### Created
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/TASK-1769895001-legacy-md-optimization.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/TASK-1769895001-legacy-md-optimization.md`
 
 ### Modified
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml`
   - Removed completed TASK-1769912000
   - Updated metadata (depth: 4, last_completed: TASK-1769912000)
 

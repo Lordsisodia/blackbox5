@@ -79,7 +79,7 @@ def setup_logging(log_file: Path = None) -> logging.Logger:
 
 def get_log_file() -> Path:
     """Get default log file path."""
-    bb5_home = Path(os.environ.get("BB5_HOME", os.path.expanduser("~/.blackbox5")))
+    bb5_home = Path(os.environ.get("BB5_HOME", os.path.expanduser("~/blackbox5")))
     return bb5_home / ".autonomous" / "health" / "watch.log"
 
 

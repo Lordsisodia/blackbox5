@@ -57,13 +57,13 @@ From research analysis and implementation status:
 **What EXISTS (Working Code):**
 
 ```python
-# .blackbox5/engine/memory/AgentMemory.py
+# blackbox5/engine/memory/AgentMemory.py
 class AgentMemory:
     """
     Simplified persistent memory system.
     Each agent gets its own memory environment using JSON files.
 
-    Memory is stored at: .blackbox5/data/memory/{agent_id}/
+    Memory is stored at: blackbox5/data/memory/{agent_id}/
     """
 
     def __init__(self, agent_id: str):
@@ -80,7 +80,7 @@ class AgentMemory:
 **What EXISTS (GitHub Integration):**
 
 ```python
-# .blackbox5/engine/integrations/github/github_integration.py
+# blackbox5/engine/integrations/github/github_integration.py
 class GitHubIssuesIntegration:
     """
     Complete GitHub Issues management with memory integration.
@@ -97,7 +97,7 @@ class GitHubIssuesIntegration:
 **What EXISTS (Brain System):**
 
 ```python
-# .blackbox5/engine/brain/
+# blackbox5/engine/brain/
 # Complete brain system with:
 # - PostgreSQL ingestion (graph_ingester.py)
 # - Neo4j graph database (graph.py)
@@ -180,7 +180,7 @@ From research (`BLACKBOX5-SIMPLIFIED-ARCHITECTURE.md`):
 Based on first principles, here's what we ACTUALLY need:
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/                    # Shared engine code (committed)
 │   ├── memory/               # AgentMemory.py (exists)
 │   ├── brain/                # Brain system (exists)
@@ -224,7 +224,7 @@ Based on first principles, here's what we ACTUALLY need:
 - Stores: Connection info to PostgreSQL + Neo4j
 - Format: Connection files
 - Purpose: Semantic search across knowledge
-- Implementation: Already exists in `.blackbox5/engine/brain/`
+- Implementation: Already exists in `blackbox5/engine/brain/`
 
 ---
 
@@ -273,9 +273,9 @@ memory/
 
 ### What Already Works ✅
 
-1. **Agent Memory** - `.blackbox5/engine/memory/AgentMemory.py`
-2. **GitHub Integration** - `.blackbox5/engine/integrations/github/`
-3. **Brain System** - `.blackbox5/engine/brain/`
+1. **Agent Memory** - `blackbox5/engine/memory/AgentMemory.py`
+2. **GitHub Integration** - `blackbox5/engine/integrations/github/`
+3. **Brain System** - `blackbox5/engine/brain/`
 
 ### What Actually Needs to be Built 🚧
 
@@ -283,13 +283,13 @@ memory/
 
 1. **Create per-project memory structure**
    ```bash
-   mkdir -p .blackbox5/memory/{agents,tasks/working,tasks/completed,brain-index}
+   mkdir -p blackbox5/memory/{agents,tasks/working,tasks/completed,brain-index}
    ```
 
 2. **Update gitignore**
    ```gitignore
    # Per-project memory data
-   .blackbox5/memory/
+   blackbox5/memory/
    ```
 
 3. **Connect existing components**
@@ -318,7 +318,7 @@ Based on first principles:
 ### SISO-INTERNAL
 
 ```
-SISO-INTERNAL/.blackbox5/
+SISO-INTERNAL/blackbox5/
 ├── engine/                    # Shared code (committed)
 ├── memory/                    # SISO-INTERNAL data (gitignored)
 │   ├── agents/
@@ -348,8 +348,8 @@ SISO-INTERNAL/.blackbox5/
 ### Luminel
 
 ```
-Luminel/.blackbox5/
-├── engine -> ../SISO-INTERNAL/.blackbox5/engine  # Symlink
+Luminel/blackbox5/
+├── engine -> ../SISO-INTERNAL/blackbox5/engine  # Symlink
 ├── memory/                    # Luminel data (gitignored)
 │   ├── agents/
 │   ├── tasks/
@@ -467,7 +467,7 @@ Use the simplified 2-level system if:
 ### What We ACTUALLY Need
 
 ```
-.blackbox5/memory/
+blackbox5/memory/
 ├── agents/               # Agent learning (JSON)
 ├── tasks/                # GitHub tasks (markdown)
 └── brain-index/          # Semantic search (connections)

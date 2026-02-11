@@ -1,0 +1,25 @@
+---
+id: "TASK-GUIDE-002"
+title: "Add Specific Examples to Decision Framework"
+status: "pending"
+priority: "high"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-GUIDANCE-001"
+phase: "Phase 2"
+
+# Task Details
+description: |
+  CLAUDE.md decision framework is vague. Add concrete examples for
+  "Just Do It", "Create Formal Task", and "Ask User" cases.
+
+acceptance_criteria:
+  - 3+ concrete examples for "Just Do It" (< 30 min, clear bug, etc.)
+  - 3+ concrete examples for "Create Formal Task" (> 30 min, multi-file, etc.)
+  - 3+ concrete examples for "Ask User" (unclear requirements, high risk, etc.)
+  - Examples are specific and actionable
+  - Updated in both global and project CLAUDE.md
+
+estimated_hours: 4

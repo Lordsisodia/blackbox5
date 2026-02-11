@@ -45,7 +45,7 @@ Manage Vercel deployments, projects, and environment variables directly from you
 pip install httpx
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 httpx>=0.25.0
 ```
@@ -263,7 +263,7 @@ async with VercelManager() as manager:
 
 ```bash
 # Run demo
-python .blackbox5/integration/vercel/demo.py
+python blackbox5/integration/vercel/demo.py
 ```
 
 ## Troubleshooting

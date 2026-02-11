@@ -14,7 +14,7 @@ After thorough review of all existing analysis documents and additional verifica
 
 1. **47+ Hardcoded Cross-Boundary Paths** - CONFIRMED
    - Found in 8 Python scripts in `2-engine/.autonomous/bin/`
-   - All 6 agent improvement loop scripts hardcode `PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"`
+   - All 6 agent improvement loop scripts hardcode `PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"`
    - Scripts affected: `scout-intelligent.py`, `executor-implement.py`, `improvement-loop.py`, `planner-prioritize.py`, `verifier-validate.py`, `scout-task-based.py`, `scout-analyze.py`
 
 2. **18 Categories of Duplications** - CONFIRMED
@@ -31,7 +31,7 @@ After thorough review of all existing analysis documents and additional verifica
    - Skill framework files: `skill-selection.yaml`, `skill-metrics.yaml`, `skill-usage.yaml`
 
 5. **routes.yaml Incorrect Path Nesting** - CONFIRMED
-   - Project routes.yaml contains paths like `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/` (incorrectly nests engine inside project)
+   - Project routes.yaml contains paths like `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/` (incorrectly nests engine inside project)
    - Also has duplicated path segments: `5-project-memory/blackbox5/5-project-memory/blackbox5/tasks`
 
 6. **6-Agent Pipeline Tightly Coupled** - CONFIRMED
@@ -46,7 +46,7 @@ After thorough review of all existing analysis documents and additional verifica
    - Line 118: `path: "../../../5-project-memory/ralf-core/.autonomous/runs"` references non-existent `ralf-core` project
 
 2. **269 files contain hardcoded path references**
-   - The grep search found 269 files with `.blackbox5.*5-project-memory.*blackbox5` or `.blackbox5.*2-engine` patterns
+   - The grep search found 269 files with `blackbox5.*5-project-memory.*blackbox5` or `blackbox5.*2-engine` patterns
    - This indicates widespread path coupling beyond the 47 initially identified
 
 3. **Shell scripts also have hardcoded paths**

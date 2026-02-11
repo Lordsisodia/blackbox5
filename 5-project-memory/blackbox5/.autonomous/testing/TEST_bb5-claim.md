@@ -1,7 +1,7 @@
 # bb5-claim CLI Command Test Report
 
 **Test Date:** 2026-02-06
-**Command Location:** `/Users/shaansisodia/.blackbox5/bin/bb5-claim`
+**Command Location:** `/Users/shaansisodia/blackbox5/bin/bb5-claim`
 **Tested By:** shaansisodia
 **Status:** FILE MISSING - Tests were run before file deletion
 
@@ -30,7 +30,7 @@ The `bb5-claim` command was tested for task claiming functionality in the BlackB
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim claim TASK-ARCH-021
+~/blackbox5/bin/bb5-claim claim TASK-ARCH-021
 ```
 
 **Expected Result:**
@@ -49,7 +49,7 @@ Task: TASK-ARCH-021
 Agent: shaansisodia
 
 Run ID: run-20260206-082451-TASK-ARCH-021
-Run Directory: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021
+Run Directory: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021
 
 Updating queue.yaml...
 Logging event...
@@ -61,15 +61,15 @@ Logging event...
 
 Task: TASK-ARCH-021
 Claimed by: shaansisodia
-Run folder: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021
+Run folder: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021
 
 Next steps:
-  cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021
+  cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021
   bb5 task:show TASK-ARCH-021
 ```
 
 **Verification:**
-- Run folder created: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021/`
+- Run folder created: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082451-TASK-ARCH-021/`
 - Files created: THOUGHTS.md, DECISIONS.md, ASSUMPTIONS.md, LEARNINGS.md, RESULTS.md, metadata.yaml
 - THOUGHTS.md contains hierarchy information (claimed_by, claimed_at, run_id)
 - queue.yaml updated with status: "in_progress"
@@ -82,7 +82,7 @@ Next steps:
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim claim TASK-ARCH-021  # Second claim attempt
+~/blackbox5/bin/bb5-claim claim TASK-ARCH-021  # Second claim attempt
 ```
 
 **Expected Result:**
@@ -114,7 +114,7 @@ Use --force to override:
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim claim --force TASK-ARCH-021
+~/blackbox5/bin/bb5-claim claim --force TASK-ARCH-021
 ```
 
 **Expected Result:**
@@ -136,7 +136,7 @@ Warning: Task already claimed by shaansisodia
 Force flag set - overriding claim
 
 Run ID: run-20260206-082541-TASK-ARCH-021
-Run Directory: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082541-TASK-ARCH-021
+Run Directory: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082541-TASK-ARCH-021
 
 Updating queue.yaml...
 Logging event...
@@ -148,10 +148,10 @@ Logging event...
 
 Task: TASK-ARCH-021
 Claimed by: shaansisodia
-Run folder: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082541-TASK-ARCH-021
+Run folder: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082541-TASK-ARCH-021
 
 Next steps:
-  cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082541-TASK-ARCH-021
+  cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082541-TASK-ARCH-021
   bb5 task:show TASK-ARCH-021
 ```
 
@@ -163,7 +163,7 @@ Next steps:
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim unclaim TASK-ARCH-021
+~/blackbox5/bin/bb5-claim unclaim TASK-ARCH-021
 ```
 
 **Expected Result:**
@@ -197,7 +197,7 @@ Archived runs: 2
 ```
 
 **Verification:**
-- Run folders moved to `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/archived/`
+- Run folders moved to `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/archived/`
 - Archived folders found:
   - `20260206-run-20260206-082451-TASK-ARCH-021`
   - `20260206-run-20260206-082541-TASK-ARCH-021`
@@ -210,7 +210,7 @@ Archived runs: 2
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim claim TASK-ARCH-021 --dry-run
+~/blackbox5/bin/bb5-claim claim TASK-ARCH-021 --dry-run
 ```
 
 **Expected Result:**
@@ -232,23 +232,23 @@ Task: TASK-ARCH-021
 Agent: shaansisodia
 
 Run ID: run-20260206-082610-TASK-ARCH-021
-Run Directory: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
+Run Directory: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
 
-[DRY-RUN] Would: mkdir -p /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
-[DRY-RUN] Would: Write to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/THOUGHTS.md:
+[DRY-RUN] Would: mkdir -p /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
+[DRY-RUN] Would: Write to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/THOUGHTS.md:
   (content hidden, use --verbose to see)
-[DRY-RUN] Would: Write to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/DECISIONS.md:
+[DRY-RUN] Would: Write to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/DECISIONS.md:
   (content hidden, use --verbose to see)
-[DRY-RUN] Would: Write to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/ASSUMPTIONS.md:
+[DRY-RUN] Would: Write to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/ASSUMPTIONS.md:
   (content hidden, use --verbose to see)
-[DRY-RUN] Would: Write to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/LEARNINGS.md:
+[DRY-RUN] Would: Write to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/LEARNINGS.md:
   (content hidden, use --verbose to see)
-[DRY-RUN] Would: Write to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/RESULTS.md:
+[DRY-RUN] Would: Write to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/RESULTS.md:
   (content hidden, use --verbose to see)
-[DRY-RUN] Would: Write to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/metadata.yaml:
+[DRY-RUN] Would: Write to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021/metadata.yaml:
   (content hidden, use --verbose to see)
 Updating queue.yaml...
-[DRY-RUN] Would: Backup queue.yaml to /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml.backup.20260206082611
+[DRY-RUN] Would: Backup queue.yaml to /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml.backup.20260206082611
 [DRY-RUN] Would: Update queue.yaml: Set TASK-ARCH-021 claimed_by=shaansisodia, status=in_progress
 Logging event...
 [DRY-RUN] Would: Add event: type=claimed, task=TASK-ARCH-021, agent=shaansisodia
@@ -260,10 +260,10 @@ Logging event...
 
 Task: TASK-ARCH-021
 Claimed by: shaansisodia
-Run folder: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
+Run folder: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
 
 Next steps:
-  cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
+  cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082610-TASK-ARCH-021
   bb5 task:show TASK-ARCH-021
 
 
@@ -279,7 +279,7 @@ No changes were made. Run without --dry-run to execute.
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim claim TASK-NONEXISTENT
+~/blackbox5/bin/bb5-claim claim TASK-NONEXISTENT
 ```
 
 **Expected Result:**
@@ -323,7 +323,7 @@ Total:       91 active task(s)
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim
+~/blackbox5/bin/bb5-claim
 ```
 
 **Result:** Shows usage help with available commands and examples
@@ -334,7 +334,7 @@ Total:       91 active task(s)
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-claim unclaim
+~/blackbox5/bin/bb5-claim unclaim
 ```
 
 **Result:** Shows usage and lists currently claimed tasks
@@ -414,7 +414,7 @@ runs/run-YYYYMMDD-HHMMSS-TASK-ID/
 
 1. **Restore the file** from the code captured in this test report
 2. **Add to git** to prevent future loss
-3. **Integrate with main bb5 CLI** by adding claim/unclaim commands to `/Users/shaansisodia/.blackbox5/bin/bb5`
+3. **Integrate with main bb5 CLI** by adding claim/unclaim commands to `/Users/shaansisodia/blackbox5/bin/bb5`
 4. **Add integration tests** to CI/CD pipeline
 5. **Document** the claim workflow in project documentation
 
@@ -426,9 +426,9 @@ runs/run-YYYYMMDD-HHMMSS-TASK-ID/
   - `run-20260206-082451-TASK-ARCH-021`
   - `run-20260206-082541-TASK-ARCH-021`
 - Archived folders:
-  - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/archived/20260206-run-20260206-082451-TASK-ARCH-021`
-  - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/archived/20260206-run-20260206-082541-TASK-ARCH-021`
-  - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/archived/20260206-run-20260206-082556-TASK-ARCH-021`
+  - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/archived/20260206-run-20260206-082451-TASK-ARCH-021`
+  - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/archived/20260206-run-20260206-082541-TASK-ARCH-021`
+  - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/archived/20260206-run-20260206-082556-TASK-ARCH-021`
 
 ---
 

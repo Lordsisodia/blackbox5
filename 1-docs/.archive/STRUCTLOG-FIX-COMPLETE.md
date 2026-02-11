@@ -121,7 +121,7 @@ Core Modules: 12/12 working (100%) ✅
 
 ### Import Core Modules
 ```python
-# From project root (.blackbox5/)
+# From project root (blackbox5/)
 from engine.core.GLMClient import GLMClient, create_glm_client
 from engine.core.Orchestrator import AgentOrchestrator
 from engine.core.event_bus import RedisEventBus
@@ -180,14 +180,14 @@ redis>=5.0.0      ✅ Already present
 
 ## Files Modified
 
-1. ✅ `.blackbox5/engine/requirements.txt`
+1. ✅ `blackbox5/engine/requirements.txt`
    - Added `structlog>=23.0.0`
    - Added `redis>=5.0.0`
 
-2. ✅ `.blackbox5/engine/core/logging.py`
+2. ✅ `blackbox5/engine/core/logging.py`
    - Renamed to `structured_logging.py`
 
-3. ✅ `.blackbox5/engine/core/__init__.py`
+3. ✅ `blackbox5/engine/core/__init__.py`
    - Updated import from `.logging` to `.structured_logging`
 
 ---

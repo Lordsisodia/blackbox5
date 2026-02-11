@@ -10,8 +10,8 @@
 ### 1. Engine Core Updates ✅
 
 **Files Modified:**
-- `.blackbox5/engine/agents/core/SkillManager.py` - Added XML parsing, dual-mode support
-- `.blackbox5/engine/agents/core/AgentLoader.py` - Added XML skills scanning
+- `blackbox5/engine/agents/core/SkillManager.py` - Added XML parsing, dual-mode support
+- `blackbox5/engine/agents/core/AgentLoader.py` - Added XML skills scanning
 
 **Features Added:**
 - XML tag parsing for all standard tags (`<context>`, `<instructions>`, `<workflow>`, etc.)
@@ -23,14 +23,14 @@
 ### 2. Documentation Created ✅
 
 **Files Created:**
-- `.blackbox5/engine/agents/.skills-new/PENDING-SKILLS-INVENTORY.md` - Complete inventory of 37 pending skills
-- `.blackbox5/engine/agents/.skills-new/CONVERSION-STATUS.md` - Conversion tracking document
+- `blackbox5/engine/agents/.skills-new/PENDING-SKILLS-INVENTORY.md` - Complete inventory of 37 pending skills
+- `blackbox5/engine/agents/.skills-new/CONVERSION-STATUS.md` - Conversion tracking document
 
 ### 3. Directory Structure Created ✅
 
 **Categories Created:**
 ```
-.blackbox5/engine/agents/.skills-new/
+blackbox5/engine/agents/.skills-new/
 ├── core-infrastructure/
 │   └── development-tools/
 ├── integration-connectivity/
@@ -171,10 +171,10 @@ For each skill, use this structure:
 
 ```bash
 # Create directory
-mkdir -p .blackbox5/engine/agents/.skills-new/{category}/{subcategory}/{skill-name}
+mkdir -p blackbox5/engine/agents/.skills-new/{category}/{subcategory}/{skill-name}
 
 # Create SKILL.md with full XML structure
-cat > .blackbox5/engine/agents/.skills-new/{category}/{subcategory}/{skill-name}/SKILL.md << 'HEREDOC'
+cat > blackbox5/engine/agents/.skills-new/{category}/{subcategory}/{skill-name}/SKILL.md << 'HEREDOC'
 ---
 name: skill-name
 category: category/subcategory

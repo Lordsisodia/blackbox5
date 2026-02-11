@@ -24,7 +24,7 @@
 
 ## Changes Made
 
-**File Modified:** `~/.blackbox5/6-roadmap/STATE.yaml`
+**File Modified:** `~/blackbox5/6-roadmap/STATE.yaml`
 
 **Changes:**
 1. Updated `system.updated`: "2026-01-20T13:00:00Z" → "2026-01-31T12:30:00Z"

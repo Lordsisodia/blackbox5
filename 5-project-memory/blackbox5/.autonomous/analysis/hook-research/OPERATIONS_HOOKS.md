@@ -762,11 +762,11 @@ dashboard_sections:
 
 ## Appendix: Files Referenced
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline.yaml` - Event timeline
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml` - Skill effectiveness data
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/improvement-metrics.yaml` - Improvement pipeline
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/quality-gates.yaml` - Quality checklists
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/executor-dashboard.yaml` - Run metrics
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/run-validation.yaml` - Validation config
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows/task-completion.yaml` - Completion workflow
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/timeline.yaml` - Event timeline
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml` - Skill effectiveness data
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/improvement-metrics.yaml` - Improvement pipeline
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/quality-gates.yaml` - Quality checklists
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/executor-dashboard.yaml` - Run metrics
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/run-validation.yaml` - Validation config
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/workflows/task-completion.yaml` - Completion workflow

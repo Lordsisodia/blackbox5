@@ -109,7 +109,7 @@ report_dir.mkdir(parents=True, exist_ok=True)  # Only creates subdirectories
 
 | Dependency | Portability Impact |
 |------------|-------------------|
-| Hardcoded `~/.blackbox5` path | Cannot run outside user's home |
+| Hardcoded `~/blackbox5` path | Cannot run outside user's home |
 | `5-project-memory/blackbox5` subpath | Project must be named "blackbox5" |
 | `.autonomous/runs/` structure | Must use BB5 directory layout |
 | 5 required documentation files | All 5 must be created and filled |

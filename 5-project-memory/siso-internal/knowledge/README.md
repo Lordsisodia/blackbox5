@@ -1,70 +1,28 @@
-# Knowledge Graph
+# Knowledge
 
-This folder contains **Knowledge Graph** memory - semantic understanding and relationships.
+**Purpose:** Document how it works
 
-## Structure
+## Subfolders
 
-```
-knowledge/
-├── entities/            # Knowledge graph nodes
-│   └── {entity-type}/
-│       └── {entity-name}/
-│           └── entity.json
-│               - Entity properties
-│               - Relationships
-│               - Metadata
-│
-├── relationships/       # Entity relationships
-│   └── {relationship-type}/
-│       └── {entities}/
-│           └── relationship.json
-│               - Source entity
-│               - Target entity
-│               - Relationship type
-│               - Properties
-│
-└── embeddings/          # Vector embeddings
-    └── {content-type}/
-        └── {id}.json
-            - Embedding vector
-            - Content hash
-            - Metadata
+- `architecture/` - System architecture
+- `codebase/` - Code patterns
+- `frameworks/` - Framework research
+- `research/` - Research findings
+- `validation/` - Validation results
+- `first_principles/` - First principles analysis
+
+## Quick Navigation
+
+```bash
+ls knowledge/research/
+ls knowledge/architecture/
 ```
 
-## Purpose
+## Research Structure
 
-The knowledge graph provides:
-
-### Semantic Understanding
-- Entity extraction and identification
-- Relationship mapping
-- Contextual connections
-
-### Search
-- Vector-based semantic search
-- Relationship-based traversal
-- Multi-hop reasoning
-
-## Usage
-
-### Creating Entities
-
-```json
-{
-  "id": "entity-1",
-  "type": "component",
-  "name": "UserProfile",
-  "properties": {
-    "file": "src/components/UserProfile.tsx",
-    "language": "typescript"
-  },
-  "relationships": [
-    {"type": "uses", "target": "api-client"},
-    {"type": "rendered_by", "target": "router"}
-  ]
-}
-```
-
-### Vector Search
-
-Use embeddings in `embeddings/` for semantic search.
+Each research folder contains:
+- `STACK.md` - Technology stack
+- `ARCHITECTURE.md` - Architecture
+- `FEATURES.md` - Feature analysis
+- `PITFALLS.md` - Known pitfalls
+- `SUMMARY.md` - Research summary

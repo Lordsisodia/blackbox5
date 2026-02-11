@@ -89,14 +89,14 @@ No issues found.
 **Root Cause:** learning-index.yaml header stated it was "auto-populated by learning_extractor.py" but this library did not exist.
 
 **Files Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py` - Added learning extraction integration
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py` - Added learning extraction integration
 
 **Files Created:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/learning_extractor.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/backfill_learnings.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/check_learning_index.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/README.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/__init__.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/learning_extractor.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/backfill_learnings.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/check_learning_index.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/README.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/__init__.py`
 
 ---
 

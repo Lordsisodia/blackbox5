@@ -20,7 +20,7 @@ When running 6+ Claude Code agents simultaneously:
 The crash prevention system is integrated into Black Box 5's existing architecture:
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── core/
 │   ├── MCPIntegration.py           # MCP server lifecycle management
 │   ├── mcp_crash_prevention.py     # NEW: Crash prevention module

@@ -2,13 +2,13 @@
 
 **Date:** 2026-02-06
 **Tester:** QA Tester
-**Command:** `/Users/shaansisodia/.blackbox5/bin/bb5-complete`
+**Command:** `/Users/shaansisodia/blackbox5/bin/bb5-complete`
 
 ---
 
 ## Executive Summary
 
-**CRITICAL ISSUE:** The `bb5-complete` and `bb5-claim` commands do not exist at the specified location (`/Users/shaansisodia/.blackbox5/bin/`). Testing was performed using content analysis and partial simulation.
+**CRITICAL ISSUE:** The `bb5-complete` and `bb5-claim` commands do not exist at the specified location (`/Users/shaansisodia/blackbox5/bin/`). Testing was performed using content analysis and partial simulation.
 
 ---
 
@@ -33,7 +33,7 @@
 
 ### Output Log
 ```
-[SUCCESS] Moved task to: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-052
+[SUCCESS] Moved task to: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/completed/TASK-ARCH-052
 [SUCCESS] Updated queue.yaml using yq
 [SUCCESS] Updated STATE.yaml
 [SUCCESS] Updated timeline.yaml
@@ -101,15 +101,15 @@ Exit code 3
 
 ### Bug 1: CRITICAL - Commands Missing
 **Severity:** Critical
-**Description:** The `bb5-complete` and `bb5-claim` scripts do not exist at `/Users/shaansisodia/.blackbox5/bin/` despite being referenced in documentation and expected by the test plan.
+**Description:** The `bb5-complete` and `bb5-claim` scripts do not exist at `/Users/shaansisodia/blackbox5/bin/` despite being referenced in documentation and expected by the test plan.
 
 **Evidence:**
 ```bash
-$ ls -la /Users/shaansisodia/.blackbox5/bin/bb5-complete
-ls: /Users/shaansisodia/.blackbox5/bin/bb5-complete: No such file or directory
+$ ls -la /Users/shaansisodia/blackbox5/bin/bb5-complete
+ls: /Users/shaansisodia/blackbox5/bin/bb5-complete: No such file or directory
 
-$ ls -la /Users/shaansisodia/.blackbox5/bin/bb5-claim
-ls: /Users/shaansisodia/.blackbox5/bin/bb5-claim: No such file or directory
+$ ls -la /Users/shaansisodia/blackbox5/bin/bb5-claim
+ls: /Users/shaansisodia/blackbox5/bin/bb5-claim: No such file or directory
 ```
 
 **Impact:** Cannot execute task completion workflow as designed.
@@ -192,7 +192,7 @@ Step 7: Archiving run folder...
 
 - **OS:** Darwin 24.5.0
 - **Shell:** zsh/bash
-- **BlackBox5 Path:** `/Users/shaansisodia/.blackbox5`
+- **BlackBox5 Path:** `/Users/shaansisodia/blackbox5`
 - **Project:** `5-project-memory/blackbox5`
 
 ---

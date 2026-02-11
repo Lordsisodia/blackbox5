@@ -1,0 +1,90 @@
+#!/bin/bash
+# BB5 Remote CLI
+# SSH execution and file transfer (replaces MoltBot MCP)
+
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_discovery.sh"
+
+COMMAND="${1:-list}"
+shift || true
+
+case "$COMMAND" in
+    context)
+        SUBCOMMAND="${1:-current}"
+        shift || true
+        case "$SUBCOMMAND" in
+            list|ls)
+                bb5_remote_context_list
+                ;;
+            current)
+                bb5_remote_context_current
+                ;;
+            use)
+                bb5_remote_context_use "$1"
+                ;;
+            show)
+                bb5_remote_context_show
+                ;;
+            create)
+                bb5_remote_context_create "$@"
+                ;;
+            *)
+                echo "Unknown context command: $SUBCOMMAND"
+                exit 1
+                ;;
+        esac
+        ;;
+    exec)
+        CONTEXT="${1:-}"
+        shift || true
+
+        # Check if first arg is a context or a command
+        if [[ -f "$BB5_DIR/config/bb5-cli/contexts/remote/${CONTEXT}.yaml" ]]; then
+            # It's a context, use it
+            true
+        elif [[ "$CONTEXT" == "-i" || "$CONTEXT" == "--interactive" ]]; then
+            # Interactive mode with current context
+            CONTEXT=$(bb5_remote_context_current)
+            HOST=$(bb5_remote_get_context_value "host" "$CONTEXT")
+            USER=$(bb5_remote_get_context_value "user" "$CONTEXT")
+            SSH_KEY=$(bb5_remote_get_context_value "ssh_key" "$CONTEXT")
+            exec ssh -i "$SSH_KEY" "${USER}@${HOST}"
+        else
+            # It's a command, use current context
+            COMMAND_TO_RUN="$CONTEXT"
+            CONTEXT=$(bb5_remote_context_current)
+            bb5_remote_exec_with_context "$CONTEXT" "$COMMAND_TO_RUN"
+            exit $?
+        fi
+
+        COMMAND_TO_RUN="$1"
+        bb5_remote_exec_with_context "$CONTEXT" "$COMMAND_TO_RUN"
+        ;;
+    transfer)
+        # File transfer implementation
+        echo "Transfer not yet implemented"
+        ;;
+    ralf)
+        CONTEXT="${1:-}"
+        shift || true
+        RALF_CMD="${1:-status}"
+        RALF_PATH=$(bb5_remote_get_context_value "ralf_path" "$CONTEXT")
+        bb5_remote_exec_with_context "$CONTEXT" "cd $RALF_PATH && ./bin/ralf $RALF_CMD"
+        ;;
+    claw)
+        CONTEXT="${1:-}"
+        shift || true
+        CLAW_CMD="$*"
+        bb5_remote_exec_with_context "$CONTEXT" "openclaw $CLAW_CMD"
+        ;;
+    list|ls)
+        bb5_discover_category "remote"
+        ;;
+    *)
+        echo "Unknown command: $COMMAND"
+        bb5_discover_category "remote"
+        exit 1
+        ;;
+esac

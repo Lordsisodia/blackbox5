@@ -29,7 +29,7 @@ Create the `bb5-watch` daemon for continuous 24/7 monitoring with Telegram alert
 ## Implementation Plan
 
 ### Step 1: Daemon Architecture (5K tokens)
-Create `~/.blackbox5/bin/bb5-watch`:
+Create `~/blackbox5/bin/bb5-watch`:
 
 ```python
 #!/usr/bin/env python3
@@ -67,7 +67,7 @@ def config():
 ```
 
 ### Step 2: Configuration System (6K tokens)
-Create `~/.blackbox5/config/watch-config.yaml`:
+Create `~/blackbox5/config/watch-config.yaml`:
 
 ```yaml
 daemon:
@@ -111,13 +111,13 @@ alerts:
 
 logging:
   level: INFO
-  file: ~/.blackbox5/.autonomous/health/watch.log
+  file: ~/blackbox5/.autonomous/health/watch.log
   max_size_mb: 100
   backup_count: 5
 ```
 
 ### Step 3: Alert Manager (8K tokens)
-Create `~/.blackbox5/bin/lib/health_monitor/alerts.py`:
+Create `~/blackbox5/bin/lib/health_monitor/alerts.py`:
 
 ```python
 class AlertManager:
@@ -164,7 +164,7 @@ Run: bb5-health --component agents
 ```
 
 ### Step 4: Monitoring Loop (10K tokens)
-Create `~/.blackbox5/bin/lib/health_monitor/daemon.py`:
+Create `~/blackbox5/bin/lib/health_monitor/daemon.py`:
 
 ```python
 class MonitoringDaemon:
@@ -221,7 +221,7 @@ class MonitoringDaemon:
 
 ### Step 5: Process Management (6K tokens)
 Handle daemon lifecycle:
-- PID file at `/var/run/bb5-watch.pid` or `~/.blackbox5/.autonomous/health/watch.pid`
+- PID file at `/var/run/bb5-watch.pid` or `~/blackbox5/.autonomous/health/watch.pid`
 - Signal handlers for graceful shutdown (SIGTERM, SIGINT)
 - Status command reads PID file and checks process
 - Stop command sends SIGTERM
@@ -238,10 +238,10 @@ After=network.target
 [Service]
 Type=simple
 User=shaansisodia
-WorkingDirectory=/Users/shaansisodia/.blackbox5
-Environment=PYTHONPATH=/Users/shaansisodia/.blackbox5/bin/lib
-EnvironmentFile=/Users/shaansisodia/.blackbox5/config/watch.env
-ExecStart=/Users/shaansisodia/.blackbox5/bin/bb5-watch start --foreground
+WorkingDirectory=/Users/shaansisodia/blackbox5
+Environment=PYTHONPATH=/Users/shaansisodia/blackbox5/bin/lib
+EnvironmentFile=/Users/shaansisodia/blackbox5/config/watch.env
+ExecStart=/Users/shaansisodia/blackbox5/bin/bb5-watch start --foreground
 Restart=on-failure
 RestartSec=5s
 
@@ -259,12 +259,12 @@ WantedBy=multi-user.target
 
 ## Files to Create
 
-1. `~/.blackbox5/bin/bb5-watch` (executable)
-2. `~/.blackbox5/bin/lib/health_monitor/alerts.py`
-3. `~/.blackbox5/bin/lib/health_monitor/daemon.py`
-4. `~/.blackbox5/config/watch-config.yaml` (template)
-5. `~/.blackbox5/config/watch-config.example.yaml` (documentation)
-6. `~/.blackbox5/.autonomous/health/` (directory for DB and logs)
+1. `~/blackbox5/bin/bb5-watch` (executable)
+2. `~/blackbox5/bin/lib/health_monitor/alerts.py`
+3. `~/blackbox5/bin/lib/health_monitor/daemon.py`
+4. `~/blackbox5/config/watch-config.yaml` (template)
+5. `~/blackbox5/config/watch-config.example.yaml` (documentation)
+6. `~/blackbox5/.autonomous/health/` (directory for DB and logs)
 7. `/etc/systemd/system/bb5-watch.service` (systemd file)
 
 ---

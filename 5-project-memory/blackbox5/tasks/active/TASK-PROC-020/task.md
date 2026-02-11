@@ -36,8 +36,8 @@ Multiple tasks exist for the same work. For example:
 - `TASK-1738375000` and `TASK-DEV-010-cli-interface-f016` are duplicates
 
 **Files Created/Modified:**
-- `/Users/shaansisodia/.blackbox5/bin/detect-duplicate-tasks.py` - Duplicate detection script
-- `/Users/shaansisodia/.blackbox5/bin/bb5-tools/bb5-create` - Added duplicate check to task creation
+- `/Users/shaansisodia/blackbox5/bin/detect-duplicate-tasks.py` - Duplicate detection script
+- `/Users/shaansisodia/blackbox5/bin/bb5-tools/bb5-create` - Added duplicate check to task creation
 
 ---
 
@@ -45,7 +45,7 @@ Multiple tasks exist for the same work. For example:
 
 ### 1. Duplicate Detection Script
 
-Created `/Users/shaansisodia/.blackbox5/bin/detect-duplicate-tasks.py` with the following features:
+Created `/Users/shaansisodia/blackbox5/bin/detect-duplicate-tasks.py` with the following features:
 
 **Detection Algorithms:**
 - Exact title match (after normalization)

@@ -1,0 +1,25 @@
+---
+id: "TASK-HOOK-002"
+title: "Create SessionStart Hook for Auto-Claiming Tasks"
+status: "pending"
+priority: "critical"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-HOOK-INFRA-001"
+phase: "Phase 2"
+
+# Task Details
+description: |
+  Create a SessionStart hook that automatically claims the next pending task
+  from the queue and updates its status to in_progress.
+
+acceptance_criteria:
+  - Hook runs on every session start
+  - Reads from task queue (tasks/active/)
+  - Claims highest priority pending task
+  - Updates task status to in_progress
+  - Logs claim to events.yaml
+
+estimated_hours: 6

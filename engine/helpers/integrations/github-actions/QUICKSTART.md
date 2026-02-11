@@ -186,7 +186,7 @@ if __name__ == "__main__":
 echo $GITHUB_TOKEN
 
 # Run the interactive demo
-python .blackbox5/integration/github-actions/demo.py
+python blackbox5/integration/github-actions/demo.py
 ```
 
 ## Tips

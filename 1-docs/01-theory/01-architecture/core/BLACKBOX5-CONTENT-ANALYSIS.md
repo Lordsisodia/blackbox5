@@ -20,7 +20,7 @@ BlackBox5 is a **multi-agent orchestration engine with 52 skills, persistent mem
 ### A. Core Engine Components
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── core/                    # Core infrastructure (24 files)
 │   ├── Orchestrator.py      # Multi-agent coordination
 │   ├── task_router.py       # Task routing and delegation
@@ -73,7 +73,7 @@ BlackBox5 is a **multi-agent orchestration engine with 52 skills, persistent mem
 
 **Storage Structure**:
 ```
-.blackbox5/data/memory/
+blackbox5/data/memory/
 ├── agent-1/
 │   ├── sessions.json    # Execution history
 │   ├── insights.json    # Learned insights

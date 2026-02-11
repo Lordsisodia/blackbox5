@@ -252,10 +252,10 @@ This plan coordinates **7 sub-tasks (ARCH-061 through ARCH-067)** that must exec
 ### Emergency Full Rollback
 ```bash
 # Restore routes.yaml
-cp /backup/routes.yaml.backup.* /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml
+cp /backup/routes.yaml.backup.* /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml
 
 # Restore scripts to engine
-cp /backup/engine-bin/* /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/
+cp /backup/engine-bin/* /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/
 
 # Remove path library usage (revert to hardcoded)
 git checkout HEAD -- 2-engine/.autonomous/bin/*.py
@@ -302,9 +302,9 @@ Day 12-14: Integration testing, bug fixes, documentation
 
 ## 11. Related Documents
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/engine-project-split-analysis.md` - Full analysis
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - Project routes (to fix)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/` - Engine scripts (to migrate)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/engine-project-split-analysis.md` - Full analysis
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - Project routes (to fix)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/` - Engine scripts (to migrate)
 
 ---
 
@@ -312,14 +312,14 @@ Day 12-14: Integration testing, bug fixes, documentation
 
 | Task | Directory | Key Files |
 |------|-----------|-----------|
-| ARCH-060 (this) | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-060-engine-project-boundary/` | PLAN.md, task.md |
-| ARCH-061 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-061-migrate-engine-scripts/` | task.md |
-| ARCH-062 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-062-consolidate-prompts/` | task.md |
-| ARCH-063 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-063-standardize-project-content/` | task.md |
-| ARCH-064 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-064-fix-routes-yaml/` | task.md |
-| ARCH-065 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-065-create-path-library/` | task.md |
-| ARCH-066 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-066-unify-communication/` | task.md |
-| ARCH-067 | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-067-decouple-agents/` | task.md |
+| ARCH-060 (this) | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-060-engine-project-boundary/` | PLAN.md, task.md |
+| ARCH-061 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-061-migrate-engine-scripts/` | task.md |
+| ARCH-062 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-062-consolidate-prompts/` | task.md |
+| ARCH-063 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-063-standardize-project-content/` | task.md |
+| ARCH-064 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-064-fix-routes-yaml/` | task.md |
+| ARCH-065 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-065-create-path-library/` | task.md |
+| ARCH-066 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-066-unify-communication/` | task.md |
+| ARCH-067 | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-ARCH-067-decouple-agents/` | task.md |
 
 ---
 

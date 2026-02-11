@@ -355,7 +355,7 @@ fi
 ### 4.1 Library Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── bin/                    # CLI commands
 │   ├── bb5-task
 │   ├── bb5-goal
@@ -430,7 +430,7 @@ bb5_priority_color() {
 
 # Get project root
 bb5_project_root() {
-    echo "${BB5_PROJECT_ROOT:-$HOME/.blackbox5}"
+    echo "${BB5_PROJECT_ROOT:-$HOME/blackbox5}"
 }
 
 # Get BlackBox5 directory
@@ -704,7 +704,7 @@ fi
 
 ### 7.1 Phase 1: Library Creation (Immediate)
 
-1. Create `~/.blackbox5/lib/` directory
+1. Create `~/blackbox5/lib/` directory
 2. Create shared libraries:
    - `bb5_colors.sh`
    - `bb5_utils.sh`
@@ -740,7 +740,7 @@ fi
 
 All CLI commands live in:
 ```
-~/.blackbox5/bin/
+~/blackbox5/bin/
 ├── bb5-task
 ├── bb5-goal
 ├── bb5-plan
@@ -757,7 +757,7 @@ All CLI commands live in:
 ### 8.2 Shared Libraries
 
 ```
-~/.blackbox5/lib/
+~/blackbox5/lib/
 ├── bb5_colors.sh
 ├── bb5_utils.sh
 ├── bb5_context.sh
@@ -769,7 +769,7 @@ All CLI commands live in:
 ### 8.3 Configuration
 
 ```
-~/.blackbox5/5-project-memory/blackbox5/
+~/blackbox5/5-project-memory/blackbox5/
 ├── .autonomous/
 │   ├── agents/communications/queue.yaml
 │   └── hooks/

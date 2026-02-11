@@ -52,7 +52,7 @@ _Add notes as you work on this task_
 **Completed:** 2026-02-05
 
 **What was done:**
-- Found dry_run.sh library at `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/dry_run.sh`
+- Found dry_run.sh library at `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/dry_run.sh`
 - Added source line to all 11 bb5 command scripts:
   - bb5-create
   - bb5-discover-context

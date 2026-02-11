@@ -61,7 +61,7 @@ You are RALF-Executor operating on BlackBox5. Environment variables:
 **6. Code Import Verification (for Python files):**
    - For EVERY Python module claimed, you MUST run:
    ```bash
-   cd /Users/shaansisodia/.blackbox5
+   cd /Users/shaansisodia/blackbox5
    python3 -c "import sys; sys.path.insert(0, '2-engine/.autonomous/lib'); from [module] import [main_class]" 2>&1
    ```
    - Must exit with code 0 (no errors)
@@ -122,7 +122,7 @@ grep -r "[task keyword]" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/n
 grep -r "[task keyword]" $RALF_PROJECT_DIR/tasks/completed/ 2>/dev/null | head -3
 
 # 3. Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
 
 # 4. Verify target files exist
 ls -la [target paths] 2>/dev/null
@@ -230,7 +230,7 @@ For EVERY file you claim to have created:
 
 ```bash
 echo "=== VERIFICATION: File Existence ==="
-ls -la /Users/shaansisodia/.blackbox5/[claimed_file_path] 2>&1 || echo "FAILED: [filename] does not exist"
+ls -la /Users/shaansisodia/blackbox5/[claimed_file_path] 2>&1 || echo "FAILED: [filename] does not exist"
 ```
 
 **Rule:** If any claimed file doesn't exist, the task is NOT complete.
@@ -241,7 +241,7 @@ For EVERY Python module created:
 
 ```bash
 echo "=== VERIFICATION: Python Imports ==="
-cd /Users/shaansisodia/.blackbox5
+cd /Users/shaansisodia/blackbox5
 python3 -c "
 import sys
 sys.path.insert(0, '2-engine/.autonomous/lib')
@@ -381,7 +381,7 @@ python3 $RALF_ENGINE_DIR/lib/roadmap_sync.py both \
   $RALF_PROJECT_DIR/.autonomous/tasks/completed/[TASK-FILE]
 
 # Commit changes
-cd ~/.blackbox5
+cd ~/blackbox5
 git add -A
 git commit -m "executor: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
 git push origin main
@@ -472,7 +472,7 @@ git push origin main
 ## Verification Evidence
 ### File Existence Check
 ```bash
-$ ls -la /Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/review_engine.py
+$ ls -la /Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/review_engine.py
 -rw-r--r-- 1 user staff 15432 Feb 1 14:32 review_engine.py
 ```
 

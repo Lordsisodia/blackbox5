@@ -159,7 +159,7 @@ python3 2-engine/.autonomous/lib/config_manager.py
 ## Success Criteria (From Task)
 
 ### Must-Have (Required for completion)
-- [x] Configuration file loads from ~/.blackbox5/config.yaml
+- [x] Configuration file loads from ~/blackbox5/config.yaml
 - [x] ConfigManager library provides load, validate, get, set operations
 - [x] Default configuration provided (2-engine/.autonomous/config/default.yaml)
 - [x] Skill invocation threshold configurable (0-100)

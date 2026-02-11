@@ -23,7 +23,7 @@
 
 ### What Works ✅
 ```
-.blackbox5/engine/interface/spec_driven/
+blackbox5/engine/interface/spec_driven/
 ├── prd_agent.py      (643 lines) - Creates PRDs
 ├── epic_agent.py     (1314 lines) - Generates Epics from PRDs
 └── task_agent.py     (857 lines) - Breaks down Epics into Tasks
@@ -31,7 +31,7 @@
 
 ### What's Missing ❌
 ```
-.blackbox5/engine/task_management/    (DOESN'T EXIST)
+blackbox5/engine/task_management/    (DOESN'T EXIST)
 ├── local_database.py                 (Need this)
 ├── workflow_router.py                (Need this)
 └── task_sync.py                      (Need this)
@@ -39,7 +39,7 @@
 
 ### CLI Commands - Partial ✅
 ```
-.blackbox5/cli/commands/
+blackbox5/cli/commands/
 └── task_commands.py (492 lines) - Has task:create, validate, list, show
 ```
 
@@ -56,7 +56,7 @@ But missing:
 
 **Files to Create**:
 ```
-.blackbox5/engine/task_management/
+blackbox5/engine/task_management/
 ├── __init__.py
 ├── models.py          # TaskCategory, LocalTask, TaskStatus
 ├── database.py        # LocalTaskDatabase class
@@ -309,7 +309,7 @@ class LocalTaskDatabase:
 ### Phase 2: Local Task CLI Commands (Day 1)
 **Goal**: Interact with local database from command line
 
-**File**: `.blackbox5/cli/commands/local_task_commands.py`
+**File**: `blackbox5/cli/commands/local_task_commands.py`
 
 ```python
 import argparse
@@ -554,7 +554,7 @@ class TasksPromoteCommand(BaseCommand):
 ### Phase 3: Adaptive Workflow Router (Day 2)
 **Goal**: Auto-classify tasks by complexity for appropriate workflow
 
-**File**: `.blackbox5/engine/task_management/workflow_router.py`
+**File**: `blackbox5/engine/task_management/workflow_router.py`
 
 ```python
 from typing import Dict, Any
@@ -710,20 +710,20 @@ class WorkflowRouter:
 ### Step 1: Create Directory Structure (5 min)
 ```bash
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-mkdir -p .blackbox5/engine/task_management
-mkdir -p .blackbox5/tasks
-touch .blackbox5/engine/task_management/__init__.py
+mkdir -p blackbox5/engine/task_management
+mkdir -p blackbox5/tasks
+touch blackbox5/engine/task_management/__init__.py
 ```
 
 ### Step 2: Create the Files (2-3 hours)
 Create these files with the code above:
-1. `.blackbox5/engine/task_management/models.py`
-2. `.blackbox5/engine/task_management/database.py`
-3. `.blackbox5/engine/task_management/workflow_router.py`
-4. `.blackbox5/cli/commands/local_task_commands.py`
+1. `blackbox5/engine/task_management/models.py`
+2. `blackbox5/engine/task_management/database.py`
+3. `blackbox5/engine/task_management/workflow_router.py`
+4. `blackbox5/cli/commands/local_task_commands.py`
 
 ### Step 3: Register Commands (5 min)
-Edit `.blackbox5/cli/main.py` to include:
+Edit `blackbox5/cli/main.py` to include:
 ```python
 from commands.local_task_commands import (
     TasksAddCommand,

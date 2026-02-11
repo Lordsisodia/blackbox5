@@ -161,7 +161,7 @@ The infrastructure is in place:
 ## 📁 Files Created
 
 ```
-.blackbox5/engine/runtime/ralph/
+blackbox5/engine/runtime/ralph/
 ├── __init__.py
 ├── __main__.py                     # CLI entry point
 ├── ralph_runtime.py                # Main autonomous loop
@@ -172,7 +172,7 @@ The infrastructure is in place:
 ├── start-framework-research.sh     # Test script
 └── test-vibe-integration.sh        # Integration tests
 
-.blackbox5/
+blackbox5/
 ├── __init__.py
 ├── engine/__init__.py
 └── engine/runtime/__init__.py     # Module structure

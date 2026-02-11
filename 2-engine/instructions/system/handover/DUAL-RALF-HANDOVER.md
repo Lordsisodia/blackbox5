@@ -205,21 +205,21 @@ bin/
 
 ```bash
 # Option 1: Start both agents with tmux
-~/.blackbox5/bin/ralf-dual
+~/blackbox5/bin/ralf-dual
 
 # Option 2: Start individually (in separate terminals)
-~/.blackbox5/bin/ralf-planner
-~/.blackbox5/bin/ralf-executor
+~/blackbox5/bin/ralf-planner
+~/blackbox5/bin/ralf-executor
 
 # Option 3: Start with specific model
-MODEL=claude-opus-4 ~/.blackbox5/bin/ralf-dual
+MODEL=claude-opus-4 ~/blackbox5/bin/ralf-dual
 ```
 
 ### Stopping the System
 
 ```bash
 # Stop both agents
-~/.blackbox5/bin/ralf-dual --stop
+~/blackbox5/bin/ralf-dual --stop
 
 # Or manually
 pkill -f "ralf-planner"
@@ -230,13 +230,13 @@ pkill -f "ralf-executor"
 
 ```bash
 # Watch queue depth
-watch -n 5 'cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml | grep -c "status: pending"'
+watch -n 5 'cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml | grep -c "status: pending"'
 
 # Watch events
-watch -n 5 'cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/events.yaml'
+watch -n 5 'cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/events.yaml'
 
 # Check heartbeats
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/heartbeat.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/heartbeat.yaml
 
 # View tmux sessions
 tmux ls
@@ -315,10 +315,10 @@ Both agents run research before acting:
 
 ```bash
 # Check for duplicate tasks
-grep -r "[task keyword]" ~/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/ 2>/dev/null | head -5
+grep -r "[task keyword]" ~/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/ 2>/dev/null | head -5
 
 # Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
 
 # Verify target paths exist
 ls -la [target paths] 2>/dev/null
@@ -585,22 +585,22 @@ If both agents try to write same file:
 
 ### Start the system
 ```bash
-~/.blackbox5/bin/ralf-dual
+~/blackbox5/bin/ralf-dual
 ```
 
 ### Check status
 ```bash
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/heartbeat.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/heartbeat.yaml
 ```
 
 ### View queue
 ```bash
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/queue.yaml
 ```
 
 ### View recent events
 ```bash
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/events.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/events.yaml
 ```
 
 ### Attach to tmux session
@@ -610,7 +610,7 @@ tmux attach -t ralf-planner   # or ralf-executor
 
 ### Read current STATE
 ```bash
-cat ~/.blackbox5/5-project-memory/blackbox5/STATE.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/STATE.yaml
 ```
 
 ---

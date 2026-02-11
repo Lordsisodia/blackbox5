@@ -1,6 +1,6 @@
 # Pre-Execution Validation Guide
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/validation-checklist.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/validation-checklist.yaml`
 
 ## Purpose
 
@@ -12,20 +12,20 @@ Prevent wasted work on duplicate tasks and invalid assumptions by running a stan
 
 ```bash
 # Source the validation functions
-source ~/.blackbox5/5-project-memory/blackbox5/bin/validate-task
+source ~/blackbox5/5-project-memory/blackbox5/bin/validate-task
 
 # Run validation for a task file
-validate-task ~/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/TASK-xxx.md
+validate-task ~/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/TASK-xxx.md
 ```
 
 ### Quick Checks
 
 ```bash
 # Check for duplicate tasks
-grep -r "keyword" ~/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/
+grep -r "keyword" ~/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/
 
 # Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "keyword"
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "keyword"
 
 # Verify paths exist
 ls -la /path/to/check
@@ -114,7 +114,7 @@ grep -r "[task keyword]" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/n
 grep -r "[task keyword]" $RALF_PROJECT_DIR/tasks/completed/ 2>/dev/null | head -3
 
 # 2. Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
 
 # 3. Verify target files exist
 ls -la [target paths] 2>/dev/null

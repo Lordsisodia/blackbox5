@@ -9,9 +9,9 @@ Comprehensive integration tests for:
 - Full lifecycle testing
 
 Run with:
-    python .blackbox5/tests/test_agent_integration.py
+    python blackbox5/tests/test_agent_integration.py
     or
-    pytest .blackbox5/tests/test_agent_integration.py -v
+    pytest blackbox5/tests/test_agent_integration.py -v
 """
 
 import asyncio

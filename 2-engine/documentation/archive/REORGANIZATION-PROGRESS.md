@@ -278,7 +278,7 @@ from blackbox5.engine.integrations.github import GitHubManager
 
 ## Contact & Context
 
-- **Working Directory**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/2-engine/`
+- **Working Directory**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/2-engine/`
 - **Repository**: SISO-ECOSYSTEM/SISO-INTERNAL
 - **Branch**: master (check git status before continuing)
 - **Last Action**: Completed 04-work reorganization

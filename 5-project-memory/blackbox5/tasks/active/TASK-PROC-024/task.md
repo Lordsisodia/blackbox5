@@ -37,8 +37,8 @@ Create a validation system that ensures tasks marked as complete actually meet s
 5. Results section is populated
 
 **Files Created/Modified:**
-- `~/.blackbox5/bin/validate-task-completion.sh` - Standalone validation script
-- `~/.blackbox5/bin/ralf-tools/ralf-stop-hook.sh` - Enhanced with content validation
+- `~/blackbox5/bin/validate-task-completion.sh` - Standalone validation script
+- `~/blackbox5/bin/ralf-tools/ralf-stop-hook.sh` - Enhanced with content validation
 
 ---
 
@@ -55,7 +55,7 @@ If changes cause issues:
 
 Successfully implemented task completion validation:
 
-1. **Created validation script** (`~/.blackbox5/bin/validate-task-completion.sh`):
+1. **Created validation script** (`~/blackbox5/bin/validate-task-completion.sh`):
    - Validates status is 'completed'
    - Checks all success criteria are marked complete
    - Verifies LEARNINGS.md exists with meaningful content (>0 substantive lines)

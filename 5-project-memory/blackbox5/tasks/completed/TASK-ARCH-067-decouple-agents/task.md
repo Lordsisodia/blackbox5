@@ -20,7 +20,7 @@ Scout analysis found tight coupling:
 ### 1. Hardcoded Paths (CRITICAL)
 ```python
 # Current (in all 6 agent scripts)
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 
 # Should be
 PROJECT_DIR = get_project_path()  # From config or parameter
@@ -48,7 +48,7 @@ skill_metrics = load(config.skill_metrics_path)  # Configurable
 ### 4. Communication Coupling (MEDIUM)
 ```python
 # Current
-events_file = "~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml"
+events_file = "~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml"
 
 # Should be
 events_file = config.communication.events_path

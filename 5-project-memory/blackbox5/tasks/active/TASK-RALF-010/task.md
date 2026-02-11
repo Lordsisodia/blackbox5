@@ -262,14 +262,14 @@ def load_scout_report(self) -> bool:
 ## Implementation Summary
 
 ### Created Files
-1. **`/Users/shaansisodia/.blackbox5/2-engine/helpers/legacy/error_handler.sh`** - Comprehensive error handling library
+1. **`/Users/shaansisodia/blackbox5/2-engine/helpers/legacy/error_handler.sh`** - Comprehensive error handling library
 
 ### Updated Files
-1. **`/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-task-select.sh`** - Added graceful handling for missing queue.yaml, events.yaml, heartbeat.yaml
-2. **`/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-planner-queue.sh`** - Added graceful handling for missing storage backend, tasks directory
-3. **`/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-verifier.sh`** - Added graceful handling for missing events.yaml, runs directory
-4. **`/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-post-tool-hook.sh`** - Added graceful handling for missing events.yaml
-5. **`/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-stop-hook.sh`** - Added graceful handling for missing queue.yaml, events.yaml
+1. **`/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-task-select.sh`** - Added graceful handling for missing queue.yaml, events.yaml, heartbeat.yaml
+2. **`/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-planner-queue.sh`** - Added graceful handling for missing storage backend, tasks directory
+3. **`/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-verifier.sh`** - Added graceful handling for missing events.yaml, runs directory
+4. **`/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-post-tool-hook.sh`** - Added graceful handling for missing events.yaml
+5. **`/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-stop-hook.sh`** - Added graceful handling for missing queue.yaml, events.yaml
 
 ### Error Handler Library Features
 - **Logging Functions**: `eh_log_debug`, `eh_log_info`, `eh_log_warning`, `eh_log_error`

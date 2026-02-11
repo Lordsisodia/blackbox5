@@ -95,7 +95,7 @@ Without these capabilities, the skills system is:
 - Manual skill selection required
 
 **Locations:**
-- `.blackbox5/engine/capabilities/skills/`
+- `blackbox5/engine/capabilities/skills/`
 - SKILLS-REGISTRY.md
 
 **Categories:**

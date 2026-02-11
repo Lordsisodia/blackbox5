@@ -9,7 +9,7 @@
 
 ## Changes Made
 
-### File Modified: `/Users/shaansisodia/.blackbox5/6-roadmap/STATE.yaml`
+### File Modified: `/Users/shaansisodia/blackbox5/6-roadmap/STATE.yaml`
 
 **Changes:**
 1. Updated `system.updated` to "2026-01-31T19:32:00Z"

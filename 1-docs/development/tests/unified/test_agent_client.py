@@ -6,7 +6,7 @@ Tests for the AgentClient module adapted from Auto-Claude.
 
 Run with:
     cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-    python -m pytest .blackbox5/tests/test_agent_client.py -v
+    python -m pytest blackbox5/tests/test_agent_client.py -v
 """
 
 import json

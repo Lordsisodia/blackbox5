@@ -2,7 +2,7 @@
 
 **Analyst:** Edge Case Analysis Expert
 **Date:** 2026-02-06
-**Design Under Review:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md`
+**Design Under Review:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/TASK_CLAIM_HOOK_DESIGN.md`
 **Status:** CRITICAL ISSUES FOUND - Design requires hardening before implementation
 
 ---

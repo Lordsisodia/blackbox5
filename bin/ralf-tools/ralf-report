@@ -4,7 +4,7 @@
 
 set -e
 
-BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"
+BLACKBOX5_DIR="/Users/shaansisodia/blackbox5"
 LOG_INGESTOR="$BLACKBOX5_DIR/2-engine/helpers/legacy/log_ingestor.py"
 REPORTS_DIR="$BLACKBOX5_DIR/5-project-memory/blackbox5/knowledge/ralf-patterns/reports"
 

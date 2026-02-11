@@ -503,7 +503,7 @@ This research provides a solid foundation for implementing agent memory systems 
 
 ### File Structure
 ```
-.blackbox5/roadmap/01-research/memory-context/
+blackbox5/roadmap/01-research/memory-context/
 ├── iterative-research-findings.md    # Comprehensive analysis (15K words)
 ├── implementation-quickstart.md       # Actionable guide (8K words)
 └── RESEARCH-SUMMARY.md                # This document (executive overview)

@@ -7,7 +7,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
 ## Files Created
 
 ### Core Implementation
-- **`.blackbox5/engine/core/Orchestrator.py`** (1,100+ lines)
+- **`blackbox5/engine/core/Orchestrator.py`** (1,100+ lines)
   - `AgentOrchestrator` class with full lifecycle management
   - Unique agent ID generation with type-based counters
   - Sequential and parallel workflow execution
@@ -16,7 +16,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
   - Integration with BlackBox5 EventBus and TaskRouter
 
 ### Tests
-- **`.blackbox5/tests/test_orchestrator.py`** (800+ lines)
+- **`blackbox5/tests/test_orchestrator.py`** (800+ lines)
   - 35+ test cases covering all functionality
   - Agent lifecycle tests
   - Workflow execution tests
@@ -26,7 +26,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
   - Integration tests
 
 ### Documentation
-- **`.blackbox5/engine/core/ORCHESTRATOR_README.md`** (500+ lines)
+- **`blackbox5/engine/core/ORCHESTRATOR_README.md`** (500+ lines)
   - Comprehensive usage guide
   - API reference
   - Best practices
@@ -34,7 +34,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
   - Comparison with Auto-Claude
 
 ### Examples
-- **`.blackbox5/examples/orchestrator_demo.py`** (300+ lines)
+- **`blackbox5/examples/orchestrator_demo.py`** (300+ lines)
   - 7 demonstration scenarios
   - Basic agent management
   - Sequential workflows
@@ -53,7 +53,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
 
 ### 2. Persistent Memory ✅
 - **Per-agent storage**: Each agent gets its own memory file
-- **JSON-based**: Simple, readable storage in `.blackbox5/agent_memory/`
+- **JSON-based**: Simple, readable storage in `blackbox5/agent_memory/`
 - **Automatic persistence**: Memory saved on agent stop
 - **Reload capability**: Memory restored when restarting with same ID
 
@@ -286,7 +286,7 @@ All success criteria have been met:
 
 ```bash
 # Navigate to examples directory
-cd .blackbox5/examples
+cd blackbox5/examples
 
 # Run the demo
 python orchestrator_demo.py
@@ -304,7 +304,7 @@ python orchestrator_demo.py
 
 ```bash
 # Navigate to tests directory
-cd .blackbox5/tests
+cd blackbox5/tests
 
 # Run all orchestrator tests
 python -m pytest test_orchestrator.py -v
@@ -333,14 +333,14 @@ The orchestrator is ready for integration with real agent implementations and ca
 ## Files Reference
 
 ### Implementation Files
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/Orchestrator.py`
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/__init__.py` (updated)
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/Orchestrator.py`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/__init__.py` (updated)
 
 ### Test Files
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/test_orchestrator.py`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/test_orchestrator.py`
 
 ### Documentation Files
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/ORCHESTRATOR_README.md`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/ORCHESTRATOR_README.md`
 
 ### Example Files
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/orchestrator_demo.py`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/orchestrator_demo.py`

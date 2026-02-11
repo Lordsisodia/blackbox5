@@ -10,7 +10,7 @@
 
 ### Core Implementation
 
-1. **`.blackbox5/engine/core/manifest.py`** (8,312 bytes)
+1. **`blackbox5/engine/core/manifest.py`** (8,312 bytes)
    - `ManifestStatus` enum (PENDING, IN_PROGRESS, COMPLETED, FAILED)
    - `ManifestStep` dataclass (step tracking)
    - `Manifest` dataclass (complete operation record)
@@ -25,27 +25,27 @@
      - `_save_manifest()` - Save to markdown file
      - `_format_manifest()` - Format as markdown
 
-2. **`.blackbox5/engine/runtime/view-manifest.sh`** (5,191 bytes, executable)
+2. **`blackbox5/engine/runtime/view-manifest.sh`** (5,191 bytes, executable)
    - List recent manifests with status indicators
    - View specific manifest by ID
    - Parse metadata from markdown files
    - Display manifest details
    - Error handling for missing manifests
 
-3. **`.blackbox5/engine/scratch/manifests/.gitkeep`**
+3. **`blackbox5/engine/scratch/manifests/.gitkeep`**
    - Creates manifests directory
    - Stores generated manifest files
 
 ### Documentation
 
-4. **`.blackbox5/engine/core/MANIFEST-README.md`**
+4. **`blackbox5/engine/core/MANIFEST-README.md`**
    - Complete API documentation
    - Usage examples
    - Integration guide
    - Best practices
    - CLI tool reference
 
-5. **`.blackbox5/engine/core/test_manifest.py`**
+5. **`blackbox5/engine/core/test_manifest.py`**
    - Demonstration script
    - Shows basic usage
    - Creates sample manifest
@@ -53,7 +53,7 @@
 
 ### Integration
 
-6. **Updated `.blackbox5/engine/core/__init__.py`**
+6. **Updated `blackbox5/engine/core/__init__.py`**
    - Exported manifest components
    - Added to `__all__` list
    - Available as `from blackbox5.engine.core import ManifestSystem`
@@ -79,20 +79,20 @@
 ### CLI Tool
 ```bash
 # List recent manifests
-.blackbox5/engine/runtime/view-manifest.sh
+blackbox5/engine/runtime/view-manifest.sh
 
 # View specific manifest
-.blackbox5/engine/runtime/view-manifest.sh <manifest_id>
+blackbox5/engine/runtime/view-manifest.sh <manifest_id>
 
 # List all manifests
-.blackbox5/engine/runtime/view-manifest.sh --all
+blackbox5/engine/runtime/view-manifest.sh --all
 ```
 
 ## Testing
 
 Run the test script to see it in action:
 ```bash
-python3 .blackbox5/engine/core/test_manifest.py
+python3 blackbox5/engine/core/test_manifest.py
 ```
 
 Sample output:
@@ -107,33 +107,33 @@ Sample output:
 ### Files Created
 ```bash
 # Core implementation
-.blackbox5/engine/core/manifest.py ✓
+blackbox5/engine/core/manifest.py ✓
 
 # CLI tool
-.blackbox5/engine/runtime/view-manifest.sh ✓
+blackbox5/engine/runtime/view-manifest.sh ✓
 
 # Storage directory
-.blackbox5/engine/scratch/manifests/.gitkeep ✓
+blackbox5/engine/scratch/manifests/.gitkeep ✓
 
 # Documentation
-.blackbox5/engine/core/MANIFEST-README.md ✓
+blackbox5/engine/core/MANIFEST-README.md ✓
 
 # Test script
-.blackbox5/engine/core/test_manifest.py ✓
+blackbox5/engine/core/test_manifest.py ✓
 
 # Integration
-.blackbox5/engine/core/__init__.py (updated) ✓
+blackbox5/engine/core/__init__.py (updated) ✓
 ```
 
 ### Generated Manifest
 ```
-.blackbox5/scratch/manifests/a753abac-e158-4499-a06f-9154b6ba76e9.md ✓
+blackbox5/scratch/manifests/a753abac-e158-4499-a06f-9154b6ba76e9.md ✓
 ```
 
 ### CLI Tool Working
 ```bash
-.blackbox5/engine/runtime/view-manifest.sh ✓
-.blackbox5/engine/runtime/view-manifest.sh a753abac... ✓
+blackbox5/engine/runtime/view-manifest.sh ✓
+blackbox5/engine/runtime/view-manifest.sh a753abac... ✓
 ```
 
 ## Usage Example
@@ -160,7 +160,7 @@ manifest_system.complete_manifest(manifest, {"success": True})
 
 ## Storage
 
-- **Directory:** `.blackbox5/scratch/manifests/`
+- **Directory:** `blackbox5/scratch/manifests/`
 - **Format:** Markdown (`.md`)
 - **Naming:** `{uuid}.md`
 - **Auto-created:** Yes
@@ -217,10 +217,10 @@ manifest_system.complete_manifest(manifest, {"success": True})
 
 ## Related Files
 
-- Implementation Plan: `.blackbox5/IMPLEMENTATION-ACTION-PLAN.md`
-- Event Bus: `.blackbox5/engine/core/event_bus.py`
-- Logging: `.blackbox5/engine/core/logging.py`
-- Circuit Breaker: `.blackbox5/engine/core/circuit_breaker.py`
+- Implementation Plan: `blackbox5/IMPLEMENTATION-ACTION-PLAN.md`
+- Event Bus: `blackbox5/engine/core/event_bus.py`
+- Logging: `blackbox5/engine/core/logging.py`
+- Circuit Breaker: `blackbox5/engine/core/circuit_breaker.py`
 
 ---
 

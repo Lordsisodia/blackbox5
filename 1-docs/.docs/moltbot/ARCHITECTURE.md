@@ -123,7 +123,7 @@ verifications:
 {
   "type": "stdio",
   "command": "python3",
-  "args": ["/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py"]
+  "args": ["/Users/shaansisodia/blackbox5/mcp-server-moltbot.py"]
 }
 ```
 

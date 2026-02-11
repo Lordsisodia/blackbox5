@@ -188,7 +188,7 @@ def main():
         print("\n🎉 All tests passed! BlackBox5 is ready to use.")
         print("\nNext steps:")
         print("  1. Set GLM_API_KEY environment variable")
-        print("  2. Run: python .blackbox5/tests/test_blackbox5_integration.py")
+        print("  2. Run: python blackbox5/tests/test_blackbox5_integration.py")
         print("  3. Start building with BlackBox5!")
         return 0
     else:

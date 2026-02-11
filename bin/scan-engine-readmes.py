@@ -23,7 +23,7 @@ from typing import List, Dict, Set, Tuple
 from dataclasses import dataclass, field
 from collections import defaultdict
 
-BB5_ROOT = Path("/Users/shaansisodia/.blackbox5")
+BB5_ROOT = Path("/Users/shaansisodia/blackbox5")
 
 # Directories to skip
 SKIP_DIRS = {

@@ -115,7 +115,7 @@ Changes:
  
 -# Step 2: Commit changes
 +# Step 3: Commit changes
- cd ~/.blackbox5
+ cd ~/blackbox5
  git add -A
  git commit -m "executor: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
  git push origin main

@@ -15,7 +15,7 @@ Fix 6 paths in routes.yaml that had duplicate `5-project-memory/blackbox5/` segm
 
 ## Changes Made
 
-Fixed paths in `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml`:
+Fixed paths in `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml`:
 
 | Path | Before | After |
 |------|--------|-------|

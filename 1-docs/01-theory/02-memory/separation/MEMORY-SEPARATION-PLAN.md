@@ -21,7 +21,7 @@ This plan outlines the separation of memory from the BlackBox5 engine to achieve
 ### Current State
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── memory/              # ❌ Currently in engine (should be per-project)
 │   ├── agents/
 │   ├── working/
@@ -37,7 +37,7 @@ This plan outlines the separation of memory from the BlackBox5 engine to achieve
 ### Target State
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/             # ✅ Shared engine (framework-agnostic)
 │   ├── .agents/       # Agent definitions
 │   ├── .skills/       # Skill definitions
@@ -109,7 +109,7 @@ Based on BlackBox4's proven architecture:
 ### 3. Configuration Structure
 
 ```yaml
-# .blackbox5/config.yml (per-project)
+# blackbox5/config.yml (per-project)
 project:
   name: "my-project"
   version: "1.0.0"
@@ -154,17 +154,17 @@ brain:
 **Objective:** Create memory templates in the engine
 
 **Tasks:**
-1. Create `.blackbox5/engine/templates/memory/` directory structure
+1. Create `blackbox5/engine/templates/memory/` directory structure
 2. Create template files for each memory tier
 3. Create initialization scripts
 4. Create configuration templates
 
 **Deliverables:**
-- `.blackbox5/engine/templates/memory/working/README.md`
-- `.blackbox5/engine/templates/memory/extended/README.md`
-- `.blackbox5/engine/templates/memory/archival/README.md`
-- `.blackbox5/engine/templates/memory/init-memory.py`
-- `.blackbox5/engine/templates/config.example.yml`
+- `blackbox5/engine/templates/memory/working/README.md`
+- `blackbox5/engine/templates/memory/extended/README.md`
+- `blackbox5/engine/templates/memory/archival/README.md`
+- `blackbox5/engine/templates/memory/init-memory.py`
+- `blackbox5/engine/templates/config.example.yml`
 
 **Success Criteria:**
 - Templates can be copied to create new project memory
@@ -178,7 +178,7 @@ brain:
 **Objective:** Move current memory structure to templates
 
 **Tasks:**
-1. Copy `.blackbox5/engine/memory/` to `.blackbox5/engine/templates/memory/`
+1. Copy `blackbox5/engine/memory/` to `blackbox5/engine/templates/memory/`
 2. Remove project-specific data (keep only structure)
 3. Update all documentation to reflect template nature
 4. Add initialization instructions
@@ -199,15 +199,15 @@ brain:
 **Objective:** Update engine to use configurable memory paths
 
 **Tasks:**
-1. Update `.blackbox5/engine/core/` to read memory paths from config
-2. Update `.blackbox5/engine/runtime/` scripts for flexible paths
+1. Update `blackbox5/engine/core/` to read memory paths from config
+2. Update `blackbox5/engine/runtime/` scripts for flexible paths
 3. Add memory initialization check on startup
 4. Update brain system for flexible index paths
 
 **Files to Modify:**
-- `.blackbox5/engine/core/manifest.py` - Update memory path resolution
-- `.blackbox5/engine/runtime/memory/auto-compact.sh` - Use config paths
-- `.blackbox5/engine/brain/ingest/ingester.py` - Flexible index paths
+- `blackbox5/engine/core/manifest.py` - Update memory path resolution
+- `blackbox5/engine/runtime/memory/auto-compact.sh` - Use config paths
+- `blackbox5/engine/brain/ingest/ingester.py` - Flexible index paths
 - All memory-related imports and references
 
 **Success Criteria:**
@@ -230,7 +230,7 @@ brain:
 6. Clean up old structure (optional)
 
 **Deliverables:**
-- `.blackbox5/engine/scripts/migrate-memory.sh`
+- `blackbox5/engine/scripts/migrate-memory.sh`
 - Migration documentation
 - Rollback capabilities
 
@@ -246,15 +246,15 @@ brain:
 **Objective:** Document new architecture and usage
 
 **Tasks:**
-1. Update `.blackbox5/engine/README.md` with new structure
+1. Update `blackbox5/engine/README.md` with new structure
 2. Create memory architecture documentation
 3. Update quick start guides
 4. Create troubleshooting guide
 
 **Deliverables:**
-- `.blackbox5/docs/MEMORY-ARCHITECTURE.md`
-- `.blackbox5/docs/MEMRY-MIGRATION-GUIDE.md`
-- Updated `.blackbox5/engine/README.md`
+- `blackbox5/docs/MEMORY-ARCHITECTURE.md`
+- `blackbox5/docs/MEMRY-MIGRATION-GUIDE.md`
+- Updated `blackbox5/engine/README.md`
 
 **Success Criteria:**
 - New users can set up memory from scratch
@@ -268,7 +268,7 @@ brain:
 ### Final Engine Structure
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── .agents/                 # Agent definitions
 ├── .skills/                 # Skill definitions
 ├── .workflows/              # Workflow templates
@@ -296,7 +296,7 @@ brain:
 
 ```
 my-project/
-├── .blackbox5/
+├── blackbox5/
 │   ├── config.yml          # Project configuration
 │   └── memory/             # Project memory (gitignored)
 │       ├── working/        # Active session data
@@ -313,7 +313,7 @@ my-project/
 ### Minimal Project Config
 
 ```yaml
-# .blackbox5/config.yml
+# blackbox5/config.yml
 project:
   name: "my-project"
 
@@ -333,7 +333,7 @@ brain:
 ### Advanced Project Config
 
 ```yaml
-# .blackbox5/config.yml
+# blackbox5/config.yml
 project:
   name: "my-project"
   version: "1.0.0"
@@ -420,9 +420,9 @@ mkdir my-project && cd my-project
 blackbox5 init
 
 # 3. Creates:
-#    - .blackbox5/config.yml
-#    - .blackbox5/memory/ (from templates)
-#    - .blackbox5/memory/brain-index/
+#    - blackbox5/config.yml
+#    - blackbox5/memory/ (from templates)
+#    - blackbox5/memory/brain-index/
 ```
 
 ### For Existing Projects
@@ -432,10 +432,10 @@ blackbox5 init
 cp -r blackbox5 blackbox5.backup
 
 # 2. Run migration script
-.blackbox5/engine/scripts/migrate-memory.sh
+blackbox5/engine/scripts/migrate-memory.sh
 
 # 3. Review changes
-cat .blackbox5/config.yml
+cat blackbox5/config.yml
 
 # 4. Test engine
 blackbox5 doctor

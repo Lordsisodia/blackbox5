@@ -1,22 +1,23 @@
-# Goal: Optimize Skill Usage and Efficiency
+# Goal: Improve Skill and Subagent Usage
 # =============================================================================
 goal_id: IG-004
-name: "Optimize Skill Usage and Efficiency"
-description: "Make skills more effective, remove unused, add missing skills"
+name: "Improve Skill and Subagent Usage"
+description: "Optimize how agents use skills and deploy subagents - make both more effective, timely, and efficient"
 
 meta:
   created: "2026-01-20"
-  target_completion: "2026-03-15"
+  updated: "2026-02-10"
+  target_completion: "ongoing"
   owner: "executor-agent"
-  priority: medium
-  status: not_started
-  category: skills
+  priority: high
+  status: in_progress
+  category: capabilities
 
 sub_goals:
   - id: SG-004-1
-    name: "Audit current skills"
-    description: "Analyze which skills are used and which are effective"
-    weight: 30
+    name: "Audit skill effectiveness"
+    description: "Analyze which skills are used, which are effective, when they're triggered"
+    weight: 20
     status: not_started
     acceptance_criteria:
       - "Usage frequency tracked for all skills"
@@ -25,9 +26,9 @@ sub_goals:
     linked_tasks: []
 
   - id: SG-004-2
-    name: "Consolidate and improve"
-    description: "Merge similar skills, improve triggers"
-    weight: 40
+    name: "Improve skill triggers and accuracy"
+    description: "Merge similar skills, improve triggers, reduce false positives"
+    weight: 20
     status: not_started
     acceptance_criteria:
       - "Similar skills consolidated"
@@ -36,23 +37,47 @@ sub_goals:
     linked_tasks: []
 
   - id: SG-004-3
-    name: "Add missing skills"
-    description: "Create skills for underrepresented task types"
-    weight: 30
+    name: "Audit subagent deployment patterns"
+    description: "Analyze when subagents are used vs should be used vs direct execution"
+    weight: 20
     status: not_started
     acceptance_criteria:
-      - "Skills added for common tasks"
-      - "Coverage gaps filled"
-      - "Higher skill hit rate"
+      - "Documented current subagent usage patterns"
+      - "Identified over/under-deployment cases"
+      - "Measured subagent success rates"
+    linked_tasks: []
+
+  - id: SG-004-4
+    name: "Optimize subagent deployment rules"
+    description: "Refine when to spawn subagents vs do work directly"
+    weight: 20
+    status: not_started
+    acceptance_criteria:
+      - "Clear deployment criteria documented"
+      - "Context-gathering subagents more effective"
+      - "Reduced unnecessary subagent spawning"
+    linked_tasks: []
+
+  - id: SG-004-5
+    name: "Integrate skills and subagents"
+    description: "Skills should know when to spawn subagents; subagents should use skills"
+    weight: 20
+    status: not_started
+    acceptance_criteria:
+      - "Skills can trigger subagent deployment"
+      - "Subagents follow skill protocols"
+      - "Unified capability system"
     linked_tasks: []
 
 progress:
   percentage: 0
-  last_updated: "2026-01-20"
+  last_updated: "2026-02-10"
   by_sub_goal:
     SG-004-1: 0
     SG-004-2: 0
     SG-004-3: 0
+    SG-004-4: 0
+    SG-004-5: 0
   summary:
     total_tasks: 0
     completed_tasks: 0
@@ -62,15 +87,31 @@ progress:
 links:
   decisions: []
   learnings: []
-  related_goals: []
+  related_goals:
+    - IG-001  # Guidance improvements (includes subagent rules)
   parent_goal: CG-002
 
+  plans:
+    - skill-subagent-optimization
+
+  tasks:
+    - TASK-SKILL-001  # Fix skill invocation
+    - TASK-SKILL-002  # Implement effectiveness tracking
+
 notes: |
+  Expanded 2026-02-10 to include subagent optimization.
+
   Current issues:
   - Some skills may be redundant
   - Skill triggers may need tuning
   - Missing skills for common tasks
+  - Subagents sometimes deployed when direct execution is faster
+  - Subagents sometimes NOT deployed when they should be
+  - No clear integration between skills and subagent deployment
 
-  Target: ~/.blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/
+  Target areas:
+  - ~/blackbox5/.skills/ (skill definitions)
+  - CLAUDE.md subagent deployment rules
+  - Agent spawning patterns in RALF
 
-  Success means skills actually help complete tasks faster.
+  Success means agents use the right tool (skill or subagent) at the right time.

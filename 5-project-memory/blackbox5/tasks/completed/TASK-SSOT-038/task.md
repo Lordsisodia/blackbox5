@@ -36,24 +36,24 @@ Run folders accumulate over time, consuming disk space and slowing down director
 
 ### Files Created
 
-1. **Archive Policy** (`~/.blackbox5/5-project-memory/blackbox5/.autonomous/archive-policy.yaml`)
+1. **Archive Policy** (`~/blackbox5/5-project-memory/blackbox5/.autonomous/archive-policy.yaml`)
    - Retention rules: keep last 50 runs, archive after 30 days, delete after 365 days
    - Special tag preservation (milestone, important, reference, audit, compliance)
    - Active task run protection
    - Compression settings (tar.gz, level 6)
    - Monthly archive grouping
 
-2. **Archival Script** (`~/.blackbox5/bin/archive-runs.sh`)
+2. **Archival Script** (`~/blackbox5/bin/archive-runs.sh`)
    - Commands: `archive`, `restore <project> <run-id>`, `list <project>`, `status`
    - Automatically creates archive directories and index files
    - Respects preserve tags and active task associations
    - Generates archival logs and reports
    - Cross-platform compatible (macOS/Linux)
 
-3. **Cron Setup Script** (`~/.blackbox5/bin/setup-archive-cron.sh`)
+3. **Cron Setup Script** (`~/blackbox5/bin/setup-archive-cron.sh`)
    - Installs weekly cron job (Sundays at 2:00 AM)
    - Configurable schedule
-   - Logs to `~/.blackbox5/5-project-memory/.archive-cron.log`
+   - Logs to `~/blackbox5/5-project-memory/.archive-cron.log`
 
 ### Test Results
 
@@ -62,25 +62,25 @@ Tested on blackbox5 project:
 - Correctly identified runs within keep_last limit (50 per agent)
 - Verified preserve tag detection (milestone, important, etc.)
 - Confirmed active task protection
-- Archive directory structure created: `~/.blackbox5/5-project-memory/blackbox5/.autonomous/archive/`
+- Archive directory structure created: `~/blackbox5/5-project-memory/blackbox5/.autonomous/archive/`
 
 ### Usage
 
 ```bash
 # Check archive status across all projects
-~/.blackbox5/bin/archive-runs.sh status
+~/blackbox5/bin/archive-runs.sh status
 
 # Run archival manually
-~/.blackbox5/bin/archive-runs.sh archive
+~/blackbox5/bin/archive-runs.sh archive
 
 # List archived runs for a project
-~/.blackbox5/bin/archive-runs.sh list blackbox5
+~/blackbox5/bin/archive-runs.sh list blackbox5
 
 # Restore a specific run
-~/.blackbox5/bin/archive-runs.sh restore blackbox5 run-0001
+~/blackbox5/bin/archive-runs.sh restore blackbox5 run-0001
 
 # Setup automated weekly archival
-~/.blackbox5/bin/setup-archive-cron.sh
+~/blackbox5/bin/setup-archive-cron.sh
 ```
 
 ## Rollback Strategy

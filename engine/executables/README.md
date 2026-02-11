@@ -39,7 +39,7 @@ This directory contains the autonomous agent improvement system - a continuous f
 
 ### Run Scout Analysis
 ```bash
-./scout-analyze.py --project-dir ~/.blackbox5/5-project-memory/blackbox5
+./scout-analyze.py --project-dir ~/blackbox5/5-project-memory/blackbox5
 ```
 
 ### Execute Quick Wins

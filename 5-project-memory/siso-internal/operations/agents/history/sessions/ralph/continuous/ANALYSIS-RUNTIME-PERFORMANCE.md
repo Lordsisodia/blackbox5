@@ -4,7 +4,7 @@
 **Date:** 2026-01-18 15:10:10
 **Focus Area:** performance
 
-## Deep Analysis: .blackbox5/engine/runtime
+## Deep Analysis: blackbox5/engine/runtime
 
 **Focus:** performance
 

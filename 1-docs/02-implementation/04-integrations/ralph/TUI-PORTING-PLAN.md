@@ -46,7 +46,7 @@
 ## Part 2: File Structure
 
 ```
-.blackbox5/engine/runtime/tui/
+blackbox5/engine/runtime/tui/
 ├── __init__.py
 ├── blackbox5_tui.py      # Main TUI app (adapted from blackbox_tui.py)
 ├── models.py              # Data models (port from Blackbox4)
@@ -68,8 +68,8 @@
 ### Step 1: Copy Observability Layer (Day 1)
 
 **Copy directly from Blackbox4:**
-- `tui_logger.py` → `.blackbox5/engine/runtime/tui/observability/`
-- `dashboard_client.py` → `.blackbox5/engine/runtime/tui/observability/`
+- `tui_logger.py` → `blackbox5/engine/runtime/tui/observability/`
+- `dashboard_client.py` → `blackbox5/engine/runtime/tui/observability/`
 
 **Adaptations needed:**
 ```python
@@ -89,13 +89,13 @@ from blackbox5.engine.runtime.goal_tracking import GoalTracker
 **Actions:**
 ```bash
 # Create directory
-mkdir -p .blackbox5/engine/runtime/tui/observability
+mkdir -p blackbox5/engine/runtime/tui/observability
 
 # Copy files
-curl -o .blackbox5/engine/runtime/tui/observability/tui_logger.py \
+curl -o blackbox5/engine/runtime/tui/observability/tui_logger.py \
   https://raw.githubusercontent.com/Lordsisodia/blackbox4/main/.ralph-tui/observability/tui_logger.py
 
-curl -o .blackbox5/engine/runtime/tui/observability/dashboard_client.py \
+curl -o blackbox5/engine/runtime/tui/observability/dashboard_client.py \
   https://raw.githubusercontent.com/Lordsisodia/blackbox4/main/.ralph-tui/observability/dashboard_client.py
 ```
 
@@ -104,7 +104,7 @@ curl -o .blackbox5/engine/runtime/tui/observability/dashboard_client.py \
 **Port from Blackbox4:**
 
 ```python
-# .blackbox5/engine/runtime/tui/models.py
+# blackbox5/engine/runtime/tui/models.py
 from dataclasses import dataclass
 from enum import Enum
 from typing import List, Dict, Any, Optional
@@ -192,7 +192,7 @@ class SessionInfo:
 ### Step 3: Create Configuration (Day 1)
 
 ```toml
-# .blackbox5/engine/runtime/tui/config/default.toml
+# blackbox5/engine/runtime/tui/config/default.toml
 # Blackbox5 TUI Configuration
 
 [general]
@@ -243,7 +243,7 @@ scheme = "default"  # default | vim | emacs
 **Create panels adapted from Blackbox4:**
 
 ```python
-# .blackbox5/engine/runtime/tui/panels.py
+# blackbox5/engine/runtime/tui/panels.py
 from blessed import Terminal
 from typing import List, Dict, Any
 
@@ -382,7 +382,7 @@ class SessionHeaderPanel:
 ### Step 5: Port Main TUI (Day 3-4)
 
 ```python
-# .blackbox5/engine/runtime/tui/blackbox5_tui.py
+# blackbox5/engine/runtime/tui/blackbox5_tui.py
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -651,10 +651,10 @@ def run_tui(prd: Dict[str, Any], task_executor: Callable):
 
 ```bash
 # Create directory structure
-mkdir -p .blackbox5/engine/runtime/tui/{observability,config}
+mkdir -p blackbox5/engine/runtime/tui/{observability,config}
 
 # Copy observability files from Blackbox4
-cd .blackbox5/engine/runtime/tui
+cd blackbox5/engine/runtime/tui
 
 # Get the files
 curl -o observability/tui_logger.py \

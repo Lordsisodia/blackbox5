@@ -4,16 +4,16 @@
 # This is the default configuration file for RALF (Recursive Autonomous Learning Framework).
 #
 # Configuration File Location:
-#   - User config: ~/.blackbox5/config.yaml (overrides defaults)
+#   - User config: ~/blackbox5/config.yaml (overrides defaults)
 #   - Default config: 2-engine/.autonomous/config/default.yaml (this file)
 #
 # How to Customize:
-#   1. Copy this file to ~/.blackbox5/config.yaml
+#   1. Copy this file to ~/blackbox5/config.yaml
 #   2. Modify the values you want to change
 #   3. RALF will use your values, falling back to defaults for missing settings
 #
 # Configuration Hierarchy:
-#   User config (~/.blackbox5/config.yaml) > Default config (this file) > Built-in defaults
+#   User config (~/blackbox5/config.yaml) > Default config (this file) > Built-in defaults
 #
 # Version: 1.0.0
 #   - Increment this field when breaking changes are introduced to config schema
@@ -172,7 +172,7 @@ notifications:
 #   4. Document your custom configuration choices for your team
 #
 # Troubleshooting:
-#   - If RALF is not using your config: Check file path (~/.blackbox5/config.yaml)
+#   - If RALF is not using your config: Check file path (~/blackbox5/config.yaml)
 #   - If config validation fails: Check value ranges (e.g., confidence must be 0-100)
 #   - If RALF crashes on startup: Delete config file, defaults will be used
 #

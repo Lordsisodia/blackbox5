@@ -30,8 +30,8 @@ Create a validation system to ensure run folder documentation (THOUGHTS.md, LEAR
 **Suggested Action:** Create validation hook that checks if run documentation is filled before allowing agent_stop
 
 **Files Created/Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/run-validation.yaml` - Configuration file with thresholds
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-run-documentation.py` - Validation script
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/run-validation.yaml` - Configuration file with thresholds
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-run-documentation.py` - Validation script
 - `/Users/shaansisodia/.claude/hooks/session-end.sh` - Integrated validation hook
 
 ---

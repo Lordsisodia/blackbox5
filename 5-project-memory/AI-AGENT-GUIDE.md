@@ -505,7 +505,7 @@ When completing work:
 
 - Project memory README: `5-project-memory/README.md`
 - SISO Internal README: `5-project-memory/siso-internal/README.md`
-- Reorganization docs: `.blackbox5/5-project-memory/REORGANIZATION-COMPLETE.md`
+- Reorganization docs: `blackbox5/5-project-memory/REORGANIZATION-COMPLETE.md`
 
 ### Quick Commands
 

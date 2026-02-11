@@ -216,7 +216,7 @@ All dependencies are standard, well-maintained packages.
 
 2. Copy and configure:
    ```bash
-   cp 2-engine/.autonomous/config/api-config.yaml ~/.blackbox5/api-config.yaml
+   cp 2-engine/.autonomous/config/api-config.yaml ~/blackbox5/api-config.yaml
    # Edit with your API keys and connector credentials
    ```
 

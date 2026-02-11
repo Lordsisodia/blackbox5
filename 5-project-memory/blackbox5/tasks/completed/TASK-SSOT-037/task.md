@@ -17,7 +17,7 @@ Cleanup per-run DECISIONS.md files after central decision registry has been popu
 ## Results
 
 ### Cleanup Summary
-- **Central Registry:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml`
+- **Central Registry:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml`
 - **Registry Stats:** 864 decisions from 107 source files
 - **Files Deleted:** 280 per-run DECISIONS.md files
 - **Hook Status:** Already compliant - creates only RUN.yaml with embedded decisions section

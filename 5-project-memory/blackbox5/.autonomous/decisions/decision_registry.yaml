@@ -1595,7 +1595,7 @@ decisions:
   title: Configuration Hierarchy (Two-Tier System)
   category: infrastructure
   status: approved
-  rationale: "- **User config:** `~/.blackbox5/config.yaml` (optional, overrides defaults)\n\
+  rationale: "- **User config:** `~/blackbox5/config.yaml` (optional, overrides defaults)\n\
     - **Default config:** `2-engine/.autonomous/config/default.yaml` (built-in)\n\
     - **Benefits:**\n  - User only needs to specify values they want to change\n \
     \ - Missing values fall back to defaults\n  - Invalid config falls back to"
@@ -1772,7 +1772,7 @@ decisions:
   title: 'Decision 2: Configuration Hierarchy (Two-Tier System)'
   category: infrastructure
   status: approved
-  rationale: "- **User config:** `~/.blackbox5/config.yaml` (optional, overrides defaults)\n\
+  rationale: "- **User config:** `~/blackbox5/config.yaml` (optional, overrides defaults)\n\
     - **Default config:** `2-engine/.autonomous/config/default.yaml` (built-in)\n\
     - **Benefits:**\n  - User only needs to specify values they want to change\n \
     \ - Missing values fall back to defaults\n  - Invalid config falls back to"

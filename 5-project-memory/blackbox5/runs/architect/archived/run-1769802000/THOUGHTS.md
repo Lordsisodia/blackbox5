@@ -56,7 +56,7 @@ The main challenge was understanding the existing architecture. The Python modul
 
 Tested the integration with:
 ```bash
-bash ralf-loop.sh --dry-run ~/.blackbox5/5-project-memory/ralf-core
+bash ralf-loop.sh --dry-run ~/blackbox5/5-project-memory/ralf-core
 ```
 
 Results:

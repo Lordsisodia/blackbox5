@@ -9,24 +9,24 @@ from pathlib import Path
 def count_empty_dirs():
     """Count empty directories."""
     result = subprocess.run(
-        ['find', '/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5', '-type', 'd', '-empty'],
+        ['find', '/Users/shaansisodia/blackbox5/5-project-memory/blackbox5', '-type', 'd', '-empty'],
         capture_output=True, text=True
     )
     return len([l for l in result.stdout.strip().split('\n') if l])
 
 def count_tasks():
     """Count active and completed tasks."""
-    active = len([d for d in Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active').iterdir() if d.is_dir() and d.name.startswith('TASK-')])
-    completed = len([d for d in Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed').iterdir() if d.is_dir()])
+    active = len([d for d in Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active').iterdir() if d.is_dir() and d.name.startswith('TASK-')])
+    completed = len([d for d in Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/completed').iterdir() if d.is_dir()])
     return active, completed
 
 def count_goals():
     """Count active goals."""
-    return len([d for d in Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active').iterdir() if d.is_dir() and d.name.startswith('IG-')])
+    return len([d for d in Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active').iterdir() if d.is_dir() and d.name.startswith('IG-')])
 
 def count_knowledge_files():
     """Count knowledge base files."""
-    kb_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/knowledge')
+    kb_path = Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/knowledge')
     if not kb_path.exists():
         return 0
     return len([f for f in kb_path.rglob('*.md')])
@@ -34,7 +34,7 @@ def count_knowledge_files():
 def get_validation_status():
     """Run validation and return status."""
     result = subprocess.run(
-        ['python3', '/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py'],
+        ['python3', '/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py'],
         capture_output=True, text=True
     )
     return '✅ Passing' if '✅ All validations passed' in result.stdout else '❌ Failed'
@@ -42,7 +42,7 @@ def get_validation_status():
 def get_arch_tasks():
     """Get ARCH task statuses."""
     tasks = []
-    tasks_dir = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active')
+    tasks_dir = Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active')
     for task_dir in sorted(tasks_dir.glob('TASK-ARCH-*')):
         task_file = task_dir / 'task.md'
         if task_file.exists():
@@ -168,7 +168,7 @@ def main():
     dashboard = generate_dashboard()
 
     # Write dashboard
-    dashboard_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.docs/architecture-dashboard.md')
+    dashboard_path = Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.docs/architecture-dashboard.md')
     with open(dashboard_path, 'w') as f:
         f.write(dashboard)
 

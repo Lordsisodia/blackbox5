@@ -1,0 +1,200 @@
+# =============================================================================
+# Agent Version Setup Checklist
+# SISO-Internal - Operations
+# =============================================================================
+# Purpose: Ensure complete agent version setup with all supporting infrastructure
+# Usage: Run through this checklist when creating a new agent version
+# =============================================================================
+
+checklist:
+  metadata:
+    version: "1.0.0"
+    created: "2026-02-09T14:00:00Z"
+    description: "Comprehensive checklist for agent version setup"
+
+  # ===========================================================================
+  # CORE COMPONENTS (Critical - Agent won't function without these)
+  # ===========================================================================
+  core_components:
+    - item: "Agent Definition File (AGENT.md)"
+      file: "2-engine/.autonomous/prompts/{agent-name}.md"
+      required: true
+      description: "Main agent prompt with role, purpose, rules, and procedures"
+      validation: "File exists and contains all required sections"
+      template_source: "2-engine/.autonomous/prompts/ralf-executor.md"
+
+    - item: "Agent Configuration"
+      file: "2-engine/.autonomous/agents/{agent-name}/config.yaml"
+      required: true
+      description: "Agent-specific configuration parameters"
+      validation: "Valid YAML with version, capabilities, and settings"
+
+  # ===========================================================================
+  # SUPPORTING INFRASTRUCTURE (Required for full functionality)
+  # ===========================================================================
+  supporting_infrastructure:
+    - item: "Metrics Tracking File"
+      file: "ralf-metrics.jsonl"
+      required: true
+      description: "JSONL file for performance metrics tracking"
+      validation: "File exists with proper header/metadata"
+      initialization: |
+        echo '{"timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'", "type": "metadata", "version": "X.Y.Z"}' > ralf-metrics.jsonl
+
+    - item: "Templates Directory"
+      file: "2-engine/.autonomous/prompts/context/{agent-name}/"
+      required: true
+      description: "Context templates for the agent"
+      validation: "Directory exists with relevant templates"
+
+    - item: "Exit Procedures"
+      file: "2-engine/.autonomous/prompts/exit/{agent-name}/"
+      required: false
+      description: "Exit condition handling procedures"
+      validation: "Directory exists if custom exit logic needed"
+
+  # ===========================================================================
+  # VERSION-SPECIFIC COMPONENTS
+  # ===========================================================================
+  version_specific:
+    - item: "Version Documentation"
+      file: "2-engine/.autonomous/prompt-progression/versions/v{X.Y}/README.md"
+      required: true
+      description: "What's new in this version"
+      validation: "Documents changes from previous version"
+
+    - item: "Version Templates"
+      file: "2-engine/.autonomous/prompt-progression/versions/v{X.Y}/templates/"
+      required: true
+      description: "Templates specific to this version"
+      validation: "All required templates present"
+      inherit_from: "Previous version templates"
+
+    - item: "Decision Registry Template"
+      file: "2-engine/.autonomous/prompt-progression/versions/v{X.Y}/templates/decision_registry.yaml"
+      required: true
+      description: "Template for decision tracking"
+      validation: "Valid YAML with decision structure"
+
+  # ===========================================================================
+  # INTEGRATION POINTS
+  # ===========================================================================
+  integration_points:
+    - item: "Entry Point Update"
+      file: "bin/ralf.md or equivalent entry point"
+      required: true
+      description: "Update entry point to reference new agent version"
+      validation: "Version number updated in entry point"
+
+    - item: "Dashboard Compatibility"
+      file: "bin/ralf-dashboard or equivalent"
+      required: false
+      description: "Ensure dashboard works with new version"
+      validation: "Dashboard displays metrics correctly"
+
+    - item: "Script Updates"
+      file: "2-engine/.autonomous/scripts/"
+      required: false
+      description: "Update scripts that reference agent version"
+      validation: "No hardcoded version references"
+
+  # ===========================================================================
+  # DOCUMENTATION
+  # ===========================================================================
+  documentation:
+    - item: "Agent Setup Guide"
+      file: "operations/.docs/agent-setup-guide.md"
+      required: true
+      description: "Documentation for using this agent"
+      validation: "Guide exists and is up to date"
+
+    - item: "Changelog Entry"
+      file: "CHANGELOG.md or equivalent"
+      required: true
+      description: "Document what's new in this version"
+      validation: "Version changes documented"
+
+    - item: "Migration Guide (if breaking changes)"
+      file: "docs/migrations/v{X.Y}-migration.md"
+      required: false
+      description: "Guide for migrating from previous version"
+      validation: "Clear migration steps documented"
+
+  # ===========================================================================
+  # VALIDATION CHECKLIST
+  # ===========================================================================
+  validation:
+    pre_deployment:
+      - "All required files exist"
+      - "All YAML files are valid"
+      - "No syntax errors in scripts"
+      - "Version numbers are consistent"
+      - "Templates are inherited/copied from previous version"
+
+    post_deployment:
+      - "Agent initializes without errors"
+      - "Metrics file is writable"
+      - "Dashboard displays data correctly"
+      - "Documentation is accessible"
+      - "First run completes successfully"
+
+  # ===========================================================================
+  # COMMON MISTAKES TO AVOID
+  # ===========================================================================
+  common_mistakes:
+    - mistake: "Forgetting to update entry point version reference"
+      impact: "Users confused about which agent is active"
+      prevention: "Always check bin/ralf.md for version strings"
+
+    - mistake: "Missing metrics.jsonl initialization"
+      impact: "Dashboard shows 'no metrics yet' indefinitely"
+      prevention: "Create metrics file with header during setup"
+
+    - mistake: "Not copying templates from previous version"
+      impact: "Missing required templates cause runtime errors"
+      prevention: "Inherit templates, don't recreate from scratch"
+
+    - mistake: "Hardcoding version in scripts"
+      impact: "Scripts break with next version update"
+      prevention: "Use version variables or dynamic detection"
+
+    - mistake: "Forgetting to update documentation"
+      impact: "Docs describe 'should be' not 'is'"
+      prevention: "Update docs as part of setup, not after"
+
+  # ===========================================================================
+  # SETUP WORKFLOW
+  # ===========================================================================
+  setup_workflow:
+    steps:
+      - step: 1
+        action: "Copy previous version templates"
+        command: "cp -r versions/v{PREV}/templates versions/v{NEW}/"
+
+      - step: 2
+        action: "Create AGENT.md from template"
+        command: "cp prompts/ralf.md prompts/{new-agent}.md && edit version"
+
+      - step: 3
+        action: "Initialize metrics file"
+        command: "echo '{\"type\": \"metadata\", \"version\": \"X.Y.Z\"}' > ralf-metrics.jsonl"
+
+      - step: 4
+        action: "Update entry point"
+        command: "sed -i 's/Agent-X.Y/Agent-X.Z/g' bin/ralf.md"
+
+      - step: 5
+        action: "Validate all files"
+        command: "yamllint **/*.yaml"
+
+      - step: 6
+        action: "Test first run"
+        command: "Run agent and verify initialization"
+
+  # ===========================================================================
+  # METADATA
+  # ===========================================================================
+  metadata:
+    created_by: "Claude"
+    created_at: "2026-02-09T14:00:00Z"
+    version: "1.0.0"

@@ -32,7 +32,7 @@ class CheckpointConfig:
 
     @property
     def context_dir(self) -> Path:
-        return Path.home() / f".blackbox5/5-project-memory/{self.project}/.autonomous/context/routes"
+        return Path.home() / f"blackbox5/5-project-memory/{self.project}/.autonomous/context/routes"
 
     @property
     def context_file(self) -> Path:
@@ -223,7 +223,7 @@ if __name__ == "__main__":
 
 ```bash
 # Create test route
-cd ~/.blackbox5/5-project-memory/blackbox5
+cd ~/blackbox5/5-project-memory/blackbox5
 
 # Initialize context
 python3 2-engine/helpers/legacy/context_checkpoint.py init \
@@ -288,7 +288,7 @@ class ContextReader:
 
     def __init__(self, project: str = "blackbox5"):
         self.context_dir = (
-            Path.home() / ".blackbox5/5-project-memory"
+            Path.home() / "blackbox5/5-project-memory"
             / project / ".autonomous/context/routes"
         )
 

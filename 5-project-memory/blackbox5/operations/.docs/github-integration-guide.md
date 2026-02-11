@@ -91,10 +91,10 @@ source ~/.bashrc
 
 ```bash
 # Copy template
-cp 2-engine/.autonomous/config/github-config.yaml ~/.blackbox5/github-config.yaml
+cp 2-engine/.autonomous/config/github-config.yaml ~/blackbox5/github-config.yaml
 
 # Edit with your settings
-nano ~/.blackbox5/github-config.yaml
+nano ~/blackbox5/github-config.yaml
 ```
 
 ### Step 5: Test Connection
@@ -456,7 +456,7 @@ python3 github_webhook_handler.py
 
 ### Configuration File Location
 
-`~/.blackbox5/github-config.yaml`
+`~/blackbox5/github-config.yaml`
 
 ### Key Settings
 
@@ -524,7 +524,7 @@ openssl rand -hex 32
 Add webhook secret to configuration:
 
 ```yaml
-# ~/.blackbox5/github-config.yaml
+# ~/blackbox5/github-config.yaml
 webhooks:
   secret: "your_webhook_secret_here"
   port: 8080

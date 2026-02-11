@@ -8,7 +8,7 @@
 ## Quick Overview
 
 ```
-.blackbox5/roadmap/first-principles/
+blackbox5/roadmap/first-principles/
 │
 ├── 📋 RALPH-LOOP-PRD.md                          # ✅ Main PRD (34KB)
 ├── 📋 DATA-STORAGE-MAP.md                       # ✅ This file
@@ -187,9 +187,9 @@ Similar structure for remaining phases.
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  INPUT SOURCES                                               │
-│  ├── .blackbox5/engine/              → Feature discovery    │
-│  ├── .blackbox5/frameworks/          → Feature discovery    │
-│  ├── .blackbox5/capabilities/        → Feature discovery    │
+│  ├── blackbox5/engine/              → Feature discovery    │
+│  ├── blackbox5/frameworks/          → Feature discovery    │
+│  ├── blackbox5/capabilities/        → Feature discovery    │
 │  └── Existing feature docs           → Examples             │
 │                                                              │
 │  ↓                                                            │
@@ -283,7 +283,7 @@ Similar structure for remaining phases.
 ### Backup Location
 ```bash
 # Primary: Git repository
-git add .blackbox5/roadmap/first-principles/
+git add blackbox5/roadmap/first-principles/
 git commit -m "Ralph Loop session updates"
 
 # Secondary: Archive directory

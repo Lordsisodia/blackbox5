@@ -12,7 +12,7 @@ Successfully created a comprehensive workflow loader library that provides progr
 ## Files Created
 
 ### 1. workflow_loader.py
-**Location:** `~/.blackbox5/2-engine/.autonomous/lib/workflow_loader.py`
+**Location:** `~/blackbox5/2-engine/.autonomous/lib/workflow_loader.py`
 **Lines:** 430
 
 **Features:**
@@ -34,7 +34,7 @@ Successfully created a comprehensive workflow loader library that provides progr
 - `export_to_json(path)` - Export to JSON
 
 ### 2. test_workflow_loader.py
-**Location:** `~/.blackbox5/2-engine/.autonomous/lib/test_workflow_loader.py`
+**Location:** `~/blackbox5/2-engine/.autonomous/lib/test_workflow_loader.py`
 **Tests:** 24 unit tests
 
 **Test Coverage:**

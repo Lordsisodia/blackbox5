@@ -1,0 +1,182 @@
+# TASK COMPLETION REPORT
+
+**Task:** {TASK_ID}
+**Title:** FILL_ME - Task title
+**Status:** completed
+**Completed At:** FILL_ME - ISO timestamp
+**Completed By:** FILL_ME - Agent or user name
+
+---
+
+## Summary
+
+Brief summary of what was accomplished.
+
+FILL_ME
+
+---
+
+## Completion Checklist
+
+### Pre-Completion Validation
+- [ ] All acceptance criteria met
+- [ ] Code reviewed (if applicable)
+- [ ] Tests passing
+- [ ] Documentation updated
+- [ ] No outstanding blockers
+
+### Quality Gates
+- [ ] Code follows project standards
+- [ ] No linting errors
+- [ ] Test coverage acceptable
+- [ ] Performance impact assessed
+- [ ] Security implications reviewed
+
+### Finalization
+- [ ] Files committed
+- [ ] Branch merged (if applicable)
+- [ ] STATE.yaml updated
+- [ ] Task moved to completed/
+- [ ] Handoff notes written
+
+---
+
+## What Was Delivered
+
+### Primary Deliverables
+1. FILL_ME - Deliverable 1
+2. FILL_ME - Deliverable 2
+3. FILL_ME - Deliverable 3
+
+### Artifacts Generated
+- `FILL_ME - Path to artifact 1`
+- `FILL_ME - Path to artifact 2`
+- `FILL_ME - Path to artifact 3`
+
+### Files Modified
+- `FILL_ME - Path to modified file 1`
+- `FILL_ME - Path to modified file 2`
+
+---
+
+## Acceptance Criteria Verification
+
+| Criterion | Status | Evidence |
+|-----------|--------|----------|
+| FILL_ME - Criterion 1 | pass/fail | FILL_ME - Link to evidence |
+| FILL_ME - Criterion 2 | pass/fail | FILL_ME - Link to evidence |
+| FILL_ME - Criterion 3 | pass/fail | FILL_ME - Link to evidence |
+
+---
+
+## Testing Summary
+
+### Tests Executed
+- **Unit Tests:** FILL_ME - X passed, Y failed
+- **Integration Tests:** FILL_ME - X passed, Y failed
+- **E2E Tests:** FILL_ME - X passed, Y failed
+
+### Test Results
+FILL_ME - Summary of test outcomes
+
+### Coverage Impact
+- **Before:** FILL_ME - X%
+- **After:** FILL_ME - Y%
+- **Change:** FILL_ME - +/- Z%
+
+---
+
+## Effort Summary
+
+| Phase | Estimated | Actual | Variance |
+|-------|-----------|--------|----------|
+| Understanding | FILL_ME | FILL_ME | FILL_ME |
+| Planning | FILL_ME | FILL_ME | FILL_ME |
+| Implementation | FILL_ME | FILL_ME | FILL_ME |
+| Testing | FILL_ME | FILL_ME | FILL_ME |
+| Documentation | FILL_ME | FILL_ME | FILL_ME |
+| **Total** | **FILL_ME** | **FILL_ME** | **FILL_ME** |
+
+---
+
+## Challenges Encountered
+
+### Technical Challenges
+1. **Challenge:** FILL_ME
+   - **Resolution:** FILL_ME
+   - **Time Impact:** FILL_ME
+
+### Process Challenges
+1. **Challenge:** FILL_ME
+   - **Resolution:** FILL_ME
+
+---
+
+## Decisions Made
+
+| Decision | Rationale | Impact |
+|----------|-----------|--------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Risks and Mitigations
+
+| Risk | Severity | Status | Mitigation |
+|------|----------|--------|------------|
+| FILL_ME | high/medium/low | open/mitigated | FILL_ME |
+
+---
+
+## Outstanding Items
+
+### Deferred Work
+- FILL_ME - Item deferred to future task
+
+### Follow-Up Tasks
+- [ ] TASK-XXX: FILL_ME - Description
+- [ ] TASK-YYY: FILL_ME - Description
+
+### Technical Debt
+- FILL_ME - Any technical debt introduced
+
+---
+
+## Lessons Learned
+
+### What Went Well
+1. FILL_ME
+2. FILL_ME
+
+### What Could Be Improved
+1. FILL_ME
+2. FILL_ME
+
+### Recommendations for Similar Tasks
+1. FILL_ME
+2. FILL_ME
+
+---
+
+## Handoff Notes
+
+### For Next Task Owner
+FILL_ME - Information needed by whoever works on this next
+
+### Context to Preserve
+FILL_ME - Important context that should not be lost
+
+### Known Limitations
+FILL_ME - Current limitations of the implementation
+
+---
+
+## Sign-Off
+
+- [ ] Self-review completed
+- [ ] Task requirements verified
+- [ ] Documentation complete
+- [ ] Ready for archive
+
+**Completed By:** FILL_ME
+**Date:** FILL_ME

@@ -336,7 +336,7 @@ asyncio.run(main())
 Run the included demo to verify your setup:
 
 ```bash
-cd .blackbox5/integration/notion
+cd blackbox5/integration/notion
 python demo.py
 ```
 

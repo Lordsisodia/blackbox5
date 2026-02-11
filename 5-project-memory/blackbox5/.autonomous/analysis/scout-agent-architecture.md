@@ -72,7 +72,7 @@ The BlackBox5 system has **two parallel agent implementations** with different p
 | `improvement-loop.py` | 366 | Orchestrates full loop | All other scripts |
 
 **Coupling Issues:**
-- All scripts hardcode `PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"`
+- All scripts hardcode `PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"`
 - `scout-intelligent.py` embeds 5 different analyzer prompts with BlackBox5-specific file paths
 - `executor-implement.py` has hardcoded task handlers for specific task IDs (TASK-SKIL-005, TASK-ARCH-012)
 - `verifier-validate.py` validates specific file modifications (skill-selection.yaml thresholds)
@@ -100,8 +100,8 @@ The BlackBox5 system has **two parallel agent implementations** with different p
 
 ```python
 # From scout-intelligent.py, planner-prioritize.py, etc.
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
 OUTPUT_DIR = PROJECT_DIR / ".autonomous" / "analysis" / "scout-reports"
 ```
 
@@ -169,8 +169,8 @@ Create a unified configuration file:
 # agent-config.yaml
 project:
   name: "blackbox5"
-  root_dir: "~/.blackbox5/5-project-memory/blackbox5"
-  engine_dir: "~/.blackbox5/2-engine"
+  root_dir: "~/blackbox5/5-project-memory/blackbox5"
+  engine_dir: "~/blackbox5/2-engine"
 
 agents:
   scout:

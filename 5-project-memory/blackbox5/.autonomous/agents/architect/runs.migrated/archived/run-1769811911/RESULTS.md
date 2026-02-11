@@ -39,7 +39,7 @@
 
 ### Import Test
 ```bash
-cd ~/.blackbox5/2-engine && python3 -c "from core.infrastructure.main import get_blackbox5; print('Import successful')"
+cd ~/blackbox5/2-engine && python3 -c "from core.infrastructure.main import get_blackbox5; print('Import successful')"
 ```
 **Result:** PASS - Import successful
 

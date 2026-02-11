@@ -1,0 +1,118 @@
+# Epic Index: {{EPIC_NAME}}
+
+**Epic ID:** FILL_ME
+**Status:** FILL_ME (draft|active|completed|archived)
+**Last Updated:** FILL_ME - ISO timestamp
+
+---
+
+## Quick Navigation
+
+| Document | Purpose | Status |
+|----------|---------|--------|
+| [README](./README.md) | Epic overview and quick links | FILL_ME |
+| [epic.md](./epic.md) | Full epic specification | FILL_ME |
+| [metadata.yaml](./metadata.yaml) | Machine-readable epic metadata | FILL_ME |
+| [TASK-SUMMARY.md](./TASK-SUMMARY.md) | Task breakdown and status | FILL_ME |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Technical architecture | FILL_ME |
+| [XREF.md](./XREF.md) | Cross-references and links | FILL_ME |
+
+---
+
+## Epic Overview
+
+### Problem Statement
+FILL_ME - What problem does this epic solve?
+
+### Goals
+1. FILL_ME - Goal 1
+2. FILL_ME - Goal 2
+3. FILL_ME - Goal 3
+
+### Success Criteria
+- [ ] FILL_ME - Criterion 1
+- [ ] FILL_ME - Criterion 2
+- [ ] FILL_ME - Criterion 3
+
+---
+
+## Current Status
+
+### Progress Summary
+- **Overall Progress:** FILL_ME%
+- **Phase:** FILL_ME
+- **Tasks Completed:** FILL_ME / FILL_ME
+- **Estimated Completion:** FILL_ME
+
+### Health Indicators
+| Indicator | Status | Notes |
+|-----------|--------|-------|
+| Schedule | on_track/at_risk/delayed | FILL_ME |
+| Scope | stable/at_risk/expanded | FILL_ME |
+| Quality | good/concerns/issues | FILL_ME |
+| Resources | adequate/strained/insufficient | FILL_ME |
+| Risks | low/medium/high | FILL_ME |
+
+---
+
+## Document Guide
+
+### For Stakeholders
+Start with [README.md](./README.md) for a high-level overview.
+
+### For Developers
+Review [epic.md](./epic.md) for requirements and [ARCHITECTURE.md](./ARCHITECTURE.md) for technical details.
+
+### For Project Managers
+Check [metadata.yaml](./metadata.yaml) for metrics and [TASK-SUMMARY.md](./TASK-SUMMARY.md) for task status.
+
+### For New Team Members
+Read this INDEX first, then [README.md](./README.md), then [epic.md](./epic.md).
+
+---
+
+## Research Documents
+
+Located in `research/` folder:
+
+| Document | Status | Key Findings |
+|----------|--------|--------------|
+| [STACK.md](./research/STACK.md) | FILL_ME | FILL_ME |
+| [ARCHITECTURE.md](./research/ARCHITECTURE.md) | FILL_ME | FILL_ME |
+| [FEATURES.md](./research/FEATURES.md) | FILL_ME | FILL_ME |
+| [PITFALLS.md](./research/PITFALLS.md) | FILL_ME | FILL_ME |
+| [SUMMARY.md](./research/SUMMARY.md) | FILL_ME | FILL_ME |
+
+---
+
+## Related Items
+
+### Goals
+- [IG-XXX](../goals/FILL_ME) - FILL_ME
+
+### Decisions
+- [DEC-XXX](../decisions/FILL_ME) - FILL_ME
+
+### Tasks
+See [TASK-SUMMARY.md](./TASK-SUMMARY.md) for complete task list.
+
+### Other Epics
+- [EPIC-YYY](./../EPIC-YYY/README.md) - FILL_ME - Relationship
+
+---
+
+## Change Log
+
+| Date | Change | Author |
+|------|--------|--------|
+| FILL_ME | FILL_ME - Description of change | FILL_ME |
+
+---
+
+## Document Status
+
+This INDEX is maintained alongside the epic. Update it when:
+- New documents are added
+- Document status changes
+- Epic status changes significantly
+- New cross-references are discovered

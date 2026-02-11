@@ -56,21 +56,21 @@ You are RALF-Architect operating on BlackBox5. Environment variables:
 
 ```bash
 # Top-level structure
-tree -L 2 ~/.blackbox5 2>/dev/null || find ~/.blackbox5 -maxdepth 2 -type d | head -50
+tree -L 2 ~/blackbox5 2>/dev/null || find ~/blackbox5 -maxdepth 2 -type d | head -50
 
 # Count .autonomous directories (red flag indicator)
-find ~/.blackbox5 -type d -name ".autonomous" | wc -l
-find ~/.blackbox5 -type d -name ".autonomous"
+find ~/blackbox5 -type d -name ".autonomous" | wc -l
+find ~/blackbox5 -type d -name ".autonomous"
 
 # Count duplicate folder patterns
 echo "=== Duplicate patterns ==="
-find ~/.blackbox5 -type d -name "tasks" | wc -l
-find ~/.blackbox5 -type d -name "runs" | wc -l
-find ~/.blackbox5 -type d -name "config" | wc -l
-find ~/.blackbox5 -type d -name "lib" | wc -l
+find ~/blackbox5 -type d -name "tasks" | wc -l
+find ~/blackbox5 -type d -name "runs" | wc -l
+find ~/blackbox5 -type d -name "config" | wc -l
+find ~/blackbox5 -type d -name "lib" | wc -l
 
 # Find all config files (should they be centralized?)
-find ~/.blackbox5 -name "*.yaml" -o -name "*.yml" -o -name "*.json" | grep -E "(config|settings)" | head -20
+find ~/blackbox5 -name "*.yaml" -o -name "*.yml" -o -name "*.json" | grep -E "(config|settings)" | head -20
 ```
 
 **Document in STRUCTURE.md:**
@@ -106,7 +106,7 @@ EOF
 ```bash
 # 1. Same name, different locations (confusion)
 echo "=== All 'tasks' directories ==="
-find ~/.blackbox5 -type d -name "tasks" | while read dir; do
+find ~/blackbox5 -type d -name "tasks" | while read dir; do
     echo ""
     echo "Location: $dir"
     echo "Contents: $(ls "$dir" 2>/dev/null | wc -l) items"
@@ -115,22 +115,22 @@ done
 
 # 2. Config sprawl
 echo "=== All config files ==="
-find ~/.blackbox5 -name "*.yaml" -o -name "*.yml" | grep -v node_modules | while read f; do
+find ~/blackbox5 -name "*.yaml" -o -name "*.yml" | grep -v node_modules | while read f; do
     echo "$f"
 done | sort
 
 # 3. Deep nesting (complexity indicator)
 echo "=== Deepest directory paths ==="
-find ~/.blackbox5 -type d | awk '{print length, $0}' | sort -rn | head -20
+find ~/blackbox5 -type d | awk '{print length, $0}' | sort -rn | head -20
 
 # 4. Empty or near-empty directories (cruft)
 echo "=== Potentially empty directories ==="
-find ~/.blackbox5 -type d -empty 2>/dev/null
-find ~/.blackbox5 -type d -exec sh -c 'ls -A "$1" | wc -l | grep -q "^0$"' _ {} \; -print 2>/dev/null
+find ~/blackbox5 -type d -empty 2>/dev/null
+find ~/blackbox5 -type d -exec sh -c 'ls -A "$1" | wc -l | grep -q "^0$"' _ {} \; -print 2>/dev/null
 
 # 5. Duplicate file names
 echo "=== Duplicate filenames across directories ==="
-find ~/.blackbox5 -type f -name "*.py" -o -name "*.md" -o -name "*.yaml" | \
+find ~/blackbox5 -type f -name "*.py" -o -name "*.md" -o -name "*.yaml" | \
     xargs -I {} basename {} | \
     sort | uniq -c | sort -rn | head -20
 ```
@@ -164,19 +164,19 @@ EOF
 ```bash
 # Where do tasks originate?
 echo "=== Task sources ==="
-find ~/.blackbox5 -path "*/tasks/*.md" | head -10
+find ~/blackbox5 -path "*/tasks/*.md" | head -10
 
 # Where do runs get recorded?
 echo "=== Run recording locations ==="
-find ~/.blackbox5 -path "*/runs/*" -name "metadata.yaml" | head -10
+find ~/blackbox5 -path "*/runs/*" -name "metadata.yaml" | head -10
 
 # Where is state stored?
 echo "=== State files ==="
-find ~/.blackbox5 -name "STATE.yaml" -o -name "state.yaml" -o -name ".state"
+find ~/blackbox5 -name "STATE.yaml" -o -name "state.yaml" -o -name ".state"
 
 # Communication between agents
 echo "=== Communication files ==="
-find ~/.blackbox5 -name "events.yaml" -o -name "heartbeat.yaml" -o -name "chat-log.yaml"
+find ~/blackbox5 -name "events.yaml" -o -name "heartbeat.yaml" -o -name "chat-log.yaml"
 ```
 
 **Document data flow:**
@@ -212,7 +212,7 @@ EOF
 
 ```bash
 # For each .autonomous directory, ask: Why here?
-find ~/.blackbox5 -type d -name ".autonomous" | while read dir; do
+find ~/blackbox5 -type d -name ".autonomous" | while read dir; do
     echo ""
     echo "=== Question: $dir ==="
     echo "Parent: $(dirname $dir)"
@@ -319,10 +319,10 @@ EOF
 
 **Evidence:**
 ```bash
-$ find ~/.blackbox5 -name "*.yaml" | grep config
-/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/default.yaml
-/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/alert-config.yaml
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/config/something.yaml
+$ find ~/blackbox5 -name "*.yaml" | grep config
+/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/default.yaml
+/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/alert-config.yaml
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/config/something.yaml
 ```
 
 **Problem:** Config is split across engine and project memory

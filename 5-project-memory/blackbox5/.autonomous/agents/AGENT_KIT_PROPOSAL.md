@@ -245,7 +245,7 @@ color: blue
 ## File Structure
 
 ```
-~/.blackbox5/5-project-memory/blackbox5/.claude/
+~/blackbox5/5-project-memory/blackbox5/.claude/
 ├── agents/
 │   ├── bb5-explorer.md
 │   ├── bb5-researcher.md

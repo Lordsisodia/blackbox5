@@ -1,0 +1,156 @@
+---
+id: "PLAN-GUIDANCE-001"
+title: "CLAUDE.md Guidance Effectiveness Improvement"
+slug: "guidance-effectiveness-improvement"
+status: "draft"
+stage: "01-draft"
+
+# Metadata
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+updated_at: "2026-02-10T12:00:00Z"
+
+# Classification
+category: "guidance"
+domain: "documentation"
+priority: "high"
+
+# Relationships
+depends_on: []
+blocks: []
+blocked_by: []
+relates_to: []
+
+parent_goal: "IG-001"
+
+# Tasks
+related_tasks: []
+
+# Effort Tracking
+estimated_hours: 60
+actual_hours: 0
+progress: 0.0
+
+# Review
+review_status: "not-reviewed"
+reviewed_by: null
+reviewed_at: null
+approval_notes: null
+
+# Tags
+tags:
+  - "guidance"
+  - "claude-md"
+  - "decision-making"
+  - "effectiveness"
+
+# Links
+plan_link: "5-project-memory/blackbox5/plans/active/guidance-effectiveness-improvement/plan.yaml"
+---
+
+# CLAUDE.md Guidance Effectiveness Improvement Plan
+
+## Overview
+
+CLAUDE.md exists but hasn't been systematically improved. This plan analyzes guidance effectiveness, refines decision frameworks, optimizes operational procedures, and validates improvements.
+
+## Success Criteria
+
+- [ ] 5+ instances of hesitation/confusion identified and fixed
+- [ ] Decision framework has specific examples for each case
+- [ ] Subagent deployment rules are clear with thresholds
+- [ ] Context management thresholds tuned based on data
+- [ ] Skill discovery time reduced by 50%
+- [ ] Quality gates have per-task-type checklists
+
+## Phase Breakdown
+
+### Phase 1: Analyze Guidance Effectiveness (Week 1)
+
+**Objective:** Review past runs to identify friction points
+
+**Sub-goal:** SG-001-1 (Analyze guidance effectiveness)
+
+**Tasks:**
+1. Review last 20 runs for hesitation patterns
+2. Document instances where agent was uncertain
+3. Measure decision time for different task types
+4. Identify sections of CLAUDE.md causing delays
+5. Document operational friction points
+
+**Acceptance Criteria:**
+- 5+ hesitation instances documented
+- Decision time measured per task type
+- Problematic CLAUDE.md sections identified
+- Friction points catalogued
+
+### Phase 2: Refine Decision Framework (Week 2)
+
+**Objective:** Make decision framework specific with examples
+
+**Sub-goal:** SG-001-2 (Refine decision framework)
+
+**Tasks:**
+1. Add specific examples for "Just Do It" cases
+2. Add specific examples for "Create Formal Task" cases
+3. Add specific examples for "Ask User" cases
+4. Clarify subagent deployment rules with file count thresholds
+5. Tune context management thresholds (70%/85%/95%) based on data
+
+**Acceptance Criteria:**
+- Each decision type has 3+ concrete examples
+- Subagent rules include specific thresholds
+- Context thresholds tuned with rationale
+- Decision time reduced by 30%
+
+### Phase 3: Optimize Operational Procedures (Week 2)
+
+**Objective:** Streamline skill discovery and quality gates
+
+**Sub-goal:** SG-001-3 (Optimize operational procedures)
+
+**Tasks:**
+1. Implement skill caching (frequently used skills)
+2. Create quality gate checklists for each task type
+3. Optimize run initialization (template copying)
+4. Document optimized procedures
+
+**Acceptance Criteria:**
+- Skill selection time reduced by 50%
+- Quality gate checklists exist for: bug fix, feature, refactor, research
+- Run initialization time reduced by 30%
+- Fewer missed quality checks
+
+### Phase 4: Validate Improvements (Week 3)
+
+**Objective:** Test refined guidance on real tasks
+
+**Sub-goal:** SG-001-4 (Validate improvements)
+
+**Tasks:**
+1. Select 5 representative tasks
+2. Measure task initiation time (before vs after)
+3. Track context overflow exits
+4. Track subagent usage appropriateness
+5. Document improvements
+
+**Acceptance Criteria:**
+- Faster task initiation (measured improvement)
+- Fewer context overflow exits
+- More appropriate subagent usage
+- Documented improvement metrics
+
+## Dependencies
+
+- CLAUDE.md files (global and project)
+- Run history in `.autonomous/runs/`
+- Task history for measurement
+
+## Timeline
+
+| Phase | Duration | Focus |
+|-------|----------|-------|
+| 1 | Week 1 | Analyze effectiveness |
+| 2 | Week 2 | Refine framework |
+| 3 | Week 2 | Optimize procedures |
+| 4 | Week 3 | Validate improvements |

@@ -77,13 +77,13 @@ If unified format causes issues:
 
 ### Files Created/Modified:
 
-1. **`~/.blackbox5/bin/consolidate-run.sh`** (NEW)
+1. **`~/blackbox5/bin/consolidate-run.sh`** (NEW)
    - Bash script to merge THOUGHTS.md, DECISIONS.md|yaml, ASSUMPTIONS.md, RESULTS.md, LEARNINGS.md
    - Supports --dry-run, --all, --keep flags
    - Parses markdown structure and converts to YAML
    - Processes 300 runs in ~30 seconds
 
-2. **`~/.blackbox5/bin/ralf-tools/ralf-session-start-hook.sh`** (MODIFIED)
+2. **`~/blackbox5/bin/ralf-tools/ralf-session-start-hook.sh`** (MODIFIED)
    - Now creates unified RUN.yaml instead of separate files
    - Includes all sections: metadata, context, thoughts, decisions, assumptions, results, learnings
    - Maintains backward compatibility with source_files reference

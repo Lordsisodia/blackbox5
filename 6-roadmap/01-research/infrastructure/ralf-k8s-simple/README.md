@@ -63,7 +63,7 @@ scp root@<server-ip>:/etc/rancher/k3s/k3s.yaml ~/.kube/config
 ### 2. Run Setup
 
 ```bash
-cd /Users/shaansisodia/.blackbox5/6-roadmap/01-research/infrastructure/ralf-k8s-simple
+cd /Users/shaansisodia/blackbox5/6-roadmap/01-research/infrastructure/ralf-k8s-simple
 
 # Run the setup script
 ./setup.sh

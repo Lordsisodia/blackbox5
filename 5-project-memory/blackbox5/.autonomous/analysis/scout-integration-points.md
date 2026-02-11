@@ -11,8 +11,8 @@
 **Location:** `.claude/hooks/` (100+ hooks found)
 
 **Key Hooks:**
-- `/Users/shaansisodia/.blackbox5/.claude/hooks/subagent-tracking.sh` - Tracks agent lifecycle (start/stop)
-- Various hooks in `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/`
+- `/Users/shaansisodia/blackbox5/.claude/hooks/subagent-tracking.sh` - Tracks agent lifecycle (start/stop)
+- Various hooks in `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/`
 
 **Integration Issues Found:**
 - **No centralized hook registry** - Hooks are scattered across multiple directories
@@ -24,7 +24,7 @@
 
 ## 2. Event System Analysis
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
 
 **How It Works:**
 - Simple YAML append-only event log
@@ -66,7 +66,7 @@
 
 ## 4. CLI Integration Analysis
 
-**CLI Commands:** `bb5-*` scripts in `/Users/shaansisodia/.blackbox5/bin/`
+**CLI Commands:** `bb5-*` scripts in `/Users/shaansisodia/blackbox5/bin/`
 
 **Integration Patterns:**
 - Direct file reads/writes to task/goal directories

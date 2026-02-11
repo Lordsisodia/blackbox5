@@ -212,7 +212,7 @@ project:
 ### From grep analysis (50+ references found):
 
 1. **Path References**:
-   - `~/.blackbox5/` - Absolute home directory references
+   - `~/blackbox5/` - Absolute home directory references
    - `../../2-engine/` - Relative path references
    - `5-project-memory/` - Project memory references
 

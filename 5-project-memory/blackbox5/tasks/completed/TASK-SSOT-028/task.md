@@ -46,11 +46,11 @@ TTL: 5 seconds
 ## Implementation Summary
 
 ### Files Created
-1. `/Users/shaansisodia/.blackbox5/2-engine/modules/fractal_genesis/data/storage/__init__.py` - Package init
-2. `/Users/shaansisodia/.blackbox5/2-engine/modules/fractal_genesis/data/storage/cache_manager.py` - Core caching implementation
+1. `/Users/shaansisodia/blackbox5/2-engine/modules/fractal_genesis/data/storage/__init__.py` - Package init
+2. `/Users/shaansisodia/blackbox5/2-engine/modules/fractal_genesis/data/storage/cache_manager.py` - Core caching implementation
 
 ### Files Modified
-1. `/Users/shaansisodia/.blackbox5/2-engine/modules/fractal_genesis/data/storage.py` - Integrated caching layer
+1. `/Users/shaansisodia/blackbox5/2-engine/modules/fractal_genesis/data/storage.py` - Integrated caching layer
 
 ### Features Implemented
 
@@ -87,12 +87,12 @@ The following require integration with modules not yet implemented:
 - Metrics calculation caching (needs metrics module)
 
 ## Related Files
-- `/Users/shaansisodia/.blackbox5/2-engine/modules/fractal_genesis/data/storage/cache_manager.py`
-- `/Users/shaansisodia/.blackbox5/2-engine/modules/fractal_genesis/data/storage/__init__.py`
-- `/Users/shaansisodia/.blackbox5/2-engine/modules/fractal_genesis/data/storage.py`
+- `/Users/shaansisodia/blackbox5/2-engine/modules/fractal_genesis/data/storage/cache_manager.py`
+- `/Users/shaansisodia/blackbox5/2-engine/modules/fractal_genesis/data/storage/__init__.py`
+- `/Users/shaansisodia/blackbox5/2-engine/modules/fractal_genesis/data/storage.py`
 - caching-opportunities.md (reference)
 
 ## Rollback Strategy
 - Disable caching: `TaskStorage(enable_caching=False)`
 - Clear cache: `storage.clear_cache()`
-- Cache files stored in `~/.blackbox5/.cache/` - can be deleted manually
+- Cache files stored in `~/blackbox5/.cache/` - can be deleted manually

@@ -127,7 +127,7 @@ bb5 skill-dashboard --json       # JSON output
 
 **Hierarchy Implemented:**
 1. Environment Variables
-2. User Config (~/.blackbox5/config/user.yaml)
+2. User Config (~/blackbox5/config/user.yaml)
 3. Project Config (5-project-memory/[project]/.autonomous/config/project.yaml)
 4. Engine Config (2-engine/.autonomous/config/engine.yaml)
 5. Base Defaults (2-engine/.autonomous/config/base.yaml)

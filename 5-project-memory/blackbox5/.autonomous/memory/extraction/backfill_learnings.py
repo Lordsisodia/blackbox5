@@ -30,7 +30,7 @@ def main():
     parser.add_argument("--rebuild", action="store_true",
                         help="Rebuild index from scratch (clear existing)")
     parser.add_argument("--runs-dir",
-                        default="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs",
+                        default="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs",
                         help="Directory containing run directories")
 
     args = parser.parse_args()

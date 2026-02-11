@@ -3,7 +3,7 @@
 ## Canonical Source of Truth
 
 **Primary Source:** Filesystem task directories
-- Location: `~/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-*/task.md`
+- Location: `~/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-*/task.md`
 - Status field in task.md is the authoritative source
 
 **Derived Sources:**

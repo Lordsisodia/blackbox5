@@ -5,7 +5,7 @@ Comprehensive test suite for Week 1 components of the Blackbox 5 multi-agent sys
 ## Test Structure
 
 ```
-.blackbox5/tests/
+blackbox5/tests/
 ├── conftest.py                    # Pytest fixtures and test configuration
 ├── pytest.ini                     # Pytest configuration
 ├── test_task_router.py            # Task routing and complexity analysis tests
@@ -43,7 +43,7 @@ Tests that take longer to run (high volume, performance tests).
 
 ### Run All Tests
 ```bash
-cd .blackbox5/tests
+cd blackbox5/tests
 pytest
 ```
 
@@ -195,30 +195,30 @@ See [AGENT-INTEGRATION-TEST-SUMMARY.md](AGENT-INTEGRATION-TEST-SUMMARY.md) for d
 
 ### Direct Execution (Recommended for detailed output)
 ```bash
-python3 .blackbox5/tests/test_agent_integration.py
+python3 blackbox5/tests/test_agent_integration.py
 ```
 
 ### Using pytest
 ```bash
-pytest .blackbox5/tests/test_agent_integration.py -v
+pytest blackbox5/tests/test_agent_integration.py -v
 ```
 
 ### Individual test suites
 ```bash
 # Test 1: Multi-agent workflow
-pytest .blackbox5/tests/test_agent_integration.py::test_multi_agent_workflow -v
+pytest blackbox5/tests/test_agent_integration.py::test_multi_agent_workflow -v
 
 # Test 2: Memory persistence
-pytest .blackbox5/tests/test_agent_integration.py::test_memory_persistence -v
+pytest blackbox5/tests/test_agent_integration.py::test_memory_persistence -v
 
 # Test 3: External integrations
-pytest .blackbox5/tests/test_agent_integration.py::test_external_integrations -v
+pytest blackbox5/tests/test_agent_integration.py::test_external_integrations -v
 
 # Test 4: Agent coordination
-pytest .blackbox5/tests/test_agent_integration.py::test_agent_coordination -v
+pytest blackbox5/tests/test_agent_integration.py::test_agent_coordination -v
 
 # Test 5: Error handling
-pytest .blackbox5/tests/test_agent_integration.py::test_error_handling -v
+pytest blackbox5/tests/test_agent_integration.py::test_error_handling -v
 ```
 
 ## Writing New Tests
@@ -313,7 +313,7 @@ jobs:
         run: pytest -m integration
 
       - name: Generate coverage
-        run: pytest --cov=.blackbox5/engine --cov-report=xml
+        run: pytest --cov=blackbox5/engine --cov-report=xml
 ```
 
 ## Debugging Tests
@@ -343,7 +343,7 @@ python -m pytest --pdb-trace
 ### Redis Not Available
 If Redis is not running, integration tests will be skipped:
 ```
-SKIPPED [1] .blackbox5/tests/test_integration.py:xx: Redis not available
+SKIPPED [1] blackbox5/tests/test_integration.py:xx: Redis not available
 ```
 
 ### ChromaDB/Neo4j Not Available

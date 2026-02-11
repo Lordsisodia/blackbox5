@@ -26,7 +26,7 @@ Successfully implemented the **Checkpoint Protocol System** for BlackBox5, enabl
 
 ### Files Modified
 
-1. **`.blackbox5/engine/core/Orchestrator.py`**
+1. **`blackbox5/engine/core/Orchestrator.py`**
    - Added `WorkflowCheckpoint` dataclass (lines 176-231)
    - Updated `AgentOrchestrator.__init__()` with checkpoint configuration (lines 249-285)
    - Added checkpoint methods:
@@ -39,12 +39,12 @@ Successfully implemented the **Checkpoint Protocol System** for BlackBox5, enabl
 
 ### Files Created
 
-2. **`.blackbox5/tests/test_checkpoint_protocol.py`**
+2. **`blackbox5/tests/test_checkpoint_protocol.py`**
    - Comprehensive test suite with 10 test cases
    - Tests for save, load, resume, cleanup, and multi-session workflows
    - Tests for atomic writes and error handling
 
-3. **`.blackbox5/docs/CHECKPOINT-PROTOCOL-IMPLEMENTATION.md`** (this file)
+3. **`blackbox5/docs/CHECKPOINT-PROTOCOL-IMPLEMENTATION.md`** (this file)
    - Implementation summary and documentation
 
 ---
@@ -185,7 +185,7 @@ orchestrator = AgentOrchestrator(
 
 Checkpoints are stored in:
 ```
-.blackbox5/agent_memory/checkpoints/
+blackbox5/agent_memory/checkpoints/
     ├── {workflow_id}_wave1.json
     ├── {workflow_id}_wave2.json
     └── {workflow_id}_wave3.json
@@ -325,7 +325,7 @@ result = orchestrator_2.resume_workflow(checkpoint_id, remaining_tasks)
 
 ```bash
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-python .blackbox5/tests/test_checkpoint_protocol.py
+python blackbox5/tests/test_checkpoint_protocol.py
 ```
 
 ---
@@ -498,10 +498,10 @@ removed = orchestrator.cleanup_old_checkpoints(workflow_id, keep_latest=3)
 
 ### File Locations
 
-- **Checkpoint Code**: `.blackbox5/engine/core/Orchestrator.py`
-- **Tests**: `.blackbox5/tests/test_checkpoint_protocol.py`
-- **Checkpoint Storage**: `.blackbox5/agent_memory/checkpoints/`
-- **Documentation**: `.blackbox5/docs/CHECKPOINT-PROTOCOL-IMPLEMENTATION.md`
+- **Checkpoint Code**: `blackbox5/engine/core/Orchestrator.py`
+- **Tests**: `blackbox5/tests/test_checkpoint_protocol.py`
+- **Checkpoint Storage**: `blackbox5/agent_memory/checkpoints/`
+- **Documentation**: `blackbox5/docs/CHECKPOINT-PROTOCOL-IMPLEMENTATION.md`
 
 ---
 

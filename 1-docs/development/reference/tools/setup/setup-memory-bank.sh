@@ -71,8 +71,8 @@ None currently
 - **Vibe Kanban Integration**: Task and agent management
 
 ## Relevant Links
-- Domain Knowledge: .blackbox5/engine/domains/_map.md
-- Skills: .blackbox5/engine/.agents/.skills/
+- Domain Knowledge: blackbox5/engine/domains/_map.md
+- Skills: blackbox5/engine/.agents/.skills/
 - Vibe Kanban: http://localhost:3000
 "
 
@@ -424,8 +424,8 @@ echo -e "  3. Document any recent decisions in decision-log.md"
 echo -e "  4. Update active-context.md with current focus"
 echo ""
 echo -e "${YELLOW}Usage:${NC}"
-echo -e "  • Read context:  cat .blackbox5/engine/memory/memory-bank/active-context.md"
-echo -e "  • Update progress: Use MCP or edit .blackbox5/engine/memory/memory-bank/progress.md"
-echo -e "  • Log decisions: Use MCP or edit .blackbox5/engine/memory/memory-bank/decision-log.md"
+echo -e "  • Read context:  cat blackbox5/engine/memory/memory-bank/active-context.md"
+echo -e "  • Update progress: Use MCP or edit blackbox5/engine/memory/memory-bank/progress.md"
+echo -e "  • Log decisions: Use MCP or edit blackbox5/engine/memory/memory-bank/decision-log.md"
 echo ""
 echo -e "${BLUE}════════════════════════════════════════════════════════════${NC}"

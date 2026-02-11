@@ -7,7 +7,7 @@ Part of Feature F-012 (API Gateway & External Service Integration)
 Usage:
     from api_server import create_app
 
-    app = create_app(config_file="~/.blackbox5/api-config.yaml")
+    app = create_app(config_file="~/blackbox5/api-config.yaml")
     app.run(host="0.0.0.0", port=5000)
 
     Or run directly:
@@ -402,7 +402,7 @@ def create_app(config_file: str = None) -> Flask:
     """
     # Default config location
     if not config_file:
-        config_file = os.path.expanduser("~/.blackbox5/api-config.yaml")
+        config_file = os.path.expanduser("~/blackbox5/api-config.yaml")
 
     gateway = RalfAPIGateway(config_file=config_file)
     return gateway.app
@@ -415,7 +415,7 @@ def main():
     parser = argparse.ArgumentParser(description='RALF API Gateway Server')
     parser.add_argument(
         '--config',
-        default='~/.blackbox5/api-config.yaml',
+        default='~/blackbox5/api-config.yaml',
         help='Path to configuration file'
     )
     parser.add_argument('--host', default=None, help='Host to bind to')

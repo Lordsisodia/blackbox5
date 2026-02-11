@@ -9,24 +9,24 @@ The MCP crash prevention system is now integrated into Black Box 5's core archit
 ### New Files Created
 
 ```
-.blackbox5/engine/core/
+blackbox5/engine/core/
 └── mcp_crash_prevention.py          # NEW: Crash prevention module
 
-.blackbox5/.docs/
+blackbox5/.docs/
 ├── MCP-CRASH-PREVENTION.md          # NEW: Full architecture docs
 └── MCP-QUICKSTART.md                # NEW: This file
 
-.blackbox5/.config/
+blackbox5/.config/
 └── mcp-servers.json                 # NEW: MCP server configuration
 ```
 
 ### Modified Files
 
 ```
-.blackbox5/engine/core/
+blackbox5/engine/core/
 └── MCPIntegration.py                # UPDATED: Added crash prevention integration
 
-.blackbox5/engine/
+blackbox5/engine/
 └── config.yml                       # UPDATED: Added crash prevention settings
 ```
 
@@ -35,7 +35,7 @@ The MCP crash prevention system is now integrated into Black Box 5's core archit
 ### 1. Install Dependencies
 
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine
 pip install psutil
 ```
 
@@ -57,7 +57,7 @@ tools:
 
 ### 3. Configure MCP Servers
 
-Edit `.blackbox5/.config/mcp-servers.json` to define your servers.
+Edit `blackbox5/.config/mcp-servers.json` to define your servers.
 
 ## Usage
 
@@ -129,7 +129,7 @@ print(status)
 
 ### Edit Limits
 
-Edit `.blackbox5/engine/config.yml`:
+Edit `blackbox5/engine/config.yml`:
 
 ```yaml
 tools:
@@ -220,6 +220,6 @@ The crash prevention system integrates with:
 ## Support
 
 For issues or questions:
-- Check logs: `.blackbox5/logs/blackbox5.log`
-- Review architecture docs: `.blackbox5/.docs/MCP-CRASH-PREVENTION.md`
-- Check configuration: `.blackbox5/engine/config.yml`
+- Check logs: `blackbox5/logs/blackbox5.log`
+- Review architecture docs: `blackbox5/.docs/MCP-CRASH-PREVENTION.md`
+- Check configuration: `blackbox5/engine/config.yml`

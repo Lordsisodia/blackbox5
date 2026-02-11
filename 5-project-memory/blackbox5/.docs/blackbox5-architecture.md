@@ -26,14 +26,14 @@ RALF = Recursive Autonomous Learning Framework. A self-running loop where Planne
 
 **Start a RALF Session**:
 ```bash
-cd ~/.blackbox5
+cd ~/blackbox5
 claude --mcp-config .mcp-moltbot.json
 ```
 
 **Manual Task Injection**:
 ```bash
 # Create a task file
-cat > ~/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-NEW.md << 'EOF'
+cat > ~/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-NEW.md << 'EOF'
 # TASK-NEW: Task Title
 
 **Status:** pending
@@ -56,23 +56,23 @@ Background info.
 EOF
 
 # Add to queue
-~/.blackbox5/bin/ralf-planner-queue.sh --fill
+~/blackbox5/bin/ralf-planner-queue.sh --fill
 ```
 
 ### How to Check RALF Status
 
 ```bash
 # Check queue depth
-cat ~/.blackbox5/.autonomous/communications/queue.yaml
+cat ~/blackbox5/.autonomous/communications/queue.yaml
 
 # Check agent health
-cat ~/.blackbox5/.autonomous/communications/heartbeat.yaml
+cat ~/blackbox5/.autonomous/communications/heartbeat.yaml
 
 # Check recent events
-cat ~/.blackbox5/.autonomous/communications/events.yaml
+cat ~/blackbox5/.autonomous/communications/events.yaml
 
 # Get formatted status
-~/.blackbox5/bin/ralf-task-select.sh --status
+~/blackbox5/bin/ralf-task-select.sh --status
 ```
 
 ---
@@ -82,7 +82,7 @@ cat ~/.blackbox5/.autonomous/communications/events.yaml
 ### File Locations
 All communication files are in:
 ```
-~/.blackbox5/.autonomous/communications/
+~/blackbox5/.autonomous/communications/
 ├── queue.yaml      # Planner writes, Executor reads
 ├── events.yaml     # Executor writes, Planner reads
 ├── heartbeat.yaml  # Both write their own status
@@ -92,22 +92,22 @@ All communication files are in:
 ### How to Read Queue
 ```bash
 # See pending tasks
-grep -A 5 "status: pending" ~/.blackbox5/.autonomous/communications/queue.yaml
+grep -A 5 "status: pending" ~/blackbox5/.autonomous/communications/queue.yaml
 
 # Count pending tasks
-grep -c "status: pending" ~/.blackbox5/.autonomous/communications/queue.yaml
+grep -c "status: pending" ~/blackbox5/.autonomous/communications/queue.yaml
 ```
 
 ### How to Read Events
 ```bash
 # See last 10 events
-tail -50 ~/.blackbox5/.autonomous/communications/events.yaml
+tail -50 ~/blackbox5/.autonomous/communications/events.yaml
 
 # See executor events only
-grep "agent: executor" ~/.blackbox5/.autonomous/communications/events.yaml
+grep "agent: executor" ~/blackbox5/.autonomous/communications/events.yaml
 
 # See completed tasks
-grep "type: completed" ~/.blackbox5/.autonomous/communications/events.yaml
+grep "type: completed" ~/blackbox5/.autonomous/communications/events.yaml
 ```
 
 ### How to Read Heartbeats
@@ -117,7 +117,7 @@ python3 -c "
 import yaml
 from datetime import datetime, timedelta
 
-with open('~/.blackbox5/.autonomous/communications/heartbeat.yaml') as f:
+with open('~/blackbox5/.autonomous/communications/heartbeat.yaml') as f:
     data = yaml.safe_load(f)
 
 for agent, status in data['heartbeats'].items():
@@ -154,21 +154,21 @@ for agent, status in data['heartbeats'].items():
 
 ```bash
 # Simulate session start
-export RALF_PROJECT_ROOT=~/.blackbox5
-bash ~/.blackbox5/bin/ralf-session-start-hook.sh
+export RALF_PROJECT_ROOT=~/blackbox5
+bash ~/blackbox5/bin/ralf-session-start-hook.sh
 
 # Simulate session stop
-bash ~/.blackbox5/bin/ralf-stop-hook.sh
+bash ~/blackbox5/bin/ralf-stop-hook.sh
 ```
 
 ### How to Check Hook Status
 
 ```bash
 # Check if hooks are configured
-cat ~/.blackbox5/.claude/settings.json
+cat ~/blackbox5/.claude/settings.json
 
 # Check recent hook executions
-ls -la ~/.blackbox5/5-project-memory/blackbox5/runs/unknown/ | head -10
+ls -la ~/blackbox5/5-project-memory/blackbox5/runs/unknown/ | head -10
 ```
 
 ---
@@ -188,7 +188,7 @@ ls -la ~/.blackbox5/5-project-memory/blackbox5/runs/unknown/ | head -10
 
 ```bash
 TASK_ID="TASK-$(date +%s)"
-cat > ~/.blackbox5/5-project-memory/blackbox5/tasks/active/${TASK_ID}.md << EOF
+cat > ~/blackbox5/5-project-memory/blackbox5/tasks/active/${TASK_ID}.md << EOF
 # ${TASK_ID}: Brief Description
 
 **Status:** pending
@@ -219,19 +219,19 @@ EOF
 
 ```bash
 # List all active tasks
-ls ~/.blackbox5/5-project-memory/blackbox5/tasks/active/
+ls ~/blackbox5/5-project-memory/blackbox5/tasks/active/
 
 # Check specific task
-cat ~/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX.md | grep "Status:"
+cat ~/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX.md | grep "Status:"
 
 # List completed tasks
-ls ~/.blackbox5/5-project-memory/blackbox5/tasks/completed/ | wc -l
+ls ~/blackbox5/5-project-memory/blackbox5/tasks/completed/ | wc -l
 ```
 
 ### How to Claim a Task (Executor)
 
 ```bash
-~/.blackbox5/bin/ralf-task-select.sh --claim
+~/blackbox5/bin/ralf-task-select.sh --claim
 ```
 
 This will:
@@ -260,23 +260,23 @@ runs/{agent}/run-YYYYMMDD-HHMMSS/
 
 ```bash
 # Count total runs
-find ~/.blackbox5/5-project-memory/blackbox5 -type d -name "run-*" | wc -l
+find ~/blackbox5/5-project-memory/blackbox5 -type d -name "run-*" | wc -l
 
 # Find planner runs
-ls ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/runs/ | wc -l
+ls ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/runs/ | wc -l
 
 # Find executor runs
-ls ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/ | wc -l
+ls ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/ | wc -l
 
 # Find recent runs
-ls -lt ~/.blackbox5/5-project-memory/blackbox5/runs/unknown/completed/ | head -10
+ls -lt ~/blackbox5/5-project-memory/blackbox5/runs/unknown/completed/ | head -10
 ```
 
 ### How to Read Run Results
 
 ```bash
 # Get run summary
-RUN_DIR=~/.blackbox5/5-project-memory/blackbox5/runs/unknown/completed/run-XXX
+RUN_DIR=~/blackbox5/5-project-memory/blackbox5/runs/unknown/completed/run-XXX
 cat $RUN_DIR/RESULTS.md
 
 # Get decisions
@@ -290,13 +290,13 @@ cat $RUN_DIR/metadata.yaml
 
 ```bash
 # Find high-LPM executor runs
-for dir in ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/run-*/; do
+for dir in ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/run-*/; do
   lpm=$(grep "lpm:" "$dir/metadata.yaml" 2>/dev/null | awk '{print $2}')
   [[ -n "$lpm" ]] && echo "$lpm LPM: $(basename $dir)"
 done | sort -rn | head -10
 
 # Find longest runs
-for dir in ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/runs/run-*/; do
+for dir in ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/runs/run-*/; do
   duration=$(grep "duration_seconds:" "$dir/metadata.yaml" 2>/dev/null | awk '{print $2}')
   [[ -n "$duration" ]] && echo "$duration sec: $(basename $dir)"
 done | sort -rn | head -10
@@ -314,7 +314,7 @@ done | sort -rn | head -10
 - Invocation: `skill: "skill-name"`
 
 **Engine Skills** (Python-based):
-- Location: `~/.blackbox5/2-engine/core/skills/`
+- Location: `~/blackbox5/2-engine/core/skills/`
 - Used by RALF agents internally
 
 ### How to List Available Skills
@@ -363,7 +363,7 @@ skill: "git-commit", args: "-m 'message'"
   "mcpServers": {
     "moltbot-vps": {
       "command": "python3",
-      "args": ["~/.blackbox5/mcp-server-moltbot.py"]
+      "args": ["~/blackbox5/mcp-server-moltbot.py"]
     }
   }
 }
@@ -394,19 +394,19 @@ moltbot_get_user_context()
 1. **Queue Health**:
    ```bash
    # Check if queue needs refill
-   ~/.blackbox5/bin/ralf-planner-queue.sh --check
+   ~/blackbox5/bin/ralf-planner-queue.sh --check
    ```
 
 2. **Agent Health**:
    ```bash
    # Check heartbeats
-   cat ~/.blackbox5/.autonomous/communications/heartbeat.yaml
+   cat ~/blackbox5/.autonomous/communications/heartbeat.yaml
    ```
 
 3. **Task Completion**:
    ```bash
    # Check recent events
-   tail -20 ~/.blackbox5/.autonomous/communications/events.yaml
+   tail -20 ~/blackbox5/.autonomous/communications/events.yaml
    ```
 
 ### What Moltbot Should Do
@@ -452,25 +452,25 @@ moltbot_get_user_context()
 
 ```bash
 # RALF Status
-~/.blackbox5/bin/ralf-task-select.sh --status
+~/blackbox5/bin/ralf-task-select.sh --status
 
 # Queue Status
-~/.blackbox5/bin/ralf-planner-queue.sh --pending
+~/blackbox5/bin/ralf-planner-queue.sh --pending
 
 # Agent Health
-cat ~/.blackbox5/.autonomous/communications/heartbeat.yaml
+cat ~/blackbox5/.autonomous/communications/heartbeat.yaml
 
 # Recent Events
-tail -30 ~/.blackbox5/.autonomous/communications/events.yaml
+tail -30 ~/blackbox5/.autonomous/communications/events.yaml
 
 # Run Count
-find ~/.blackbox5/5-project-memory/blackbox5 -type d -name "run-*" | wc -l
+find ~/blackbox5/5-project-memory/blackbox5 -type d -name "run-*" | wc -l
 
 # Task Count
-ls ~/.blackbox5/5-project-memory/blackbox5/tasks/active/ | wc -l
+ls ~/blackbox5/5-project-memory/blackbox5/tasks/active/ | wc -l
 
 # Completed Tasks
-ls ~/.blackbox5/5-project-memory/blackbox5/tasks/completed/ | wc -l
+ls ~/blackbox5/5-project-memory/blackbox5/tasks/completed/ | wc -l
 ```
 
 ---
@@ -479,17 +479,17 @@ ls ~/.blackbox5/5-project-memory/blackbox5/tasks/completed/ | wc -l
 
 | Component | Location |
 |-----------|----------|
-| Queue | `~/.blackbox5/.autonomous/communications/queue.yaml` |
-| Events | `~/.blackbox5/.autonomous/communications/events.yaml` |
-| Heartbeat | `~/.blackbox5/.autonomous/communications/heartbeat.yaml` |
-| Active Tasks | `~/.blackbox5/5-project-memory/blackbox5/tasks/active/` |
-| Completed Tasks | `~/.blackbox5/5-project-memory/blackbox5/tasks/completed/` |
-| Planner Runs | `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/runs/` |
-| Executor Runs | `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/` |
-| Session Runs | `~/.blackbox5/5-project-memory/blackbox5/runs/unknown/completed/` |
-| Hooks | `~/.blackbox5/bin/ralf-*-hook.sh` |
+| Queue | `~/blackbox5/.autonomous/communications/queue.yaml` |
+| Events | `~/blackbox5/.autonomous/communications/events.yaml` |
+| Heartbeat | `~/blackbox5/.autonomous/communications/heartbeat.yaml` |
+| Active Tasks | `~/blackbox5/5-project-memory/blackbox5/tasks/active/` |
+| Completed Tasks | `~/blackbox5/5-project-memory/blackbox5/tasks/completed/` |
+| Planner Runs | `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/runs/` |
+| Executor Runs | `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/` |
+| Session Runs | `~/blackbox5/5-project-memory/blackbox5/runs/unknown/completed/` |
+| Hooks | `~/blackbox5/bin/ralf-*-hook.sh` |
 | Skills | `~/.claude/skills/` |
-| MCP Config | `~/.blackbox5/.mcp-moltbot.json` |
+| MCP Config | `~/blackbox5/.mcp-moltbot.json` |
 
 ---
 

@@ -176,7 +176,7 @@ GLM API call
 
 - **Paper**: [LLMLingua: Microsoft Research](https://arxiv.org/abs/2310.05709)
 - **Repository**: [LLMLingua GitHub](https://github.com/microsoft/LLMLingua)
-- **BlackBox5 Research**: `.blackbox5/roadmap/01-research/memory-context/`
+- **BlackBox5 Research**: `blackbox5/roadmap/01-research/memory-context/`
 
 ## Future Enhancements
 

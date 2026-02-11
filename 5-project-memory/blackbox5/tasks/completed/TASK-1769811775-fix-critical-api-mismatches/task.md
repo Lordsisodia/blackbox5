@@ -58,7 +58,7 @@ Revert commits if tests fail or system becomes unstable
 ## Completion
 
 **Completed:** 2026-01-31T12:25:11Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769811911
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769811911
 **Agent:** Agent-2.3
 **Path Used:** quick
 **Phase Gates:** All passed

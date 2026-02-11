@@ -35,7 +35,7 @@ class PathResolver:
 
     Path Hierarchy (highest to lowest precedence):
         1. Environment variables (BLACKBOX5_HOME, BB5_*)
-        2. User config (~/.blackbox5/config/user.yaml)
+        2. User config (~/blackbox5/config/user.yaml)
         3. Project config (project/.autonomous/config/project.yaml)
         4. Engine config (2-engine/configuration/engine.yaml)
         5. Base defaults
@@ -55,13 +55,13 @@ class PathResolver:
 
     @property
     def blackbox5_root(self) -> Path:
-        """Get BlackBox5 root directory (~/.blackbox5)."""
+        """Get BlackBox5 root directory (~/blackbox5)."""
         if self._bb5_root is None:
             root = os.environ.get('BLACKBOX5_HOME') or os.environ.get('BB5_HOME')
             if root:
                 self._bb5_root = Path(os.path.expanduser(root))
             else:
-                self._bb5_root = Path.home() / '.blackbox5'
+                self._bb5_root = Path.home() / 'blackbox5'
         return self._bb5_root
 
     @property
@@ -114,23 +114,23 @@ class PathResolver:
             if memory:
                 self._memory_root = Path(os.path.expanduser(memory))
             else:
-                self._memory_root = self.blackbox5_root / '5-project-memory'
+                self._memory_root = selfblackbox5_root / '5-project-memory'
         return self._memory_root
 
     @property
     def docs_root(self) -> Path:
         """Get documentation root directory (1-docs)."""
-        return self.blackbox5_root / '1-docs'
+        return selfblackbox5_root / '1-docs'
 
     @property
     def bin_root(self) -> Path:
         """Get tools/bin root directory (bin)."""
-        return self.blackbox5_root / 'bin'
+        return selfblackbox5_root / 'bin'
 
     @property
     def roadmap_root(self) -> Path:
         """Get roadmap directory (6-roadmap)."""
-        return self.blackbox5_root / '6-roadmap'
+        return selfblackbox5_root / '6-roadmap'
 
     def get_project_path(self, project_name: Optional[str] = None) -> Path:
         """
@@ -267,7 +267,7 @@ class PathResolver:
         Returns:
             Combined path
         """
-        return self.blackbox5_root.joinpath(*parts)
+        return selfblackbox5_root.joinpath(*parts)
 
     def get_engine_path(self, *parts: Union[str, Path]) -> Path:
         """
@@ -350,7 +350,7 @@ def reset_path_resolver() -> None:
 # Convenience functions for common paths
 def get_blackbox5_root() -> Path:
     """Get BlackBox5 root directory."""
-    return get_path_resolver().blackbox5_root
+    return get_path_resolver()blackbox5_root
 
 
 def get_engine_path() -> Path:
@@ -415,7 +415,7 @@ def get_ralf_engine_dir() -> Path:
     if bb5_engine:
         return Path(os.path.expanduser(bb5_engine))
 
-    # Default: ~/.blackbox5/2-engine
+    # Default: ~/blackbox5/2-engine
     return get_blackbox5_root() / '2-engine'
 
 
@@ -473,7 +473,7 @@ if __name__ == "__main__":
 
     print("BlackBox5 Path Resolution")
     print("=" * 50)
-    print(f"BlackBox5 Root: {resolver.blackbox5_root}")
+    print(f"BlackBox5 Root: {resolverblackbox5_root}")
     print(f"Engine Path: {resolver.engine_path}")
     print(f"Lib Path: {resolver.lib_path}")
     print(f"Config Path: {resolver.config_path}")

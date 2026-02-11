@@ -22,7 +22,7 @@ TASK-1738300332 was created from PLAN-001 to fix a critical skills system issue 
 
 ### Current Skills Directory
 
-**Location:** `~/.blackbox5/2-engine/.autonomous/skills/`
+**Location:** `~/blackbox5/2-engine/.autonomous/skills/`
 
 **Contents:** 11 files
 - 9 BMAD agent skills (analyst, architect, dev, pm, qa, quick-flow, sm, tea, ux)

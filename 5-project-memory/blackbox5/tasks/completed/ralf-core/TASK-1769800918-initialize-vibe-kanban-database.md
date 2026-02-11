@@ -100,7 +100,7 @@ ERROR: API Error: 500 {"error": "Database not initialized"}
 
 ## Related Files
 
-- `~/.blackbox5/2-engine/tools/integrations/vibe/manager.py` - Async VibeKanbanManager
-- `~/.blackbox5/2-engine/core/agents/definitions/managerial/skills/vibe_kanban_manager.py` - Task management version
-- `~/.blackbox5/bin/vibe_kanban_integration.py` - Integration client
-- `~/.blackbox5/6-roadmap/03-planned/PLAN-005-initialize-vibe-kanban/plan.md` - Detailed implementation plan
+- `~/blackbox5/2-engine/tools/integrations/vibe/manager.py` - Async VibeKanbanManager
+- `~/blackbox5/2-engine/core/agents/definitions/managerial/skills/vibe_kanban_manager.py` - Task management version
+- `~/blackbox5/bin/vibe_kanban_integration.py` - Integration client
+- `~/blackbox5/6-roadmap/03-planned/PLAN-005-initialize-vibe-kanban/plan.md` - Detailed implementation plan

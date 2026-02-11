@@ -30,15 +30,15 @@ Create validation that ensures run folder templates (THOUGHTS.md, DECISIONS.md, 
 **Suggested Action:** Create validation hook that checks if run documentation is filled before allowing agent_stop
 
 **Files Created/Modified:**
-- `~/.blackbox5/bin/validate-run-templates.sh` - New validation script
-- `~/.blackbox5/bin/ralf-tools/ralf-stop-hook.sh` - Integrated validation into stop hook
+- `~/blackbox5/bin/validate-run-templates.sh` - New validation script
+- `~/blackbox5/bin/ralf-tools/ralf-stop-hook.sh` - Integrated validation into stop hook
 
 ---
 
 ## Implementation Summary
 
 ### 1. Created Validation Script
-**File:** `~/.blackbox5/bin/validate-run-templates.sh`
+**File:** `~/blackbox5/bin/validate-run-templates.sh`
 
 Validates that run folder templates have actual content:
 - **THOUGHTS.md** - Checks for Analysis, Progress, Outcome sections (min 10 content lines)
@@ -50,7 +50,7 @@ Validates that run folder templates have actual content:
 Detects placeholder content like "_Add thoughts here_", "TODO", "Coming soon"
 
 ### 2. Integrated into Stop Hook
-**File:** `~/.blackbox5/bin/ralf-tools/ralf-stop-hook.sh`
+**File:** `~/blackbox5/bin/ralf-tools/ralf-stop-hook.sh`
 
 Added call to validation script in Phase 7.1 (Validate Completion):
 - If validation script exists, runs comprehensive checks
@@ -90,7 +90,7 @@ Added call to validation script in Phase 7.1 (Validate Completion):
 
 If changes cause issues:
 1. Remove validation call from ralf-stop-hook.sh (lines ~175-185)
-2. Delete validation script: `rm ~/.blackbox5/bin/validate-run-templates.sh`
+2. Delete validation script: `rm ~/blackbox5/bin/validate-run-templates.sh`
 3. Document what went wrong
 4. Update this task with learnings
 

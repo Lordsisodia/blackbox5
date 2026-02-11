@@ -9,7 +9,7 @@
 ### Primary Location: Project Memory
 
 ```
-.blackbox5/5-project-memory/siso-internal/operations/
+blackbox5/5-project-memory/siso-internal/operations/
 │
 ├── README.md  # ⭐ START HERE - Main operations guide
 │
@@ -30,7 +30,7 @@
 ### Secondary Location: Tutorials
 
 ```
-.blackbox5/1-docs/03-guides/02-tutorials/
+blackbox5/1-docs/03-guides/02-tutorials/
 │
 ├── README.md  # Tutorial quick start
 ├── check-prerequisites.sh  # Automated checker
@@ -42,7 +42,7 @@
 ### Agent Skills Reference
 
 ```
-.blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/
+blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/
 │
 └── SKILL.md  # Points to operations documentation
 ```
@@ -54,45 +54,45 @@
 ### For New Agents
 
 **Start here**:
-1. `.blackbox5/5-project-memory/siso-internal/operations/README.md`
-2. `.blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md`
-3. `.blackbox5/5-project-memory/siso-internal/operations/docs/QUICK-START.md`
+1. `blackbox5/5-project-memory/siso-internal/operations/README.md`
+2. `blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md`
+3. `blackbox5/5-project-memory/siso-internal/operations/docs/QUICK-START.md`
 
 ### For Understanding Workflow
 
 **Read these**:
-1. `.blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md`
-2. `.blackbox5/5-project-memory/siso-internal/operations/docs/RALPHY-INTEGRATION.md`
-3. `.blackbox5/5-project-memory/siso-internal/operations/docs/VIBE-KANBAN.md`
+1. `blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md`
+2. `blackbox5/5-project-memory/siso-internal/operations/docs/RALPHY-INTEGRATION.md`
+3. `blackbox5/5-project-memory/siso-internal/operations/docs/VIBE-KANBAN.md`
 
 ### For Setup and Troubleshooting
 
 **Read these**:
-1. `.blackbox5/5-project-memory/siso-internal/operations/docs/SETUP-CHECKLIST.md`
-2. `.blackbox5/5-project-memory/siso-internal/operations/docs/VERIFICATION.md`
-3. `.blackbox5/5-project-memory/siso-internal/operations/docs/TROUBLESHOOTING.md`
+1. `blackbox5/5-project-memory/siso-internal/operations/docs/SETUP-CHECKLIST.md`
+2. `blackbox5/5-project-memory/siso-internal/operations/docs/VERIFICATION.md`
+3. `blackbox5/5-project-memory/siso-internal/operations/docs/TROUBLESHOOTING.md`
 
 ---
 
 ## 📖 Documentation Hierarchy
 
 `` Level 1: Quick Reference (Most Important)
-    ├── .blackbox5/5-project-memory/siso-internal/operations/README.md
-    └── .blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md
+    ├── blackbox5/5-project-memory/siso-internal/operations/README.md
+    └── blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md
 
  Level 2: Getting Started
-    ├── .blackbox5/5-project-memory/siso-internal/operations/docs/QUICK-START.md
-    └── .blackbox5/1-docs/03-guides/02-tutorials/README.md
+    ├── blackbox5/5-project-memory/siso-internal/operations/docs/QUICK-START.md
+    └── blackbox5/1-docs/03-guides/02-tutorials/README.md
 
  Level 3: Complete Guides
-    ├── .blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md
-    ├── .blackbox5/5-project-memory/siso-internal/operations/docs/RALPHY-INTEGRATION.md
-    └── .blackbox5/5-project-memory/siso-internal/operations/docs/VIBE-KANBAN.md
+    ├── blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md
+    ├── blackbox5/5-project-memory/siso-internal/operations/docs/RALPHY-INTEGRATION.md
+    └── blackbox5/5-project-memory/siso-internal/operations/docs/VIBE-KANBAN.md
 
  Level 4: Detailed Reference
-    ├── .blackbox5/5-project-memory/siso-internal/operations/docs/SETUP-CHECKLIST.md
-    ├── .blackbox5/5-project-memory/siso-internal/operations/docs/API.md
-    └── .blackbox5/5-project-memory/siso-internal/operations/docs/TROUBLESHOOTING.md
+    ├── blackbox5/5-project-memory/siso-internal/operations/docs/SETUP-CHECKLIST.md
+    ├── blackbox5/5-project-memory/siso-internal/operations/docs/API.md
+    └── blackbox5/5-project-memory/siso-internal/operations/docs/TROUBLESHOOTING.md
 ```
 
 ---
@@ -103,7 +103,7 @@
 
 Agents should read:
 ```
-.blackbox5/5-project-memory/siso-internal/operations/README.md
+blackbox5/5-project-memory/siso-internal/operations/README.md
 ```
 
 This file contains links to all other documentation.
@@ -112,7 +112,7 @@ This file contains links to all other documentation.
 
 The agent orchestration skill points to the correct location:
 ```
-.blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/SKILL.md
+blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/SKILL.md
 ```
 
 ### Method 3: Search
@@ -120,10 +120,10 @@ The agent orchestration skill points to the correct location:
 Agents can search for:
 ```bash
 # Find operations README
-find .blackbox5/5-project-memory -name "README.md" | grep operations
+find blackbox5/5-project-memory -name "README.md" | grep operations
 
 # Find agent reference
-find .blackbox5/5-project-memory -name "AGENT-REFERENCE.md"
+find blackbox5/5-project-memory -name "AGENT-REFERENCE.md"
 ```
 
 ---
@@ -191,15 +191,15 @@ find .blackbox5/5-project-memory -name "AGENT-REFERENCE.md"
 
 ```bash
 # Main documentation
-ls -la .blackbox5/5-project-memory/siso-internal/operations/
+ls -la blackbox5/5-project-memory/siso-internal/operations/
 # Should see: README.md, AGENT-REFERENCE.md, docs/
 
 # Detailed guides
-ls -la .blackbox5/5-project-memory/siso-internal/operations/docs/
+ls -la blackbox5/5-project-memory/siso-internal/operations/docs/
 # Should see: QUICK-START.md, AGENT-ORCHESTRATION-WORKFLOW.md, etc.
 
 # Agent skills
-ls -la .blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/
+ls -la blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/
 # Should see: SKILL.md
 ```
 
@@ -231,7 +231,7 @@ print(workflow.read_text())
 
 **Key Improvements**:
 
-1. ✅ **Central Location**: All docs in `.blackbox5/5-project-memory/siso-internal/operations/`
+1. ✅ **Central Location**: All docs in `blackbox5/5-project-memory/siso-internal/operations/`
 2. ✅ **Clear Hierarchy**: README → Agent Reference → Detailed Guides
 3. ✅ **Agent-Focused**: AGENT-REFERENCE.md specifically for agents
 4. ✅ **Easy Navigation**: Main README with links to everything
@@ -239,17 +239,17 @@ print(workflow.read_text())
 
 **Most Important Files**:
 
-1. **`.blackbox5/5-project-memory/siso-internal/operations/README.md`**
+1. **`blackbox5/5-project-memory/siso-internal/operations/README.md`**
    - Main entry point
    - Links to all documentation
    - System overview
 
-2. **`.blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md`**
+2. **`blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md`**
    - Quick reference for agents
    - Common workflows
    - Decision tree
 
-3. **`.blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md`**
+3. **`blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md`**
    - Complete workflow explanation
    - Component details
    - Examples

@@ -47,7 +47,7 @@ Complete integration with GitHub Actions API for managing workflows, triggering 
 pip install requests
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 requests>=2.31.0
 ```
@@ -307,7 +307,7 @@ export GITHUB_OWNER="myorg"
 export GITHUB_REPO="myrepo"
 
 # Run demo
-python .blackbox5/integration/github-actions/demo.py
+python blackbox5/integration/github-actions/demo.py
 ```
 
 ## Troubleshooting

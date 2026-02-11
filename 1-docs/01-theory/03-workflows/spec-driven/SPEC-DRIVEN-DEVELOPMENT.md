@@ -62,7 +62,7 @@ Integrating **CCPM's Spec-Driven Development** with **First Principles Thinking*
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── specs/                           # NEW: Specifications directory
 │   ├── prds/                        # Product Requirements Documents
 │   │   ├── 001-test-driven-development.md
@@ -671,8 +671,8 @@ Implements Test-Driven Development methodology as a BlackBox5 skill.
 
 ## Implementation
 ```bash
-mkdir -p .blackbox5/engine/agents/.skills-new/development-workflow/coding-assistance/test-driven-development/scripts
-touch .blackbox5/engine/agents/.skills-new/development-workflow/coding-assistance/test-driven-development/SKILL.md
+mkdir -p blackbox5/engine/agents/.skills-new/development-workflow/coding-assistance/test-driven-development/scripts
+touch blackbox5/engine/agents/.skills-new/development-workflow/coding-assistance/test-driven-development/SKILL.md
 ```
 
 ## Definition of Done
@@ -686,7 +686,7 @@ touch .blackbox5/engine/agents/.skills-new/development-workflow/coding-assistanc
 
 1. **Create directory structure**
    ```bash
-   mkdir -p .blackbox5/specs/{prds,epics,tasks}
+   mkdir -p blackbox5/specs/{prds,epics,tasks}
    mkdir -p .github/{issues,workflows}
    ```
 
@@ -699,7 +699,7 @@ touch .blackbox5/engine/agents/.skills-new/development-workflow/coding-assistanc
    - `.github/issues/TASK_TEMPLATE.yml`
 
 3. **Create skill for spec-driven development**
-   - `.blackbox5/engine/agents/.skills-new/knowledge-documentation/planning-architecture/spec-driven-development/SKILL.md`
+   - `blackbox5/engine/agents/.skills-new/knowledge-documentation/planning-architecture/spec-driven-development/SKILL.md`
 
 ### Week 2: Integration
 

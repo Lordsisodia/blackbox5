@@ -30,26 +30,26 @@
 The following paths in project routes.yaml are INCORRECT (they suggest 2-engine is nested inside 5-project-memory/blackbox5):
 
 ```yaml
-engine: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine"
-engine_shell: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/shell"
-engine_lib: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/lib"
-engine_prompts: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/prompts"
-engine_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
-engine_schemas: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/schemas"
-engine_routes: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/routes.yaml"
-bmad_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
-bmad_workflows: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/workflows"
-bmad_wip: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/wip"
+engine: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine"
+engine_shell: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/shell"
+engine_lib: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/lib"
+engine_prompts: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/prompts"
+engine_skills: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
+engine_schemas: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/schemas"
+engine_routes: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/routes.yaml"
+bmad_skills: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
+bmad_workflows: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/workflows"
+bmad_wip: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/wip"
 ```
 
-**Verification:** The path `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/` does NOT exist. The correct path is `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/`.
+**Verification:** The path `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/` does NOT exist. The correct path is `/Users/shaansisodia/blackbox5/2-engine/.autonomous/`.
 
 ### Issue #2: Duplicated Memory Paths
 
 Project routes.yaml has paths like:
 ```yaml
 memory:
-  tasks: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
+  tasks: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
 ```
 
 This incorrectly duplicates `5-project-memory/blackbox5` in the path.
@@ -99,12 +99,12 @@ project:
 # Project-specific configuration ONLY
 project:
   name: "blackbox5"
-  root: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+  root: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5"
 
 # Reference to engine (correct path)
 engine:
-  path: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous"
-  routes: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml"
+  path: "/Users/shaansisodia/blackbox5/2-engine/.autonomous"
+  routes: "/Users/shaansisodia/blackbox5/2-engine/.autonomous/routes.yaml"
 
 # Project-specific routes only (no duplication of engine routes)
 routes:
@@ -168,12 +168,12 @@ def resolve_route(route_name, project_routes_file):
 
 ## Key Files
 
-- **Engine routes.yaml**: `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml`
-- **Project routes.yaml**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml`
-- **Routes template**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml.template`
-- **Init script**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh`
-- **Project map**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/project-map.yaml`
-- **Engine/Project analysis**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/engine-project-split-analysis.md`
+- **Engine routes.yaml**: `/Users/shaansisodia/blackbox5/2-engine/.autonomous/routes.yaml`
+- **Project routes.yaml**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml`
+- **Routes template**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml.template`
+- **Init script**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh`
+- **Project map**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/project-map.yaml`
+- **Engine/Project analysis**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/engine-project-split-analysis.md`
 
 ---
 

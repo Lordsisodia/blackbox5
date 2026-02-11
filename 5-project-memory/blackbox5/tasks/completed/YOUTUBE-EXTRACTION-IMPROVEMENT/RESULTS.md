@@ -3,7 +3,7 @@
 ## Completed Work
 
 ### 1. Documentation Updated
-- **File**: `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/.docs/CLAUDE-EXTRACTION-PROCESS.md`
+- **File**: `/Users/shaansisodia/blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/.docs/CLAUDE-EXTRACTION-PROCESS.md`
 - **Changes**:
   - Updated to v2.0 with 3×3 parallel methodology
   - Added research findings (20-30% miss rate in single extractions)
@@ -11,7 +11,7 @@
   - Added usage instructions for both v1 (single) and v2 (parallel)
 
 ### 2. Implementation Created
-- **File**: `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/scripts/extract_claude_v2.py`
+- **File**: `/Users/shaansisodia/blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/scripts/extract_claude_v2.py`
 - **Features**:
   - Spawns 3 parallel extraction sub-agents
   - Each runs full 3-iteration process
@@ -47,7 +47,7 @@
 ## Files Modified/Created
 
 ```
-/Users/shaansisodia/.blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/
+/Users/shaansisodia/blackbox5/6-roadmap/research/external/YouTube/AI-Improvement-Research/
 ├── .docs/
 │   └── CLAUDE-EXTRACTION-PROCESS.md (UPDATED to v2.0)
 ├── scripts/

@@ -44,11 +44,11 @@ We've created a comprehensive planning and memory integration system that addres
 ✅ **Lessons Learned**: What worked/didn't work
 ✅ **Next Steps**: What's coming next
 
-**Stored in**: `.blackbox5/data/memory/{agent_id}/`
+**Stored in**: `blackbox5/data/memory/{agent_id}/`
 
 ### ✅ 4. Enhanced GitHub Integration Commands
 
-Updated `.blackbox5/engine/.skills/github-integration/commands/prd-new.md` to include:
+Updated `blackbox5/engine/.skills/github-integration/commands/prd-new.md` to include:
 
 - Research phase (4 parallel dimensions)
 - First principles analysis
@@ -112,13 +112,13 @@ Result: Research-driven, documented, traceable, persistent memory
 
 ## Key Files Created
 
-1. **`.blackbox5/PLANNING-MEMORY-INTEGRATION.md`**
+1. **`blackbox5/PLANNING-MEMORY-INTEGRATION.md`**
    - Complete workflow documentation
    - All phases detailed
    - Code examples for memory updates
    - Integration with Vibe Kanban
 
-2. **`.blackbox5/engine/.skills/github-integration/commands/prd-new.md`** (Enhanced)
+2. **`blackbox5/engine/.skills/github-integration/commands/prd-new.md`** (Enhanced)
    - Added research phase
    - Added first principles analysis
    - Added BlackBox memory updates

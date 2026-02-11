@@ -68,7 +68,7 @@ Analyzed 20 sections of the BlackBox5 codebase using parallel sub-agents. Identi
 
 ### C7: Hardcoded Paths Throughout Codebase
 **Location:** Multiple files across all sections
-**Issue:** `/Users/shaansisodia/.blackbox5` hardcoded instead of using config
+**Issue:** `/Users/shaansisodia/blackbox5` hardcoded instead of using config
 **Impact:** Breaks on different environments
 **Fix:** Centralize paths in config, use environment variables
 **Effort:** 60 minutes

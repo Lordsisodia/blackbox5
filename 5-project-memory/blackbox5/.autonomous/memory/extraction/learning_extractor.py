@@ -92,7 +92,7 @@ class LearningExtractor:
             index_path: Path to learning-index.yaml (default: standard location)
         """
         if index_path is None:
-            self.index_path = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml")
+            self.index_path = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml")
         else:
             self.index_path = Path(index_path)
 
@@ -817,7 +817,7 @@ def main():
     elif args.backfill:
         if not args.runs_dir:
             # Use default runs directory
-            args.runs_dir = "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs"
+            args.runs_dir = "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs"
         extractor.backfill(Path(args.runs_dir), dry_run=args.dry_run)
 
     elif args.run_dir:

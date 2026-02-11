@@ -159,7 +159,7 @@
 
 ## 📁 Deliverables Location
 
-**Research Directory:** `.blackbox5/roadmap/01-research/`
+**Research Directory:** `blackbox5/roadmap/01-research/`
 
 **Per-Category Structure:**
 ```

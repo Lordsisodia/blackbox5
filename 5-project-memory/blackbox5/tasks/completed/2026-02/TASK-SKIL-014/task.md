@@ -29,7 +29,7 @@ Standardize all confidence thresholds in skill-selection.yaml to 70%
 **Suggested Action:** Standardize all thresholds to 70% or document why certain skills need higher thresholds
 
 **Files Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
 
 ---
 

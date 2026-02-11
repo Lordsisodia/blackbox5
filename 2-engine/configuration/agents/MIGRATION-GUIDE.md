@@ -39,7 +39,7 @@ Configuration is loaded in this order (highest to lowest precedence):
 
 ```
 1. Environment Variables (deployment-specific)
-2. User Config (~/.blackbox5/config/user.yaml)
+2. User Config (~/blackbox5/config/user.yaml)
 3. Project Config (5-project-memory/[project]/.autonomous/config/project.yaml)
 4. Engine Config (2-engine/.autonomous/config/engine.yaml)
 5. Base Defaults (2-engine/.autonomous/config/base.yaml)
@@ -55,8 +55,8 @@ Each level overrides the previous one.
 
 1. **Create user config** (optional):
    ```bash
-   mkdir -p ~/.blackbox5/config
-   cp ~/.blackbox5/2-engine/.autonomous/config/base.yaml ~/.blackbox5/config/user.yaml
+   mkdir -p ~/blackbox5/config
+   cp ~/blackbox5/2-engine/.autonomous/config/base.yaml ~/blackbox5/config/user.yaml
    ```
 
 2. **Edit user.yaml** with your preferences:
@@ -120,7 +120,7 @@ value = config.get('thresholds.skill_invocation_confidence')
 ```python
 import os
 
-project_dir = os.path.expanduser("~/.blackbox5/5-project-memory/blackbox5")
+project_dir = os.path.expanduser("~/blackbox5/5-project-memory/blackbox5")
 ```
 
 #### New Way
@@ -133,19 +133,19 @@ resolver = get_path_resolver()
 project_dir = resolver.get_project_path('blackbox5')
 
 # Option 2: Use environment variable
-project_dir = os.environ.get('BB5_PROJECT_DIR', os.path.expanduser('~/.blackbox5/5-project-memory/blackbox5'))
+project_dir = os.environ.get('BB5_PROJECT_DIR', os.path.expanduser('~/blackbox5/5-project-memory/blackbox5'))
 ```
 
 ### Shell Script Migration
 
 #### Old Way
 ```bash
-PROJECT_DIR="$HOME/.blackbox5/5-project-memory/blackbox5"
+PROJECT_DIR="$HOME/blackbox5/5-project-memory/blackbox5"
 ```
 
 #### New Way
 ```bash
-PROJECT_DIR="${BB5_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+PROJECT_DIR="${BB5_PROJECT_DIR:-$HOME/blackbox5/5-project-memory/blackbox5}"
 ```
 
 ---
@@ -156,11 +156,11 @@ The unified config recognizes these environment variables:
 
 | Variable | Purpose | Example |
 |----------|---------|---------|
-| `BLACKBOX5_HOME` | BlackBox5 root directory | `~/.blackbox5` |
-| `BB5_HOME` | Alias for BLACKBOX5_HOME | `~/.blackbox5` |
+| `BLACKBOX5_HOME` | BlackBox5 root directory | `~/blackbox5` |
+| `BB5_HOME` | Alias for BLACKBOX5_HOME | `~/blackbox5` |
 | `BB5_PROJECT` | Current project name | `blackbox5` |
-| `BB5_PROJECT_ROOT` | Project root path | `~/.blackbox5/5-project-memory/blackbox5` |
-| `BB5_ENGINE_ROOT` | Engine root path | `~/.blackbox5/2-engine` |
+| `BB5_PROJECT_ROOT` | Project root path | `~/blackbox5/5-project-memory/blackbox5` |
+| `BB5_ENGINE_ROOT` | Engine root path | `~/blackbox5/2-engine` |
 | `BB5_LOG_LEVEL` | Logging level | `DEBUG` |
 | `BB5_DEBUG` | Enable debug mode | `true` |
 | `GITHUB_TOKEN` | GitHub API token | `ghp_xxx` |
@@ -227,8 +227,8 @@ The following configs have been consolidated into the unified system:
 
 Check that config files exist:
 ```bash
-ls -la ~/.blackbox5/config/user.yaml
-ls -la ~/.blackbox5/2-engine/.autonomous/config/base.yaml
+ls -la ~/blackbox5/config/user.yaml
+ls -la ~/blackbox5/2-engine/.autonomous/config/base.yaml
 ```
 
 ### Environment variables not applying
@@ -243,7 +243,7 @@ echo $GITHUB_TOKEN
 
 Check `schema.yaml` for valid values:
 ```bash
-cat ~/.blackbox5/2-engine/.autonomous/config/schema.yaml
+cat ~/blackbox5/2-engine/.autonomous/config/schema.yaml
 ```
 
 ### Path resolution issues
@@ -265,7 +265,7 @@ print(f"Memory: {resolver.memory_root}")
 - `2-engine/.autonomous/config/engine.yaml` - Engine config
 - `2-engine/.autonomous/config/schema.yaml` - Validation schema
 - `5-project-memory/blackbox5/.autonomous/config/project.yaml` - Project config
-- `~/.blackbox5/config/user.yaml` - User config
+- `~/blackbox5/config/user.yaml` - User config
 
 ### Modified Files
 - `2-engine/.autonomous/lib/config_manager.py` - Now delegates to unified_config

@@ -74,7 +74,7 @@ Organizes tasks into waves using Kahn's algorithm for topological sorting.
 
 ### 3. Comprehensive Test Suite
 
-Created `.blackbox5/tests/test_wave_execution.py` with 20+ test cases covering:
+Created `blackbox5/tests/test_wave_execution.py` with 20+ test cases covering:
 
 #### Dependency Graph Tests
 - `test_build_dependency_graph_no_deps` - Tasks with no dependencies
@@ -268,7 +268,7 @@ If a task fails during wave execution:
 ## Files Modified/Created
 
 ### Modified
-- `.blackbox5/engine/core/Orchestrator.py`
+- `blackbox5/engine/core/Orchestrator.py`
   - Added `WaveResult` dataclass (lines 136-145)
   - Enhanced `WorkflowResult` with wave fields (lines 159-160)
   - Added `_build_dependency_graph()` method (lines 690-734)
@@ -276,21 +276,21 @@ If a task fails during wave execution:
   - Added `execute_wave_based()` public API method (lines 804-954)
 
 ### Created
-- `.blackbox5/tests/test_wave_execution.py` - Comprehensive test suite (500+ lines)
-- `.blackbox5/docs/WAVE-EXECUTION-IMPLEMENTATION.md` - This document
+- `blackbox5/tests/test_wave_execution.py` - Comprehensive test suite (500+ lines)
+- `blackbox5/docs/WAVE-EXECUTION-IMPLEMENTATION.md` - This document
 
 ## Running Tests
 
 ```bash
 # Run all wave execution tests
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-python -m pytest .blackbox5/tests/test_wave_execution.py -v
+python -m pytest blackbox5/tests/test_wave_execution.py -v
 
 # Run specific test class
-python -m pytest .blackbox5/tests/test_wave_execution.py::TestWaveBasedExecution -v
+python -m pytest blackbox5/tests/test_wave_execution.py::TestWaveBasedExecution -v
 
 # Run with coverage
-python -m pytest .blackbox5/tests/test_wave_execution.py --cov=.blackbox5/engine/core/Orchestrator -v
+python -m pytest blackbox5/tests/test_wave_execution.py --cov=blackbox5/engine/core/Orchestrator -v
 ```
 
 ## Technical Details

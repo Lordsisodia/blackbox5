@@ -9,7 +9,7 @@ shopt -s assoc_expand_once 2>/dev/null || true
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_MEMORY="${HOME}/.blackbox5/5-project-memory"
+PROJECT_MEMORY="${HOME}/blackbox5/5-project-memory"
 POLICY_FILE="${PROJECT_MEMORY}/blackbox5/.autonomous/archive-policy.yaml"
 
 # Colors for output

@@ -1,0 +1,38 @@
+tool: db:query
+category: database
+description: Execute SQL query against Supabase database
+context_aware: true
+
+arguments:
+  - name: sql
+    type: string
+    required: true
+    description: SQL query to execute
+    example: "SELECT * FROM users LIMIT 10"
+
+  - name: format
+    type: enum
+    options: [table, json, csv]
+    default: table
+    required: false
+    description: Output format for results
+
+  - name: context
+    type: string
+    required: false
+    description: Override context for this command only
+
+examples:
+  - command: bb5 db query -s "SELECT * FROM users LIMIT 10"
+    description: Query with current context
+
+  - command: bb5 db query -s "SELECT * FROM orders" -f json
+    description: Query with JSON output
+
+  - command: bb5 db query -s "SELECT *" -c client-b
+    description: Query with specific context
+
+notes:
+  - Uses current database context unless -c is specified
+  - Requires valid Supabase context with project_ref, url, and api_key
+  - API key should be stored in context file as environment variable reference

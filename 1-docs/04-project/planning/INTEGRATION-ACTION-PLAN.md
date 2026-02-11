@@ -37,7 +37,7 @@ Day 2: Integration + Validation
 
 ### Task 1.1: Main Bootstrap System
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/main.py`
+**File**: `blackbox5/engine/main.py`
 **Priority**: CRITICAL (blocks all other work)
 **Dependencies**: None
 **Estimated**: 45 minutes
@@ -86,7 +86,7 @@ assert result['routing']['strategy'] == 'single_agent'
 
 ### Task 1.2: CLI Integration
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/interface/cli/bb5.py`
+**File**: `blackbox5/engine/interface/cli/bb5.py`
 **Priority**: CRITICAL
 **Dependencies**: Task 1.1
 **Estimated**: 45 minutes
@@ -133,7 +133,7 @@ bb5 guide "test this code"
 
 ### Task 1.3: API Foundation
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/interface/api/main.py`
+**File**: `blackbox5/engine/interface/api/main.py`
 **Priority**: HIGH
 **Dependencies**: Task 1.1
 **Estimated**: 60 minutes
@@ -190,7 +190,7 @@ FastAPI must implement:
 
 ### Task 1.4: Decorator System
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/agents/core/decorators.py`
+**File**: `blackbox5/engine/agents/core/decorators.py`
 **Priority**: MEDIUM
 **Dependencies**: None
 **Estimated**: 30 minutes
@@ -239,7 +239,7 @@ class CustomAgent(BaseAgent):
 
 ### Task 2.1: Guide Middleware
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/core/guide_middleware.py`
+**File**: `blackbox5/engine/core/guide_middleware.py`
 **Priority**: HIGH
 **Dependencies**: Task 1.1
 **Estimated**: 60 minutes
@@ -288,7 +288,7 @@ Must implement:
 
 ### Task 2.2: Memory Integration
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/memory/agent_memory.py`
+**File**: `blackbox5/engine/memory/agent_memory.py`
 **Priority**: MEDIUM
 **Dependencies**: Task 1.1
 **Estimated**: 45 minutes
@@ -310,7 +310,7 @@ Must implement:
 
 **Storage Structure**:
 ```
-.blackbox5/memory/working/agents/{session_id}/
+blackbox5/memory/working/agents/{session_id}/
 ├── context.json      # Session context
 ├── {task_id}.json    # Task results
 └── summary.json      # Compressed history
@@ -334,7 +334,7 @@ Must implement:
 
 ### Task 2.3: BaseAgent Guide Integration
 **Agent**: backend-developer-mcp-enhanced
-**File**: `.blackbox5/engine/agents/core/BaseAgent.py`
+**File**: `blackbox5/engine/agents/core/BaseAgent.py`
 **Priority**: HIGH
 **Dependencies**: Task 2.1
 **Estimated**: 30 minutes
@@ -393,7 +393,7 @@ async def execute(self, task, context=None):
 
 ### Task 2.4: Testing Infrastructure
 **Agent**: test-runner
-**File**: `.blackbox5/engine/tests/integration/test_full_pipeline.py`
+**File**: `blackbox5/engine/tests/integration/test_full_pipeline.py`
 **Priority**: HIGH
 **Dependencies**: Tasks 1.1, 1.2, 1.3
 **Estimated**: 60 minutes
@@ -597,7 +597,7 @@ memory_profiler python -m pytest tests/
 
 **Documentation to Create**:
 
-**1. README.md** (`.blackbox5/engine/README.md`)
+**1. README.md** (`blackbox5/engine/README.md`)
 ```markdown
 # Blackbox 5 Engine
 
@@ -631,7 +631,7 @@ result = await bb5.process_request("Your task")
 See docs/COMMANDS.md
 ```
 
-**2. COMMANDS.md** (`.blackbox5/engine/docs/COMMANDS.md`)
+**2. COMMANDS.md** (`blackbox5/engine/docs/COMMANDS.md`)
 ```markdown
 # CLI Commands Reference
 
@@ -682,7 +682,7 @@ bb5 guide "deploy to production"
 ```
 ```
 
-**3. API.md** (`.blackbox5/engine/docs/API.md`)
+**3. API.md** (`blackbox5/engine/docs/API.md`)
 ```markdown
 # API Reference
 
@@ -734,7 +734,7 @@ Search guides.
 Find guides by intent.
 ```
 
-**4. EXAMPLES.md** (`.blackbox5/engine/docs/EXAMPLES.md`)
+**4. EXAMPLES.md** (`blackbox5/engine/docs/EXAMPLES.md`)
 ```markdown
 # Usage Examples
 

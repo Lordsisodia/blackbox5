@@ -19,7 +19,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Tuple, Optional
 
-DOCS_ROOT = Path("/Users/shaansisodia/.blackbox5/1-docs")
+DOCS_ROOT = Path("/Users/shaansisodia/blackbox5/1-docs")
 INDEX_PATH = DOCS_ROOT / "INDEX.md"
 
 # Files to ignore in indexing

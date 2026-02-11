@@ -41,7 +41,7 @@ Successfully integrated the path resolution library into all 2-engine agent scri
 
 All 7 agent scripts now import and use the paths library:
 ```bash
-$ grep -l "from paths import" /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/*.py
+$ grep -l "from paths import" /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/*.py
 executor-implement.py
 improvement-loop.py
 planner-prioritize.py
@@ -63,7 +63,7 @@ These are acceptable as fallbacks or are deployment-specific scripts.
 ## Path Libraries Status
 
 The path libraries already existed:
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/paths.py` (498 lines)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/paths.sh` (399 lines)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/paths.py` (498 lines)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/paths.sh` (399 lines)
 
 This task focused on **integrating** the existing libraries, not creating them.

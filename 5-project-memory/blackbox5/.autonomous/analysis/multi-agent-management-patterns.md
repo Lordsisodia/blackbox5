@@ -128,7 +128,7 @@ routing_strategy:
 
 #### Pattern 3: Hierarchical Isolation (Recommended for BlackBox5)
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── 5-project-memory/
 │   └── <project>/
 │       └── .autonomous/
@@ -398,7 +398,7 @@ agent_registry:
         - cost_estimate
 
     - type: skill_registry
-      location: "~/.blackbox5/skills/"
+      location: "~/blackbox5/skills/"
       agents_register_skills_they_support
 
     - type: mcp_introspection
@@ -476,7 +476,7 @@ agent_types:
 ### 7.3 Configuration Structure
 
 ```json5
-// ~/.blackbox5/config.json
+// ~/blackbox5/config.json
 {
   bb5: {
     version: "2.0",
@@ -484,7 +484,7 @@ agent_types:
     // Manager Agent Configuration
     manager: {
       agentId: "bb5-manager",
-      workspace: "~/.blackbox5/5-project-memory",
+      workspace: "~/blackbox5/5-project-memory",
       model: "anthropic/claude-opus-4-6",
       routing_strategy: "hybrid"
     },
@@ -504,21 +504,21 @@ agent_types:
         {
           id: "architect",
           name: "BMAD Architect",
-          workspace: "~/.blackbox5/agents/architect",
+          workspace: "~/blackbox5/agents/architect",
           skills: ["bmad-architect", "superintelligence-protocol"],
           tools: { allow: ["read", "write", "research"], deny: ["exec"] }
         },
         {
           id: "developer",
           name: "BMAD Developer",
-          workspace: "~/.blackbox5/agents/developer",
+          workspace: "~/blackbox5/agents/developer",
           skills: ["bmad-dev", "git-commit", "codebase-navigation"],
           tools: { profile: "coding" }
         },
         {
           id: "researcher",
           name: "BMAD Researcher",
-          workspace: "~/.blackbox5/agents/researcher",
+          workspace: "~/blackbox5/agents/researcher",
           model: "anthropic/claude-haiku",
           tools: { allow: ["read", "web_search", "web_fetch"], deny: ["write", "edit"] }
         }
@@ -591,7 +591,7 @@ integration_points:
 
   # Task System Integration
   tasks:
-    location: "~/.blackbox5/5-project-memory/<project>/.autonomous/tasks/"
+    location: "~/blackbox5/5-project-memory/<project>/.autonomous/tasks/"
     manager_polls_for_pending_tasks
     auto_assigns_to_appropriate_agent
 
@@ -599,7 +599,7 @@ integration_points:
   memory:
     daily_logs: "memory/YYYY-MM-DD.md"
     curated: "MEMORY.md"
-    agent_learnings: "~/.blackbox5/5-project-memory/<project>/.autonomous/memory/"
+    agent_learnings: "~/blackbox5/5-project-memory/<project>/.autonomous/memory/"
 
   # RALF Integration
   ralf:
@@ -643,16 +643,16 @@ integration_points:
 ## 9. References
 
 ### OpenClaw Documentation
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/concepts-agent-workspace.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/concepts-channel-routing.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/concepts-multi-agent.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/tools-subagents.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/multi-agent-sandbox-tools.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/concepts-agent-workspace.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/concepts-channel-routing.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/concepts-multi-agent.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/tools-subagents.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/multi-agent-sandbox-tools.md`
 
 ### Claude Code Documentation
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sub-agents.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-mcp.md`
-- `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sandboxing.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sub-agents.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-mcp.md`
+- `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sandboxing.md`
 
 ---
 

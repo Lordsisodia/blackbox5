@@ -1,0 +1,312 @@
+# Test Metrics Dashboard
+# =============================================================================
+# Purpose: Real-time test metrics and quality indicators
+# Updated: 2026-02-09
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "2026-02-09T14:30:00Z"
+  dashboard_url: "operations/test-results/latest.yaml"
+
+# =============================================================================
+# Executive Summary
+# =============================================================================
+
+executive_summary:
+  overall_health: "needs_attention"
+    # values: healthy, needs_attention, critical
+  key_findings:
+    - "Only 2 of 6 test cases are currently passing (safety tests)"
+    - "4 test cases are pending implementation"
+    - "No automated test execution pipeline in place"
+    - "Test coverage is at 0% (no coverage reports generated)"
+  recommendations:
+    - "Priority 1: Implement automated test execution (GAP-001)"
+    - "Priority 2: Add coverage reporting (GAP-002)"
+    - "Priority 3: Complete pending test implementations"
+
+# =============================================================================
+# Coverage Metrics
+# =============================================================================
+
+coverage:
+  overall:
+    current: 0
+    target: 70
+    status: "critical"
+      # values: on_track, at_risk, critical
+
+  by_component:
+    - component: "engine"
+      current: 0
+      target: 70
+      status: "critical"
+    - component: "interface"
+      current: 0
+      target: 70
+      status: "critical"
+    - component: "safety"
+      current: 0
+      target: 100
+      status: "critical"
+    - component: "helpers"
+      current: 0
+      target: 70
+      status: "critical"
+
+  critical_paths:
+    - path: "engine/safety"
+      current: 0
+      target: 100
+      status: "critical"
+    - path: "engine/orchestration"
+      current: 0
+      target: 90
+      status: "critical"
+
+  trend_7d: []
+    # Will populate as tests are executed
+
+# =============================================================================
+# Test Count Metrics
+# =============================================================================
+
+test_counts:
+  total:
+    current: 6
+    target: 175
+      # 100 unit + 30 integration + 15 e2e + 10 safety + 20 quality
+    status: "critical"
+
+  by_category:
+    unit:
+      current: 1
+      target: 100
+      status: "critical"
+    integration:
+      current: 1
+      target: 30
+      status: "critical"
+    e2e:
+      current: 1
+      target: 15
+      status: "critical"
+    safety:
+      current: 2
+      target: 10
+      status: "at_risk"
+    quality:
+      current: 1
+      target: 20
+      status: "critical"
+
+  automation_rate:
+    automated: 2
+    partial: 2
+    manual: 2
+    automation_percentage: 33
+      # (2 + 0.5*2) / 6 = 50%
+
+# =============================================================================
+# Reliability Metrics
+# =============================================================================
+
+reliability:
+  pass_rate:
+    current: 100
+      # 2 passed / 2 executed
+    target: 95
+    status: "healthy"
+
+  pass_rate_7d: []
+    # Historical data
+
+  flaky_tests:
+    count: 0
+    list: []
+    threshold: 3
+      # Mark as flaky if fails 3+ times in 10 runs
+
+  failed_tests:
+    count: 0
+    list: []
+
+  skipped_tests:
+    count: 0
+    list: []
+
+# =============================================================================
+# Velocity Metrics
+# =============================================================================
+
+velocity:
+  tests_added_per_week:
+    current: 0
+    target: 5
+    status: "critical"
+
+  test_execution_time:
+    current_seconds: 0
+    target_seconds: 60
+    status: "healthy"
+
+  time_to_fix:
+    average_hours: null
+    target_hours: 24
+    status: "unknown"
+
+# =============================================================================
+# Quality Metrics
+# =============================================================================
+
+quality:
+  bugs_caught_by_tests:
+    percentage: null
+    target: 80
+    status: "unknown"
+
+  test_documentation_coverage:
+    current: 100
+      # All 6 test cases have documentation
+    target: 100
+    status: "healthy"
+
+  code_review_test_focus:
+    percentage: null
+    target: 100
+    status: "unknown"
+
+# =============================================================================
+# Gap Analysis
+# =============================================================================
+
+gaps:
+  critical:
+    - id: "GAP-001"
+      description: "No active test execution pipeline"
+      impact: "Tests exist but never run automatically"
+      action: "Set up pytest in CI/CD pipeline"
+      owner: "Testing Specialist"
+      eta: "2026-02-10"
+
+    - id: "GAP-002"
+      description: "No test coverage reporting"
+      impact: "Cannot measure test effectiveness"
+      action: "Integrate pytest-cov and generate reports"
+      owner: "Testing Specialist"
+      eta: "2026-02-10"
+
+  high:
+    - id: "GAP-004"
+      description: "Missing integration tests for agent execution"
+      impact: "Agent spawning not tested"
+      action: "Create TC-INT-001 implementation"
+      owner: "Testing Specialist"
+      eta: "2026-02-11"
+
+  medium:
+    - id: "GAP-005"
+      description: "No end-to-end workflow tests"
+      impact: "Complete workflows not validated"
+      action: "Implement TC-E2E-001"
+      owner: "Testing Specialist"
+      eta: "2026-02-12"
+
+    - id: "GAP-006"
+      description: "No performance benchmarking"
+      impact: "Performance regressions not caught"
+      action: "Add pytest-benchmark suite"
+      owner: "TBD"
+      eta: "2026-02-15"
+
+  low:
+    - id: "GAP-007"
+      description: "No test result trending"
+      impact: "Cannot track test health over time"
+      action: "Implement historical tracking"
+      owner: "TBD"
+      eta: "2026-02-20"
+
+# =============================================================================
+# Action Items
+# =============================================================================
+
+action_items:
+  immediate:
+    - id: "AI-001"
+      description: "Configure pytest in GitHub Actions workflow"
+      priority: "critical"
+      status: "pending"
+      assignee: "Testing Specialist"
+
+    - id: "AI-002"
+      description: "Add pytest-cov to requirements and CI"
+      priority: "critical"
+      status: "pending"
+      assignee: "Testing Specialist"
+
+  short_term:
+    - id: "AI-003"
+      description: "Implement TC-INT-001 agent spawning test"
+      priority: "high"
+      status: "pending"
+      assignee: "Testing Specialist"
+
+    - id: "AI-004"
+      description: "Complete TC-UNIT-001 implementation"
+      priority: "high"
+      status: "pending"
+      assignee: "Testing Specialist"
+
+  medium_term:
+    - id: "AI-005"
+      description: "Create e2e test automation framework"
+      priority: "medium"
+      status: "pending"
+      assignee: "TBD"
+
+    - id: "AI-006"
+      description: "Add performance benchmark baseline"
+      priority: "medium"
+      status: "pending"
+      assignee: "TBD"
+
+# =============================================================================
+# Historical Trends
+# =============================================================================
+
+trends:
+  # Will be populated as test runs occur
+  daily: []
+  weekly: []
+  monthly: []
+
+# =============================================================================
+# Alerts
+# =============================================================================
+
+alerts:
+  active:
+    - level: "critical"
+      message: "Test coverage is at 0% - no coverage reports generated"
+      since: "2026-02-09"
+      action_required: "Set up pytest-cov in CI pipeline"
+
+    - level: "warning"
+      message: "Only 33% of test cases are automated"
+      since: "2026-02-09"
+      action_required: "Automate remaining test cases"
+
+  resolved: []
+
+# =============================================================================
+# Quick Actions
+# =============================================================================
+
+quick_actions:
+  run_tests: "pytest 1-docs/development/tests/unified/"
+  run_with_coverage: "pytest --cov=engine 1-docs/development/tests/unified/"
+  view_latest_results: "cat operations/test-results/latest.yaml"
+  view_dashboard: "cat operations/test-metrics-dashboard.yaml"
+  add_test_case: "cp .templates/tests/test-case-template.yaml test-cases/TC-XXX.yaml"

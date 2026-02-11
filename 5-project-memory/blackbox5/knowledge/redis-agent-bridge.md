@@ -39,7 +39,7 @@ The Redis Agent Bridge enables bidirectional real-time communication between Cla
 
 ### 1. MCP Redis Bridge (Local)
 
-**Location:** `~/.blackbox5/mcp-redis-bridge.py`
+**Location:** `~/blackbox5/mcp-redis-bridge.py`
 
 Python-based MCP server providing tools for Claude Code:
 
@@ -115,7 +115,7 @@ Add to `~/.claude/settings.json`:
   "mcpServers": {
     "redis-bridge": {
       "command": "python3",
-      "args": ["/Users/shaansisodia/.blackbox5/mcp-redis-bridge.py"]
+      "args": ["/Users/shaansisodia/blackbox5/mcp-redis-bridge.py"]
     }
   }
 }
@@ -214,7 +214,7 @@ Future agents can use:
 
 | File | Location | Purpose |
 |------|----------|---------|
-| MCP Bridge | `~/.blackbox5/mcp-redis-bridge.py` | Claude Code integration |
+| MCP Bridge | `~/blackbox5/mcp-redis-bridge.py` | Claude Code integration |
 | OpenClaw Bridge | `/opt/openclaw-redis-bridge.js` | VPS listener |
 | Service Config | `/etc/systemd/system/openclaw-redis-bridge.service` | Process management |
 | MCP Settings | `~/.claude/settings.json` | Claude configuration |

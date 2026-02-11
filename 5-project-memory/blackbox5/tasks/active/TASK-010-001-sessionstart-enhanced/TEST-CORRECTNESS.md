@@ -23,14 +23,14 @@ The specification claims 88/100 and "Production Ready" status, but a rigorous co
 readonly BB5_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 ```
 
-**Bug:** This assumes the hook is always installed at `~/.blackbox5/.claude/hooks/`. If installed elsewhere, BB5_ROOT points to the wrong location.
+**Bug:** This assumes the hook is always installed at `~/blackbox5/.claude/hooks/`. If installed elsewhere, BB5_ROOT points to the wrong location.
 
 **Impact:** All run folder creation will fail or create folders in wrong locations.
 
 **Test case:**
 ```bash
 # User installs hook to /opt/hooks/
-# BB5_ROOT becomes /opt instead of ~/.blackbox5
+# BB5_ROOT becomes /opt instead of ~/blackbox5
 ```
 
 ---

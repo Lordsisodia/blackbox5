@@ -245,7 +245,7 @@ def main():
         print("\n🎉 All tests passed! BlackBox5 is ready to use.")
         print("\nQuick Start:")
         print("  1. Export GLM API key: export GLM_API_KEY=your_key_here")
-        print("  2. Run a task: python .blackbox5/tests/run_example_task.py")
+        print("  2. Run a task: python blackbox5/tests/run_example_task.py")
         return 0
     else:
         failed = total - passed

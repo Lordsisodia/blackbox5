@@ -188,7 +188,7 @@
 - Environment variables insufficient for complex config
 
 **Implementation:**
-- Config file: `~/.blackbox5/api-config.yaml`
+- Config file: `~/blackbox5/api-config.yaml`
 - Template: `2-engine/.autonomous/config/api-config.yaml`
 - Sections: server, auth, webhooks, connectors
 - Secrets documented but placeholder values

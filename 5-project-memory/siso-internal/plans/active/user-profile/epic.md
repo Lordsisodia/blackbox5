@@ -4,7 +4,7 @@ status: planned
 created: 2026-01-18T08:18:53Z
 progress: 0%
 prd: .claude/prds/user-profile.md
-github: [TODO - will be added later]
+github: https://github.com/Lordsisodia/blackbox5/issues/7
 ---
 
 # Epic: User Profile Page

@@ -13,10 +13,10 @@ All core infrastructure components have been successfully built and tested. The 
 ### Files Created
 
 #### 1. Directory Structure
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/spec_driven/`
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/cli/`
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/cli/commands/`
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/spec_driven/`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/spec_driven/`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/cli/`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/cli/commands/`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/spec_driven/`
 
 #### 2. Core Infrastructure Files
 
@@ -255,7 +255,7 @@ bb5 --config /path/to/config.yml hello
 ## File Locations
 
 All infrastructure files are located at:
-- Base directory: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/`
+- Base directory: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/`
 - Documentation: `CLI-INFRASTRUCTURE-README.md`
 - CLI entry point: `cli/bb5`
 - Engine code: `engine/cli/`, `engine/spec_driven/`

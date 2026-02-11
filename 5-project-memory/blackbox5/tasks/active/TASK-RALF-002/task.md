@@ -68,21 +68,21 @@ storage:
 ## Files Created
 
 ### Core Configuration Files
-1. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/default.yaml` - Engine defaults
-2. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/project-template.yaml` - Project template
-3. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/config.py` - Configuration loader library
-4. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/test_config.py` - Test suite
+1. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/default.yaml` - Engine defaults
+2. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/project-template.yaml` - Project template
+3. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/config.py` - Configuration loader library
+4. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/test_config.py` - Test suite
 
 ### User and Project Configs
-5. `/Users/shaansisodia/.blackbox5/.ralf/config.yaml` - User-level config
-6. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.ralf/config.yaml` - BlackBox5 project config
+5. `/Users/shaansisodia/blackbox5/.ralf/config.yaml` - User-level config
+6. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.ralf/config.yaml` - BlackBox5 project config
 
 ### Updated Agent Scripts
-7. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/scout-intelligent.py`
-8. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/planner-prioritize.py`
-9. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/executor-implement.py`
-10. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/verifier-validate.py`
-11. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/improvement-loop.py`
+7. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/scout-intelligent.py`
+8. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/planner-prioritize.py`
+9. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/executor-implement.py`
+10. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/verifier-validate.py`
+11. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/improvement-loop.py`
 
 ## Configuration Features
 

@@ -11,7 +11,7 @@ Create paths.sh (bash) and paths.py (Python) libraries to eliminate 47+ hardcode
 
 ### paths.sh (Bash Functions)
 ```bash
-get_blackbox5_root()      # ~/.blackbox5
+get_blackbox5_root()      # ~/blackbox5
 get_engine_path()         # 2-engine
 get_project_path()        # 5-project-memory/blackbox5
 get_routes_path()         # routes.yaml

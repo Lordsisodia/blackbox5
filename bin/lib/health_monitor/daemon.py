@@ -212,5 +212,5 @@ class PIDManager:
 
 def get_default_pid_file() -> Path:
     """Get default PID file path."""
-    bb5_home = os.environ.get("BB5_HOME", os.path.expanduser("~/.blackbox5"))
+    bb5_home = os.environ.get("BB5_HOME", os.path.expanduser("~/blackbox5"))
     return Path(bb5_home) / ".autonomous" / "health" / "watch.pid"

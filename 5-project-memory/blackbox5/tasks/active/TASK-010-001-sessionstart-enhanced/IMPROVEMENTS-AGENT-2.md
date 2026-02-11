@@ -94,7 +94,7 @@ readonly LOCK_TIMEOUT=10
 ```bash
 # Load configuration from file if exists
 load_config() {
-    local config_file="${BB5_CONFIG_FILE:-$HOME/.blackbox5/hook-config.yaml}"
+    local config_file="${BB5_CONFIG_FILE:-$HOME/blackbox5/hook-config.yaml}"
 
     # Default values
     MAX_INPUT_SIZE=1048576

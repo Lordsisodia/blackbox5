@@ -66,7 +66,7 @@ Comprehensive integration with Cloudflare services including DNS management, Wor
 pip install httpx boto3
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 httpx>=0.27.0
 boto3>=1.34.0
@@ -307,10 +307,10 @@ except ValueError as e:
 
 ```bash
 # Run demo
-python .blackbox5/integration/cloudflare/demo.py
+python blackbox5/integration/cloudflare/demo.py
 
 # Run tests
-python .blackbox5/integration/cloudflare/tests/test_integration.py
+python blackbox5/integration/cloudflare/tests/test_integration.py
 ```
 
 ## Troubleshooting

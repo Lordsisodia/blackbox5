@@ -12,7 +12,7 @@
 
 #### ✅ Working Components (Can be imported)
 
-**Core Data Structures** (`.blackbox5/engine/core/task_types.py`)
+**Core Data Structures** (`blackbox5/engine/core/task_types.py`)
 - Task, TaskPriority, TaskStatus enums
 - ComplexityScore, RoutingDecision
 - AgentCapabilities, RoutingConfig
@@ -20,29 +20,29 @@
 
 #### ❌ Broken Components (Missing dependencies)
 
-**Orchestrator** (`.blackbox5/engine/core/Orchestrator.py`)
+**Orchestrator** (`blackbox5/engine/core/Orchestrator.py`)
 - Imports from event_bus, events, task_router, exceptions
 - These modules exist but may have dependency issues
 - **Status**: Code exists, needs dependency verification
 
-**Event Bus** (`.blackbox5/engine/core/event_bus.py`)
+**Event Bus** (`blackbox5/engine/core/event_bus.py`)
 - Redis-based pub/sub system
 - Requires `redis` pip package
 - **Status**: Code exists, needs Redis + dependencies
 
-**Task Router** (`.blackbox5/engine/core/task_router.py`)
+**Task Router** (`blackbox5/engine/core/task_router.py`)
 - Complexity-based task routing
 - **Status**: Needs dependency verification
 
-**GLM Client** (`.blackbox5/engine/core/GLMClient.py`)
+**GLM Client** (`blackbox5/engine/core/GLMClient.py`)
 - GLM API integration
 - **Status**: Code exists, needs testing
 
 #### 📚 Documentation Only (Not implemented)
 
-- **CLI** (`.blackbox5/bb5.py`) - Created but references non-existent modules
-- **Custom Agents** (`.blackbox5/custom_agents/`) - Markdown files only, no code
-- **Skills Registry** (`.blackbox5/engine/.skills/SKILLS-REGISTRY.md`) - Documentation, 70 skills listed but most not implemented
+- **CLI** (`blackbox5/bb5.py`) - Created but references non-existent modules
+- **Custom Agents** (`blackbox5/custom_agents/`) - Markdown files only, no code
+- **Skills Registry** (`blackbox5/engine/.skills/SKILLS-REGISTRY.md`) - Documentation, 70 skills listed but most not implemented
 
 #### 🗄️ Extracted Frameworks (Research material)
 
@@ -92,7 +92,7 @@ A unified system should:
 - [ ] Create `requirements.txt` with all dependencies
 
 **Files**:
-- Create: `.blackbox5/requirements.txt`
+- Create: `blackbox5/requirements.txt`
 - Test: All imports in `engine/core/`
 
 **Estimated Time**: 30 minutes
@@ -109,8 +109,8 @@ A unified system should:
 - [ ] Document usage
 
 **Files**:
-- Fix: `.blackbox5/engine/core/GLMClient.py`
-- Create: `.blackbox5/tests/test_glm_client.py`
+- Fix: `blackbox5/engine/core/GLMClient.py`
+- Create: `blackbox5/tests/test_glm_client.py`
 
 **Estimated Time**: 1 hour
 
@@ -126,9 +126,9 @@ A unified system should:
 - [ ] Test multi-agent coordination
 
 **Files**:
-- Create: `.blackbox5/engine/core/SimpleOrchestrator.py`
-- Create: `.blackbox5/engine/agents/dummy_agents.py`
-- Create: `.blackbox5/tests/test_simple_orchestrator.py`
+- Create: `blackbox5/engine/core/SimpleOrchestrator.py`
+- Create: `blackbox5/engine/agents/dummy_agents.py`
+- Create: `blackbox5/tests/test_simple_orchestrator.py`
 
 **Estimated Time**: 2 hours
 
@@ -152,10 +152,10 @@ A unified system should:
 - [ ] Test tools work correctly
 
 **Files**:
-- Create: `.blackbox5/engine/tools/base.py`
-- Create: `.blackbox5/engine/tools/file_tools.py`
-- Create: `.blackbox5/engine/tools/bash_tool.py`
-- Create: `.blackbox5/engine/tools/search_tool.py`
+- Create: `blackbox5/engine/tools/base.py`
+- Create: `blackbox5/engine/tools/file_tools.py`
+- Create: `blackbox5/engine/tools/bash_tool.py`
+- Create: `blackbox5/engine/tools/search_tool.py`
 
 **Estimated Time**: 3 hours
 
@@ -171,9 +171,9 @@ A unified system should:
 - [ ] Test agent using tools
 
 **Files**:
-- Create: `.blackbox5/engine/core/ToolRegistry.py`
-- Modify: `.blackbox5/engine/core/GLMClient.py` (add tool calling)
-- Create: `.blackbox5/engine/agents/ToolAgent.py`
+- Create: `blackbox5/engine/core/ToolRegistry.py`
+- Modify: `blackbox5/engine/core/GLMClient.py` (add tool calling)
+- Create: `blackbox5/engine/agents/ToolAgent.py`
 
 **Estimated Time**: 2 hours
 
@@ -191,8 +191,8 @@ A unified system should:
 - [ ] Test common workflows
 
 **Files**:
-- Rewrite: `.blackbox5/bb5.py`
-- Create: `.blackbox5/tests/test_cli.py`
+- Rewrite: `blackbox5/bb5.py`
+- Create: `blackbox5/tests/test_cli.py`
 
 **Estimated Time**: 2 hours
 
@@ -208,8 +208,8 @@ A unified system should:
 - [ ] Route tasks to appropriate agents
 
 **Files**:
-- Create: `.blackbox5/engine/core/ProjectScanner.py`
-- Create: `.blackbox5/engine/core/ContextBuilder.py`
+- Create: `blackbox5/engine/core/ProjectScanner.py`
+- Create: `blackbox5/engine/core/ContextBuilder.py`
 
 **Estimated Time**: 2 hours
 
@@ -228,9 +228,9 @@ A unified system should:
 - [ ] Others as needed
 
 **Files**:
-- Create: `.blackbox5/engine/agents/FrontendDeveloper.py`
-- Create: `.blackbox5/engine/agents/BackendDeveloper.py`
-- Create: `.blackbox5/engine/agents/BugFixer.py`
+- Create: `blackbox5/engine/agents/FrontendDeveloper.py`
+- Create: `blackbox5/engine/agents/BackendDeveloper.py`
+- Create: `blackbox5/engine/agents/BugFixer.py`
 
 **Estimated Time**: 4 hours per agent
 
@@ -247,7 +247,7 @@ pip install redis pydantic requests
 
 ### Step 2: Create Simple Task Runner (1 hour)
 ```python
-# .blackbox5/simple_runner.py
+# blackbox5/simple_runner.py
 from GLMClient import create_glm_client
 
 client = create_glm_client(mock=True)  # Start with mock

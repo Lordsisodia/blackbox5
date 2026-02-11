@@ -1,0 +1,5 @@
+{"id": "evt-1770700188", "timestamp": "2026-02-10T12:09:48.682072", "type": "issue.detected", "payload": {"issue_id": "ISS-001", "scan_target": "test"}, "source": "manual"}
+{"id": "evt-1770738054154", "timestamp": "2026-02-10T22:40:54.154129", "type": "issue.detected", "payload": {"issue_id": "ISS-002", "scan_target": "logs"}, "source": "manual"}
+{"id": "evt-1770738057977", "timestamp": "2026-02-10T22:40:57.977460", "type": "agent.spawned", "payload": {"agent": "bb5-issue-validator", "trigger": "issue.detected", "input": {"issue_id": "ISS-002", "scan_target": "logs"}}, "source": "ci-orchestrator"}
+{"id": "evt-1770738054154", "timestamp": "2026-02-10T22:40:54.154129", "type": "issue.detected", "payload": {"issue_id": "ISS-002", "scan_target": "logs"}, "source": "manual"}
+{"id": "evt-1770738057977", "timestamp": "2026-02-10T22:40:57.977460", "type": "agent.spawned", "payload": {"agent": "bb5-issue-validator", "trigger": "issue.detected", "input": {"issue_id": "ISS-002", "scan_target": "logs"}}, "source": "ci-orchestrator"}

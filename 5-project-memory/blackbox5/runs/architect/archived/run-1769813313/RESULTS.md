@@ -23,7 +23,7 @@ Successfully identified and archived 172 duplicate documentation files from acro
 
 ### Archive Structure
 ```
-~/.blackbox5/archived/duplicate-docs/
+~/blackbox5/archived/duplicate-docs/
 ├── 1-docs/development/reference/research/
 │   ├── [18 research analysis files]
 │   └── snippets/

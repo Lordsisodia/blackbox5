@@ -72,7 +72,7 @@ Standardized template for task documentation
 - Best practices
 - Troubleshooting
 
-### 7. Completion Summary (`.blackbox5/SPEC-DRIVEN-PIPELINE-COMPLETION-SUMMARY.md`)
+### 7. Completion Summary (`blackbox5/SPEC-DRIVEN-PIPELINE-COMPLETION-SUMMARY.md`)
 Executive summary of the complete spec-driven pipeline implementation
 
 ## Key Features
@@ -171,7 +171,7 @@ Tasks: 4 tasks
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/spec_driven/
 │   ├── task_agent.py          # 600+ lines
 │   ├── config.py              # TaskConfig added

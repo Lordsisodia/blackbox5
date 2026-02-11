@@ -20,7 +20,7 @@
 
 ## Changes Made
 
-**File Modified:** `~/.blackbox5/bin/ralf.md`
+**File Modified:** `~/blackbox5/bin/ralf.md`
 
 **Change:** Added new section "FINAL STEP: Signal Completion" after the "Remember" section
 

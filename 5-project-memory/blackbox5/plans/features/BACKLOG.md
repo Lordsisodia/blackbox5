@@ -70,7 +70,7 @@
 - **Value:** Personalized workflows, configurable thresholds, and custom routing rules.
 
 **MVP Scope:**
-- Configuration file (~/.blackbox5/config.yaml)
+- Configuration file (~/blackbox5/config.yaml)
 - Preference persistence layer
 - Threshold customization (e.g., skill invocation threshold)
 - Custom routing rules

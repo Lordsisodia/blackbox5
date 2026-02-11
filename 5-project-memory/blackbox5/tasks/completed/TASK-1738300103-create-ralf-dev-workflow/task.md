@@ -52,5 +52,5 @@ If anything goes wrong:
 
 ## Files to Read
 
-- `~/.blackbox5/2-engine/.autonomous/prompts/ralf.md` - Verify branch safety rules
+- `~/blackbox5/2-engine/.autonomous/prompts/ralf.md` - Verify branch safety rules
 - Recent run logs for additional context

@@ -10,7 +10,7 @@
 ### 1. Check Prerequisites (1 minute)
 
 ```bash
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ```
 
 **What it does**:
@@ -23,7 +23,7 @@ bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ### 2. Run Test (2 minutes)
 
 ```bash
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 **What it tests**:
@@ -72,7 +72,7 @@ You → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 
 ### Project Memory Tracking
 
-**Location**: `.blackbox5/5-project-memory/siso-internal/operations/`
+**Location**: `blackbox5/5-project-memory/siso-internal/operations/`
 
 **Tracked**:
 - Goals (task descriptions)

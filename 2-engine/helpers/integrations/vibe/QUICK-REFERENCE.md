@@ -204,7 +204,7 @@ except httpx.HTTPError as e:
 
 ```bash
 # Run tests
-cd .blackbox5
+cd blackbox5
 pytest tests/test_vibe_integration.py -v
 
 # Run demo

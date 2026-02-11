@@ -18,17 +18,17 @@ source "$(dirname "$0")/../2-engine/.autonomous/lib/dry_run.sh" 2>/dev/null || t
 ```
 
 **Affected files:**
-- `/Users/shaansisodia/.blackbox5/bin/bb5-whereami`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-link`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-discover-context`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-populate-template`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-goto`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-task`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-create`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-scout-improve`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-plan`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-timeline`
-- `/Users/shaansisodia/.blackbox5/bin/bb5-goal`
+- `/Users/shaansisodia/blackbox5/bin/bb5-whereami`
+- `/Users/shaansisodia/blackbox5/bin/bb5-link`
+- `/Users/shaansisodia/blackbox5/bin/bb5-discover-context`
+- `/Users/shaansisodia/blackbox5/bin/bb5-populate-template`
+- `/Users/shaansisodia/blackbox5/bin/bb5-goto`
+- `/Users/shaansisodia/blackbox5/bin/bb5-task`
+- `/Users/shaansisodia/blackbox5/bin/bb5-create`
+- `/Users/shaansisodia/blackbox5/bin/bb5-scout-improve`
+- `/Users/shaansisodia/blackbox5/bin/bb5-plan`
+- `/Users/shaansisodia/blackbox5/bin/bb5-timeline`
+- `/Users/shaansisodia/blackbox5/bin/bb5-goal`
 
 **Risk:** HIGH - If `2-engine/.autonomous/lib/dry_run.sh` is moved or deleted, all bb5 commands will fail silently (the `|| true` masks the error).
 
@@ -44,8 +44,8 @@ All 5 agent scripts in `2-engine/.autonomous/bin/` have hardcoded dependencies:
 # From improvement-loop.py, scout-intelligent.py, planner-prioritize.py,
 # executor-implement.py, verifier-validate.py, scout-task-based.py:
 
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
 BIN_DIR = ENGINE_DIR / ".autonomous" / "bin"
 REPORTS_DIR = PROJECT_DIR / ".autonomous" / "analysis"
 ```
@@ -147,7 +147,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 ```
 
-**Risk:** MEDIUM - Scripts assume they are installed at `~/.blackbox5/bin/` with specific sibling directories.
+**Risk:** MEDIUM - Scripts assume they are installed at `~/blackbox5/bin/` with specific sibling directories.
 
 ---
 

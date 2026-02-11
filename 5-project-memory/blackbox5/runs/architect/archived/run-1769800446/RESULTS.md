@@ -14,7 +14,7 @@ Successfully implemented the `decision_registry.py` library that the Agent-2.3 d
 ## What Was Delivered
 
 ### 1. Decision Registry Library
-**Location:** `~/.blackbox5/2-engine/.autonomous/lib/decision_registry.py`
+**Location:** `~/blackbox5/2-engine/.autonomous/lib/decision_registry.py`
 **Size:** ~520 lines of Python code
 **Status:** Created and tested
 
@@ -37,7 +37,7 @@ Successfully implemented the `decision_registry.py` library that the Agent-2.3 d
 - `finalize` - Generate summary and validate completeness
 
 ### 3. Comprehensive Test Suite
-**Location:** `~/.blackbox5/2-engine/.autonomous/lib/test_decision_registry.py`
+**Location:** `~/blackbox5/2-engine/.autonomous/lib/test_decision_registry.py`
 **Size:** ~600 lines of test code
 **Tests:** 24 unit tests
 
@@ -95,12 +95,12 @@ Successfully implemented the `decision_registry.py` library that the Agent-2.3 d
 
 ## Files Created
 
-1. **Library:** `~/.blackbox5/2-engine/.autonomous/lib/decision_registry.py`
-2. **Tests:** `~/.blackbox5/2-engine/.autonomous/lib/test_decision_registry.py`
+1. **Library:** `~/blackbox5/2-engine/.autonomous/lib/decision_registry.py`
+2. **Tests:** `~/blackbox5/2-engine/.autonomous/lib/test_decision_registry.py`
 3. **Run Documentation:**
-   - `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800446/THOUGHTS.md`
-   - `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800446/DECISIONS.md`
-   - `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800446/RESULTS.md`
+   - `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800446/THOUGHTS.md`
+   - `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800446/DECISIONS.md`
+   - `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800446/RESULTS.md`
 
 ## Path Used
 

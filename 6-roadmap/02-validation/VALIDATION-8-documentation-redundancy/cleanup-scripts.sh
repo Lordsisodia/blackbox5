@@ -10,12 +10,12 @@ echo ""
 echo "WARNING: Test these commands before running!"
 echo ""
 
-# Script 1: Update .blackbox5 references
-echo "### Script 1: Fix .blackbox5 references ###"
-echo "find . -type f -name '*.md' -exec sed -i '' 's/\.blackbox5\//blackbox5\//g' {} \;"
+# Script 1: Update blackbox5 references
+echo "### Script 1: Fix blackbox5 references ###"
+echo "find . -type f -name '*.md' -exec sed -i '' 's/\blackbox5\//blackbox5\//g' {} \;"
 echo ""
 echo "# OR for dry-run (preview changes):"
-echo "find . -type f -name '*.md' -exec sed -i '' 's/\.blackbox5\//blackbox5\//g' {} +"
+echo "find . -type f -name '*.md' -exec sed -i '' 's/\blackbox5\//blackbox5\//g' {} +"
 echo ""
 
 # Script 2: Delete duplicate code_index files

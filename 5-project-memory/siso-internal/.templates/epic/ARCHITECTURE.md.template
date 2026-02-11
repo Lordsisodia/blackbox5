@@ -1,0 +1,318 @@
+# Architecture: {{EPIC_NAME}}
+
+**Epic ID:** FILL_ME
+**Status:** FILL_ME (draft|review|approved|implemented)
+**Last Updated:** FILL_ME - ISO timestamp
+**Architect:** FILL_ME
+
+---
+
+## Overview
+
+### Purpose
+FILL_ME - What this architecture document covers
+
+### Scope
+FILL_ME - What's in scope and out of scope
+
+### Context
+FILL_ME - Where this fits in the overall system
+
+---
+
+## Architecture Principles
+
+### Guiding Principles
+1. **FILL_ME** - Principle description
+2. **FILL_ME** - Principle description
+
+### Constraints
+- FILL_ME - Technical constraint
+- FILL_ME - Business constraint
+
+### Assumptions
+- FILL_ME - Architecture assumption
+- FILL_ME - Architecture assumption
+
+---
+
+## System Context
+
+### Context Diagram
+```
+[FILL_ME - ASCII diagram or reference to image]
+```
+
+### External Systems
+| System | Interface | Purpose |
+|--------|-----------|---------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+### Users and Roles
+| Role | Actions | Data Access |
+|------|---------|-------------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Component Architecture
+
+### Component Diagram
+```
+[FILL_ME - ASCII diagram or reference to image]
+```
+
+### Components
+
+#### Component 1: FILL_ME
+- **Purpose:** FILL_ME
+- **Responsibilities:**
+  - FILL_ME
+  - FILL_ME
+- **Interfaces:**
+  - Input: FILL_ME
+  - Output: FILL_ME
+- **Dependencies:**
+  - FILL_ME
+
+#### Component 2: FILL_ME
+- **Purpose:** FILL_ME
+- **Responsibilities:**
+  - FILL_ME
+- **Interfaces:**
+  - FILL_ME
+- **Dependencies:**
+  - FILL_ME
+
+### Component Interactions
+| Source | Interaction | Target | Protocol |
+|--------|-------------|--------|----------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Data Architecture
+
+### Data Model
+```
+[FILL_ME - Entity relationship diagram or reference]
+```
+
+### Data Entities
+
+#### Entity 1: FILL_ME
+| Field | Type | Description | Constraints |
+|-------|------|-------------|-------------|
+| id | UUID | Primary identifier | PK, auto-generated |
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+#### Entity 2: FILL_ME
+| Field | Type | Description | Constraints |
+|-------|------|-------------|-------------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+### Data Flow
+```
+[FILL_ME - Data flow diagram or description]
+```
+
+### Data Storage
+| Data Type | Storage | Retention | Backup |
+|-----------|---------|-----------|--------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## API Design
+
+### API Overview
+| Endpoint | Method | Purpose | Auth |
+|----------|--------|---------|------|
+| FILL_ME | GET/POST/PUT/DELETE | FILL_ME | FILL_ME |
+
+### API Specifications
+
+#### Endpoint 1: FILL_ME
+```
+GET /api/v1/FILL_ME
+```
+
+**Request:**
+```json
+{
+  "FILL_ME": "FILL_ME"
+}
+```
+
+**Response:**
+```json
+{
+  "FILL_ME": "FILL_ME"
+}
+```
+
+**Error Responses:**
+| Code | Description | Resolution |
+|------|-------------|------------|
+| 400 | FILL_ME | FILL_ME |
+| 500 | FILL_ME | FILL_ME |
+
+---
+
+## Security Architecture
+
+### Authentication
+FILL_ME - How users/systems are authenticated
+
+### Authorization
+| Role | Permissions | Scope |
+|------|-------------|-------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+### Data Protection
+| Data Type | Protection Method | Implementation |
+|-----------|-------------------|----------------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+### Security Considerations
+- FILL_ME - Security concern and mitigation
+- FILL_ME - Security concern and mitigation
+
+---
+
+## Performance Architecture
+
+### Performance Requirements
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Response Time | FILL_ME | FILL_ME |
+| Throughput | FILL_ME | FILL_ME |
+| Availability | FILL_ME | FILL_ME |
+
+### Scalability
+| Component | Scaling Strategy | Limits |
+|-----------|------------------|--------|
+| FILL_ME | horizontal/vertical | FILL_ME |
+
+### Caching Strategy
+| Cache | Type | TTL | Invalidation |
+|-------|------|-----|--------------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Deployment Architecture
+
+### Infrastructure
+```
+[FILL_ME - Deployment diagram or reference]
+```
+
+### Environment Configuration
+| Environment | Configuration | Notes |
+|-------------|---------------|-------|
+| Development | FILL_ME | FILL_ME |
+| Staging | FILL_ME | FILL_ME |
+| Production | FILL_ME | FILL_ME |
+
+### Deployment Strategy
+FILL_ME - Blue-green, canary, rolling, etc.
+
+---
+
+## Error Handling
+
+### Error Types
+| Error | Source | Handling Strategy |
+|-------|--------|-------------------|
+| FILL_ME | FILL_ME | FILL_ME |
+
+### Recovery Strategies
+| Failure | Detection | Recovery | RTO | RPO |
+|---------|-----------|----------|-----|-----|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+---
+
+## Monitoring and Observability
+
+### Metrics
+| Metric | Type | Alert Threshold | Dashboard |
+|--------|------|-----------------|-----------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+### Logging
+| Log Type | Level | Retention | Location |
+|----------|-------|-----------|----------|
+| FILL_ME | FILL_ME | FILL_ME | FILL_ME |
+
+### Tracing
+FILL_ME - Distributed tracing approach
+
+---
+
+## Technical Decisions
+
+### Decision 1: FILL_ME
+**Context:** FILL_ME
+**Decision:** FILL_ME
+**Rationale:** FILL_ME
+**Consequences:** FILL_ME
+**Alternatives Considered:**
+- FILL_ME - Rejected because FILL_ME
+
+### Decision 2: FILL_ME
+**Context:** FILL_ME
+**Decision:** FILL_ME
+**Rationale:** FILL_ME
+
+---
+
+## Risks and Mitigations
+
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| FILL_ME | high/medium/low | high/medium/low | FILL_ME |
+
+---
+
+## Implementation Phases
+
+### Phase 1: FILL_ME
+**Scope:** FILL_ME
+**Deliverables:**
+- FILL_ME
+- FILL_ME
+
+### Phase 2: FILL_ME
+**Scope:** FILL_ME
+**Deliverables:**
+- FILL_ME
+
+---
+
+## References
+
+### Related Documents
+- [Research: ARCHITECTURE.md](./research/ARCHITECTURE.md)
+- [Decision: DEC-XXX](../decisions/FILL_ME)
+- [Epic Specification](./epic.md)
+
+### External References
+- FILL_ME - Link to external documentation
+
+---
+
+## Glossary
+
+| Term | Definition |
+|------|------------|
+| FILL_ME | FILL_ME |
+
+---
+
+## Change Log
+
+| Date | Change | Author |
+|------|--------|--------|
+| FILL_ME | FILL_ME - Description | FILL_ME |

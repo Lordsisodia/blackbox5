@@ -10,7 +10,7 @@
 ## What Was Delivered
 
 ### 1. Integration Test Suite
-**File:** `~/.blackbox5/2-engine/.autonomous/lib/integration_test.py`
+**File:** `~/blackbox5/2-engine/.autonomous/lib/integration_test.py`
 **Lines of Code:** ~450
 **Test Coverage:** 21 tests across 6 systems
 
@@ -20,7 +20,7 @@
 - `verify-all` command - Quick verification of system files
 
 ### 2. Integration Documentation
-**File:** `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/INTEGRATION_DOCUMENTATION.md`
+**File:** `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/INTEGRATION_DOCUMENTATION.md`
 **Sections:**
 - System overview with locations
 - System call sequences
@@ -117,7 +117,7 @@ Full BMAD:
 
 ### Context Budget Command
 ```bash
-$ python3 context_budget.py init --run-dir ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test
+$ python3 context_budget.py init --run-dir ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test
 Context budget initialized:
   Max tokens: 200,000
   Sub-agent threshold: 40% (80,000 tokens)
@@ -177,16 +177,16 @@ No issues or limitations identified. All systems are working correctly together.
 ## Files Modified/Created
 
 ### Created
-1. `~/.blackbox5/2-engine/.autonomous/lib/integration_test.py` - Integration test suite
-2. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/INTEGRATION_DOCUMENTATION.md` - Integration guide
-3. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/THOUGHTS.md`
-4. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/DECISIONS.md`
-5. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/ASSUMPTIONS.md`
-6. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/LEARNINGS.md`
-7. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/RESULTS.md`
+1. `~/blackbox5/2-engine/.autonomous/lib/integration_test.py` - Integration test suite
+2. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/INTEGRATION_DOCUMENTATION.md` - Integration guide
+3. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/THOUGHTS.md`
+4. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/DECISIONS.md`
+5. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/ASSUMPTIONS.md`
+6. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/LEARNINGS.md`
+7. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-integration-test/RESULTS.md`
 
 ### Modified
-1. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/TASK-1769799336-integrate-v23-unified-loop.md` - Status updated to in_progress
+1. `~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/TASK-1769799336-integrate-v23-unified-loop.md` - Status updated to in_progress
 
 ---
 

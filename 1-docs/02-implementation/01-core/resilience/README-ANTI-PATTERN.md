@@ -8,11 +8,11 @@
 
 The Anti-Pattern Detector module provides comprehensive code quality analysis through pattern-based scanning. It identifies common anti-patterns, security issues, and code quality problems with actionable suggestions.
 
-**Location:** `.blackbox5/engine/core/anti_pattern_detector.py`
+**Location:** `blackbox5/engine/core/anti_pattern_detector.py`
 
-**Tests:** `.blackbox5/tests/test_anti_pattern_detection.py`
+**Tests:** `blackbox5/tests/test_anti_pattern_detection.py`
 
-**Documentation:** `.blackbox5/docs/ANTI-PATTERN-DETECTION.md`
+**Documentation:** `blackbox5/docs/ANTI-PATTERN-DETECTION.md`
 
 ---
 
@@ -247,13 +247,13 @@ with open('quality-report.json', 'w') as f:
 
 ```bash
 # All tests
-pytest .blackbox5/tests/test_anti_pattern_detection.py -v
+pytest blackbox5/tests/test_anti_pattern_detection.py -v
 
 # Specific test class
-pytest .blackbox5/tests/test_anti_pattern_detection.py::TestAntiPatternDetector -v
+pytest blackbox5/tests/test_anti_pattern_detection.py::TestAntiPatternDetector -v
 
 # With coverage
-pytest .blackbox5/tests/test_anti_pattern_detection.py --cov=.blackbox5/engine/core/anti_pattern_detector
+pytest blackbox5/tests/test_anti_pattern_detection.py --cov=blackbox5/engine/core/anti_pattern_detector
 ```
 
 ### Test Coverage

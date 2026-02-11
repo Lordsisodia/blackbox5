@@ -66,9 +66,9 @@
 ```
 
 **Files:**
-- `.blackbox5/2-engine/03-knowledge/storage/ProductionMemorySystem.py` (372 lines)
-- `.blackbox5/2-engine/03-knowledge/storage/EnhancedProductionMemorySystem.py` (944 lines)
-- `.blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py` (438 lines)
+- `blackbox5/2-engine/03-knowledge/storage/ProductionMemorySystem.py` (372 lines)
+- `blackbox5/2-engine/03-knowledge/storage/EnhancedProductionMemorySystem.py` (944 lines)
+- `blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py` (438 lines)
 
 ### ❌ What's Missing (Three-Tier Research Recommendation)
 
@@ -349,9 +349,9 @@ Two-tier hierarchy (working → persistent) works but lacks dedicated summary la
 - Vector Embeddings + pgvector Migration (new proposal needed)
 - GraphRAG Integration (depends on this)
 **Reference Links:**
-- Research: `.blackbox5/roadmap/01-research/memory-context/RESEARCH-SUMMARY.md`
-- Gap Analysis: `.blackbox5/roadmap/01-research/memory-context/MEMORY-SYSTEM-GAP-ANALYSIS.md`
-- Implementation: `.blackbox5/2-engine/03-knowledge/storage/`
+- Research: `blackbox5/roadmap/01-research/memory-context/RESEARCH-SUMMARY.md`
+- Gap Analysis: `blackbox5/roadmap/01-research/memory-context/MEMORY-SYSTEM-GAP-ANALYSIS.md`
+- Implementation: `blackbox5/2-engine/03-knowledge/storage/`
 
 ---
 

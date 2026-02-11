@@ -123,7 +123,7 @@
 
 ## Evidence Locations
 
-- Task files: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-*/`
-- Hook scripts: `/Users/shaansisodia/.blackbox5/bin/ralf-*`
-- Metrics: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/improvement-metrics.yaml`
-- Queue: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`
+- Task files: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-*/`
+- Hook scripts: `/Users/shaansisodia/blackbox5/bin/ralf-*`
+- Metrics: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/improvement-metrics.yaml`
+- Queue: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`

@@ -6,11 +6,11 @@ The skill metrics system exists but has zero usage data because `calculate-skill
 
 ## Key Files Involved
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py` - Main calculator script
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml` - Metrics data file (has schema, no outcomes)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` - Usage tracking file
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Selection framework
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py` - Hook for recording
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py` - Main calculator script
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml` - Metrics data file (has schema, no outcomes)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` - Usage tracking file
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Selection framework
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py` - Hook for recording
 
 ## Estimated Complexity
 
@@ -33,4 +33,4 @@ The skill metrics system exists but has zero usage data because `calculate-skill
 
 ## Root Cause
 
-The calculator script works correctly (line 513-517 shows it looks for `task_outcomes`), but no outcomes are being recorded. The hook exists at `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py` but may not be integrated into the task completion workflow.
+The calculator script works correctly (line 513-517 shows it looks for `task_outcomes`), but no outcomes are being recorded. The hook exists at `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py` but may not be integrated into the task completion workflow.

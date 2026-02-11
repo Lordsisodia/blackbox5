@@ -41,7 +41,7 @@
 
 ## Files Created
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/TASK-1769899002-create-learning-to-improvement-pipeline.md`
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/active/TASK-1769899002-create-learning-to-improvement-pipeline.md`
 
 ## Files Modified
 

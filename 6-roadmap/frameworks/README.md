@@ -24,7 +24,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
 ## Category 1: Core Agent Frameworks (4)
 
 **Status:** ✅ Active (Integrated in BlackBox5)
-**Location:** `.blackbox5/engine/frameworks/`
+**Location:** `blackbox5/engine/frameworks/`
 
 ### 1. BMAD (BlackBox Multi-Agent Development)
 - **Type:** Multi-Agent Orchestration
@@ -33,7 +33,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - BMAD Master agent coordination
   - Specialized modules: Analyst, Architect, Developer, PM
   - Workflow-based agent collaboration
-- **Code Location:** `.blackbox5/engine/frameworks/1-bmad/`
+- **Code Location:** `blackbox5/engine/frameworks/1-bmad/`
 - **Documentation:** [BMAD Details](./01-core-agent-frameworks/README.md)
 - **Status:** ✅ Active (Primary Framework)
 
@@ -44,7 +44,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Slash commands for quick actions
   - Template system for consistency
   - Spec-first development workflow
-- **Code Location:** `.blackbox5/engine/frameworks/2-speckit/`
+- **Code Location:** `blackbox5/engine/frameworks/2-speckit/`
 - **Documentation:** [SpecKit Details](./01-core-agent-frameworks/README.md#speckit)
 - **Status:** ✅ Active
 
@@ -55,7 +55,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - SOP-based agent coordination
   - Role-based agent interactions
   - Consistent output formats
-- **Code Location:** `.blackbox5/engine/frameworks/3-metagpt/`
+- **Code Location:** `blackbox5/engine/frameworks/3-metagpt/`
 - **Documentation:** [MetaGPT Details](./01-core-agent-frameworks/README.md#metagpt)
 - **Status:** ✅ Active
 
@@ -66,7 +66,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Lightweight agent handoffs
   - Emergent coordination patterns
   - Simple conversational interface
-- **Code Location:** `.blackbox5/engine/frameworks/4-swarm/`
+- **Code Location:** `blackbox5/engine/frameworks/4-swarm/`
 - **Documentation:** [Swarm Details](./01-core-agent-frameworks/README.md#swarm)
 - **Status:** ✅ Active
 
@@ -134,7 +134,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Memory compression
   - Token compression
   - Distributed execution
-- **Research Location:** `.blackbox5/engine/development/framework-research/agentscope-ai-agentscope-ANALYSIS.md`
+- **Research Location:** `blackbox5/engine/development/framework-research/agentscope-ai-agentscope-ANALYSIS.md`
 - **Status:** 📚 Research Complete
 - **Priority:** ⭐⭐⭐⭐⭐ (Middleware System)
 
@@ -146,7 +146,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Visual workflow builder
   - Message compression algorithms
   - State management
-- **Research Location:** `.blackbox5/engine/development/framework-research/bytedance-deer-flow-ANALYSIS.md`
+- **Research Location:** `blackbox5/engine/development/framework-research/bytedance-deer-flow-ANALYSIS.md`
 - **Status:** 📚 Research Complete
 - **Priority:** ⭐⭐⭐⭐⭐ (Token Compression)
 
@@ -157,7 +157,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Enterprise scaling
   - Production deployment
   - Monitoring & observability
-- **Research Location:** `.blackbox5/engine/development/framework-research/iflytek-astron-agent-ANALYSIS.md`
+- **Research Location:** `blackbox5/engine/development/framework-research/iflytek-astron-agent-ANALYSIS.md`
 - **Status:** 📚 Research Complete
 - **Priority:** ⭐⭐⭐
 
@@ -175,7 +175,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Official Google support
   - Enterprise integration
   - Scalable architecture
-- **Research Location:** `.blackbox5/engine/development/framework-research/google-adk-python-ANALYSIS.md`
+- **Research Location:** `blackbox5/engine/development/framework-research/google-adk-python-ANALYSIS.md`
 - **Status:** 📚 Research Complete
 - **Priority:** ⭐⭐⭐⭐
 
@@ -186,7 +186,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Azure integration
   - Enterprise security
   - Microsoft ecosystem
-- **Research Location:** `.blackbox5/engine/development/framework-research/microsoft-agent-framework-ANALYSIS.md`
+- **Research Location:** `blackbox5/engine/development/framework-research/microsoft-agent-framework-ANALYSIS.md`
 - **Status:** 📚 Research Complete
 - **Priority:** ⭐⭐⭐⭐
 
@@ -197,7 +197,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - Simple API
   - Quick setup
   - Multi-agent coordination
-- **Research Location:** `.blackbox5/engine/development/framework-research/MervinPraison-PraisonAI-ANALYSIS.md`
+- **Research Location:** `blackbox5/engine/development/framework-research/MervinPraison-PraisonAI-ANALYSIS.md`
 - **Status:** 📚 Research Complete
 - **Priority:** ⭐⭐⭐
 
@@ -256,7 +256,7 @@ BlackBox5 integrates **16 frameworks** across 6 categories, providing a comprehe
   - **Cost Tracking** - Per-engine token/cost tracking
   - **YAML Parallel Groups** - Control task execution order
 - **Critical Pattern:** Git worktree isolation enables true parallel execution without file conflicts
-- **Analysis Location:** `.blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
+- **Analysis Location:** `blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
 - **Status:** 🔥 Analysis Complete (Highest Priority Integration)
 - **Priority:** ⭐⭐⭐⭐⭐ (Git Worktree Pattern)
 - **Integration Timeline:** Week 1 (immediate)
@@ -364,7 +364,7 @@ git worktree remove /tmp/ralphy-agent-1
 - Enables true parallel execution without file conflicts
 - Expected 3-5x speedup on parallelizable tasks
 - **Implementation:** 3-5 days (Week 1 priority)
-- **Code Location:** `.blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md:194`
+- **Code Location:** `blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md:194`
 
 #### 1. **Token Compression** (DeerFlow)
 - Solves context explosion
@@ -424,19 +424,19 @@ git worktree remove /tmp/ralphy-agent-1
 ## Code References
 
 ### Core Frameworks (Integrated)
-- **BMAD:** `.blackbox5/engine/frameworks/1-bmad/`
-- **SpecKit:** `.blackbox5/engine/frameworks/2-speckit/`
-- **MetaGPT:** `.blackbox5/engine/frameworks/3-metagpt/`
-- **Swarm:** `.blackbox5/engine/frameworks/4-swarm/`
+- **BMAD:** `blackbox5/engine/frameworks/1-bmad/`
+- **SpecKit:** `blackbox5/engine/frameworks/2-speckit/`
+- **MetaGPT:** `blackbox5/engine/frameworks/3-metagpt/`
+- **Swarm:** `blackbox5/engine/frameworks/4-swarm/`
 
 ### Autonomous Loop Frameworks (Critical Priority)
-- **Ralph-y:** `.blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
+- **Ralph-y:** `blackbox5/engine/development/framework-research/ralphy-ANALYSIS.md`
 - **Repository:** https://github.com/michaelshimeles/ralphy
 
 ### Framework Research
-- **All Analysis Files:** `.blackbox5/engine/development/framework-research/`
-- **Implementation Plan:** `.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
-- **Features Analysis:** `.blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
+- **All Analysis Files:** `blackbox5/engine/development/framework-research/`
+- **Implementation Plan:** `blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
+- **Features Analysis:** `blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
 
 ### Inspiration Analysis
 - **AutoMaker:** `.docs/frameworks-analysis/automaker/`
@@ -448,7 +448,7 @@ git worktree remove /tmp/ralphy-agent-1
 ## Implementation Roadmap Reference
 
 ### Day-by-Day Plan
-**File:** `.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
+**File:** `blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
 - **Duration:** 4 weeks (28 days)
 - **Code Sources:** Auto-Claude (40%), OpenSpec (30%), Cognee (10%), Custom (20%)
 - **Time Saved:** 25-36 days through code reuse
@@ -507,11 +507,11 @@ git worktree remove /tmp/ralphy-agent-1
 
 ## Related Documentation
 
-- **Framework Implementation Plan:** `.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
-- **Framework Features Analysis:** `.blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
+- **Framework Implementation Plan:** `blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md`
+- **Framework Features Analysis:** `blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md`
 - **Frameworks Deep Dive:** `FRAMEWORKS-DEEP-DIVE.md`
 - **Claude Code Autonomous Frameworks:** `CLAUDE-CODE-AUTONOMOUS-FRAMEWORKS.md`
-- **Framework Comparison:** `.blackbox5/engine/development/frameworks/FRAMEWORK-COMPARISON.md`
+- **Framework Comparison:** `blackbox5/engine/development/frameworks/FRAMEWORK-COMPARISON.md`
 
 ---
 

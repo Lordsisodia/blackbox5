@@ -45,7 +45,7 @@
 
 **Files to Create:**
 ```
-.blackbox5/2-engine/01-core/
+blackbox5/2-engine/01-core/
 ├── interface/
 │   ├── __init__.py
 │   ├── cli/
@@ -78,7 +78,7 @@
 
 **Location:**
 ```
-.blackbox5/2-engine/02-agents/implementations/
+blackbox5/2-engine/02-agents/implementations/
 ├── 04-specialists/
 │   ├── ProductManagerAgent.py
 │   ├── UXDesignerAgent.py
@@ -123,7 +123,7 @@ class ProductManagerAgent(BaseAgent):
 
 **Memory Components (Already Exist):**
 ```
-.blackbox5/2-engine/03-knowledge/memory/memory/
+blackbox5/2-engine/03-knowledge/memory/memory/
 ├── AgentMemory.py              # Agent memory system
 ├── extended/
 │   ├── services/
@@ -191,13 +191,13 @@ class ProductManagerAgent(BaseAgent):
 
 ### 1. Create CLI Structure
 ```bash
-mkdir -p .blackbox5/2-engine/01-core/interface/cli
-mkdir -p .blackbox5/2-engine/01-core/interface/api
+mkdir -p blackbox5/2-engine/01-core/interface/cli
+mkdir -p blackbox5/2-engine/01-core/interface/api
 ```
 
 ### 2. Implement bb5 CLI
 ```python
-# .blackbox5/2-engine/01-core/interface/cli/bb5.py
+# blackbox5/2-engine/01-core/interface/cli/bb5.py
 import click
 from safety.kill_switch import get_kill_switch
 from safety.constitutional_classifier import get_classifier, ContentType

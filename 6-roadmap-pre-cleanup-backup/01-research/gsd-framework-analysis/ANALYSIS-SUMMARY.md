@@ -309,7 +309,7 @@ GSD explicitly rejects:
 ## References
 
 - **Repository:** https://github.com/glittercowboy/get-shit-done
-- **Framework Research:** `/Users/shaansisodia/.blackbox5/6-roadmap/01-research/gsd-framework-analysis/`
+- **Framework Research:** `/Users/shaansisodia/blackbox5/6-roadmap/01-research/gsd-framework-analysis/`
 - **Hybrid Roadmap:** `GSD-BB5-HYBRID-ROADMAP.md`
 - **Sub-agent Reports:**
   - XML Patterns: a094601

@@ -39,7 +39,7 @@ Create a unified **Agent Context System** with the following components:
 
 ### 1. Architecture Guide Document
 
-**Location**: `~/.blackbox5/ARCHITECTURE-GUIDE.md`
+**Location**: `~/blackbox5/ARCHITECTURE-GUIDE.md`
 
 **Purpose**: Single source of truth for "where everything goes" in Blackbox5
 

@@ -12,7 +12,7 @@ Make 6-agent pipeline project-agnostic by removing BlackBox5-specific coupling.
 ### 1. Hardcoded Paths (CRITICAL)
 All agents contain:
 ```python
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 ```
 
 ### 2. Hardcoded Task IDs (HIGH)
@@ -34,7 +34,7 @@ Create `agent-config.yaml`:
 ```yaml
 project:
   name: "blackbox5"
-  root_path: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+  root_path: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5"
 paths:
   operations: "operations"
   tasks: "tasks/active"

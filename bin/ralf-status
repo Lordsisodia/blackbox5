@@ -1,0 +1,22 @@
+#!/bin/bash
+# RALF Status CLI - Query RALF status from Redis
+
+VPS_HOST="${VPS_HOST:-77.42.66.40}"
+
+echo "=== RALF Autonomous Loop Status ==="
+echo ""
+
+# Get status from Redis via SSH
+STATUS=$(ssh root@$VPS_HOST "redis-cli GET ralf:status" 2>/dev/null)
+
+if [ -z "$STATUS" ] || [ "$STATUS" = "nil" ]; then
+    echo "❌ No status found in Redis"
+    echo "   Is the ralf-redis-reporter service running?"
+    exit 1
+fi
+
+# Parse and display
+echo "$STATUS" | python3 -m json.tool 2>/dev/null || echo "$STATUS"
+
+echo ""
+echo "Last updated: $(echo "$STATUS" | grep -o '"timestamp": "[^"]*"' | cut -d'"' -f4)"

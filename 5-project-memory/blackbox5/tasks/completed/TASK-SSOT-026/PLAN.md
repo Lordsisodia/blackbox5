@@ -234,7 +234,7 @@ increment_counter() {
 #!/bin/bash
 # Updated with locking
 
-source ~/.blackbox5/2-engine/.autonomous/lib/locking.sh
+source ~/blackbox5/2-engine/.autonomous/lib/locking.sh
 
 # Update state with locking
 update_state() {
@@ -254,7 +254,7 @@ read_state() {
 #!/bin/bash
 # Updated with locking
 
-source ~/.blackbox5/2-engine/.autonomous/lib/locking.sh
+source ~/blackbox5/2-engine/.autonomous/lib/locking.sh
 
 # Update task status
 update_task_status() {
@@ -281,7 +281,7 @@ Create cleanup script for stale locks:
 #!/bin/bash
 # cleanup-locks.sh - Remove stale lock files
 
-find ~/.blackbox5 -name "*.lock" -type f -mtime +1 -delete
+find ~/blackbox5 -name "*.lock" -type f -mtime +1 -delete
 echo "Cleaned up stale lock files"
 ```
 

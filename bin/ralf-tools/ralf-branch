@@ -4,7 +4,7 @@
 
 set -e
 
-BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"
+BLACKBOX5_DIR="/Users/shaansisodia/blackbox5"
 CURRENT_BRANCH=$(git -C "$BLACKBOX5_DIR" branch --show-current 2>/dev/null || echo "unknown")
 
 # Colors

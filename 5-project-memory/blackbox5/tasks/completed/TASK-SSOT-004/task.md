@@ -40,9 +40,9 @@ The queue.yaml now includes:
 - Dynamic counts in both `schema` and `queue_metadata` sections
 
 ## Files Modified
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-task-counter.py` (created)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (updated)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` (updated with dynamic counts)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-task-counter.py` (created)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (updated)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` (updated with dynamic counts)
 
 ## Approach
 1. Create function to scan tasks/active/ and tasks/completed/

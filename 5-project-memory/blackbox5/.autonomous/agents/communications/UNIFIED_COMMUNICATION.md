@@ -43,7 +43,7 @@ The Unified Agent Communication System consolidates the previously dual communic
 
 The `CommunicationRepository` class provides a unified interface for logging and querying events.
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py`
 
 **Key Methods:**
 
@@ -99,7 +99,7 @@ executor_events = get_events(agent_id="executor")
 
 Legacy compatibility module for existing agents.
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/event_logger.py`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/event_logger.py`
 
 Provides the same interface as the engine's event_logger for backward compatibility.
 
@@ -177,7 +177,7 @@ echo "  agent: planner" >> events.yaml
 
 ## Canonical Event Location
 
-**Primary:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
+**Primary:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
 
 This is the single source of truth for all agent communication.
 

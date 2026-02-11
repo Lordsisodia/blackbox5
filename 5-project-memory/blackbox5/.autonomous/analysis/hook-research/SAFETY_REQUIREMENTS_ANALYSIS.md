@@ -131,7 +131,7 @@ def is_env_file_access(tool_name, tool_input):
 
 **Current BB5 Implementation:**
 
-From `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/rules/destructive-commands.md`:
+From `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/rules/destructive-commands.md`:
 ```markdown
 # Git & Deletion Safety Rules
 **NEVER run destructive commands without explicit user confirmation.**
@@ -329,7 +329,7 @@ After researching 10+ Claude Code repositories with 1000+ sessions:
 | Concurrent task completion | State inconsistency | Manual cleanup |
 
 **Theoretical Worst Case (Never Observed):**
-- `rm -rf ~/.blackbox5` - Would lose all BB5 data
+- `rm -rf ~/blackbox5` - Would lose all BB5 data
 - Impact: High
 - Likelihood: Extremely Low
 - Prevention: Prompt instructions + git backup
@@ -445,7 +445,7 @@ Before running ANY destructive command:
 
 ### Scope Boundaries
 - Only operate within the current task directory
-- Never modify files outside ~/.blackbox5 without confirmation
+- Never modify files outside ~/blackbox5 without confirmation
 ```
 
 **Tier 2: Detection (Monitoring)**
@@ -521,12 +521,12 @@ This provides effective safety without the complexity and performance cost of Pr
 
 ## References
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/EXTERNAL_HOOK_PATTERNS.md`
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/stop-hook-reviews/SUMMARY.md`
-3. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/.research/lessons-learned/STOP_HOOK_DESIGN_LESSONS.md`
-4. `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery/.claude/hooks/pre_tool_use.py`
-5. `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/dist/pre-tool-use.mjs`
-6. `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/rules/destructive-commands.md`
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/hook-research/EXTERNAL_HOOK_PATTERNS.md`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/stop-hook-reviews/SUMMARY.md`
+3. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/.research/lessons-learned/STOP_HOOK_DESIGN_LESSONS.md`
+4. `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery/.claude/hooks/pre_tool_use.py`
+5. `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/dist/pre-tool-use.mjs`
+6. `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/rules/destructive-commands.md`
 
 ---
 

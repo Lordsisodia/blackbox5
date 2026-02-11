@@ -737,7 +737,7 @@ dry_run_summary
 
 ## Integration with bb5 Main CLI
 
-Add to `/Users/shaansisodia/.blackbox5/bin/bb5`:
+Add to `/Users/shaansisodia/blackbox5/bin/bb5`:
 
 ```bash
 # Claim commands
@@ -862,12 +862,12 @@ TASK CLAIMING
 
 | File | Path |
 |------|------|
-| Implementation | `/Users/shaansisodia/.blackbox5/bin/bb5-claim` |
-| Integration | `/Users/shaansisodia/.blackbox5/bin/bb5` |
-| Queue | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` |
-| Events | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` |
-| Run Folders | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-YYYYMMDD-HHMMSS-TASK-ID/` |
-| Archive | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/archived/YYYYMMDD-run-.../` |
+| Implementation | `/Users/shaansisodia/blackbox5/bin/bb5-claim` |
+| Integration | `/Users/shaansisodia/blackbox5/bin/bb5` |
+| Queue | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` |
+| Events | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` |
+| Run Folders | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-YYYYMMDD-HHMMSS-TASK-ID/` |
+| Archive | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/archived/YYYYMMDD-run-.../` |
 
 ---
 

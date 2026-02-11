@@ -249,5 +249,5 @@ get-shit-done/
 ## References
 
 - **Repository:** https://github.com/glittercowboy/get-shit-done
-- **Framework Research:** `/Users/shaansisodia/.blackbox5/6-roadmap/frameworks/`
+- **Framework Research:** `/Users/shaansisodia/blackbox5/6-roadmap/frameworks/`
 - **BB5 Integration:** See `synthesized/adoption-roadmap.md`

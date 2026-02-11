@@ -28,7 +28,7 @@ Fix the zero skill invocation rate by addressing documentation inconsistencies a
   - Protocol violation warning
 
 ### 2. Updated skill-selection.yaml
-**File**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+**File**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
 
 - Added `auto_trigger_rules` section with 10 mandatory rules (ATR-001 to ATR-010)
 - Each rule includes: rule_id, name, condition, keywords, required_skills, action, priority
@@ -37,7 +37,7 @@ Fix the zero skill invocation rate by addressing documentation inconsistencies a
 - Updated version to 1.2.0 with changelog
 
 ### 3. Created Validation Script
-**File**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
+**File**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
 
 Features:
 - Validates THOUGHTS.md contains required skill usage section
@@ -81,5 +81,5 @@ This fix ensures:
 ## Related Files
 
 - `/Users/shaansisodia/.claude/CLAUDE.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`

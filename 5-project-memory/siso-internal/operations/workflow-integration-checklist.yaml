@@ -1,0 +1,222 @@
+# =============================================================================
+# Workflow Integration Checklist
+# =============================================================================
+# Purpose: Verify all integration points in the autonomous workflow
+# Version: 1.0.0
+# Created: 2026-02-09
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  created: "2026-02-09"
+  last_updated: "2026-02-09"
+  validator: "Claude"
+
+# =============================================================================
+# INTEGRATION POINTS
+# =============================================================================
+
+integration_points:
+  planner_to_queue:
+    name: "Planner → Queue"
+    description: "Tasks created by Planner are added to queue"
+    status: "pending"
+    evidence: []
+    checks:
+      - name: "Queue file exists"
+        status: "pending"
+      - name: "Queue has valid structure"
+        status: "pending"
+      - name: "Tasks have required fields"
+        status: "pending"
+    issues: []
+
+  queue_to_executor:
+    name: "Queue → Executor"
+    description: "Executor reads and claims tasks from queue"
+    status: "pending"
+    evidence: []
+    checks:
+      - name: "Executor can read queue"
+        status: "pending"
+      - name: "Task claiming works"
+        status: "pending"
+      - name: "Status updates propagate"
+        status: "pending"
+    issues: []
+
+  executor_to_events:
+    name: "Executor → Events"
+    description: "Executor logs events to events log"
+    status: "pending"
+    evidence: []
+    checks:
+      - name: "Events file exists"
+        status: "pending"
+      - name: "Event IDs are sequential"
+        status: "pending"
+      - name: "Event timestamps are valid"
+        status: "pending"
+    issues: []
+
+  executor_to_learnings:
+    name: "Executor → Learnings"
+    description: "Executor creates LEARNINGS.md in run directories"
+    status: "pending"
+    evidence: []
+    checks:
+      - name: "LEARNINGS.md template exists"
+        status: "pending"
+      - name: "Learnings have action_item field"
+        status: "pending"
+      - name: "Learnings follow format"
+        status: "pending"
+    issues: []
+
+  learnings_to_improvements:
+    name: "Learnings → Improvements"
+    description: "Learnings are converted to improvement tasks"
+    status: "pending"
+    evidence: []
+    checks:
+      - name: "Improvements directory exists"
+        status: "pending"
+      - name: "IMP-* files follow naming convention"
+        status: "pending"
+      - name: "Tasks have source_learning field"
+        status: "pending"
+      - name: "Priority levels assigned"
+        status: "pending"
+    issues: []
+
+# =============================================================================
+# WORKFLOW STATES
+# =============================================================================
+
+workflow_states:
+  task_lifecycle:
+    - state: "pending"
+      description: "Task in queue, not yet claimed"
+      verified: false
+    - state: "in_progress"
+      description: "Task claimed by executor"
+      verified: false
+    - state: "completed"
+      description: "Task finished successfully"
+      verified: false
+    - state: "failed"
+      description: "Task failed, needs attention"
+      verified: false
+    - state: "blocked"
+      description: "Task blocked, waiting on dependency"
+      verified: false
+
+  improvement_pipeline:
+    - state: "captured"
+      description: "Learning documented in LEARNINGS.md"
+      verified: false
+    - state: "reviewed"
+      description: "Learning analyzed for improvement potential"
+      verified: false
+    - state: "prioritized"
+      description: "Improvement ranked in backlog"
+      verified: false
+    - state: "tasked"
+      description: "Improvement task created and queued"
+      verified: false
+    - state: "implemented"
+      description: "Improvement changes applied"
+      verified: false
+    - state: "validated"
+      description: "Improvement effectiveness measured"
+      verified: false
+
+# =============================================================================
+# METRICS
+# =============================================================================
+
+metrics:
+  events:
+    total: 0
+    started: 0
+    completed: 0
+    last_event_id: 0
+    last_updated: null
+
+  tasks:
+    active: 0
+    completed_recent: 0
+    success_rate: "N/A"
+    avg_completion_time: "N/A"
+
+  learnings:
+    total_captured: 0
+    files_reviewed: 0
+    with_action_items: "0%"
+
+  improvements:
+    created: 0
+    implemented: 0
+    backlog: 0
+    application_rate: "0%"
+
+  queue:
+    current_depth: 0
+    target_depth: 5
+    gap: 5
+
+# =============================================================================
+# ISSUES SUMMARY
+# =============================================================================
+
+issues: []
+
+# =============================================================================
+# RECOMMENDATIONS
+# =============================================================================
+
+recommendations:
+  immediate:
+    - action: "Set up task queue structure"
+      priority: "high"
+      effort: "15 minutes"
+      owner: "planner"
+
+    - action: "Create events logging system"
+      priority: "high"
+      effort: "10 minutes"
+      owner: "executor"
+
+  short_term:
+    - action: "Implement learning capture workflow"
+      priority: "medium"
+      effort: "30 minutes"
+      owner: "executor"
+
+    - action: "Create improvement pipeline"
+      priority: "medium"
+      effort: "ongoing"
+      owner: "planner"
+
+  long_term:
+    - action: "Add workflow health dashboard"
+      priority: "low"
+      effort: "3 hours"
+      owner: "planner"
+
+# =============================================================================
+# VALIDATION SIGNATURE
+# =============================================================================
+
+validation:
+  status: "pending"
+  date: "2026-02-09"
+  validator: "Claude"
+  integration_points_verified: 0
+  integration_points_passed: 0
+  integration_points_partial: 0
+  integration_points_failed: 0
+
+  summary: |
+    Workflow integration checklist initialized.
+    Integration points need to be set up and verified.

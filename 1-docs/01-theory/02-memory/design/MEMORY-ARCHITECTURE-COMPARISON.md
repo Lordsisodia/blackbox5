@@ -374,7 +374,7 @@ Combine the **best features from all systems**:
 ### Directory Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/                    # Shared engine code
 │   ├── .agents/              # Agent definitions
 │   ├── .skills/              # Skill definitions
@@ -411,7 +411,7 @@ Combine the **best features from all systems**:
 ### Configuration Example
 
 ```yaml
-# .blackbox5/config.yml
+# blackbox5/config.yml
 project:
   name: "my-project"
   version: "1.0.0"
@@ -510,7 +510,7 @@ services:
 ## Implementation Priority
 
 ### Phase 1: Foundation (Week 1-2)
-1. ✅ Create template system in `.blackbox5/engine/templates/memory/`
+1. ✅ Create template system in `blackbox5/engine/templates/memory/`
 2. ✅ Implement three-tier directory structure
 3. ✅ Create initialization script
 4. ✅ Add configuration system

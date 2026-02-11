@@ -62,7 +62,7 @@ You are part of a 7-phase autonomous execution system. Your role spans phases 1-
 
 **Configuration System (F-006):**
 - RALF now supports configurable thresholds and preferences
-- User config: `~/.blackbox5/config.yaml` (optional, overrides defaults)
+- User config: `~/blackbox5/config.yaml` (optional, overrides defaults)
 - Default config: `2-engine/.autonomous/config/default.yaml`
 - Access via: `from config_manager import get_config; config = get_config()`
 - Key configuration values:
@@ -128,7 +128,7 @@ grep -r "[task keyword]" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/n
 grep -r "[task keyword]" $RALF_PROJECT_DIR/tasks/completed/ 2>/dev/null | head -5
 
 # Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="2 weeks ago" | grep -i "[keyword]" | head -5
+cd ~/blackbox5 && git log --oneline --since="2 weeks ago" | grep -i "[keyword]" | head -5
 
 # Check file history
 git log --oneline --since="2 weeks ago" -- [target paths] 2>/dev/null | head -5
@@ -219,12 +219,12 @@ For the current task:
 
 #### Step 1.5.3: Make Selection Decision
 
-**IMPORTANT: The threshold is now configurable via ~/.blackbox5/config.yaml**
+**IMPORTANT: The threshold is now configurable via ~/blackbox5/config.yaml**
 
 ```bash
 # Get the configured threshold (default: 70%)
 # Read config to determine current threshold
-CONFIG_FILE="$RALF_PROJECT_DIR/../.blackbox5/config.yaml"
+CONFIG_FILE="$RALF_PROJECT_DIR/../blackbox5/config.yaml"
 DEFAULT_CONFIG="$RALF_ENGINE_DIR/config/default.yaml"
 
 # Check if user config exists and has custom threshold
@@ -454,7 +454,7 @@ mv $RALF_PROJECT_DIR/.autonomous/tasks/active/[TASK-FILE] \
    $RALF_PROJECT_DIR/.autonomous/tasks/completed/
 
 # Step 4: Commit changes
-cd ~/.blackbox5
+cd ~/blackbox5
 git add -A
 git commit -m "executor: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
 git push origin main

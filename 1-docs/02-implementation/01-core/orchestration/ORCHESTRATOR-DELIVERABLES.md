@@ -97,7 +97,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
 - Automatic save on stop
 - Automatic load on start
 - Survives agent restarts
-- Located in `.blackbox5/agent_memory/`
+- Located in `blackbox5/agent_memory/`
 
 ### ✅ Criterion 4: Sequential Workflows
 **Status**: COMPLETE
@@ -190,7 +190,7 @@ Successfully extracted and adapted the Multi-Agent Orchestration system from Aut
 ## File Tree
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── core/
 │       ├── Orchestrator.py                          ✅ NEW
@@ -231,12 +231,12 @@ workflow = [
 result = orchestrator.execute_workflow(workflow)
 
 # Run demo
-python .blackbox5/examples/orchestrator_demo.py
+python blackbox5/examples/orchestrator_demo.py
 ```
 
 ### Running Tests
 ```bash
-cd .blackbox5/tests
+cd blackbox5/tests
 python -m pytest test_orchestrator.py -v
 ```
 
@@ -326,9 +326,9 @@ python -m pytest test_orchestrator.py -v
 
 ### Syntax Check
 ```bash
-python3 -m py_compile .blackbox5/engine/core/Orchestrator.py
-python3 -m py_compile .blackbox5/tests/test_orchestrator.py
-python3 -m py_compile .blackbox5/examples/orchestrator_demo.py
+python3 -m py_compile blackbox5/engine/core/Orchestrator.py
+python3 -m py_compile blackbox5/tests/test_orchestrator.py
+python3 -m py_compile blackbox5/examples/orchestrator_demo.py
 ```
 **Result**: All files compile successfully ✅
 
@@ -341,7 +341,7 @@ print("✅ Import successful")
 
 ### Demo Test
 ```bash
-python .blackbox5/examples/orchestrator_demo.py
+python blackbox5/examples/orchestrator_demo.py
 ```
 **Expected**: 7 demonstration sections run successfully
 

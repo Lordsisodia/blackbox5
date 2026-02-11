@@ -49,7 +49,7 @@ To use these commands from anywhere:
 
 ```bash
 # Add to ~/.bashrc or ~/.zshrc
-export PATH="~/.blackbox5/bin:$PATH"
+export PATH="~/blackbox5/bin:$PATH"
 ```
 
 Then you can run:

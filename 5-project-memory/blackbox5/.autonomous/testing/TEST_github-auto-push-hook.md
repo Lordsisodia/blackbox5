@@ -1,6 +1,6 @@
 # GitHub Auto-Push Hook Test Report
 
-**Hook Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh`
+**Hook Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh`
 
 **Test Date:** 2026-02-06
 
@@ -29,8 +29,8 @@
 
 **Command:**
 ```bash
-cd ~/.blackbox5
-~/.blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
+cd ~/blackbox5
+~/blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
 ```
 
 **Expected Result:** Hook should detect main branch and exit without pushing
@@ -57,8 +57,8 @@ cd ~/.blackbox5
 **Command:**
 ```bash
 export BB5_AUTO_PUSH=false
-cd ~/.blackbox5
-~/.blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
+cd ~/blackbox5
+~/blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
 ```
 
 **Expected Result:** Hook should exit early with "disabled" message
@@ -82,7 +82,7 @@ cd ~/.blackbox5
 **Command:**
 ```bash
 cd /tmp/test-repo  # Fresh git repo with no changes
-~/.blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
+~/blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
 ```
 
 **Expected Result:** Hook should detect no remote and exit gracefully
@@ -113,7 +113,7 @@ cd /tmp/test-repo  # Fresh git repo with no changes
 cd /tmp/test-repo
 git checkout -b feature/test-branch
 echo "test" > test.txt
-~/.blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
+~/blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
 ```
 
 **Expected Result:** Hook should warn about branch pattern but continue execution
@@ -150,7 +150,7 @@ echo "test" > test.txt
 ```bash
 cd /tmp/test-repo
 touch .bb5-no-auto-push
-~/.blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
+~/blackbox5/2-engine/.autonomous/hooks/active/github-auto-push.sh
 ```
 
 **Expected Result:** Hook should exit early with "disabled via file" message
@@ -169,7 +169,7 @@ touch .bb5-no-auto-push
 
 ## Event Logging Verification
 
-The hook correctly logs events to `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`:
+The hook correctly logs events to `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`:
 
 ```yaml
 - timestamp: "2026-02-06T08:26:09+0700"
@@ -218,11 +218,11 @@ None. All safety features working as expected.
 
 ## Log Output Location
 
-`/Users/shaansisodia/.blackbox5/2-engine/.autonomous/logs/github-auto-push.log`
+`/Users/shaansisodia/blackbox5/2-engine/.autonomous/logs/github-auto-push.log`
 
 ## Event Output Location
 
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
 
 ---
 

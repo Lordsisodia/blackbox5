@@ -230,10 +230,10 @@ MCPManager(config_path: Optional[Path] = None)
 
 ```bash
 # Run standalone demo
-python3 .blackbox5/tests/test_mcp_integration_standalone.py
+python3 blackbox5/tests/test_mcp_integration_standalone.py
 
 # Run unit tests (requires full BlackBox5 environment)
-python3 .blackbox5/tests/test_mcp_integration.py
+python3 blackbox5/tests/test_mcp_integration.py
 ```
 
 ### Test Coverage

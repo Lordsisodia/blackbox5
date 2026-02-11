@@ -2,7 +2,7 @@
 
 **Date:** 2026-02-07
 **Task:** TASK-SSOT-017
-**Source:** `~/.blackbox5/5-project-memory/blackbox5/.autonomous/runs.migrated/`
+**Source:** `~/blackbox5/5-project-memory/blackbox5/.autonomous/runs.migrated/`
 **Runs Processed:** 4
 
 ---

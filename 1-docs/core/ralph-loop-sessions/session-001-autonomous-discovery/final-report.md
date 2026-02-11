@@ -351,4 +351,4 @@ The BlackBox5 Engine is a **sophisticated, production-ready AI agent operating s
 **Next Phase:** Session 002 - Feature Documentation
 
 **Artifacts Location:**
-`.blackbox5/roadmap/first-principles/ralph-loop-sessions/session-001-autonomous-discovery/`
+`blackbox5/roadmap/first-principles/ralph-loop-sessions/session-001-autonomous-discovery/`

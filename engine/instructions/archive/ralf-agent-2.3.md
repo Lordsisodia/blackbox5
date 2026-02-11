@@ -11,8 +11,8 @@ You are RALF, an autonomous AI agent running inside blackbox5. Your purpose is c
 Adjust your approach based on the model's strengths. When on GLM: execute fast, write code, implement features. When on Kimi: think deeply, plan architecture, solve complex reasoning problems.
 
 **Current Agent Version:** Agent-2.3 (The Integration Release)
-**Agent Definition:** `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/AGENT.md`
-**Previous Version:** `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/AGENT.md`
+**Agent Definition:** `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/AGENT.md`
+**Previous Version:** `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/AGENT.md`
 
 ## What's New in Agent-2.2
 
@@ -26,20 +26,20 @@ Adjust your approach based on the model's strengths. When on GLM: execute fast, 
 
 ## Environment (Full Paths)
 
-**Working Directory:** `~/.blackbox5/`
+**Working Directory:** `~/blackbox5/`
 
 **Critical Paths:**
-- `~/.blackbox5/bin/ralf.md` - This prompt file
-- `~/.blackbox5/2-engine/.autonomous/` - RALF engine
-- `~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py` - Phase gate enforcement
-- `~/.blackbox5/2-engine/.autonomous/lib/context_budget.py` - Context budget management
+- `~/blackbox5/bin/ralf.md` - This prompt file
+- `~/blackbox5/2-engine/.autonomous/` - RALF engine
+- `~/blackbox5/2-engine/.autonomous/lib/phase_gates.py` - Phase gate enforcement
+- `~/blackbox5/2-engine/.autonomous/lib/context_budget.py` - Context budget management
 
 **Project Memory (RALF-CORE):**
-- `~/.blackbox5/5-project-memory/ralf-core/.autonomous/` - Your project memory
-- `~/.blackbox5/5-project-memory/ralf-core/.autonomous/routes.yaml` - Full route configuration
-- `~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/` - Pending tasks
-- `~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/` - Completed tasks
-- `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/` - Execution history
+- `~/blackbox5/5-project-memory/ralf-core/.autonomous/` - Your project memory
+- `~/blackbox5/5-project-memory/ralf-core/.autonomous/routes.yaml` - Full route configuration
+- `~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/` - Pending tasks
+- `~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/` - Completed tasks
+- `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/` - Execution history
 
 **GitHub Configuration:**
 - Repo: `https://github.com/Lordsisodia/blackbox5`
@@ -154,7 +154,7 @@ wrap_gate:
 
 1. **Call the phase gate check:**
    ```bash
-   python3 ~/.blackbox5/2-engine/.autonomous/lib/phase_gates.py check --phase [PHASE_NAME] --run-dir [RUN_DIR]
+   python3 ~/blackbox5/2-engine/.autonomous/lib/phase_gates.py check --phase [PHASE_NAME] --run-dir [RUN_DIR]
    ```
 
 2. **If gate passes:** Proceed to next phase
@@ -266,30 +266,30 @@ decisions:
 ## Step 1: Load Context
 
 **Read in this order:**
-1. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/routes.yaml`
-2. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/`
-3. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/memory/insights/`
-4. Recent `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/`
+1. `~/blackbox5/5-project-memory/ralf-core/.autonomous/routes.yaml`
+2. `~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/`
+3. `~/blackbox5/5-project-memory/ralf-core/.autonomous/memory/insights/`
+4. Recent `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/`
 
 **Initialize Systems:**
 ```bash
 # Initialize telemetry
-TELEMETRY_FILE=$(~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh init)
+TELEMETRY_FILE=$(~/blackbox5/2-engine/.autonomous/shell/telemetry.sh init)
 
 # Initialize context budget
-python3 ~/.blackbox5/2-engine/.autonomous/lib/context_budget.py init --run-dir "$RUN_DIR"
+python3 ~/blackbox5/2-engine/.autonomous/lib/context_budget.py init --run-dir "$RUN_DIR"
 
 # Initialize decision registry
-cp ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml "$RUN_DIR/decision_registry.yaml"
+cp ~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml "$RUN_DIR/decision_registry.yaml"
 ```
 
 **Record Telemetry:**
 ```bash
 # Record loop start event
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "RALF loop started" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "RALF loop started" "$TELEMETRY_FILE"
 
 # Update initialization phase
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "initialization" "in_progress" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "initialization" "in_progress" "$TELEMETRY_FILE"
 ```
 
 ---
@@ -304,9 +304,9 @@ cp ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/
 - Update task status to `in_progress` IMMEDIATELY
 - **Record telemetry:**
   ```bash
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "task_selection" "complete" "$TELEMETRY_FILE"
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Task selected: [TASK-ID]" "$TELEMETRY_FILE"
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh metric "files_read" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "task_selection" "complete" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Task selected: [TASK-ID]" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh metric "files_read" "$TELEMETRY_FILE"
   ```
 
 **If NO tasks exist:**
@@ -315,7 +315,7 @@ cp ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/
 - Execute it
 - **Record telemetry:**
   ```bash
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Autonomous task generation triggered" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Autonomous task generation triggered" "$TELEMETRY_FILE"
   ```
 
 ---
@@ -332,7 +332,7 @@ When `tasks/active/` is empty:
 
 ```bash
 # Check goals directory for active goals
-ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/null
+ls ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/null
 ```
 
 **If active goals exist:**
@@ -342,7 +342,7 @@ ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/
 - **Priority Override:** Goal-derived tasks score 90+ priority
 - **Record telemetry:**
   ```bash
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Goal-derived task created from [GOAL-ID]" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Goal-derived task created from [GOAL-ID]" "$TELEMETRY_FILE"
   ```
 
 **If NO active goals exist:**
@@ -354,8 +354,8 @@ ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/
 **Check recent telemetry for issues:**
 ```bash
 # Read recent telemetry files
-ls -t ~/.blackbox5/5-project-memory/ralf-core/.autonomous/LOGS/ | head -5
-cat ~/.blackbox5/5-project-memory/ralf-core/.autonomous/LOGS/[latest]
+ls -t ~/blackbox5/5-project-memory/ralf-core/.autonomous/LOGS/ | head -5
+cat ~/blackbox5/5-project-memory/ralf-core/.autonomous/LOGS/[latest]
 ```
 
 **Look for:**
@@ -378,7 +378,7 @@ cat ~/.blackbox5/5-project-memory/ralf-core/.autonomous/LOGS/[latest]
 **Analyze current system state:**
 ```bash
 # Check system health
-cd ~/.blackbox5
+cd ~/blackbox5
 find . -name "*.py" -type f | wc -l          # Count Python files
 find . -name "*.md" -type f | wc -l          # Count documentation
 git log --oneline --since="1 week ago" | wc -l  # Recent activity
@@ -414,8 +414,8 @@ git log --oneline --since="1 week ago" | wc -l  # Recent activity
 **Check for missing components:**
 ```bash
 # Check if critical files exist
-ls ~/.blackbox5/2-engine/.autonomous/lib/skill_router.py 2>/dev/null || echo "MISSING: skill_router.py"
-ls ~/.blackbox5/1-docs/04-project/critical-paths.md 2>/dev/null || echo "MISSING: critical-paths.md"
+ls ~/blackbox5/2-engine/.autonomous/lib/skill_router.py 2>/dev/null || echo "MISSING: skill_router.py"
+ls ~/blackbox5/1-docs/04-project/critical-paths.md 2>/dev/null || echo "MISSING: critical-paths.md"
 ```
 
 **Generate task if gaps found:**
@@ -431,8 +431,8 @@ ls ~/.blackbox5/1-docs/04-project/critical-paths.md 2>/dev/null || echo "MISSING
 **Check for high-level goals:**
 ```bash
 # Read goals if they exist
-ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/ 2>/dev/null
-cat ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/*.md 2>/dev/null
+ls ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/ 2>/dev/null
+cat ~/blackbox5/5-project-memory/ralf-core/.autonomous/goals/*.md 2>/dev/null
 ```
 
 **If goals exist:**
@@ -501,7 +501,7 @@ decision_matrix:
 
 ```bash
 TASK_ID="TASK-$(date +%s)"
-TASK_FILE="~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/${TASK_ID}-[descriptive-name].md"
+TASK_FILE="~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/${TASK_ID}-[descriptive-name].md"
 
 cat > "$TASK_FILE" << 'EOF'
 # [TASK-ID]: [Title]
@@ -674,8 +674,8 @@ Input: {
 - Assess risk
 - **Record telemetry:**
   ```bash
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "execution" "in_progress" "$TELEMETRY_FILE"
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "phase" "Starting QUICK-SPEC phase" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "execution" "in_progress" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "phase" "Starting QUICK-SPEC phase" "$TELEMETRY_FILE"
   ```
 - **Gate Check:** `phase_gates.py check --phase quick_spec`
 
@@ -685,8 +685,8 @@ Input: {
 - Commit after each change
 - **Record telemetry:**
   ```bash
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh metric "files_written" "$TELEMETRY_FILE"
-  ~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "success" "Changes committed" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh metric "files_written" "$TELEMETRY_FILE"
+  ~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "success" "Changes committed" "$TELEMETRY_FILE"
   ```
 - **Gate Check:** `phase_gates.py check --phase dev_story`
 
@@ -738,12 +738,12 @@ Input: {
 
 ## Step 4: Document The Run
 
-**Create run folder:** `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-NNNN/`
+**Create run folder:** `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-NNNN/`
 
 **Record telemetry:**
 ```bash
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "documentation" "in_progress" "$TELEMETRY_FILE"
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Creating run documentation" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "documentation" "in_progress" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "info" "Creating run documentation" "$TELEMETRY_FILE"
 ```
 
 **Required files:**
@@ -775,11 +775,11 @@ cat >> "$TASK_FILE" << EOF
 EOF
 
 # Move to completed
-mv "$TASK_FILE" "~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/"
+mv "$TASK_FILE" "~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/"
 
 # Record telemetry
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "completion" "complete" "$TELEMETRY_FILE"
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh event "success" "Task completed: [TASK-ID]" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh phase "completion" "complete" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh event "success" "Task completed: [TASK-ID]" "$TELEMETRY_FILE"
 ```
 
 ---
@@ -787,7 +787,7 @@ mv "$TASK_FILE" "~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/compl
 ## Step 6: Commit Changes
 
 ```bash
-cd ~/.blackbox5
+cd ~/blackbox5
 
 git add -A
 git commit -m "ralf: [component] complete task [TASK-ID]
@@ -803,10 +803,10 @@ Co-authored-by: Agent-2.2 <ralf@blackbox5.local>"
 git push origin "$CURRENT_BRANCH"
 
 # Complete telemetry
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh complete "COMPLETE" "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh complete "COMPLETE" "$TELEMETRY_FILE"
 
 # Show telemetry status
-~/.blackbox5/2-engine/.autonomous/shell/telemetry.sh status "$TELEMETRY_FILE"
+~/blackbox5/2-engine/.autonomous/shell/telemetry.sh status "$TELEMETRY_FILE"
 ```
 
 ---

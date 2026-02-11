@@ -33,9 +33,9 @@ Create the missing BMAD workflow YAML files that are defined in `routes.yaml` bu
 - The BMAD system is incomplete and non-functional
 
 **Existing Files:**
-- `~/.blackbox5/2-engine/.autonomous/workflows/TEMPLATE.md` - Template for workflow structure
-- `~/.blackbox5/2-engine/.autonomous/workflows/README.md` - Documentation
-- `~/.blackbox5/2-engine/.autonomous/routes.yaml` - Defines all required workflows
+- `~/blackbox5/2-engine/.autonomous/workflows/TEMPLATE.md` - Template for workflow structure
+- `~/blackbox5/2-engine/.autonomous/workflows/README.md` - Documentation
+- `~/blackbox5/2-engine/.autonomous/routes.yaml` - Defines all required workflows
 
 **Required Workflows (from routes.yaml):**
 
@@ -102,22 +102,22 @@ If workflows cause issues:
 
 ## Files to Modify
 
-- `~/.blackbox5/2-engine/.autonomous/workflows/` - Create 30 new YAML files
-- Possibly: `~/.blackbox5/2-engine/.autonomous/lib/workflow_loader.py` - If it needs updates
+- `~/blackbox5/2-engine/.autonomous/workflows/` - Create 30 new YAML files
+- Possibly: `~/blackbox5/2-engine/.autonomous/lib/workflow_loader.py` - If it needs updates
 
 ## Completion
 
 **Completed:** 2026-01-31T02:10:00Z
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769799687
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769799687
 **Agent:** Agent-2.3
 **Path Used:** quick
 **Phase Gates:** All passed
 
 ### Files Created
 
-1. **Schema:** `~/.blackbox5/2-engine/.autonomous/schemas/workflow.schema.yaml`
-2. **Generator:** `~/.blackbox5/2-engine/.autonomous/lib/generate_workflows.py`
-3. **Workflows:** 30 YAML files in `~/.blackbox5/2-engine/.autonomous/workflows/`
+1. **Schema:** `~/blackbox5/2-engine/.autonomous/schemas/workflow.schema.yaml`
+2. **Generator:** `~/blackbox5/2-engine/.autonomous/lib/generate_workflows.py`
+3. **Workflows:** 30 YAML files in `~/blackbox5/2-engine/.autonomous/workflows/`
 
 ### Validation Results
 

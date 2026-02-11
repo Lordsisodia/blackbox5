@@ -1,0 +1,45 @@
+# Test Case: Agent Coordination
+# ID: TC-UNIT-001
+# Category: Unit
+# Status: draft
+# Automation: automated
+
+test_case:
+  id: "TC-UNIT-001"
+  name: "Agent Coordination Unit Test"
+  category: "unit"
+  priority: "high"
+  status: "draft"
+  automation_status: "automated"
+
+  description: |
+    Tests the agent coordination system for proper task assignment
+    and communication between agents.
+
+  preconditions:
+    - Mock agent instances available
+    - Test task definitions loaded
+
+  steps:
+    - "Create mock agents"
+    - "Assign task to coordinator"
+    - "Verify task distribution"
+    - "Check agent communication"
+
+  expected_result: |
+    Tasks are properly distributed to available agents.
+    Communication channels are established correctly.
+
+  related_requirements:
+    - "REQ-AGENT-001"
+
+  related_tasks:
+    - "TASK-AGENT-001"
+
+  automated_test_file: "2-engine/tests/unit/test_agent_coordination.py"
+  automated_test_function: "test_agent_coordination"
+
+  last_executed: null
+  last_result: null
+
+  execution_history: []

@@ -13,13 +13,13 @@ Based on comprehensive research and codebase analysis, **Blackbox 5 already has 
 ### Key Findings
 
 ✅ **Already Implemented:**
-- Event Bus (Redis-based) - `.blackbox5/engine/core/event_bus.py`
-- Agent Loading System - `.blackbox5/engine/agents/core/AgentLoader.py`
-- Skill Management System - `.blackbox5/engine/agents/core/SkillManager.py`
-- Working Memory - `.blackbox5/engine/memory/`
-- Episodic Memory (ChromaDB) - `.blackbox5/engine/memory/extended/`
-- Brain System (Neo4j + PostgreSQL) - `.blackbox5/engine/brain/`
-- Circuit Breaker - `.blackbox5/engine/core/circuit_breaker.py`
+- Event Bus (Redis-based) - `blackbox5/engine/core/event_bus.py`
+- Agent Loading System - `blackbox5/engine/agents/core/AgentLoader.py`
+- Skill Management System - `blackbox5/engine/agents/core/SkillManager.py`
+- Working Memory - `blackbox5/engine/memory/`
+- Episodic Memory (ChromaDB) - `blackbox5/engine/memory/extended/`
+- Brain System (Neo4j + PostgreSQL) - `blackbox5/engine/brain/`
+- Circuit Breaker - `blackbox5/engine/core/circuit_breaker.py`
 
 ⚠️ **Needs Implementation:**
 - Manager Agent (full 3-level hierarchy)
@@ -52,7 +52,7 @@ Based on comprehensive research and codebase analysis, **Blackbox 5 already has 
 ## Phase 1: Core Foundation (Week 1-2)
 
 ### 1.1 Task Router System
-**Location:** `.blackbox5/engine/core/task_router.py`
+**Location:** `blackbox5/engine/core/task_router.py`
 
 **Purpose:** Automatically route tasks to single agents or multi-agent system based on complexity
 
@@ -255,21 +255,21 @@ class ComplexityScore:
 ```
 
 **Integration Points:**
-- Connect to existing `AgentLoader` (`.blackbox5/engine/agents/core/AgentLoader.py`)
-- Connect to existing `SkillManager` (`.blackbox5/engine/agents/core/SkillManager.py`)
+- Connect to existing `AgentLoader` (`blackbox5/engine/agents/core/AgentLoader.py`)
+- Connect to existing `SkillManager` (`blackbox5/engine/agents/core/SkillManager.py`)
 - Use existing event bus for routing events
 
 **Files to Create:**
-- `.blackbox5/engine/core/task_router.py` - Main implementation
-- `.blackbox5/engine/core/complexity.py` - Complexity analysis module
-- `.blackbox5/engine/core/__init__.py` - Export TaskRouter
+- `blackbox5/engine/core/task_router.py` - Main implementation
+- `blackbox5/engine/core/complexity.py` - Complexity analysis module
+- `blackbox5/engine/core/__init__.py` - Export TaskRouter
 
 **Time Estimate:** 2-3 days
 
 ---
 
 ### 1.2 Manager Agent Implementation
-**Location:** `.blackbox5/engine/agents/manager/`
+**Location:** `blackbox5/engine/agents/manager/`
 
 **Purpose:** Top-level coordination agent for complex multi-agent tasks
 
@@ -474,16 +474,16 @@ A task is successful when:
 - Use existing `SkillManager` for capabilities
 
 **Files to Create:**
-- `.blackbox5/engine/agents/1-core/manager/agent.md` - Agent definition
-- `.blackbox5/engine/agents/1-core/manager/prompt.md` - System prompt
-- `.blackbox5/engine/agents/1-core/manager/config.yaml` - Configuration
+- `blackbox5/engine/agents/1-core/manager/agent.md` - Agent definition
+- `blackbox5/engine/agents/1-core/manager/prompt.md` - System prompt
+- `blackbox5/engine/agents/1-core/manager/config.yaml` - Configuration
 
 **Time Estimate:** 1-2 days
 
 ---
 
 ### 1.3 Structured Logging System
-**Location:** `.blackbox5/engine/core/logging.py`
+**Location:** `blackbox5/engine/core/logging.py`
 
 **Purpose:** Comprehensive logging for debugging and monitoring
 
@@ -681,18 +681,18 @@ def get_operation_logger(operation_id: str) -> OperationLogger:
 **Integration Points:**
 - Call from all agents for consistent logging
 - Use in existing core modules
-- Export from `.blackbox5/engine/core/__init__.py`
+- Export from `blackbox5/engine/core/__init__.py`
 
 **Files to Create:**
-- `.blackbox5/engine/core/logging.py` - Main implementation
-- `.blackbox5/engine/runtime/view-logs.sh` - Log viewer CLI tool
+- `blackbox5/engine/core/logging.py` - Main implementation
+- `blackbox5/engine/runtime/view-logs.sh` - Log viewer CLI tool
 
 **Time Estimate:** 1-2 days
 
 ---
 
 ### 1.4 Manifest System
-**Location:** `.blackbox5/engine/core/manifest.py`
+**Location:** `blackbox5/engine/core/manifest.py`
 
 **Purpose:** Track all operations for debugging and audit trails
 
@@ -749,7 +749,7 @@ class ManifestSystem:
 
     def __init__(self, manifest_dir: Path = None):
         if manifest_dir is None:
-            manifest_dir = Path("./.blackbox5/scratch/manifests")
+            manifest_dir = Path("./blackbox5/scratch/manifests")
 
         self.manifest_dir = Path(manifest_dir)
         self.manifest_dir.mkdir(parents=True, exist_ok=True)
@@ -957,8 +957,8 @@ class ManifestSystem:
 - Link with structured logging
 
 **Files to Create:**
-- `.blackbox5/engine/core/manifest.py` - Main implementation
-- `.blackbox5/engine/runtime/view-manifest.sh` - CLI viewer
+- `blackbox5/engine/core/manifest.py` - Main implementation
+- `blackbox5/engine/runtime/view-manifest.sh` - CLI viewer
 
 **Time Estimate:** 2 days
 
@@ -967,7 +967,7 @@ class ManifestSystem:
 ## Phase 2: Coordination System (Week 3-4)
 
 ### 2.1 Multi-Agent Coordinator
-**Location:** `.blackbox5/engine/core/coordination.py`
+**Location:** `blackbox5/engine/core/coordination.py`
 
 **Purpose:** Coordinate multi-agent task execution
 
@@ -1347,15 +1347,15 @@ class MultiAgentCoordinator:
 - Use existing agent loader
 
 **Files to Create:**
-- `.blackbox5/engine/core/coordination.py` - Main implementation
-- `.blackbox5/engine/core/parallel.py` - Parallel execution utilities
+- `blackbox5/engine/core/coordination.py` - Main implementation
+- `blackbox5/engine/core/parallel.py` - Parallel execution utilities
 
 **Time Estimate:** 3-4 days
 
 ---
 
 ### 2.2 Integration with Existing Brain System
-**Location:** Connect `.blackbox5/engine/memory/` with `.blackbox5/engine/brain/`
+**Location:** Connect `blackbox5/engine/memory/` with `blackbox5/engine/brain/`
 
 **Purpose:** Integrate semantic memory capabilities from brain system
 
@@ -1542,13 +1542,13 @@ class IntegratedMemory:
 ```
 
 **Integration Points:**
-- Connect to existing brain API (`.blackbox5/engine/brain/api/brain_api.py`)
-- Use existing vector search (`.blackbox5/engine/brain/query/vector.py`)
-- Use existing graph query (`.blackbox5/engine/brain/query/graph.py`)
+- Connect to existing brain API (`blackbox5/engine/brain/api/brain_api.py`)
+- Use existing vector search (`blackbox5/engine/brain/query/vector.py`)
+- Use existing graph query (`blackbox5/engine/brain/query/graph.py`)
 
 **Files to Create:**
-- `.blackbox5/engine/memory/integrated.py` - Main implementation
-- `.blackbox5/engine/memory/__init__.py` - Export integrated memory
+- `blackbox5/engine/memory/integrated.py` - Main implementation
+- `blackbox5/engine/memory/__init__.py` - Export integrated memory
 
 **Time Estimate:** 3-4 days
 
@@ -1557,7 +1557,7 @@ class IntegratedMemory:
 ## Phase 3: Memory Enhancement (Week 5-6)
 
 ### 3.1 Procedural Memory System
-**Location:** `.blackbox5/engine/memory/procedural.py`
+**Location:** `blackbox5/engine/memory/procedural.py`
 
 **Purpose:** Store and retrieve skill patterns and procedures
 
@@ -1726,15 +1726,15 @@ class ProceduralMemory:
 - Update from agent executions
 
 **Files to Create:**
-- `.blackbox5/engine/memory/procedural.py` - Main implementation
-- `.blackbox5/engine/runtime/init-redis-procedural.sh` - Setup script
+- `blackbox5/engine/memory/procedural.py` - Main implementation
+- `blackbox5/engine/runtime/init-redis-procedural.sh` - Setup script
 
 **Time Estimate:** 2-3 days
 
 ---
 
 ### 3.2 Memory Consolidation System
-**Location:** `.blackbox5/engine/memory/consolidation.py`
+**Location:** `blackbox5/engine/memory/consolidation.py`
 
 **Purpose:** Automatically consolidate working memory to episodic
 
@@ -1863,7 +1863,7 @@ class MemoryConsolidation:
 - Trigger on capacity thresholds
 
 **Files to Create:**
-- `.blackbox5/engine/memory/consolidation.py` - Main implementation
+- `blackbox5/engine/memory/consolidation.py` - Main implementation
 
 **Time Estimate:** 2 days
 
@@ -1872,7 +1872,7 @@ class MemoryConsolidation:
 ## Phase 4: Production Readiness (Week 7-8)
 
 ### 4.1 CLI Tools
-**Location:** `.blackbox5/engine/runtime/`
+**Location:** `blackbox5/engine/runtime/`
 
 **Purpose:** Command-line tools for monitoring and management
 
@@ -1967,16 +1967,16 @@ for name, agent in agents.items():
 ```
 
 **Files to Create:**
-- `.blackbox5/engine/runtime/view-logs.sh` - Log viewer
-- `.blackbox5/engine/runtime/view-manifest.sh` - Manifest viewer
-- `.blackbox5/engine/runtime/agent-status.sh` - Status checker
+- `blackbox5/engine/runtime/view-logs.sh` - Log viewer
+- `blackbox5/engine/runtime/view-manifest.sh` - Manifest viewer
+- `blackbox5/engine/runtime/agent-status.sh` - Status checker
 
 **Time Estimate:** 1-2 days
 
 ---
 
 ### 4.2 Testing Infrastructure
-**Location:** `.blackbox5/tests/`
+**Location:** `blackbox5/tests/`
 
 **Purpose:** Comprehensive testing for all components
 
@@ -2119,11 +2119,11 @@ def mock_event_bus():
 ```
 
 **Files to Create:**
-- `.blackbox5/tests/test_task_router.py` - Task router tests
-- `.blackbox5/tests/test_coordination.py` - Coordination tests
-- `.blackbox5/tests/test_memory.py` - Memory tests
-- `.blackbox5/tests/test_circuit_breaker.py` - Circuit breaker tests
-- `.blackbox5/tests/conftest.py` - Test fixtures
+- `blackbox5/tests/test_task_router.py` - Task router tests
+- `blackbox5/tests/test_coordination.py` - Coordination tests
+- `blackbox5/tests/test_memory.py` - Memory tests
+- `blackbox5/tests/test_circuit_breaker.py` - Circuit breaker tests
+- `blackbox5/tests/conftest.py` - Test fixtures
 
 **Time Estimate:** 3-4 days
 
@@ -2214,12 +2214,12 @@ def mock_event_bus():
 
 ### Connect to Existing Systems
 
-- [x] Event Bus (`.blackbox5/engine/core/event_bus.py`) ✅ Already exists
-- [x] Agent Loader (`.blackbox5/engine/agents/core/AgentLoader.py`) ✅ Already exists
-- [x] Skill Manager (`.blackbox5/engine/agents/core/SkillManager.py`) ✅ Already exists
-- [x] Circuit Breaker (`.blackbox5/engine/core/circuit_breaker.py`) ✅ Already exists
-- [x] Brain System (`.blackbox5/engine/brain/`) ✅ Already exists
-- [x] Memory System (`.blackbox5/engine/memory/`) ✅ Already exists
+- [x] Event Bus (`blackbox5/engine/core/event_bus.py`) ✅ Already exists
+- [x] Agent Loader (`blackbox5/engine/agents/core/AgentLoader.py`) ✅ Already exists
+- [x] Skill Manager (`blackbox5/engine/agents/core/SkillManager.py`) ✅ Already exists
+- [x] Circuit Breaker (`blackbox5/engine/core/circuit_breaker.py`) ✅ Already exists
+- [x] Brain System (`blackbox5/engine/brain/`) ✅ Already exists
+- [x] Memory System (`blackbox5/engine/memory/`) ✅ Already exists
 - [ ] Manager Agent ⚠️ Needs implementation
 - [ ] Task Router ⚠️ Needs implementation
 - [ ] Multi-Agent Coordinator ⚠️ Needs implementation

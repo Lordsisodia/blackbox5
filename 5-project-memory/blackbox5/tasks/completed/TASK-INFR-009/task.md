@@ -98,11 +98,11 @@ If changes cause issues:
 ## Files Modified/Created
 
 **Created:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/log-skill-on-complete.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/log-skill-on-complete.py`
 
 **Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` (populated with test entry)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` (populated with test entry)
 
 ---
 

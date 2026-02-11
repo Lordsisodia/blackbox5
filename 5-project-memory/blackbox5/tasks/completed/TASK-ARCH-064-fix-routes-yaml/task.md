@@ -15,22 +15,22 @@ Scout analysis found 10+ incorrect paths in project routes.yaml suggesting 2-eng
 
 Current (WRONG):
 ```yaml
-engine: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine"
-engine_shell: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/shell"
-engine_lib: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/lib"
-engine_prompts: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/prompts"
-engine_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
-engine_schemas: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/schemas"
-engine_routes: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/routes.yaml"
-bmad_skills: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
-bmad_workflows: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/workflows"
-bmad_wip: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/wip"
+engine: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine"
+engine_shell: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/shell"
+engine_lib: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/lib"
+engine_prompts: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/prompts"
+engine_skills: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
+engine_schemas: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/schemas"
+engine_routes: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/routes.yaml"
+bmad_skills: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/skills"
+bmad_workflows: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/workflows"
+bmad_wip: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/2-engine/.autonomous/wip"
 ```
 
 Should be (CORRECT):
 ```yaml
-engine: "/Users/shaansisodia/.blackbox5/2-engine"
-engine_shell: "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/shell"
+engine: "/Users/shaansisodia/blackbox5/2-engine"
+engine_shell: "/Users/shaansisodia/blackbox5/2-engine/.autonomous/shell"
 # ... etc
 ```
 
@@ -38,11 +38,11 @@ Also fix duplicated path segments:
 ```yaml
 # WRONG
 memory:
-  tasks: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
+  tasks: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
 
 # CORRECT
 memory:
-  tasks: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks"
+  tasks: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks"
 ```
 
 ## Success Criteria

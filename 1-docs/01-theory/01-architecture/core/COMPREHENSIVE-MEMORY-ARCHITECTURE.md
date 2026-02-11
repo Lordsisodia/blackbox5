@@ -268,7 +268,7 @@ Based on framework analysis, production AI systems need:
 ### 3.1 Complete Memory Structure
 
 ```
-.blackbox5/memory/
+blackbox5/memory/
 │
 ├── TIER 1: WORKING MEMORY (10MB, Session-Based)
 │   ├── agents/active/              # Active agent sessions
@@ -496,17 +496,17 @@ Based on framework analysis, production AI systems need:
 **Create directory structure:**
 ```bash
 # Working memory
-mkdir -p .blackbox5/memory/{agents/active,tasks/working,workflows/active,github/pending}
+mkdir -p blackbox5/memory/{agents/active,tasks/working,workflows/active,github/pending}
 
 # Extended memory
-mkdir -p .blackbox5/memory/{agents/history,tasks/completed,workflows/{history,templates}}
-mkdir -p .blackbox5/memory/{architecture,github/history,codebase,knowledge,artifacts,sessions}
+mkdir -p blackbox5/memory/{agents/history,tasks/completed,workflows/{history,templates}}
+mkdir -p blackbox5/memory/{architecture,github/history,codebase,knowledge,artifacts,sessions}
 
 # Archival memory
-mkdir -p .blackbox5/memory/archival/{snapshots/{daily,weekly,monthly},exports,backups}
+mkdir -p blackbox5/memory/archival/{snapshots/{daily,weekly,monthly},exports,backups}
 
 # Brain index
-mkdir -p .blackbox5/memory/brain-index/{postgres-index,neo4j-index}
+mkdir -p blackbox5/memory/brain-index/{postgres-index,neo4j-index}
 ```
 
 **Initialize databases:**
@@ -689,7 +689,7 @@ class BrainIntegration:
 ### 7.1 SISO-INTERNAL
 
 ```bash
-SISO-INTERNAL/.blackbox5/
+SISO-INTERNAL/blackbox5/
 ├── engine/                    # Shared engine (symlink or copy)
 ├── memory/                    # SISO-INTERNAL data
 │   ├── working/              # Active sessions
@@ -702,8 +702,8 @@ SISO-INTERNAL/.blackbox5/
 ### 7.2 Luminel
 
 ```bash
-Luminel/.blackbox5/
-├── engine -> ../SISO-INTERNAL/.blackbox5/engine  # Symlink
+Luminel/blackbox5/
+├── engine -> ../SISO-INTERNAL/blackbox5/engine  # Symlink
 ├── memory/                    # Luminel data (isolated)
 │   ├── working/
 │   ├── extended/
@@ -715,7 +715,7 @@ Luminel/.blackbox5/
 ### 7.3 _TEMPLATE
 
 ```bash
-_TEMPLATE/.blackbox5/
+_TEMPLATE/blackbox5/
 ├── engine/                    # Template engine structure
 ├── memory/                    # Template memory structure
 │   ├── .gitkeep

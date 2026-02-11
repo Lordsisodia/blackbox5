@@ -25,7 +25,7 @@
 ## What Was Built
 
 ### 1. Core Bootstrap System ✅
-**File**: `.blackbox5/engine/main.py` (814 lines)
+**File**: `blackbox5/engine/main.py` (814 lines)
 
 The central orchestration system that:
 - Initializes all 7 subsystems in correct order
@@ -34,7 +34,7 @@ The central orchestration system that:
 - Handles errors gracefully with detailed logging
 
 ### 2. CLI Integration ✅
-**File**: `.blackbox5/engine/interface/cli/bb5.py` (6 commands)
+**File**: `blackbox5/engine/interface/cli/bb5.py` (6 commands)
 
 Full-featured CLI with:
 - `ask` - Process requests through full pipeline
@@ -45,7 +45,7 @@ Full-featured CLI with:
 - `stats` - System statistics
 
 ### 3. REST API ✅
-**File**: `.blackbox5/engine/interface/api/main.py` (7 endpoints)
+**File**: `blackbox5/engine/interface/api/main.py` (7 endpoints)
 
 FastAPI-based REST interface:
 - `POST /chat` - Main chat endpoint
@@ -56,7 +56,7 @@ FastAPI-based REST interface:
 - OpenAPI docs at `/docs`
 
 ### 4. Decorator System ✅
-**File**: `.blackbox5/engine/agents/core/decorators.py`
+**File**: `blackbox5/engine/agents/core/decorators.py`
 
 Decorator-based registration:
 - `@tool` - Register functions as tools
@@ -65,7 +65,7 @@ Decorator-based registration:
 - Global tool registry
 
 ### 5. Guide Middleware ✅
-**File**: `.blackbox5/engine/core/guide_middleware.py` (426 lines)
+**File**: `blackbox5/engine/core/guide_middleware.py` (426 lines)
 
 Proactive guidance system:
 - `before_agent_action()` - Pre-execution suggestions (0.7 confidence)
@@ -74,7 +74,7 @@ Proactive guidance system:
 - Singleton pattern for easy access
 
 ### 6. Memory Integration ✅
-**File**: `.blackbox5/engine/memory/agent_memory.py` (292 lines)
+**File**: `blackbox5/engine/memory/agent_memory.py` (292 lines)
 
 Session persistence system:
 - `load/save_context()` - Session context management
@@ -83,7 +83,7 @@ Session persistence system:
 - JSON-based storage
 
 ### 7. BaseAgent Enhancement ✅
-**File**: `.blackbox5/engine/agents/core/BaseAgent.py`
+**File**: `blackbox5/engine/agents/core/BaseAgent.py`
 
 Guide middleware integration:
 - Integrated into `execute()` method
@@ -92,7 +92,7 @@ Guide middleware integration:
 - Non-breaking, backward compatible
 
 ### 8. Test Suite ✅
-**File**: `.blackbox5/engine/tests/integration/test_full_pipeline.py`
+**File**: `blackbox5/engine/tests/integration/test_full_pipeline.py`
 
 Comprehensive test coverage:
 - 12 integration tests
@@ -235,26 +235,26 @@ User Request
 
 ### Created Files (15):
 
-1. ✅ `.blackbox5/engine/main.py` - Main bootstrap (814 lines)
-2. ✅ `.blackbox5/engine/agents/core/decorators.py` - Decorator system
-3. ✅ `.blackbox5/engine/core/guide_middleware.py` - Guide middleware (426 lines)
-4. ✅ `.blackbox5/engine/memory/agent_memory.py` - Memory system (292 lines)
-5. ✅ `.blackbox5/engine/interface/cli/bb5.py` - CLI integration
-6. ✅ `.blackbox5/engine/interface/api/main.py` - FastAPI server
-7. ✅ `.blackbox5/engine/interface/api/test_api.sh` - API test script
-8. ✅ `.blackbox5/engine/interface/api/README.md` - API documentation
-9. ✅ `.blackbox5/engine/tests/integration/test_full_pipeline.py` - Test suite
-10. ✅ `.blackbox5/engine/README.md` - Main documentation (572 lines)
-11. ✅ `.blackbox5/engine/INTEGRATION-PLAN.md` - Full technical plan
-12. ✅ `.blackbox5/engine/INTEGRATION-ACTION-PLAN.md` - Task breakdown
-13. ✅ `.blackbox5/engine/INTEGRATION-PROGRESS.md` - Progress tracking
-14. ✅ `.blackbox5/engine/INTEGRATION-VALIDATION-REPORT.md` - Test results
-15. ✅ `.blackbox5/engine/INTEGRATION-SUMMARY.md` - Quick reference
+1. ✅ `blackbox5/engine/main.py` - Main bootstrap (814 lines)
+2. ✅ `blackbox5/engine/agents/core/decorators.py` - Decorator system
+3. ✅ `blackbox5/engine/core/guide_middleware.py` - Guide middleware (426 lines)
+4. ✅ `blackbox5/engine/memory/agent_memory.py` - Memory system (292 lines)
+5. ✅ `blackbox5/engine/interface/cli/bb5.py` - CLI integration
+6. ✅ `blackbox5/engine/interface/api/main.py` - FastAPI server
+7. ✅ `blackbox5/engine/interface/api/test_api.sh` - API test script
+8. ✅ `blackbox5/engine/interface/api/README.md` - API documentation
+9. ✅ `blackbox5/engine/tests/integration/test_full_pipeline.py` - Test suite
+10. ✅ `blackbox5/engine/README.md` - Main documentation (572 lines)
+11. ✅ `blackbox5/engine/INTEGRATION-PLAN.md` - Full technical plan
+12. ✅ `blackbox5/engine/INTEGRATION-ACTION-PLAN.md` - Task breakdown
+13. ✅ `blackbox5/engine/INTEGRATION-PROGRESS.md` - Progress tracking
+14. ✅ `blackbox5/engine/INTEGRATION-VALIDATION-REPORT.md` - Test results
+15. ✅ `blackbox5/engine/INTEGRATION-SUMMARY.md` - Quick reference
 
 ### Modified Files (2):
 
-1. ✅ `.blackbox5/engine/agents/core/BaseAgent.py` - Guide integration
-2. ✅ `.blackbox5/engine/core/__init__.py` - Added exports
+1. ✅ `blackbox5/engine/agents/core/BaseAgent.py` - Guide integration
+2. ✅ `blackbox5/engine/core/__init__.py` - Added exports
 
 ---
 

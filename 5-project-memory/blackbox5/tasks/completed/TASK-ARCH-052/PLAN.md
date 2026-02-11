@@ -43,7 +43,7 @@
 
 ### Existing Dry-Run Library
 
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/dry_run.sh`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/dry_run.sh`
 
 **Features:**
 - `--dry-run` and `--verbose` flag parsing

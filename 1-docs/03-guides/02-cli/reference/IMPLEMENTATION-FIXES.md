@@ -16,7 +16,7 @@ During verification of the task management system implementation, I found and fi
 - Command wraps the existing `CodeIndexer` tool
 - Aliases: `generate:code-index`, `index:code`, `code:index`
 
-**File**: `.blackbox5/engine/interface/cli/task_commands.py` (lines 1025-1063)
+**File**: `blackbox5/engine/interface/cli/task_commands.py` (lines 1025-1063)
 
 **Usage**:
 ```python
@@ -29,7 +29,7 @@ GenerateCodeIndexCommand().run({})
 **Problem**:
 - Templates referenced `bb5 context:show COMPETITORS`
 - No COMPETITORS.md file existed in project docs
-- `.blackbox5/docs/competitive/` directory was empty
+- `blackbox5/docs/competitive/` directory was empty
 
 **Solution**:
 - Created comprehensive COMPETITORS.md file
@@ -41,7 +41,7 @@ GenerateCodeIndexCommand().run({})
   5. Personal CRMs (Monica)
   6. Finance Tracking (YNAB)
 
-**File**: `.blackbox5/docs/competitive/COMPETITORS.md` (180+ lines)
+**File**: `blackbox5/docs/competitive/COMPETITORS.md` (180+ lines)
 
 **Content Includes**:
 - Competitor strengths/weaknesses
@@ -62,13 +62,13 @@ GenerateCodeIndexCommand().run({})
 
 ## Files Modified
 
-1. `.blackbox5/engine/interface/cli/task_commands.py`
+1. `blackbox5/engine/interface/cli/task_commands.py`
    - Added GenerateCodeIndexCommand class (40 lines)
 
-2. `.blackbox5/docs/competitive/COMPETITORS.md`
+2. `blackbox5/docs/competitive/COMPETITORS.md`
    - Created new competitor analysis file (180+ lines)
 
-3. `.blackbox5/docs/IMPLEMENTATION-SUMMARY.md`
+3. `blackbox5/docs/IMPLEMENTATION-SUMMARY.md`
    - Updated command count (15 → 16)
    - Added COMPETITORS.md to documentation section
    - Updated file structure diagram

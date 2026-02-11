@@ -1,0 +1,106 @@
+# Goal: User Profile Implementation
+# =============================================================================
+goal_id: IG-001
+name: "User Profile Implementation"
+description: "Implement complete user profile feature with authentication, data models, and UI components"
+
+meta:
+  created: "2026-01-18"
+  target_completion: "2026-02-15"
+  owner: "Arthur"
+  priority: high
+  status: in_progress
+  category: feature
+
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
+
+sub_goals:
+  - id: SG-001-1
+    name: "Authentication Setup"
+    description: "Configure Clerk authentication"
+    weight: 20
+    status: not_started
+    acceptance_criteria:
+      - "Clerk integrated"
+      - "Sign-in/sign-up working"
+    linked_tasks: []
+
+  - id: SG-001-2
+    name: "Database Schema"
+    description: "Set up Supabase schema and RLS policies"
+    weight: 25
+    status: not_started
+    acceptance_criteria:
+      - "Schema created"
+      - "RLS policies configured"
+    linked_tasks: []
+
+  - id: SG-001-3
+    name: "UI Components"
+    description: "Build profile UI with Radix components"
+    weight: 30
+    status: not_started
+    acceptance_criteria:
+      - "Profile page created"
+      - "Edit functionality working"
+    linked_tasks: []
+
+  - id: SG-001-4
+    name: "Avatar Upload"
+    description: "Implement avatar upload to Supabase Storage"
+    weight: 15
+    status: not_started
+    acceptance_criteria:
+      - "Upload working"
+      - "Image validation in place"
+    linked_tasks: []
+
+  - id: SG-001-5
+    name: "Privacy Settings"
+    description: "Add privacy controls"
+    weight: 10
+    status: not_started
+    acceptance_criteria:
+      - "Privacy settings UI"
+      - "Backend enforcement"
+    linked_tasks: []
+
+# =============================================================================
+# PROGRESS
+# =============================================================================
+
+progress:
+  percentage: 0
+  last_updated: "2026-02-09"
+  by_sub_goal:
+    SG-001-1: 0
+    SG-001-2: 0
+    SG-001-3: 0
+    SG-001-4: 0
+    SG-001-5: 0
+  summary:
+    total_tasks: 18
+    completed_tasks: 0
+    in_progress_tasks: 0
+    blocked_tasks: 0
+
+# =============================================================================
+# LINKS
+# =============================================================================
+
+links:
+  decisions: []
+  learnings: []
+  related_goals: []
+  plans:
+    - user-profile
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+notes: |
+  Waiting for GitHub sync (TASK-2026-01-18-005) before starting implementation.
+  All 18 tasks are defined in plans/active/user-profile/.

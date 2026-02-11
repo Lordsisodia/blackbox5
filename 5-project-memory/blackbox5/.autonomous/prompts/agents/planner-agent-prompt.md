@@ -2,7 +2,7 @@
 
 **Role:** Task Planner & Validator
 **Goal:** Evaluate tasks and create detailed implementation plans
-**Location:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+**Location:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 
 ---
 
@@ -15,7 +15,7 @@ Pick a task from the queue, validate if it's worth doing, and create a detailed 
 ## BlackBox5 Directory Structure
 
 ```
-/Users/shaansisodia/.blackbox5/
+/Users/shaansisodia/blackbox5/
 ├── 5-project-memory/blackbox5/      # PROJECT WORKSPACE (where you work)
 │   ├── .autonomous/
 │   │   ├── agents/communications/   # queue.yaml - check task status here
@@ -53,7 +53,7 @@ Pick a task from the queue, validate if it's worth doing, and create a detailed 
 
 Find tasks in:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/
 ```
 
 Look for:
@@ -117,7 +117,7 @@ Read the task.md file completely before proceeding.
 
 Create at:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX/PLAN.md
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX/PLAN.md
 ```
 
 ### Required Sections:
@@ -275,7 +275,7 @@ Additional context, insights, or open questions.
 
 All work saved to:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX/
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-XXX/
 ```
 
 Files created/modified:

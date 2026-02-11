@@ -9,9 +9,9 @@ Audit the skills systems in blackbox5 to determine the canonical skills director
 ## Files to Read/Analyze (No Modifications Planned)
 
 ### Core Files
-- [x] `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py` - Current skill loading logic
-- [x] `~/.blackbox5/2-engine/.autonomous/skills/README.md` - Skills directory documentation
-- [x] `~/.blackbox5/2-engine/.autonomous/bmad/README.md` - BMAD integration documentation
+- [x] `~/blackbox5/2-engine/.autonomous/lib/skill_router.py` - Current skill loading logic
+- [x] `~/blackbox5/2-engine/.autonomous/skills/README.md` - Skills directory documentation
+- [x] `~/blackbox5/2-engine/.autonomous/bmad/README.md` - BMAD integration documentation
 
 ### Analysis Required
 - [x] Count skills in each system
@@ -22,15 +22,15 @@ Audit the skills systems in blackbox5 to determine the canonical skills director
 
 ## Files to Modify (Documentation Only)
 
-- [ ] `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_042332/decision_registry.yaml` - Record consolidation decision
+- [ ] `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131_042332/decision_registry.yaml` - Record consolidation decision
 
 ---
 
 ## Tests
 
 ### Existing Tests
-- [x] `~/.blackbox5/2-engine/.autonomous/lib/test_workflow_loader.py` - Workflow testing
-- [x] `~/.blackbox5/2-engine/.autonomous/test_decision_registry.py` - Decision registry tests
+- [x] `~/blackbox5/2-engine/.autonomous/lib/test_workflow_loader.py` - Workflow testing
+- [x] `~/blackbox5/2-engine/.autonomous/test_decision_registry.py` - Decision registry tests
 
 ### Tests to Run (Verification)
 - [ ] Verify all 10 skills in `skills/` directory are accessible
@@ -83,7 +83,7 @@ Audit the skills systems in blackbox5 to determine the canonical skills director
 options_considered:
   - id: "OPT-001"
     description: "Use skills/ as canonical system"
-    location: "~/.blackbox5/2-engine/.autonomous/skills/"
+    location: "~/blackbox5/2-engine/.autonomous/skills/"
     pros:
       - "Already referenced by skill_router.py (line 166)"
       - "Contains 10 BMAD skill files"
@@ -117,12 +117,12 @@ options_considered:
 ## Current System State
 
 ### Skills Directory (Canonical)
-- **Location:** `~/.blackbox5/2-engine/.autonomous/skills/`
+- **Location:** `~/blackbox5/2-engine/.autonomous/skills/`
 - **Contents:** 10 BMAD skill files + README.md
 - **Status:** ✅ Active, referenced by skill_router.py
 
 ### BMAD Directory
-- **Location:** `~/.blackbox5/2-engine/.autonomous/bmad/`
+- **Location:** `~/blackbox5/2-engine/.autonomous/bmad/`
 - **Contents:** Workflows, modules, party-mode
 - **Status:** ✅ Active, separate from skills/
 

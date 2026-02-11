@@ -26,7 +26,7 @@
 **Changed**: `.skills-new` → `skills`
 
 **Updated Files**:
-- ✅ `.blackbox5/engine/agents/skills/` - Main directory renamed
+- ✅ `blackbox5/engine/agents/skills/` - Main directory renamed
 - ✅ `SkillManager.py` - Updated to load from `skills/` directory
 - ✅ `AgentLoader.py` - Updated to load from `skills/` directory
 - ✅ `verify_skills.py` - Updated verification script
@@ -91,7 +91,7 @@
 ## Directory Structure
 
 ```
-.blackbox5/engine/agents/skills/
+blackbox5/engine/agents/skills/
 ├── SKILLS-REGISTRY.yaml              # Main registry
 ├── SKILLS-EXPANSION-PLAN.md          # Expansion roadmap
 │
@@ -232,7 +232,7 @@
 ### All Skills Verified ✅
 
 ```bash
-$ find .blackbox5/engine/agents/skills -name "SKILL.md" | wc -l
+$ find blackbox5/engine/agents/skills -name "SKILL.md" | wc -l
 52
 ```
 
@@ -308,9 +308,9 @@ Based on expansion plan:
 - [AI Agent Skills Directory](https://coldiq.com/ai-agents)
 
 ### BlackBox5 Resources
-- **Registry**: `.blackbox5/engine/agents/skills/SKILLS-REGISTRY.yaml`
-- **Verification**: `.blackbox5/scripts/verify_skills.py`
-- **Expansion Plan**: `.blackbox5/engine/agents/skills/SKILLS-EXPANSION-PLAN.md`
+- **Registry**: `blackbox5/engine/agents/skills/SKILLS-REGISTRY.yaml`
+- **Verification**: `blackbox5/scripts/verify_skills.py`
+- **Expansion Plan**: `blackbox5/engine/agents/skills/SKILLS-EXPANSION-PLAN.md`
 
 ---
 
