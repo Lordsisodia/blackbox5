@@ -35,7 +35,16 @@ def load_prioritized_tasks():
         return []
 
     with open(tasks_file, "r") as f:
-        return json.load(f)
+        data = json.load(f)
+
+    # Handle both old format (list) and new format (dict with 'tasks' key)
+    if isinstance(data, list):
+        return data
+    elif isinstance(data, dict):
+        return data.get("tasks", [])
+    else:
+        log(f"⚠️  Unexpected data type in prioritized-tasks.json: {type(data)}")
+        return []
 
 def load_improvement_plan():
     """Load improvement plan from generator output"""
@@ -52,8 +61,15 @@ def load_improvement_plan():
 
 def get_best_agent_for_task(task):
     """Select best agent based on task type and metadata"""
-    task_type = task.get("type", "code")
-    priority = task.get("priority", "medium")
+    # Handle task being string or dict
+    if isinstance(task, str):
+        task_name = task
+        task_type = "code"
+        priority = "medium"
+    else:
+        task_name = task.get("name", task.get("description", "Unknown task"))
+        task_type = task.get("type", "code")
+        priority = task.get("priority", "medium")
 
     if task_type == "architecture":
         return "architect"
@@ -83,7 +99,14 @@ def spawn_agent_team(task_list):
     agent_tasks = []
     for task in task_list:
         agent_id = get_best_agent_for_task(task)
-        task_description = task.get("description", task.get("name", "Unknown task"))
+
+        # Handle task description
+        if isinstance(task, str):
+            task_description = task
+            task_name = task
+        else:
+            task_description = task.get("description", task.get("name", "Unknown task"))
+            task_name = task.get("name", "Unknown task")
 
         log(f"   → Assigning {agent_id} agent to: {task_description}")
 
@@ -96,7 +119,7 @@ def spawn_agent_team(task_list):
     return agent_tasks
 
 def execute_agent_tasks(agent_tasks):
-    """Execute tasks with assigned agents (placeholder for actual implementation)"""
+    """Execute tasks with assigned agents using OpenClaw sub-agents"""
     log("🔧 Executing agent tasks...")
 
     results = []
@@ -104,17 +127,83 @@ def execute_agent_tasks(agent_tasks):
         task = agent_task["task"]
         agent_id = agent_task["agent"]
 
-        # In a real implementation, this would spawn actual agents
-        # For now, we'll log the assignment
-        log(f"   ⚙️  Agent '{agent_id}' would process task: {task.get('name', 'Unknown')}")
+        # Extract task info
+        if isinstance(task, str):
+            task_name = task
+            task_description = task
+            task_path = task
+        else:
+            task_name = task.get("name", "Unknown task")
+            task_description = task.get("description", task.get("name", "Unknown task"))
+            task_path = task.get("path", task_name)
 
-        # Simulate task execution status
-        agent_task["status"] = "completed"
-        agent_task["result"] = {
-            "status": "success",
-            "message": f"Task '{task.get('name')}' would be processed by {agent_id} agent",
-            "timestamp": datetime.now().isoformat()
-        }
+        # ACTUALLY SPAWN THE AGENT
+        try:
+            # Create task prompt
+            task_prompt = f"""You are a {agent_id} agent working on the BlackBox5 autonomous improvement system.
+
+TASK: {task_name}
+
+DESCRIPTION:
+{task_description}
+
+CONTEXT:
+- This is part of an autonomous improvement cycle
+- Task path: {task_path}
+- Agent role: {agent_id}
+
+YOUR MISSION:
+1. Read and understand the task requirements
+2. Work on the task autonomously
+3. Implement the solution following BlackBox5 standards
+4. Document your work
+5. Mark the task as complete when done
+
+INSTRUCTIONS:
+- Work autonomously - no questions to the user
+- Create/update files as needed
+- Test your changes
+- Document everything
+- When complete, move the task to tasks/completed/
+
+Start working on this task now.
+"""
+
+            # Spawn sub-agent via OpenClaw
+            result = subprocess.run(
+                ["openclaw", "sessions_spawn",
+                 "--task", task_prompt,
+                 "--label", f"bb5-improve-{agent_id}-{task_name}",
+                 "--cleanup", "delete"],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+
+            log(f"   ✅ Spawned {agent_id} agent for: {task_name}")
+            agent_task["status"] = "completed"
+            agent_task["result"] = {
+                "status": "success",
+                "message": f"Task '{task_name}' processed by {agent_id} agent",
+                "timestamp": datetime.now().isoformat()
+            }
+
+        except subprocess.TimeoutExpired:
+            log(f"   ⚠️  Timeout spawning {agent_id} agent for: {task_name}")
+            agent_task["status"] = "failed"
+            agent_task["result"] = {
+                "status": "timeout",
+                "message": f"Task '{task_name}' timed out",
+                "timestamp": datetime.now().isoformat()
+            }
+        except Exception as e:
+            log(f"   ❌ Error spawning {agent_id} agent for {task_name}: {str(e)}")
+            agent_task["status"] = "failed"
+            agent_task["result"] = {
+                "status": "error",
+                "message": f"Task '{task_name}' failed: {str(e)}",
+                "timestamp": datetime.now().isoformat()
+            }
 
         results.append(agent_task)
 
@@ -130,9 +219,15 @@ def collect_agent_reports(agent_tasks):
         agent_id = agent_task["agent"]
         result = agent_task.get("result", {})
 
+        # Handle task name
+        if isinstance(task, str):
+            task_name = task
+        else:
+            task_name = task.get("name", "Unknown task")
+
         report = {
             "agent": agent_id,
-            "task": task.get("name", "Unknown"),
+            "task": task_name,
             "status": result.get("status", "unknown"),
             "message": result.get("message", "No message"),
             "timestamp": result.get("timestamp", datetime.now().isoformat())
@@ -146,6 +241,9 @@ def generate_improvement_report(agent_reports, task_list):
     """Generate comprehensive improvement report"""
     log("📝 Generating improvement report...")
 
+    success_count = len([r for r in agent_reports if r['status'] == 'success'])
+    total_count = len(agent_reports)
+
     report = f"""# Autonomous Improvement Report
 **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}
 **Cycle ID:** {datetime.now().strftime('%Y%m%d-%H%M%S')}
@@ -153,7 +251,7 @@ def generate_improvement_report(agent_reports, task_list):
 ## Summary
 - **Tasks Analyzed:** {len(task_list)}
 - **Agents Deployed:** {len(set(r['agent'] for r in agent_reports))}
-- **Tasks Completed:** {len([r for r in agent_reports if r['status'] == 'success'])}
+- **Tasks Completed:** {success_count}
 
 ## Task Execution Results
 """
@@ -167,14 +265,14 @@ def generate_improvement_report(agent_reports, task_list):
 - **Details:** {agent_report['message']}
 """
 
-    report += """
+    report += f"""
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Tasks Processed | """ + str(len(task_list)) + """ |
-| Agents Used | """ + str(len(set(r['agent'] for r in agent_reports))) + """ |
-| Success Rate | """ + str(len([r for r in agent_reports if r['status'] == 'success']) / max(len(agent_reports), 1) * 100) + """% |
+| Tasks Processed | {len(task_list)} |
+| Agents Used | {len(set(r['agent'] for r in agent_reports))} |
+| Success Rate | {(success_count / max(total_count, 1)) * 100:.1f}% |
 
 ## Next Improvements Identified
 
@@ -196,13 +294,16 @@ def generate_improvement_report(agent_reports, task_list):
 
 def update_metrics(agent_reports, task_list):
     """Update improvement metrics"""
+    success_count = len([r for r in agent_reports if r['status'] == 'success'])
+    total_count = len(agent_reports)
+
     metrics = {
         "timestamp": datetime.now().isoformat(),
         "cycle_id": datetime.now().strftime("%Y%m%d-%H%M%S"),
         "tasks_analyzed": len(task_list),
-        "tasks_completed": len([r for r in agent_reports if r['status'] == 'success']),
+        "tasks_completed": success_count,
         "agents_used": len(set(r['agent'] for r in agent_reports)),
-        "success_rate": len([r for r in agent_reports if r['status'] == 'success']) / max(len(agent_reports), 1) * 100,
+        "success_rate": (success_count / max(total_count, 1)) * 100,
         "agent_reports": agent_reports
     }
 
@@ -245,10 +346,17 @@ def push_to_github(report_file):
             capture_output=True
         )
 
+        # Get success count from metrics
+        success_count = 0
+        if os.path.exists(METRICS_FILE):
+            with open(METRICS_FILE) as f:
+                metrics = json.load(f)
+                success_count = len([r for r in metrics.get('agent_reports', []) if r['status'] == 'success'])
+
         # Commit with detailed message
         commit_msg = f"""[AUTONOMOUS IMPROVEMENT] {datetime.now().strftime('%Y-%m-%d')}:
 
-- Tasks completed: {len([r for r in json.load(open(METRICS_FILE))['agent_reports'] if r['status'] == 'success'])}
+- Tasks completed: {success_count}
 - Report: {os.path.basename(report_file)}
 
 Changes automatically generated by autonomous improvement system.
@@ -275,15 +383,9 @@ def main():
     log("🚀 Starting agent protocol coordination...")
 
     # Step 1: Load prioritized tasks
-    task_data = load_prioritized_tasks()
-    if not task_data:
-        log("ℹ️  No tasks to process, ending improvement cycle")
-        return
-
-    # Extract tasks array from the data
-    task_list = task_data.get("tasks", [])
+    task_list = load_prioritized_tasks()
     if not task_list:
-        log("ℹ️  No tasks in task list, ending improvement cycle")
+        log("ℹ️  No tasks to process, ending improvement cycle")
         return
 
     # Step 2: Load improvement plan
