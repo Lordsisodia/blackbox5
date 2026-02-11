@@ -25,10 +25,10 @@ Based on deep analysis of BlackBox5's storage patterns, we identified **signific
 ### YAML Usage Patterns
 
 **High-frequency YAML files (>10 accesses/day):**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue with 90 tasks
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` - Unified skill registry (replaces 4 files)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline.yaml` - Project timeline tracking
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/*/goal.yaml` - Active goals
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue with 90 tasks
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` - Unified skill registry (replaces 4 files)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/timeline.yaml` - Project timeline tracking
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/*/goal.yaml` - Active goals
 
 **YAML Schema Variants:**
 - Frontmatter YAML (embedded in markdown): `---\nkey: value\n---`

@@ -77,7 +77,7 @@ Claude stores everything in memory:
    └─ Context updated
 ```
 
-**Output**: `.blackbox5/data/memory/john/` (3 files)
+**Output**: `blackbox5/data/memory/john/` (3 files)
 
 ### Phase 5: Epic Creation (5 minutes, Winston agent)
 ```
@@ -186,7 +186,7 @@ Result: Comprehensive, documented, traceable, persistent
 
 ### Memory Files (6 documents)
 ```
-.blackbox5/data/memory/john/
+blackbox5/data/memory/john/
 ├── sessions.json         # 3 task executions
 ├── insights.json         # 12 learnings
 ├── context.json          # Current state
@@ -205,7 +205,7 @@ Result: Comprehensive, documented, traceable, persistent
 
 ### Documentation Files (3 documents)
 ```
-.blackbox5/
+blackbox5/
 ├── PLANNING-MEMORY-INTEGRATION.md
 ├── PLANNING-MEMORY-SUMMARY.md
 └── ENHANCED-WORKFLOW-EXECUTION-SUMMARY.md (this file)

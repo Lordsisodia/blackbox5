@@ -32,7 +32,7 @@ This analysis will inform improvements to the operational efficiency of the syst
 5. Prioritize recommendations
 
 ## Files to Analyze
-- `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md`
+- `~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md`
 - Recent executor runs for validation
 
 ## Notes

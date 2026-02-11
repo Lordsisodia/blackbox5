@@ -159,10 +159,10 @@ Recommended: Node.js for consistency with OpenClaw.
 
 | File | Action | Purpose |
 |------|--------|---------|
-| `~/.blackbox5/mcp-redis-bridge.py` | Modify | Add broadcast, discovery tools |
+| `~/blackbox5/mcp-redis-bridge.py` | Modify | Add broadcast, discovery tools |
 | `/opt/openclaw-redis-bridge.js` | Modify | Add broadcast, heartbeat |
 | `/opt/macmini-bridge.js` | Create | New agent bridge |
-| `~/Library/LaunchAgents/com.blackbox5.macmini-bridge.plist` | Create | Mac Mini service |
+| `~/Library/LaunchAgents/comblackbox5.macmini-bridge.plist` | Create | Mac Mini service |
 | `knowledge/multi-agent-cluster.md` | Create | Documentation |
 
 ## Dependencies

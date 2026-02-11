@@ -47,7 +47,7 @@ mv $RALF_PROJECT_DIR/.autonomous/tasks/active/[TASK-FILE] \
    $RALF_PROJECT_DIR/.autonomous/tasks/completed/
 
 # Commit changes
-cd ~/.blackbox5
+cd ~/blackbox5
 git add -A
 git commit -m "executor: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
 git push origin main
@@ -75,7 +75,7 @@ mv $RALF_PROJECT_DIR/.autonomous/tasks/active/[TASK-FILE] \
    $RALF_PROJECT_DIR/.autonomous/tasks/completed/
 
 # Step 3: Commit changes
-cd ~/.blackbox5
+cd ~/blackbox5
 git add -A
 git commit -m "executor: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
 git push origin main

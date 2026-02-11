@@ -42,7 +42,7 @@ The 4-Rule Deviation Handling system provides autonomous error recovery for Blac
 
 ### Core Module
 
-**File**: `.blackbox5/engine/core/deviation_handler.py`
+**File**: `blackbox5/engine/core/deviation_handler.py`
 
 Main deviation handling implementation with:
 - `DeviationType` enum: Classification of error types
@@ -51,7 +51,7 @@ Main deviation handling implementation with:
 
 ### Integration
 
-**File**: `.blackbox5/engine/core/orchestrator_deviation_integration.py`
+**File**: `blackbox5/engine/core/orchestrator_deviation_integration.py`
 
 Integration code for adding deviation handling to Orchestrator:
 - Modified `__init__` method
@@ -61,7 +61,7 @@ Integration code for adding deviation handling to Orchestrator:
 
 ### Tests
 
-**File**: `.blackbox5/tests/test_deviation_handling.py`
+**File**: `blackbox5/tests/test_deviation_handling.py`
 
 Comprehensive test suite covering:
 - Deviation detection from various error types
@@ -329,13 +329,13 @@ if obj is not None:
 
 ```bash
 # Run all deviation handling tests
-pytest .blackbox5/tests/test_deviation_handling.py -v
+pytest blackbox5/tests/test_deviation_handling.py -v
 
 # Run specific test class
-pytest .blackbox5/tests/test_deviation_handling.py::TestDeviationDetection -v
+pytest blackbox5/tests/test_deviation_handling.py::TestDeviationDetection -v
 
 # Run with coverage
-pytest .blackbox5/tests/test_deviation_handling.py --cov=engine.core.deviation_handler
+pytest blackbox5/tests/test_deviation_handling.py --cov=engine.core.deviation_handler
 ```
 
 ### Test Coverage

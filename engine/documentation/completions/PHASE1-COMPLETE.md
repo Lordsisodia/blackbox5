@@ -60,7 +60,7 @@ All **Phase 1 Critical Safety Features** have been successfully implemented and 
 ## File Structure
 
 ```
-.blackbox5/2-engine/01-core/safety/
+blackbox5/2-engine/01-core/safety/
 ├── __init__.py                           # Package exports
 ├── kill_switch.py                        # Emergency shutdown (570 lines)
 ├── safe_mode.py                          # Degraded operation (480 lines)
@@ -376,24 +376,24 @@ print(limits)
 ## Documentation
 
 **Full Documentation Available:**
-- `.blackbox5/2-engine/01-core/safety/SAFETY-IMPLEMENTATION-COMPLETE.md` - Complete implementation details
-- `.blackbox5/2-engine/01-core/safety/SAFETY-INTEGRATION-GUIDE.md` - Integration guide
-- `.blackbox5/2-engine/01-core/safety/tests/test_safety_system.py` - Test suite
-- `.blackbox5/CURRENT-SAFETY-FEATURES.md` - Updated safety inventory
+- `blackbox5/2-engine/01-core/safety/SAFETY-IMPLEMENTATION-COMPLETE.md` - Complete implementation details
+- `blackbox5/2-engine/01-core/safety/SAFETY-INTEGRATION-GUIDE.md` - Integration guide
+- `blackbox5/2-engine/01-core/safety/tests/test_safety_system.py` - Test suite
+- `blackbox5/CURRENT-SAFETY-FEATURES.md` - Updated safety inventory
 
 **Quick Reference:**
 ```bash
 # Run tests
-cd .blackbox5/2-engine/01-core/safety
+cd blackbox5/2-engine/01-core/safety
 python3 -m pytest tests/test_safety_system.py -v
 
 # View implementation
-cat .blackbox5/2-engine/01-core/safety/kill_switch.py
-cat .blackbox5/2-engine/01-core/safety/safe_mode.py
-cat .blackbox5/2-engine/01-core/safety/constitutional_classifier.py
+cat blackbox5/2-engine/01-core/safety/kill_switch.py
+cat blackbox5/2-engine/01-core/safety/safe_mode.py
+cat blackbox5/2-engine/01-core/safety/constitutional_classifier.py
 
 # Read documentation
-cat .blackbox5/2-engine/01-core/safety/SAFETY-IMPLEMENTATION-COMPLETE.md
+cat blackbox5/2-engine/01-core/safety/SAFETY-IMPLEMENTATION-COMPLETE.md
 ```
 
 ---

@@ -8,7 +8,7 @@ The BlackBox5 CLI (`bb5.py`) provides a simple interface to interact with the GL
 
 1. Make sure the CLI is executable:
 ```bash
-chmod +x .blackbox5/bb5.py
+chmod +x blackbox5/bb5.py
 ```
 
 2. Set your GLM API key (optional - will use mock mode without it):
@@ -22,22 +22,22 @@ export GLM_API_KEY="your-api-key-here"
 
 ```bash
 # Run a single task (uses mock mode if no API key)
-python .blackbox5/bb5.py "Say hello"
+python blackbox5/bb5.py "Say hello"
 
 # Run with explicit mock mode (no API calls)
-python .blackbox5/bb5.py --mock "Test the system"
+python blackbox5/bb5.py --mock "Test the system"
 
 # Interactive mode
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 
 # Show help
-python .blackbox5/bb5.py --help
+python blackbox5/bb5.py --help
 ```
 
 ### Interactive Mode
 
 ```bash
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 In interactive mode, you can use:
@@ -50,10 +50,10 @@ In interactive mode, you can use:
 
 ```bash
 # Analyze the codebase
-python .blackbox5/bb5.py "Explain the gamification system architecture"
+python blackbox5/bb5.py "Explain the gamification system architecture"
 
 # Get information
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 bb5> info
 
 # Ask questions
@@ -79,7 +79,7 @@ Automatically configures available tools based on:
 ### Mock Mode
 Use `--mock` flag to test without API calls:
 ```bash
-python .blackbox5/bb5.py --mock "Test task"
+python blackbox5/bb5.py --mock "Test task"
 ```
 
 ## Architecture
@@ -97,7 +97,7 @@ The CLI integrates several BlackBox5 components:
    - Manages tool permissions
 
 3. **Project Index**
-   - Loads from `.blackbox5/project_index.json`
+   - Loads from `blackbox5/project_index.json`
    - Caches with 5-minute TTL
    - Provides project context to agents
 
@@ -113,7 +113,7 @@ The CLI gracefully handles:
 
 ### File Structure
 ```
-.blackbox5/
+blackbox5/
 ├── bb5.py              # Main CLI script
 ├── engine/
 │   ├── core/
@@ -129,13 +129,13 @@ The CLI gracefully handles:
 ### Testing
 ```bash
 # Test basic functionality
-python .blackbox5/bb5.py --mock "Say hello"
+python blackbox5/bb5.py --mock "Say hello"
 
 # Test info command
-echo "info" | python .blackbox5/bb5.py --mock
+echo "info" | python blackbox5/bb5.py --mock
 
 # Test with real API (requires GLM_API_KEY)
-python .blackbox5/bb5.py "Explain the system"
+python blackbox5/bb5.py "Explain the system"
 ```
 
 ## Troubleshooting
@@ -146,11 +146,11 @@ python .blackbox5/bb5.py "Explain the system"
 
 ### Import errors
 - Ensure you're running from the correct directory
-- Check that `.blackbox5/engine/core` exists
+- Check that `blackbox5/engine/core` exists
 - Verify Python 3.7+ is installed
 
 ### Project capabilities not detected
-- Create `.blackbox5/project_index.json`
+- Create `blackbox5/project_index.json`
 - Or let the CLI run with empty capabilities
 
 ## Future Enhancements

@@ -266,7 +266,7 @@ Pipeline State → ProductionMemorySystem
 
 ### Data Files
 ```
-.blackbox5/pipeline/
+blackbox5/pipeline/
 ├── feature_backlog.yaml     # Active features
 ├── completed_features.yaml   # Completed features
 ├── test_results.yaml         # Test history
@@ -338,13 +338,13 @@ python bb5-pipeline.py integration
 
 ```bash
 # Features
-cat .blackbox5/pipeline/feature_backlog.yaml
+cat blackbox5/pipeline/feature_backlog.yaml
 
 # Tests
-cat .blackbox5/pipeline/test_results.yaml
+cat blackbox5/pipeline/test_results.yaml
 
 # Pipeline Runs
-cat .blackbox5/pipeline/pipeline_runs.yaml
+cat blackbox5/pipeline/pipeline_runs.yaml
 ```
 
 ### Monitor Events (if Redis running)

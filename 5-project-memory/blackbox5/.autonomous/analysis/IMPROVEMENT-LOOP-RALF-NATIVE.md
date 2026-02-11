@@ -198,7 +198,7 @@ $ bb5-scout-improve
 ║         BB5 Scout + Improve - Self-Improvement              ║
 ╚════════════════════════════════════════════════════════════╝
 
-Project: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+Project: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 Run: .autonomous/runs/run-20260205_020000
 
 Starting RALF in scout-improve mode...

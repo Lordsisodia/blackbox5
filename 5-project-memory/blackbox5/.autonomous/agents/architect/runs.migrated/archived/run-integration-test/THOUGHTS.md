@@ -51,9 +51,9 @@ Instead of testing the actual execution loop (which would be complex and time-co
 
 Initial version of the test script had incorrect path calculation for blackbox5 root. Fixed by:
 ```python
-if ".blackbox5" in parts:
-    idx = parts.index(".blackbox5")
-    self.blackbox5 = Path(*parts[:idx+1])
+if "blackbox5" in parts:
+    idx = parts.index("blackbox5")
+    selfblackbox5 = Path(*parts[:idx+1])
 ```
 
 ### Test Categories

@@ -16,7 +16,7 @@ This task folder contains the same content as `TASK-STATUS-LIFECYCLE-ACTION-PLAN
 ## Reference
 
 See the comprehensive plan at:
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-STATUS-LIFECYCLE-ACTION-PLAN/PLAN.md`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-STATUS-LIFECYCLE-ACTION-PLAN/PLAN.md`
 
 ## Quick Summary
 

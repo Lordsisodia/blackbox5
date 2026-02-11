@@ -6,7 +6,7 @@ set -e
 
 # Default values
 DEFAULT_PROJECT_NAME="blackbox5"
-DEFAULT_PROJECT_PATH="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+DEFAULT_PROJECT_PATH="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5"
 
 # Use provided arguments or defaults
 PROJECT_NAME="${1:-$DEFAULT_PROJECT_NAME}"

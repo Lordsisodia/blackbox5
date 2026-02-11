@@ -94,8 +94,8 @@ This limits agents to simple, reactive tasks rather than complex, goal-directed 
 - Manual task breakdown required
 
 **Locations:**
-- `.blackbox5/engine/core/context_extractor.py`
-- `.blackbox5/engine/agents/core/`
+- `blackbox5/engine/core/context_extractor.py`
+- `blackbox5/engine/agents/core/`
 
 ## Proposed Solution
 

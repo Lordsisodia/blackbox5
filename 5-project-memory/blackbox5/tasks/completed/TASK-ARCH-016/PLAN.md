@@ -48,7 +48,7 @@ Successfully unified 20+ scattered configuration files into a single hierarchica
 5. `5-project-memory/blackbox5/.autonomous/config/project.yaml` - Project config (83 lines)
    - Project-specific overrides
 
-6. `~/.blackbox5/config/user.yaml` - User config template (44 lines)
+6. `~/blackbox5/config/user.yaml` - User config template (44 lines)
    - User-specific preferences
 
 ### Phase 2: Migrate Existing Configs ✅
@@ -83,7 +83,7 @@ Successfully unified 20+ scattered configuration files into a single hierarchica
 1. Environment Variables (deployment-specific)
    - BB5_LOG_LEVEL, GITHUB_TOKEN, etc.
 
-2. User Config (~/.blackbox5/config/user.yaml)
+2. User Config (~/blackbox5/config/user.yaml)
    - Personal preferences
 
 3. Project Config (5-project-memory/[project]/.autonomous/config/project.yaml)
@@ -119,7 +119,7 @@ project_path = resolver.get_project_path('myproject')
 ### Shell
 ```bash
 # Use environment variable
-PROJECT_DIR="${BB5_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}"
+PROJECT_DIR="${BB5_PROJECT_DIR:-$HOME/blackbox5/5-project-memory/blackbox5}"
 ```
 
 ---
@@ -199,7 +199,7 @@ rm -f 2-engine/.autonomous/config/schema.yaml
 2. `2-engine/.autonomous/config/engine.yaml`
 3. `2-engine/.autonomous/config/schema.yaml`
 4. `5-project-memory/blackbox5/.autonomous/config/project.yaml`
-5. `~/.blackbox5/config/user.yaml`
+5. `~/blackbox5/config/user.yaml`
 6. `2-engine/.autonomous/tests/test_unified_config.py`
 7. `2-engine/.autonomous/config/MIGRATION-GUIDE.md`
 8. `5-project-memory/blackbox5/tasks/active/TASK-ARCH-016/PLAN.md`

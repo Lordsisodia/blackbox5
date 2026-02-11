@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Agent Runner - Processes spawn queue and executes agents
-Reads ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/spawn-queue.yaml
+Reads ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/spawn-queue.yaml
 and spawns the appropriate agents
 """
 
@@ -12,7 +12,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-BB5_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+BB5_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 SPAWN_QUEUE = BB5_DIR / ".autonomous" / "agents" / "communications" / "spawn-queue.yaml"
 SIGNALS_DIR = BB5_DIR / ".autonomous" / "signals"
 LOG_FILE = BB5_DIR / ".autonomous" / "logs" / "agent-runner.log"
@@ -77,7 +77,7 @@ def spawn_context_gatherer(entry):
     log("Spawning context gatherer...")
 
     # Simple implementation: scan project structure
-    projects_dir = Path.home() / ".blackbox5" / "5-project-memory"
+    projects_dir = Path.home() / "blackbox5" / "5-project-memory"
 
     context = {
         "timestamp": datetime.now().isoformat(),

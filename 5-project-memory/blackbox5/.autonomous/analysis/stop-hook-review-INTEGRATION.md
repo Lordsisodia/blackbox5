@@ -2,7 +2,7 @@
 
 **Analyst:** BB5 Architecture Analyst
 **Date:** 2026-02-06
-**Target:** STOP_HOOK_CHECKLIST.md at `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
+**Target:** STOP_HOOK_CHECKLIST.md at `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
 **Perspective:** BB5 SYSTEM INTEGRATION
 
 ---

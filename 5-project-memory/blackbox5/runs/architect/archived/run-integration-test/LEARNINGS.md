@@ -21,14 +21,14 @@
 ### Learning 2: Path Resolution in Python
 **Discovery:** Using `parent.parent.parent` for path navigation is fragile when directory structures vary.
 
-**Takeaway:** Search for known landmarks (like `.blackbox5`) in path components for more robust navigation.
+**Takeaway:** Search for known landmarks (like `blackbox5`) in path components for more robust navigation.
 
 **Code Pattern:**
 ```python
 parts = self.run_dir.parts
-if ".blackbox5" in parts:
-    idx = parts.index(".blackbox5")
-    self.blackbox5 = Path(*parts[:idx+1])
+if "blackbox5" in parts:
+    idx = parts.index("blackbox5")
+    selfblackbox5 = Path(*parts[:idx+1])
 ```
 
 ---

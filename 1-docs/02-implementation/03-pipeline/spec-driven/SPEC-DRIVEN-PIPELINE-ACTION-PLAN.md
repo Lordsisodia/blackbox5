@@ -125,7 +125,7 @@ BlackBox5 already has **80% of the spec-driven infrastructure** in place. This a
 ### New Components to Build
 
 ```python
-# .blackbox5/engine/
+# blackbox5/engine/
 
 spec_driven/
 ├── __init__.py
@@ -599,7 +599,7 @@ bb5 epic:stop <epic-file>
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── specs/                              # Existing ✅
 │   ├── prds/
 │   │   ├── TEMPLATE.md                 # Existing ✅

@@ -32,7 +32,7 @@ The boundary between engine (shared across projects) and project-specific memory
 
 **Key Findings:**
 1. **47 hardcoded paths** crossing boundaries (in 8 Python scripts)
-2. **269 files** contain hardcoded `.blackbox5` path references
+2. **269 files** contain hardcoded `blackbox5` path references
 3. **routes.yaml has incorrect paths** (10+ paths with wrong nesting)
 4. **8 engine scripts** are BlackBox5-specific (should move to project)
 5. **11 project items** are generic (should move to engine)
@@ -140,7 +140,7 @@ Direct YAML/JSON manipulation throughout codebase. 38+ files use raw file I/O. N
 
 ### Problem
 RALF components have hardcoded knowledge of BlackBox5 directory structure.
-All 6 agent scripts hardcode paths to `~/.blackbox5/5-project-memory/blackbox5`.
+All 6 agent scripts hardcode paths to `~/blackbox5/5-project-memory/blackbox5`.
 
 ### Impact
 - Violates separation of concerns
@@ -366,7 +366,7 @@ Documented hierarchy (User > Project > Engine > Environment > Base > Default) is
 2. **Duplicate configs**: Two skill-usage.yaml files
 3. **Hardcoded paths** in bin/ralf-report, bin/ralf-branch, bin/ralf-analyze, bin/blackbox
 4. **Config schema exists** (config.schema.yaml) but NOT used
-5. **User config** (~/.blackbox5/config.yaml) documented but doesn't exist
+5. **User config** (~/blackbox5/config.yaml) documented but doesn't exist
 6. **Routes.yaml not used** - scripts hardcode paths instead
 7. **Environment variables inconsistent** - RALF_PROJECT_ROOT, BB5_PROJECT_ROOT, BLACKBOX5_HOME all used
 

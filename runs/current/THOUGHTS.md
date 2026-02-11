@@ -5,7 +5,7 @@
 ### Initial Context
 - User activated BB5 Scribe Agent
 - Task: Ensure all BB5 activity is documented in permanent memory
-- Run directory: `/Users/shaansisodia/.blackbox5/runs/current/`
+- Run directory: `/Users/shaansisodia/blackbox5/runs/current/`
 
 ### Observations
 1. Agent teams are being activated for this session
@@ -13,7 +13,7 @@
 3. Run directory structure needs initialization
 
 ### Current State
-- Created `/Users/shaansisodia/.blackbox5/runs/current/` directory
+- Created `/Users/shaansisodia/blackbox5/runs/current/` directory
 - Initializing THOUGHTS.md, DECISIONS.md, LEARNINGS.md
 - Session is beginning with scribe agent activation
 

@@ -423,7 +423,7 @@ events:
            "hooks": [
              {
                "type": "command",
-               "command": "$HOME/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh"
+               "command": "$HOME/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh"
              }
            ]
          }

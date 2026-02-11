@@ -9,10 +9,10 @@ This folder contains everything you need to get the complete agent orchestration
 
 ```bash
 # 1. Check prerequisites
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 
 # 2. Run complete test
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 # 3. Start using it!
 # (See instructions below)
@@ -184,7 +184,7 @@ curl http://localhost:3001/health
 export PYTHONPATH="$PWD:$PYTHONPATH"
 
 # Or install
-pip install -e .blackbox5/2-engine/
+pip install -e blackbox5/2-engine/
 ```
 
 ---
@@ -193,22 +193,22 @@ pip install -e .blackbox5/2-engine/
 
 1. **Complete Workflow Guide**
    ```
-   .blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md
+   blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md
    ```
 
 2. **Setup Checklist**
    ```
-   .blackbox5/1-docs/03-guides/02-tutorials/AGENT-ORCHESTRATION-SETUP-CHECKLIST.md
+   blackbox5/1-docs/03-guides/02-tutorials/AGENT-ORCHESTRATION-SETUP-CHECKLIST.md
    ```
 
 3. **Vibe Kanban Integration**
    ```
-   .blackbox5/2-engine/06-integrations/vibe/README.md
+   blackbox5/2-engine/06-integrations/vibe/README.md
    ```
 
 4. **Ralphy Integration**
    ```
-   .blackbox5/2-engine/07-operations/runtime/ralphy/BLACKBOX-INTEGRATION.md
+   blackbox5/2-engine/07-operations/runtime/ralphy/BLACKBOX-INTEGRATION.md
    ```
 
 ---
@@ -251,7 +251,7 @@ Once everything is working:
 
 4. **Check results in Project Memory**:
    ```bash
-   ls -la .blackbox5/5-project-memory/siso-internal/operations/
+   ls -la blackbox5/5-project-memory/siso-internal/operations/
    ```
 
 ---

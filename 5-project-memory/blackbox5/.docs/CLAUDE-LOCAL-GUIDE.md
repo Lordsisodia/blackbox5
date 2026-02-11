@@ -1,7 +1,7 @@
 # CLAUDE.local.md Guide for BlackBox5 Users
 
 > **Purpose:** Personalize Claude's behavior per-project without affecting global settings
-> **Location:** `CLAUDE.local.md` in any project root (e.g., `~/.blackbox5/5-project-memory/blackbox5/CLAUDE.local.md`)
+> **Location:** `CLAUDE.local.md` in any project root (e.g., `~/blackbox5/5-project-memory/blackbox5/CLAUDE.local.md`)
 > **Scope:** Project-specific only — does not affect other projects
 
 ---
@@ -578,6 +578,6 @@ After creating/updating `CLAUDE.local.md`:
 ## See Also
 
 - Global config: `~/.claude/CLAUDE.md`
-- Output style: `~/.blackbox5/1-docs/03-guides/OUTPUT_STYLE.md`
+- Output style: `~/blackbox5/1-docs/03-guides/OUTPUT_STYLE.md`
 - Template: `CLAUDE.local.md.example` (in this directory)
-- BB5 docs: `~/.blackbox5/1-docs/`
+- BB5 docs: `~/blackbox5/1-docs/`

@@ -28,7 +28,7 @@ from datetime import datetime
 from typing import List, Dict, Optional, Tuple
 
 # Configuration
-PROJECT_ROOT = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5")
+PROJECT_ROOT = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5")
 RUNS_DIR = PROJECT_ROOT / "runs"
 OPERATIONS_DIR = PROJECT_ROOT / "operations"
 REQUIRED_SECTION = "## Skill Usage for This Task"

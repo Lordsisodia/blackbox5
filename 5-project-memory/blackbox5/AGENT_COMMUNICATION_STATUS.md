@@ -75,9 +75,9 @@ Response: "Fair enough — no pressure. We can figure it out as we go.
 | File | Location | Purpose |
 |------|----------|---------|
 | Real Moltbot Bridge | `/opt/mcp-real-moltbot-bridge.py` (VPS) | Connects Redis to real AI |
-| MCP Bridge (Local) | `~/.blackbox5/mcp-real-moltbot-bridge.py` | Local Redis connection |
-| Hybrid Bridge | `~/.blackbox5/mcp-hybrid-bridge.py` | Redis + NATS combined |
-| Intelligent Bridge | `~/.blackbox5/intelligent-agent-bridge.py` | Smart routing with intent parsing |
+| MCP Bridge (Local) | `~/blackbox5/mcp-real-moltbot-bridge.py` | Local Redis connection |
+| Hybrid Bridge | `~/blackbox5/mcp-hybrid-bridge.py` | Redis + NATS combined |
+| Intelligent Bridge | `~/blackbox5/intelligent-agent-bridge.py` | Smart routing with intent parsing |
 
 ---
 

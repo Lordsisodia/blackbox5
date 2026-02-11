@@ -18,7 +18,7 @@
 │  ✅ Breaks into 20+ tasks                                      │
 │  ✅ Pushes to Vibe Kanban                                      │
 │                                                                 │
-│  Output: .blackbox5/specs/{prds,epics,tasks}/                  │
+│  Output: blackbox5/specs/{prds,epics,tasks}/                  │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ▼
@@ -138,7 +138,7 @@
 ┌─────────────────────────────────────────────────────────────────┐
 │          RESULTS IN PROJECT MEMORY                              │
 │                                                                 │
-│  .blackbox5/5-project-memory/siso-internal/operations/         │
+│  blackbox5/5-project-memory/siso-internal/operations/         │
 │                                                                 │
 │  ├── agents/                                                    │
 │  │   ├── agent-1/                                               │
@@ -272,7 +272,7 @@ Iteration 3: "Add feature Y"
 - Timestamps
 - Learned insights
 
-**Location**: `.blackbox5/5-project-memory/`
+**Location**: `blackbox5/5-project-memory/`
 
 ---
 
@@ -356,9 +356,9 @@ Iteration 3: "Add feature Y"
 ### Step 1: Setup (3 commands)
 
 ```bash
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
-python .blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
 ```
 
 ### Step 2: Use (3 lines)
@@ -372,7 +372,7 @@ results = OrchestratorAgent().orchestrate_parallel_execution()
 ### Step 3: Monitor
 
 - Vibe Kanban: http://localhost:3001
-- Project Memory: `.blackbox5/5-project-memory/`
+- Project Memory: `blackbox5/5-project-memory/`
 - Git commits: `git log --oneline`
 
 ---

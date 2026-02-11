@@ -67,7 +67,7 @@ runs/executor/
 
 The executor uses these paths (configurable in the script):
 
-- `BB5_DIR`: `/Users/shaansisodia/.blackbox5`
+- `BB5_DIR`: `/Users/shaansisodia/blackbox5`
 - `TASKS_DIR`: `BB5_DIR/5-project-memory/siso-internal/tasks`
 - `RUNS_DIR`: `BB5_DIR/runs/executor`
 - `AGENTS_DIR`: `BB5_DIR/.claude/agents`

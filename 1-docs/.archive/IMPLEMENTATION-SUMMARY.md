@@ -11,7 +11,7 @@ A comprehensive task management system has been successfully implemented for the
 
 ### Engine-Level Infrastructure (Shared Across Projects)
 
-Location: `.blackbox5/engine/`
+Location: `blackbox5/engine/`
 
 #### CLI Commands (16 commands)
 **Path**: `engine/interface/cli/task_commands.py`
@@ -106,7 +106,7 @@ Location: `.blackbox5/engine/`
 
 ### Project-Level Data (SISO Internal Specific)
 
-Location: `.blackbox5/memory/project-memory/siso-internal/`
+Location: `blackbox5/memory/project-memory/siso-internal/`
 
 #### CODE-INDEX.yaml
 - **Generated**: 2026-01-19
@@ -125,7 +125,7 @@ Generated for all 10 domains:
 - REFACTOR-HISTORY.md - Refactor lessons learned
 
 #### Project Documentation
-**Path**: `.blackbox5/docs/project/`
+**Path**: `blackbox5/docs/project/`
 
 1. **FIRST-PRINCIPLES.md**
    - Core purpose: "To help users manage their lives through organized domains"
@@ -201,7 +201,7 @@ All commands tested and working:
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   ├── interface/cli/
 │   │   └── task_commands.py (900+ lines, 15 commands)

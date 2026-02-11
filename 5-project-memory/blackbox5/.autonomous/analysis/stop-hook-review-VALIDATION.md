@@ -373,9 +373,9 @@ The Stop Hook Checklist in its current form **will cause more problems than it s
 
 *Review completed by Validation Logic Expert*
 *Files analyzed:*
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-run-documentation.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/run-validation.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-run-documentation.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/run-validation.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`

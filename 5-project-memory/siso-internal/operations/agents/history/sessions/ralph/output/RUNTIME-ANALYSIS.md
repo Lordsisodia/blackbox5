@@ -3,7 +3,7 @@
 **Analyzed by:** Ralph Runtime
 **Date:** 2026-01-18 14:49:17
 
-## Analysis: .blackbox5/engine/runtime
+## Analysis: blackbox5/engine/runtime
 
 ### Directory Structure
 
@@ -176,5 +176,5 @@ See parent directory documentation for usage information.
 
 ### Summary
 
-The directory `.blackbox5/engine/runtime` contains 118 Python files, 0 TypeScript files, and 16 main components.
+The directory `blackbox5/engine/runtime` contains 118 Python files, 0 TypeScript files, and 16 main components.
 

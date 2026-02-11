@@ -84,7 +84,7 @@ This fragmentation creates:
 4. `2-engine/executables/executor-implement.py` - Updated file references
 
 ### Unified Registry Location
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
 
 The unified registry contains:
 - 23 skills with complete metadata

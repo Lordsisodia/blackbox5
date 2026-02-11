@@ -36,13 +36,13 @@
 
 ### ✅ What Was Built
 
-**1. LLMLinguaCompressor Module** (`.blackbox5/engine/core/LLMLinguaCompressor.py`)
+**1. LLMLinguaCompressor Module** (`blackbox5/engine/core/LLMLinguaCompressor.py`)
 - Intelligent compression service
 - Automatic fallback to SimplePromptCompressor
 - Graceful degradation when LLMLingua unavailable
 - Compression statistics and logging
 
-**2. SimplePromptCompressor Module** (`.blackbox5/engine/core/PromptCompressor.py`)
+**2. SimplePromptCompressor Module** (`blackbox5/engine/core/PromptCompressor.py`)
 - Rule-based compression (20-30% reduction)
 - No external dependencies required
 - Works immediately without setup
@@ -102,13 +102,13 @@
 ## Documentation
 
 **Created Files:**
-- `.blackbox5/engine/core/LLMLinguaCompressor.py` (375 lines)
-- `.blackbox5/engine/core/PromptCompressor.py` (180 lines)
-- `.blackbox5/engine/core/LLMLINGUA-REQUIREMENTS.md` (200 lines)
-- `.blackbox5/engine/core/LLMLINGUA-IMPLEMENTATION-SUMMARY.md` (330 lines)
-- `.blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md` (NEW: Detailed setup instructions)
-- `.blackbox5/engine/core/verify_compression_setup.py` (NEW: Verification script)
-- `.blackbox5/engine/core/test_llmlingua_integration.py` (200 lines)
+- `blackbox5/engine/core/LLMLinguaCompressor.py` (375 lines)
+- `blackbox5/engine/core/PromptCompressor.py` (180 lines)
+- `blackbox5/engine/core/LLMLINGUA-REQUIREMENTS.md` (200 lines)
+- `blackbox5/engine/core/LLMLINGUA-IMPLEMENTATION-SUMMARY.md` (330 lines)
+- `blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md` (NEW: Detailed setup instructions)
+- `blackbox5/engine/core/verify_compression_setup.py` (NEW: Verification script)
+- `blackbox5/engine/core/test_llmlingua_integration.py` (200 lines)
 
 ---
 
@@ -135,7 +135,7 @@ response = client.create(
 
 ```bash
 # Verify setup
-python3 .blackbox5/engine/core/verify_compression_setup.py
+python3 blackbox5/engine/core/verify_compression_setup.py
 
 # Expected output:
 # ✅ LLMLingua Installed
@@ -194,9 +194,9 @@ huggingface-cli login
 - Three-Tier Hierarchical Memory System (related)
 - Vector Embeddings + pgvector Migration (next priority)
 **Reference Links:**
-- Research: `.blackbox5/roadmap/01-research/memory-context/`
-- Implementation: `.blackbox5/engine/core/LLMLINGUA-IMPLEMENTATION-SUMMARY.md`
-- Setup Guide: `.blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md`
+- Research: `blackbox5/roadmap/01-research/memory-context/`
+- Implementation: `blackbox5/engine/core/LLMLINGUA-IMPLEMENTATION-SUMMARY.md`
+- Setup Guide: `blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md`
 
 ---
 

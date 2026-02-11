@@ -54,7 +54,7 @@ The duplicates appear to follow this pattern:
 
 1. Identify all duplicate files using MD5 hash analysis
 2. Determine canonical location (prefer `1-docs/01-theory/` for theory docs)
-3. Create archive directory: `~/.blackbox5/archived/duplicate-docs/`
+3. Create archive directory: `~/blackbox5/archived/duplicate-docs/`
 4. Move duplicates to archive preserving directory structure
 5. Verify no broken links or references
 

@@ -12,7 +12,7 @@
 **Tests:** Hardcoded paths eliminated
 **Scope:** All Python/shell scripts in 2-engine/ and 5-project-memory/
 **Checks:**
-- No hardcoded `/Users/shaansisodia/.blackbox5/` paths
+- No hardcoded `/Users/shaansisodia/blackbox5/` paths
 - All scripts use PathResolver or paths.sh
 - Cross-boundary references use abstraction layer
 **Deliverable:** Report with list of violations (if any)

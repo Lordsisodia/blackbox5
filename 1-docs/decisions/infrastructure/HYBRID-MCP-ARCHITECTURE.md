@@ -101,7 +101,7 @@ Create `blackbox5-mcp-manager`:
 # Manages local MCPs for Blackbox5
 
 MCP_DIR="$HOME/.mcp-sockets"
-PID_FILE="$HOME/.blackbox5/mcp-pids.txt"
+PID_FILE="$HOME/blackbox5/mcp-pids.txt"
 
 start_local_mcps() {
   echo "🚀 Starting Blackbox5 Local MCPs..."

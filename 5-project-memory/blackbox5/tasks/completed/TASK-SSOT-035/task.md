@@ -94,17 +94,17 @@ If separate analysis files cause issues:
 
 ### Files Created
 
-1. **Extraction Script:** `~/.blackbox5/bin/extract-analysis.sh`
+1. **Extraction Script:** `~/blackbox5/bin/extract-analysis.sh`
    - Processes scout reports (YAML format)
    - Processes executor reports (YAML format)
    - Generates analysis files with standardized schema
    - Updates searchable index
 
-2. **Analysis Directory:** `~/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/analyses/`
+2. **Analysis Directory:** `~/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/analyses/`
    - Contains 9 extracted analysis files (*.analysis.yaml)
    - Follows standardized schema with summary, key_findings, patterns, recommendations
 
-3. **Analysis Index:** `~/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/analyses/index.yaml`
+3. **Analysis Index:** `~/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/analyses/index.yaml`
    - Version 1.0.0
    - 9 analyses indexed with metadata
    - Searchable by report_type, timestamp, analysis_id

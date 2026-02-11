@@ -25,9 +25,9 @@
 
 **Files Verified:**
 ```
-✅ .blackbox5/engine/core/task_router.py (591 lines)
-✅ .blackbox5/engine/core/complexity.py (427 lines)
-✅ .blackbox5/engine/core/task_types.py (327 lines)
+✅ blackbox5/engine/core/task_router.py (591 lines)
+✅ blackbox5/engine/core/complexity.py (427 lines)
+✅ blackbox5/engine/core/task_types.py (327 lines)
 ```
 
 **Status:** PRODUCTION READY
@@ -40,8 +40,8 @@
 
 **Files Verified:**
 ```
-✅ .blackbox5/engine/core/logging.py (192 lines)
-✅ .blackbox5/engine/runtime/view-logs.sh (7,132 bytes, executable)
+✅ blackbox5/engine/core/logging.py (192 lines)
+✅ blackbox5/engine/runtime/view-logs.sh (7,132 bytes, executable)
 ```
 
 **Status:** WORKING
@@ -54,8 +54,8 @@
 
 **Files Verified:**
 ```
-✅ .blackbox5/engine/core/manifest.py (302 lines)
-✅ .blackbox5/engine/runtime/view-manifest.sh (5,191 bytes, executable)
+✅ blackbox5/engine/core/manifest.py (302 lines)
+✅ blackbox5/engine/runtime/view-manifest.sh (5,191 bytes, executable)
 ```
 
 **Status:** WORKING
@@ -68,9 +68,9 @@
 
 **Files Verified:**
 ```
-✅ .blackbox5/engine/runtime/view-logs.sh (executable)
-✅ .blackbox5/engine/runtime/view-manifest.sh (executable)
-✅ .blackbox5/engine/runtime/agent-status.sh (executable)
+✅ blackbox5/engine/runtime/view-logs.sh (executable)
+✅ blackbox5/engine/runtime/view-manifest.sh (executable)
+✅ blackbox5/engine/runtime/agent-status.sh (executable)
 ```
 
 **Status:** WORKING
@@ -82,12 +82,12 @@
 
 **Files Verified:**
 ```
-✅ .blackbox5/tests/conftest.py (18,570 bytes - fixtures)
-✅ .blackbox5/tests/test_task_router.py (26,251 bytes - 100+ tests)
-✅ .blackbox5/tests/test_logging.py (22,682 bytes - 80+ tests)
-✅ .blackbox5/tests/test_manifest.py (24,340 bytes - 90+ tests)
-✅ .blackbox5/tests/test_integration.py (25,835 bytes - 50+ tests)
-✅ .blackbox5/tests/run_tests.sh (executable)
+✅ blackbox5/tests/conftest.py (18,570 bytes - fixtures)
+✅ blackbox5/tests/test_task_router.py (26,251 bytes - 100+ tests)
+✅ blackbox5/tests/test_logging.py (22,682 bytes - 80+ tests)
+✅ blackbox5/tests/test_manifest.py (24,340 bytes - 90+ tests)
+✅ blackbox5/tests/test_integration.py (25,835 bytes - 50+ tests)
+✅ blackbox5/tests/run_tests.sh (executable)
 ```
 
 **Status:** COMPREHENSIVE
@@ -102,15 +102,15 @@
 
 **Files Claimed:**
 ```
-❌ .blackbox5/engine/agents/1-core/manager/agent.md
-❌ .blackbox5/engine/agents/1-core/manager/prompt.md
-❌ .blackbox5/engine/agents/1-core/manager/config.yaml
-❌ .blackbox5/engine/agents/1-core/manager/manager.py
+❌ blackbox5/engine/agents/1-core/manager/agent.md
+❌ blackbox5/engine/agents/1-core/manager/prompt.md
+❌ blackbox5/engine/agents/1-core/manager/config.yaml
+❌ blackbox5/engine/agents/1-core/manager/manager.py
 ```
 
 **What Actually Exists:**
-- Directory `.blackbox5/engine/agents/1-core/` DOES NOT EXIST
-- Only `.blackbox5/engine/agents/.skills-new/` and `2-bmad/` exist
+- Directory `blackbox5/engine/agents/1-core/` DOES NOT EXIST
+- Only `blackbox5/engine/agents/.skills-new/` and `2-bmad/` exist
 - ZERO agent implementations
 
 **Status:** COMPLETE FABRICATION
@@ -122,13 +122,13 @@
 
 ### 🎁 BONUS: Agent System Already Exists!
 
-**Location:** `.blackbox5/engine/.agents/` (hidden directory with dot prefix)
+**Location:** `blackbox5/engine/.agents/` (hidden directory with dot prefix)
 
 **Files Found:**
 ```
-✅ .blackbox5/engine/.agents/core/BaseAgent.py (EXISTS!)
-✅ .blackbox5/engine/.agents/core/AgentLoader.py (EXISTS!)
-✅ .blackbox5/engine/.agents/core/AgentRouter.py (EXISTS!)
+✅ blackbox5/engine/.agents/core/BaseAgent.py (EXISTS!)
+✅ blackbox5/engine/.agents/core/AgentLoader.py (EXISTS!)
+✅ blackbox5/engine/.agents/core/AgentRouter.py (EXISTS!)
 ```
 
 **This Changes Everything:**
@@ -311,7 +311,7 @@ The agent system sub-agents claimed was missing **ALREADY EXISTS** in a differen
 
 3. **Create Test Specialist**
    ```python
-   # .blackbox5/engine/.agents/specialists/coder.py
+   # blackbox5/engine/.agents/specialists/coder.py
    class CoderAgent(BaseAgent):
        async def execute(self, task):
            return f"Coded: {task.description}"

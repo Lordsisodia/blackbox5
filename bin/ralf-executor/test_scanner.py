@@ -15,7 +15,7 @@ def test_parse_task():
     print("TEST: Parse TASK-010-001 (4 hours effort)")
     print("=" * 60)
 
-    task = parse_task_file(Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/task.md"))
+    task = parse_task_file(Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/task.md"))
 
     assert task is not None, "Failed to parse task"
     assert task.id == "TASK-010-001", f"Expected TASK-010-001, got {task.id}"
@@ -42,7 +42,7 @@ def test_parse_task_with_files():
     print("TEST: Parse TASK-FIX-SKIL-007-1 (with files)")
     print("=" * 60)
 
-    task = parse_task_file(Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-1/task.md"))
+    task = parse_task_file(Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-1/task.md"))
 
     assert task is not None, "Failed to parse task"
     assert task.id == "TASK-FIX-SKIL-007-1", f"Expected TASK-FIX-SKIL-007-1, got {task.id}"
@@ -63,7 +63,7 @@ def test_scan_directory():
     print("TEST: Scan tasks directory")
     print("=" * 60)
 
-    tasks = scan_tasks_directory(Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active"))
+    tasks = scan_tasks_directory(Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active"))
 
     assert len(tasks) > 0, "Expected to find tasks"
 
@@ -84,7 +84,7 @@ def test_queue_entry_format():
     print("TEST: Queue entry format")
     print("=" * 60)
 
-    task = parse_task_file(Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-1/task.md"))
+    task = parse_task_file(Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-FIX-SKIL-007-1/task.md"))
     entry = task.to_queue_entry()
 
     required_keys = ["id", "type", "status", "priority", "priority_score", "title", "estimated_minutes", "roi", "blockedBy", "blocks", "resource_type", "parallel_group"]

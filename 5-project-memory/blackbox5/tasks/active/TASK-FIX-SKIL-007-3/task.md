@@ -21,10 +21,10 @@ Currently, task outcomes in `skill-registry.yaml` have `skill_used: null` becaus
 - [ ] Test that new task completions record skill_used correctly
 
 ## Files to Modify
-- Identify and modify: Task completion hook scripts (likely in `~/.blackbox5/5-project-memory/blackbox5/.claude/hooks/`)
-- Check: `~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py`
-- Check: `~/.blackbox5/5-project-memory/blackbox5/.claude/hooks/log-skill-on-complete.py`
-- Modify: `~/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` (backfill existing entries if possible)
+- Identify and modify: Task completion hook scripts (likely in `~/blackbox5/5-project-memory/blackbox5/.claude/hooks/`)
+- Check: `~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py`
+- Check: `~/blackbox5/5-project-memory/blackbox5/.claude/hooks/log-skill-on-complete.py`
+- Modify: `~/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` (backfill existing entries if possible)
 
 ## Context
 
@@ -94,15 +94,15 @@ Before implementing, investigate:
 ## Files to Investigate
 ```bash
 # Search for task outcome logging
-grep -r "task_outcomes" ~/.blackbox5/5-project-memory/blackbox5/bin/
-grep -r "task_outcome" ~/.blackbox5/5-project-memory/blackbox5/.claude/hooks/
+grep -r "task_outcomes" ~/blackbox5/5-project-memory/blackbox5/bin/
+grep -r "task_outcome" ~/blackbox5/5-project-memory/blackbox5/.claude/hooks/
 
 # Search for skill logging
-grep -r "skill_used" ~/.blackbox5/5-project-memory/blackbox5/
+grep -r "skill_used" ~/blackbox5/5-project-memory/blackbox5/
 
 # Check existing hooks
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.claude/hooks/
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.claude/hooks/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/
 ```
 
 ## Rollback Strategy

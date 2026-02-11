@@ -39,7 +39,7 @@ Current gaps:
 
 ## Completion
 **Completed:** 2026-01-31T12:28:27Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769862398
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769862398
 **Agent:** Agent-2.5
 **Path Used:** Quick Flow
 **Tests Created:** 4

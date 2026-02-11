@@ -3,7 +3,7 @@
 **Analyzed by:** Ralph Runtime
 **Date:** 2026-01-18 14:49:17
 
-## Analysis: .blackbox5/engine/frameworks
+## Analysis: blackbox5/engine/frameworks
 
 ### Directory Structure
 
@@ -115,5 +115,5 @@ See parent directory documentation for usage information.
 
 ### Summary
 
-The directory `.blackbox5/engine/frameworks` contains 0 Python files, 0 TypeScript files, and 4 main components.
+The directory `blackbox5/engine/frameworks` contains 0 Python files, 0 TypeScript files, and 4 main components.
 

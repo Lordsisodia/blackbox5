@@ -3,10 +3,10 @@
 Simple Agent Test Script
 
 This script tests the agent implementations.
-Run from the .blackbox5/engine directory.
+Run from the blackbox5/engine directory.
 
 Usage:
-    cd .blackbox5/engine
+    cd blackbox5/engine
     python3 test_agents_simple.py
 """
 

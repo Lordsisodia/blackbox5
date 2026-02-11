@@ -9,19 +9,19 @@
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 
 # Run a task with default developer agent
-python .blackbox5/bb5.py "Fix the type error in GamificationDashboard.tsx"
+python blackbox5/bb5.py "Fix the type error in GamificationDashboard.tsx"
 
 # Use a specific agent
-python .blackbox5/bb5.py --agent bug_fixer "Debug the reward catalog issue"
+python blackbox5/bb5.py --agent bug_fixer "Debug the reward catalog issue"
 
 # Run a multi-agent workflow
-python .blackbox5/bb5.py --workflow "Analyze the bug, fix it, write tests, and review"
+python blackbox5/bb5.py --workflow "Analyze the bug, fix it, write tests, and review"
 ```
 
 ### 2. Interactive Mode (Recommended)
 
 ```bash
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 Then you can interact naturally:
@@ -136,7 +136,7 @@ For PR reviews → code_reviewer
 
 The system is configured to use GLM-4.7 by default. To change settings:
 
-Edit `.blackbox5/engine/config.yml`:
+Edit `blackbox5/engine/config.yml`:
 
 ```yaml
 glm:
@@ -182,14 +182,14 @@ cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 
 ## 🎓 Learning More
 
-- **Full Documentation**: `.blackbox5/docs/`
-- **Agent Details**: `.blackbox5/custom_agents/{agent_type}/agent.md`
-- **Tests**: `.blackbox5/tests/`
-- **Examples**: `.blackbox5/examples/`
+- **Full Documentation**: `blackbox5/docs/`
+- **Agent Details**: `blackbox5/custom_agents/{agent_type}/agent.md`
+- **Tests**: `blackbox5/tests/`
+- **Examples**: `blackbox5/examples/`
 
 ## 🚀 Next Steps
 
-1. **Try interactive mode**: `python .blackbox5/bb5.py --interactive`
+1. **Try interactive mode**: `python blackbox5/bb5.py --interactive`
 2. **Start with a small task**: "Add console.log to RewardCatalog.tsx"
 3. **Scale up to complex workflows**: Bug fixes, feature development
 4. **Create custom agents**: Add your own specialized agents
@@ -197,7 +197,7 @@ cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 ## 💬 Example Session
 
 ```bash
-$ python .blackbox5/bb5.py --interactive
+$ python blackbox5/bb5.py --interactive
 
 📁 Project: /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 🔧 Initializing BlackBox5...

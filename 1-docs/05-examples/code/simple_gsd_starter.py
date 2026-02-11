@@ -172,7 +172,7 @@ async def main():
 
     print("\n📁 FILES CREATED:")
     print(f"   - {state_file}")
-    print(f"   - .blackbox5/my_gsd_workspace/checkpoints/")
+    print(f"   - blackbox5/my_gsd_workspace/checkpoints/")
 
     print("\n" + "="*70 + "\n")
 

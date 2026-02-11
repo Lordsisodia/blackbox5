@@ -22,7 +22,7 @@ from dataclasses import dataclass, asdict
 
 # Add engine lib to path using RALF path configuration
 # First try environment variable, then fall back to default
-_engine_lib = Path(os.environ.get('RALF_ENGINE_DIR', Path.home() / '.blackbox5' / '2-engine')) / '.autonomous' / 'lib'
+_engine_lib = Path(os.environ.get('RALF_ENGINE_DIR', Path.home() / 'blackbox5' / '2-engine')) / '.autonomous' / 'lib'
 sys.path.insert(0, str(_engine_lib))
 from paths import get_ralf_project_dir, get_ralf_engine_dir, validate_ralf_paths
 from config import get_config

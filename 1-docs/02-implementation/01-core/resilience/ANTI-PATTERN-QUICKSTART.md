@@ -61,19 +61,19 @@ print(f"Problematic files: {stats['top_files']}")
 
 ```bash
 # Scan current directory
-python .blackbox5/engine/core/anti_pattern_detector.py
+python blackbox5/engine/core/anti_pattern_detector.py
 
 # Scan specific path
-python .blackbox5/engine/core/anti_pattern_detector.py /path/to/code
+python blackbox5/engine/core/anti_pattern_detector.py /path/to/code
 
 # Show only high+ severity
-python .blackbox5/engine/core/anti_pattern_detector.py --severity high
+python blackbox5/engine/core/anti_pattern_detector.py --severity high
 ```
 
 ## Next Steps
 
 - Read full documentation: `docs/ANTI-PATTERN-DETECTION.md`
-- Run tests: `pytest .blackbox5/tests/test_anti_pattern_detection.py`
+- Run tests: `pytest blackbox5/tests/test_anti_pattern_detection.py`
 - Add custom patterns for your project
 - Integrate into CI/CD pipeline
 
@@ -85,7 +85,7 @@ python .blackbox5/engine/core/anti_pattern_detector.py --severity high
 **Total Violations:** 15
 
 ## CRITICAL (1)
-### .blackbox5/engine/core/auth.py:42
+### blackbox5/engine/core/auth.py:42
 **Pattern:** hardcoded_secret
 **Suggestion:** Use environment variables or config files
 ```
@@ -93,7 +93,7 @@ password = "admin123"
 ```
 
 ## HIGH (3)
-### .blackbox5/engine/core/api.py:15
+### blackbox5/engine/core/api.py:15
 **Pattern:** fixme
 **Suggestion:** Fix the issue or document why it exists
 ```

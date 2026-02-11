@@ -16,7 +16,7 @@ This task folder contains identical content to `AGENT-SYSTEM-AUDIT`.
 ## Reference
 
 See the comprehensive plan at:
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/AGENT-SYSTEM-AUDIT/PLAN.md`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/AGENT-SYSTEM-AUDIT/PLAN.md`
 
 ## Quick Summary
 

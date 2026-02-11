@@ -64,7 +64,7 @@ LOW - File creation and text updates only, no executable code changes
 ## Completion
 
 **Completed:** 2026-01-31T06:07:30Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131-060616
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131-060616
 **Agent:** Agent-2.4
 **Path Used:** quick
 **Phase Gates:** All passed (QUICK-SPEC, DEV-STORY, CODE-REVIEW)

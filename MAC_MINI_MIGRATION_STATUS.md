@@ -92,7 +92,7 @@ launchctl load ~/Library/LaunchAgents/com.siso.moltbot.plist
 ### 3. MCP Configuration Update
 **Status:** Needs to be updated for Mac Mini paths
 
-Current `~/.blackbox5/.mcp-moltbot.json` points to VPS paths. Update to:
+Current `~/blackbox5/.mcp-moltbot.json` points to VPS paths. Update to:
 ```json
 {
   "mcpServers": {
@@ -100,7 +100,7 @@ Current `~/.blackbox5/.mcp-moltbot.json` points to VPS paths. Update to:
       "type": "stdio",
       "command": "python3",
       "args": [
-        "/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py"
+        "/Users/shaansisodia/blackbox5/mcp-server-moltbot.py"
       ]
     }
   }
@@ -154,7 +154,7 @@ Current `~/.blackbox5/.mcp-moltbot.json` points to VPS paths. Update to:
 
 ### From VPS /opt/blackbox5/
 ```
-~/.blackbox5/ (already existed, configs merged)
+~/blackbox5/ (already existed, configs merged)
 ```
 
 ## Next Steps

@@ -6,7 +6,7 @@ Successfully consolidated timeline data into a single source of truth.
 ## Changes Made
 
 ### 1. Root Timeline Enhanced
-- Added 16 unique goal events to `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline.yaml`
+- Added 16 unique goal events to `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/timeline.yaml`
 - Events include goal creations, sub-goal completions, research milestones
 - All events properly tagged with `related_items` for filtering
 
@@ -17,7 +17,7 @@ Replaced 8 goal timeline files with view definitions:
 - Includes query instructions for viewing goal-specific events
 
 ### 3. Documentation Created
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.docs/timeline-architecture.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.docs/timeline-architecture.md`
 - Complete architecture guide with examples
 - Query/filter system documentation
 

@@ -490,7 +490,7 @@ contains subagent summary
 ### New Files to Create
 
 ```
-~/.blackbox5/.claude/hooks/
+~/blackbox5/.claude/hooks/
 ├── session-start-docs.sh      # Hook 1: Template creation
 ├── subagent-context.sh        # Hook 2 & 4: Start/stop handling
 ├── pre-compact-preserve.sh    # Hook 3: Preservation
@@ -500,7 +500,7 @@ contains subagent summary
 ### Supporting Infrastructure
 
 ```
-~/.blackbox5/5-project-memory/blackbox5/
+~/blackbox5/5-project-memory/blackbox5/
 ├── .autonomous/
 │   └── hooks/
 │       ├── templates/         # Documentation templates

@@ -32,9 +32,9 @@ Create a comprehensive plan for integrating skills into the task execution workf
 **Suggested Action:** Create task to implement Phase 1 of skills integration plan
 
 **Files Checked:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` - Unified skill registry with 23 skills
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/rules/004-phase-1-5-skill-check.md` - Current skill checking rule
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.docs/skill-effectiveness-report.md` - Current effectiveness data
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` - Unified skill registry with 23 skills
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/rules/004-phase-1-5-skill-check.md` - Current skill checking rule
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.docs/skill-effectiveness-report.md` - Current effectiveness data
 
 **Key Findings:**
 - 23 skills defined across 5 categories (agent, protocol, utility, core, infrastructure)
@@ -47,7 +47,7 @@ Create a comprehensive plan for integrating skills into the task execution workf
 ## Deliverable
 
 **Skill Integration Plan created:**
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.docs/skill-integration-plan.md`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.docs/skill-integration-plan.md`
 
 ### Plan Overview
 

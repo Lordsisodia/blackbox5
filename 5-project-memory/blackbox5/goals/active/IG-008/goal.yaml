@@ -1,16 +1,18 @@
-# Goal: Implement Hindsight Memory Architecture for Persistent Agent Memory
+# Goal: Improve Memory Architecture
 # =============================================================================
 goal_id: IG-008
-name: "Implement Hindsight Memory Architecture for Persistent Agent Memory"
-description: "Enable agents to persistently remember everything they need through Hindsight's 4-network memory system (World, Experience, Opinion, Observation) and 3-core-operations (RETAIN, RECALL, REFLECT), achieving continuity of self across sessions"
+name: "Improve Memory Architecture"
+description: "Continuously improve how agents remember, recall, and learn from experience - building persistent memory that enables continuity of self across sessions"
 
 meta:
   created: "2026-02-04"
-  target_completion: "2026-03-18"  # 6 weeks
+  updated: "2026-02-10"
+  target_completion: "ongoing"
   owner: "architect-agent"
   priority: critical
-  status: draft
+  status: in_progress
   category: architecture
+  note: "MVP complete (Hindsight 4-network system). Now in continuous improvement phase."
 
 # =============================================================================
 # SUCCESS CRITERIA
@@ -272,6 +274,11 @@ links:
 
   plans:
     - PLAN-HINDSIGHT-001
+    - memory-production-hardening
+
+  tasks:
+    - TASK-MEM-001  # Add bb5-memory to PATH
+    - TASK-MEM-002  # Wire auto-RETAIN
 
 # =============================================================================
 # JOURNAL

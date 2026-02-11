@@ -11,8 +11,8 @@
 ### 1. Path Configuration Duplication
 
 **Two routes.yaml files with different structures:**
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml` (Engine routes)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` (Project routes)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/routes.yaml` (Engine routes)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` (Project routes)
 
 **Conflict:** The engine routes.yaml defines BMAD commands and skill routing, while the project routes.yaml defines filesystem paths. They serve different purposes but both claim to be the "routes" configuration.
 

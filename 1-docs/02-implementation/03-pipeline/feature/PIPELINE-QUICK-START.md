@@ -162,20 +162,20 @@ print(f"Passed: {result.passed}/{result.total_tests}")
 
 ## Data Storage
 
-All pipeline data is in `.blackbox5/pipeline/`:
+All pipeline data is in `blackbox5/pipeline/`:
 
 ```bash
 # View feature backlog
-cat .blackbox5/pipeline/feature_backlog.yaml
+cat blackbox5/pipeline/feature_backlog.yaml
 
 # View completed features
-cat .blackbox5/pipeline/completed_features.yaml
+cat blackbox5/pipeline/completed_features.yaml
 
 # View test history
-cat .blackbox5/pipeline/test_results.yaml
+cat blackbox5/pipeline/test_results.yaml
 
 # View pipeline runs
-cat .blackbox5/pipeline/pipeline_runs.yaml
+cat blackbox5/pipeline/pipeline_runs.yaml
 ```
 
 ## What Gets Automated

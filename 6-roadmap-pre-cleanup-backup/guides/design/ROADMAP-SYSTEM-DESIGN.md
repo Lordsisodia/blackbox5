@@ -15,7 +15,7 @@ The roadmap system provides a structured way to plan, track, and learn from Blac
 ## Folder Structure
 
 ```
-.blackbox5/roadmap/
+blackbox5/roadmap/
 ├── 00-proposed/              # Initial ideas and proposals
 ├── 01-research/              # Investigation and feasibility
 ├── 02-design/                # Technical design and architecture
@@ -192,7 +192,7 @@ relates_to: []      # Related IDs
 parent_improvement: null  # Part of larger improvement
 
 # Tasks
-related_tasks: []   # Links to .blackbox5/tasks/
+related_tasks: []   # Links to blackbox5/tasks/
 parent_prd: null
 parent_epic: null
 
@@ -280,7 +280,7 @@ graph TB
 
 ## Integration with Existing Systems
 
-### Link to Tasks (`.blackbox5/tasks/`)
+### Link to Tasks (`blackbox5/tasks/`)
 
 ```yaml
 # In improvement file
@@ -299,7 +299,7 @@ parent_epic: "EPIC-002"
 ### Link to Memory System
 
 ```yaml
-# In .blackbox5/memory/INDEX.yaml
+# In blackbox5/memory/INDEX.yaml
 improvements:
   active: 5
   completed: 12
@@ -420,7 +420,7 @@ dependencies:
 1. **Submit Proposal**
    ```bash
    # Create file in 00-proposed/
-   vim .blackbox5/roadmap/00-proposed/PROPOSAL-0001-async-execution.md
+   vim blackbox5/roadmap/00-proposed/PROPOSAL-0001-async-execution.md
    ```
 
 2. **Initial Triage**
@@ -500,7 +500,7 @@ dependencies:
 
 ### To 500+ Improvements
 - Implement search via INDEX.yaml
-- Use query system like `.blackbox5/memory/INDEX.yaml`
+- Use query system like `blackbox5/memory/INDEX.yaml`
 - Add database backend if needed (ChromaDB/Neo4j)
 
 ---
@@ -509,7 +509,7 @@ dependencies:
 
 1. **Create Structure**
    ```bash
-   mkdir -p .blackbox5/roadmap/{00-proposed,01-research,02-design,03-planned,04-active,05-completed/2026/{01-january,02-february,03-march,04-april,05-may,06-june},06-cancelled,07-backlog,templates}
+   mkdir -p blackbox5/roadmap/{00-proposed,01-research,02-design,03-planned,04-active,05-completed/2026/{01-january,02-february,03-march,04-april,05-may,06-june},06-cancelled,07-backlog,templates}
    ```
 
 2. **Create Templates**

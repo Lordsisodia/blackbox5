@@ -63,7 +63,7 @@
 
 **Output**:
 ```
-.blackbox5/specs/
+blackbox5/specs/
 ├── prds/
 │   └── multi-tenant-saas-prd.md
 ├── epics/
@@ -203,7 +203,7 @@ result = manager.execute_task(
 # ...continues until complete
 
 # All tracked in Blackbox Memory:
-# .blackbox5/5-project-memory/siso-internal/operations/ralphy/
+# blackbox5/5-project-memory/siso-internal/operations/ralphy/
 ```
 
 **Agent 2** (Tenant Model) also uses Ralphy:
@@ -245,9 +245,9 @@ def setup_nextjs():
 ┌─────────────────────────────────────────────────────────────┐
 │ 2. PLANNING AGENT (BMAD Method)                             │
 │                                                              │
-│ • Creates PRD: .blackbox5/specs/prds/xxx.md                │
-│ • Creates Epic: .blackbox5/specs/epics/xxx.md              │
-│ • Creates Tasks: .blackbox5/specs/tasks/xxx.md             │
+│ • Creates PRD: blackbox5/specs/prds/xxx.md                │
+│ • Creates Epic: blackbox5/specs/epics/xxx.md              │
+│ • Creates Tasks: blackbox5/specs/tasks/xxx.md             │
 └──────────────┬───────────────────────────────────────────────┘
                │
                ▼
@@ -303,7 +303,7 @@ def setup_nextjs():
 ┌─────────────────────────────────────────────────────────────┐
 │ 8. RESULTS IN PROJECT MEMORY                                │
 │                                                              │
-│ .blackbox5/5-project-memory/siso-internal/operations/       │
+│ blackbox5/5-project-memory/siso-internal/operations/       │
 │ ├── agents/                                                 │
 │ │   ├── agent-1/sessions.json  (RALPHY sessions)           │
 │ │   ├── agent-2/sessions.json  (RALPHY sessions)           │
@@ -323,7 +323,7 @@ def setup_nextjs():
 ### File 1: Planning Agent Workflow
 
 ```python
-# .blackbox5/engine/agents/workflows/planning_agent.py
+# blackbox5/engine/agents/workflows/planning_agent.py
 
 from pathlib import Path
 from blackbox5.engine.integrations.vibe import VibeKanbanManager
@@ -437,7 +437,7 @@ class PlanningAgent:
 ### File 2: Orchestrator Agent
 
 ```python
-# .blackbox5/engine/agents/workflows/orchestrator_agent.py
+# blackbox5/engine/agents/workflows/orchestrator_agent.py
 
 from blackbox5.engine.integrations.vibe import VibeKanbanManager
 from blackbox5.engine.operations.runtime.ralphy import RalphyManager
@@ -644,7 +644,7 @@ def main():
     # Step 3: Show results in Project Memory
     print("\n📊 PHASE 3: Results")
     print("Check Project Memory:")
-    print("  .blackbox5/5-project-memory/siso-internal/operations/")
+    print("  blackbox5/5-project-memory/siso-internal/operations/")
     print("  ├── agents/ (agent sessions)")
     print("  └── ralphy/ (autonomous loops)")
 
@@ -663,14 +663,14 @@ if __name__ == "__main__":
 $ python main.py
 
 🎯 PHASE 1: Planning
-✅ Created PRD: .blackbox5/specs/prds/current-prd.md
-✅ Created Epic: .blackbox5/specs/epics/current-epic.md
+✅ Created PRD: blackbox5/specs/prds/current-prd.md
+✅ Created Epic: blackbox5/specs/epics/current-epic.md
 ✅ Created 20 tasks
 ✅ Pushed 20 cards to Vibe Kanban
 
 ✅ Planning complete:
-  - PRD: .blackbox5/specs/prds/current-prd.md
-  - Epic: .blackbox5/specs/epics/current-epic.md
+  - PRD: blackbox5/specs/prds/current-prd.md
+  - Epic: blackbox5/specs/epics/current-epic.md
   - Tasks: 20
   - Kanban: http://localhost:3001
 
@@ -714,7 +714,7 @@ $ python main.py
 
 📊 PHASE 3: Results
 Check Project Memory:
-  .blackbox5/5-project-memory/siso-internal/operations/
+  blackbox5/5-project-memory/siso-internal/operations/
   ├── agents/
   │   ├── agent-1/sessions.json (RALPHY: 5 iterations)
   │   ├── agent-2/sessions.json (RALPHY: 3 iterations)

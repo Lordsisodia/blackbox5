@@ -276,7 +276,7 @@ my-plugin/
     "email": "team@blackbox5.ai",
     "url": "https://github.com/blackbox5"
   },
-  "homepage": "https://docs.blackbox5.ai",
+  "homepage": "https://docsblackbox5.ai",
   "repository": "https://github.com/blackbox5/agent-mesh-plugin",
   "license": "MIT",
   "keywords": ["agents", "mcp", "mesh", "orchestration"],
@@ -841,8 +841,8 @@ MAJOR.MINOR.PATCH
 3. [Plugins Reference](https://code.claude.com/docs/en/plugins-reference)
 4. [MCP Specification](https://modelcontextprotocol.io/specification/2025-11-25)
 5. [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-6. [BlackBox5 MCP Architecture Recommendation](/Users/shaansisodia/.blackbox5/6-roadmap/01-research/skills-capabilities/findings/mcp-architecture-recommendation.md)
-7. [Agent Discovery & Routing Research](/Users/shaansisodia/.blackbox5/6-roadmap/01-research/agent-types/findings/02-agent-discovery-routing.md)
+6. [BlackBox5 MCP Architecture Recommendation](/Users/shaansisodia/blackbox5/6-roadmap/01-research/skills-capabilities/findings/mcp-architecture-recommendation.md)
+7. [Agent Discovery & Routing Research](/Users/shaansisodia/blackbox5/6-roadmap/01-research/agent-types/findings/02-agent-discovery-routing.md)
 
 ---
 

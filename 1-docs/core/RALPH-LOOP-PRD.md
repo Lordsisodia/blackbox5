@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-**Problem:** We have hundreds of features across `.blackbox5/` and multiple frameworks, but they're not systematically documented with their underlying assumptions. This makes it impossible to validate what we know vs. what we assume.
+**Problem:** We have hundreds of features across `blackbox5/` and multiple frameworks, but they're not systematically documented with their underlying assumptions. This makes it impossible to validate what we know vs. what we assume.
 
 **Solution:** Create an autonomous loop (Ralph Wiggum pattern) that:
 1. Discovers and documents all features
@@ -31,7 +31,7 @@
 ## Objectives
 
 ### Primary Objectives
-1. **Document 100% of features** in `.blackbox5/` and all frameworks
+1. **Document 100% of features** in `blackbox5/` and all frameworks
 2. **Extract all assumptions** from documented features
 3. **Generate challenges** for every assumption using assumption-challenger
 4. **Plan 100-200 validation experiments** with priority scoring
@@ -106,7 +106,7 @@ The autonomous loop leverages Ralph Runtime's four core components:
 ├──────────────────────────────────────────────────────────────────┤
 │                                                                   │
 │  PHASE 1: DISCOVERY                              │
-│  ├── Scan .blackbox5/ for feature directories                    │
+│  ├── Scan blackbox5/ for feature directories                    │
 │  ├── Identify framework directories (bmad, speckit, metagpt...)  │
 │  ├── Parse code, configs, README files                           │
 │  └── Build feature inventory                                      │
@@ -164,7 +164,7 @@ The autonomous loop leverages Ralph Runtime's four core components:
 **Goal:** Build complete inventory of all features
 
 ```
-Task 001-010: .blackbox5/ Core Discovery
+Task 001-010: blackbox5/ Core Discovery
 ├── 001: Scan agents/ directory structure
 ├── 002: Scan capabilities/ directory structure
 ├── 003: Scan operations/ directory structure
@@ -440,11 +440,11 @@ Task 291-300: System Updates
 ### Ralph Runtime Configuration
 
 ```python
-# .blackbox5/engine/operations/runtime/ralph-runtime.sh
+# blackbox5/engine/operations/runtime/ralph-runtime.sh
 
 # Run autonomous documentation loop
 ralph-runtime run \
-  --plan .blackbox5/roadmap/first-principles/RALPH-LOOP-PLAN.yaml \
+  --plan blackbox5/roadmap/first-principles/RALPH-LOOP-PLAN.yaml \
   --autonomous \
   --max-iterations 300 \
   --confidence-threshold 0.7 \
@@ -651,7 +651,7 @@ Output as validations/{feature}-validation.md format with:
 ### Input Data Sources
 
 ```
-.blackbox5/
+blackbox5/
 ├── agents/           → Feature discovery
 ├── capabilities/     → Feature discovery
 ├── operations/       → Feature discovery
@@ -665,7 +665,7 @@ Output as validations/{feature}-validation.md format with:
 ### Output Data Storage
 
 ```
-.blackbox5/roadmap/first-principles/
+blackbox5/roadmap/first-principles/
 ├── features/                    # Phase 2 output
 │   ├── task-analyzer.md        # Example
 │   ├── agent-loader.md         # Generated
@@ -881,7 +881,7 @@ circuit_breaker:
 - ✅ Template system (implemented)
 
 ### Data Dependencies
-- Feature source code (.blackbox5/)
+- Feature source code (blackbox5/)
 - Framework documentation
 - Configuration files
 - Existing feature docs (task-analyzer as example)

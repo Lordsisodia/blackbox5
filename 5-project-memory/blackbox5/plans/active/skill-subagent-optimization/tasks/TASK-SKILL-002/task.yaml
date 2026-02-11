@@ -1,0 +1,25 @@
+---
+id: "TASK-SKILL-002"
+title: "Implement Skill Effectiveness Tracking"
+status: "pending"
+priority: "high"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-SKILL-SUBAGENT-001"
+phase: "Phase 2"
+
+# Task Details
+description: |
+  All 23 skills have null effectiveness metrics. Implement tracking so we
+  can measure which skills actually help.
+
+acceptance_criteria:
+  - skill-registry.yaml updated with tracking fields
+  - bb5 skill:log command created
+  - effectiveness_score calculated for each skill
+  - success_rate, time_efficiency, trigger_accuracy populated
+  - Dashboard shows skill performance
+
+estimated_hours: 6

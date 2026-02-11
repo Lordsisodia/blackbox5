@@ -18,7 +18,7 @@ BlackBox 5 is a sophisticated multi-agent orchestration system with **Phase 1 sa
 
 ### Phase 1: Safety Features (100% Complete)
 
-**Location:** `.blackbox5/2-engine/01-core/safety/`
+**Location:** `blackbox5/2-engine/01-core/safety/`
 
 1. **Kill Switch** (570 lines)
    - Emergency shutdown capability
@@ -100,7 +100,7 @@ BlackBox 5 is a sophisticated multi-agent orchestration system with **Phase 1 sa
 - Commands not implemented
 
 **Needed:**
-- Create `.blackbox5/2-engine/01-core/interface/cli/bb5.py`
+- Create `blackbox5/2-engine/01-core/interface/cli/bb5.py`
 - Implement all commands: ask, agents, inspect, skills, guide
 - Fix root bb5 script path
 - Integrate safety checks
@@ -241,7 +241,7 @@ BlackBox 5 is a sophisticated multi-agent orchestration system with **Phase 1 sa
 
 ### Safety System (Phase 1 - Complete)
 ```
-.blackbox5/2-engine/01-core/safety/
+blackbox5/2-engine/01-core/safety/
 ├── kill_switch.py
 ├── safe_mode.py
 ├── constitutional_classifier.py
@@ -251,7 +251,7 @@ BlackBox 5 is a sophisticated multi-agent orchestration system with **Phase 1 sa
 
 ### Phase 2 (To Be Implemented)
 ```
-.blackbox5/2-engine/01-core/
+blackbox5/2-engine/01-core/
 ├── interface/
 │   ├── cli/bb5.py          # CREATE THIS
 │   └── api/main.py          # CREATE THIS
@@ -261,7 +261,7 @@ BlackBox 5 is a sophisticated multi-agent orchestration system with **Phase 1 sa
 
 ### Existing Infrastructure
 ```
-.blackbox5/2-engine/
+blackbox5/2-engine/
 ├── 01-core/                  # Core components
 ├── 02-agents/                # Agent system
 ├── 03-knowledge/             # Memory & knowledge

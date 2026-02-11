@@ -30,7 +30,7 @@
 ## 📂 Quick Context
 
 ### Active Feature
-**Project Memory System** (`.blackbox5/5-project-memory/siso-internal/`)
+**Project Memory System** (`blackbox5/5-project-memory/siso-internal/`)
 - Status: Tier 0 improvements complete
 - Progress: 100% for this phase
 - Key improvements:
@@ -57,7 +57,7 @@
 
 ### Working Directory
 ```
-Current: /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/5-project-memory/siso-internal
+Current: /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/siso-internal
 Related: scripts/, project/memory/, operations/retrospectives/
 ```
 
@@ -69,7 +69,7 @@ Related: scripts/, project/memory/, operations/retrospectives/
 
 ### Environment Variables
 ```bash
-PROJECT_ROOT=/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/5-project-memory/siso-internal
+PROJECT_ROOT=/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/siso-internal
 ```
 
 ### Branch/Commit
@@ -150,7 +150,7 @@ cat project/memory/SESSION.md
 cat tasks/active/TASK-*-CONTEXT.md
 
 # Jump to working directory
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/5-project-memory/siso-internal
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/siso-internal
 ```
 
 ### Complete Work
@@ -205,7 +205,7 @@ cat STATE.yaml
 3. Test Agent Orchestration system
 
 ### Reference
-**Blackbox5 Roadmap**: `.blackbox5/6-roadmap/RESUMPTION-POINT.md`
+**Blackbox5 Roadmap**: `blackbox5/6-roadmap/RESUMPTION-POINT.md`
 **Status**: Agent orchestration complete, ready for testing and roadmap implementation
 
 ---

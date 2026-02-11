@@ -18,7 +18,7 @@ After implementing the P0 rules, the next priority is to set up @path imports in
 ## Implementation Steps
 
 ### Step 1: Create Project CLAUDE.md
-Create `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/CLAUDE.md`:
+Create `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/CLAUDE.md`:
 
 ```markdown
 ---

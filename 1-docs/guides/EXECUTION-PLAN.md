@@ -126,7 +126,7 @@ Wave 4 (After Wave 3):         Testing & Optimization
 
 **Steps:**
 1. Quick wins (code_index.md, boot files) - 3 hours
-2. Update `.blackbox5` references - 2-3 hours
+2. Update `blackbox5` references - 2-3 hours
 3. Consolidate event bus - 1 day
 4. Clean up documentation - 1-2 days
 

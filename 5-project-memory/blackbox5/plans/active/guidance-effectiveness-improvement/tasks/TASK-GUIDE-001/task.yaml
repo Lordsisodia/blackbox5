@@ -1,0 +1,25 @@
+---
+id: "TASK-GUIDE-001"
+title: "Analyze Past Runs for Guidance Friction Points"
+status: "pending"
+priority: "high"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-GUIDANCE-001"
+phase: "Phase 1"
+
+# Task Details
+description: |
+  Review last 20 runs to identify where CLAUDE.md could be clearer.
+  Document hesitation, confusion, and delays.
+
+acceptance_criteria:
+  - 20 runs reviewed from .autonomous/runs/
+  - 5+ hesitation instances documented
+  - Decision time measured per task type
+  - Problematic CLAUDE.md sections identified
+  - Friction points catalogued in analysis.md
+
+estimated_hours: 6

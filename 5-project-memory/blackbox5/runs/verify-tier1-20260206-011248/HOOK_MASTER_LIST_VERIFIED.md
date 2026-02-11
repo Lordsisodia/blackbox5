@@ -10,7 +10,7 @@
 ## Verified Hook Sources
 
 ### 1. multi-agent-ralph-loop (83+ hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/`
 
 This is the MOST COMPREHENSIVE hook collection found.
 
@@ -98,7 +98,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 2. smart-ralph (4 hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/smart-ralph/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/smart-ralph/`
 
 | # | Hook | Purpose | BB5 Value |
 |---|------|---------|-----------|
@@ -110,7 +110,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 3. Claudeman (3 hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/Claudeman/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/Claudeman/`
 
 | # | Hook | Purpose | BB5 Value |
 |---|------|---------|-----------|
@@ -121,7 +121,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 4. SWE-agent (3 hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/SWE-agent/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/SWE-agent/`
 
 **Python class-based hooks:**
 
@@ -138,7 +138,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 5. juno-code (5 hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/juno-code/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/juno-code/`
 
 **Lifecycle hooks:**
 
@@ -159,7 +159,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 6. ralph-orchestrator (1 hook)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/ralph-orchestrator/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/ralph-orchestrator/`
 
 | # | Hook | Purpose | BB5 Value |
 |---|------|---------|-----------|
@@ -168,7 +168,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 7. ralphy (2 hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/ralphy/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/ralphy/`
 
 | # | Hook | Purpose | BB5 Value |
 |---|------|---------|-----------|
@@ -178,7 +178,7 @@ This is the MOST COMPREHENSIVE hook collection found.
 ---
 
 ### 8. OpenHands (8 hooks)
-**Location:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/OpenHands/`
+**Location:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/OpenHands/`
 
 GitLab webhook implementations:
 
@@ -369,14 +369,14 @@ After analyzing all 150+ hooks, here are the top 30 for BB5:
 ## Files Referenced
 
 **Primary Sources:**
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/` (83+ hooks)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/smart-ralph/plugins/` (4 hooks)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/Claudeman/src/hooks-config.ts` (3 hooks)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/SWE-agent/sweagent/run/hooks/` (3 hooks)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/juno-code/src/utils/hooks.ts` (5 hooks)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/` (83+ hooks)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/smart-ralph/plugins/` (4 hooks)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/Claudeman/src/hooks-config.ts` (3 hooks)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/SWE-agent/sweagent/run/hooks/` (3 hooks)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/juno-code/src/utils/hooks.ts` (5 hooks)
 
 **BB5 Current Hooks:**
-- `/Users/shaansisodia/.blackbox5/.claude/hooks/` (10+ hooks)
+- `/Users/shaansisodia/blackbox5/.claude/hooks/` (10+ hooks)
 
 ---
 

@@ -17,7 +17,7 @@ Create an automated skill detection script that analyzes task input and returns 
 
 ## Success Criteria
 
-- [ ] Create `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/detect-skill.py`
+- [ ] Create `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/detect-skill.py`
 - [ ] Script accepts task description as input (stdin or argument)
 - [ ] Script reads skill-selection.yaml for domain mappings
 - [ ] Script calculates confidence using formula from skill-selection.yaml
@@ -50,21 +50,21 @@ No auto-detection script exists - agents manually check skills and subjectively 
 
 ### New Files
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/detect-skill.py`
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/detect-skill.py`
    - Main detection script (~150 lines)
    - Argument parsing
    - YAML reading
    - Confidence calculation
    - JSON output
 
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/test_detect_skill.py`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/test_detect_skill.py`
    - Unit tests (~100 lines)
    - Test cases for each trigger type
    - Mock skill-selection.yaml
 
 ### Modified Files
 
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5`
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5`
    - Add `bb5 skill:detect [task-description]` command
    - Integrate into task creation flow
 

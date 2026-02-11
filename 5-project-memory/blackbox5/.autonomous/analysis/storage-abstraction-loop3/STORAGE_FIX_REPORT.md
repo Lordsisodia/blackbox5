@@ -219,6 +219,6 @@ If issues occur:
 ## References
 
 - Validation Report: `VALIDATION_REPORT.md`
-- Pattern Source: `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/state/state_manager.py`
+- Pattern Source: `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/state/state_manager.py`
 - Python fcntl docs: https://docs.python.org/3/library/fcntl.html
 - Bash flock docs: `man 1 flock`

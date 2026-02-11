@@ -30,7 +30,7 @@ Final validation that all SSOT fixes work correctly. Document the changes and up
 ### 1. Run Full Validation
 
 ```bash
-cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 python3 bin/validate-ssot.py
 ```
 

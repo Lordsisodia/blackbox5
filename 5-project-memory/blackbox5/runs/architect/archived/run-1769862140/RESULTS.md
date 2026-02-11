@@ -14,7 +14,7 @@
 
 ### Integration Verification
 ```bash
-cd ~/.blackbox5/2-engine && python3 -c "
+cd ~/blackbox5/2-engine && python3 -c "
 from core.agents.definitions.planning_agent import PlanningAgent
 from core.agents.definitions.core.base_agent import AgentConfig, AgentTask
 import asyncio
@@ -44,7 +44,7 @@ asyncio.run(test())
 **Result:** ✅ VERIFIED
 
 ### Files Created
-- ~/.blackbox5/2-engine/core/agents/definitions/planning_agent.py (334 lines)
+- ~/blackbox5/2-engine/core/agents/definitions/planning_agent.py (334 lines)
 
 ### Next Steps
 1. Add LLM integration for intelligent requirement extraction

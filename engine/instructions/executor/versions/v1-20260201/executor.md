@@ -20,16 +20,16 @@
 
 ## Environment
 
-**Working Directory:** `~/.blackbox5/`
+**Working Directory:** `~/blackbox5/`
 
 **Critical Paths:**
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/communications/` — Talk to Planner
-- `~/.blackbox5/5-project-memory/blackbox5/STATE.yaml` — Ground truth
-- `~/.blackbox5/2-engine/.autonomous/skills/` — Your tools
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/communications/` — Talk to Planner
+- `~/blackbox5/5-project-memory/blackbox5/STATE.yaml` — Ground truth
+- `~/blackbox5/2-engine/.autonomous/skills/` — Your tools
 
 **Project Memory:**
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/executor/` — Your runs
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/` — Task definitions
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/runs/executor/` — Your runs
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/` — Task definitions
 
 ---
 
@@ -127,10 +127,10 @@ Before starting ANY task:
 
 ```bash
 # 1. Check for duplicate tasks
-grep -r "[task keyword]" ~/.blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/ 2>/dev/null | head -5
+grep -r "[task keyword]" ~/blackbox5/5-project-memory/blackbox5/.autonomous/tasks/completed/ 2>/dev/null | head -5
 
 # 2. Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
 
 # 3. Verify target files exist
 ls -la [target paths] 2>/dev/null

@@ -75,10 +75,10 @@ SESSION_ID=$(echo "$INPUT" | jq -r '.session_id')
 AGENT_TYPE=$(echo "$INPUT" | jq -r '.agent_type // "default"')
 
 # Load agent context from BlackBox5
-BB5_CONTEXT=$(cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/agent-context.yaml 2>/dev/null || echo "")
+BB5_CONTEXT=$(cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/agent-context.yaml 2>/dev/null || echo "")
 
 # Emit BlackBox5 event
-python3 ~/.blackbox5/bin/bb5-events.py emit \
+python3 ~/blackbox5/bin/bb5-events.py emit \
   --type agent_start \
   --agent "$AGENT_TYPE" \
   --session "$SESSION_ID" \
@@ -463,7 +463,7 @@ AGENT_TYPE=$(echo "$INPUT" | jq -r '.agent_type')
 SESSION_ID=$(echo "$INPUT" | jq -r '.session_id')
 
 # Emit to BlackBox5 event system
-cat >> ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml << EOF
+cat >> ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml << EOF
 - timestamp: '$(date -u +%Y-%m-%dT%H:%M:%SZ)'
   type: agent_start
   agent_id: $AGENT_ID
@@ -867,7 +867,7 @@ exit 0
 ### 6.2 BlackBox5 Recommended Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── .claude/
 │   ├── settings.json           # Project-wide hooks
 │   ├── settings.local.json     # Local overrides
@@ -1017,7 +1017,7 @@ EVENT_TYPE=$1
 shift
 
 # Build YAML event
-cat >> ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml << EOF
+cat >> ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml << EOF
 - timestamp: '$(date -u +%Y-%m-%dT%H:%M:%SZ)'
   type: $EVENT_TYPE
   source: hook
@@ -1277,8 +1277,8 @@ echo "Exit code: $?"
 
 ## References
 
-- **Source Document:** `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-hooks.md`
-- **BlackBox5 Events:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
+- **Source Document:** `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-hooks.md`
+- **BlackBox5 Events:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml`
 - **Claude Code Docs:** https://code.claude.com/docs/en/hooks
 - **Hooks Guide:** https://code.claude.com/docs/en/hooks-guide
 

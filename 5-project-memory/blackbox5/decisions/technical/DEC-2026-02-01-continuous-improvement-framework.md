@@ -120,13 +120,13 @@ Added `improvement_metrics` section with:
 
 **Files Modified:**
 - `~/.claude/CLAUDE.md`
-- `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md`
-- `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/skills-index.yaml`
-- `~/.blackbox5/5-project-memory/blackbox5/STATE.yaml`
+- `~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md`
+- `~/blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/skills-index.yaml`
+- `~/blackbox5/5-project-memory/blackbox5/STATE.yaml`
 
 **Files Created:**
-- `~/.blackbox5/2-engine/.autonomous/skills/continuous-improvement.md`
-- `~/.blackbox5/5-project-memory/blackbox5/decisions/technical/DEC-2026-02-01-continuous-improvement-framework.md`
+- `~/blackbox5/2-engine/.autonomous/skills/continuous-improvement.md`
+- `~/blackbox5/5-project-memory/blackbox5/decisions/technical/DEC-2026-02-01-continuous-improvement-framework.md`
 
 ---
 

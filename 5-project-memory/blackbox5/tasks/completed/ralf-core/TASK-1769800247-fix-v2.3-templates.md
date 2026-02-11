@@ -15,7 +15,7 @@ Create the missing `templates/` directory in Agent-2.3 with the `decision_regist
 
 ## Success Criteria
 
-- [ ] `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` directory exists
+- [ ] `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` directory exists
 - [ ] `decision_registry.yaml` template file exists in v2.3 templates directory
 - [ ] Template is compatible with Agent-2.3 decision registry system
 - [ ] The ralf.md reference to v2.3 templates resolves correctly
@@ -26,11 +26,11 @@ Create the missing `templates/` directory in Agent-2.3 with the `decision_regist
 ### Source Analysis
 - **Gap Identified**: Agent-2.3 is missing the `templates/` directory that exists in v2.2
 - **Root Cause**: The IMPROVEMENTS.md shows templates are "inherited from 2.2" but were never actually copied
-- **Impact**: The decision registry system cannot initialize - ralf.md references `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` which doesn't exist
+- **Impact**: The decision registry system cannot initialize - ralf.md references `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` which doesn't exist
 - **Risk Level**: MEDIUM - Breaks a core feature of Agent-2.3
 
 ### Related Components
-- **v2.2 template exists**: `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml`
+- **v2.2 template exists**: `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.2/templates/decision_registry.yaml`
 - **ralf.md reference**: Line 405 references the v2.3 template path
 - **Decision Registry System**: Defined in ralf.md lines 375-462
 
@@ -42,7 +42,7 @@ Create the missing `templates/` directory in Agent-2.3 with the `decision_regist
    - Confirm target directory path
 
 2. **Quick Flow Phase 2 (DEV-STORY)**:
-   - Create `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` directory
+   - Create `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` directory
    - Copy decision_registry.yaml from v2.2 to v2.3
    - Update template if v2.3 requires changes (e.g., subagent threshold references)
    - Verify file exists at expected path
@@ -58,7 +58,7 @@ MEDIUM - Low code complexity but critical for system functionality
 
 ## Rollback Strategy
 
-- Delete created `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` directory
+- Delete created `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` directory
 - Revert any changes to v2.3 template if modified
 
 ## Path Selection
@@ -68,7 +68,7 @@ MEDIUM - Low code complexity but critical for system functionality
 ## Completion
 
 **Completed:** 2026-01-31T02:12:10Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330
 **Agent:** Agent-2.3
 **Path Used:** quick
 **Phase Gates:** All passed (quick_spec, dev_story, code_review)
@@ -84,8 +84,8 @@ MEDIUM - Low code complexity but critical for system functionality
 
 ## Files Created
 
-1. `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` (directory)
-2. `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` (1,837 bytes)
+1. `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` (directory)
+2. `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` (1,837 bytes)
 
 ## Commit
 

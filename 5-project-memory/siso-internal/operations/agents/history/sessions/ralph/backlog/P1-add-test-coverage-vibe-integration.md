@@ -7,7 +7,7 @@
 
 ## Issue
 
-The Vibe integration with Blackbox5 (`.blackbox5/integration/vibe/`) has **3 modules with zero test coverage**. This is a critical gap since this integration is core to the system functionality.
+The Vibe integration with Blackbox5 (`blackbox5/integration/vibe/`) has **3 modules with zero test coverage**. This is a critical gap since this integration is core to the system functionality.
 
 ## Analysis Findings
 
@@ -31,14 +31,14 @@ From `ANALYSIS-VIBE-MCP.md`:
 
 ## Technical Details
 
-- **Location:** `.blackbox5/integration/vibe/`
+- **Location:** `blackbox5/integration/vibe/`
 - **Files:** 3 Python modules
 - **Current Test Coverage:** 0%
 - **Impact:** HIGH - Core integration between Vibe Kanban and Blackbox5
 
 ## Recommended Actions
 
-1. **Create test files** for each module in `.blackbox5/integration/vibe/`
+1. **Create test files** for each module in `blackbox5/integration/vibe/`
 2. **Start with critical path components** (MCP integration, data flow)
 3. **Use pytest** as the testing framework
 4. **Test coverage targets:**

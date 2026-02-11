@@ -88,7 +88,7 @@ A workflow tracking system that shows:
 ### Full Paths
 
 ```
-/Users/shaansisodia/.blackbox5/
+/Users/shaansisodia/blackbox5/
 ├── .claude/
 │   ├── hooks/
 │   │   ├── session-start-agent-teams.sh     # YOURS - Keep
@@ -329,19 +329,19 @@ redis-cli XREAD STREAMS bb5:workflow:events 0
 ```bash
 # 1. Copy framework to BB5
 cp -r /tmp/claude-code-hooks-multi-agent-observability \
-  /Users/shaansisodia/.blackbox5/engine/infrastructure/observability
+  /Users/shaansisodia/blackbox5/engine/infrastructure/observability
 
 # 2. Create hook directory
-mkdir -p /Users/shaansisodia/.blackbox5/.claude/hooks/observability
+mkdir -p /Users/shaansisodia/blackbox5/.claude/hooks/observability
 
 # 3. Copy selected hooks
-cd /Users/shaansisodia/.blackbox5/engine/infrastructure/observability/.claude/hooks
+cd /Users/shaansisodia/blackbox5/engine/infrastructure/observability/.claude/hooks
 cp session_start.py session_end.py subagent_start.py subagent_stop.py \
    notification.py pre_compact.py user_prompt_submit.py stop.py send_event.py \
-   /Users/shaansisodia/.blackbox5/.claude/hooks/observability/
+   /Users/shaansisodia/blackbox5/.claude/hooks/observability/
 
 # 4. Create settings.json
-cat > /Users/shaansisodia/.blackbox5/.claude/settings.json << 'JSON'
+cat > /Users/shaansisodia/blackbox5/.claude/settings.json << 'JSON'
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "18849801bb674d08b2df2d27822a5037.aW3s8UbOhKjMRxan",
@@ -369,13 +369,13 @@ JSON
 # On VPS (77.42.66.40)
 
 # 1. Copy from local to VPS
-scp -r /Users/shaansisodia/.blackbox5/engine/infrastructure/observability \
+scp -r /Users/shaansisodia/blackbox5/engine/infrastructure/observability \
   root@77.42.66.40:/opt/blackbox5/engine/infrastructure/
 
-scp -r /Users/shaansisodia/.blackbox5/.claude/hooks/observability \
+scp -r /Users/shaansisodia/blackbox5/.claude/hooks/observability \
   root@77.42.66.40:/opt/blackbox5/.claude/hooks/
 
-scp /Users/shaansisodia/.blackbox5/.claude/settings.json \
+scp /Users/shaansisodia/blackbox5/.claude/settings.json \
   root@77.42.66.40:/opt/blackbox5/.claude/
 
 # 2. Install Bun

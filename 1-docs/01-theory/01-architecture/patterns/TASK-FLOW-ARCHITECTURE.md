@@ -16,7 +16,7 @@ This document describes the technical implementation of the BlackBox5 Task Manag
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           LOCAL STORAGE LAYER                               │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │  Task Database (.blackbox5/specs/backlog/)                           │  │
+│  │  Task Database (blackbox5/specs/backlog/)                           │  │
 │  │  • goals/          - Long-term objectives (PDR)                       │  │
 │  │  • features/       - Feature ideas                                    │  │
 │  │  • issues/         - Bug reports                                      │  │
@@ -74,7 +74,7 @@ This document describes the technical implementation of the BlackBox5 Task Manag
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                      BLACK BOX DEVELOPMENT LAYER                             │
 │  ┌──────────────────────────────────────────────────────────────────────┐  │
-│  │  Working Memory (.blackbox5/memory/working/{task-id}/)              │  │
+│  │  Working Memory (blackbox5/memory/working/{task-id}/)              │  │
 │  │                                                                      │  │
 │  │  history.json     - Complete action log                             │  │
 │  │  thoughts.md      - Thought processes (Sequential Thinking)          │  │
@@ -117,7 +117,7 @@ This document describes the technical implementation of the BlackBox5 Task Manag
                       ▼                      ▼
          ┌─────────────────────┐    ┌─────────────────────┐
          │  ARCHIVE MEMORY      │    │  FEEDBACK LOOP      │
-         │  (.blackbox5/memory/ │    │  (Re-enter          │
+         │  (blackbox5/memory/ │    │  (Re-enter          │
          │   archive/{task-id}/)│    │   development)      │
          └─────────────────────┘    └─────────────────────┘
 ```
@@ -358,7 +358,7 @@ class MemoryAgent:
 ### File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── specs/
 │   ├── backlog/
 │   │   ├── goals/

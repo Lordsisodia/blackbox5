@@ -132,7 +132,7 @@ Implement a GitHub Integration Suite to enable RALF agents to interact directly 
 - [ ] Issues created and synced with tasks (tested with new task)
 - [ ] Release notes generated from commits (tested with manual trigger)
 - [ ] Error handling for API failures (rate limits, auth errors)
-- [ ] Configuration file for GitHub credentials (`~/.blackbox5/github-config.yaml`)
+- [ ] Configuration file for GitHub credentials (`~/blackbox5/github-config.yaml`)
 
 ### Should-Have (P1)
 - [ ] PR status checks integrated with CI/CD results
@@ -198,7 +198,7 @@ AI summarization → Generate markdown → GitHub API → Release published
 
 ### Configuration File
 
-**Location:** `~/.blackbox5/github-config.yaml`
+**Location:** `~/blackbox5/github-config.yaml`
 
 ```yaml
 github:
@@ -260,14 +260,14 @@ github:
 - `2-engine/.autonomous/lib/github_webhook_handler.py` - Webhook server (~200 lines)
 - `2-engine/.autonomous/lib/github_health_monitor.py` - Health monitoring (~150 lines)
 - `2-engine/.autonomous/config/github-config.yaml` - Configuration template (~60 lines)
-- `~/.blackbox5/github-config.yaml` - User config (created on init)
+- `~/blackbox5/github-config.yaml` - User config (created on init)
 - `operations/.docs/github-integration-guide.md` - User guide (~400 lines)
 - `.github/PULL_REQUEST_TEMPLATE.md` - PR template (~40 lines)
 
 ### Modified Files
 - `2-engine/.autonomous/lib/task_completor.py` - Add GitHub PR trigger
 - `2-engine/.autonomous/lib/task_creator.py` - Add GitHub issue sync
-- `~/.blackbox5/config.yaml` - Add GitHub integration settings
+- `~/blackbox5/config.yaml` - Add GitHub integration settings
 
 ---
 

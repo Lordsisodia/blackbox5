@@ -107,7 +107,7 @@
 
 **Memory Updated for John (PM Agent):**
 
-**Location:** `.blackbox5/data/memory/john/`
+**Location:** `blackbox5/data/memory/john/`
 
 **Files Created:**
 1. **sessions.json** - 3 sessions recorded
@@ -207,7 +207,7 @@ Result: Comprehensive, well-researched, documented
 
 ### Memory Files
 ```
-.blackbox5/data/memory/john/
+blackbox5/data/memory/john/
 ├── sessions.json      # Execution history
 ├── insights.json      # Learnings and patterns
 └── context.json       # Current state and plan

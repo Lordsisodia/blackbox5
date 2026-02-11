@@ -240,7 +240,7 @@ def main():
 
         print_section("✓ All Demonstrations Complete")
         print("\n  Memory files created in:")
-        print(f"  {Path.cwd()}/.blackbox5/data/memory/")
+        print(f"  {Path.cwd()}/blackbox5/data/memory/")
         print("\n  Each agent has its own isolated memory directory!")
         print()
 

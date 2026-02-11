@@ -15,7 +15,7 @@ The health monitoring system consists of three components:
 - Python 3.9+
 - pip
 - systemd (for service management)
-- BB5 installation at `~/.blackbox5`
+- BB5 installation at `~/blackbox5`
 
 ## Installation
 
@@ -29,18 +29,18 @@ pip install pyyaml rich python-telegram-bot requests
 
 ```bash
 # Check tools are executable
-ls -la ~/.blackbox5/bin/bb5-*
+ls -la ~/blackbox5/bin/bb5-*
 
 # Test health command
-~/.blackbox5/bin/bb5-health
+~/blackbox5/bin/bb5-health
 
 # Test watch status
-~/.blackbox5/bin/bb5-watch status
+~/blackbox5/bin/bb5-watch status
 ```
 
 ### 3. Configure Telegram Alerts (Optional)
 
-Edit `~/.blackbox5/.autonomous/health/environment`:
+Edit `~/blackbox5/.autonomous/health/environment`:
 
 ```bash
 TELEGRAM_BOT_TOKEN=your_bot_token_here
@@ -59,7 +59,7 @@ To get a Telegram bot token:
 
 ```bash
 # Copy service file (replace 'user' with your username)
-sudo cp ~/.blackbox5/.autonomous/health/bb5-watch.service \
+sudo cp ~/blackbox5/.autonomous/health/bb5-watch.service \
         /etc/systemd/system/bb5-watch@.service
 
 # Reload systemd
@@ -80,7 +80,7 @@ sudo systemctl status bb5-watch@$USER
 Create `/etc/logrotate.d/bb5-watch`:
 
 ```
-/home/*/.blackbox5/.autonomous/health/watch.log {
+/home/*/blackbox5/.autonomous/health/watch.log {
     daily
     rotate 7
     compress
@@ -248,10 +248,10 @@ python3 -c "import yaml, rich, telegram"
 
 ```bash
 # Check data sources exist
-ls ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/
+ls ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/
 
 # Verify queue.yaml format
-head ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml
+head ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml
 ```
 
 ### Telegram Alerts Not Working
@@ -261,22 +261,22 @@ head ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/q
 curl -s "https://api.telegram.org/bot<TOKEN>/getMe"
 
 # Check environment variables
-cat ~/.blackbox5/.autonomous/health/environment
+cat ~/blackbox5/.autonomous/health/environment
 ```
 
 ### Database Issues
 
 ```bash
 # Reset database (warning: deletes history)
-rm ~/.blackbox5/.autonomous/health/health.db
+rm ~/blackbox5/.autonomous/health/health.db
 
 # Check database
-sqlite3 ~/.blackbox5/.autonomous/health/health.db ".tables"
+sqlite3 ~/blackbox5/.autonomous/health/health.db ".tables"
 ```
 
 ## Database Schema
 
-SQLite database at `~/.blackbox5/.autonomous/health/health.db`:
+SQLite database at `~/blackbox5/.autonomous/health/health.db`:
 
 ### snapshots table
 - timestamp
@@ -302,7 +302,7 @@ SQLite database at `~/.blackbox5/.autonomous/health/health.db`:
 
 1. **File Permissions**: Ensure environment file is readable only by owner
    ```bash
-   chmod 600 ~/.blackbox5/.autonomous/health/environment
+   chmod 600 ~/blackbox5/.autonomous/health/environment
    ```
 
 2. **Telegram Tokens**: Never commit tokens to version control
@@ -330,17 +330,17 @@ sudo systemctl disable bb5-watch@$USER
 sudo rm /etc/systemd/system/bb5-watch@.service
 
 # Remove database and logs
-rm -rf ~/.blackbox5/.autonomous/health/
+rm -rf ~/blackbox5/.autonomous/health/
 
 # Remove tools (optional)
-rm ~/.blackbox5/bin/bb5-health
-rm ~/.blackbox5/bin/bb5-dashboard
-rm ~/.blackbox5/bin/bb5-watch
+rm ~/blackbox5/bin/bb5-health
+rm ~/blackbox5/bin/bb5-dashboard
+rm ~/blackbox5/bin/bb5-watch
 ```
 
 ## Support
 
 For issues or questions:
 1. Check logs: `bb5-watch logs`
-2. Verify configuration: `cat ~/.blackbox5/.autonomous/health/environment`
+2. Verify configuration: `cat ~/blackbox5/.autonomous/health/environment`
 3. Test manually: `bb5-health -f json`

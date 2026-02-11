@@ -14,17 +14,17 @@ Run this when:
 
 ### Step 1: Spawn Context Collector
 ```
-Spawn a sub-agent named "bb5-context-collector" with the prompt from /Users/shaansisodia/.blackbox5/.claude/agents/bb5-context-collector.md
+Spawn a sub-agent named "bb5-context-collector" with the prompt from /Users/shaansisodia/blackbox5/.claude/agents/bb5-context-collector.md
 ```
 
 ### Step 2: Spawn Scribe
 ```
-Spawn a sub-agent named "bb5-scribe" with the prompt from /Users/shaansisodia/.blackbox5/.claude/agents/bb5-scribe.md
+Spawn a sub-agent named "bb5-scribe" with the prompt from /Users/shaansisodia/blackbox5/.claude/agents/bb5-scribe.md
 ```
 
 ### Step 3: Spawn Superintelligence (if complex task)
 ```
-Spawn a sub-agent named "bb5-superintelligence" with the prompt from /Users/shaansisodia/.blackbox5/.claude/agents/bb5-superintelligence.md
+Spawn a sub-agent named "bb5-superintelligence" with the prompt from /Users/shaansisodia/blackbox5/.claude/agents/bb5-superintelligence.md
 ```
 
 ## Agent Team Coordination

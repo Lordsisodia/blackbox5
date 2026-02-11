@@ -313,7 +313,7 @@ session-end-context-update.sh      # Replaced by finalize
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-enhanced.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-enhanced.sh"
           }
         ]
       }
@@ -324,11 +324,11 @@ session-end-context-update.sh      # Replaced by finalize
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /Users/shaansisodia/.blackbox5/.claude/hooks/pre-tool-security.py"
+            "command": "python3 /Users/shaansisodia/blackbox5/.claude/hooks/pre-tool-security.py"
           },
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/pre-tool-validation.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/pre-tool-validation.sh"
           }
         ]
       }
@@ -339,7 +339,7 @@ session-end-context-update.sh      # Replaced by finalize
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/subagent-tracking.sh start"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/subagent-tracking.sh start"
           }
         ]
       }
@@ -350,7 +350,7 @@ session-end-context-update.sh      # Replaced by finalize
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/subagent-tracking.sh stop"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/subagent-tracking.sh stop"
           }
         ]
       }
@@ -360,11 +360,11 @@ session-end-context-update.sh      # Replaced by finalize
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-validate-docs.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/stop-validate-docs.sh"
           },
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/stop-checkpoint.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/stop-checkpoint.sh"
           }
         ]
       }
@@ -374,7 +374,7 @@ session-end-context-update.sh      # Replaced by finalize
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-end-finalize.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-end-finalize.sh"
           }
         ]
       }

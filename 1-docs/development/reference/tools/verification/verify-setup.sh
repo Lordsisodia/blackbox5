@@ -145,16 +145,16 @@ if [ $FAILED -eq 0 ]; then
     echo ""
     echo "💡 Next steps:"
     echo "   1. Try interactive mode:"
-    echo "      python .blackbox5/bb5.py --interactive"
+    echo "      python blackbox5/bb5.py --interactive"
     echo ""
     echo "   2. Run a simple task:"
-    echo '      python .blackbox5/bb5.py "Add console.log to RewardCatalog.tsx"'
+    echo '      python blackbox5/bb5.py "Add console.log to RewardCatalog.tsx"'
     echo ""
     echo "   3. View examples:"
-    echo "      python .blackbox5/examples/real-world-tasks.py"
+    echo "      python blackbox5/examples/real-world-tasks.py"
     echo ""
     echo "   4. Read the quick start guide:"
-    echo "      cat .blackbox5/QUICKSTART.md"
+    echo "      cat blackbox5/QUICKSTART.md"
 else
     echo -e "${RED}⚠️  Some checks failed. Please fix the issues above.${NC}"
     echo ""

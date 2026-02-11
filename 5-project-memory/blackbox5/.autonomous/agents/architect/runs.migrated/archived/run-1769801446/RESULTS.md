@@ -25,12 +25,12 @@
 - **Database:** Auto-initialized during update
 
 ### 2. VibeKanbanManager Enhanced
-**Location:** `~/.blackbox5/2-engine/core/agents/definitions/managerial/skills/vibe_kanban_manager.py`
+**Location:** `~/blackbox5/2-engine/core/agents/definitions/managerial/skills/vibe_kanban_manager.py`
 
 **Changes:**
 - Made `base_url` parameter optional (defaults to `None` for auto-detection)
 - Added `_detect_vibe_kanban_url()` static method
-- Updated default `repo_path` to `~/.blackbox5`
+- Updated default `repo_path` to `~/blackbox5`
 
 **Features:**
 - Auto-detects Vibe Kanban port using `lsof`
@@ -64,7 +64,7 @@
 
 ## Files Modified
 
-1. **VibeKanbanManager** - `~/.blackbox5/2-engine/core/agents/definitions/managerial/skills/vibe_kanban_manager.py`
+1. **VibeKanbanManager** - `~/blackbox5/2-engine/core/agents/definitions/managerial/skills/vibe_kanban_manager.py`
    - Added port auto-detection
    - Updated default paths
    - ~40 lines added
@@ -154,7 +154,7 @@ Changes:
 - Added _detect_vibe_kanban_url() method using lsof
 - Fallback port scanning for 3000-3010 and 58000-59000 ranges
 - Made base_url parameter optional with auto-detection default
-- Updated default repo_path to ~/.blackbox5
+- Updated default repo_path to ~/blackbox5
 
 Vibe Kanban updated from v0.0.152 to v0.0.166 (auto-initialized database).
 

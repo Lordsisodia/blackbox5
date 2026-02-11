@@ -19,28 +19,28 @@ Ralph Runtime is now **fully operational** and can execute tasks autonomously in
 ### 📋 Stories Completed
 
 1. **FRM-001:** Research BMAD Framework ✅
-   - Created: `.blackbox5/engine/frameworks/1-bmad/RESEARCH.md`
+   - Created: `blackbox5/engine/frameworks/1-bmad/RESEARCH.md`
    - Analyzed structure, documentation, and components
 
 2. **FRM-002:** Research SpecKit Framework ✅
-   - Created: `.blackbox5/engine/frameworks/2-speckit/RESEARCH.md`
+   - Created: `blackbox5/engine/frameworks/2-speckit/RESEARCH.md`
    - Analyzed structure, documentation, and components
 
 3. **FRM-003:** Research MetaGPT Framework ✅
-   - Created: `.blackbox5/engine/frameworks/3-metagpt/RESEARCH.md`
+   - Created: `blackbox5/engine/frameworks/3-metagpt/RESEARCH.md`
    - Analyzed structure, documentation, and components
 
 4. **FRM-004:** Research Swarm Framework ✅
-   - Created: `.blackbox5/engine/frameworks/4-swarm/RESEARCH.md`
+   - Created: `blackbox5/engine/frameworks/4-swarm/RESEARCH.md`
    - Analyzed structure, documentation, and components
 
 5. **FRM-005:** Synthesize Framework Comparison ✅
-   - Created: `.blackbox5/engine/frameworks/FRAMEWORK-COMPARISON.md`
+   - Created: `blackbox5/engine/frameworks/FRAMEWORK-COMPARISON.md`
    - Identified integration opportunities
    - Provided recommendations
 
 6. **FRM-006:** Create Workflow Recommendations ✅
-   - Created: `.blackbox5/engine/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md`
+   - Created: `blackbox5/engine/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md`
    - Designed multi-phase workflow
    - Prioritized implementation steps
 
@@ -124,14 +124,14 @@ echo $! > ralph.pid
 ## 📊 Output Files Created
 
 ### Research Files (4)
-- `.blackbox5/engine/frameworks/1-bmad/RESEARCH.md` (1.6KB)
-- `.blackbox5/engine/frameworks/2-speckit/RESEARCH.md` (1.6KB)
-- `.blackbox5/engine/frameworks/3-metagpt/RESEARCH.md` (1.2KB)
-- `.blackbox5/engine/frameworks/4-swarm/RESEARCH.md` (1.5KB)
+- `blackbox5/engine/frameworks/1-bmad/RESEARCH.md` (1.6KB)
+- `blackbox5/engine/frameworks/2-speckit/RESEARCH.md` (1.6KB)
+- `blackbox5/engine/frameworks/3-metagpt/RESEARCH.md` (1.2KB)
+- `blackbox5/engine/frameworks/4-swarm/RESEARCH.md` (1.5KB)
 
 ### Synthesis Files (2)
-- `.blackbox5/engine/frameworks/FRAMEWORK-COMPARISON.md` (716B)
-- `.blackbox5/engine/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md` (582B)
+- `blackbox5/engine/frameworks/FRAMEWORK-COMPARISON.md` (716B)
+- `blackbox5/engine/frameworks/AUTONOMOUS-WORKFLOW-RECOMMENDATIONS.md` (582B)
 
 ---
 

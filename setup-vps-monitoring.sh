@@ -13,15 +13,15 @@ echo "  Setting up VPS Monitoring"
 echo "═══════════════════════════════════════════════════════════"
 
 # Create local monitoring script
-cat > "$HOME/.blackbox5/bin/monitor-vps.sh" << 'MONITOR_SCRIPT'
+cat > "$HOME/blackbox5/bin/monitor-vps.sh" << 'MONITOR_SCRIPT'
 #!/bin/bash
 # Monitor VPS BlackBox5 agent status
 
 VPS_IP="77.42.66.40"
 VPS_USER="root"
 SSH_KEY="$HOME/.ssh/ralf_hetzner"
-LOG_FILE="$HOME/.blackbox5/.logs/vps-monitor.log"
-ALERT_FILE="$HOME/.blackbox5/.logs/vps-alerts.log"
+LOG_FILE="$HOME/blackbox5/.logs/vps-monitor.log"
+ALERT_FILE="$HOME/blackbox5/.logs/vps-alerts.log"
 
 mkdir -p "$(dirname "$LOG_FILE")"
 
@@ -76,16 +76,16 @@ if [ "$DISK_USAGE" -gt 80 ]; then
 fi
 MONITOR_SCRIPT
 
-chmod +x "$HOME/.blackbox5/bin/monitor-vps.sh"
+chmod +x "$HOME/blackbox5/bin/monitor-vps.sh"
 
 # Create launchd plist for macOS monitoring
-cat > "$HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist" << 'PLIST'
+cat > "$HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist" << 'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.blackbox5.vps-monitor</string>
+    <string>comblackbox5.vps-monitor</string>
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
@@ -104,26 +104,26 @@ cat > "$HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist" << 'PLIST'
 PLIST
 
 # Replace paths
-sed -i '' "s|MONITOR_SCRIPT_PATH|$HOME/.blackbox5/bin/monitor-vps.sh|g" "$HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist"
-sed -i '' "s|LOG_PATH|$HOME/.blackbox5/.logs/vps-monitor-launchd.log|g" "$HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist"
-sed -i '' "s|ERR_LOG_PATH|$HOME/.blackbox5/.logs/vps-monitor-launchd.err|g" "$HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist"
+sed -i '' "s|MONITOR_SCRIPT_PATH|$HOME/blackbox5/bin/monitor-vps.sh|g" "$HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist"
+sed -i '' "s|LOG_PATH|$HOME/blackbox5/.logs/vps-monitor-launchd.log|g" "$HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist"
+sed -i '' "s|ERR_LOG_PATH|$HOME/blackbox5/.logs/vps-monitor-launchd.err|g" "$HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist"
 
 echo ""
 echo "Loading monitoring service..."
-launchctl load "$HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist" 2>/dev/null || true
+launchctl load "$HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist" 2>/dev/null || true
 
 echo ""
 echo "═══════════════════════════════════════════════════════════"
 echo "  Monitoring Setup Complete"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
-echo "Monitor script: $HOME/.blackbox5/bin/monitor-vps.sh"
-echo "LaunchAgent: $HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist"
-echo "Logs: $HOME/.blackbox5/.logs/"
+echo "Monitor script: $HOME/blackbox5/bin/monitor-vps.sh"
+echo "LaunchAgent: $HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist"
+echo "Logs: $HOME/blackbox5/.logs/"
 echo ""
 echo "To check status manually:"
-echo "  $HOME/.blackbox5/bin/monitor-vps.sh"
+echo "  $HOME/blackbox5/bin/monitor-vps.sh"
 echo ""
 echo "To unload monitoring:"
-echo "  launchctl unload $HOME/Library/LaunchAgents/com.blackbox5.vps-monitor.plist"
+echo "  launchctl unload $HOME/Library/LaunchAgents/comblackbox5.vps-monitor.plist"
 echo ""

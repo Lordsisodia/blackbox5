@@ -1,7 +1,7 @@
 # GitHub Integration Configuration for RALF
 # Feature F-011 (GitHub Integration Suite)
 #
-# Location: ~/.blackbox5/github-config.yaml
+# Location: ~/blackbox5/github-config.yaml
 #
 # Copy this file to your home directory and configure with your GitHub credentials.
 
@@ -217,7 +217,7 @@ logging:
 # Setup Steps:
 #   1. Generate GitHub PAT at https://github.com/settings/tokens
 #   2. Export GITHUB_TOKEN="ghp_xxx" (or set in your shell profile)
-#   3. Copy this file to ~/.blackbox5/github-config.yaml
+#   3. Copy this file to ~/blackbox5/github-config.yaml
 #   4. Configure repository owner/repo for your setup
 #   5. Set feature flags as desired
 #   6. Test connection: python3 -m github_client

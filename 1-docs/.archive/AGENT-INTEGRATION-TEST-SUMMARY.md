@@ -6,18 +6,18 @@ Comprehensive integration tests for BlackBox5 agent orchestration, memory persis
 
 ## Test File
 
-**Location**: `.blackbox5/tests/test_agent_integration.py`
+**Location**: `blackbox5/tests/test_agent_integration.py`
 
 ## Running the Tests
 
 ### Option 1: Direct Execution
 ```bash
-python3 .blackbox5/tests/test_agent_integration.py
+python3 blackbox5/tests/test_agent_integration.py
 ```
 
 ### Option 2: Using pytest
 ```bash
-pytest .blackbox5/tests/test_agent_integration.py -v
+pytest blackbox5/tests/test_agent_integration.py -v
 ```
 
 ## Test Suites
@@ -164,7 +164,7 @@ Two mock external integrations:
 - **MockVibeKanbanIntegration**: Manages Kanban board tasks
 
 ### Memory System
-Uses the existing `ContextManager` from `.blackbox5/engine/modules/context/manager.py`:
+Uses the existing `ContextManager` from `blackbox5/engine/modules/context/manager.py`:
 - Stores agent data
 - Persists task results
 - Tracks workflow history
@@ -260,7 +260,7 @@ Tests use temporary directories that are automatically cleaned up.
 ## File Structure
 
 ```
-.blackbox5/tests/
+blackbox5/tests/
 ├── test_agent_integration.py     # Main integration test file
 ├── test_integration.py           # Existing integration tests
 ├── conftest.py                   # Pytest configuration

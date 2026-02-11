@@ -1,3 +1,2 @@
-*.md
-analysis.md
-*.txt
+*/
+!.gitignore

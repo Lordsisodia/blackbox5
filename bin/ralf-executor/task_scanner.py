@@ -19,8 +19,8 @@ from typing import Any, Optional
 import yaml
 
 # Default paths
-DEFAULT_TASKS_DIR = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active")
-DEFAULT_QUEUE_PATH = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml")
+DEFAULT_TASKS_DIR = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active")
+DEFAULT_QUEUE_PATH = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml")
 
 # Priority weights for scoring
 PRIORITY_WEIGHTS = {

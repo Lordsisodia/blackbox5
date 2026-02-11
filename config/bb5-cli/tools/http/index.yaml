@@ -1,0 +1,5 @@
+get: Make GET request
+post: Make POST request
+test: Test saved API endpoint
+save: Save API configuration
+list: List saved APIs

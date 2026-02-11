@@ -58,7 +58,7 @@ These task IDs are BB5-specific conventions.
 
 **collect-skill-metrics.py line 11:**
 ```python
-metrics_path = Path('/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml')
+metrics_path = Path('/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml')
 ```
 
 **This is an absolute hardcoded path that will fail on any other system!**

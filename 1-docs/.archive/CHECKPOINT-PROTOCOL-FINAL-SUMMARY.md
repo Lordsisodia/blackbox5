@@ -65,23 +65,23 @@ Total: 10/10 tests passed
 ## Files Modified/Created
 
 ### Modified
-1. `.blackbox5/engine/core/Orchestrator.py`
+1. `blackbox5/engine/core/Orchestrator.py`
    - Added WorkflowCheckpoint dataclass (lines 176-231)
    - Updated __init__ with checkpoint config (lines 249-328)
    - Added checkpoint methods (lines 382-678)
    - Updated create_orchestrator() (lines 1455-1487)
 
 ### Created
-2. `.blackbox5/tests/test_checkpoint_protocol.py`
+2. `blackbox5/tests/test_checkpoint_protocol.py`
    - 588 lines of comprehensive tests
    - 10 test cases covering all functionality
 
-3. `.blackbox5/docs/CHECKPOINT-PROTOCOL-IMPLEMENTATION.md`
+3. `blackbox5/docs/CHECKPOINT-PROTOCOL-IMPLEMENTATION.md`
    - Complete implementation documentation
    - Usage examples
    - API reference
 
-4. `.blackbox5/docs/CHECKPOINT-PROTOCOL-FINAL-SUMMARY.md` (this file)
+4. `blackbox5/docs/CHECKPOINT-PROTOCOL-FINAL-SUMMARY.md` (this file)
    - Executive summary
 
 ---

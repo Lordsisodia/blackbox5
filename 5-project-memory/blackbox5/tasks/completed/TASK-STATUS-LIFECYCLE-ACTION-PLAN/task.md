@@ -123,11 +123,11 @@ planned → ready → claimed → in_progress → completed → archived
 
 ## Files to Modify
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Add status values
-2. `/Users/shaansisodia/.blackbox5/bin/ralf-task-select.sh` - Set claimed status
-3. `/Users/shaansisodia/.blackbox5/bin/ralf-task-start.sh` - NEW: Set in_progress status
-4. `/Users/shaansisodia/.blackbox5/bin/ralf-stop-hook.sh` - Set completed/failed, move task
-5. `/Users/shaansisodia/.blackbox5/bin/ralf-task-status.sh` - NEW: Status sync utility
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Add status values
+2. `/Users/shaansisodia/blackbox5/bin/ralf-task-select.sh` - Set claimed status
+3. `/Users/shaansisodia/blackbox5/bin/ralf-task-start.sh` - NEW: Set in_progress status
+4. `/Users/shaansisodia/blackbox5/bin/ralf-stop-hook.sh` - Set completed/failed, move task
+5. `/Users/shaansisodia/blackbox5/bin/ralf-task-status.sh` - NEW: Status sync utility
 
 ---
 

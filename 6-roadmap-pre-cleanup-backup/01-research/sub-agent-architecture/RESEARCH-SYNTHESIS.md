@@ -293,10 +293,10 @@ Main Agent
 
 ## Files Referenced
 
-- `~/.blackbox5/bin/bb5-complete` - Task completion with validation
-- `~/.blackbox5/bin/bb5-claim` - Task claiming with run folder creation
-- `~/.blackbox5/.claude/hooks/session-start-blackbox5.sh` - Session start
-- `~/.blackbox5/.claude/hooks/stop-validate-docs.sh` - Session end validation
-- `~/.blackbox5/2-engine/.autonomous/prompts/` - RALF prompts
+- `~/blackbox5/bin/bb5-complete` - Task completion with validation
+- `~/blackbox5/bin/bb5-claim` - Task claiming with run folder creation
+- `~/blackbox5/.claude/hooks/session-start-blackbox5.sh` - Session start
+- `~/blackbox5/.claude/hooks/stop-validate-docs.sh` - Session end validation
+- `~/blackbox5/2-engine/.autonomous/prompts/` - RALF prompts
 - `~/.claude/skills/` - BMAD skills
-- `~/.blackbox5/6-roadmap/01-research/superintelligence-protocol/` - SI protocol
+- `~/blackbox5/6-roadmap/01-research/superintelligence-protocol/` - SI protocol

@@ -34,7 +34,7 @@ Remove hardcoded `/opt/ralf` paths from all 4 bash agents and implement environm
 - Added auto-detection logic: traverses 4 levels up from script location
 
 ### 5. .env.example
-- Created at `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/.env.example`
+- Created at `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/.env.example`
 - Documents `BB5_PROJECT_ROOT` environment variable
 - Includes additional configuration options for future use
 
@@ -53,13 +53,13 @@ fi
 ```
 
 ## Files Modified
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/scout/scout-agent.sh`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/analyzer/analyzer-agent.sh`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/planner-agent.sh`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/github-analysis-pipeline.sh`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/scout/scout-agent.sh`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/analyzer/analyzer-agent.sh`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/planner/planner-agent.sh`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/github-analysis-pipeline.sh`
 
 ## Files Created
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/.env.example`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/.env.example`
 
 ## Validation
 - All scripts pass `bash -n` syntax check

@@ -147,7 +147,7 @@ def update_archive_index(archive_dir: Path):
 Add to cron or scheduler:
 ```bash
 # Run archival weekly
-0 2 * * 0 ~/.blackbox5/2-engine/.autonomous/bin/archive-runs.py
+0 2 * * 0 ~/blackbox5/2-engine/.autonomous/bin/archive-runs.py
 ```
 
 #### Phase 4: Create Restore Function (30 min)

@@ -2,7 +2,7 @@
 # BB5 DB Query Tool
 # Execute SQL queries against Supabase
 
-BB5_DIR="${BB5_DIR:-$HOME/.blackbox5}"
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
 source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
 source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
 
@@ -80,15 +80,38 @@ fi
 
 bb5_print_info "Executing query on context: $CONTEXT"
 
-# Execute query using Supabase REST API
-# Note: This uses the PostgREST API directly
+# Try multiple approaches to execute SQL
+# Approach 1: Try the execute_sql RPC function (if it exists)
 RESPONSE=$(curl -s -X POST \
     -H "apikey: $API_KEY" \
     -H "Authorization: Bearer $API_KEY" \
     -H "Content-Type: application/json" \
-    -H "Prefer: params=multiple-objects" \
     -d "{\"query\": \"$SQL\"}" \
     "$URL/rest/v1/rpc/execute_sql" 2>/dev/null)
+
+# If that failed, try using Supabase Management API
+if echo "$RESPONSE" | grep -q '"message".*"not found\|Invalid API key\|Failed to fetch\|404'; then
+    # Try Management API SQL endpoint
+    RESPONSE=$(curl -s -X POST \
+        -H "Authorization: Bearer $API_KEY" \
+        -H "Content-Type: application/json" \
+        -d "{\"query\": \"$SQL\"}" \
+        "https://api.supabase.com/v1/projects/$PROJECT_REF/database/query" 2>/dev/null)
+fi
+
+# If still failed, try direct table query (for simple SELECTs)
+if echo "$RESPONSE" | grep -q '"message".*"not found\|Invalid API key\|Failed to fetch\|404\|401'; then
+    # Extract table name from simple SELECT queries
+    if [[ "$SQL" =~ [Ss][Ee][Ll][Ee][Cc][Tt].+[Ff][Rr][Oo][Mm][[:space:]]+([a-zA-Z_][a-zA-Z0-9_]*) ]]; then
+        TABLE_NAME="${BASH_REMATCH[1]}"
+        # Try PostgREST query on the table
+        RESPONSE=$(curl -s -X GET \
+            -H "apikey: $API_KEY" \
+            -H "Authorization: Bearer $API_KEY" \
+            -H "Accept: application/json" \
+            "$URL/rest/v1/$TABLE_NAME" 2>/dev/null)
+    fi
+fi
 
 # Check if we got an error
 if echo "$RESPONSE" | grep -q '"error"'; then

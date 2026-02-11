@@ -94,8 +94,8 @@ def main():
         print(f"- {m.id}: {m.type} ({m.status.value})")
 
     print("\n" + "="*60)
-    print(f"Manifest saved to: .blackbox5/scratch/manifests/{manifest.id}.md")
-    print("View it with: .blackbox5/engine/runtime/view-manifest.sh " + manifest.id)
+    print(f"Manifest saved to: blackbox5/scratch/manifests/{manifest.id}.md")
+    print("View it with: blackbox5/engine/runtime/view-manifest.sh " + manifest.id)
     print("="*60)
 
 if __name__ == "__main__":

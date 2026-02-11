@@ -471,7 +471,7 @@ Reflection Agent: Validates the entire reasoning chain
 - [Tree-of-Thoughts Implementation](../tree-of-thoughts-implementation-guide.md)
 - [Reflection & Self-Correction](../reflection-self-correction-mechanisms.md)
 - [Hierarchical Planning](../hierarchical-planning-patterns.md)
-- [First Principles Analysis](/Users/shaansisodia/.blackbox5/1-docs/01-theory/04-first-principles/)
+- [First Principles Analysis](/Users/shaansisodia/blackbox5/1-docs/01-theory/04-first-principles/)
 
 ---
 

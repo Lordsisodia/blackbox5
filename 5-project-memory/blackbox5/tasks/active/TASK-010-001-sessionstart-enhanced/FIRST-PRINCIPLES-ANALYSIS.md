@@ -130,7 +130,7 @@ That's it. Three things.
 
 ### Example 1: Simple SessionStart Hook (Bash)
 
-From: `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/session-start-restore-context.sh`
+From: `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/session-start-restore-context.sh`
 
 ```bash
 #!/bin/bash
@@ -159,7 +159,7 @@ jq -n --arg ctx "$CONTEXT" '{
 
 ### Example 2: Python Hook
 
-From: `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/git-safety-guard.py`
+From: `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/git-safety-guard.py`
 
 ```python
 #!/usr/bin/env python3
@@ -191,7 +191,7 @@ if __name__ == "__main__":
 
 ### Example 3: Current BB5 Hook (Working)
 
-From: `/Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh`
+From: `/Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh`
 
 **Lines:** 286
 **Works:** Yes (battle-tested)
@@ -309,7 +309,7 @@ if __name__ == "__main__":
 
 ### Option C: Use Current Working Hook (Immediate)
 
-The hook at `/Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh`:
+The hook at `/Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh`:
 - **Works:** Yes (battle-tested)
 - **Lines:** 286 (manageable)
 - **Has:** Simple detection, no locking, no JSON stdin issues
@@ -391,7 +391,7 @@ A SessionStart hook needs to:
 
 ### The Working Solution Exists
 
-The current hook at `~/.blackbox5/.claude/hooks/session-start-blackbox5.sh` proves this works. It's simpler than the specs, battle-tested, and functional.
+The current hook at `~/blackbox5/.claude/hooks/session-start-blackbox5.sh` proves this works. It's simpler than the specs, battle-tested, and functional.
 
 **Trust the working code, not the specifications.**
 

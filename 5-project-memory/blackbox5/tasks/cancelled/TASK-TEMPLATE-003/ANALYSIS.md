@@ -6,9 +6,9 @@ This is the modern task template using lines-per-minute estimation (314 lines/mi
 
 ## Key Files Involved
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-TEMPLATE-003/task.md` - The template file
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - References estimation formula
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/knowledge/analysis/planner-insights.md` - Source of estimation data
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-TEMPLATE-003/task.md` - The template file
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - References estimation formula
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/knowledge/analysis/planner-insights.md` - Source of estimation data
 
 ## Estimated Complexity
 
@@ -26,7 +26,7 @@ None - This is a standalone template
 1. **Determine if canonical** - Is this the official task template for BlackBox5?
 2. **Check against other templates** - Compare with TASK-TEMPLATE-001
 3. **Action**:
-   - If canonical: Move to `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/tasks/task-template.md`
+   - If canonical: Move to `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/tasks/task-template.md`
    - Update `bb5-task` command to use this template
    - Delete the task directory
 

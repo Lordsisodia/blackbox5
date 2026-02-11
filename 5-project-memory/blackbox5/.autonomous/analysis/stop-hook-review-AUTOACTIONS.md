@@ -2,11 +2,11 @@
 
 **Reviewer:** Automation/Auto-Actions Expert
 **Date:** 2026-02-06
-**Source:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
+**Source:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
 **Context Files:**
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows/task-completion.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline.yaml`
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/workflows/task-completion.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/timeline.yaml`
 
 ---
 
@@ -247,7 +247,7 @@ All auto-actions should be idempotent.
 
 ### Mismatch Detected
 
-The checklist references `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows/task-completion.yaml`, but there's a fundamental mismatch:
+The checklist references `/Users/shaansisodia/blackbox5/2-engine/.autonomous/workflows/task-completion.yaml`, but there's a fundamental mismatch:
 
 **Workflow File Says:**
 - Triggers on `task.completed`, `task.partial`, `task.failed`

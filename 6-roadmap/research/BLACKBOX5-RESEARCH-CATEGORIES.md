@@ -90,7 +90,7 @@ An agent without memory is stateless - it cannot learn from past actions, build 
 - How do we balance memory completeness vs token usage?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/memory/`, `.blackbox5/engine/knowledge/`
+- Location: `blackbox5/engine/memory/`, `blackbox5/engine/knowledge/`
 - Status: Basic memory system implemented
 - Gaps: No compression, limited RAG, manual context management
 - Migration: 47% complete
@@ -134,7 +134,7 @@ Without reasoning, agents are reactive. Without planning, agents cannot achieve 
 - What's the optimal granularity for task decomposition?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/` (context_extractor, deviation_handler)
+- Location: `blackbox5/engine/core/` (context_extractor, deviation_handler)
 - MCP Integration: Sequential thinking MCP available
 - Status: Basic reasoning implemented
 - Gaps: Limited planning algorithms, no replanning system
@@ -172,7 +172,7 @@ Skills are the "verbs" of the system - they define what agents can actually DO. 
 - How do we validate skill quality?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/capabilities/skills/`
+- Location: `blackbox5/engine/capabilities/skills/`
 - Status: 70 skills across 15 categories, 33 verified (47%)
 - Gaps: 37 skills pending verification, skill composition not defined
 
@@ -216,7 +216,7 @@ Safety is not optional - it's a requirement for autonomous operation.
 - What audit trail is necessary for accountability?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/circuit_breaker.py`
+- Location: `blackbox5/engine/core/circuit_breaker.py`
 - Status: Basic circuit breaker implemented
 - Gaps: No sandboxing, limited action validation, no rollback
 
@@ -253,7 +253,7 @@ Different tasks require different approaches. A research agent needs different c
 - What's the right agent granularity?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/agents/`
+- Location: `blackbox5/engine/agents/`
 - Status: 50 agents across 5 major types
 - Gaps: Limited agent discovery, ad-hoc collaboration
 
@@ -332,7 +332,7 @@ Poor data architecture creates bottlenecks, errors, and limitations.
 - What caching strategies are most effective?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/schemas/`
+- Location: `blackbox5/engine/schemas/`
 - Status: Basic schemas defined
 - Gaps: Limited data flow architecture, no caching strategy
 
@@ -371,7 +371,7 @@ An agent system that's too slow or expensive is not viable:
 - What caching strategies are most effective?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/token_compressor.py`
+- Location: `blackbox5/engine/core/token_compressor.py`
 - Status: Basic token compression implemented
 - Gaps: No systematic performance optimization
 
@@ -454,7 +454,7 @@ Orchestration frameworks provide the coordination patterns.
 - How do we choose the right framework for a task?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/frameworks/`
+- Location: `blackbox5/engine/frameworks/`
 - Status: 4 frameworks integrated, 11 researched
 - Gaps: Framework integration incomplete
 
@@ -493,7 +493,7 @@ You cannot improve what you cannot measure:
 - How do we make complex system behavior understandable?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/structured_logging.py`
+- Location: `blackbox5/engine/core/structured_logging.py`
 - Status: Basic logging implemented
 - Gaps: No metrics, no tracing, no alerting
 
@@ -532,7 +532,7 @@ Agents don't work in isolation:
 - How do we handle conflicting goals?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/event_bus.py`
+- Location: `blackbox5/engine/core/event_bus.py`
 - Status: Event system implemented
 - Gaps: Limited agent communication patterns
 
@@ -573,7 +573,7 @@ Integrations are the bridge between agent reasoning and real-world impact.
 - What error handling is appropriate?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/capabilities/skills/integration-connectivity/mcp-integrations/`
+- Location: `blackbox5/engine/capabilities/skills/integration-connectivity/mcp-integrations/`
 - Status: 14 MCP integrations verified
 - Gaps: Many potential integrations not implemented
 
@@ -612,7 +612,7 @@ No matter how sophisticated the system, it must be usable:
 - How do we make complex behavior understandable?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/interface/`
+- Location: `blackbox5/engine/interface/`
 - Status: CLI and API interfaces exist
 - Gaps: Limited feedback, minimal visualization
 
@@ -652,7 +652,7 @@ Autonomous agents can cause damage if they malfunction:
 - What metrics define quality?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/development/tests/`
+- Location: `blackbox5/engine/development/tests/`
 - Status: Limited test coverage
 - Gaps: No validation framework
 
@@ -689,7 +689,7 @@ Agents need to know:
 - What's the right state granularity?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/state_manager.py`
+- Location: `blackbox5/engine/core/state_manager.py`
 - Status: State manager implemented
 - Gaps: Limited state tracking
 
@@ -729,7 +729,7 @@ Configuration enables flexibility without code changes.
 - What's the right level of configurability?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/core/config.py`
+- Location: `blackbox5/engine/core/config.py`
 - Status: Config manager implemented
 - Gaps: Limited configuration options
 
@@ -768,7 +768,7 @@ A system that's hard to deploy won't be used:
 - What's the rollback strategy?
 
 **Current State in BlackBox5:**
-- Location: `.blackbox5/engine/operations/`
+- Location: `blackbox5/engine/operations/`
 - Status: Basic deployment scripts exist
 - Gaps: No containerization, limited automation
 
@@ -807,7 +807,7 @@ Documentation multiplies the value of the system:
 
 **Current State in BlackBox5:**
 - Status: Extensive documentation exists
-- Location: Throughout `.blackbox5/engine/`
+- Location: Throughout `blackbox5/engine/`
 - Gaps: Some docs outdated, scattered organization
 
 **Priority Areas:**
@@ -891,7 +891,7 @@ Set up dedicated research agents for each tier that:
 - **Quarterly:** Major architectural proposals
 
 ### 3. Implement Continuous Research
-Use the roadmap system (`.blackbox5/roadmap/`) to track:
+Use the roadmap system (`blackbox5/roadmap/`) to track:
 - Proposed improvements
 - Research findings
 - Design decisions

@@ -254,7 +254,7 @@ def load_config(config_path: Optional[Path] = None) -> Config:
     Load configuration from file and environment variables.
 
     Args:
-        config_path: Path to config file (default: .blackbox5/config.yml)
+        config_path: Path to config file (default: blackbox5/config.yml)
 
     Returns:
         Config: Validated configuration object
@@ -263,7 +263,7 @@ def load_config(config_path: Optional[Path] = None) -> Config:
         SpecDrivenException: If config cannot be loaded or is invalid
     """
     if config_path is None:
-        # Default to .blackbox5/config.yml in project root
+        # Default to blackbox5/config.yml in project root
         project_root = Path.cwd()
         while project_root != project_root.parent:
             config_path = project_root / "blackbox5" / "config.yml"

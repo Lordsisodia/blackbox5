@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-19
 **Status:** 4/19 Agents Launched (Tier 1: Critical)
-**Location:** `.blackbox5/roadmap/`
+**Location:** `blackbox5/roadmap/`
 
 ---
 
@@ -113,17 +113,17 @@ tail -f /tmp/claude/-Users-shaansisodia-DEV-SISO-ECOSYSTEM-SISO-INTERNAL/tasks/a
 ls -la /tmp/claude/-Users-shaansisodia-DEV/SISO-ECOSYSTEM-SISO-INTERNAL/tasks/
 
 # View research logs
-find .blackbox5/roadmap/01-research -name "research-log.md"
+find blackbox5/roadmap/01-research -name "research-log.md"
 ```
 
 ### Review Findings
 
 ```bash
 # View session summaries
-find .blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
+find blackbox5/roadmap/01-research -path "*/session-summaries/*.md"
 
 # View findings
-find .blackbox5/roadmap/01-research -path "*/findings/*/*.md"
+find blackbox5/roadmap/01-research -path "*/findings/*/*.md"
 ```
 
 ---
@@ -131,7 +131,7 @@ find .blackbox5/roadmap/01-research -path "*/findings/*/*.md"
 ## File Structure
 
 ```
-.blackbox5/roadmap/
+blackbox5/roadmap/
 ├── 01-research/
 │   ├── memory-context/          ← Agent a5f6e4d
 │   │   ├── research-log.md
@@ -242,13 +242,13 @@ python research_executor.py --category agent-types --duration 2
 
 ```bash
 # View all research logs
-find .blackbox5/roadmap/01-research -name "research-log.md" -exec tail -20 {} \;
+find blackbox5/roadmap/01-research -name "research-log.md" -exec tail -20 {} \;
 
 # Check session status
-find .blackbox5/roadmap/01-research -name "session-*.md"
+find blackbox5/roadmap/01-research -name "session-*.md"
 
 # View findings
-find .blackbox5/roadmap/01-research/findings -name "*.md"
+find blackbox5/roadmap/01-research/findings -name "*.md"
 ```
 
 ---

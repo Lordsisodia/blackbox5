@@ -182,7 +182,7 @@ class HealthDataCollector:
     """Collects health data from the BlackBox5 system."""
 
     def __init__(self, base_path: Path = None):
-        self.base_path = base_path or Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+        self.base_path = base_path or Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
         self.tasks_path = self.base_path / "tasks"
         self.runs_path = self.base_path / ".autonomous" / "runs"
 

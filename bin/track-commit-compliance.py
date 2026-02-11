@@ -27,7 +27,7 @@ from typing import Dict, List, Optional, Tuple
 
 
 # Configuration
-BB5_ROOT = Path(os.environ.get("BB5_ROOT", Path.home() / ".blackbox5"))
+BB5_ROOT = Path(os.environ.get("BB5_ROOT", Path.home() / "blackbox5"))
 COMPLETED_TASKS_DIR = BB5_ROOT / "5-project-memory/blackbox5/tasks/completed"
 REPORTS_DIR = BB5_ROOT / "5-project-memory/blackbox5/reports"
 DEFAULT_DAYS = 30

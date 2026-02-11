@@ -2,7 +2,7 @@
 
 **Reviewer:** Claude Code Hooks Expert
 **Date:** 2026-02-06
-**Target:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
+**Target:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
 **Score:** 42/100
 
 ---
@@ -49,8 +49,8 @@ The checklist claims Stop hooks receive this JSON:
 - `cwd` is NOT passed to Stop hooks
 
 **Evidence:**
-- `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery/.claude/hooks/stop.py` lines 165-170
-- `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/auto-handoff-stop.py` lines 46-52
+- `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery/.claude/hooks/stop.py` lines 165-170
+- `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/auto-handoff-stop.py` lines 46-52
 
 #### 1.2 Completely Wrong Output Format
 
@@ -77,8 +77,8 @@ Stop hooks **CANNOT BLOCK**. They fire AFTER the session has ended. From the off
 The `"decision": "block"` JSON format is for **PreToolUse** and **UserPromptSubmit** hooks only. Stop hooks are notification-only - they cannot prevent session termination.
 
 **Evidence:**
-- `/Users/shaansisodia/.blackbox5/.claude/HOOKS.md` lines 155-164 clearly state Stop hook input does NOT support blocking
-- `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/auto-handoff-stop.py` exits with JSON `{"decision": "block"}` but this is a NO-OP for Stop hooks
+- `/Users/shaansisodia/blackbox5/.claude/HOOKS.md` lines 155-164 clearly state Stop hook input does NOT support blocking
+- `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/auto-handoff-stop.py` exits with JSON `{"decision": "block"}` but this is a NO-OP for Stop hooks
 
 ---
 
@@ -100,7 +100,7 @@ The entire checklist is built on a **false premise**:
 4. Stop hook can log, clean up, notify - but CANNOT prevent stop
 5. Session is already gone
 
-**Evidence from Multi-Agent Ralph Loop** (`/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/stop-verification.sh`):
+**Evidence from Multi-Agent Ralph Loop** (`/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/.claude/hooks/stop-verification.sh`):
 ```bash
 # This hook uses "decision": "approve" but it's advisory only
 trap 'echo "{\"decision\": \"approve\"}"' ERR EXIT
@@ -214,7 +214,7 @@ The checklist shows multiple validators but doesn't explain:
 2. **Failure Handling**: If Hook A fails, does Hook B still run?
 3. **State Passing**: How do hooks share state?
 
-**Evidence from settings.json** (`/Users/shaansisodia/.blackbox5/.claude/settings.json`):
+**Evidence from settings.json** (`/Users/shaansisodia/blackbox5/.claude/settings.json`):
 ```json
 "Stop": [
   {
@@ -285,7 +285,7 @@ The checklist shows:
 
 **ACTUAL CLAUDE CODE BEHAVIOR:**
 
-From `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/HOOK_ENVIRONMENT_VARIABLES.md`:
+From `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/HOOK_ENVIRONMENT_VARIABLES.md`:
 
 | Hook Event | Can Block |
 |------------|-----------|
@@ -381,13 +381,13 @@ The STOP_HOOK_CHECKLIST.md describes a system that **cannot exist** within Claud
 ## References
 
 1. **Working Stop Hook Examples:**
-   - `/Users/shaansisodia/.blackbox5/.claude/hooks/stop-validate-docs.sh`
-   - `/Users/shaansisodia/.blackbox5/.claude/hooks/stop-hierarchy-update.sh`
-   - `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery/.claude/hooks/stop.py`
-   - `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/auto-handoff-stop.py`
-   - `/Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/plugins/braintrust-tracing/hooks/stop_hook.sh`
+   - `/Users/shaansisodia/blackbox5/.claude/hooks/stop-validate-docs.sh`
+   - `/Users/shaansisodia/blackbox5/.claude/hooks/stop-hierarchy-update.sh`
+   - `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery/.claude/hooks/stop.py`
+   - `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/hooks/auto-handoff-stop.py`
+   - `/Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3/.claude/plugins/braintrust-tracing/hooks/stop_hook.sh`
 
 2. **Documentation:**
-   - `/Users/shaansisodia/.blackbox5/.claude/HOOKS.md`
-   - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/HOOK_ENVIRONMENT_VARIABLES.md`
-   - `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/CLAUDE.md`
+   - `/Users/shaansisodia/blackbox5/.claude/HOOKS.md`
+   - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-010-001-sessionstart-enhanced/HOOK_ENVIRONMENT_VARIABLES.md`
+   - `/Users/shaansisodia/blackbox5/2-engine/.autonomous/.docs/github/multi-agent-ralph-loop/CLAUDE.md`

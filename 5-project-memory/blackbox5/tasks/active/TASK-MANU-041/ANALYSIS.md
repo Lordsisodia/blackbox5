@@ -6,9 +6,9 @@ GitHub repository creation and initial setup requires manual steps that could be
 
 ## Key Files Involved
 
-- `/Users/shaansisodia/.blackbox5/.github/workflows/` - 11 workflow files including mirror workflows
-- `/Users/shaansisodia/.blackbox5/.github/templates/mirror-template.yml` - Template for mirroring
-- `/Users/shaansisodia/.blackbox5/.github/MIRROR-SYSTEM.md` - Documentation for mirroring
+- `/Users/shaansisodia/blackbox5/.github/workflows/` - 11 workflow files including mirror workflows
+- `/Users/shaansisodia/blackbox5/.github/templates/mirror-template.yml` - Template for mirroring
+- `/Users/shaansisodia/blackbox5/.github/MIRROR-SYSTEM.md` - Documentation for mirroring
 - Missing: Automated repo creation script
 
 ## Estimated Complexity
@@ -33,7 +33,7 @@ GitHub repository creation and initial setup requires manual steps that could be
 
 ## Current State
 
-From `/Users/shaansisodia/.blackbox5/.github/templates/mirror-template.yml`:
+From `/Users/shaansisodia/blackbox5/.github/templates/mirror-template.yml`:
 ```yaml
 # Instructions:
 # 1. Copy this file to .github/workflows/mirror-{folder-name}.yml
@@ -55,7 +55,7 @@ This is currently a manual 4-step process per mirror target.
 
 ## Suggested Implementation
 
-Create `/Users/shaansisodia/.blackbox5/bin/bb5-create-mirror-repo`:
+Create `/Users/shaansisodia/blackbox5/bin/bb5-create-mirror-repo`:
 ```bash
 #!/bin/bash
 # Usage: bb5-create-mirror-repo <folder-path> <target-repo-name>

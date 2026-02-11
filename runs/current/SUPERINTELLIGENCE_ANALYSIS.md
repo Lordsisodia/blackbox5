@@ -47,13 +47,13 @@ The BB5 system has **7 scattered .autonomous folders** across the codebase, crea
 
 | # | Location | Size | Status | Purpose | Action |
 |---|----------|------|--------|---------|--------|
-| 1 | `~/.blackbox5/.autonomous/` | 72K | **ACTIVE** | Health monitoring only | Keep - minimal |
-| 2 | `~/.blackbox5/2-engine/.autonomous/` | 144K | **ACTIVE** | Engine config, lib, defaults | **Keep - canonical** |
-| 3 | `~/.blackbox5/5-project-memory/blackbox5/.autonomous/` | 14M | **ACTIVE** | Tasks, runs, agent data | **Keep - canonical** |
-| 4 | `~/.blackbox5/6-roadmap-pre-cleanup-backup/.../.autonomous/` | 52K | **LEGACY** | Pre-cleanup backup | **Delete** |
-| 5 | `~/.blackbox5/6-roadmap/_research/.../.autonomous/` | 52K | **LEGACY** | Research backup | **Delete** |
-| 6 | `~/.blackbox5/archived/duplicate-docs/2-engine/.autonomous/` | 440K | **LEGACY** | Archived duplicate docs | **Delete** |
-| 7 | `~/.blackbox5/~/.blackbox5/.../.autonomous/` | 12K | **ERROR** | Accidental nested path | **Delete** |
+| 1 | `~/blackbox5/.autonomous/` | 72K | **ACTIVE** | Health monitoring only | Keep - minimal |
+| 2 | `~/blackbox5/2-engine/.autonomous/` | 144K | **ACTIVE** | Engine config, lib, defaults | **Keep - canonical** |
+| 3 | `~/blackbox5/5-project-memory/blackbox5/.autonomous/` | 14M | **ACTIVE** | Tasks, runs, agent data | **Keep - canonical** |
+| 4 | `~/blackbox5/6-roadmap-pre-cleanup-backup/.../.autonomous/` | 52K | **LEGACY** | Pre-cleanup backup | **Delete** |
+| 5 | `~/blackbox5/6-roadmap/_research/.../.autonomous/` | 52K | **LEGACY** | Research backup | **Delete** |
+| 6 | `~/blackbox5/archived/duplicate-docs/2-engine/.autonomous/` | 440K | **LEGACY** | Archived duplicate docs | **Delete** |
+| 7 | `~/blackbox5/~/blackbox5/.../.autonomous/` | 12K | **ERROR** | Accidental nested path | **Delete** |
 
 #### Detailed Contents Analysis
 
@@ -209,7 +209,7 @@ The BB5 system has **7 scattered .autonomous folders** across the codebase, crea
 BB5 Architecture (Post-Consolidation)
 =====================================
 
-~/.blackbox5/
+~/blackbox5/
 ├── .autonomous/                    # Keep - Health monitoring
 │   └── health/
 │
@@ -241,7 +241,7 @@ BB5 Architecture (Post-Consolidation)
 | 5-project-memory/.autonomous/ is canonical | 98% | 14M data, hooks write here | High - data loss |
 | Root .autonomous/ is only for health | 90% | Only contains health/ folder | Low - can verify |
 | Backup folders are safe to delete | 95% | Named "backup", "archived" | Medium - need backup verification |
-| Nested path is accidental | 99% | Path contains "~/.blackbox5" literally | Low - clearly wrong |
+| Nested path is accidental | 99% | Path contains "~/blackbox5" literally | Low - clearly wrong |
 
 #### Validation Performed
 
@@ -302,18 +302,18 @@ BB5 Architecture (Post-Consolidation)
 
 | Location | Purpose | Contents |
 |----------|---------|----------|
-| `~/.blackbox5/.autonomous/` | System Health | Health monitoring DB, service files |
-| `~/.blackbox5/2-engine/.autonomous/` | Engine System | Config defaults, shared libraries |
-| `~/.blackbox5/5-project-memory/{project}/.autonomous/` | Project Data | Tasks, runs, agent communications |
+| `~/blackbox5/.autonomous/` | System Health | Health monitoring DB, service files |
+| `~/blackbox5/2-engine/.autonomous/` | Engine System | Config defaults, shared libraries |
+| `~/blackbox5/5-project-memory/{project}/.autonomous/` | Project Data | Tasks, runs, agent communications |
 
 ### Delete These 4
 
 | Location | Reason |
 |----------|--------|
-| `~/.blackbox5/6-roadmap-pre-cleanup-backup/.../.autonomous/` | Pre-cleanup backup, superseded |
-| `~/.blackbox5/6-roadmap/_research/.../.autonomous/` | Research backup, outdated |
-| `~/.blackbox5/archived/duplicate-docs/2-engine/.autonomous/` | Archived docs, already migrated |
-| `~/.blackbox5/~/.blackbox5/.../.autonomous/` | Accidental nested path |
+| `~/blackbox5/6-roadmap-pre-cleanup-backup/.../.autonomous/` | Pre-cleanup backup, superseded |
+| `~/blackbox5/6-roadmap/_research/.../.autonomous/` | Research backup, outdated |
+| `~/blackbox5/archived/duplicate-docs/2-engine/.autonomous/` | Archived docs, already migrated |
+| `~/blackbox5/~/blackbox5/.../.autonomous/` | Accidental nested path |
 
 ## Implementation Path
 
@@ -330,10 +330,10 @@ BB5 Architecture (Post-Consolidation)
 ### Phase 3: Deletion (15 minutes)
 ```bash
 # Delete backup folders
-rm -rf ~/.blackbox5/6-roadmap-pre-cleanup-backup/research/external/YouTube/AI-Improvement-Research/.autonomous
-rm -rf ~/.blackbox5/6-roadmap/_research/external/YouTube/AI-Improvement-Research/.autonomous
-rm -rf ~/.blackbox5/archived/duplicate-docs/2-engine/.autonomous
-rm -rf "~/.blackbox5/~/.blackbox5"
+rm -rf ~/blackbox5/6-roadmap-pre-cleanup-backup/research/external/YouTube/AI-Improvement-Research/.autonomous
+rm -rf ~/blackbox5/6-roadmap/_research/external/YouTube/AI-Improvement-Research/.autonomous
+rm -rf ~/blackbox5/archived/duplicate-docs/2-engine/.autonomous
+rm -rf "~/blackbox5/~/blackbox5"
 ```
 
 ### Phase 4: Validation (15 minutes)

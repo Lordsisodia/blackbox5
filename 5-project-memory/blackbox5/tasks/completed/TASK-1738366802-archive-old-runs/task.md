@@ -49,7 +49,7 @@ The analysis in knowledge/analysis/autonomous-runs-analysis.md indicates the 47 
 
 ```bash
 # Ensure archived directory exists
-mkdir -p /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/archived
+mkdir -p /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/archived
 
 # Move analyzed runs (example)
 mv runs/completed/run-1769* runs/archived/  # adjust based on analysis

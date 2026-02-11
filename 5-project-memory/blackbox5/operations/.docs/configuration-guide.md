@@ -24,13 +24,13 @@ RALF (Recursive Autonomous Learning Framework) now supports **user-configurable 
 
 RALF uses a **two-tier configuration system**:
 
-1. **User Configuration:** `~/.blackbox5/config.yaml` (optional, overrides defaults)
+1. **User Configuration:** `~/blackbox5/config.yaml` (optional, overrides defaults)
 2. **Default Configuration:** `2-engine/.autonomous/config/default.yaml` (built-in defaults)
 
 ### Configuration Hierarchy
 
 ```
-User Config (~/.blackbox5/config.yaml)
+User Config (~/blackbox5/config.yaml)
          ↓ (overrides)
 Default Config (2-engine/.autonomous/config/default.yaml)
          ↓ (fallback)
@@ -50,15 +50,15 @@ Built-in Defaults (hardcoded in config_manager.py)
 
 ```bash
 # Create config directory (if it doesn't exist)
-mkdir -p ~/.blackbox5
+mkdir -p ~/blackbox5
 
 # Copy default config to user config location
-cp 2-engine/.autonomous/config/default.yaml ~/.blackbox5/config.yaml
+cp 2-engine/.autonomous/config/default.yaml ~/blackbox5/config.yaml
 ```
 
 ### Step 2: Customize Values
 
-Edit `~/.blackbox5/config.yaml`:
+Edit `~/blackbox5/config.yaml`:
 
 ```yaml
 thresholds:
@@ -315,14 +315,14 @@ config.set('thresholds.skill_invocation_confidence', 80)
 config.reload_config()
 
 # Save current configuration to file
-config.save_config('~/.blackbox5/config.yaml')
+config.save_config('~/blackbox5/config.yaml')
 ```
 
 ### Bash API
 
 ```bash
 # Get skill invocation threshold
-CONFIG_FILE="$HOME/.blackbox5/config.yaml"
+CONFIG_FILE="$HOME/blackbox5/config.yaml"
 DEFAULT_CONFIG="2-engine/.autonomous/config/default.yaml"
 
 THRESHOLD=$(python3 -c "
@@ -401,9 +401,9 @@ routing:
 **Symptoms:** RALF ignores your config file, uses defaults
 
 **Solutions:**
-1. Check file path: `ls -la ~/.blackbox5/config.yaml`
-2. Check YAML syntax: `python3 -c "import yaml; yaml.safe_load(open('~/.blackbox5/config.yaml'))"`
-3. Check file permissions: `chmod 644 ~/.blackbox5/config.yaml`
+1. Check file path: `ls -la ~/blackbox5/config.yaml`
+2. Check YAML syntax: `python3 -c "import yaml; yaml.safe_load(open('~/blackbox5/config.yaml'))"`
+3. Check file permissions: `chmod 644 ~/blackbox5/config.yaml`
 4. Check logs for validation errors
 
 ---
@@ -441,10 +441,10 @@ If you see default values (70, 3-5, executor), your config is not being loaded.
 
 ```bash
 # Backup current config
-mv ~/.blackbox5/config.yaml ~/.blackbox5/config.yaml.backup
+mv ~/blackbox5/config.yaml ~/blackbox5/config.yaml.backup
 
 # RALF will use defaults
-# To restore: mv ~/.blackbox5/config.yaml.backup ~/.blackbox5/config.yaml
+# To restore: mv ~/blackbox5/config.yaml.backup ~/blackbox5/config.yaml
 ```
 
 ---

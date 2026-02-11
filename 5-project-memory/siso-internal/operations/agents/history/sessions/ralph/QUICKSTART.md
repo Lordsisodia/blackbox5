@@ -25,7 +25,7 @@ When you create a task in Vibe Kanban with the `[auto]` tag (or `[ralph]`, `[loo
 
 ```bash
 # Run integration tests
-.blackbox5/engine/runtime/ralph/test-vibe-integration.sh
+blackbox5/engine/runtime/ralph/test-vibe-integration.sh
 ```
 
 This will:
@@ -231,7 +231,7 @@ def sync_task_to_blackbox(task, attempts, state):
 ### 2. PRD Generation
 
 ```python
-# In .blackbox5/engine/runtime/ralph/vibe_integration.py
+# In blackbox5/engine/runtime/ralph/vibe_integration.py
 def generate_prd_from_task(task):
     # Clean title (remove tags)
     clean_title = clean_title(task['title'])
@@ -278,21 +278,21 @@ async def run():
 ## 📁 Files
 
 ### Integration Layer
-- `.blackbox5/engine/runtime/ralph/vibe_integration.py` - Main integration
-- `.blackbox5/engine/runtime/ralph/ralph_runtime.py` - Ralph Runtime
-- `.blackbox5/engine/runtime/ralph/quality.py` - Quality checker
+- `blackbox5/engine/runtime/ralph/vibe_integration.py` - Main integration
+- `blackbox5/engine/runtime/ralph/ralph_runtime.py` - Ralph Runtime
+- `blackbox5/engine/runtime/ralph/quality.py` - Quality checker
 
 ### Vibe Kanban Integration
 - `.blackbox/4-scripts/integrations/vibe-kanban/webhook-server.py` - Webhook handler
 - `.blackbox/4-scripts/integrations/vibe-kanban/vibe-monitor.py` - Database monitor
 
 ### Documentation
-- `.blackbox5/engine/runtime/ralph/VIBE-KANBAN-INTEGRATION.md` - Full architecture
-- `.blackbox5/engine/runtime/ralph/README.md` - Ralph Runtime docs
+- `blackbox5/engine/runtime/ralph/VIBE-KANBAN-INTEGRATION.md` - Full architecture
+- `blackbox5/engine/runtime/ralph/README.md` - Ralph Runtime docs
 
 ### Scripts
-- `.blackbox5/engine/runtime/ralph/start-ralph.sh` - Start Ralph manually
-- `.blackbox5/engine/runtime/ralph/test-vibe-integration.sh` - Test integration
+- `blackbox5/engine/runtime/ralph/start-ralph.sh` - Start Ralph manually
+- `blackbox5/engine/runtime/ralph/test-vibe-integration.sh` - Test integration
 
 ---
 

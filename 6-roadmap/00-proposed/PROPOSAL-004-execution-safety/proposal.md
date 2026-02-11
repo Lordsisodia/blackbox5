@@ -97,7 +97,7 @@ This makes autonomous operation **unsafe for production use**.
 - No resource limits
 
 **Locations:**
-- `.blackbox5/engine/core/circuit_breaker.py`
+- `blackbox5/engine/core/circuit_breaker.py`
 
 ## Proposed Solution
 

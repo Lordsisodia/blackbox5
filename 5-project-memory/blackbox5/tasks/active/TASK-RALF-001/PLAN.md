@@ -38,23 +38,23 @@ By using environment variables with fallback defaults, we maintain backward comp
 
 | File | Lines | Current Pattern |
 |------|-------|-----------------|
-| `scout-intelligent.py` | 30-32 | `Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"` |
-| `scout-task-based.py` | 23-25 | `Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"` |
-| `planner-prioritize.py` | 23-26 | `Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"` |
-| `executor-implement.py` | 25-29 | `Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"` |
-| `verifier-validate.py` | 24-26 | `Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"` |
-| `improvement-loop.py` | 24-27 | `Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"` |
+| `scout-intelligent.py` | 30-32 | `Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"` |
+| `scout-task-based.py` | 23-25 | `Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"` |
+| `planner-prioritize.py` | 23-26 | `Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"` |
+| `executor-implement.py` | 25-29 | `Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"` |
+| `verifier-validate.py` | 24-26 | `Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"` |
+| `improvement-loop.py` | 24-27 | `Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"` |
 
 ### Current Pattern
 ```python
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
 ```
 
 ### Target Pattern
 ```python
-PROJECT_DIR = Path(os.environ.get("RALF_PROJECT_DIR", Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"))
-ENGINE_DIR = Path(os.environ.get("RALF_ENGINE_DIR", Path.home() / ".blackbox5" / "2-engine"))
+PROJECT_DIR = Path(os.environ.get("RALF_PROJECT_DIR", Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"))
+ENGINE_DIR = Path(os.environ.get("RALF_ENGINE_DIR", Path.home() / "blackbox5" / "2-engine"))
 ```
 
 ---
@@ -75,8 +75,8 @@ ENGINE_DIR = Path(os.environ.get("RALF_ENGINE_DIR", Path.home() / ".blackbox5" /
 
 | Variable | Purpose | Default |
 |----------|---------|---------|
-| `RALF_PROJECT_DIR` | Project memory directory | `~/.blackbox5/5-project-memory/blackbox5` |
-| `RALF_ENGINE_DIR` | Engine directory | `~/.blackbox5/2-engine` |
+| `RALF_PROJECT_DIR` | Project memory directory | `~/blackbox5/5-project-memory/blackbox5` |
+| `RALF_ENGINE_DIR` | Engine directory | `~/blackbox5/2-engine` |
 
 ### Validation Strategy
 
@@ -107,12 +107,12 @@ from pathlib import Path
 
 def get_project_dir() -> Path:
     """Get project directory from environment or default."""
-    default = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+    default = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
     return Path(os.environ.get("RALF_PROJECT_DIR", default))
 
 def get_engine_dir() -> Path:
     """Get engine directory from environment or default."""
-    default = Path.home() / ".blackbox5" / "2-engine"
+    default = Path.home() / "blackbox5" / "2-engine"
     return Path(os.environ.get("RALF_ENGINE_DIR", default))
 
 def validate_paths() -> tuple[Path, Path]:
@@ -158,11 +158,11 @@ def validate_paths() -> tuple[Path, Path]:
 # RALF Configuration
 # Copy to .env and customize for your environment
 
-# Project directory (default: ~/.blackbox5/5-project-memory/blackbox5)
-RALF_PROJECT_DIR=/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+# Project directory (default: ~/blackbox5/5-project-memory/blackbox5)
+RALF_PROJECT_DIR=/Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 
-# Engine directory (default: ~/.blackbox5/2-engine)
-RALF_ENGINE_DIR=/Users/shaansisodia/.blackbox5/2-engine
+# Engine directory (default: ~/blackbox5/2-engine)
+RALF_ENGINE_DIR=/Users/shaansisodia/blackbox5/2-engine
 ```
 
 ### Phase 4: Testing (45 min)

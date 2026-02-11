@@ -12,7 +12,7 @@ I initially made mistakes (put files in `.blackbox` instead of `BlackBox5`, didn
 
 ### 🎯 Complete GitHub Integration Skill
 
-**Location:** `.blackbox5/engine/.skills/github-integration/`
+**Location:** `blackbox5/engine/.skills/github-integration/`
 
 **Contents:**
 - ✅ **SKILL.md** - Complete skill documentation
@@ -26,11 +26,11 @@ I initially made mistakes (put files in `.blackbox` instead of `BlackBox5`, didn
 
 ### 📁 Spec Directory Structure
 
-**Location:** `.blackbox5/specs/`
+**Location:** `blackbox5/specs/`
 
 **Structure:**
 ```
-.blackbox5/specs/
+blackbox5/specs/
 ├── prds/              # Product Requirements Documents
 ├── epics/             # Technical Specifications
 │   └── {feature}/
@@ -53,15 +53,15 @@ BlackBox5 Agents:
 
 1. John (PM) - Creates PRD
    → Uses github-integration skill
-   → .blackbox5/specs/prds/user-auth.md
+   → blackbox5/specs/prds/user-auth.md
 
 2. Winston (Architect) - Generates Epic
    → Uses github-integration skill
-   → .blackbox5/specs/epics/user-auth/epic.md
+   → blackbox5/specs/epics/user-auth/epic.md
 
 3. Winston + Arthur - Decompose Tasks
    → Uses github-integration skill
-   → .blackbox5/specs/epics/user-auth/{001,002,003}.md
+   → blackbox5/specs/epics/user-auth/{001,002,003}.md
 
 4. System - Syncs to GitHub
    → Uses github-integration skill
@@ -146,18 +146,18 @@ When agents sync to GitHub:
 
 ## Documentation
 
-**Main README:** `.blackbox5/GITHUB-INTEGRATION-README.md`
+**Main README:** `blackbox5/GITHUB-INTEGRATION-README.md`
 - Complete usage guide
 - Agent workflow examples
 - Quick start examples
 
-**Skill Definition:** `.blackbox5/engine/.skills/github-integration/SKILL.md`
+**Skill Definition:** `blackbox5/engine/.skills/github-integration/SKILL.md`
 - What the skill does
 - How agents use it
 - Tools required
 - Best practices
 
-**Command Files:** `.blackbox5/engine/.skills/github-integration/commands/`
+**Command Files:** `blackbox5/engine/.skills/github-integration/commands/`
 - Step-by-step prompts for agents
 - 6 commands covering full workflow
 
@@ -180,7 +180,7 @@ Let me ask some questions:
 
 [Creates structured PRD]
 
-✅ PRD created: .blackbox5/specs/prds/user-profile.md"
+✅ PRD created: blackbox5/specs/prds/user-profile.md"
 ```
 
 ---

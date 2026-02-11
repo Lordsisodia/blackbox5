@@ -51,7 +51,7 @@ We need an agent that can:
 
 ### 1. Input: First-Principles Feature Document
 
-**Location:** `.blackbox5/roadmap/first-principles/features/{feature-name}.md`
+**Location:** `blackbox5/roadmap/first-principles/features/{feature-name}.md`
 
 **Contains:**
 - Purpose
@@ -76,7 +76,7 @@ We need an agent that can:
 
 ### 3. Output: Challenges Document
 
-**Location:** `.blackbox5/roadmap/first-principles/challenges/{feature-name}-challenges.md`
+**Location:** `blackbox5/roadmap/first-principles/challenges/{feature-name}-challenges.md`
 
 **Contains:**
 - List of all assumptions
@@ -96,7 +96,7 @@ We need an agent that can:
 
 ### 5. Output: Validation Results
 
-**Location:** `.blackbox5/roadmap/first-principles/validations/{feature-name}-validation.md`
+**Location:** `blackbox5/roadmap/first-principles/validations/{feature-name}-validation.md`
 
 **Contains:**
 - What was tested
@@ -110,7 +110,7 @@ We need an agent that can:
 ## Directory Structure
 
 ```
-.blackbox5/roadmap/first-principles/
+blackbox5/roadmap/first-principles/
 ├── features/                    # Input documents
 │   ├── task-analyzer.md
 │   ├── bmad-framework.md
@@ -132,7 +132,7 @@ We need an agent that can:
 
 ### Agent Type: Skill
 
-**Location:** `.blackbox5/engine/capabilities/skills/thinking-methodologies/assumption-challenger/SKILL.md`
+**Location:** `blackbox5/engine/capabilities/skills/thinking-methodologies/assumption-challenger/SKILL.md`
 
 ### Trigger Conditions
 
@@ -286,7 +286,7 @@ For each assumption, design a validation experiment:
 5. [ ] Test with `task-analyzer.md` as first example
 
 **Deliverables:**
-- `.blackbox5/engine/capabilities/skills/thinking-methodologies/assumption-challenger/SKILL.md`
+- `blackbox5/engine/capabilities/skills/thinking-methodologies/assumption-challenger/SKILL.md`
 - Challenge generation template
 - Validation experiment template
 
@@ -299,7 +299,7 @@ For each assumption, design a validation experiment:
 4. [ ] Test agent with sample feature doc
 
 **Deliverables:**
-- `.blackbox5/engine/agents/assumption-challenger/`
+- `blackbox5/engine/agents/assumption-challenger/`
 - Agent prompt
 - Integration with skill
 

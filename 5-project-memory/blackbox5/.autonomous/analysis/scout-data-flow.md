@@ -40,8 +40,8 @@ timeline.yaml (milestones only)
 ### 2. Agent Communication Flow
 
 **Current Architecture:**
-- **Events system**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` logs agent_start/agent_stop events
-- **Queue system**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` contains 90 tasks with full metadata
+- **Events system**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` logs agent_start/agent_stop events
+- **Queue system**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` contains 90 tasks with full metadata
 
 **Critical Issue - Agent Identity Loss:**
 All events show `agent_type: "unknown"` and `agent_id: "unknown-XXXX"` because hooks cannot determine agent context. This makes the event log nearly useless for tracing.
@@ -58,9 +58,9 @@ Hook (SessionStart) → Log event → Agent runs → Hook (Stop) → Log event
 ### 3. Configuration Flow
 
 **Routes.yaml Analysis:**
-- **BlackBox5 routes**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - 96 lines, well-structured
-- **Engine routes**: `/Users/shaansisodia/.blackbox5/.autonomous/routes.yaml` - 30 lines, template placeholders not filled
-- **2-engine routes**: `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml` - similar structure
+- **BlackBox5 routes**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - 96 lines, well-structured
+- **Engine routes**: `/Users/shaansisodia/blackbox5/.autonomous/routes.yaml` - 30 lines, template placeholders not filled
+- **2-engine routes**: `/Users/shaansisodia/blackbox5/2-engine/.autonomous/routes.yaml` - similar structure
 
 **Configuration Propagation Issues:**
 - **47 hardcoded paths** crossing engine/project boundaries
@@ -72,9 +72,9 @@ Hook (SessionStart) → Log event → Agent runs → Hook (Stop) → Log event
 ### 4. Memory/Insights Flow
 
 **Current State:**
-- **Decisions**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/decisions/registry.md` - Template exists, 0 decisions logged
-- **Knowledge**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/knowledge/` - Research and analysis documents
-- **Insights**: `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/knowledge/analysis/` - 20+ analysis files
+- **Decisions**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/decisions/registry.md` - Template exists, 0 decisions logged
+- **Knowledge**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/knowledge/` - Research and analysis documents
+- **Insights**: `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/knowledge/analysis/` - 20+ analysis files
 
 **Insights Capture Problems:**
 - **No automated insight extraction**: Analysis files created manually
@@ -137,11 +137,11 @@ Hook (SessionStart) → Log event → Agent runs → Hook (Stop) → Log event
 ## Files Analyzed
 
 Key files examined:
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` (1975 lines, 90 tasks)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` (2830+ events)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/STRUCTURAL_ISSUES_MASTER_LIST.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/knowledge/analysis/master-inefficiency-list.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` (1975 lines, 90 tasks)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` (2830+ events)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/STRUCTURAL_ISSUES_MASTER_LIST.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/knowledge/analysis/master-inefficiency-list.md`
 - 80+ task files in `tasks/active/`
 
 ---

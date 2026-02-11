@@ -21,8 +21,8 @@ The `calculate-skill-metrics.py` script currently targets `skill-metrics.yaml` (
 - [ ] Update any hardcoded paths or references to the old file
 
 ## Files to Modify
-- Modify: `~/.blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py`
-- Reference: `~/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
+- Modify: `~/blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py`
+- Reference: `~/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
 
 ## Context
 

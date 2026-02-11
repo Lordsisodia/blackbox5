@@ -624,15 +624,15 @@ hooks:
 
 | Component | Path |
 |-----------|------|
-| Queue | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` |
-| Events | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` |
-| Execution State | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/execution/execution-state.yaml` |
-| Session Start Hook | `/Users/shaansisodia/.blackbox5/bin/ralf-session-start-hook.sh` |
-| Session Stop Hook | `/Users/shaansisodia/.blackbox5/bin/ralf-stop-hook.sh` |
-| Skill Recorder | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py` |
-| Queue Manager | `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` |
-| Dual-RALF Handover | `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts/system/handover/DUAL-RALF-HANDOVER.md` |
-| 6-Agent Pipeline | `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts/agents/six-agent-pipeline.md` |
+| Queue | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` |
+| Events | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml` |
+| Execution State | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/execution/execution-state.yaml` |
+| Session Start Hook | `/Users/shaansisodia/blackbox5/bin/ralf-session-start-hook.sh` |
+| Session Stop Hook | `/Users/shaansisodia/blackbox5/bin/ralf-stop-hook.sh` |
+| Skill Recorder | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/task_completion_skill_recorder.py` |
+| Queue Manager | `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` |
+| Dual-RALF Handover | `/Users/shaansisodia/blackbox5/2-engine/.autonomous/prompts/system/handover/DUAL-RALF-HANDOVER.md` |
+| 6-Agent Pipeline | `/Users/shaansisodia/blackbox5/2-engine/.autonomous/prompts/agents/six-agent-pipeline.md` |
 
 ---
 

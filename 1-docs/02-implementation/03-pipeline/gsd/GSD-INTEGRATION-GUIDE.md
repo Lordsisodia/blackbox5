@@ -345,7 +345,7 @@ print(f"Finished {result.waves_completed} waves")
 ### Step 4: Review Progress in STATE.md
 
 ```bash
-cat .blackbox5/memory/STATE.md
+cat blackbox5/memory/STATE.md
 ```
 
 ### Step 5: If Something Crashes, Resume from Checkpoint
@@ -366,7 +366,7 @@ result = await orchestrator.resume_workflow(
 See `examples/gsd_integration_demo.py` for a complete working example that demonstrates all 8 components:
 
 ```bash
-python .blackbox5/examples/gsd_integration_demo.py
+python blackbox5/examples/gsd_integration_demo.py
 ```
 
 The demo shows:
@@ -385,17 +385,17 @@ All 8 components have comprehensive tests:
 
 ```bash
 # Run all GSD tests
-python .blackbox5/test_gsd_complete.py
+python blackbox5/test_gsd_complete.py
 
 # Run individual component tests
-python .blackbox5/tests/test_wave_execution.py
-python .blackbox5/tests/test_atomic_commits.py
-python .blackbox5/tests/test_checkpoint_protocol.py
-python .blackbox5/tests/test_deviation_handling.py
-python .blackbox5/tests/test_context_extraction.py
-python .blackbox5/tests/test_state_manager.py
-python .blackbox5/tests/test_todo_manager.py
-python .blackbox5/tests/test_anti_pattern_detection.py
+python blackbox5/tests/test_wave_execution.py
+python blackbox5/tests/test_atomic_commits.py
+python blackbox5/tests/test_checkpoint_protocol.py
+python blackbox5/tests/test_deviation_handling.py
+python blackbox5/tests/test_context_extraction.py
+python blackbox5/tests/test_state_manager.py
+python blackbox5/tests/test_todo_manager.py
+python blackbox5/tests/test_anti_pattern_detection.py
 ```
 
 **Current test status**: 240/240 tests passing (100%)

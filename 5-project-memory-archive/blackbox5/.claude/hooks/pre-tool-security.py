@@ -90,7 +90,7 @@ def log_security_event(tool_name, tool_input, blocked, reason, agent_type):
     }
 
     # Determine log path - always use canonical location
-    bb5_root = Path.home() / '.blackbox5'
+    bb5_root = Path.home() / 'blackbox5'
     log_dir = bb5_root / '.logs'
     log_dir.mkdir(exist_ok=True)
 

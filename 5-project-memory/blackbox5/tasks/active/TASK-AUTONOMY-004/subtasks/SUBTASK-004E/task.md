@@ -40,11 +40,11 @@ After=network.target
 Type=simple
 User=%I
 Group=%I
-WorkingDirectory=/home/%I/.blackbox5
-Environment=PYTHONPATH=/home/%I/.blackbox5/bin/lib
-Environment=BB5_HOME=/home/%I/.blackbox5
-EnvironmentFile=/home/%I/.blackbox5/config/watch.env
-ExecStart=/home/%I/.blackbox5/bin/bb5-watch start --foreground
+WorkingDirectory=/home/%I/blackbox5
+Environment=PYTHONPATH=/home/%I/blackbox5/bin/lib
+Environment=BB5_HOME=/home/%I/blackbox5
+EnvironmentFile=/home/%I/blackbox5/config/watch.env
+ExecStart=/home/%I/blackbox5/bin/bb5-watch start --foreground
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=10s
@@ -56,7 +56,7 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=false
-ReadWritePaths=/home/%I/.blackbox5/.autonomous/health
+ReadWritePaths=/home/%I/blackbox5/.autonomous/health
 
 [Install]
 WantedBy=multi-user.target
@@ -68,7 +68,7 @@ Enable with: `systemctl enable bb5-watch@shaansisodia`
 Create `/etc/logrotate.d/bb5-health`:
 
 ```
-/home/*/.blackbox5/.autonomous/health/*.log {
+/home/*/blackbox5/.autonomous/health/*.log {
     daily
     rotate 14
     compress
@@ -85,7 +85,7 @@ Create `/etc/logrotate.d/bb5-health`:
 ```
 
 ### Step 3: Environment Setup Script (5K tokens)
-Create `~/.blackbox5/bin/setup-health-monitoring.sh`:
+Create `~/blackbox5/bin/setup-health-monitoring.sh`:
 
 ```bash
 #!/bin/bash
@@ -96,9 +96,9 @@ set -e
 echo "Setting up BB5 Health Monitoring..."
 
 # Create directories
-mkdir -p ~/.blackbox5/.autonomous/health
-mkdir -p ~/.blackbox5/config
-mkdir -p ~/.blackbox5/bin/lib/health_monitor
+mkdir -p ~/blackbox5/.autonomous/health
+mkdir -p ~/blackbox5/config
+mkdir -p ~/blackbox5/bin/lib/health_monitor
 
 # Check Python version
 python3 --version
@@ -107,25 +107,25 @@ python3 --version
 pip3 install --user pyyaml rich click python-telegram-bot
 
 # Create config from template
-if [ ! -f ~/.blackbox5/config/watch-config.yaml ]; then
-    cp ~/.blackbox5/config/watch-config.example.yaml ~/.blackbox5/config/watch-config.yaml
-    echo "Created config file. Please edit ~/.blackbox5/config/watch-config.yaml"
+if [ ! -f ~/blackbox5/config/watch-config.yaml ]; then
+    cp ~/blackbox5/config/watch-config.example.yaml ~/blackbox5/config/watch-config.yaml
+    echo "Created config file. Please edit ~/blackbox5/config/watch-config.yaml"
 fi
 
 # Create environment file
-if [ ! -f ~/.blackbox5/config/watch.env ]; then
-    cat > ~/.blackbox5/config/watch.env << 'EOF'
+if [ ! -f ~/blackbox5/config/watch.env ]; then
+    cat > ~/blackbox5/config/watch.env << 'EOF'
 # BB5 Watch Environment
 # Get token from @BotFather on Telegram
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here
 EOF
-    echo "Created env file. Please edit ~/.blackbox5/config/watch.env"
+    echo "Created env file. Please edit ~/blackbox5/config/watch.env"
 fi
 
 # Set permissions
-chmod 600 ~/.blackbox5/config/watch.env
-chmod 644 ~/.blackbox5/config/watch-config.yaml
+chmod 600 ~/blackbox5/config/watch.env
+chmod 644 ~/blackbox5/config/watch-config.yaml
 
 # Initialize database
 python3 -c "from health_monitor.database import init_database; init_database()"
@@ -133,15 +133,15 @@ python3 -c "from health_monitor.database import init_database; init_database()"
 echo "Setup complete!"
 echo ""
 echo "Next steps:"
-echo "1. Edit ~/.blackbox5/config/watch.env with your Telegram credentials"
-echo "2. Edit ~/.blackbox5/config/watch-config.yaml with your preferences"
+echo "1. Edit ~/blackbox5/config/watch.env with your Telegram credentials"
+echo "2. Edit ~/blackbox5/config/watch-config.yaml with your preferences"
 echo "3. Test: bb5-health"
 echo "4. Start daemon: bb5-watch start"
 echo "5. Enable auto-start: sudo systemctl enable bb5-watch@$USER"
 ```
 
 ### Step 4: Telegram Bot Setup Guide (4K tokens)
-Create `~/.blackbox5/docs/TELEGRAM_SETUP.md`:
+Create `~/blackbox5/docs/TELEGRAM_SETUP.md`:
 
 ```markdown
 # Telegram Bot Setup for BB5 Alerts
@@ -170,7 +170,7 @@ Create `~/.blackbox5/docs/TELEGRAM_SETUP.md`:
 
 ## 3. Configure
 
-Edit `~/.blackbox5/config/watch.env`:
+Edit `~/blackbox5/config/watch.env`:
 
 ```
 TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz
@@ -187,7 +187,7 @@ You should receive a test message.
 ```
 
 ### Step 5: Deployment Documentation (5K tokens)
-Create `~/.blackbox5/docs/VPS_DEPLOYMENT.md`:
+Create `~/blackbox5/docs/VPS_DEPLOYMENT.md`:
 
 ```markdown
 # BB5 Health Monitoring - VPS Deployment Guide
@@ -204,19 +204,19 @@ Create `~/.blackbox5/docs/VPS_DEPLOYMENT.md`:
 ```bash
 # 1. Clone/setup BB5 (if not done)
 cd ~
-git clone <your-repo> .blackbox5
+git clone <your-repo> blackbox5
 
 # 2. Run setup
-~/.blackbox5/bin/setup-health-monitoring.sh
+~/blackbox5/bin/setup-health-monitoring.sh
 
 # 3. Configure Telegram
-nano ~/.blackbox5/config/watch.env
+nano ~/blackbox5/config/watch.env
 
 # 4. Test
 bb5-health
 
 # 5. Install systemd service
-sudo cp ~/.blackbox5/config/systemd/bb5-watch.service /etc/systemd/system/
+sudo cp ~/blackbox5/config/systemd/bb5-watch.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable bb5-watch@$USER
 sudo systemctl start bb5-watch@$USER
@@ -235,7 +235,7 @@ bb5-watch status
 journalctl -u bb5-watch@$USER -f
 
 # Log files
-tail -f ~/.blackbox5/.autonomous/health/watch.log
+tail -f ~/blackbox5/.autonomous/health/watch.log
 ```
 
 ### Health Check
@@ -262,7 +262,7 @@ bb5-watch start --foreground
 
 ### No Telegram alerts
 
-1. Check token: `cat ~/.blackbox5/config/watch.env`
+1. Check token: `cat ~/blackbox5/config/watch.env`
 2. Test manually: `bb5-watch test-alert telegram`
 3. Check logs for errors
 
@@ -327,10 +327,10 @@ def health_endpoint():
 
 1. `/etc/systemd/system/bb5-watch.service`
 2. `/etc/logrotate.d/bb5-health`
-3. `~/.blackbox5/bin/setup-health-monitoring.sh`
-4. `~/.blackbox5/config/watch-config.example.yaml`
-5. `~/.blackbox5/docs/TELEGRAM_SETUP.md`
-6. `~/.blackbox5/docs/VPS_DEPLOYMENT.md`
+3. `~/blackbox5/bin/setup-health-monitoring.sh`
+4. `~/blackbox5/config/watch-config.example.yaml`
+5. `~/blackbox5/docs/TELEGRAM_SETUP.md`
+6. `~/blackbox5/docs/VPS_DEPLOYMENT.md`
 
 ---
 
@@ -341,7 +341,7 @@ def health_endpoint():
 ./setup-health-monitoring.sh
 
 # Test systemd (local)
-systemctl --user enable ~/.blackbox5/config/systemd/bb5-watch.service
+systemctl --user enable ~/blackbox5/config/systemd/bb5-watch.service
 systemctl --user start bb5-watch
 
 # Test logrotate

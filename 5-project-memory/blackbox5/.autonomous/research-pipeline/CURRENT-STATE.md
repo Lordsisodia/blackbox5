@@ -211,7 +211,7 @@ Add to `~/.claude/settings.json`:
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh",
+            "command": "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-swarm.sh",
             "timeout": 30
           }
         ]
@@ -225,7 +225,7 @@ Add to `~/.claude/settings.json`:
 
 **Option A: Launch all at once**
 ```bash
-cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline
+cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline
 ./launch-all.sh
 ```
 

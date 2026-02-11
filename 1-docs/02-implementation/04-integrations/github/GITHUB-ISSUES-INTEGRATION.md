@@ -102,7 +102,7 @@ class GitHubProvider:
 │  └── Assignees - Task ownership                                │
 │                                                                 │
 │  LAYER 2: Working Memory (Active Context)                       │
-│  ├── .blackbox5/memory/working/task-123/                       │
+│  ├── blackbox5/memory/working/task-123/                       │
 │  │   ├── context.json - Task-specific context                 │
 │  │   ├── progress.md - Detailed progress                      │
 │  │   ├── notes.md - Technical decisions                       │
@@ -140,7 +140,7 @@ class GitHubProvider:
 ### Core Components
 
 ```python
-# .blackbox5/engine/integrations/github/
+# blackbox5/engine/integrations/github/
 
 class GitHubIssuesIntegration:
     """Complete GitHub Issues management with memory integration"""
@@ -227,7 +227,7 @@ class GitHubIssuesIntegration:
 ### Directory Structure
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── integrations/
 │   └── github/
 │       ├── __init__.py
@@ -263,7 +263,7 @@ class GitHubIssuesIntegration:
 ### Project Configuration
 
 ```yaml
-# .blackbox5/config.yml
+# blackbox5/config.yml
 project:
   name: "my-project"
   version: "1.0.0"

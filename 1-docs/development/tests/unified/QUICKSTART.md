@@ -15,7 +15,7 @@ pip install pytest pytest-asyncio pytest-cov
 ### Option 1: Using the test runner (Recommended)
 
 ```bash
-cd .blackbox5/tests
+cd blackbox5/tests
 
 # Run all tests
 ./run_tests.sh
@@ -36,7 +36,7 @@ cd .blackbox5/tests
 ### Option 2: Using pytest directly
 
 ```bash
-cd .blackbox5/tests
+cd blackbox5/tests
 
 # Run all tests
 pytest
@@ -106,7 +106,7 @@ AssertionError: Expected 'single' but got 'multi'
 **Solution**: Start Redis server or run with `-m unit` to skip integration tests
 
 ### Issue: "ModuleNotFoundError: No module named 'core'"
-**Solution**: Make sure you're running from `.blackbox5/tests/` directory
+**Solution**: Make sure you're running from `blackbox5/tests/` directory
 
 ### Issue: Tests fail with import errors
 **Solution**: Ensure the engine directory structure is correct
@@ -114,7 +114,7 @@ AssertionError: Expected 'single' but got 'multi'
 ## Test Structure
 
 ```
-.blackbox5/tests/
+blackbox5/tests/
 ├── conftest.py              # Shared fixtures
 ├── test_task_router.py      # Task routing tests
 ├── test_logging.py          # Logging tests

@@ -24,19 +24,19 @@ A comprehensive **Context Extraction System** for BlackBox5 that extracts releva
 ### Implementation
 | File | Lines | Description |
 |------|-------|-------------|
-| `.blackbox5/engine/core/context_extractor.py` | 850+ | Main implementation |
-| `.blackbox5/tests/test_context_extraction.py` | 700+ | Comprehensive test suite |
+| `blackbox5/engine/core/context_extractor.py` | 850+ | Main implementation |
+| `blackbox5/tests/test_context_extraction.py` | 700+ | Comprehensive test suite |
 
 ### Documentation
 | File | Description |
 |------|-------------|
-| `.blackbox5/docs/CONTEXT-EXTRACTION-IMPLEMENTATION.md` | Complete implementation guide |
-| `.blackbox5/docs/CONTEXT-EXTRACTION-QUICKSTART.md` | Quick start guide |
+| `blackbox5/docs/CONTEXT-EXTRACTION-IMPLEMENTATION.md` | Complete implementation guide |
+| `blackbox5/docs/CONTEXT-EXTRACTION-QUICKSTART.md` | Quick start guide |
 
 ### Examples
 | File | Description |
 |------|-------------|
-| `.blackbox5/examples/context_extraction_demo.py` | Working demonstration |
+| `blackbox5/examples/context_extraction_demo.py` | Working demonstration |
 
 ---
 
@@ -394,22 +394,22 @@ Add JWT authentication to the API endpoints
 
 ### Run Tests
 ```bash
-python3 -m pytest .blackbox5/tests/test_context_extraction.py -v
+python3 -m pytest blackbox5/tests/test_context_extraction.py -v
 # Result: 34 passed in 0.16s ✅
 ```
 
 ### Run Demo
 ```bash
-python3 .blackbox5/examples/context_extraction_demo.py
+python3 blackbox5/examples/context_extraction_demo.py
 # Result: Successful execution ✅
 ```
 
 ### Check Files
 ```bash
-ls -la .blackbox5/engine/core/context_extractor.py
-ls -la .blackbox5/tests/test_context_extraction.py
-ls -la .blackbox5/docs/CONTEXT-EXTRACTION-*.md
-ls -la .blackbox5/examples/context_extraction_demo.py
+ls -la blackbox5/engine/core/context_extractor.py
+ls -la blackbox5/tests/test_context_extraction.py
+ls -la blackbox5/docs/CONTEXT-EXTRACTION-*.md
+ls -la blackbox5/examples/context_extraction_demo.py
 # Result: All files present ✅
 ```
 

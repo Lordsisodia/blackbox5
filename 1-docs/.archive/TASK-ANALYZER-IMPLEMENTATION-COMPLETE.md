@@ -7,19 +7,19 @@ The logarithmic multi-dimensional task analyzer has been successfully implemente
 ## Files Created
 
 ### 1. Core Utilities
-**File:** `.blackbox5/engine/task_management/analyzers/utils.py`
+**File:** `blackbox5/engine/task_management/analyzers/utils.py`
 - Logarithmic scoring functions (`log_score`, `log_to_value`)
 - Task type enum and result dataclasses
 - Token budget and execution plan dataclasses
 
 ### 2. Task Type Detector
-**File:** `.blackbox5/engine/task_management/analyzers/task_type_detector.py`
+**File:** `blackbox5/engine/task_management/analyzers/task_type_detector.py`
 - Detects 10 task types: UI, Refactor, Research, Planning, Brainstorming, Implementation, Testing, Documentation, Infrastructure, Data
 - Confidence-based scoring with keyword matching
 - Domain and category awareness
 
 ### 3. Complexity Analyzer
-**File:** `.blackbox5/engine/task_management/analyzers/log_complexity_analyzer.py`
+**File:** `blackbox5/engine/task_management/analyzers/log_complexity_analyzer.py`
 - 6 sub-dimensions with multiplicative scoring:
   - **Scope** (1-10,000x): Files, components, LOC affected
   - **Technical** (1-100x): Tech depth, algorithms, expertise
@@ -29,7 +29,7 @@ The logarithmic multi-dimensional task analyzer has been successfully implemente
   - **Cross-Domain** (1-10x): Multiple domains/teams
 
 ### 4. Value Analyzer
-**File:** `.blackbox5/engine/task_management/analyzers/log_value_analyzer.py`
+**File:** `blackbox5/engine/task_management/analyzers/log_value_analyzer.py`
 - 5 sub-dimensions with multiplicative scoring:
   - **Business** (1-10,000x): Revenue, cost savings, ROI
   - **User** (1-100x): UX, satisfaction, retention
@@ -38,7 +38,7 @@ The logarithmic multi-dimensional task analyzer has been successfully implemente
   - **Impact** (1-10x): Scale of deployment, users affected
 
 ### 5. Compute Analyzer
-**File:** `.blackbox5/engine/task_management/analyzers/log_compute_analyzer.py`
+**File:** `blackbox5/engine/task_management/analyzers/log_compute_analyzer.py`
 - 4 factors determining compute requirements:
   - **Complexity Factor** (1-10^15): From complexity analyzer
   - **Type Factor** (1-10x): Task type multiplier
@@ -48,7 +48,7 @@ The logarithmic multi-dimensional task analyzer has been successfully implemente
 - Model recommendation (Opus/Sonnet/Haiku)
 
 ### 6. Speed Analyzer
-**File:** `.blackbox5/engine/task_management/analyzers/log_speed_analyzer.py`
+**File:** `blackbox5/engine/task_management/analyzers/log_speed_analyzer.py`
 - 4 factors determining speed priority:
   - **Deadline Factor** (1-1,000x): Time pressure, due dates
   - **Blocking Factor** (1-100x): Tasks blocked
@@ -56,7 +56,7 @@ The logarithmic multi-dimensional task analyzer has been successfully implemente
   - **Value Factor** (1-10,000x): Higher value = should be done sooner
 
 ### 7. Enhanced Integrated Analyzer
-**File:** `.blackbox5/engine/task_management/analyzers/log_enhanced_analyzer.py`
+**File:** `blackbox5/engine/task_management/analyzers/log_enhanced_analyzer.py`
 - Combines all analyzers
 - Calculates ROI = Value / Complexity
 - Recommends workflow tier (quick_fix, simple, standard, complex, research)
@@ -232,7 +232,7 @@ The analyzer integrates with:
 ## File Structure
 
 ```
-.blackbox5/engine/task_management/analyzers/
+blackbox5/engine/task_management/analyzers/
 ├── __init__.py                     # Package marker
 ├── utils.py                        # Core utilities and types
 ├── task_type_detector.py           # Type detection (10 types)

@@ -7,7 +7,7 @@ The Todo Management System is Component 7 of the GSD (Getting Stuff Done) framew
 ## What This Does
 
 - **Quick Capture**: Add ideas instantly with minimal friction
-- **Persistent Storage**: All todos saved to `~/.blackbox5/todos.json`
+- **Persistent Storage**: All todos saved to `~/blackbox5/todos.json`
 - **Organization**: Tag-based grouping, priority levels, status tracking
 - **Search**: Full-text search across descriptions, notes, and tags
 - **Statistics**: Track completion rates and task distribution
@@ -17,7 +17,7 @@ The Todo Management System is Component 7 of the GSD (Getting Stuff Done) framew
 ### Core Components
 
 ```
-.blackbox5/engine/core/todo_manager.py
+blackbox5/engine/core/todo_manager.py
 ├── Todo (dataclass)
 │   ├── id: str                    # Unique identifier (8-char UUID)
 │   ├── description: str           # What needs to be done
@@ -307,7 +307,7 @@ stats = tm.get_statistics()
 
 Todos are stored in JSON format at:
 ```
-~/.blackbox5/todos.json
+~/blackbox5/todos.json
 ```
 
 ### File Format
@@ -344,16 +344,16 @@ The system uses atomic writes to prevent data corruption:
 
 ```bash
 # Run all tests
-pytest .blackbox5/tests/test_todo_manager.py
+pytest blackbox5/tests/test_todo_manager.py
 
 # Run with coverage
-pytest .blackbox5/tests/test_todo_manager.py --cov=.blackbox5/engine/core/todo_manager
+pytest blackbox5/tests/test_todo_manager.py --cov=blackbox5/engine/core/todo_manager
 
 # Run specific test class
-pytest .blackbox5/tests/test_todo_manager.py::TestTodoManagerQuickAdd
+pytest blackbox5/tests/test_todo_manager.py::TestTodoManagerQuickAdd
 
 # Run specific test
-pytest .blackbox5/tests/test_todo_manager.py::TestTodoManagerQuickAdd::test_quick_add_basic
+pytest blackbox5/tests/test_todo_manager.py::TestTodoManagerQuickAdd::test_quick_add_basic
 ```
 
 ### Test Coverage
@@ -614,7 +614,7 @@ for todo in completed:
 **Symptom:** Todos lost between sessions
 
 **Solution:**
-- Check file permissions: `~/.blackbox5/todos.json`
+- Check file permissions: `~/blackbox5/todos.json`
 - Ensure write access to directory
 - Check logs for save errors
 

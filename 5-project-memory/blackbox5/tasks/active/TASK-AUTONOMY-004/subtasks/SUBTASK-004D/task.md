@@ -28,7 +28,7 @@ Create the `bb5-dashboard` command - a live terminal UI showing real-time BB5 sy
 ## Implementation Plan
 
 ### Step 1: TUI Framework Setup (5K tokens)
-Create `~/.blackbox5/bin/bb5-dashboard` using `rich` library:
+Create `~/blackbox5/bin/bb5-dashboard` using `rich` library:
 
 ```python
 #!/usr/bin/env python3
@@ -237,7 +237,7 @@ def cleanup(self):
 
 ## Files to Create
 
-1. `~/.blackbox5/bin/bb5-dashboard` (executable)
+1. `~/blackbox5/bin/bb5-dashboard` (executable)
 
 ---
 

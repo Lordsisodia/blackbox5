@@ -26,14 +26,14 @@ Restructured BlackBox5 memory from agent-centric to project-centric. Created tem
 ### Files Created
 
 #### Template Files
-- `.blackbox5/project-memory/_template/` (complete template)
+- `blackbox5/project-memory/_template/` (complete template)
 
 #### SISO-Internal Files
-- `.blackbox5/project-memory/siso-internal/project.yaml`
-- `.blackbox5/project-memory/siso-internal/context.yaml`
-- `.blackbox5/project-memory/siso-internal/research/user-profile/` (6 files)
-- `.blackbox5/project-memory/siso-internal/plans/user-profile/` (20+ files)
-- `.blackbox5/project-memory/siso-internal/tasks/active/` (4 task context files)
+- `blackbox5/project-memory/siso-internal/project.yaml`
+- `blackbox5/project-memory/siso-internal/context.yaml`
+- `blackbox5/project-memory/siso-internal/research/user-profile/` (6 files)
+- `blackbox5/project-memory/siso-internal/plans/user-profile/` (20+ files)
+- `blackbox5/project-memory/siso-internal/tasks/active/` (4 task context files)
 
 ### Files Modified
 - None (new structure created)

@@ -9,7 +9,7 @@ Usage:
     track-extraction-rates.py [options]
 
 Options:
-    --project PATH      Project directory to analyze (default: ~/.blackbox5/5-project-memory/blackbox5)
+    --project PATH      Project directory to analyze (default: ~/blackbox5/5-project-memory/blackbox5)
     --output FORMAT     Output format: text, json, yaml (default: text)
     --save PATH         Save report to file
     --min-learnings N   Minimum learnings threshold (default: 1)
@@ -510,7 +510,7 @@ def main():
     parser.add_argument(
         '--project',
         type=str,
-        default=os.path.expanduser('~/.blackbox5/5-project-memory/blackbox5'),
+        default=os.path.expanduser('~/blackbox5/5-project-memory/blackbox5'),
         help='Project directory to analyze'
     )
     parser.add_argument(

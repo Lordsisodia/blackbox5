@@ -17,7 +17,7 @@ Significant **redundancy exists**, causing maintenance burden and confusion.
 2. 2 duplicate boot files
 3. 3 skills systems (handled in PLAN-001)
 4. 3 duplicate code_index.md files (432KB each!)
-5. 1,184+ files with outdated `.blackbox5` references
+5. 1,184+ files with outdated `blackbox5` references
 
 **Impact:**
 - Maintenance burden
@@ -101,9 +101,9 @@ vimdiff blackbox5/2-engine/01-core/infrastructure/boot.py \
 
 **Current State:**
 ```
-.blackbox5/2-engine/docs/code_index.md           (432KB)
-.blackbox5/2-engine/docs/reference/code_index.md (432KB)
-.blackbox5/2-engine/DOCS/index.md                (432KB)
+blackbox5/2-engine/docs/code_index.md           (432KB)
+blackbox5/2-engine/docs/reference/code_index.md (432KB)
+blackbox5/2-engine/DOCS/index.md                (432KB)
 ```
 
 **Action:**
@@ -132,9 +132,9 @@ find blackbox5 -name "*.md" -exec sed -i '' \
 
 ---
 
-### Phase 4: Update `.blackbox5` References (2-3 hours)
+### Phase 4: Update `blackbox5` References (2-3 hours)
 
-**Problem:** Directory renamed from `.blackbox5` to `blackbox5`, but docs not updated
+**Problem:** Directory renamed from `blackbox5` to `blackbox5`, but docs not updated
 
 **Scope:** 1,184+ files with outdated references
 
@@ -147,14 +147,14 @@ cat > /tmp/fix_docs.sh << 'EOF'
 
 # Find all markdown files
 find blackbox5 -name "*.md" -type f | while read file; do
-    # Replace .blackbox5 with blackbox5
-    sed -i '' 's/\.blackbox5\//blackbox5\//g' "$file"
-    sed -i '' 's/\.blackbox5\//blackbox5\//g' "$file"
-    sed -i '' 's/\.blackbox5/blackbox5/g' "$file"
+    # Replace blackbox5 with blackbox5
+    sed -i '' 's/\blackbox5\//blackbox5\//g' "$file"
+    sed -i '' 's/\blackbox5\//blackbox5\//g' "$file"
+    sed -i '' 's/\blackbox5/blackbox5/g' "$file"
 
     # Fix code blocks
-    sed -i '' 's|cd .*\.blackbox5|cd blackbox5|g' "$file"
-    sed -i '' 's|path: .*\.blackbox5|path: blackbox5|g' "$file"
+    sed -i '' 's|cd .*\blackbox5|cd blackbox5|g' "$file"
+    sed -i '' 's|path: .*\blackbox5|path: blackbox5|g' "$file"
 done
 
 echo "✅ Updated all markdown files"
@@ -166,8 +166,8 @@ chmod +x /tmp/fix_docs.sh
 
 **Verification:**
 ```bash
-# Check for remaining .blackbox5 references
-grep -r "\.blackbox5" blackbox5 --include="*.md" | wc -l
+# Check for remaining blackbox5 references
+grep -r "\blackbox5" blackbox5 --include="*.md" | wc -l
 # Expected: 0 (or close to it for legitimate dots)
 ```
 
@@ -247,7 +247,7 @@ def archive_duplicate(duplicate_files, canonical):
 | Task | Effort | Impact |
 |------|--------|--------|
 | Delete duplicate code_index.md | 5 min | 1.3MB saved |
-| Update `.blackbox5` references | 2-3 hours | Fixes 1,184+ files |
+| Update `blackbox5` references | 2-3 hours | Fixes 1,184+ files |
 | Consolidate boot files | 2 hours | Removes confusion |
 
 ### Wave 2: Event Bus Consolidation (1 day)
@@ -273,7 +273,7 @@ def archive_duplicate(duplicate_files, canonical):
 - ✅ Only 1 event bus implementation
 - ✅ Only 1 boot file (or clearly differentiated)
 - ✅ No duplicate code_index.md files
-- ✅ `.blackbox5` references updated (0 remaining)
+- ✅ `blackbox5` references updated (0 remaining)
 - ✅ Duplicate documentation archived
 - ✅ All imports updated
 - ✅ All references updated
@@ -290,7 +290,7 @@ def archive_duplicate(duplicate_files, canonical):
 
 ### Execution
 1. Archive duplicate code_index.md (5 min)
-2. Update `.blackbox5` references (2-3 hours)
+2. Update `blackbox5` references (2-3 hours)
 3. Consolidate boot files (2 hours)
 4. Consolidate event bus (1 day)
 5. Clean up documentation (1-2 days)
@@ -338,7 +338,7 @@ def archive_duplicate(duplicate_files, canonical):
 ## Next Steps
 
 1. Quick wins (code_index.md, boot files) - 3 hours
-2. Update `.blackbox5` references - 2-3 hours
+2. Update `blackbox5` references - 2-3 hours
 3. Consolidate event bus - 1 day
 4. Clean up documentation - 1-2 days
 

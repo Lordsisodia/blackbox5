@@ -12,7 +12,7 @@
 
 Created a complete GLM API client that works as a drop-in replacement for Anthropic Claude:
 
-**File:** `.blackbox5/engine/core/GLMClient.py`
+**File:** `blackbox5/engine/core/GLMClient.py`
 
 **Features:**
 - Full GLM API support (glm-4.7, glm-4-plus, glm-4-air, etc.)
@@ -43,7 +43,7 @@ print(response.content)
 
 ### 2. ✅ Configuration Updated
 
-**File:** `.blackbox5/engine/config.yml`
+**File:** `blackbox5/engine/config.yml`
 
 **Changes:**
 - GLM enabled as primary LLM
@@ -129,13 +129,13 @@ pip3 list | grep -E "(redis|chroma)"
 ## Files Created/Modified
 
 ### New Files
-1. `.blackbox5/engine/core/GLMClient.py` - GLM API client (400+ lines)
-2. `.blackbox5/engine/config.yml` - Production configuration
-3. `.blackbox5/tests/verify_system.py` - System verification tests
-4. `.blackbox5/tests/test_blackbox5_integration.py` - Full integration tests
+1. `blackbox5/engine/core/GLMClient.py` - GLM API client (400+ lines)
+2. `blackbox5/engine/config.yml` - Production configuration
+3. `blackbox5/tests/verify_system.py` - System verification tests
+4. `blackbox5/tests/test_blackbox5_integration.py` - Full integration tests
 
 ### Modified Files
-1. `.blackbox5/engine/core/task_types.py` - Added `TaskStatus` enum
+1. `blackbox5/engine/core/task_types.py` - Added `TaskStatus` enum
 
 ---
 
@@ -155,7 +155,7 @@ export GLM_API_KEY="be4630786dd84350a31475805fa7a24b.JiF9SyhiU8ASeTfC"
 
 ```bash
 # Run verification test
-python3 .blackbox5/tests/verify_system.py
+python3 blackbox5/tests/verify_system.py
 ```
 
 ### 3. Use GLM Client

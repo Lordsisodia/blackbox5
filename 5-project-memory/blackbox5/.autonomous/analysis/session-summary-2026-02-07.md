@@ -87,7 +87,7 @@ For each task, sub-agents verified:
 
 **1. Path Resolution Library (Python)**
 ```
-/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/paths.py (498 lines)
+/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/paths.py (498 lines)
 ```
 
 Key features:
@@ -97,7 +97,7 @@ Key features:
 
 **2. Path Resolution Library (Bash)**
 ```
-/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/paths.sh (399 lines)
+/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/paths.sh (399 lines)
 ```
 
 Functions:
@@ -106,7 +106,7 @@ Functions:
 
 **3. Agent Configuration**
 ```
-/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/agent-config.yaml
+/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/agent-config.yaml
 ```
 
 Contains:
@@ -162,7 +162,7 @@ Implemented storage abstraction with dual backends:
 
 **1. Abstract Interface**
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py
 ```
 
 Components:
@@ -174,7 +174,7 @@ Components:
 
 **2. SQLite Backend**
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/backends/sqlite_backend.py
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/backends/sqlite_backend.py
 ```
 
 Schema:
@@ -204,7 +204,7 @@ Features:
 
 **3. YAML Backend (Backward Compatibility)**
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/backends/yaml_backend.py
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/backends/yaml_backend.py
 ```
 
 Maintains compatibility with existing queue.yaml files during transition.
@@ -220,7 +220,7 @@ Maintains compatibility with existing queue.yaml files during transition.
 
 Database location:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/data/blackbox5.db
+/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/data/blackbox5.db
 ```
 
 ### Scripts Updated

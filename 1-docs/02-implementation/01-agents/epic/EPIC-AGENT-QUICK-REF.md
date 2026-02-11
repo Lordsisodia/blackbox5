@@ -4,7 +4,7 @@
 
 The Epic-Agent is already installed in BlackBox5 at:
 ```
-/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/
+/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/
 ```
 
 ## Quick Start
@@ -13,7 +13,7 @@ The Epic-Agent is already installed in BlackBox5 at:
 
 Copy and edit the example PRD:
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
 cp examples/specs/prds/001-authentication-prd.md specs/prds/MY-PRD.md
 # Edit MY-PRD.md with your requirements
 ```
@@ -174,7 +174,7 @@ Production readiness and optimization
 ## File Locations
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/spec_driven/
 │   ├── prd_agent.py          # PRD parsing
 │   ├── epic_agent.py         # Epic creation

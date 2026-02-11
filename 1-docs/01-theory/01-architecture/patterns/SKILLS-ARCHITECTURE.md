@@ -31,7 +31,7 @@ Level 3: Individual Skills (52)
 ## 📂 Complete Directory Tree
 
 ```
-.blackbox5/engine/agents/skills/
+blackbox5/engine/agents/skills/
 │
 ├── 📄 SKILLS-REGISTRY.yaml          # Master catalog of all skills
 ├── 📄 SKILLS-EXPANSION-PLAN.md      # Roadmap for 100+ skills
@@ -712,22 +712,22 @@ pdf_skill.execute(file="report.docx")
 ### For Developers
 ```bash
 # List all skills
-find .blackbox5/engine/agents/skills -name "SKILL.md"
+find blackbox5/engine/agents/skills -name "SKILL.md"
 
 # View specific skill
-cat .blackbox5/engine/agents/skills/integration-connectivity/file-formats/pdf/SKILL.md
+cat blackbox5/engine/agents/skills/integration-connectivity/file-formats/pdf/SKILL.md
 
 # Verify all skills
-python3 .blackbox5/scripts/verify_skills.py
+python3 blackbox5/scripts/verify_skills.py
 ```
 
 ### For Adding New Skills
 ```bash
 # Create new skill in appropriate category
-mkdir -p .blackbox5/engine/agents/skills/category/subcategory/new-skill
+mkdir -p blackbox5/engine/agents/skills/category/subcategory/new-skill
 
 # Create SKILL.md with proper structure
-cat > .blackbox5/engine/agents/skills/category/subcategory/new-skill/SKILL.md << 'EOF'
+cat > blackbox5/engine/agents/skills/category/subcategory/new-skill/SKILL.md << 'EOF'
 ---
 name: new-skill
 category: category/subcategory

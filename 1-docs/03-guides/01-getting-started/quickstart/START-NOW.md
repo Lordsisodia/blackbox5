@@ -10,18 +10,18 @@ cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 ### 2. Run a Task
 ```bash
 # Simple task
-python .blackbox5/bb5.py "Add console.log to RewardCatalog.tsx"
+python blackbox5/bb5.py "Add console.log to RewardCatalog.tsx"
 
 # With specific agent
-python .blackbox5/bb5.py --agent bug_fixer "Fix the bug in GamificationDashboard.tsx"
+python blackbox5/bb5.py --agent bug_fixer "Fix the bug in GamificationDashboard.tsx"
 
 # Multi-agent workflow
-python .blackbox5/bb5.py --workflow "Analyze, fix, and test the reward catalog bug"
+python blackbox5/bb5.py --workflow "Analyze, fix, and test the reward catalog bug"
 ```
 
 ### 3. Or Use Interactive Mode
 ```bash
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 Then type commands like:
@@ -51,22 +51,22 @@ bb5> --workflow Debug, fix, test, and review
 
 ### Fix a Bug
 ```bash
-python .blackbox5/bb5.py --agent bug_fixer "The reward catalog is showing undefined"
+python blackbox5/bb5.py --agent bug_fixer "The reward catalog is showing undefined"
 ```
 
 ### Add a Feature
 ```bash
-python .blackbox5/bb5.py --agent frontend_developer "Add a loading state to GamificationDashboard"
+python blackbox5/bb5.py --agent frontend_developer "Add a loading state to GamificationDashboard"
 ```
 
 ### Code Review
 ```bash
-python .blackbox5/bb5.py --agent code_reviewer "Review the recent changes to analytics components"
+python blackbox5/bb5.py --agent code_reviewer "Review the recent changes to analytics components"
 ```
 
 ### Complete Workflow
 ```bash
-python .blackbox5/bb5.py --workflow "Investigate the bug, fix it, write tests, and review"
+python blackbox5/bb5.py --workflow "Investigate the bug, fix it, write tests, and review"
 ```
 
 ---
@@ -99,11 +99,11 @@ BlackBox5 automatically understands:
 ## Configuration
 
 BlackBox5 uses GLM-4.7 by default. Your GLM API key is configured in:
-`.blackbox5/engine/config.yml`
+`blackbox5/engine/config.yml`
 
 To check if everything is set up:
 ```bash
-bash .blackbox5/verify-setup.sh
+bash blackbox5/verify-setup.sh
 ```
 
 ---
@@ -127,21 +127,21 @@ Make sure your `GLM_API_KEY` environment variable is set.
 
 ## Next Steps
 
-1. **Try it now**: `python .blackbox5/bb5.py --interactive`
+1. **Try it now**: `python blackbox5/bb5.py --interactive`
 2. **Start small**: "Add a console.log to RewardCatalog.tsx"
 3. **Scale up**: Bug fixes, feature development, code reviews
-4. **Read more**: `.blackbox5/QUICKSTART.md` for detailed guide
+4. **Read more**: `blackbox5/QUICKSTART.md` for detailed guide
 
 ---
 
 ## Files Reference
 
-- **CLI**: `.blackbox5/bb5.py` - Main command-line interface
-- **Config**: `.blackbox5/engine/config.yml` - System configuration
-- **Agents**: `.blackbox5/custom_agents/{type}/agent.md` - Agent definitions
-- **Examples**: `.blackbox5/examples/real-world-tasks.py` - Practical examples
-- **Docs**: `.blackbox5/QUICKSTART.md` - Comprehensive guide
+- **CLI**: `blackbox5/bb5.py` - Main command-line interface
+- **Config**: `blackbox5/engine/config.yml` - System configuration
+- **Agents**: `blackbox5/custom_agents/{type}/agent.md` - Agent definitions
+- **Examples**: `blackbox5/examples/real-world-tasks.py` - Practical examples
+- **Docs**: `blackbox5/QUICKSTART.md` - Comprehensive guide
 
 ---
 
-**Ready to code?** Start with: `python .blackbox5/bb5.py --interactive`
+**Ready to code?** Start with: `python blackbox5/bb5.py --interactive`

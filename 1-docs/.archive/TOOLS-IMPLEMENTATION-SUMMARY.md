@@ -81,7 +81,7 @@ Successfully implemented a comprehensive tool system for BlackBox5 agents, provi
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── tools/
 │       ├── __init__.py           # Public API exports

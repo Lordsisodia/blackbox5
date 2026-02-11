@@ -4,7 +4,7 @@
 **Date:** 2026-01-18 15:10:10
 **Focus Area:** integration
 
-## Deep Analysis: .blackbox5/engine/frameworks
+## Deep Analysis: blackbox5/engine/frameworks
 
 **Focus:** integration
 

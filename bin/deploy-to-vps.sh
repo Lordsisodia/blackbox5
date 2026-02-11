@@ -6,7 +6,7 @@ set -e
 
 VPS_HOST="hellzinger"
 VPS_USER="${VPS_USER:-root}"
-BB5_DIR="$HOME/.blackbox5"
+BB5_DIR="$HOME/blackbox5"
 BRANCH="${1:-autonomous-improvement}"
 
 echo "=== BlackBox5 VPS Deployment ==="

@@ -232,7 +232,7 @@ from configuration.system import settings  # Was: from config.system
 ```python
 import os
 
-ENGINE_ROOT = os.path.expanduser("~/.blackbox5/2-engine")
+ENGINE_ROOT = os.path.expanduser("~/blackbox5/2-engine")
 
 # Update path references
 EXECUTABLES_DIR = os.path.join(ENGINE_ROOT, "executables")  # Was: .autonomous/bin
@@ -254,7 +254,7 @@ system:
 
 ```bash
 # Run the script to verify it works
-python3 /Users/shaansisodia/.blackbox5/2-engine/executables/your-script.py
+python3 /Users/shaansisodia/blackbox5/2-engine/executables/your-script.py
 
 # Check for import errors
 # Check for file not found errors
@@ -277,9 +277,9 @@ python3 /Users/shaansisodia/.blackbox5/2-engine/executables/your-script.py
 
 ### Resources
 
-1. **Reorganization Summary**: `/Users/shaansisodia/.blackbox5/2-engine/REORGANIZATION_SUMMARY.md`
-2. **Consolidation Analysis**: `/Users/shaansisodia/.blackbox5/2-engine/CONSOLIDATION_ANALYSIS.md`
-3. **Detailed Plan**: `/Users/shaansisodia/.blackbox5/2-engine/CONSOLIDATION_PLAN_DETAILED.md`
+1. **Reorganization Summary**: `/Users/shaansisodia/blackbox5/2-engine/REORGANIZATION_SUMMARY.md`
+2. **Consolidation Analysis**: `/Users/shaansisodia/blackbox5/2-engine/CONSOLIDATION_ANALYSIS.md`
+3. **Detailed Plan**: `/Users/shaansisodia/blackbox5/2-engine/CONSOLIDATION_PLAN_DETAILED.md`
 
 ### Directory Structure Reference
 

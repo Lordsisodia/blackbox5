@@ -149,8 +149,8 @@ You can invoke skills when relevant:
 ## Sub-Agent Locations
 
 Sub-agent definitions are in:
-- `~/.blackbox5/2-engine/agents/definitions/sub-agents/`
-- `~/.blackbox5/.claude/agents/` (BB5-specific agents)
+- `~/blackbox5/2-engine/agents/definitions/sub-agents/`
+- `~/blackbox5/.claude/agents/` (BB5-specific agents)
 - `~/.claude/agents/` (global agents)
 
 ## Exit

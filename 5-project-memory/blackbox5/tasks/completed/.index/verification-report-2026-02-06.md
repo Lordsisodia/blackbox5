@@ -63,12 +63,12 @@
 
 **Confirmed duplicates:**
 ```yaml
-tasks: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
-runs: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/runs"
-workspaces: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/workspaces"
-decisions: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/.autonomous/memory/decisions"
-insights: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/.autonomous/memory/insights"
-timeline: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/timeline"
+tasks: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/tasks"
+runs: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/runs"
+workspaces: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/workspaces"
+decisions: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/.autonomous/memory/decisions"
+insights: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/.autonomous/memory/insights"
+timeline: "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/5-project-memory/blackbox5/timeline"
 ```
 
 **Status:** REAL ISSUE - 6 paths have duplicate nesting
@@ -81,7 +81,7 @@ timeline: "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/5-project-m
 
 **Sample from scout-analyze.py:**
 ```python
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 ```
 
 **Status:** REAL ISSUE - Significant hardcoding confirmed

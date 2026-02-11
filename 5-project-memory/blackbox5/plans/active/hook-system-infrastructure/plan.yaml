@@ -1,0 +1,155 @@
+---
+id: "PLAN-HOOK-INFRA-001"
+title: "Hook System Infrastructure - Register and Enhance"
+slug: "hook-system-infrastructure"
+status: "draft"
+stage: "01-draft"
+
+# Metadata
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+updated_at: "2026-02-10T12:00:00Z"
+
+# Classification
+category: "infrastructure"
+domain: "hooks"
+priority: "critical"
+
+# Relationships
+depends_on: []
+blocks: []
+blocked_by: []
+relates_to:
+  - "PLAN-010-hooks-implementation"
+
+parent_goal: "IG-009"
+
+# Tasks
+related_tasks: []
+
+# Effort Tracking
+estimated_hours: 80
+actual_hours: 0
+progress: 0.0
+
+# Review
+review_status: "not-reviewed"
+reviewed_by: null
+reviewed_at: null
+approval_notes: null
+
+# Tags
+tags:
+  - "hooks"
+  - "infrastructure"
+  - "claude-code"
+  - "automation"
+
+# Links
+plan_link: "5-project-memory/blackbox5/plans/active/hook-system-infrastructure/plan.yaml"
+---
+
+# Hook System Infrastructure Plan
+
+## Overview
+
+Address the critical gap: hooks exist but are not registered. Only 4 of 9 claimed hooks actually exist as files, and none are wired into Claude Code via settings.json. This plan registers existing hooks and implements Phases 2-5 for comprehensive hook automation.
+
+## Success Criteria
+
+- [ ] settings.json created with all existing hooks registered
+- [ ] bb5-memory CLI accessible in PATH
+- [ ] Auto-claim task from queue on session start
+- [ ] Auto-mark task complete when criteria met
+- [ ] Context warning at 70% usage
+- [ ] Quality gate validation before commits
+
+## Phase Breakdown
+
+### Phase 1: Infrastructure - Register Existing Hooks (Week 1)
+
+**Objective:** Create settings.json and register the 4 existing hooks
+
+**Sub-goal:** SG-009-1 (Phase 1 completion)
+
+**Tasks:**
+1. Create `.claude/settings.json` with hook registrations
+2. Register `pre-tool-security.py` (PreToolUse)
+3. Register `log-skill-on-complete.py` (Stop)
+4. Register `retain-on-complete.py` (Stop)
+5. Register `task_completion_skill_recorder.py` (Stop)
+6. Test hook execution
+
+**Acceptance Criteria:**
+- settings.json exists and is valid JSON
+- All 4 hooks execute when triggered
+- Hook logs appear in `.logs/hooks/`
+
+### Phase 2: Task Lifecycle Automation (Week 2)
+
+**Objective:** Automate task claiming and completion
+
+**Sub-goal:** SG-009-2
+
+**Tasks:**
+1. Create `session-start-task-claimer.sh` - Auto-claim task from queue
+2. Create `stop-task-completer.sh` - Auto-mark complete when criteria met
+3. Create `pre-completion-validator.sh` - Validate success criteria before completion
+4. Test task lifecycle end-to-end
+
+**Acceptance Criteria:**
+- SessionStart hook claims pending task
+- Task status updates to in_progress automatically
+- Completion validation prevents premature marking
+- Stop hook updates status to completed when appropriate
+
+### Phase 3: Quality and Safety Hooks (Week 3)
+
+**Objective:** Enforce quality gates and safety checks
+
+**Sub-goal:** SG-009-3
+
+**Tasks:**
+1. Enhance `pre-tool-security.py` with git safety (block force push to main)
+2. Create `pre-commit-quality-gate.sh` - Run tests/linting before commit
+3. Create `context-usage-warning.sh` - Warn at 70% token usage
+4. Create `pre-destructive-confirmation.sh` - Confirm destructive operations
+
+**Acceptance Criteria:**
+- Force push to main is blocked
+- Quality gates run before commits
+- Context warning fires at 70%
+- Destructive ops require confirmation
+
+### Phase 4: Intelligence Hooks (Week 4)
+
+**Objective:** Make hooks smarter with memory and patterns
+
+**Sub-goal:** SG-009-4
+
+**Tasks:**
+1. Create `user-prompt-memory-search.sh` - Search memory on context gaps
+2. Create `stop-decision-extractor.sh` - Auto-extract decisions to DECISIONS.md
+3. Create `pre-critical-verification.sh` - Trigger verification subagent on critical ops
+4. Create `post-tool-pattern-detector.sh` - Detect patterns and suggest improvements
+
+**Acceptance Criteria:**
+- Memory search triggers on vague queries
+- Decisions auto-extracted to DECISIONS.md
+- Critical operations spawn verification
+- Patterns detected and suggestions made
+
+## Dependencies
+
+- Existing hook files in `.claude/hooks/`
+- Task queue system (bb5-queue-manager.py)
+- Memory system (bb5-memory CLI)
+
+## Timeline
+
+| Phase | Duration | Focus |
+|-------|----------|-------|
+| 1 | Week 1 | Register existing hooks |
+| 2 | Week 2 | Task lifecycle automation |
+| 3 | Week 3 | Quality and safety |
+| 4 | Week 4 | Intelligence hooks |

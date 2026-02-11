@@ -1,8 +1,8 @@
 # GLM API Client Test Summary
 
 **Date:** 2026-01-18
-**Test File:** `.blackbox5/tests/test_glm_api_working.py`
-**Client File:** `.blackbox5/engine/core/GLMClient.py`
+**Test File:** `blackbox5/tests/test_glm_api_working.py`
+**Client File:** `blackbox5/engine/core/GLMClient.py`
 
 ## Overview
 
@@ -169,12 +169,12 @@ To test with a real GLM API key:
 export GLM_API_KEY='your-glm-api-key-here'
 
 # Run the test suite
-python3 .blackbox5/tests/test_glm_api_working.py
+python3 blackbox5/tests/test_glm_api_working.py
 ```
 
 Or test directly:
 ```bash
-cd .blackbox5
+cd blackbox5
 python3 engine/core/GLMClient.py
 ```
 

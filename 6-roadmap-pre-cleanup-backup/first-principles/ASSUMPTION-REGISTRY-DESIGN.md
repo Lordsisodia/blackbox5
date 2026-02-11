@@ -19,7 +19,7 @@ A unified system to:
 
 ### Master Registry File
 
-**Location:** `.blackbox5/roadmap/first-principles/ASSUMPTION-REGISTRY.yaml`
+**Location:** `blackbox5/roadmap/first-principles/ASSUMPTION-REGISTRY.yaml`
 
 ```yaml
 # ============================================================================
@@ -175,7 +175,7 @@ validation_queue:
 
 ### View 1: All Assumptions Table
 
-**Location:** `.blackbox5/roadmap/first-principles/ASSUMPTIONS-LIST.md`
+**Location:** `blackbox5/roadmap/first-principles/ASSUMPTIONS-LIST.md`
 
 ```markdown
 # All Assumptions Registry
@@ -301,7 +301,7 @@ Foundation of the entire task analysis system. If wrong, we'd misroute tasks, wa
 
 ### View 2: Validation Dashboard
 
-**Location:** `.blackbox5/roadmap/first-principles/VALIDATION-DASHBOARD.md`
+**Location:** `blackbox5/roadmap/first-principles/VALIDATION-DASHBOARD.md`
 
 ```markdown
 # Assumption Validation Dashboard
@@ -353,28 +353,28 @@ When a feature doc is created:
 
 ```bash
 # Run assumption extractor
-python .blackbox5/engine/scripts/extract-assumptions.py \
+python blackbox5/engine/scripts/extract-assumptions.py \
   --feature task-analyzer \
-  --output .blackbox5/roadmap/first-principles/ASSUMPTION-REGISTRY.yaml
+  --output blackbox5/roadmap/first-principles/ASSUMPTION-REGISTRY.yaml
 ```
 
 ### 2. Generate Challenges
 
 ```bash
 # Run assumption challenger
-python .blackbox5/engine/scripts/challenge-assumptions.py \
+python blackbox5/engine/scripts/challenge-assumptions.py \
   --assumption ASSUMPTION-0001 \
-  --output .blackbox5/roadmap/first-principles/challenges/task-analyzer-challenges.md
+  --output blackbox5/roadmap/first-principles/challenges/task-analyzer-challenges.md
 ```
 
 ### 3. Run Validation
 
 ```bash
 # Run validation experiment
-python .blackbox5/engine/scripts/validate-assumption.py \
+python blackbox5/engine/scripts/validate-assumption.py \
   --assumption ASSUMPTION-0001 \
   --method quantitative \
-  --output .blackbox5/roadmap/first-principles/validations/task-analyzer-validation.md
+  --output blackbox5/roadmap/first-principles/validations/task-analyzer-validation.md
 ```
 
 ### 4. Update Registry
@@ -383,7 +383,7 @@ After validation:
 
 ```bash
 # Update registry with results
-python .blackbox5/engine/scripts/update-registry.py \
+python blackbox5/engine/scripts/update-registry.py \
   --assumption ASSUMPTION-0001 \
   --status validated \
   --conclusion "Correlation 0.72, assumption validated"

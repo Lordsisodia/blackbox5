@@ -8,7 +8,7 @@
 
 **Black Box 5 Project Memory for Team Entrepreneurship:**
 ```
-.blackbox5/5-project-memory/
+blackbox5/5-project-memory/
 ```
 
 This is the **correct location** for all project-related plans, decisions, research, and tasks.
@@ -18,7 +18,7 @@ This is the **correct location** for all project-related plans, decisions, resea
 ## 🗂️ Structure (7-Folder Template)
 
 ```
-.blackbox5/5-project-memory/
+blackbox5/5-project-memory/
 ├── 1. project/           ✅ Project identity & direction
 │   ├── context.yaml       ✅ Project context (goals, constraints, scope)
 │   ├── project.yaml       ✅ Project metadata (name, version, team, progress)
@@ -49,17 +49,17 @@ This is the **correct location** for all project-related plans, decisions, resea
 
 **Main Action Plan:**
 ```
-.blackbox5/5-project-memory/plans/active/coursework-completion-action-plan.md
+blackbox5/5-project-memory/plans/active/coursework-completion-action-plan.md
 ```
 
 **Project Context:**
 ```
-.blackbox5/5-project-memory/project/context.yaml
+blackbox5/5-project-memory/project/context.yaml
 ```
 
 **Project Metadata:**
 ```
-.blackbox5/5-project-memory/project/project.yaml
+blackbox5/5-project-memory/project/project.yaml
 ```
 
 ---
@@ -68,17 +68,17 @@ This is the **correct location** for all project-related plans, decisions, resea
 
 ### To Read the Action Plan:
 ```bash
-cat .blackbox5/5-project-memory/plans/active/coursework-completion-action-plan.md
+cat blackbox5/5-project-memory/plans/active/coursework-completion-action-plan.md
 ```
 
 ### To Check Project Context:
 ```bash
-cat .blackbox5/5-project-memory/project/context.yaml
+cat blackbox5/5-project-memory/project/context.yaml
 ```
 
 ### To Check Project Metadata:
 ```bash
-cat .blackbox5/5-project-memory/project/project.yaml
+cat blackbox5/5-project-memory/project/project.yaml
 ```
 
 ---
@@ -114,10 +114,10 @@ cat .blackbox5/5-project-memory/project/project.yaml
 
 These were created but are NOT the primary project memory:
 
-❌ `.blackbox5/engine/memory/memory-bank/` - This is engine-level memory, not project memory
+❌ `blackbox5/engine/memory/memory-bank/` - This is engine-level memory, not project memory
 ❌ `.serena/memories/` - This is Serena's project memory system, not Black Box
 
-✅ `.blackbox5/5-project-memory/` - **CORRECT LOCATION**
+✅ `blackbox5/5-project-memory/` - **CORRECT LOCATION**
 
 ---
 
@@ -125,8 +125,8 @@ These were created but are NOT the primary project memory:
 
 | System | Location | Purpose | Status |
 |--------|----------|---------|--------|
-| **Black Box 5 Project Memory** | `.blackbox5/5-project-memory/` | Primary project memory | ✅ CORRECT |
-| Black Box 5 Engine Memory | `.blackbox5/engine/memory/memory-bank/` | Engine-level operations | ⚠️ Wrong location |
+| **Black Box 5 Project Memory** | `blackbox5/5-project-memory/` | Primary project memory | ✅ CORRECT |
+| Black Box 5 Engine Memory | `blackbox5/engine/memory/memory-bank/` | Engine-level operations | ⚠️ Wrong location |
 | Serena Memory | `.serena/memories/` | Serena project system | ⚠️ Different system |
 
 ---
@@ -155,7 +155,7 @@ Template updated: 2026-01-19
 
 **Status:** ✅ Project memory correctly initialized
 **Date:** January 24, 2026
-**Location:** `.blackbox5/5-project-memory/`
+**Location:** `blackbox5/5-project-memory/`
 
 ---
 

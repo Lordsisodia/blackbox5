@@ -16,7 +16,7 @@ The core agent infrastructure referenced by `main.py` has been **SUCCESSFULLY CR
 
 ### 1. Core Agent Classes ✅
 
-**Location:** `.blackbox5/2-engine/01-core/agents/core/`
+**Location:** `blackbox5/2-engine/01-core/agents/core/`
 
 #### `base_agent.py` (270 lines)
 **Key Classes:**
@@ -65,7 +65,7 @@ The core agent infrastructure referenced by `main.py` has been **SUCCESSFULLY CR
 ### 2. Package Structure ✅
 
 ```
-.blackbox5/2-engine/01-core/agents/
+blackbox5/2-engine/01-core/agents/
 ├── __init__.py                      # Package init
 ├── core/
 │   ├── __init__.py                  # Core exports

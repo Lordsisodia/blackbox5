@@ -375,7 +375,7 @@ def main():
     print("  ✓ Agent memory persistence")
     print("  ✓ Agent cleanup and statistics")
     print("\nFor more information, see:")
-    print("  .blackbox5/engine/core/ORCHESTRATOR_README.md")
+    print("  blackbox5/engine/core/ORCHESTRATOR_README.md")
     print()
 
 

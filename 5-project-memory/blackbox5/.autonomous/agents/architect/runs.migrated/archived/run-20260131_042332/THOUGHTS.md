@@ -23,13 +23,13 @@ From PLAN-001 in the roadmap:
 **Searched for:** `skills-cap`, `.skills-new`, `skills` directories
 
 **Found:**
-- `~/.blackbox5/2-engine/.autonomous/skills/` ✅ EXISTS
+- `~/blackbox5/2-engine/.autonomous/skills/` ✅ EXISTS
 - `skills-cap/` ❌ NOT FOUND
 - `.skills-new/` ❌ NOT FOUND
 
 ### Skills Directory Analysis
 
-**Location:** `~/.blackbox5/2-engine/.autonomous/skills/`
+**Location:** `~/blackbox5/2-engine/.autonomous/skills/`
 
 **Contents (10 files):**
 - `bmad-analyst.md` - Business Analyst skill
@@ -45,7 +45,7 @@ From PLAN-001 in the roadmap:
 
 ### Skill Router Analysis
 
-**File:** `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`
+**File:** `~/blackbox5/2-engine/.autonomous/lib/skill_router.py`
 
 **Line 166:** `self.skills_path = skills_path or Path(__file__).parent.parent / "skills"`
 
@@ -53,7 +53,7 @@ From PLAN-001 in the roadmap:
 
 ### BMAD Integration
 
-**Location:** `~/.blackbox5/2-engine/.autonomous/bmad/`
+**Location:** `~/blackbox5/2-engine/.autonomous/bmad/`
 
 **Structure:**
 - `workflows/` - Quick Flow and Full Method workflows

@@ -597,10 +597,10 @@ Regenerate from source:
 
 ## Additional Resources
 
-- **BlackBox5 Reference:** `~/.blackbox5/5-project-memory/blackbox5/`
+- **BlackBox5 Reference:** `~/blackbox5/5-project-memory/blackbox5/`
 - **Navigation Guide:** `NAVIGATION-GUIDE.md`
 - **Folder Structure:** `.templates/folder-structure.template`
-- **bb5 CLI:** `~/.blackbox5/bin/bb5*`
+- **bb5 CLI:** `~/blackbox5/bin/bb5*`
 
 ---
 

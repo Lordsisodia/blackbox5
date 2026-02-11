@@ -213,7 +213,7 @@ def main():
     parser.add_argument(
         '--registry',
         type=Path,
-        default=Path.home() / '.blackbox5' / '5-project-memory' / 'blackbox5' / 'operations' / 'skill-registry.yaml',
+        default=Path.home() / blackbox5 / '5-project-memory' / 'blackbox5' / 'operations' / 'skill-registry.yaml',
         help='Path to skill-registry.yaml'
     )
     parser.add_argument(

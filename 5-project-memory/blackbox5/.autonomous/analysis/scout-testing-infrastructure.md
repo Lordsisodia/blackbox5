@@ -9,13 +9,13 @@
 ## Test Infrastructure Assessment
 
 ### 2-Engine Test Structure
-- **Test Directory**: `/Users/shaansisodia/.blackbox5/2-engine/tests/` exists with unit and integration subdirectories
+- **Test Directory**: `/Users/shaansisodia/blackbox5/2-engine/tests/` exists with unit and integration subdirectories
 - **Test Files Found**: 100+ test files across the codebase
 - **Test Framework**: Mix of `unittest` (standard library) and some `pytest` usage
 - **Test Types**:
-  - Unit tests in `/Users/shaansisodia/.blackbox5/2-engine/tests/unit/`
-  - Integration tests in `/Users/shaansisodia/.blackbox5/2-engine/tests/integration/`
-  - Library tests in `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/`
+  - Unit tests in `/Users/shaansisodia/blackbox5/2-engine/tests/unit/`
+  - Integration tests in `/Users/shaansisodia/blackbox5/2-engine/tests/integration/`
+  - Library tests in `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/`
 
 ### 5-Project-Memory/Blackbox5 Test Structure
 - **No formal test directory** found
@@ -28,18 +28,18 @@
 
 ### 1. Hardcoded Paths (Major Issue)
 Found in multiple agent files:
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/scout-intelligent.py` (lines 30-32):
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/scout-intelligent.py` (lines 30-32):
   ```python
-  PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-  ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+  PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+  ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
   ```
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/executor-implement.py` (lines 25-29):
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/executor-implement.py` (lines 25-29):
   ```python
-  PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-  ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+  PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+  ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
   ```
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/planner-prioritize.py` (lines 23-26)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (no hardcoded paths - uses relative paths)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/planner-prioritize.py` (lines 23-26)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (no hardcoded paths - uses relative paths)
 
 ### 2. No Dependency Injection
 - Components directly instantiate dependencies
@@ -98,12 +98,12 @@ Found in multiple agent files:
 ### 1. Configuration Injection
 ```python
 # Instead of:
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 
 # Use:
 class Config:
     def __init__(self, project_dir: Optional[Path] = None):
-        self.project_dir = project_dir or Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+        self.project_dir = project_dir or Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 ```
 
 ### 2. Abstract File System Operations

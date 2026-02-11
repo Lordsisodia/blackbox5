@@ -46,7 +46,7 @@ STATE.yaml references 12 root files. Audit results:
 
 ## 2. YAML PARSE ERROR (CRITICAL)
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml`
 **Lines:** 360-361
 
 ### Current (Broken) Code:
@@ -108,7 +108,7 @@ Sync context.yaml version to 5.1.0 or decide which file is canonical and update 
 
 ### IG-006: Restructure BlackBox5 Architecture
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-006/goal.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-006/goal.yaml`
 
 | Sub-Goal | Linked Tasks | Status |
 |----------|--------------|--------|
@@ -121,7 +121,7 @@ Sync context.yaml version to 5.1.0 or decide which file is canonical and update 
 
 ### IG-007: Continuous Architecture Evolution
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-007/goal.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-007/goal.yaml`
 
 | Sub-Goal | Linked Tasks | Status |
 |----------|--------------|--------|
@@ -134,7 +134,7 @@ Sync context.yaml version to 5.1.0 or decide which file is canonical and update 
 
 ### IG-009: Improve Hooks for Automated Maintenance
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-009/goal.yaml`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-009/goal.yaml`
 
 | Sub-Goal | Linked Tasks | Status |
 |----------|--------------|--------|
@@ -214,13 +214,13 @@ All findings in this report are confirmed by the validation script.
 
 ## 8. FILES AUDITED
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml`
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/project/context.yaml`
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-006/goal.yaml`
-4. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-007/goal.yaml`
-5. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/active/IG-009/goal.yaml`
-6. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py`
-7. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/` (directory listing)
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/project/context.yaml`
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-006/goal.yaml`
+4. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-007/goal.yaml`
+5. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/active/IG-009/goal.yaml`
+6. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py`
+7. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/` (directory listing)
 
 ---
 

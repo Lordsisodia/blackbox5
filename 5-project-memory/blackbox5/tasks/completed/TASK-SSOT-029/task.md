@@ -43,7 +43,7 @@ Keep original formats until new formats proven.
 ## Implementation Results
 
 ### Migration Script
-Created: `~/.blackbox5/bin/migrate-serialization.sh`
+Created: `~/blackbox5/bin/migrate-serialization.sh`
 
 ### Results
 
@@ -59,10 +59,10 @@ Created: `~/.blackbox5/bin/migrate-serialization.sh`
 3. **SQLite task cache**: Sub-second queries for task metadata vs parsing all files
 
 ### Files Created
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.ldjson`
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/data/memories.msgpack`
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/data/tasks-cache.db`
-- `~/.blackbox5/5-project-memory/blackbox5/.autonomous/data/backups/migration-*/` (backups)
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.ldjson`
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/data/memories.msgpack`
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/data/tasks-cache.db`
+- `~/blackbox5/5-project-memory/blackbox5/.autonomous/data/backups/migration-*/` (backups)
 
 ### Next Steps
 1. Update StorageBackend to detect and use new formats

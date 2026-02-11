@@ -37,7 +37,7 @@ Create a comprehensive technical design for the memory compression system based 
    - Integration with existing memory queries
 
 5. **Integration Points**
-   - How this integrates with `.blackbox5/engine/memory/`
+   - How this integrates with `blackbox5/engine/memory/`
    - How agents use compressed memory
    - Backward compatibility
 
@@ -116,7 +116,7 @@ Your main design document (`02-design/proposal.md`) should include:
 
 ### Existing Memory System
 
-**Location:** `.blackbox5/engine/memory/`
+**Location:** `blackbox5/engine/memory/`
 
 **Key Files:**
 - `ProductionMemorySystem.py` - Main memory implementation
@@ -127,13 +127,13 @@ Your main design document (`02-design/proposal.md`) should include:
 
 ### Existing Token Compression
 
-**Location:** `.blackbox5/engine/core/token_compressor.py`
+**Location:** `blackbox5/engine/core/token_compressor.py`
 
 **Design Question:** Can we leverage or integrate with existing token compression?
 
 ### RAG/Brain System
 
-**Location:** `.blackbox5/engine/knowledge/`
+**Location:** `blackbox5/engine/knowledge/`
 
 **Design Question:** How does compressed memory interact with vector search?
 

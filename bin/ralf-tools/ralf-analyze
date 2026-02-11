@@ -4,7 +4,7 @@
 
 set -e
 
-BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"
+BLACKBOX5_DIR="/Users/shaansisodia/blackbox5"
 ENGINE_DIR="$BLACKBOX5_DIR/2-engine"
 LOG_INGESTOR="$ENGINE_DIR/helpers/legacy/log_ingestor.py"
 

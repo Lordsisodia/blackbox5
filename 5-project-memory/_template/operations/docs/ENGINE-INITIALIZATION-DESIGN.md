@@ -674,7 +674,7 @@ async def run_agent(
 
 ### Codebase Patterns
 
-1. `.blackbox5/engine/core/boot.py` - Schema-driven initialization
+1. `blackbox5/engine/core/boot.py` - Schema-driven initialization
 2. `src/services/shared/ConfigLoader.ts` - Multi-strategy loading
 3. `src/services/database/TaskServiceRegistry.ts` - Service registry pattern
 4. `src/services/mcp/` - Client-server architecture

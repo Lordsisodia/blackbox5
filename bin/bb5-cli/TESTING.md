@@ -23,36 +23,36 @@
 
 ```bash
 # 1. Test root discovery
-export BB5_DIR=$HOME/.blackbox5
-~/.blackbox5/bin/bb5-cli/bb5-discover
+export BB5_DIR=$HOME/blackbox5
+~/blackbox5/bin/bb5-cli/bb5-discover
 
 # 2. Test category discovery
-~/.blackbox5/bin/bb5-cli/bb5-discover db
-~/.blackbox5/bin/bb5-cli/bb5-discover remote
+~/blackbox5/bin/bb5-cli/bb5-discover db
+~/blackbox5/bin/bb5-cli/bb5-discover remote
 
 # 3. Test schema loading
-~/.blackbox5/bin/bb5-cli/bb5-schema db:query
-~/.blackbox5/bin/bb5-cli/bb5-schema remote:exec
+~/blackbox5/bin/bb5-cli/bb5-schema db:query
+~/blackbox5/bin/bb5-cli/bb5-schema remote:exec
 ```
 
 ### Test Context Management
 
 ```bash
 # Database contexts
-~/.blackbox5/bin/bb5-cli/bb5-db context list
-~/.blackbox5/bin/bb5-cli/bb5-db context show
+~/blackbox5/bin/bb5-cli/bb5-db context list
+~/blackbox5/bin/bb5-cli/bb5-db context show
 
 # Remote contexts
-~/.blackbox5/bin/bb5-cli/bb5-remote context list
-~/.blackbox5/bin/bb5-cli/bb5-remote context show
+~/blackbox5/bin/bb5-cli/bb5-remote context list
+~/blackbox5/bin/bb5-cli/bb5-remote context show
 ```
 
 ### Test Remote Execution (VPS)
 
 ```bash
 # This will work if you have SSH keys set up
-~/.blackbox5/bin/bb5-cli/bb5-remote exec vps "ls -la /opt/ralf"
-~/.blackbox5/bin/bb5-cli/bb5-remote exec vps "cat /opt/ralf/.autonomous/agents/communications/queue.yaml"
+~/blackbox5/bin/bb5-cli/bb5-remote exec vps "ls -la /opt/ralf"
+~/blackbox5/bin/bb5-cli/bb5-remote exec vps "cat /opt/ralf/.autonomous/agents/communications/queue.yaml"
 ```
 
 ### Test Database Query (Supabase)
@@ -62,7 +62,7 @@ export BB5_DIR=$HOME/.blackbox5
 export SUPABASE_CLIENT_A_KEY=your_key_here
 
 # Run query
-~/.blackbox5/bin/bb5-cli/bb5-db query -s "SELECT * FROM users LIMIT 5"
+~/blackbox5/bin/bb5-cli/bb5-db query -s "SELECT * FROM users LIMIT 5"
 ```
 
 ## Token Efficiency Test

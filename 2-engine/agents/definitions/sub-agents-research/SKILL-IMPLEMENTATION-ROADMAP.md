@@ -283,7 +283,7 @@ These need isolated execution for context management:
 
 ## Auto-Activation Rules to Create
 
-Create these rule files in `~/.blackbox5/5-project-memory/blackbox5/.claude/rules/`:
+Create these rule files in `~/blackbox5/5-project-memory/blackbox5/.claude/rules/`:
 
 ### 009-orchestrator-auto-activation.md
 ```yaml

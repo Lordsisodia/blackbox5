@@ -7390,7 +7390,7 @@ Do not share my personal information
   type: user_prompt
   task: ""
   run: "current"
-  preview: "Read the context collector agent instructions from /Users/shaansisodia/.blackbox5/.claude/agents/bb5
+  preview: "Read the context collector agent instructions from /Users/shaansisodia/blackbox5/.claude/agents/bb5
 
 You are the bb5-context-collector agent. Your mission is to gather comprehensive context for task ex
 
@@ -7401,10 +7401,10 @@ Description: Sync the user-profile epic and tasks to GitHub issues for tracking 
 ---
 
 Please:
-1. Read your agent instructions from /Users/shaansisodia/.blackbox5/.claude/agents/bb5-context-colle
+1. Read your agent instructions from /Users/shaansisodia/blackbox5/.claude/agents/bb5-context-colle
 2. Gather context about the current BB5 state
 3. Focus on information relevant to: github-integration
-4. Save your report to: /Users/shaansisodia/.blackbox5/runs/executor/run-20260209_215857-TASK-2026-0
+4. Save your report to: /Users/shaansisodia/blackbox5/runs/executor/run-20260209_215857-TASK-2026-0
 
 Return a concise summary of the most important context for this task."
 - timestamp: "2026-02-09T22:00:32+07:00"
@@ -7556,7 +7556,7 @@ Task TASK-2026-01-18-005 is ready for execution. The user-profile epic has been 
 
 ## Epic Details
 
-**Epic Location**: `/Users/shaansisodia/.blackbox5/5-project-memory/siso-internal/plans/active/user-
+**Epic Location**: `/Users/shaansisodia/blackbox5/5-project-memory/siso-internal/plans/active/user-
 
 **Epic Status**: planned, 0% progress
 
@@ -7583,7 +7583,7 @@ Task TASK-2026-01-18-005 is ready for execution. The user-profile epic has been 
 
 All 18 task files are located at:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/siso-internal/plans/active/user-profile/[001-018].md
+/Users/shaansisodia/blackbox5/5-project-memory/siso-internal/plans/active/user-profile/[001-018].md
 ```
 
 Additional files:
@@ -7645,7 +7645,7 @@ The following criteria MUST be met for successful completion:
 
 ## Run Context
 
-- **Run Folder:** /Users/shaansisodia/.blackbox5/runs/executor/run-20260209_215857-TASK-2026-01-18-0
+- **Run Folder:** /Users/shaansisodia/blackbox5/runs/executor/run-20260209_215857-TASK-2026-01-18-0
 - **Started:** 2026-02-09T21:58:57.297349
 
 ## Output Requirements

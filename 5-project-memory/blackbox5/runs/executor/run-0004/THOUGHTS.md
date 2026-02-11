@@ -17,9 +17,9 @@ TASK-1769908000: Make Pre-Execution Research Mandatory
 
 ### Context Gathered
 **Files read:**
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts/ralf.md` - Existing RALF prompt structure
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows/task-completion.yaml` - Existing workflow pattern
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0003/THOUGHTS.md` - Example THOUGHTS.md structure
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/prompts/ralf.md` - Existing RALF prompt structure
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/workflows/task-completion.yaml` - Existing workflow pattern
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/executor/run-0003/THOUGHTS.md` - Example THOUGHTS.md structure
 
 **Key findings:**
 - The executor prompt at `2-engine/.autonomous/prompts/ralf-executor.md` does not exist yet - needs to be created

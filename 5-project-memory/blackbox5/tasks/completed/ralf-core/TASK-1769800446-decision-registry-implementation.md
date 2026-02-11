@@ -48,8 +48,8 @@ Implement the missing `decision_registry.py` library that the Agent-2.3 decision
 **Status**: Complete
 
 **Files to create/modify:**
-- Create: `~/.blackbox5/2-engine/.autonomous/lib/decision_registry.py`
-- Create: `~/.blackbox5/2-engine/.autonomous/lib/test_decision_registry.py`
+- Create: `~/blackbox5/2-engine/.autonomous/lib/decision_registry.py`
+- Create: `~/blackbox5/2-engine/.autonomous/lib/test_decision_registry.py`
 
 **Tests needed:**
 - Unit tests for all decision registry operations
@@ -173,5 +173,5 @@ decisions:
 - Integration with ralf.md verified
 
 ### Files Delivered
-1. `~/.blackbox5/2-engine/.autonomous/lib/decision_registry.py` (~520 lines)
-2. `~/.blackbox5/2-engine/.autonomous/lib/test_decision_registry.py` (~600 lines)
+1. `~/blackbox5/2-engine/.autonomous/lib/decision_registry.py` (~520 lines)
+2. `~/blackbox5/2-engine/.autonomous/lib/test_decision_registry.py` (~600 lines)

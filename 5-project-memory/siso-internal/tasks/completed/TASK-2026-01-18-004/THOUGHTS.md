@@ -15,7 +15,7 @@
 - **Plan:** Agent-centric to project-centric
 
 ### Initial Assessment
-Current system is agent-centric (`.blackbox5/data/memory/john/`). Need project-centric organization.
+Current system is agent-centric (`blackbox5/data/memory/john/`). Need project-centric organization.
 
 ---
 
@@ -31,7 +31,7 @@ Current system is agent-centric (`.blackbox5/data/memory/john/`). Need project-c
 - Existing memory structure
 
 ### Key Findings
-- Agent-centric: `.blackbox5/data/memory/john/`
+- Agent-centric: `blackbox5/data/memory/john/`
 - PRDs in wrong location: `.claude/prds/`
 - Missing task context
 

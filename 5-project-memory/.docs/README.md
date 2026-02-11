@@ -1,6 +1,6 @@
 # Project Memory Documentation
 
-**Location**: `.blackbox5/5-project-memory/.docs/`
+**Location**: `blackbox5/5-project-memory/.docs/`
 **Purpose**: Documentation for the project memory system
 
 ---
@@ -32,7 +32,7 @@ Documents related to the 2026-01-19 reorganization from 18 folders to 7 folders.
 
 ### `code_index.md` - Global Code Index
 
-Located at project root: `.blackbox5/5-project-memory/code_index.md`
+Located at project root: `blackbox5/5-project-memory/code_index.md`
 
 Contains:
 - Code structure index
@@ -73,9 +73,9 @@ siso-internal/
 
 ## Related Documentation
 
-- `.blackbox5/5-project-memory/README.md` - Project memory system overview
-- `.blackbox5/5-project-memory/_template/README.md` - Template documentation
-- `.blackbox5/5-project-memory/siso-internal/README.md` - SISO Internal project overview
+- `blackbox5/5-project-memory/README.md` - Project memory system overview
+- `blackbox5/5-project-memory/_template/README.md` - Template documentation
+- `blackbox5/5-project-memory/siso-internal/README.md` - SISO Internal project overview
 
 ## History
 

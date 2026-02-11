@@ -40,7 +40,7 @@ MCP (Model Context Protocol) is the protocol used by Claude Code to communicate 
 {
   "type": "stdio",
   "command": "python3",
-  "args": ["/Users/shaansisodia/.blackbox5/mcp-server-moltbot.py"]
+  "args": ["/Users/shaansisodia/blackbox5/mcp-server-moltbot.py"]
 }
 ```
 

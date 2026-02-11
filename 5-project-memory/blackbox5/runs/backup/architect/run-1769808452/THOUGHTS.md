@@ -23,13 +23,13 @@ From TASK-1738300332 (derived from PLAN-001):
 **Searched for:** `skills-cap`, `.skills-new` directories in 2-engine
 
 **Found:**
-- `~/.blackbox5/2-engine/.autonomous/skills/` ✅ EXISTS (11 BMAD skills)
+- `~/blackbox5/2-engine/.autonomous/skills/` ✅ EXISTS (11 BMAD skills)
 - `skills-cap/` ❌ NOT FOUND (referenced in PLAN-001 but doesn't exist)
 - `.skills-new/` ❌ NOT FOUND (referenced in PLAN-001 but doesn't exist)
 
 ### Skills Directory Analysis
 
-**Location:** `~/.blackbox5/2-engine/.autonomous/skills/`
+**Location:** `~/blackbox5/2-engine/.autonomous/skills/`
 
 **Contents (11 files):**
 - `bmad-analyst.md` - Business Analyst skill
@@ -46,7 +46,7 @@ From TASK-1738300332 (derived from PLAN-001):
 
 ### Skill Router Analysis
 
-**File:** `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`
+**File:** `~/blackbox5/2-engine/.autonomous/lib/skill_router.py`
 
 **Line 166:** `self.skills_path = skills_path or Path(__file__).parent.parent / "skills"`
 

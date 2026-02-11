@@ -26,14 +26,14 @@ A functional task management system that:
 ```bash
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 
-mkdir -p .blackbox5/tasks/{backlog,active,review,done,archived}
-mkdir -p .blackbox5/tasks/done/2026/{01-week,02-week,03-week,04-week}
-mkdir -p .blackbox5/engine/task_management
-touch .blackbox5/engine/task_management/__init__.py
+mkdir -p blackbox5/tasks/{backlog,active,review,done,archived}
+mkdir -p blackbox5/tasks/done/2026/{01-week,02-week,03-week,04-week}
+mkdir -p blackbox5/engine/task_management
+touch blackbox5/engine/task_management/__init__.py
 ```
 
 #### Step 1.2: Create Task Parser (1 hour)
-**File:** `.blackbox5/engine/task_management/parser.py`
+**File:** `blackbox5/engine/task_management/parser.py`
 
 ```python
 import yaml
@@ -130,7 +130,7 @@ class TaskParser:
 ```
 
 #### Step 1.3: Create Task Repository (1 hour)
-**File:** `.blackbox5/engine/task_management/repository.py`
+**File:** `blackbox5/engine/task_management/repository.py`
 
 ```python
 import yaml
@@ -334,7 +334,7 @@ print(f"\nTotal tasks: {len(tasks)}")
 **Goal:** Auto-classify tasks into tiers
 
 #### Step 2.1: Create Complexity Analyzer
-**File:** `.blackbox5/engine/task_management/complexity_analyzer.py`
+**File:** `blackbox5/engine/task_management/complexity_analyzer.py`
 
 Use the complete code from `ADAPTIVE-FLOW-ROUTER-ARCHITECTURE.md`
 
@@ -368,7 +368,7 @@ for reason in complexity.reasoning:
 **Goal:** Route tasks to appropriate workflows
 
 #### Step 3.1: Create Workflow Router
-**File:** `.blackbox5/engine/task_management/workflow_router.py`
+**File:** `blackbox5/engine/task_management/workflow_router.py`
 
 Use the complete code from `ADAPTIVE-FLOW-ROUTER-ARCHITECTURE.md`
 
@@ -394,7 +394,7 @@ for step in decision.next_steps:
 **Goal:** Easy command-line interface
 
 #### Step 4.1: Create CLI Commands
-**File:** `.blackbox5/cli/commands/task_commands_v2.py`
+**File:** `blackbox5/cli/commands/task_commands_v2.py`
 
 ```python
 import argparse
@@ -536,7 +536,7 @@ class TasksRouteCommand(BaseCommand):
 ```
 
 #### Step 4.2: Register Commands
-Edit `.blackbox5/cli/main.py` to import and register these commands.
+Edit `blackbox5/cli/main.py` to import and register these commands.
 
 ---
 

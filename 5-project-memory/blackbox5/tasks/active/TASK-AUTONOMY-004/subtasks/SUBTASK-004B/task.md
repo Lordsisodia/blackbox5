@@ -28,7 +28,7 @@ Create the `bb5-health` CLI command for quick system health snapshots. Supports 
 ## Implementation Plan
 
 ### Step 1: Command Structure (5K tokens)
-Create `~/.blackbox5/bin/bb5-health`:
+Create `~/blackbox5/bin/bb5-health`:
 
 ```python
 #!/usr/bin/env python3
@@ -157,7 +157,7 @@ Add to existing `bb5` command:
 
 ## Files to Create
 
-1. `~/.blackbox5/bin/bb5-health` (executable Python script)
+1. `~/blackbox5/bin/bb5-health` (executable Python script)
 
 ---
 

@@ -26,7 +26,7 @@ The RALF Real-time Dashboard provides live visibility into agent activities, tas
 Open a terminal and start the WebSocket server:
 
 ```bash
-cd ~/.blackbox5
+cd ~/blackbox5
 python3 2-engine/.autonomous/lib/dashboard_server.py
 ```
 

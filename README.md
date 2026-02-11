@@ -1,6 +1,6 @@
 # BlackBox5 - Global AI Infrastructure
 
-**Location:** `~/.blackbox5/`
+**Location:** `~/blackbox5/`
 
 This is the global BlackBox5 installation, accessible from any project.
 
@@ -19,7 +19,7 @@ loop   # RALF with GLM
 ## Directory Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── bin/              # Executable scripts
 ├── 1-docs/           # Documentation
 ├── 2-engine/         # Core engine
@@ -33,7 +33,7 @@ loop   # RALF with GLM
 ## Environment Variable
 
 ```bash
-export BLACKBOX5_HOME="$HOME/.blackbox5"
+export BLACKBOX5_HOME="$HOME/blackbox5"
 ```
 
 ## Project-Specific Data

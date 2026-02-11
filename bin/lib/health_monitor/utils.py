@@ -8,7 +8,7 @@ from typing import Optional
 
 def get_bb5_root() -> Path:
     """Get BB5 root directory from environment or default."""
-    return Path(os.environ.get("BB5_HOME", os.path.expanduser("~/.blackbox5")))
+    return Path(os.environ.get("BB5_HOME", os.path.expanduser("~/blackbox5")))
 
 
 def parse_timestamp(value: Optional[str]) -> Optional[datetime]:

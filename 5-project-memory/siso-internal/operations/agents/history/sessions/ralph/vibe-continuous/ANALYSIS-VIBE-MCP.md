@@ -4,7 +4,7 @@
 **Date:** 2026-01-18 15:20:09
 **Focus Area:** mcp
 
-## Deep Analysis: .blackbox5/integration/vibe
+## Deep Analysis: blackbox5/integration/vibe
 
 **Focus:** mcp
 

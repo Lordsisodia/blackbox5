@@ -38,19 +38,19 @@
 ## Files Created/Modified
 
 ### Created Files (10):
-1. ✅ `.blackbox5/engine/main.py` - Main bootstrap system
-2. ✅ `.blackbox5/engine/agents/core/decorators.py` - Decorator system
-3. ✅ `.blackbox5/engine/core/guide_middleware.py` - Guide middleware
-4. ✅ `.blackbox5/engine/memory/agent_memory.py` - Memory system
-5. ✅ `.blackbox5/engine/interface/cli/bb5.py` - CLI integration
-6. ✅ `.blackbox5/engine/interface/api/main.py` - FastAPI server
-7. ✅ `.blackbox5/engine/tests/integration/test_full_pipeline.py` - Test suite
-8. ✅ `.blackbox5/engine/interface/api/test_api.sh` - API test script
-9. ✅ `.blackbox5/engine/interface/api/README.md` - API documentation
-10. ✅ `.blackbox5/engine/INTEGRATION-PLAN.md` - Full integration plan
+1. ✅ `blackbox5/engine/main.py` - Main bootstrap system
+2. ✅ `blackbox5/engine/agents/core/decorators.py` - Decorator system
+3. ✅ `blackbox5/engine/core/guide_middleware.py` - Guide middleware
+4. ✅ `blackbox5/engine/memory/agent_memory.py` - Memory system
+5. ✅ `blackbox5/engine/interface/cli/bb5.py` - CLI integration
+6. ✅ `blackbox5/engine/interface/api/main.py` - FastAPI server
+7. ✅ `blackbox5/engine/tests/integration/test_full_pipeline.py` - Test suite
+8. ✅ `blackbox5/engine/interface/api/test_api.sh` - API test script
+9. ✅ `blackbox5/engine/interface/api/README.md` - API documentation
+10. ✅ `blackbox5/engine/INTEGRATION-PLAN.md` - Full integration plan
 
 ### Modified Files (1):
-1. ✅ `.blackbox5/engine/core/__init__.py` - Added guide_middleware export
+1. ✅ `blackbox5/engine/core/__init__.py` - Added guide_middleware export
 
 ---
 

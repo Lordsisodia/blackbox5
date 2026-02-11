@@ -196,9 +196,9 @@ async def main():
 
     print_section("Summary")
     print_success("VibeKanbanManager created successfully")
-    print_info("Location: .blackbox5/integration/vibe/VibeKanbanManager.py")
-    print_info("Test file: .blackbox5/tests/test_vibe_integration.py")
-    print_info("Documentation: .blackbox5/integration/vibe/README.md")
+    print_info("Location: blackbox5/integration/vibe/VibeKanbanManager.py")
+    print_info("Test file: blackbox5/tests/test_vibe_integration.py")
+    print_info("Documentation: blackbox5/integration/vibe/README.md")
 
     print("\n🎯 Key Features:")
     print("  ✓ Create cards in different columns")
@@ -210,8 +210,8 @@ async def main():
 
     print("\n📚 Next Steps:")
     print("  1. Start Vibe Kanban: docker-compose -f docker-compose.vibe-kanban-local.yml up -d")
-    print("  2. Run tests: pytest .blackbox5/tests/test_vibe_integration.py")
-    print("  3. Read docs: .blackbox5/integration/vibe/README.md")
+    print("  2. Run tests: pytest blackbox5/tests/test_vibe_integration.py")
+    print("  3. Read docs: blackbox5/integration/vibe/README.md")
 
     print("\n" + "=" * 60 + "\n")
 

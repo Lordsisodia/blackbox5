@@ -45,7 +45,7 @@ from typing import Any, Optional
 from atomic_io import atomic_write_yaml
 
 # Default path to the unified registry
-DEFAULT_REGISTRY_PATH = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml")
+DEFAULT_REGISTRY_PATH = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml")
 
 
 class SkillRegistry:

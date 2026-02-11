@@ -6,10 +6,10 @@ The CI/CD pipeline runs tests but test results are not being aggregated or popul
 
 ## Key Files Involved
 
-- `/Users/shaansisodia/.blackbox5/.github/workflows/ci.yml` - Main CI workflow (lines 122-186 run tests)
-- `/Users/shaansisodia/.blackbox5/.github/workflows/test.yml` - Extended test suite
-- `/Users/shaansisodia/.blackbox5/.github/workflows/pr-checks.yml` - PR validation
-- `/Users/shaansisodia/.blackbox5/2-engine/tests/` - Test directories (unit, integration)
+- `/Users/shaansisodia/blackbox5/.github/workflows/ci.yml` - Main CI workflow (lines 122-186 run tests)
+- `/Users/shaansisodia/blackbox5/.github/workflows/test.yml` - Extended test suite
+- `/Users/shaansisodia/blackbox5/.github/workflows/pr-checks.yml` - PR validation
+- `/Users/shaansisodia/blackbox5/2-engine/tests/` - Test directories (unit, integration)
 - Missing: Test results aggregation script/template
 
 ## Estimated Complexity
@@ -28,7 +28,7 @@ The CI/CD pipeline runs tests but test results are not being aggregated or popul
 
 1. **Check existing test result handling** - Review if pytest outputs are being captured
 2. **Create test results parser** - Parse pytest/JUnit XML output into structured format
-3. **Define storage location** - e.g., `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/test-results/`
+3. **Define storage location** - e.g., `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/test-results/`
 4. **Add to CI workflow** - Capture test results after pytest runs
 5. **Create dashboard/template** - YAML or markdown summary of test status
 
@@ -48,7 +48,7 @@ Tests run but results are only uploaded to codecov (line 152-159). No local aggr
 
 ## Suggested Output Format
 
-Create `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/test-results/latest.yaml`:
+Create `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/test-results/latest.yaml`:
 ```yaml
 timestamp: "2026-02-06T..."
 run_id: "..."

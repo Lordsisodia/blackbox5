@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-19
 **Status:** ✅ Complete and Ready
-**Location:** `.blackbox5/6-roadmap/framework-research/ralphy-integration/`
+**Location:** `blackbox5/6-roadmap/framework-research/ralphy-integration/`
 
 ---
 
@@ -72,7 +72,7 @@ This belongs in framework research because:
 ### Option 1: Review the Research
 
 ```bash
-cd .blackbox5/6-roadmap/framework-research/ralphy-integration
+cd blackbox5/6-roadmap/framework-research/ralphy-integration
 
 # Read the overview
 cat README.md
@@ -238,6 +238,6 @@ A: Whenever you're ready. It's completely safe.
 ---
 
 **Created:** 2026-01-19
-**Location:** `.blackbox5/6-roadmap/framework-research/ralphy-integration/`
+**Location:** `blackbox5/6-roadmap/framework-research/ralphy-integration/`
 **Type:** Framework research (general engine improvement)
 **Maintainer:** BlackBox5 Engine Team

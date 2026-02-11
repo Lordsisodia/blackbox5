@@ -35,14 +35,14 @@ Implement skill effectiveness tracking so all 22 skills have actual metrics inst
 
 **Solution Implemented:**
 
-1. **Created `bb5 skill-dashboard` command** (`/Users/shaansisodia/.blackbox5/bin/bb5-skill-dashboard`)
+1. **Created `bb5 skill-dashboard` command** (`/Users/shaansisodia/blackbox5/bin/bb5-skill-dashboard`)
    - Real-time dashboard showing skill effectiveness metrics
    - Category performance breakdown
    - ROI summary with time saved calculations
    - Trend analysis and recommendations
    - JSON output support for automation
 
-2. **Generated task outcome data** (`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/generate-skill-metrics-data.py`)
+2. **Generated task outcome data** (`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/generate-skill-metrics-data.py`)
    - Created 73 task outcomes with actual skill usage
    - Each of the 22 skills has 3+ task outcomes
    - Includes duration, quality ratings, trigger accuracy, and reuse data
@@ -55,11 +55,11 @@ Implement skill effectiveness tracking so all 22 skills have actual metrics inst
 
 ### Files Modified/Created
 
-- **Created:** `/Users/shaansisodia/.blackbox5/bin/bb5-skill-dashboard` (executable)
-- **Created:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/generate-skill-metrics-data.py`
-- **Modified:** `/Users/shaansisodia/.blackbox5/bin/bb5` (added skill-dashboard command)
-- **Modified:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
-- **Modified:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml`
+- **Created:** `/Users/shaansisodia/blackbox5/bin/bb5-skill-dashboard` (executable)
+- **Created:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/generate-skill-metrics-data.py`
+- **Modified:** `/Users/shaansisodia/blackbox5/bin/bb5` (added skill-dashboard command)
+- **Modified:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
+- **Modified:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml`
 
 ### Metrics Summary
 

@@ -107,13 +107,13 @@ BlackBox5 is a comprehensive multi-agent AI orchestration system extracted from 
    - Working memory patterns
    - Memory consolidation
 
-4. **BMAD** (`.blackbox5/engine/frameworks/1-bmad/`)
+4. **BMAD** (`blackbox5/engine/frameworks/1-bmad/`)
    - 4-phase methodology
    - 50+ workflows
    - Artifact templates
    - Quality gates
 
-5. **GSD** (`.blackbox5/engine/frameworks/2-gsd/`)
+5. **GSD** (`blackbox5/engine/frameworks/2-gsd/`)
    - Context budgeting
    - Atomic commits
    - Goal-backward verification

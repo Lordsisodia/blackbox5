@@ -365,23 +365,23 @@ The BB5 RALF implementation is a **partially functional autonomous task executio
 ## 6. Files Reference
 
 ### Core Implementation
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/ralf-core.sh` - Active executor
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/executor.py` - Unused Python executor
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/agent-spawner.py` - Stub agent spawner
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/ralf-core.sh` - Active executor
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/executor.py` - Unused Python executor
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/agent-spawner.py` - Stub agent spawner
 
 ### Configuration
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/bb5-ralf-executor.service` - systemd service
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/bb5-ralf-executor.service` - systemd service
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue
 
 ### Documentation
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/DUAL-RALF-ARCHITECTURE.md` - Design spec
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/README.md` - Executor docs
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/DUAL-RALF-ARCHITECTURE.md` - Design spec
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/README.md` - Executor docs
 
 ### Agent Definitions
-- `/Users/shaansisodia/.blackbox5/.claude/agents/bb5-context-collector.md`
-- `/Users/shaansisodia/.blackbox5/.claude/agents/bb5-executor.md`
-- `/Users/shaansisodia/.blackbox5/.claude/agents/bb5-scribe.md`
-- `/Users/shaansisodia/.blackbox5/.claude/agents/bb5-superintelligence.md`
+- `/Users/shaansisodia/blackbox5/.claude/agents/bb5-context-collector.md`
+- `/Users/shaansisodia/blackbox5/.claude/agents/bb5-executor.md`
+- `/Users/shaansisodia/blackbox5/.claude/agents/bb5-scribe.md`
+- `/Users/shaansisodia/blackbox5/.claude/agents/bb5-superintelligence.md`
 
 ---
 

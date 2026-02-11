@@ -416,8 +416,8 @@ Based on completed research, the following proposals should be created:
 
 **Verification:**
 - Agent output files: `/tmp/claude/-Users-shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/tasks/{agent_id}.output`
-- Research logs: `.blackbox5/roadmap/01-research/{category}/research-log.md`
-- Session summaries: `.blackbox5/roadmap/01-research/{category}/session-summaries/session-{date}.md`
+- Research logs: `blackbox5/roadmap/01-research/{category}/research-log.md`
+- Session summaries: `blackbox5/roadmap/01-research/{category}/session-summaries/session-{date}.md`
 
 **Proof of Work:**
 - 6 completed session summaries with detailed findings

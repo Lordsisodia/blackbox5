@@ -61,12 +61,12 @@ You are RALF-Architect operating in a continuous loop. Environment:
 **Work:**
 ```bash
 # Map current structure
-tree -L 3 ~/.blackbox5 2>/dev/null || find ~/.blackbox5 -maxdepth 3 -type d | head -50
+tree -L 3 ~/blackbox5 2>/dev/null || find ~/blackbox5 -maxdepth 3 -type d | head -50
 
 # Identify smells
-find ~/.blackbox5 -type d -name ".autonomous" | wc -l
-find ~/.blackbox5 -type d -name "tasks" | wc -l
-find ~/.blackbox5 -type d -name "config" | wc -l
+find ~/blackbox5 -type d -name ".autonomous" | wc -l
+find ~/blackbox5 -type d -name "tasks" | wc -l
+find ~/blackbox5 -type d -name "config" | wc -l
 
 # Document findings
 cat > "$ARCHITECTURE_CONTEXT" << 'EOF'

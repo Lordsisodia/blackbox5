@@ -32,7 +32,7 @@ A tracking system will provide data to optimize skill usage and efficiency.
 ## Approach
 
 1. Design YAML schema for skill tracking
-2. Inventory existing skills from ~/.blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/
+2. Inventory existing skills from ~/blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/
 3. Create initial tracking file with known skills
 4. Document update procedures
 5. Create simple reporting function

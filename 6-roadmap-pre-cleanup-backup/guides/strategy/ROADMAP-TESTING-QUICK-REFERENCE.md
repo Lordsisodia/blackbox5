@@ -69,37 +69,37 @@ pytest test_units/test_gates.py::TestGate1ProposedToResearch -v
 ### Run All Tests
 ```bash
 # All roadmap tests
-pytest .blackbox5/tests/roadmap/ -v
+pytest blackbox5/tests/roadmap/ -v
 
 # With coverage
-pytest .blackbox5/tests/roadmap/ --cov=roadmap --cov-report=html
+pytest blackbox5/tests/roadmap/ --cov=roadmap --cov-report=html
 ```
 
 ### Run by Category
 ```bash
 # Unit tests only
-pytest .blackbox5/tests/roadmap/test_units/ -v
+pytest blackbox5/tests/roadmap/test_units/ -v
 
 # Integration tests only
-pytest .blackbox5/tests/roadmap/test_integration/ -v
+pytest blackbox5/tests/roadmap/test_integration/ -v
 
 # E2E tests only
-pytest .blackbox5/tests/roadmap/test_e2e/ -v
+pytest blackbox5/tests/roadmap/test_e2e/ -v
 
 # Performance tests only
-pytest .blackbox5/tests/roadmap/test_performance/ -v
+pytest blackbox5/tests/roadmap/test_performance/ -v
 ```
 
 ### Run Specific Tests
 ```bash
 # All gate tests
-pytest .blackbox5/tests/roadmap/test_units/test_gates.py -v
+pytest blackbox5/tests/roadmap/test_units/test_gates.py -v
 
 # Specific gate
-pytest .blackbox5/tests/roadmap/test_units/test_gates.py::TestGate1ProposedToResearch -v
+pytest blackbox5/tests/roadmap/test_units/test_gates.py::TestGate1ProposedToResearch -v
 
 # Specific test
-pytest .blackbox5/tests/roadmap/test_units/test_gates.py::TestGate1ProposedToResearch::test_proposal_has_idea_articulated -v
+pytest blackbox5/tests/roadmap/test_units/test_gates.py::TestGate1ProposedToResearch::test_proposal_has_idea_articulated -v
 ```
 
 ### Run in Parallel (Fast)
@@ -108,7 +108,7 @@ pytest .blackbox5/tests/roadmap/test_units/test_gates.py::TestGate1ProposedToRes
 pip install pytest-xdist
 
 # Run tests in parallel
-pytest .blackbox5/tests/roadmap/ -n auto
+pytest blackbox5/tests/roadmap/ -n auto
 ```
 
 ---
@@ -271,27 +271,27 @@ pytest --cov=roadmap --cov-report=html
 
 ### Small Dataset (10 improvements)
 ```bash
-.blackbox5/tests/roadmap/fixtures/test_data_small.yaml
+blackbox5/tests/roadmap/fixtures/test_data_small.yaml
 ```
 
 ### Medium Dataset (50 improvements)
 ```bash
-.blackbox5/tests/roadmap/fixtures/test_data_medium.yaml
+blackbox5/tests/roadmap/fixtures/test_data_medium.yaml
 ```
 
 ### Large Dataset (100 improvements)
 ```bash
-.blackbox5/tests/roadmap/fixtures/test_data_large.yaml
+blackbox5/tests/roadmap/fixtures/test_data_large.yaml
 ```
 
 ### Edge Cases
 ```bash
-.blackbox5/tests/roadmap/fixtures/test_data_edge_cases.yaml
+blackbox5/tests/roadmap/fixtures/test_data_edge_cases.yaml
 ```
 
 ### Dependency Graphs
 ```bash
-.blackbox5/tests/roadmap/fixtures/test_data_dependencies.yaml
+blackbox5/tests/roadmap/fixtures/test_data_dependencies.yaml
 ```
 
 ---
@@ -313,14 +313,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: pip install -e .[test]
-      - run: pytest .blackbox5/tests/roadmap/ -v --cov=roadmap
+      - run: pytest blackbox5/tests/roadmap/ -v --cov=roadmap
 ```
 
 ### Pre-commit Hook
 ```bash
 # .git/hooks/pre-commit
 #!/bin/bash
-pytest .blackbox5/tests/roadmap/test_units/ -q --tb=no
+pytest blackbox5/tests/roadmap/test_units/ -q --tb=no
 ```
 
 ---
@@ -345,34 +345,34 @@ pytest .blackbox5/tests/roadmap/test_units/ -q --tb=no
 
 ### Run Tests with Debug Output
 ```bash
-pytest .blackbox5/tests/roadmap/ -v -s --tb=long
+pytest blackbox5/tests/roadmap/ -v -s --tb=long
 ```
 
 ### Check Test Coverage
 ```bash
-pytest .blackbox5/tests/roadmap/ --cov=roadmap --cov-report=term-missing
+pytest blackbox5/tests/roadmap/ --cov=roadmap --cov-report=term-missing
 ```
 
 ### Run Specific Test Category
 ```bash
 # Unit tests only
-pytest .blackbox5/tests/roadmap/test_units/ -v
+pytest blackbox5/tests/roadmap/test_units/ -v
 
 # Integration tests only
-pytest .blackbox5/tests/roadmap/test_integration/ -v
+pytest blackbox5/tests/roadmap/test_integration/ -v
 
 # E2E tests only
-pytest .blackbox5/tests/roadmap/test_e2e/ -v
+pytest blackbox5/tests/roadmap/test_e2e/ -v
 ```
 
 ### Run Failed Tests Only
 ```bash
-pytest .blackbox5/tests/roadmap/ --lf
+pytest blackbox5/tests/roadmap/ --lf
 ```
 
 ### Run Until First Failure
 ```bash
-pytest .blackbox5/tests/roadmap/ -x
+pytest blackbox5/tests/roadmap/ -x
 ```
 
 ---

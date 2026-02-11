@@ -22,8 +22,8 @@
 
 ```bash
 # Install the hook
-cp session-start-blackbox5.sh ~/.blackbox5/.claude/hooks/
-chmod +x ~/.blackbox5/.claude/hooks/session-start-blackbox5.sh
+cp session-start-blackbox5.sh ~/blackbox5/.claude/hooks/
+chmod +x ~/blackbox5/.claude/hooks/session-start-blackbox5.sh
 
 # Update settings.json
 # (See Section 5.1 for configuration)
@@ -902,10 +902,10 @@ release_lock
 #!/bin/bash
 # Test the SessionStart hook
 
-HOOK="$HOME/.blackbox5/.claude/hooks/session-start-blackbox5.sh"
+HOOK="$HOME/blackbox5/.claude/hooks/session-start-blackbox5.sh"
 
 echo "=== Test 1: Basic execution ==="
-cd "$HOME/.blackbox5/5-project-memory/blackbox5"
+cd "$HOME/blackbox5/5-project-memory/blackbox5"
 output=$(bash "$HOOK" 2>/dev/null)
 echo "$output" | jq -e . && echo "✓ Valid JSON" || echo "✗ Invalid JSON"
 
@@ -943,7 +943,7 @@ command -v flock >/dev/null && echo "✓ flock installed" || echo "✗ flock mis
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh"
+            "command": "bash /Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh"
           }
         ]
       }

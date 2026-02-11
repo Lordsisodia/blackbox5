@@ -5,7 +5,7 @@
 set -e
 
 WORKSPACE="$(pwd)"
-cd .blackbox5
+cd blackbox5
 
 echo "╔════════════════════════════════════════════════════════════╗"
 echo "║     Starting Ralph - Autonomous Framework Research         ║"
@@ -25,7 +25,7 @@ LOG_FILE="$LOG_DIR/ralph-framework-research.log"
 PID_FILE="$LOG_DIR/ralph.pid"
 
 # Start Ralph in background
-RALPH_PYTHON="$WORKSPACE/.blackbox5/engine/operations/runtime/ralph/ralph_runtime.py"
+RALPH_PYTHON="$WORKSPACE/blackbox5/engine/operations/runtime/ralph/ralph_runtime.py"
 nohup python3 "$RALPH_PYTHON" \
     --workspace "$WORKSPACE" \
     --prd "$WORKSPACE/prd-framework-github-continuous.json" \

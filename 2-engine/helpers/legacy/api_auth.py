@@ -6,7 +6,7 @@ Part of Feature F-012 (API Gateway & External Service Integration)
 Usage:
     from api_auth import APIAuth, require_api_key, check_rate_limit
 
-    auth = APIAuth(config_file="~/.blackbox5/api-config.yaml")
+    auth = APIAuth(config_file="~/blackbox5/api-config.yaml")
 
     # In Flask route
     @app.route("/api/v1/tasks")

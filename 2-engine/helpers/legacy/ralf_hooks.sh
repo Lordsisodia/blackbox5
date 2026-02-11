@@ -21,7 +21,7 @@ if [[ -f "$SCRIPT_DIR/paths.sh" ]]; then
     HOOK_KNOWLEDGE_DIR="$(get_project_path)/knowledge/ralf-patterns"
 else
     # Fallback to environment variables or defaults
-    HOOK_BLACKBOX5_DIR="${RALF_BLACKBOX5_DIR:-${BB5_HOME:-$HOME/.blackbox5}}"
+    HOOK_BLACKBOX5_DIR="${RALF_BLACKBOX5_DIR:-${BB5_HOME:-$HOME/blackbox5}}"
     HOOK_ENGINE_DIR="${RALF_ENGINE_DIR:-$HOOK_BLACKBOX5_DIR/2-engine/.autonomous}"
     HOOK_KNOWLEDGE_DIR="$HOOK_BLACKBOX5_DIR/5-project-memory/blackbox5/knowledge/ralf-patterns"
 fi

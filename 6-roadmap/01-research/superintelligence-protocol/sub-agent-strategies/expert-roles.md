@@ -1279,7 +1279,7 @@ Provide implementation in this format:
 ### Example Output 1: API Endpoint Implementation
 
 ```python
-# /Users/shaansisodia/.blackbox5/2-engine/api/routes/webhook_handler.py
+# /Users/shaansisodia/blackbox5/2-engine/api/routes/webhook_handler.py
 """
 Stripe webhook handler for payment events.
 
@@ -1476,7 +1476,7 @@ implementation_details:
 ### Example Output 2: Database Migration
 
 ```python
-# /Users/shaansisodia/.blackbox5/2-engine/db/migrations/20260131_add_user_metadata.py
+# /Users/shaansisodia/blackbox5/2-engine/db/migrations/20260131_add_user_metadata.py
 """
 Migration: Add metadata JSONB column to users table.
 
@@ -1540,7 +1540,7 @@ def downgrade():
 
 
 # Application model update
-# /Users/shaansisodia/.blackbox5/2-engine/models/user.py
+# /Users/shaansisodia/blackbox5/2-engine/models/user.py
 
 from typing import Any, Optional
 from sqlalchemy import Column, Integer, String, DateTime
@@ -1633,7 +1633,7 @@ implementation_details:
 ### Example Output 3: Background Job Worker
 
 ```python
-# /Users/shaansisodia/.blackbox5/2-engine/core/workers/email_worker.py
+# /Users/shaansisodia/blackbox5/2-engine/core/workers/email_worker.py
 """
 Email sending worker with retry logic and rate limiting.
 

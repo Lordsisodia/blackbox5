@@ -17,7 +17,7 @@ This document outlines the **production workflow** that combines:
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  LOCAL TASK DATABASE                                       │
-│  .blackbox5/specs/backlog/                                │
+│  blackbox5/specs/backlog/                                │
 │                                                              │
 │  📁 Long-term Goals (PDR)    │ "Multi-tenant SaaS"         │
 │  📁 Feature Ideas            │ "Dark mode support"         │
@@ -48,7 +48,7 @@ This document outlines the **production workflow** that combines:
 │  │  • first-principles-thinking                        │   │
 │  │  • critical-thinking                                │   │
 │  │                                                      │   │
-│  │  Output: .blackbox5/specs/prds/prd-xxx.md          │   │
+│  │  Output: blackbox5/specs/prds/prd-xxx.md          │   │
 │  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
                             │
@@ -69,7 +69,7 @@ This document outlines the **production workflow** that combines:
 │  │  • api-documentation                                │   │
 │  │  • sql-queries, orm-patterns                        │   │
 │  │                                                      │   │
-│  │  Output: .blackbox5/specs/epics/epic-xxx.md        │   │
+│  │  Output: blackbox5/specs/epics/epic-xxx.md        │   │
 │  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
                             │
@@ -90,7 +90,7 @@ This document outlines the **production workflow** that combines:
 │  │  • test-driven-development                          │   │
 │  │  • code-generation                                   │   │
 │  │                                                      │   │
-│  │  Output: .blackbox5/specs/tasks/epic-xxx-tasks.md  │   │
+│  │  Output: blackbox5/specs/tasks/epic-xxx-tasks.md  │   │
 │  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
                             │
@@ -440,7 +440,7 @@ Let's walk through a complete example:
 ### Phase 0: Capture
 ```bash
 # Create task in backlog
-cat > .blackbox5/specs/backlog/features/auth.md << EOF
+cat > blackbox5/specs/backlog/features/auth.md << EOF
 title: User Authentication System
 category: features
 priority: high
@@ -499,7 +499,7 @@ bb5 memory:archive --task-id TASK-001
 ## 📁 File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── specs/
 │   ├── backlog/              # Phase 0: Task capture
 │   ├── prds/                 # Phase 1: PRD documents

@@ -46,7 +46,7 @@ The task selection in `storage_backend.py` always picked the first task from the
 
 ### Files Modified
 
-1. **`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.ralf/config.yaml`**
+1. **`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.ralf/config.yaml`**
    - Added `task_selection` configuration section
    - Config options:
      - `randomization_enabled`: true/false
@@ -54,7 +54,7 @@ The task selection in `storage_backend.py` always picked the first task from the
      - `fairness_window`: Number of selections to track
      - `fairness_boost_factor`: How much to boost unselected tasks
 
-2. **`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage_backend.py`**
+2. **`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage_backend.py`**
    - Added `random` import
    - Added `_load_task_selection_config()` method
    - Added `_apply_randomization()` method with weighted random selection
@@ -100,16 +100,16 @@ Fairness CV: 0.0% (perfect distribution)
 
 ### Test Selection Behavior
 ```bash
-python3 /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage_backend.py --project blackbox5 test-selection --iterations 20
+python3 /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage_backend.py --project blackbox5 test-selection --iterations 20
 ```
 
 ### Select Next Task
 ```bash
-python3 /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage_backend.py --project blackbox5 select
+python3 /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage_backend.py --project blackbox5 select
 ```
 
 ### Configuration
-Edit `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.ralf/config.yaml`:
+Edit `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.ralf/config.yaml`:
 ```yaml
 task_selection:
   randomization_enabled: true

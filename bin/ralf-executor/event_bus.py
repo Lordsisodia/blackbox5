@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Optional, List, Dict, Any
 
 # BB5 paths
-BB5_ROOT = "/Users/shaansisodia/.blackbox5"
+BB5_ROOT = "/Users/shaansisodia/blackbox5"
 PROJECT_ROOT = f"{BB5_ROOT}/5-project-memory/blackbox5"
 CI_ROOT = f"{PROJECT_ROOT}/.autonomous/ci"
 EVENTS_FILE = f"{CI_ROOT}/events/events.jsonl"

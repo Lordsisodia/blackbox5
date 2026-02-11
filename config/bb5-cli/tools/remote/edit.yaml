@@ -1,0 +1,25 @@
+tool: remote:edit
+category: remote
+description: Edit remote files locally with automatic sync
+context_aware: true
+
+arguments:
+  - name: remote-path
+    type: string
+    required: true
+    description: Path to file on remote host
+
+  - name: context
+    type: string
+    required: false
+    description: Remote context to use
+
+  - name: editor
+    type: string
+    required: false
+    description: Editor command
+
+examples:
+  - bb5 remote edit /opt/ralf/config.yaml
+  - bb5 remote edit -c vps /etc/nginx/nginx.conf
+  - bb5 remote edit -c macmini ~/.bashrc -e nano

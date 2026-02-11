@@ -811,17 +811,17 @@ Based on BlackBox5's roadmap, the following research agents should be implemente
 
 ### 10.1 Source Documentation
 
-1. **CLI Reference** - `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-cli-reference.md`
-2. **Sub-Agents** - `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sub-agents.md`
-3. **Common Workflows** - `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-common-workflows.md`
-4. **Settings** - `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-settings.md`
-5. **Hooks** - `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-hooks.md`
+1. **CLI Reference** - `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-cli-reference.md`
+2. **Sub-Agents** - `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-sub-agents.md`
+3. **Common Workflows** - `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-common-workflows.md`
+4. **Settings** - `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-settings.md`
+5. **Hooks** - `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/claude-code/raw/pages/docs-en-hooks.md`
 
 ### 10.2 BlackBox5 Context
 
-1. **RALF Core** - `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts/ralf.md`
-2. **Sub-Agent Rules** - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/rules/007-sub-agent-deployment.md`
-3. **Superintelligence Protocol** - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/rules/005-superintelligence-auto-activation.md`
+1. **RALF Core** - `/Users/shaansisodia/blackbox5/2-engine/.autonomous/prompts/ralf.md`
+2. **Sub-Agent Rules** - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/rules/007-sub-agent-deployment.md`
+3. **Superintelligence Protocol** - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/rules/005-superintelligence-auto-activation.md`
 
 ---
 

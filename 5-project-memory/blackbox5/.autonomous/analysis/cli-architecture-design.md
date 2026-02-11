@@ -41,7 +41,7 @@ This design replaces all current MCP servers with a unified CLI architecture fol
 ## Directory Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── bin/
 │   ├── bb5                          # Main CLI router
 │   └── bb5-cli/                     # NEW: MCP-replacement CLI tools
@@ -130,14 +130,14 @@ bb5 schema db:query
 ### Supabase Contexts
 
 ```yaml
-# ~/.blackbox5/config/bb5-cli/contexts/supabase/client-a.yaml
+# ~/blackbox5/config/bb5-cli/contexts/supabase/client-a.yaml
 name: client-a
 project_ref: avdgyrepwrvsvwgxrccr
 url: https://avdgyrepwrvsvwgxrccr.supabase.co
 api_key: ${SUPABASE_CLIENT_A_KEY}  # Env var reference
 region: us-east-1
 
-# ~/.blackbox5/config/bb5-cli/contexts/supabase/client-b.yaml
+# ~/blackbox5/config/bb5-cli/contexts/supabase/client-b.yaml
 name: client-b
 project_ref: xyz789
 url: https://xyz789.supabase.co
@@ -182,7 +182,7 @@ bb5 db query -s "SELECT * FROM users" -c client-b
 ### Remote Contexts (MoltBot Replacement)
 
 ```yaml
-# ~/.blackbox5/config/bb5-cli/contexts/remote/vps.yaml
+# ~/blackbox5/config/bb5-cli/contexts/remote/vps.yaml
 name: vps
 host: 77.42.66.40
 user: root
@@ -190,7 +190,7 @@ ssh_key: ~/.ssh/ralf_hetzner
 ralf_path: /opt/ralf
 openclaw_path: /opt/openclaw
 
-# ~/.blackbox5/config/bb5-cli/contexts/remote/macmini.yaml
+# ~/blackbox5/config/bb5-cli/contexts/remote/macmini.yaml
 name: macmini
 host: 192.168.1.100
 user: shaan

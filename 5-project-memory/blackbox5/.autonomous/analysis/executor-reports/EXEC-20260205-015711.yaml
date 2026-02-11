@@ -12,7 +12,7 @@ executor_report:
     success: true
     action_taken: Threshold already at 60%, no change needed
     files_modified:
-    - /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml
+    - /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml
     error_message: null
     before_state: "# Skill Selection Framework\n# BlackBox5 - Operations\n#\n# Purpose:\
       \ Guide skill selection during task execution to bridge the gap\n#         \

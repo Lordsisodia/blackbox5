@@ -571,13 +571,13 @@ Run the test suite:
 
 ```bash
 # Run all tests
-python -m pytest .blackbox5/tests/test_anti_pattern_detection.py -v
+python -m pytest blackbox5/tests/test_anti_pattern_detection.py -v
 
 # Run specific test
-python -m pytest .blackbox5/tests/test_anti_pattern_detection.py::TestAntiPatternDetector::test_scan_hardcoded_secrets -v
+python -m pytest blackbox5/tests/test_anti_pattern_detection.py::TestAntiPatternDetector::test_scan_hardcoded_secrets -v
 
 # Run with coverage
-python -m pytest .blackbox5/tests/test_anti_pattern_detection.py --cov=engine.core.anti_pattern_detector
+python -m pytest blackbox5/tests/test_anti_pattern_detection.py --cov=engine.core.anti_pattern_detector
 ```
 
 ---

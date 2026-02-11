@@ -34,14 +34,14 @@ class TestPathResolver:
     def test_blackbox5_root_default(self):
         """Test default BlackBox5 root path."""
         resolver = PathResolver()
-        expected = Path.home() / '.blackbox5'
-        assert resolver.blackbox5_root == expected
+        expected = Path.home() / 'blackbox5'
+        assert resolverblackbox5_root == expected
 
     def test_blackbox5_root_from_env(self):
         """Test BlackBox5 root from environment variable."""
         with patch.dict(os.environ, {'BLACKBOX5_HOME': '/custom/path'}):
             resolver = PathResolver()
-            assert resolver.blackbox5_root == Path('/custom/path')
+            assert resolverblackbox5_root == Path('/custom/path')
 
     def test_engine_path_default(self):
         """Test default engine path resolution."""
@@ -59,7 +59,7 @@ class TestPathResolver:
     def test_memory_root_default(self):
         """Test default memory root path."""
         resolver = PathResolver()
-        expected = resolver.blackbox5_root / '5-project-memory'
+        expected = resolverblackbox5_root / '5-project-memory'
         assert resolver.memory_root == expected
 
     def test_memory_root_from_env(self):
@@ -101,19 +101,19 @@ class TestPathResolver:
     def test_docs_root(self):
         """Test docs root path."""
         resolver = PathResolver()
-        expected = resolver.blackbox5_root / '1-docs'
+        expected = resolverblackbox5_root / '1-docs'
         assert resolver.docs_root == expected
 
     def test_bin_root(self):
         """Test bin root path."""
         resolver = PathResolver()
-        expected = resolver.blackbox5_root / 'bin'
+        expected = resolverblackbox5_root / 'bin'
         assert resolver.bin_root == expected
 
     def test_roadmap_root(self):
         """Test roadmap root path."""
         resolver = PathResolver()
-        expected = resolver.blackbox5_root / '6-roadmap'
+        expected = resolverblackbox5_root / '6-roadmap'
         assert resolver.roadmap_root == expected
 
     def test_get_project_path(self):
@@ -183,7 +183,7 @@ class TestPathResolver:
     def test_get_path(self):
         """Test custom path building."""
         resolver = PathResolver()
-        expected = resolver.blackbox5_root / 'custom' / 'path'
+        expected = resolverblackbox5_root / 'custom' / 'path'
         assert resolver.get_path('custom', 'path') == expected
 
     def test_get_engine_path_method(self):
@@ -240,7 +240,7 @@ class TestGlobalFunctions:
     def test_get_blackbox5_root(self):
         """Test global get_blackbox5_root function."""
         result = get_blackbox5_root()
-        assert result == Path.home() / '.blackbox5'
+        assert result == Path.home() / 'blackbox5'
 
     def test_get_engine_path(self):
         """Test global get_engine_path function."""

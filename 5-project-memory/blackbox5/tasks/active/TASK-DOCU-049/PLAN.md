@@ -103,7 +103,7 @@ on:
 
 1. **Run update script**
    ```bash
-   cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+   cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
    python3 bin/update-dashboard.py
    ```
 

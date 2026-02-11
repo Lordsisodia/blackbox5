@@ -10,7 +10,7 @@
 ## Directory Structure
 
 ```
-.blackbox5/roadmap/frameworks/
+blackbox5/roadmap/frameworks/
 │
 ├── README.md                          # ✅ Main overview (all 16 frameworks)
 │
@@ -91,19 +91,19 @@
 ### Actual Code Locations
 ```
 Core Frameworks:
-.blackbox5/engine/frameworks/1-bmad/          # BMAD
-.blackbox5/engine/frameworks/2-speckit/       # SpecKit
-.blackbox5/engine/frameworks/3-metagpt/       # MetaGPT
-.blackbox5/engine/frameworks/4-swarm/         # Swarm
+blackbox5/engine/frameworks/1-bmad/          # BMAD
+blackbox5/engine/frameworks/2-speckit/       # SpecKit
+blackbox5/engine/frameworks/3-metagpt/       # MetaGPT
+blackbox5/engine/frameworks/4-swarm/         # Swarm
 
 Development Copies:
-.blackbox5/engine/development/frameworks/     # Duplicate for dev
+blackbox5/engine/development/frameworks/     # Duplicate for dev
 ```
 
 ### Research & Analysis
 ```
 Framework Research:
-.blackbox5/engine/development/framework-research/  # 16 analysis files
+blackbox5/engine/development/framework-research/  # 16 analysis files
 
 Inspiration Analysis:
 .docs/frameworks-analysis/automaker/              # AutoMaker docs
@@ -112,8 +112,8 @@ Inspiration Analysis:
 
 ### Synthesis Documentation
 ```
-.blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md   # 4-week plan
-.blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md     # Feature comparison
+blackbox5/docs/FRAMEWORK-IMPLEMENTATION-PLAN.md   # 4-week plan
+blackbox5/docs/FRAMEWORK-FEATURES-ANALYSIS.md     # Feature comparison
 FRAMEWORKS-DEEP-DIVE.md                            # Comprehensive guide
 CLAUDE-CODE-AUTONOMOUS-FRAMEWORKS.md              # Claude Code extensions
 ```
@@ -273,4 +273,4 @@ CLAUDE-CODE-AUTONOMOUS-FRAMEWORKS.md              # Claude Code extensions
 **Roadmap:** 4-week implementation plan ready
 
 **Created:** 2026-01-19
-**Location:** `.blackbox5/roadmap/frameworks/`
+**Location:** `blackbox5/roadmap/frameworks/`

@@ -162,19 +162,19 @@ run-XXXX/
   "hooks": {
     "SessionStart": [
       {
-        "command": "$HOME/.blackbox5/bin/ralf-session-start-hook.sh",
+        "command": "$HOME/blackbox5/bin/ralf-session-start-hook.sh",
         "type": "command"
       }
     ],
     "Stop": [
       {
-        "command": "$HOME/.blackbox5/bin/ralf-stop-hook.sh",
+        "command": "$HOME/blackbox5/bin/ralf-stop-hook.sh",
         "type": "command"
       }
     ],
     "PostToolUse": [
       {
-        "command": "$HOME/.blackbox5/bin/ralf-post-tool-hook.sh",
+        "command": "$HOME/blackbox5/bin/ralf-post-tool-hook.sh",
         "type": "command"
       }
     ]

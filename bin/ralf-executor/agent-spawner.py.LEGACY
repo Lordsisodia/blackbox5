@@ -25,8 +25,8 @@ def _get_bb5_dir() -> Path:
     if "BB5_DIR" in os.environ:
         return Path(os.environ["BB5_DIR"])
 
-    # Auto-detect: look for .blackbox5 in home directory
-    home_bb5 = Path.home() / ".blackbox5"
+    # Auto-detect: look for blackbox5 in home directory
+    home_bb5 = Path.home() / "blackbox5"
     if home_bb5.exists():
         return home_bb5
 

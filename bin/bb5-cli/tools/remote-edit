@@ -1,0 +1,149 @@
+#!/bin/bash
+# BB5 Remote Edit Tool
+# Edit remote files locally with automatic sync
+
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+
+# Parse arguments
+CONTEXT=""
+REMOTE_PATH=""
+EDITOR="${EDITOR:-${VISUAL:-vi}}"
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -c|--context)
+            CONTEXT="$2"
+            shift 2
+            ;;
+        -e|--editor)
+            EDITOR="$2"
+            shift 2
+            ;;
+        -h|--help)
+            cat << 'EOF'
+Usage: bb5 remote edit [OPTIONS] <remote-path>
+
+Edit remote files locally with automatic sync
+
+ARGUMENTS:
+  <remote-path>             Path to file on remote host (required)
+
+OPTIONS:
+  -c, --context <name>      Remote context to use (default: current)
+  -e, --editor <cmd>        Editor command (default: $EDITOR or vi)
+  -h, --help               Show this help
+
+EXAMPLES:
+  bb5 remote edit /opt/ralf/config.yaml
+  bb5 remote edit -c vps /etc/nginx/nginx.conf
+  bb5 remote edit -c macmini ~/.bashrc -e nano
+  bb5 remote edit /opt/ralf/.autonomous/agents/communications/queue.yaml
+
+NOTES:
+  - File is downloaded to local temp, edited, then uploaded back
+  - Uses current remote context unless -c is specified
+  - Preserves file permissions on remote
+EOF
+            exit 0
+            ;;
+        *)
+            if [[ -z "$REMOTE_PATH" ]]; then
+                REMOTE_PATH="$1"
+            fi
+            shift
+            ;;
+    esac
+done
+
+# Validate arguments
+if [[ -z "$REMOTE_PATH" ]]; then
+    bb5_print_error "Remote path is required"
+    echo "Usage: bb5 remote edit <remote-path>" >&2
+    exit 1
+fi
+
+# Get context
+if [[ -z "$CONTEXT" ]]; then
+    CONTEXT=$(bb5_remote_context_current 2>/dev/null)
+    if [[ "$CONTEXT" == "none" || -z "$CONTEXT" ]]; then
+        bb5_print_error "No remote context selected"
+        echo "Run: bb5 remote context use <name> or use -c <name>" >&2
+        exit 1
+    fi
+fi
+
+# Get context values
+HOST=$(bb5_remote_get_context_value "host" "$CONTEXT" 2>/dev/null)
+USER=$(bb5_remote_get_context_value "user" "$CONTEXT" 2>/dev/null)
+SSH_KEY=$(bb5_remote_get_context_value "ssh_key" "$CONTEXT" 2>/dev/null)
+
+if [[ -z "$HOST" || -z "$USER" ]]; then
+    bb5_print_error "Invalid context configuration for '$CONTEXT'"
+    exit 1
+fi
+
+# Expand SSH key path
+SSH_KEY="${SSH_KEY/#\~/$HOME}"
+
+# Create temp file
+TEMP_DIR=$(mktemp -d)
+FILENAME=$(basename "$REMOTE_PATH")
+LOCAL_FILE="$TEMP_DIR/$FILENAME"
+
+# Cleanup function
+cleanup() {
+    rm -rf "$TEMP_DIR"
+}
+trap cleanup EXIT
+
+bb5_print_info "Downloading $REMOTE_PATH from $CONTEXT..."
+
+# Download file
+if ! scp -i "$SSH_KEY" "${USER}@${HOST}:${REMOTE_PATH}" "$LOCAL_FILE" 2>/dev/null; then
+    bb5_print_error "Failed to download file"
+    echo "Does the file exist? To create a new file, use:"
+    echo "  bb5 remote exec $CONTEXT \"touch $REMOTE_PATH\""
+    exit 1
+fi
+
+# Get original permissions
+ORIG_PERMS=$(ssh -i "$SSH_KEY" "${USER}@${HOST}" "stat -c %a '$REMOTE_PATH'" 2>/dev/null || echo "644")
+
+bb5_print_info "Opening in $EDITOR..."
+
+# Open in editor
+if ! $EDITOR "$LOCAL_FILE"; then
+    bb5_print_error "Editor exited with error"
+    read -p "Upload changes anyway? (y/N) " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        bb5_print_warning "Changes discarded"
+        exit 1
+    fi
+fi
+
+# Check if file was modified
+if ! ssh -i "$SSH_KEY" "${USER}@${HOST}" "cat '$REMOTE_PATH'" 2>/dev/null | diff -q - "$LOCAL_FILE" > /dev/null 2>&1; then
+    bb5_print_info "Uploading changes..."
+
+    if scp -i "$SSH_KEY" "$LOCAL_FILE" "${USER}@${HOST}:${REMOTE_PATH}" 2>/dev/null; then
+        # Restore permissions
+        ssh -i "$SSH_KEY" "${USER}@${HOST}" "chmod $ORIG_PERMS '$REMOTE_PATH'" 2>/dev/null
+        bb5_print_success "File updated on $CONTEXT"
+
+        # Show diff summary
+        echo ""
+        echo "Changes made:"
+        ssh -i "$SSH_KEY" "${USER}@${HOST}" "cat '$REMOTE_PATH'" 2>/dev/null | diff -u - "$LOCAL_FILE" 2>/dev/null | tail -20 || echo "(File updated)"
+    else
+        bb5_print_error "Failed to upload file"
+        echo "Local copy saved at: $LOCAL_FILE"
+        # Don't cleanup on failure
+        trap - EXIT
+        exit 1
+    fi
+else
+    bb5_print_info "No changes made"
+fi

@@ -174,7 +174,7 @@ The BlackBox5 Task Management System is a **dual-track workflow** that manages t
 
 **Purpose**: Capture and organize ideas before committing resources.
 
-**Storage Location**: `.blackbox5/memory/tasks/` or `.blackbox5/specs/backlog/`
+**Storage Location**: `blackbox5/memory/tasks/` or `blackbox5/specs/backlog/`
 
 **Categories**:
 
@@ -243,7 +243,7 @@ description: Detailed description
 - **NO**: Task returns to local database (marked as deferred)
 - **YES**: Proceed to codebase analysis + research
 
-**Output**: PRD, Epic, and Task documents saved to `.blackbox5/specs/`
+**Output**: PRD, Epic, and Task documents saved to `blackbox5/specs/`
 
 ### Phase 3: Analysis & Research
 
@@ -340,7 +340,7 @@ description: Detailed description
 
 **Storage**:
 ```
-.blackbox5/memory/working/
+blackbox5/memory/working/
 ├── {task-id}/
 │   ├── history.json          # All actions
 │   ├── thoughts.md           # Thought processes
@@ -450,19 +450,19 @@ Local Task Database Entry
 ```
 Selected Task
     ↓
-PRD Document (.blackbox5/specs/prds/prd-xxx.md)
+PRD Document (blackbox5/specs/prds/prd-xxx.md)
     ├── First principles analysis
     ├── Requirements
     ├── Success metrics
     └── User stories
     ↓
-Epic Document (.blackbox5/specs/epics/epic-xxx.md)
+Epic Document (blackbox5/specs/epics/epic-xxx.md)
     ├── Architecture
     ├── Technical decisions
     ├── Components
     └── Acceptance criteria
     ↓
-Task Document (.blackbox5/specs/tasks/epic-xxx-tasks.md)
+Task Document (blackbox5/specs/tasks/epic-xxx-tasks.md)
     ├── Individual tasks
     ├── Estimates
     ├── Dependencies
@@ -474,7 +474,7 @@ Task Document (.blackbox5/specs/tasks/epic-xxx-tasks.md)
 Git Issue Created
     ↓
 Black Box Memory Initiated
-    ├── .blackbox5/memory/working/{task-id}/
+    ├── blackbox5/memory/working/{task-id}/
     │   ├── history.json
     │   ├── thoughts.md
     │   ├── plan.md
@@ -496,7 +496,7 @@ Black Box Memory Updated (continuous)
 ```
 Testing Phase
     ├── SUCCESS → Task archived to memory
-    │   └── .blackbox5/memory/archive/{task-id}/
+    │   └── blackbox5/memory/archive/{task-id}/
     └── FAILURE → Feedback loop
         ├── Root cause analysis
         ├── Black Box updated
@@ -571,7 +571,7 @@ Testing Phase
 
 ### Local Task Database
 ```
-.blackbox5/specs/backlog/
+blackbox5/specs/backlog/
 ├── goals/
 │   ├── goal-001-product-vision.md
 │   └── goal-002-market-expansion.md
@@ -588,7 +588,7 @@ Testing Phase
 
 ### PRD Documents
 ```
-.blackbox5/specs/prds/
+blackbox5/specs/prds/
 ├── prd-001-auth-system.md
 ├── prd-002-dark-mode.md
 └── prd-003-api-cache.md
@@ -596,7 +596,7 @@ Testing Phase
 
 ### Epic Documents
 ```
-.blackbox5/specs/epics/
+blackbox5/specs/epics/
 ├── epic-001-auth-system.md
 ├── epic-002-dark-mode.md
 └── epic-003-api-cache.md
@@ -604,7 +604,7 @@ Testing Phase
 
 ### Task Documents
 ```
-.blackbox5/specs/tasks/
+blackbox5/specs/tasks/
 ├── epic-001-auth-system-tasks.md
 ├── epic-002-dark-mode-tasks.md
 └── epic-003-api-cache-tasks.md
@@ -612,7 +612,7 @@ Testing Phase
 
 ### Black Box Working Memory
 ```
-.blackbox5/memory/working/
+blackbox5/memory/working/
 ├── {task-id}/
 │   ├── history.json          # Action log
 │   ├── thoughts.md           # Thought processes
@@ -627,7 +627,7 @@ Testing Phase
 
 ### Black Box Archive Memory
 ```
-.blackbox5/memory/archive/
+blackbox5/memory/archive/
 ├── {task-id}/
 │   ├── complete-history.json
 │   ├── final-thoughts.md
@@ -678,7 +678,7 @@ Testing Phase
 # 1. Create local task
 echo "title: Add dark mode
 category: features
-priority: medium" > .blackbox5/specs/backlog/features/feature-dark-mode.md
+priority: medium" > blackbox5/specs/backlog/features/feature-dark-mode.md
 
 # 2. Select and run PRD flow
 bb5 prd:new "Add dark mode support"

@@ -8,7 +8,7 @@
 set -euo pipefail
 
 PORT="${RALF_KEEPALIVE_PORT:-8080}"
-LOG_FILE="${RALF_PROJECT_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5}/.autonomous/keepalive.log"
+LOG_FILE="${RALF_PROJECT_DIR:-$HOME/blackbox5/5-project-memory/blackbox5}/.autonomous/keepalive.log"
 
 # Colors
 GREEN='\033[0;32m'

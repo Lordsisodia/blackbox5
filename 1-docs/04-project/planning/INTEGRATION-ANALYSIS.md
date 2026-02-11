@@ -40,7 +40,7 @@ Blackbox 5 has **sophisticated components but no central orchestration**. It's l
 
 ### A. Core Infrastructure ✅
 
-**Location**: `.blackbox5/engine/core/` and various runtime/ directories
+**Location**: `blackbox5/engine/core/` and various runtime/ directories
 
 ```python
 # These components are wired up and working:
@@ -53,7 +53,7 @@ Blackbox 5 has **sophisticated components but no central orchestration**. It's l
 
 **Evidence**:
 ```python
-# .blackbox5/engine/operations/runtime/ralph/ralph_runtime.py
+# blackbox5/engine/operations/runtime/ralph/ralph_runtime.py
 # Ralph runtime ACTUALLY USES these components
 
 from blackbox5.engine.core.events import EventBus
@@ -62,7 +62,7 @@ from blackbox5.engine.core.circuit_breaker import CircuitBreaker
 
 ### B. Ralph Runtime ✅
 
-**Location**: `.blackbox5/engine/operations/runtime/ralph/`
+**Location**: `blackbox5/engine/operations/runtime/ralph/`
 
 **What it does**:
 - Executes PRD-based stories
@@ -85,7 +85,7 @@ except ImportError:
 
 ### C. CLI Interface ✅
 
-**Location**: `.blackbox5/engine/interface/cli/bb5.py`
+**Location**: `blackbox5/engine/interface/cli/bb5.py`
 
 **What it does**:
 - Provides command-line interface
@@ -104,7 +104,7 @@ except ImportError:
 
 ### A. AgentLoader System 🟡
 
-**Location**: `.blackbox5/engine/agents/core/AgentLoader.py`
+**Location**: `blackbox5/engine/agents/core/AgentLoader.py`
 
 **What it has**:
 ```python
@@ -129,7 +129,7 @@ agents = await loader.load_all()  # NEVER CALLED
 **Evidence it's not integrated**:
 ```bash
 # Grep for "load_all" across codebase:
-$ grep -r "load_all" .blackbox5/engine/
+$ grep -r "load_all" blackbox5/engine/
 
 # Only found:
 # 1. AgentLoader.py (definition)
@@ -139,7 +139,7 @@ $ grep -r "load_all" .blackbox5/engine/
 
 ### B. SkillManager System 🟡
 
-**Location**: `.blackbox5/engine/agents/core/SkillManager.py`
+**Location**: `blackbox5/engine/agents/core/SkillManager.py`
 
 **What it has**:
 ```python
@@ -164,15 +164,15 @@ class SkillManager:
 **Evidence**:
 ```bash
 # Skills exist in two places:
-.blackbox5/engine/agents/skills/           # XML format
-.blackbox5/engine/agents/.skills/          # Legacy format
+blackbox5/engine/agents/skills/           # XML format
+blackbox5/engine/agents/.skills/          # Legacy format
 
 # But SkillManager.load_all() is never called
 ```
 
 ### C. Guide System 🟢
 
-**Location**: `.blackbox5/engine/guides/`
+**Location**: `blackbox5/engine/guides/`
 
 **Status**: **Complete but isolated**
 
@@ -195,16 +195,16 @@ class SkillManager:
 **Evidence**:
 ```bash
 # Guide system exists but:
-$ grep -r "from.*guides import" .blackbox5/engine/
+$ grep -r "from.*guides import" blackbox5/engine/
 # No imports outside of guides/ directory itself
 
-$ grep -r "Guide(" .blackbox5/engine/
+$ grep -r "Guide(" blackbox5/engine/
 # Only in guides/ directory demos
 ```
 
 ### D. Orchestrator 🔴
 
-**Location**: `.blackbox5/engine/agents/1-core/orchestrator/`
+**Location**: `blackbox5/engine/agents/1-core/orchestrator/`
 
 **Status**: **Empty shell**
 
@@ -263,7 +263,7 @@ Response
 
 ### Priority 1: Wire AgentLoader into Main Flow
 
-**Where**: `.blackbox5/engine/interface/cli/bb5.py`
+**Where**: `blackbox5/engine/interface/cli/bb5.py`
 
 **Current**:
 ```python
@@ -372,7 +372,7 @@ class BaseAgent:
 
 #### A. CLI (`bb5.py`)
 ```python
-# .blackbox5/engine/interface/cli/bb5.py
+# blackbox5/engine/interface/cli/bb5.py
 
 class BB5CLI:
     def __init__(self):
@@ -388,7 +388,7 @@ class BB5CLI:
 
 #### B. API (`main.py`)
 ```python
-# .blackbox5/engine/interface/api/main.py
+# blackbox5/engine/interface/api/main.py
 
 @app.post("/chat")
 async def chat(message: str):
@@ -400,7 +400,7 @@ async def chat(message: str):
 
 #### C. Ralph Runtime
 ```python
-# .blackbox5/engine/operations/runtime/ralph/ralph_runtime.py
+# blackbox5/engine/operations/runtime/ralph/ralph_runtime.py
 
 class RalphRuntime:
     def __init__(self):
@@ -456,7 +456,7 @@ class RalphRuntime:
 
 ### Phase 1: Bootstrap Main Entry Point (1 day)
 ```python
-# Create: .blackbox5/engine/main.py
+# Create: blackbox5/engine/main.py
 
 async def bootstrap():
     """Bootstrap Blackbox 5 with all systems"""

@@ -22,7 +22,7 @@ The Black Box 5 Engine is a **pure Python system** that provides the core AI exe
 ## Engine Directory Structure
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── core/                      # Core Engine Systems
 │   ├── boot.py               # Engine initialization & validation
 │   ├── schema.yaml           # System structure definition
@@ -450,13 +450,13 @@ Complex Task (5+ files, new feature):
 
 | Source | Destination | Priority |
 |--------|-------------|----------|
-| `.blackbox5/engine/tools/*` | `engine/tools/` | High |
-| `.blackbox5/engine/agents/*` | `engine/agents/` | High |
+| `blackbox5/engine/tools/*` | `engine/tools/` | High |
+| `blackbox5/engine/agents/*` | `engine/agents/` | High |
 | `.blackbox/9-brain/*` | `engine/brain/` | High |
 | `.blackbox/4-scripts/lib/ralph-runtime/` | `engine/ralph/` | High |
-| `.blackbox5/5-templates/specs/` | `engine/templates/specs/` | Medium |
-| `.blackbox5/engine/frameworks/1-bmad/` | `engine/frameworks/1-bmad/` | High |
-| `.blackbox5/engine/modules/*` | `engine/modules/` | Medium |
+| `blackbox5/5-templates/specs/` | `engine/templates/specs/` | Medium |
+| `blackbox5/engine/frameworks/1-bmad/` | `engine/frameworks/1-bmad/` | High |
+| `blackbox5/engine/modules/*` | `engine/modules/` | Medium |
 
 ---
 

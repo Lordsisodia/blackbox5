@@ -9,7 +9,7 @@
 Create a sync mechanism that transfers usage data from `skill-usage.yaml` to `skill-registry.yaml` so that metrics calculations have access to current usage statistics.
 
 ## Root Cause
-The `skill-usage.yaml` file (located at `~/.blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml`) contains actual usage data (1 entry for bmad-dev) but this data never gets synced to `skill-registry.yaml` (located at `~/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`). The metrics calculation reads from skill-registry.yaml, which has null usage counts, resulting in null metrics.
+The `skill-usage.yaml` file (located at `~/blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml`) contains actual usage data (1 entry for bmad-dev) but this data never gets synced to `skill-registry.yaml` (located at `~/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`). The metrics calculation reads from skill-registry.yaml, which has null usage counts, resulting in null metrics.
 
 ## Success Criteria
 - [ ] Create a sync script that reads from skill-usage.yaml and updates skill-registry.yaml
@@ -20,9 +20,9 @@ The `skill-usage.yaml` file (located at `~/.blackbox5/5-project-memory/blackbox5
 - [ ] After sync, skill-registry.yaml shows non-null usage counts for skills with data
 
 ## Files to Modify
-- Create: `~/.blackbox5/5-project-memory/blackbox5/bin/sync-skill-usage.py` (new script)
-- Read: `~/.blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml`
-- Modify: `~/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
+- Create: `~/blackbox5/5-project-memory/blackbox5/bin/sync-skill-usage.py` (new script)
+- Read: `~/blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml`
+- Modify: `~/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
 
 ## Context
 

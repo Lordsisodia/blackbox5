@@ -1,0 +1,176 @@
+---
+id: "PLAN-SKILL-SUBAGENT-001"
+title: "Skill and Subagent Usage Optimization"
+slug: "skill-subagent-optimization"
+status: "draft"
+stage: "01-draft"
+
+# Metadata
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+updated_at: "2026-02-10T12:00:00Z"
+
+# Classification
+category: "capabilities"
+domain: "skills"
+priority: "high"
+
+# Relationships
+depends_on: []
+blocks: []
+blocked_by: []
+relates_to: []
+
+parent_goal: "IG-004"
+
+# Tasks
+related_tasks: []
+
+# Effort Tracking
+estimated_hours: 100
+actual_hours: 0
+progress: 0.0
+
+# Review
+review_status: "not-reviewed"
+reviewed_by: null
+reviewed_at: null
+approval_notes: null
+
+# Tags
+tags:
+  - "skills"
+  - "subagents"
+  - "optimization"
+  - "effectiveness"
+
+# Links
+plan_link: "5-project-memory/blackbox5/plans/active/skill-subagent-optimization/plan.yaml"
+---
+
+# Skill and Subagent Usage Optimization Plan
+
+## Overview
+
+23 skills are defined but have zero actual invocations. Subagent deployment patterns are not analyzed. This plan fixes skill invocation, tracks effectiveness, and optimizes subagent usage.
+
+## Success Criteria
+
+- [ ] Skills are actually invoked (not just defined)
+- [ ] Effectiveness metrics populated for all skills
+- [ ] Subagent deployment patterns analyzed
+- [ ] Clear criteria for skill vs subagent vs direct execution
+- [ ] Unified capability system
+
+## Phase Breakdown
+
+### Phase 1: Fix Skill Invocation (Week 1)
+
+**Objective:** Make skills actually trigger
+
+**Sub-goal:** SG-004-1 (Audit skill effectiveness)
+
+**Tasks:**
+1. Debug why Phase 1.5 skill checking doesn't trigger invocations
+2. Fix skill-selection.yaml trigger accuracy
+3. Add mandatory skill invocation to CLAUDE.md workflow
+4. Create skill invocation enforcement hook
+5. Test skill invocation on sample tasks
+
+**Acceptance Criteria:**
+- Skills trigger when criteria match
+- At least 5 skill invocations per week
+- Phase 1.5 compliance reaches 100%
+
+### Phase 2: Implement Effectiveness Tracking (Week 2)
+
+**Objective:** Track and measure skill effectiveness
+
+**Sub-goal:** SG-004-1 (Audit skill effectiveness)
+
+**Tasks:**
+1. Enhance skill-registry.yaml with usage tracking
+2. Create `bb5 skill:log` command to record invocations
+3. Calculate effectiveness_score, success_rate, time_efficiency
+4. Create skill effectiveness dashboard
+5. Link TASK-SKIL-007 to this phase
+
+**Acceptance Criteria:**
+- All 23 skills have non-null effectiveness metrics
+- Usage tracked automatically
+- Dashboard shows skill performance
+- ROI calculations available
+
+### Phase 3: Audit Subagent Deployment (Week 2)
+
+**Objective:** Analyze when subagents are used vs should be used
+
+**Sub-goal:** SG-004-3 (Audit subagent deployment patterns)
+
+**Tasks:**
+1. Review last 50 runs for subagent usage
+2. Document over-deployment cases (subagent when direct would be faster)
+3. Document under-deployment cases (direct when subagent needed)
+4. Measure subagent success rates vs direct execution
+5. Create subagent deployment report
+
+**Acceptance Criteria:**
+- Deployment patterns documented
+- 5+ over-deployment cases identified
+- 5+ under-deployment cases identified
+- Success rate metrics calculated
+
+### Phase 4: Optimize Deployment Rules (Week 3)
+
+**Objective:** Refine when to use skills, subagents, or direct execution
+
+**Sub-goal:** SG-004-4 (Optimize subagent deployment rules)
+
+**Tasks:**
+1. Update CLAUDE.md with clear deployment criteria
+2. Create decision tree: skill vs subagent vs direct
+3. Add file count thresholds (subagent if >15 files)
+4. Add complexity thresholds (subagent if regex/multiline needed)
+5. Create deployment validation hook
+
+**Acceptance Criteria:**
+- Clear criteria documented
+- Decision tree in CLAUDE.md
+- Thresholds enforced via hooks
+- Appropriate deployment in 90%+ of cases
+
+### Phase 5: Integrate Skills and Subagents (Week 4)
+
+**Objective:** Create unified capability system
+
+**Sub-goal:** SG-004-5 (Integrate skills and subagents)
+
+**Tasks:**
+1. Design unified capability registry
+2. Allow skills to declare subagent needs
+3. Allow subagents to use skills
+4. Create capability router
+5. Document unified system
+
+**Acceptance Criteria:**
+- Skills can trigger subagent deployment
+- Subagents follow skill protocols
+- Unified registry exists
+- Router selects appropriate capability
+
+## Dependencies
+
+- skill-registry.yaml (23 skills defined)
+- skill-selection.yaml (trigger rules)
+- CLAUDE.md (Phase 1.5 skill checking)
+- Task history for analysis
+
+## Timeline
+
+| Phase | Duration | Focus |
+|-------|----------|-------|
+| 1 | Week 1 | Fix skill invocation |
+| 2 | Week 2 | Effectiveness tracking |
+| 3 | Week 2 | Subagent audit |
+| 4 | Week 3 | Deployment rules |
+| 5 | Week 4 | Unified system |

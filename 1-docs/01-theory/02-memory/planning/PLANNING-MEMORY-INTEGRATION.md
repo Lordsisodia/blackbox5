@@ -83,7 +83,7 @@ This document outlines how BlackBox5 agents will:
 │  ├─ Lessons Learned: What worked/didn't work                │
 │  └─ Next Steps: What's coming next                          │
 │                                                              │
-│  Stored in: .blackbox5/data/memory/{agent_id}/              │
+│  Stored in: blackbox5/data/memory/{agent_id}/              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -138,7 +138,7 @@ Task(
 **Output Structure:**
 
 ```
-.blackbox5/specs/prds/{feature}/research/
+blackbox5/specs/prds/{feature}/research/
 ├── STACK.md         # Tech stack analysis
 ├── FEATURES.md      # Feature requirements
 ├── ARCHITECTURE.md  # System integration
@@ -342,7 +342,7 @@ name: JWT Authentication Epic
 status: in-progress
 created: 2026-01-18T15:00:00Z
 progress: 0%
-prd: .blackbox5/specs/prds/jwt-auth.md
+prd: blackbox5/specs/prds/jwt-auth.md
 github: https://github.com/Lordsisodia/siso-agency-internal/issues/204
 ---
 
@@ -699,7 +699,7 @@ memory.update_context({
 ### BlackBox Memory Structure:
 
 ```
-.blackbox5/data/memory/arthur/
+blackbox5/data/memory/arthur/
 ├── sessions.json           # All task executions
 ├── insights.json           # All learnings
 └── context.json            # Current state

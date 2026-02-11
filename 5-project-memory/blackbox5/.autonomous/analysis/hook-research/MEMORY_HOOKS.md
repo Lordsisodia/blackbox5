@@ -65,7 +65,7 @@ RETAIN extracts learnings from completed work. It should fire:
 
 ### 2.2 Existing RETAIN Implementation
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py`
 
 ```python
 # Current implementation processes:
@@ -135,7 +135,7 @@ RECALL injects relevant context into active sessions. It should fire:
 
 ### 3.2 Existing RECALL Implementation
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/session_memory_loader.py`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/session_memory_loader.py`
 
 ```python
 def recall_memories_for_session(project_dir: Path, top_k: int = 5):
@@ -153,7 +153,7 @@ def recall_memories_for_session(project_dir: Path, top_k: int = 5):
     return format_memory_context(results)
 ```
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-timeline-memory.sh`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.claude/hooks/session-start-timeline-memory.sh`
 
 ```bash
 # Existing SessionStart hook for research pipeline
@@ -215,7 +215,7 @@ REFLECT detects conflicts and synthesizes insights. It should fire:
 
 ### 4.2 Existing REFLECT Implementation
 
-**File:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/reflect.py`
+**File:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/reflect.py`
 
 ```python
 class ReflectEngine:
@@ -443,18 +443,18 @@ Updates vector store
 
 | File | Purpose |
 |------|---------|
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py` | Task completion extraction |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/session_memory_loader.py` | Session start memory loading |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` | RETAIN operation engine |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/recall.py` | RECALL operation engine |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/reflect.py` | REFLECT operation engine |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/vector_store.py` | Vector storage with embeddings |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/models/memory.py` | Data models (Memory, Entity, Relationship) |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/cli.py` | Unified CLI interface |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/memory/FACTS.md` | World network template |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/memory/EXPERIENCES.md` | Experience network template |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/memory/OPINIONS.md` | Opinion network template |
-| `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/memory/OBSERVATIONS.md` | Observation network template |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py` | Task completion extraction |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/session_memory_loader.py` | Session start memory loading |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` | RETAIN operation engine |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/recall.py` | RECALL operation engine |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/reflect.py` | REFLECT operation engine |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/vector_store.py` | Vector storage with embeddings |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/models/memory.py` | Data models (Memory, Entity, Relationship) |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/cli.py` | Unified CLI interface |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/memory/FACTS.md` | World network template |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/memory/EXPERIENCES.md` | Experience network template |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/memory/OPINIONS.md` | Opinion network template |
+| `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/memory/OBSERVATIONS.md` | Observation network template |
 
 ---
 

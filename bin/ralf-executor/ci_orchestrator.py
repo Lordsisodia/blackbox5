@@ -33,7 +33,7 @@ from event_bus import event_bus
 from state_manager import state_manager
 
 # BB5 paths
-BB5_ROOT = "/Users/shaansisodia/.blackbox5"
+BB5_ROOT = "/Users/shaansisodia/blackbox5"
 PROJECT_ROOT = f"{BB5_ROOT}/5-project-memory/blackbox5"
 AGENTS_DIR = f"{PROJECT_ROOT}/.claude/agents"
 

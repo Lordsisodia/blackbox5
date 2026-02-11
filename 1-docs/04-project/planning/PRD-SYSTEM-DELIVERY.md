@@ -19,7 +19,7 @@ The PRD (Product Requirements Document) system for BlackBox5 has been successful
 
 ### 1. Core PRD Agent System ✅
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/spec_driven/prd_agent.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/spec_driven/prd_agent.py`
 
 **Components**:
 - `PRDData`: Dataclass for structured PRD data
@@ -39,7 +39,7 @@ The PRD (Product Requirements Document) system for BlackBox5 has been successful
 
 ### 2. CLI Commands ✅
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/cli/prd_commands.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/cli/prd_commands.py`
 
 **Commands Implemented**:
 - `bb5 prd:new` - Create new PRD interactively
@@ -58,7 +58,7 @@ The PRD (Product Requirements Document) system for BlackBox5 has been successful
 
 ### 3. Enhanced PRD Template ✅
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/templates/spec_driven/prd_first_principles.md`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/templates/spec_driven/prd_first_principles.md`
 
 **Template Sections**:
 - ✅ First Principles Analysis (Problem, Truths, Assumptions, Constraints, Solution)
@@ -82,7 +82,7 @@ The PRD (Product Requirements Document) system for BlackBox5 has been successful
 
 ### 4. Comprehensive Test Suite ✅
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/spec_driven/test_prd_agent.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/spec_driven/test_prd_agent.py`
 
 **Test Coverage**:
 - ✅ PRDParser tests (11 test cases)
@@ -103,7 +103,7 @@ Core functionality works: parsing, validation, listing, summaries
 
 ### 5. Example PRD ✅
 
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/specs/prds/001-example-authentication.md`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/specs/prds/001-example-authentication.md`
 
 **Content**:
 - ✅ Complete PRD for Secure Authentication System
@@ -408,7 +408,7 @@ bb5 prd:list --format json
 ### Test Execution
 
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
 python3 -m pytest tests/spec_driven/test_prd_agent.py -v
 ```
 
@@ -478,7 +478,7 @@ tests/spec_driven/test_prd_agent.py::TestPRDAgent::test_load_prd_not_found PASSE
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   ├── spec_driven/
 │   │   ├── __init__.py
@@ -760,7 +760,7 @@ The PRD system for BlackBox5 has been successfully implemented with all core fea
 
 ```bash
 # 1. Create a new PRD
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
 bb5 prd:new --title "User Profile System" --author "prd-agent" --interactive
 
 # 2. Parse the example PRD
@@ -845,18 +845,18 @@ print(f"User Stories: {summary['user_stories_count']}")
 
 ### Files Modified
 
-1. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/spec_driven/prd_agent.py`
+1. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/spec_driven/prd_agent.py`
    - Fixed regex bug in `_extract_technical_constraints`
    - Changed: `pattern = r"##\s+Appendix.*?\n(.*?)(?=##|\Z)", re.DOTALL`
    - To: `pattern = r"##\s+Appendix.*?\n(.*?)(?=##|\Z)"`
 
 ### Files Created
 
-1. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/cli/prd_commands.py` (522 lines)
-2. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/templates/spec_driven/prd_first_principles.md` (380 lines)
-3. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/spec_driven/test_prd_agent.py` (530 lines)
-4. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/spec_driven/__init__.py` (0 lines)
-5. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/specs/prds/001-example-authentication.md` (650 lines)
+1. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/cli/prd_commands.py` (522 lines)
+2. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/templates/spec_driven/prd_first_principles.md` (380 lines)
+3. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/spec_driven/test_prd_agent.py` (530 lines)
+4. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/spec_driven/__init__.py` (0 lines)
+5. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/specs/prds/001-example-authentication.md` (650 lines)
 
 ### Total Effort
 

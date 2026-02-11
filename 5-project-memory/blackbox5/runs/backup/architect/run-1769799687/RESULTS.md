@@ -12,13 +12,13 @@ Successfully created 30 BMAD workflow YAML files that were defined in `routes.ya
 ## Files Created
 
 ### 1. Schema Definition
-- `~/.blackbox5/2-engine/.autonomous/schemas/workflow.schema.yaml`
+- `~/blackbox5/2-engine/.autonomous/schemas/workflow.schema.yaml`
   - Defines workflow structure and metadata
   - Documents all fields with types and descriptions
   - Includes example for `create-prd` workflow
 
 ### 2. Generator Script
-- `~/.blackbox5/2-engine/.autonomous/lib/generate_workflows.py`
+- `~/blackbox5/2-engine/.autonomous/lib/generate_workflows.py`
   - Python script to generate workflow YAML files
   - Parses routes.yaml for command definitions
   - Extracts agent info from skill files
@@ -84,7 +84,7 @@ Successfully created 30 BMAD workflow YAML files that were defined in `routes.ya
 
 ### File Structure Check
 ```
-~/.blackbox5/2-engine/.autonomous/
+~/blackbox5/2-engine/.autonomous/
 ├── schemas/
 │   └── workflow.schema.yaml          (NEW)
 ├── lib/

@@ -24,7 +24,7 @@ All 6 scripts now use environment variables with fallback to default paths:
 ### 1. verifier-validate.py - Fixed Hardcoded Path
 ```python
 # Before (line 30):
-_project_lib = Path.home() / '.blackbox5' / '5-project-memory' / 'blackbox5' / '.autonomous' / 'lib'
+_project_lib = Path.home() / 'blackbox5' / '5-project-memory' / 'blackbox5' / '.autonomous' / 'lib'
 
 # After:
 _project_lib = get_ralf_project_dir() / '.autonomous' / 'lib'
@@ -32,12 +32,12 @@ _project_lib = get_ralf_project_dir() / '.autonomous' / 'lib'
 
 ### 2. Created Configuration Files
 
-**~/.blackbox5/.ralf/config.yaml**
+**~/blackbox5/.ralf/config.yaml**
 - Documents all RALF configuration options
 - Shows default paths and environment variable names
 - Provides usage examples
 
-**~/.blackbox5/.ralf/.env.example**
+**~/blackbox5/.ralf/.env.example**
 - Shell environment variable template
 - Lists all supported environment variables:
   - `RALF_PROJECT_DIR` - Project directory path
@@ -52,10 +52,10 @@ The `paths.py` library supports these environment variables:
 
 | Variable | Purpose | Fallback |
 |----------|---------|----------|
-| `RALF_PROJECT_DIR` | Project directory | `~/.blackbox5/5-project-memory/{project}` |
-| `RALF_ENGINE_DIR` | Engine directory | `~/.blackbox5/2-engine` |
+| `RALF_PROJECT_DIR` | Project directory | `~/blackbox5/5-project-memory/{project}` |
+| `RALF_ENGINE_DIR` | Engine directory | `~/blackbox5/2-engine` |
 | `RALF_PROJECT_NAME` | Default project name | `blackbox5` |
-| `BLACKBOX5_HOME` | BB5 root directory | `~/.blackbox5` |
+| `BLACKBOX5_HOME` | BB5 root directory | `~/blackbox5` |
 | `BB5_PROJECT_ROOT` | Alternative project path | Same as RALF_PROJECT_DIR |
 | `BB5_ENGINE_ROOT` | Alternative engine path | Same as RALF_ENGINE_DIR |
 
@@ -73,7 +73,7 @@ Verified path resolution works correctly:
 ```bash
 # Default paths (no env vars)
 python3 -c "from paths import get_ralf_project_dir; print(get_ralf_project_dir())"
-# Output: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5
+# Output: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5
 
 # With custom paths
 export RALF_PROJECT_DIR=/tmp/my-project
@@ -87,9 +87,9 @@ If issues arise, revert the single change in verifier-validate.py (line 30) or u
 
 ## Files Created
 
-- `/Users/shaansisodia/.blackbox5/.ralf/config.yaml` - YAML configuration template
-- `/Users/shaansisodia/.blackbox5/.ralf/.env.example` - Shell environment template
+- `/Users/shaansisodia/blackbox5/.ralf/config.yaml` - YAML configuration template
+- `/Users/shaansisodia/blackbox5/.ralf/.env.example` - Shell environment template
 
 ## Files Modified
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/verifier-validate.py` - Fixed hardcoded path at line 30
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/verifier-validate.py` - Fixed hardcoded path at line 30

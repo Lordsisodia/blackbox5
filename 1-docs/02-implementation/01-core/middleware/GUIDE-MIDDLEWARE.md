@@ -397,7 +397,7 @@ if stats['acceptance_rate'] < 0.3:
 Run the test suite:
 
 ```bash
-cd .blackbox5/engine
+cd blackbox5/engine
 python3 core/test_guide_middleware.py
 ```
 
@@ -441,8 +441,8 @@ All tests completed successfully!
 
 ## Files
 
-- **Implementation**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/guide_middleware.py`
-- **Tests**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/test_guide_middleware.py`
+- **Implementation**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/guide_middleware.py`
+- **Tests**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/test_guide_middleware.py`
 - **Documentation**: This file
 
 ## Dependencies

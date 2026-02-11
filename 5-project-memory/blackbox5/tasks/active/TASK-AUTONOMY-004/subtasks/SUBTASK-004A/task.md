@@ -29,7 +29,7 @@ Build the foundational Python library that all health monitoring tools will use.
 Create directory structure and __init__.py files
 
 ```
-~/.blackbox5/bin/lib/health_monitor/
+~/blackbox5/bin/lib/health_monitor/
 ├── __init__.py
 ├── config.py          # Paths and constants
 ├── collectors.py      # Data collection from YAML/JSON
@@ -135,16 +135,16 @@ Create `tests/test_health_monitor.py`:
 
 ## Files to Create
 
-1. `~/.blackbox5/bin/lib/health_monitor/__init__.py`
-2. `~/.blackbox5/bin/lib/health_monitor/config.py`
-3. `~/.blackbox5/bin/lib/health_monitor/models.py`
-4. `~/.blackbox5/bin/lib/health_monitor/collectors.py`
-5. `~/.blackbox5/bin/lib/health_monitor/calculators.py`
-6. `~/.blackbox5/bin/lib/health_monitor/database.py`
-7. `~/.blackbox5/bin/lib/health_monitor/utils.py`
-8. `~/.blackbox5/bin/lib/health_monitor/tests/test_collectors.py`
-9. `~/.blackbox5/bin/lib/health_monitor/tests/test_calculators.py`
-10. `~/.blackbox5/bin/lib/health_monitor/tests/test_database.py`
+1. `~/blackbox5/bin/lib/health_monitor/__init__.py`
+2. `~/blackbox5/bin/lib/health_monitor/config.py`
+3. `~/blackbox5/bin/lib/health_monitor/models.py`
+4. `~/blackbox5/bin/lib/health_monitor/collectors.py`
+5. `~/blackbox5/bin/lib/health_monitor/calculators.py`
+6. `~/blackbox5/bin/lib/health_monitor/database.py`
+7. `~/blackbox5/bin/lib/health_monitor/utils.py`
+8. `~/blackbox5/bin/lib/health_monitor/tests/test_collectors.py`
+9. `~/blackbox5/bin/lib/health_monitor/tests/test_calculators.py`
+10. `~/blackbox5/bin/lib/health_monitor/tests/test_database.py`
 
 ---
 

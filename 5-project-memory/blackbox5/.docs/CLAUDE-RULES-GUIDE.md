@@ -82,7 +82,7 @@ When user asks architecture questions ("Should we...", "How should we..."):
 ### Recommended BB5 Layout
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── .claude/                          # NEW: Claude Code configuration
 │   ├── rules/                        # Rule files directory
 │   │   ├── 00-core-workflow.md       # Core BB5 workflow rules
@@ -178,7 +178,7 @@ Activate the architect agent when:
 
 ## Activation Process
 
-1. Read `/Users/shaansisodia/.blackbox5/6-roadmap/01-research/superintelligence-protocol/`
+1. Read `/Users/shaansisodia/blackbox5/6-roadmap/01-research/superintelligence-protocol/`
 2. Execute 7-step analysis:
    - Context Gathering
    - First Principles
@@ -541,7 +541,7 @@ When keywords match:
 
 Agents are located at:
 ```
-~/.blackbox5/2-engine/.autonomous/agents/[agent-name]/
+~/blackbox5/2-engine/.autonomous/agents/[agent-name]/
 ├── SKILL.md          # Agent instructions
 ├── personality.yaml  # Agent configuration
 └── tools/            # Agent-specific tools
@@ -570,7 +570,7 @@ priority: 80
 ## For EVERY New Task
 
 ### 1. Create/Use Workspace
-- Work in `~/.blackbox5/5-project-memory/[project]/.autonomous/`
+- Work in `~/blackbox5/5-project-memory/[project]/.autonomous/`
 - Create run folder: `runs/run-YYYYMMDD_HHMMSS/`
 - Initialize with: THOUGHTS.md, DECISIONS.md, ASSUMPTIONS.md, LEARNINGS.md, RESULTS.md
 - Check `CURRENT_CONTEXT.md` for auto-discovered context

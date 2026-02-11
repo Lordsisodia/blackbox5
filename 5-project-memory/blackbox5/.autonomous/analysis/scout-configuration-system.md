@@ -10,38 +10,38 @@
 
 ### Engine Configuration (2-engine/.autonomous/)
 
-1. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/routes.yaml` - Main routing configuration with BMAD commands, skills, workflows
-2. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/base.yaml` - Base configuration with system defaults
-3. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/default.yaml` - RALF default configuration with thresholds, routing, notifications
-4. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/dev.yaml` - Development environment overrides
-5. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/prod.yaml` - Production environment overrides
-6. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/staging.yaml` - Staging environment overrides
-7. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/config.schema.yaml` - JSON schema for configuration validation
-8. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/skill-registry.yaml` - Skill registry with 22 skills
-9. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/cli-config.yaml` - CLI-specific configuration
-10. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/github-config.yaml` - GitHub integration configuration
-11. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/api-config.yaml` - API configuration
-12. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/alert-config.yaml` - Alert configuration
-13. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/config/code-review-config.yaml` - Code review configuration
+1. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/routes.yaml` - Main routing configuration with BMAD commands, skills, workflows
+2. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/base.yaml` - Base configuration with system defaults
+3. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/default.yaml` - RALF default configuration with thresholds, routing, notifications
+4. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/dev.yaml` - Development environment overrides
+5. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/prod.yaml` - Production environment overrides
+6. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/staging.yaml` - Staging environment overrides
+7. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/config.schema.yaml` - JSON schema for configuration validation
+8. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/skill-registry.yaml` - Skill registry with 22 skills
+9. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/cli-config.yaml` - CLI-specific configuration
+10. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/github-config.yaml` - GitHub integration configuration
+11. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/api-config.yaml` - API configuration
+12. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/alert-config.yaml` - Alert configuration
+13. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/config/code-review-config.yaml` - Code review configuration
 
 ### Project Configuration (5-project-memory/blackbox5/)
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - Project-specific routes with full BlackBox5 access
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Skill selection framework
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml` - Skill effectiveness metrics
-4. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` - Skill usage tracking
-5. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml` - Duplicate skill usage file
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - Project-specific routes with full BlackBox5 access
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Skill selection framework
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml` - Skill effectiveness metrics
+4. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` - Skill usage tracking
+5. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml` - Duplicate skill usage file
 
 ### Core Interface Configuration
 
-1. `/Users/shaansisodia/.blackbox5/2-engine/core/interface/config.py` - Python configuration loader with dataclasses
+1. `/Users/shaansisodia/blackbox5/2-engine/core/interface/config.py` - Python configuration loader with dataclasses
 
 ---
 
 ## Configuration Hierarchy Map
 
 ```
-User Config (~/.blackbox5/config.yaml) [NOT IMPLEMENTED - referenced but doesn't exist]
+User Config (~/blackbox5/config.yaml) [NOT IMPLEMENTED - referenced but doesn't exist]
     |
     v
 Project routes.yaml (5-project-memory/blackbox5/.autonomous/context/routes.yaml)
@@ -69,7 +69,7 @@ Default Config (2-engine/.autonomous/config/default.yaml)
 - Different config files use different schemas and formats
 
 ### 2. **Duplicate Configuration Files**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` and `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml` are duplicates
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml` and `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/operations/skill-usage.yaml` are duplicates
 - Skill registry exists in both `2-engine/.autonomous/config/skill-registry.yaml` and is referenced in operations
 
 ### 3. **Hardcoded Values in Scripts**
@@ -77,17 +77,17 @@ Multiple scripts have hardcoded paths instead of using configuration:
 
 **bin/ralf-report:**
 ```bash
-BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"  # Hardcoded absolute path
+BLACKBOX5_DIR="/Users/shaansisodia/blackbox5"  # Hardcoded absolute path
 ```
 
 **bin/ralf-branch:**
 ```bash
-BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"  # Hardcoded absolute path
+BLACKBOX5_DIR="/Users/shaansisodia/blackbox5"  # Hardcoded absolute path
 ```
 
 **bin/ralf-analyze:**
 ```bash
-BLACKBOX5_DIR="/Users/shaansisodia/.blackbox5"  # Hardcoded absolute path
+BLACKBOX5_DIR="/Users/shaansisodia/blackbox5"  # Hardcoded absolute path
 ```
 
 **bin/blackbox:**
@@ -106,7 +106,7 @@ BLACKBOX_DIR="/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/BLACKBOX5"  #
 - No standard config loader utility for shell scripts
 
 ### 6. **Missing User Config**
-- `default.yaml` documents: "User config: ~/.blackbox5/config.yaml (overrides defaults)"
+- `default.yaml` documents: "User config: ~/blackbox5/config.yaml (overrides defaults)"
 - This file does not exist and there's no mechanism to create it
 
 ### 7. **Config Override Hierarchy Not Implemented**
@@ -141,7 +141,7 @@ BLACKBOX_DIR="/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/BLACKBOX5"  #
    - Validation against schema on load
 
 2. **Eliminate Hardcoded Paths**
-   - Replace all `/Users/shaansisodia/.blackbox5` hardcoded paths
+   - Replace all `/Users/shaansisodia/blackbox5` hardcoded paths
    - Use `$BLACKBOX5_HOME` or `$RALF_PROJECT_ROOT` consistently
    - Add path resolution to central config
 

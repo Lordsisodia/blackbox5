@@ -2,7 +2,7 @@
 # BB5 Database CLI
 # Supabase operations with multi-client context support
 
-BB5_DIR="${BB5_DIR:-$HOME/.blackbox5}"
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
 source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
 source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_context.sh"
 source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_discovery.sh"

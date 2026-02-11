@@ -23,7 +23,7 @@ Recent verification shows:
 However, STATE.yaml still shows these plans as "planned" in `ready_to_start` section.
 
 ## Files to Modify
-- `~/.blackbox5/6-roadmap/STATE.yaml`
+- `~/blackbox5/6-roadmap/STATE.yaml`
   - Move PLAN-002 to completed
   - Move PLAN-004 to completed  
   - Update stats
@@ -35,7 +35,7 @@ However, STATE.yaml still shows these plans as "planned" in `ready_to_start` sec
 
 ## Completion
 **Completed:** 2026-01-31T12:31:00Z
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769861639
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769861639
 **Agent:** Agent-2.5
 **Path Used:** Quick Flow
 **Phase Gates:** All passed

@@ -7,7 +7,7 @@ set -e
 VPS_IP="77.42.66.40"
 VPS_USER="root"
 SSH_KEY="$HOME/.ssh/ralf_hetzner"
-BB5_DIR="$HOME/.blackbox5"
+BB5_DIR="$HOME/blackbox5"
 VPS_BB5_DIR="/opt/blackbox5"
 BRANCH="autonomous-improvement"
 

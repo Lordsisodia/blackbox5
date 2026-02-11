@@ -22,7 +22,7 @@ BlackBox5 is an autonomous AI infrastructure system with a freshly integrated ag
 |-----|---------|---------------|-----------|
 | 20260209_135100 | **IN PROGRESS** | Agent teams activated | Session just started |
 
-**Current Run:** `/Users/shaansisodia/.blackbox5/runs/current/` (symlinked to actual timestamp directory)
+**Current Run:** `/Users/shaansisodia/blackbox5/runs/current/` (symlinked to actual timestamp directory)
 
 **Run Files Initialized:**
 - THOUGHTS.md - Session thinking log
@@ -135,14 +135,14 @@ BlackBox5 is an autonomous AI infrastructure system with a freshly integrated ag
 | bb5-superintelligence | standby | 7-dimension analysis for complex problems |
 
 ### Agent Definitions Location
-`/Users/shaansisodia/.blackbox5/.claude/agents/`
+`/Users/shaansisodia/blackbox5/.claude/agents/`
 - activate-core-team.md
 - bb5-context-collector.md
 - bb5-scribe.md
 - bb5-superintelligence.md
 
 ### Hooks Active
-`/Users/shaansisodia/.blackbox5/.claude/hooks/`
+`/Users/shaansisodia/blackbox5/.claude/hooks/`
 - session-start-agent-teams.sh - Initializes run directory
 - post-message-agent-teams.sh - Triggers on complex keywords
 
@@ -178,7 +178,7 @@ BlackBox5 is an autonomous AI infrastructure system with a freshly integrated ag
 ## Infrastructure Status
 
 ### BB5 Installation
-- **Location:** `/Users/shaansisodia/.blackbox5/`
+- **Location:** `/Users/shaansisodia/blackbox5/`
 - **Version:** 5.0
 - **Status:** Active
 
@@ -273,7 +273,7 @@ c36bbf0 feat: Add 12 new BB5 skills with auto-activation rules
 - Architecture restructuring needed (7 scattered .autonomous folders)
 
 ### For Scribe Agent
-- Run directory initialized at `/Users/shaansisodia/.blackbox5/runs/current/`
+- Run directory initialized at `/Users/shaansisodia/blackbox5/runs/current/`
 - Document all decisions in DECISIONS.md
 - Capture learnings in LEARNINGS.md with action_item field
 - Update timeline.yaml on session end
@@ -285,10 +285,10 @@ c36bbf0 feat: Add 12 new BB5 skills with auto-activation rules
 - No active blockers
 
 ### Key Files to Reference
-- `/Users/shaansisodia/.blackbox5/6-roadmap/STATE.yaml` - Source of truth
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals.yaml` - Goal hierarchy
-- `/Users/shaansisodia/.blackbox5/.claude/agents/` - Agent definitions
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/rules/` - Active rules
+- `/Users/shaansisodia/blackbox5/6-roadmap/STATE.yaml` - Source of truth
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals.yaml` - Goal hierarchy
+- `/Users/shaansisodia/blackbox5/.claude/agents/` - Agent definitions
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/rules/` - Active rules
 
 ---
 

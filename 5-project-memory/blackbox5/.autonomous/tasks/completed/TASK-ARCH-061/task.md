@@ -15,10 +15,10 @@ Move 4 BlackBox5-specific agent scripts from the engine directory to the project
 4. `scout-task-based.py` - Task-Based Intelligent Scout
 
 ## Source
-`/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/`
+`/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/`
 
 ## Destination
-`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/bin/`
+`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/bin/`
 
 ## Success Criteria
 - [x] Destination directory created

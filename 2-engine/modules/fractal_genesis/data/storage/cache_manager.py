@@ -177,7 +177,7 @@ class MemoryCache:
 class CacheManager:
     """Unified cache manager for file and memory caching."""
 
-    def __init__(self, cache_root: str = "~/.blackbox5/.cache"):
+    def __init__(self, cache_root: str = "~/blackbox5/.cache"):
         self.cache_root = Path(cache_root).expanduser()
         self.cache_root.mkdir(parents=True, exist_ok=True)
 

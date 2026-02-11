@@ -1,7 +1,7 @@
 # Agent Context (Auto-Generated)
 
 **Detected Agent Type:** unknown
-**Run Directory:** /Users/shaansisodia/.blackbox5
+**Run Directory:** /Users/shaansisodia/blackbox5
 **Timestamp:** 2026-02-07T11:49:09+07:00
 
 ---

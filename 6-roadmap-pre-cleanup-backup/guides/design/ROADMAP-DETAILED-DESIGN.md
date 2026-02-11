@@ -744,7 +744,7 @@ approval_response:
 ### Complete Directory Tree
 
 ```
-.blackbox5/roadmap/
+blackbox5/roadmap/
 │
 ├── 00-proposed/
 │   └── PROPOSAL-{id}-{slug}/

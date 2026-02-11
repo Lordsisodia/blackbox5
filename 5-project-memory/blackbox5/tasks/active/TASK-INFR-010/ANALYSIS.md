@@ -2,14 +2,14 @@
 
 ## Task Summary
 
-The learning index at `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml` shows `total_learnings: 0` despite 80+ claimed learnings. The file header states it is "auto-populated by the learning_extractor.py library" but this library does not exist in the codebase.
+The learning index at `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml` shows `total_learnings: 0` despite 80+ claimed learnings. The file header states it is "auto-populated by the learning_extractor.py library" but this library does not exist in the codebase.
 
 ## Key Files Involved
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml` - Empty learning index
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/LEARNINGS.md` - May contain raw learnings
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/` - Task run folders with THOUGHTS.md/DECISIONS.md
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/` - Hook scripts directory
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml` - Empty learning index
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/memory/insights/LEARNINGS.md` - May contain raw learnings
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/` - Task run folders with THOUGHTS.md/DECISIONS.md
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/` - Hook scripts directory
 
 ## Estimated Complexity
 

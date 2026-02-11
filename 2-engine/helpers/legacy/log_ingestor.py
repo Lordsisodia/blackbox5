@@ -54,7 +54,7 @@ class RALFLogAnalyzer:
         import subprocess
         try:
             result = subprocess.run(
-                ["git", "-C", str(self.blackbox5_dir), "branch", "--show-current"],
+                ["git", "-C", str(selfblackbox5_dir), "branch", "--show-current"],
                 capture_output=True, text=True, check=True
             )
             return result.stdout.strip()
@@ -66,7 +66,7 @@ class RALFLogAnalyzer:
         import subprocess
         try:
             result = subprocess.run(
-                ["git", "-C", str(self.blackbox5_dir), "log", "--oneline", f"-{limit}", "--format=%h|%s|%ci"],
+                ["git", "-C", str(selfblackbox5_dir), "log", "--oneline", f"-{limit}", "--format=%h|%s|%ci"],
                 capture_output=True, text=True, check=True
             )
             commits = []
@@ -90,7 +90,7 @@ class RALFLogAnalyzer:
     }
 
     def __init__(self, blackbox5_dir: Path):
-        self.blackbox5_dir = Path(blackbox5_dir)
+        selfblackbox5_dir = Path(blackbox5_dir)
         # Import paths library for proper path resolution
         import sys
         lib_dir = Path(__file__).parent
@@ -103,9 +103,9 @@ class RALFLogAnalyzer:
             self.knowledge_dir = resolver.get_project_path() / "knowledge" / "ralf-patterns"
         except ImportError:
             # Fallback to relative paths if paths library not available
-            self.logs_dir = self.blackbox5_dir / "5-project-memory/blackbox5/.autonomous/LOGS"
-            self.runs_dir = self.blackbox5_dir / "5-project-memory/blackbox5/.autonomous/runs"
-            self.knowledge_dir = self.blackbox5_dir / "5-project-memory/blackbox5/knowledge/ralf-patterns"
+            self.logs_dir = selfblackbox5_dir / "5-project-memory/blackbox5/.autonomous/LOGS"
+            self.runs_dir = selfblackbox5_dir / "5-project-memory/blackbox5/.autonomous/runs"
+            self.knowledge_dir = selfblackbox5_dir / "5-project-memory/blackbox5/knowledge/ralf-patterns"
         self.insights_file = self.knowledge_dir / "auto-insights.json"
 
         # Ensure knowledge directory exists
@@ -336,14 +336,14 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="RALF Log Ingestor")
-    parser.add_argument("--blackbox5", default="/Users/shaansisodia/.blackbox5", help="Blackbox5 directory")
+    parser.add_argument("--blackbox5", default="/Users/shaansisodia/blackbox5", help="Blackbox5 directory")
     parser.add_argument("--limit", type=int, default=10, help="Number of recent logs to analyze")
     parser.add_argument("--prompt-enhancements", action="store_true", help="Output prompt enhancements")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
 
     args = parser.parse_args()
 
-    analyzer = RALFLogAnalyzer(Path(args.blackbox5))
+    analyzer = RALFLogAnalyzer(Path(argsblackbox5))
 
     if args.prompt_enhancements:
         enhancements = analyzer.get_prompt_enhancements()

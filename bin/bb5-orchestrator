@@ -6,7 +6,7 @@
 
 set -e
 
-BB5_ROOT="${HOME}/.blackbox5"
+BB5_ROOT="${HOME}/blackbox5"
 PROJECT_MEMORY="${BB5_ROOT}/5-project-memory/blackbox5"
 RUNS_DIR="${PROJECT_MEMORY}/.autonomous/runs"
 

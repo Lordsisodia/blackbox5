@@ -78,7 +78,7 @@ The Adaptive Flow Router is the **brain** of the task management system. It anal
 
 **Purpose**: Extract structured data from YAML frontmatter + markdown body
 
-**File**: `.blackbox5/engine/task_management/parser.py`
+**File**: `blackbox5/engine/task_management/parser.py`
 
 ```python
 import yaml
@@ -207,7 +207,7 @@ class TaskParser:
 
 **Purpose**: Calculate complexity score from multiple dimensions
 
-**File**: `.blackbox5/engine/task_management/complexity_analyzer.py`
+**File**: `blackbox5/engine/task_management/complexity_analyzer.py`
 
 ```python
 from typing import Dict, Any, List
@@ -558,7 +558,7 @@ class ComplexityAnalyzer:
 
 **Purpose**: Route tasks to appropriate workflow based on tier and context
 
-**File**: `.blackbox5/engine/task_management/workflow_router.py`
+**File**: `blackbox5/engine/task_management/workflow_router.py`
 
 ```python
 from enum import Enum
@@ -744,7 +744,7 @@ class WorkflowRouter:
 
 **Purpose**: Learn from actual vs estimated complexity to improve routing
 
-**File**: `.blackbox5/engine/task_management/learning_system.py`
+**File**: `blackbox5/engine/task_management/learning_system.py`
 
 ```python
 import json

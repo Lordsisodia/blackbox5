@@ -75,7 +75,7 @@ This creates the `.autonomous/` directory structure with all necessary files.
 Copy and customize templates as needed:
 
 ```bash
-cp ~/.blackbox5/3-templates/tasks/task-specification.md.template \
+cp ~/blackbox5/3-templates/tasks/task-specification.md.template \
    ./TASK-001-my-task.md
 ```
 

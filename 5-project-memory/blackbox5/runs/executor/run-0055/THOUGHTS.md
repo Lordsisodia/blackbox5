@@ -27,7 +27,7 @@ Analyzed existing hardcoded values in RALF system:
 - Loop timeout: 120 seconds (in heartbeat.yaml)
 
 Designed configuration system:
-1. **Two-tier configuration:** User config (~/.blackbox5/config.yaml) + Default config (2-engine/.autonomous/config/default.yaml)
+1. **Two-tier configuration:** User config (~/blackbox5/config.yaml) + Default config (2-engine/.autonomous/config/default.yaml)
 2. **YAML format:** Human-readable, easy to edit
 3. **Validation:** Type checking, range validation, constraint checking
 4. **Fallback:** Invalid config falls back to defaults without crashing

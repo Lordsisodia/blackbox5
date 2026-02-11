@@ -338,13 +338,13 @@ async def process_task(description, conversation=None):
 Run the test suite:
 
 ```bash
-pytest .blackbox5/tests/test_context_extraction.py -v
+pytest blackbox5/tests/test_context_extraction.py -v
 ```
 
 Run demo:
 
 ```bash
-python3 .blackbox5/examples/context_extraction_demo.py
+python3 blackbox5/examples/context_extraction_demo.py
 ```
 
 ## Next Steps

@@ -422,13 +422,13 @@ PersistentMemory (everything)
 
 ### Documentation Redundancies (Should Fix)
 
-#### 4. Outdated `.blackbox5` References (1,184+ files!)
+#### 4. Outdated `blackbox5` References (1,184+ files!)
 
-**Problem:** Directory renamed from `.blackbox5` to `blackbox5`, but docs not updated
+**Problem:** Directory renamed from `blackbox5` to `blackbox5`, but docs not updated
 
 **Examples:**
 ```markdown
-# Old: .blackbox5/2-engine/...
+# Old: blackbox5/2-engine/...
 # New: blackbox5/2-engine/...
 ```
 
@@ -443,9 +443,9 @@ PersistentMemory (everything)
 #### 5. Duplicate Code Index Files (3 files, 432KB each!)
 
 **Locations:**
-- `.blackbox5/2-engine/docs/code_index.md` (432KB)
-- `.blackbox5/2-engine/docs/reference/code_index.md` (432KB)
-- `.blackbox5/2-engine/DOCS/index.md` (432KB)
+- `blackbox5/2-engine/docs/code_index.md` (432KB)
+- `blackbox5/2-engine/docs/reference/code_index.md` (432KB)
+- `blackbox5/2-engine/DOCS/index.md` (432KB)
 
 **Impact:** Wasted space, unclear which is canonical
 
@@ -483,7 +483,7 @@ PersistentMemory (everything)
 |------|--------|--------|-------|
 | 1. Consolidate event bus (2→1) | 1 day | 🟡 Medium | 1 |
 | 2. Remove duplicate boot files | 2 hours | 🟡 Low | 2 |
-| 3. Update `.blackbox5` → `blackbox5` in docs | 2-3 hours | 🟡 Medium | 3 |
+| 3. Update `blackbox5` → `blackbox5` in docs | 2-3 hours | 🟡 Medium | 3 |
 | 4. Delete duplicate code_index.md | 5 min | 🟢 Low | 4 |
 
 **Total:** 3-5 days

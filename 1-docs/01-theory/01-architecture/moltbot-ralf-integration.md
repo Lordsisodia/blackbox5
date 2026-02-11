@@ -116,7 +116,7 @@ Use: Send messages via Telegram, check gateway status
 Run the setup script to establish SSH tunnel and verify connections:
 
 ```bash
-~/.blackbox5/bin/moltbot-mcp-connect.sh
+~/blackbox5/bin/moltbot-mcp-connect.sh
 ```
 
 This will:
@@ -127,7 +127,7 @@ This will:
 Then start Claude Code with MCP:
 
 ```bash
-cd ~/.blackbox5 && claude --mcp-config .mcp-moltbot.json
+cd ~/blackbox5 && claude --mcp-config .mcp-moltbot.json
 ```
 
 ### Manual Setup
@@ -141,12 +141,12 @@ ssh -i ~/.ssh/ralf_hetzner -L 18789:localhost:18789 root@77.42.66.40 -N
 
 2. **Start Claude Code with MCP config**:
 ```bash
-claude --mcp-config ~/.blackbox5/.mcp-moltbot.json
+claude --mcp-config ~/blackbox5/.mcp-moltbot.json
 ```
 
 ### MCP Config Location
 
-The config file is at `~/.blackbox5/.mcp-moltbot.json`:
+The config file is at `~/blackbox5/.mcp-moltbot.json`:
 
 ```json
 {

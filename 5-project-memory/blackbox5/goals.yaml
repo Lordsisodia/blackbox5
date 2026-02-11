@@ -5,10 +5,20 @@
 # =============================================================================
 
 meta:
-  version: "1.0.0"
-  last_updated: "2026-02-01"
+  version: "1.1.0"
+  last_updated: "2026-02-10"
   review_cycle: "monthly"
   owner: "autonomous-agent"
+  changelog:
+    - date: "2026-02-10"
+      version: "1.1.0"
+      changes:
+        - "Merged IG-002 into IG-001 (guidance consolidation)"
+        - "Expanded IG-004 to include subagent optimization"
+        - "Reframed IG-008 as continuous memory improvement (MVP complete)"
+        - "Merged IG-010 into IG-009 (hook system phases)"
+        - "Added IG-007, IG-009, IG-011 to improvement_goals list"
+        - "Documented all merged goals"
 
 # =============================================================================
 # CORE GOALS - What the agent is working to achieve
@@ -59,45 +69,35 @@ core_goals:
 # =============================================================================
 
 improvement_goals:
-  # --- CLAUDE.md Goals ---
+  # --- Agent Guidance Goals (merged IG-001 + IG-002) ---
   - id: IG-001
-    name: "Improve CLAUDE.md Effectiveness"
-    description: "Refine the core instructions to make decision-making faster and more accurate"
+    name: "Improve CLAUDE.md Guidance"
+    description: "Continuously refine agent guidance to improve decision-making, operational efficiency, and execution quality"
     category: guidance
     target_file: "~/.claude/CLAUDE.md"
     priority: high
     status: active
+    note: "Merged IG-002 (LEGACY.md) - operational procedures are part of guidance"
     current_issues:
       - "Decision framework could be more specific"
       - "Context management thresholds may need tuning"
+      - "Skill discovery may be too slow"
+      - "Quality gates could be more specific"
     improvement_ideas:
       - "Add more specific examples to decision framework"
       - "Tune context thresholds based on usage patterns"
       - "Clarify sub-agent deployment rules"
+      - "Cache frequently used skills"
+      - "Add specific quality gate checklists per task type"
     success_criteria:
       - "Faster task initiation (less hesitation)"
       - "Fewer context overflow exits"
       - "More appropriate sub-agent usage"
-
-  # --- LEGACY.md Goals ---
-  - id: IG-002
-    name: "Improve LEGACY.md Operational Efficiency"
-    description: "Streamline the operational procedures to reduce friction"
-    category: process
-    target_file: "~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md"
-    priority: high
-    status: active
-    current_issues:
-      - "Skill discovery may be too slow"
-      - "Quality gates could be more specific"
-    improvement_ideas:
-      - "Cache frequently used skills"
-      - "Add specific quality gate checklists per task type"
-      - "Optimize run initialization"
-    success_criteria:
-      - "Faster skill selection"
-      - "Fewer missed quality checks"
       - "Reduced run setup time"
+
+  # --- MERGED: IG-002 into IG-001 ---
+  # IG-002 (LEGACY.md Operational Efficiency) merged into IG-001 on 2026-02-10
+  # Rationale: LEGACY.md and CLAUDE.md serve the same purpose - agent guidance
 
   # --- System Flow Goals ---
   - id: IG-003
@@ -119,54 +119,67 @@ improvement_goals:
       - "Faster context acquisition"
       - "Better cross-project awareness"
 
-  # --- Skills Optimization Goals ---
+  # --- Skills and Subagent Optimization Goals ---
   - id: IG-004
-    name: "Optimize Skill Usage and Efficiency"
-    description: "Make skills more effective, remove unused, add missing"
-    category: skills
-    target_file: "~/.blackbox5/5-project-memory/siso-internal/.Autonomous/.skills/"
+    name: "Improve Skill and Subagent Usage"
+    description: "Optimize how agents use skills and deploy subagents - make both more effective, timely, and efficient"
+    category: capabilities
+    target_file: "~/blackbox5/.skills/"
     priority: high
     status: active
+    note: "Expanded 2026-02-10 to include subagent optimization"
     current_issues:
       - "Some skills may be redundant"
       - "Skill triggers may need tuning"
       - "Missing skills for common tasks"
+      - "Subagents sometimes deployed when direct execution is faster"
+      - "Subagents sometimes NOT deployed when they should be"
     improvement_ideas:
       - "Track skill usage frequency"
       - "Consolidate similar skills"
       - "Add skills for underrepresented task types"
       - "Tune trigger scoring based on effectiveness"
+      - "Audit subagent deployment patterns"
+      - "Refine subagent vs direct execution criteria"
     success_criteria:
       - "Higher skill hit rate (triggers when needed)"
       - "Lower skill false-positive rate"
-      - "Faster task completion with skills"
+      - "Appropriate subagent deployment"
+      - "Faster task completion overall"
 
-  # --- Documentation Goals ---
-  - id: IG-005
-    name: "Improve Documentation Quality and Utility"
-    description: "Ensure all documentation is valuable and actually used"
-    category: documentation
-    target_file: "~/.blackbox5/5-project-memory/blackbox5/.docs/"
-    priority: medium
+  # --- MERGED: IG-005 into IG-007 ---
+  # IG-005 (Documentation Quality) merged into IG-007 on 2026-02-04
+  # Now part of "Continuous Architecture Evolution & Documentation Improvement"
+
+  # --- Memory Architecture Goals ---
+  - id: IG-008
+    name: "Improve Memory Architecture"
+    description: "Continuously improve how agents remember, recall, and learn from experience"
+    category: architecture
+    target_file: "~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/"
+    priority: critical
     status: active
+    note: "MVP complete (Hindsight 4-network). Now continuous improvement phase."
     current_issues:
-      - "Some docs may be outdated"
-      - "Template adoption unknown"
+      - "No persistent memory across sessions"
+      - "Cannot recall past experiences effectively"
+      - "No cross-task pattern detection"
     improvement_ideas:
-      - "Track which docs are referenced"
-      - "Simplify over-complicated templates"
-      - "Auto-flag docs not touched in 30 days"
+      - "RETAIN: Auto-extract memories from all tasks/runs"
+      - "RECALL: Semantic search with <500ms latency"
+      - "REFLECT: Belief updating with confidence tracking"
+      - "Cross-task pattern detection"
     success_criteria:
-      - "All docs referenced at least once per month"
-      - "Faster onboarding to new projects"
-      - "Fewer 'where is X' questions"
+      - "90%+ tasks have memories retained"
+      - "Recall latency <500ms"
+      - "Agents demonstrate continuity of self"
 
   # --- Architecture Goals ---
   - id: IG-006
-    name: "Restructure BlackBox5 Architecture for Clarity"
+    name: "Improve Architecture Clarity"
     description: "Clean up scattered .autonomous folders, establish clear separation of concerns, make layout intuitive for AI agents"
     category: architecture
-    target_file: "~/.blackbox5/"
+    target_file: "~/blackbox5/"
     priority: critical
     status: active
     current_issues:
@@ -188,6 +201,79 @@ improvement_goals:
       - "New developers understand structure in 5 minutes"
       - "No duplicate or obsolete folders"
       - "Clear separation: engine vs project data"
+
+  # --- Continuous Architecture Evolution ---
+  - id: IG-007
+    name: "Continuous Architecture Evolution"
+    description: "Self-improving architecture system where AI agents continuously analyze, optimize, and evolve codebase layout"
+    category: architecture
+    target_file: "~/blackbox5/5-project-memory/blackbox5/"
+    priority: high
+    status: active
+    note: "Includes merged IG-005 (Documentation Quality)"
+    current_issues:
+      - "Architecture doesn't improve automatically"
+      - "Documentation gets stale"
+      - "No systematic improvement process"
+    improvement_ideas:
+      - "AI agents analyze structure and suggest improvements"
+      - "First principles validate all suggestions"
+      - "Iterative execution with feedback loops"
+      - "Documentation evolves with architecture"
+    success_criteria:
+      - "Architecture improves every week"
+      - "Documentation stays current"
+      - "No explicit human direction needed"
+
+  # --- Hook Automation Goals ---
+  - id: IG-009
+    name: "Improve Hook Automation"
+    description: "Continuously improve the hook system that automates task lifecycle and maintains system state"
+    category: infrastructure
+    target_file: "~/blackbox5/.claude/hooks/"
+    priority: critical
+    status: active
+    note: "Phase 1 complete (9 hooks). Merged IG-010. Now continuous improvement."
+    current_issues:
+      - "Task status transitions are manual"
+      - "Skills not auto-invoked"
+      - "Learnings not auto-extracted"
+    improvement_ideas:
+      - "Auto-claim tasks from queue"
+      - "Auto-update status to in_progress"
+      - "Pre-completion validation hooks"
+      - "Integrate best practices from 19+ GitHub repos"
+    success_criteria:
+      - "90%+ task completion automation"
+      - "80%+ skill auto-invocation rate"
+      - "15%+ learning-to-improvement extraction rate"
+
+  # --- Production Readiness ---
+  - id: IG-011
+    name: "Production Readiness"
+    description: "Bring BlackBox5 to production quality for multi-agent cluster deployment"
+    category: infrastructure
+    target_file: "~/blackbox5/"
+    priority: critical
+    status: in_progress
+    current_issues:
+      - "File locking incomplete (50%)"
+      - "Path abstraction low (24%)"
+      - "Storage backend fragmented (11%)"
+    improvement_ideas:
+      - "Add flock to critical scripts"
+      - "Abstract all hardcoded paths"
+      - "Unify storage backends"
+    success_criteria:
+      - "File locking: 100%"
+      - "Path abstraction: 80%+"
+      - "Overall architecture score: 85+"
+      - "Multi-agent cluster ready"
+
+  # --- MERGED GOALS ---
+  # IG-003 merged into CG-004 (Intelligent Navigation System) on 2026-02-04
+  # IG-005 merged into IG-007 on 2026-02-04
+  # IG-010 merged into IG-009 on 2026-02-10
 
 # =============================================================================
 # DATA COLLECTION GOALS - Ensuring we capture the right data

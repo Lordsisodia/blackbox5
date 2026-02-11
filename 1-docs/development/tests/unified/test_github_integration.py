@@ -6,10 +6,10 @@ Test Suite for GitHubManager
 Tests the GitHub integration system adapted from CCPM.
 
 Run tests:
-    pytest .blackbox5/tests/test_github_integration.py -v
+    pytest blackbox5/tests/test_github_integration.py -v
 
 Run with coverage:
-    pytest .blackbox5/tests/test_github_integration.py --cov=.blackbox5/integration/github -v
+    pytest blackbox5/tests/test_github_integration.py --cov=blackbox5/integration/github -v
 
 Environment variables required:
     GITHUB_TOKEN: Your GitHub Personal Access Token

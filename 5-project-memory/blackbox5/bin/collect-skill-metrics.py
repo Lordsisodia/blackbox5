@@ -8,7 +8,7 @@ from pathlib import Path
 from collections import defaultdict
 
 # Get project directory from environment or use default
-PROJECT_DIR = Path(os.environ.get('RALF_PROJECT_DIR', Path.home() / '.blackbox5/5-project-memory/blackbox5'))
+PROJECT_DIR = Path(os.environ.get('RALF_PROJECT_DIR', Path.home() / 'blackbox5/5-project-memory/blackbox5'))
 METRICS_PATH = PROJECT_DIR / 'operations' / 'skill-metrics.yaml'
 
 

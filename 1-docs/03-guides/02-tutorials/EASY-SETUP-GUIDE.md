@@ -11,7 +11,7 @@ We've made it **super easy** to get the complete agent orchestration system up a
 ### Step 1: Check What You Need (1 minute)
 
 ```bash
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ```
 
 **This tells you**:
@@ -45,7 +45,7 @@ export PYTHONPATH="$PWD:$PYTHONPATH"
 ### Step 3: Run the Test (2 minutes)
 
 ```bash
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 **This tests**:
@@ -63,7 +63,7 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ### Option 1: Interactive Demo (Easiest)
 
 ```bash
-python .blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
+python blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
 ```
 
 **This will**:
@@ -135,7 +135,7 @@ BACKLOG → DOING → DONE
 ### Project Memory Tracking
 
 ```
-.blackbox5/5-project-memory/siso-internal/operations/
+blackbox5/5-project-memory/siso-internal/operations/
 ├── agents/
 │   ├── agent-1/sessions.json  (What agent did)
 │   ├── agent-2/sessions.json  (When they did it)
@@ -237,7 +237,7 @@ python interactive-demo.py
 ## 📁 All Files Created
 
 ```
-.blackbox5/1-docs/03-guides/02-tutorials/
+blackbox5/1-docs/03-guides/02-tutorials/
 ├── README.md                                    # Quick start guide
 ├── AGENT-ORCHESTRATION-SETUP-CHECKLIST.md      # Complete setup checklist
 ├── check-prerequisites.sh                       # Prerequisites checker
@@ -259,17 +259,17 @@ python interactive-demo.py
 
 1. **Agent Orchestration Workflow**
    ```
-   .blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md
+   blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md
    ```
 
 2. **Vibe Kanban Integration**
    ```
-   .blackbox5/2-engine/06-integrations/vibe/README.md
+   blackbox5/2-engine/06-integrations/vibe/README.md
    ```
 
 3. **Ralphy Integration**
    ```
-   .blackbox5/2-engine/07-operations/runtime/ralphy/BLACKBOX-INTEGRATION.md
+   blackbox5/2-engine/07-operations/runtime/ralphy/BLACKBOX-INTEGRATION.md
    ```
 
 ---
@@ -290,7 +290,7 @@ Open http://localhost:3001 to watch agents work in real-time!
 
 ### Tip 4: Check Project Memory
 
-All sessions are tracked in `.blackbox5/5-project-memory/`
+All sessions are tracked in `blackbox5/5-project-memory/`
 
 ---
 

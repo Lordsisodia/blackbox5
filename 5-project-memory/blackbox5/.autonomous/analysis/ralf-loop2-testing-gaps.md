@@ -12,21 +12,21 @@ RALF's testing infrastructure is **deeply coupled to BlackBox5**. The agent scri
 
 ```python
 # verifier-validate.py lines 24-26
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 
 # executor-implement.py lines 25-29
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
 
 # planner-prioritize.py lines 23-26
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 
 # scout-intelligent.py lines 30-32
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
 
 # improvement-loop.py lines 24-27
-PROJECT_DIR = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5"
-ENGINE_DIR = Path.home() / ".blackbox5" / "2-engine"
+PROJECT_DIR = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5"
+ENGINE_DIR = Path.home() / "blackbox5" / "2-engine"
 ```
 
 **Impact:** These agents cannot be tested or run against any other project.

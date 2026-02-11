@@ -21,8 +21,8 @@
 - Created test suite: `test_consolidation_tuned.py`
 
 **Files Modified:**
-- `.blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py`
-- `.blackbox5/2-engine/03-knowledge/storage/tests/test_consolidation_tuned.py` (NEW)
+- `blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py`
+- `blackbox5/2-engine/03-knowledge/storage/tests/test_consolidation_tuned.py` (NEW)
 
 **Impact:**
 - More aggressive memory compression
@@ -79,8 +79,8 @@ To enable 90% compression:
 ```
 
 **Files Created:**
-- `.blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md` (NEW)
-- `.blackbox5/engine/core/verify_compression_setup.py` (NEW)
+- `blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md` (NEW)
+- `blackbox5/engine/core/verify_compression_setup.py` (NEW)
 
 **Cost Savings:**
 - Current: 20-30% immediately ($100 → $70-80)
@@ -107,8 +107,8 @@ To enable 90% compression:
    - Added upgrade path with effort estimates
 
 **Files Modified:**
-- `.blackbox5/roadmap/00-proposed/2026-01-19-memory-compression-with-llmlingua/proposal.md`
-- `.blackbox5/roadmap/00-proposed/2026-01-19-three-tier-hierarchical-memory-system/proposal.md`
+- `blackbox5/roadmap/00-proposed/2026-01-19-memory-compression-with-llmlingua/proposal.md`
+- `blackbox5/roadmap/00-proposed/2026-01-19-three-tier-hierarchical-memory-system/proposal.md`
 
 **New Understanding:**
 - BlackBox5 already has solid memory foundation
@@ -182,16 +182,16 @@ To enable 90% compression:
 ## Files Created/Modified
 
 ### Modified Files (3)
-1. `.blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py`
-2. `.blackbox5/roadmap/00-proposed/2026-01-19-memory-compression-with-llmlingua/proposal.md`
-3. `.blackbox5/roadmap/00-proposed/2026-01-19-three-tier-hierarchical-memory-system/proposal.md`
+1. `blackbox5/2-engine/03-knowledge/storage/consolidation/MemoryConsolidation.py`
+2. `blackbox5/roadmap/00-proposed/2026-01-19-memory-compression-with-llmlingua/proposal.md`
+3. `blackbox5/roadmap/00-proposed/2026-01-19-three-tier-hierarchical-memory-system/proposal.md`
 
 ### New Files (5)
-1. `.blackbox5/2-engine/03-knowledge/storage/tests/test_consolidation_tuned.py`
-2. `.blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md`
-3. `.blackbox5/engine/core/verify_compression_setup.py`
-4. `.blackbox5/roadmap/01-research/memory-context/MEMORY-SYSTEM-GAP-ANALYSIS.md`
-5. `.blackbox5/roadmap/QUICK-WINS-SUMMARY.md` (this file)
+1. `blackbox5/2-engine/03-knowledge/storage/tests/test_consolidation_tuned.py`
+2. `blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md`
+3. `blackbox5/engine/core/verify_compression_setup.py`
+4. `blackbox5/roadmap/01-research/memory-context/MEMORY-SYSTEM-GAP-ANALYSIS.md`
+5. `blackbox5/roadmap/QUICK-WINS-SUMMARY.md` (this file)
 
 ---
 
@@ -239,14 +239,14 @@ All changes have been tested and verified:
 
 ✅ **Consolidation Tuning:**
 ```bash
-cd .blackbox5/2-engine/03-knowledge/storage/tests
+cd blackbox5/2-engine/03-knowledge/storage/tests
 python3 test_consolidation_tuned.py
 # Result: ALL TESTS PASSED
 ```
 
 ✅ **LLMLingua Verification:**
 ```bash
-cd .blackbox5/engine/core
+cd blackbox5/engine/core
 python3 verify_compression_setup.py
 # Result: 3/5 checks passed
 # (SimplePromptCompressor working, HuggingFace optional)

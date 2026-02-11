@@ -2,7 +2,7 @@
 
 **Status:** ✅ Active (Integrated in BlackBox5)
 **Count:** 4 Frameworks
-**Location:** `.blackbox5/engine/frameworks/`
+**Location:** `blackbox5/engine/frameworks/`
 
 ---
 
@@ -36,7 +36,7 @@ Primary framework for coordinating specialized agents through a master-agent arc
 
 ### Code Location
 ```
-.blackbox5/engine/frameworks/1-bmad/
+blackbox5/engine/frameworks/1-bmad/
 ├── core/
 │   ├── bmad-master.agent.yaml
 │   └── ...
@@ -82,7 +82,7 @@ Specification-driven development with templates and slash commands for consisten
 
 ### Code Location
 ```
-.blackbox5/engine/frameworks/2-speckit/
+blackbox5/engine/frameworks/2-speckit/
 ├── slash-commands/
 │   └── README.md
 ├── templates/
@@ -122,7 +122,7 @@ Standard Operating Procedures (SOPs) for consistent agent workflows and outputs.
 
 ### Code Location
 ```
-.blackbox5/engine/frameworks/3-metagpt/
+blackbox5/engine/frameworks/3-metagpt/
 ├── templates/
 │   └── README.md
 └── README.md
@@ -160,7 +160,7 @@ Lightweight multi-agent coordination with emergent behavior through conversation
 
 ### Code Location
 ```
-.blackbox5/engine/frameworks/4-swarm/
+blackbox5/engine/frameworks/4-swarm/
 ├── examples/
 │   └── README.md
 ├── patterns/
@@ -286,14 +286,14 @@ These frameworks can be combined:
 ## Code References
 
 ### Framework Implementations
-- **BMAD:** `.blackbox5/engine/frameworks/1-bmad/`
-- **SpecKit:** `.blackbox5/engine/frameworks/2-speckit/`
-- **MetaGPT:** `.blackbox5/engine/frameworks/3-metagpt/`
-- **Swarm:** `.blackbox5/engine/frameworks/4-swarm/`
+- **BMAD:** `blackbox5/engine/frameworks/1-bmad/`
+- **SpecKit:** `blackbox5/engine/frameworks/2-speckit/`
+- **MetaGPT:** `blackbox5/engine/frameworks/3-metagpt/`
+- **Swarm:** `blackbox5/engine/frameworks/4-swarm/`
 
 ### Additional Framework Copies
-- **Development:** `.blackbox5/engine/development/frameworks/`
-- **Analysis:** `.blackbox5/engine/development/framework-research/`
+- **Development:** `blackbox5/engine/development/frameworks/`
+- **Analysis:** `blackbox5/engine/development/framework-research/`
 
 ---
 

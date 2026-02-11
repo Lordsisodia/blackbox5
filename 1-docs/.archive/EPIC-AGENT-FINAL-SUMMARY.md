@@ -130,7 +130,7 @@ python3 -m engine.cli.epic_commands show EPIC-001-authentication
 ## 📁 File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   ├── spec_driven/
 │   │   ├── __init__.py          # Exports all classes

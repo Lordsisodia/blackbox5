@@ -24,7 +24,7 @@ Created comprehensive PRD for user profile feature using 4D research approach. T
 - `.claude/prds/user-profile.md`
 - `.claude/prds/user-profile/first-principles.md`
 - `.claude/prds/user-profile/research/` (5 research documents)
-- `.blackbox5/data/memory/john/` (3 memory files)
+- `blackbox5/data/memory/john/` (3 memory files)
 
 ### Files Modified
 - None

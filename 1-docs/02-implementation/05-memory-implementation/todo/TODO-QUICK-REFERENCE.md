@@ -13,7 +13,7 @@ from engine.core.todo_manager import TodoManager
 ### Initialize
 
 ```python
-tm = TodoManager()  # Uses ~/.blackbox5/todos.json
+tm = TodoManager()  # Uses ~/blackbox5/todos.json
 ```
 
 ### Add Todos
@@ -117,7 +117,7 @@ print(f"Completion rate: {stats['completed_ratio']:.1%}")
 
 ## Storage
 
-Todos are saved to: `~/.blackbox5/todos.json`
+Todos are saved to: `~/blackbox5/todos.json`
 
 Format:
 ```json
@@ -209,13 +209,13 @@ for bug in auth_bugs:
 
 Run tests:
 ```bash
-cd .blackbox5
+cd blackbox5
 python3 -m pytest tests/test_todo_manager.py -v
 ```
 
 Run demo:
 ```bash
-cd .blackbox5
+cd blackbox5
 PYTHONPATH=. python3 examples/todo_demo.py
 ```
 
@@ -244,7 +244,7 @@ PYTHONPATH=. python3 examples/todo_demo.py
 ## Troubleshooting
 
 **Todos not persisting?**
-- Check `~/.blackbox5/` directory exists and is writable
+- Check `~/blackbox5/` directory exists and is writable
 - Check file permissions on `todos.json`
 
 **Search not finding items?**
@@ -266,6 +266,6 @@ PYTHONPATH=. python3 examples/todo_demo.py
 ## Support
 
 For issues or questions:
-- Check: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/docs/TODO-MANAGEMENT-IMPLEMENTATION.md`
+- Check: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/docs/TODO-MANAGEMENT-IMPLEMENTATION.md`
 - Run tests: `pytest tests/test_todo_manager.py`
 - View demo: `python3 examples/todo_demo.py`

@@ -32,8 +32,8 @@ BlackBox5 has been successfully deployed to the VPS at `77.42.66.40`.
 
 ### 3. Moltbot Monitoring
 
-**Local monitoring script:** `~/.blackbox5/bin/monitor-vps.sh`
-**LaunchAgent:** `~/Library/LaunchAgents/com.blackbox5.vps-monitor.plist`
+**Local monitoring script:** `~/blackbox5/bin/monitor-vps.sh`
+**LaunchAgent:** `~/Library/LaunchAgents/comblackbox5.vps-monitor.plist`
 **Check interval:** Every 5 minutes
 
 **Monitors:**
@@ -71,8 +71,8 @@ BlackBox5 has been successfully deployed to the VPS at `77.42.66.40`.
 - Run logs: `/opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/`
 
 **Local:**
-- Monitor logs: `~/.blackbox5/.logs/vps-monitor.log`
-- Alert logs: `~/.blackbox5/.logs/vps-alerts.log`
+- Monitor logs: `~/blackbox5/.logs/vps-monitor.log`
+- Alert logs: `~/blackbox5/.logs/vps-alerts.log`
 
 ### 6. Useful Commands
 

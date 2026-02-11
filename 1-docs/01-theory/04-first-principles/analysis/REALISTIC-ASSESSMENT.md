@@ -62,7 +62,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 ### ✅ FULLY IMPLEMENTED & WORKING
 
 #### 1. **Event Bus System** ⭐⭐⭐⭐⭐
-**Location:** `.blackbox5/engine/core/event_bus.py`
+**Location:** `blackbox5/engine/core/event_bus.py`
 **Status:** PRODUCTION READY
 **Features:**
 - Redis-based pub/sub
@@ -73,7 +73,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 **Verdict:** Excellent, use as-is
 
 #### 2. **Task Router** ⭐⭐⭐⭐⭐
-**Location:** `.blackbox5/engine/core/task_router.py`
+**Location:** `blackbox5/engine/core/task_router.py`
 **Status:** WORKING
 **Features:**
 - Complexity-based routing (simple/moderate/complex)
@@ -83,7 +83,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 **Verdict:** Complete and ready to use
 
 #### 3. **Circuit Breaker** ⭐⭐⭐⭐⭐
-**Location:** `.blackbox5/engine/core/circuit_breaker.py`
+**Location:** `blackbox5/engine/core/circuit_breaker.py`
 **Status:** PRODUCTION READY
 **Features:**
 - Failure detection
@@ -93,7 +93,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 **Verdict:** Robust implementation
 
 #### 4. **Brain System** ⭐⭐⭐⭐
-**Location:** `.blackbox5/engine/brain/`
+**Location:** `blackbox5/engine/brain/`
 **Status:** PARTIALLY WORKING
 **Features:**
 - Metadata schema (Phase 1 complete)
@@ -104,7 +104,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 **Verdict:** Good foundation, needs integration
 
 #### 5. **Manifest System** ⭐⭐⭐⭐
-**Location:** `.blackbox5/engine/core/manifest.py`
+**Location:** `blackbox5/engine/core/manifest.py`
 **Status:** WORKING
 **Features:**
 - Operation tracking
@@ -113,7 +113,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 **Verdict:** Functional, could use enhancements
 
 #### 6. **CLI Tools** ⭐⭐⭐⭐
-**Location:** `.blackbox5/engine/runtime/`
+**Location:** `blackbox5/engine/runtime/`
 **Status:** WORKING
 **Features:**
 - 23+ shell scripts
@@ -125,7 +125,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 ### ⚠️ PARTIALLY IMPLEMENTED
 
 #### 1. **Structured Logging** ⭐⭐⭐
-**Location:** `.blackbox5/engine/core/logging.py`
+**Location:** `blackbox5/engine/core/logging.py`
 **Status:** EXISTS but NOT INTEGRATED
 **Features:**
 - AgentLogger class
@@ -135,7 +135,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 **Verdict:** Ready, waiting for agents
 
 #### 2. **Memory System** ⭐⭐
-**Location:** `.blackbox5/engine/memory/`
+**Location:** `blackbox5/engine/memory/`
 **Status:** SCATTERED
 **Features:**
 - Extended memory services exist
@@ -198,7 +198,7 @@ structlog                  # Structured logging - LOGGING SYSTEM
 #### 1. **Agent Execution Layer** - 90% MISSING
 **What's Needed:**
 ```python
-# FILE: .blackbox5/engine/agents/core/BaseAgent.py
+# FILE: blackbox5/engine/agents/core/BaseAgent.py
 class BaseAgent:
     def __init__(self, agent_id, capabilities, event_bus):
         self.id = agent_id
@@ -208,7 +208,7 @@ class BaseAgent:
     async def execute(self, task):
         raise NotImplementedError
 
-# FILE: .blackbox5/engine/agents/core/AgentLoader.py
+# FILE: blackbox5/engine/agents/core/AgentLoader.py
 class AgentLoader:
     def __init__(self):
         self.agents = {}
@@ -219,7 +219,7 @@ class AgentLoader:
         # Return registry
         pass
 
-# FILE: .blackbox5/engine/agents/core/SkillManager.py
+# FILE: blackbox5/engine/agents/core/SkillManager.py
 class SkillManager:
     def __init__(self):
         self.skills = {}
@@ -236,7 +236,7 @@ class SkillManager:
 #### 2. **Manager Agent Implementation** - 100% MISSING
 **What's Needed:**
 ```python
-# FILE: .blackbox5/engine/agents/1-core/manager/manager.py
+# FILE: blackbox5/engine/agents/1-core/manager/manager.py
 class ManagerAgent(BaseAgent):
     async def coordinate(self, task):
         # Decompose task
@@ -262,7 +262,7 @@ class ManagerAgent(BaseAgent):
 #### 4. **Memory Integration** - 80% MISSING
 **What's Needed:**
 ```python
-# FILE: .blackbox5/engine/memory/integrated.py
+# FILE: blackbox5/engine/memory/integrated.py
 class IntegratedMemory:
     def __init__(self):
         self.working = WorkingMemory()
@@ -282,7 +282,7 @@ class IntegratedMemory:
 #### 5. **Multi-Agent Coordinator** - 100% MISSING
 **What's Needed:**
 ```python
-# FILE: .blackbox5/engine/core/coordination.py
+# FILE: blackbox5/engine/core/coordination.py
 class MultiAgentCoordinator:
     async def execute(self, task, strategy):
         # Decompose task
@@ -389,13 +389,13 @@ class MultiAgentCoordinator:
 
 **Files to Create:**
 ```
-.blackbox5/engine/agents/core/
+blackbox5/engine/agents/core/
 ├── BaseAgent.py
 ├── AgentLoader.py
 ├── SkillManager.py
 └── __init__.py
 
-.blackbox5/engine/agents/1-core/
+blackbox5/engine/agents/1-core/
 ├── coder/
 │   ├── agent.md
 │   ├── prompt.md
@@ -428,7 +428,7 @@ class MultiAgentCoordinator:
 
 **Files to Create:**
 ```
-.blackbox5/engine/agents/1-core/manager/
+blackbox5/engine/agents/1-core/manager/
 ├── manager.py  # NEW
 └── ...
 ```

@@ -7,7 +7,7 @@
 ### Learning 1: BB5 Run Directory Structure
 **Discovered:** Session start
 
-The BB5 system uses a structured run directory at `~/.blackbox5/runs/current/` containing:
+The BB5 system uses a structured run directory at `~/blackbox5/runs/current/` containing:
 - `THOUGHTS.md` - Real-time observations and thinking
 - `DECISIONS.md` - Formal decision records
 - `LEARNINGS.md` - Insights and knowledge capture

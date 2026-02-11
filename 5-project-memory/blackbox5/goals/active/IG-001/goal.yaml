@@ -1,16 +1,18 @@
-# Goal: Improve CLAUDE.md Effectiveness
+# Goal: Improve CLAUDE.md Guidance
 # =============================================================================
 goal_id: IG-001
-name: "Improve CLAUDE.md Effectiveness"
-description: "Refine the core instructions to make decision-making faster and more accurate"
+name: "Improve CLAUDE.md Guidance"
+description: "Continuously refine agent guidance (CLAUDE.md) to improve decision-making, operational efficiency, and execution quality"
 
 meta:
   created: "2026-01-15"
-  target_completion: "2026-03-01"
+  updated: "2026-02-10"
+  target_completion: "ongoing"
   owner: "planner-agent"
   priority: high
-  status: not_started
+  status: in_progress
   category: guidance
+  note: "Merged IG-002 (LEGACY.md) - operational procedures are part of guidance"
 
 # =============================================================================
 # SUB-GOALS
@@ -18,22 +20,22 @@ meta:
 
 sub_goals:
   - id: SG-001-1
-    name: "Analyze current decision patterns"
-    description: "Review past runs to identify where CLAUDE.md could be clearer"
-    weight: 30
+    name: "Analyze guidance effectiveness"
+    description: "Review past runs to identify where CLAUDE.md could be clearer and operations smoother"
+    weight: 25
     status: not_started
 
     acceptance_criteria:
       - "Identified 5+ instances of hesitation or confusion"
-      - "Documented specific sections causing delays"
-      - "Measured average decision time"
+      - "Documented operational friction points"
+      - "Measured decision and execution time"
 
     linked_tasks: []
 
   - id: SG-001-2
     name: "Refine decision framework"
     description: "Make the decision framework more specific with examples"
-    weight: 40
+    weight: 25
     status: not_started
 
     acceptance_criteria:
@@ -44,9 +46,22 @@ sub_goals:
     linked_tasks: []
 
   - id: SG-001-3
+    name: "Optimize operational procedures"
+    description: "Streamline skill discovery, quality gates, and run initialization"
+    weight: 25
+    status: not_started
+
+    acceptance_criteria:
+      - "Cached frequently used skills"
+      - "Quality gate checklists per task type"
+      - "Reduced setup time by 30%"
+
+    linked_tasks: []
+
+  - id: SG-001-4
     name: "Validate improvements"
-    description: "Test refined CLAUDE.md on real tasks"
-    weight: 30
+    description: "Test refined guidance on real tasks"
+    weight: 25
     status: not_started
 
     acceptance_criteria:
@@ -83,21 +98,37 @@ links:
   decisions: []
   learnings: []
   related_goals:
-    - IG-002  # LEGACY.md improvements
+    - IG-004  # Skill/subagent usage (complementary)
 
   # Parent core goal
   parent_goal: CG-001
+
+  plans:
+    - guidance-effectiveness-improvement
+
+  tasks:
+    - TASK-GUIDE-001  # Analyze past runs
+    - TASK-GUIDE-002  # Add decision examples
 
 # =============================================================================
 # NOTES
 # =============================================================================
 
 notes: |
+  Merged IG-002 on 2026-02-10: LEGACY.md operational procedures are now part
+  of this goal. The distinction between "guidance" and "operations" was
+  artificial - both are about helping agents make better decisions faster.
+
   Current issues identified:
   - Decision framework could be more specific
   - Context management thresholds may need tuning
   - Sub-agent deployment rules could be clearer
+  - Skill discovery may be too slow
+  - Quality gates could be more specific
+  - Run initialization takes time
 
-  Target file: ~/.claude/CLAUDE.md
+  Target files:
+  - ~/.claude/CLAUDE.md (decision guidance)
+  - ~/blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md (project guidance)
 
-  Success means faster, more confident decision-making.
+  Success means faster, more confident decision-making and smoother execution.

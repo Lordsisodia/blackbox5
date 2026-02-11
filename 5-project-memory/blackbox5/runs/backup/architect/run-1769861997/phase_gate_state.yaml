@@ -1,7 +1,7 @@
 run:
   loop: 40
   timestamp: "2026-01-31T12:19:57Z"
-  run_dir: "/Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769861997"
+  run_dir: "/Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769861997"
 
 gates:
   init:

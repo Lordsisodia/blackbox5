@@ -197,8 +197,8 @@ The agent-spawner.py references these agents that don't have definition files:
 - SQLite backend for high-volume storage
 
 **Actual Implementation:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py` - **FUNCTIONAL** (988 lines, fully implemented)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/event_logger.py` - **FUNCTIONAL** (324 lines)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py` - **FUNCTIONAL** (988 lines, fully implemented)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/event_logger.py` - **FUNCTIONAL** (324 lines)
 - Events are actually written to events.yaml
 - Queue operations work via queue.yaml
 
@@ -482,23 +482,23 @@ The agent-spawner.py references these agents that don't have definition files:
 ## Appendix A: Files to Review
 
 ### Critical (Fake/Stub Code)
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/agent-spawner.py` - Lines 203-242
-- `/Users/shaansisodia/.blackbox5/bin/ralf-loops/loops/ralf-core-with-agent-teams.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-six-agent-pipeline.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/agent-spawner.py` - Lines 203-242
+- `/Users/shaansisodia/blackbox5/bin/ralf-loops/loops/ralf-core-with-agent-teams.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-six-agent-pipeline.sh`
 
 ### Important (Partial Implementation)
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/executor.py` - spawn_context_collector method
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/ralf-executor.sh` - task-scanner.py reference
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/DUAL-RALF-ARCHITECTURE.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/UNIFIED_COMMUNICATION.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/protocol.yaml`
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/executor.py` - spawn_context_collector method
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/ralf-executor.sh` - task-scanner.py reference
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/DUAL-RALF-ARCHITECTURE.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/UNIFIED_COMMUNICATION.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/protocol.yaml`
 
 ### Functional (Keep)
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/executor.py` - Core execution logic
-- `/Users/shaansisodia/.blackbox5/bin/ralf-executor/task_scanner.py`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-loops/loops/ralf-core.sh`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/event_logger.py`
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/executor.py` - Core execution logic
+- `/Users/shaansisodia/blackbox5/bin/ralf-executor/task_scanner.py`
+- `/Users/shaansisodia/blackbox5/bin/ralf-loops/loops/ralf-core.sh`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/storage.py`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/event_logger.py`
 
 ---
 

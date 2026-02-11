@@ -148,7 +148,7 @@ export VIBE_MEMORY_PATH="./memory/working"
 Run the test suite:
 
 ```bash
-cd .blackbox5
+cd blackbox5
 pytest tests/test_vibe_integration.py -v
 ```
 

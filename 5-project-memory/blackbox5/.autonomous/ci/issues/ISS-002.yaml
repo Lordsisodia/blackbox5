@@ -1,0 +1,11 @@
+issue_id: ISS-002
+title: 'Error scan: logs'
+description: Automated error detection scan of logs
+source: manual_trigger
+severity: medium
+status: detected
+created_at: '2026-02-10T22:40:54.147256'
+updated_at: '2026-02-10T22:40:54.147297'
+validation: null
+plan_id: null
+execution_id: null

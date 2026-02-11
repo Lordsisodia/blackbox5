@@ -29,7 +29,7 @@
 
 ## Files Modified
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml`: Updated run counts (lines 389-396)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml`: Updated run counts (lines 389-396)
 - 42 run directories moved from `runs/completed/` to `runs/archived/`
 
 ## Remaining Runs in completed/

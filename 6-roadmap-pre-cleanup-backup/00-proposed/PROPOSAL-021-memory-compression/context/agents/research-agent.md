@@ -20,7 +20,7 @@ Conduct comprehensive research on memory compression for autonomous agents, focu
 
 ### 1. DeerFlow Research
 
-**Location:** `.blackbox5/` or external documentation
+**Location:** `blackbox5/` or external documentation
 
 **Key Questions:**
 - What compression algorithms does DeerFlow use?
@@ -92,9 +92,9 @@ Conduct comprehensive research on memory compression for autonomous agents, focu
 ## Research Sources
 
 ### Internal
-- `.blackbox5/engine/memory/` - Current memory system
-- `.blackbox5/engine/core/token_compressor.py` - Existing token compression
-- `.blackbox5/engine/knowledge/` - Knowledge/RAG system
+- `blackbox5/engine/memory/` - Current memory system
+- `blackbox5/engine/core/token_compressor.py` - Existing token compression
+- `blackbox5/engine/knowledge/` - Knowledge/RAG system
 
 ### External (if accessible)
 - DeerFlow documentation and papers

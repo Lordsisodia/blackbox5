@@ -1004,7 +1004,7 @@ phases:
 The existing `AgentOrchestrator` can be extended with wave-based execution:
 
 ```python
-# Extension to /Users/shaansisodia/.blackbox5/2-engine/workflows/engine/Orchestrator.py
+# Extension to /Users/shaansisodia/blackbox5/2-engine/workflows/engine/Orchestrator.py
 
 class AgentOrchestrator:
     # ... existing code ...
@@ -1424,10 +1424,10 @@ def validate_no_cycles(tasks: List[Task]) -> Optional[List[str]]:
 
 ### Related Files
 
-- `/Users/shaansisodia/.blackbox5/2-engine/workflows/engine/Orchestrator.py` - Core orchestration logic
-- `/Users/shaansisodia/.blackbox5/2-engine/instructions/workflows/task-execution.yaml` - Task execution workflow
-- `/Users/shaansisodia/.blackbox5/2-engine/agents/framework/task_schema.py` - Task data structures
-- `/Users/shaansisodia/.blackbox5/1-docs/05-examples/code/wave_execution_example.py` - Usage examples
+- `/Users/shaansisodia/blackbox5/2-engine/workflows/engine/Orchestrator.py` - Core orchestration logic
+- `/Users/shaansisodia/blackbox5/2-engine/instructions/workflows/task-execution.yaml` - Task execution workflow
+- `/Users/shaansisodia/blackbox5/2-engine/agents/framework/task_schema.py` - Task data structures
+- `/Users/shaansisodia/blackbox5/1-docs/05-examples/code/wave_execution_example.py` - Usage examples
 
 ### External References
 

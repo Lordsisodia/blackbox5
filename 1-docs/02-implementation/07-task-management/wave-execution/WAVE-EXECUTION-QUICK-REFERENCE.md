@@ -140,13 +140,13 @@ for wave in result.wave_details:
 
 ## Examples
 
-See `.blackbox5/examples/wave_execution_example.py` for complete examples.
+See `blackbox5/examples/wave_execution_example.py` for complete examples.
 
 ## Testing
 
 Run tests:
 ```bash
-python3 -m pytest .blackbox5/tests/test_wave_execution.py -v
+python3 -m pytest blackbox5/tests/test_wave_execution.py -v
 ```
 
 ## Implementation Details

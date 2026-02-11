@@ -50,7 +50,7 @@ Complete integration with Notion API for managing pages, databases, and blocks p
 pip install httpx
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 ```txt
 httpx>=0.27.0
 ```
@@ -431,10 +431,10 @@ async with NotionManager() as manager:
 
 ```bash
 # Run demo
-python .blackbox5/integration/notion/demo.py
+python blackbox5/integration/notion/demo.py
 
 # Run tests (when implemented)
-python .blackbox5/integration/notion/tests/test_integration.py
+python blackbox5/integration/notion/tests/test_integration.py
 ```
 
 ## Troubleshooting

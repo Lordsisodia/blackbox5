@@ -287,7 +287,7 @@ async def test_create_card(vibe_manager):
 ## Success Criteria Met
 
 ✅ **VibeKanbanManager.py created**
-- Location: `.blackbox5/integration/vibe/VibeKanbanManager.py`
+- Location: `blackbox5/integration/vibe/VibeKanbanManager.py`
 - 600+ lines of well-documented code
 
 ✅ **Follows same patterns as GitHubManager**

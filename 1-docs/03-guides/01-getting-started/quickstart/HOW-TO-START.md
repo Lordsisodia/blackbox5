@@ -9,7 +9,7 @@
 ### Step 1: Create Directory Structure
 
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
 
 # Create new directories
 mkdir -p specs/{prds,epics,tasks}
@@ -23,9 +23,9 @@ mkdir -p github/{issues,workflows,sync}
 ### Step 2: Copy Templates (Already Done!)
 
 The templates are already created:
-- ✅ `.blackbox5/specs/prds/TEMPLATE.md`
-- ✅ `.blackbox5/specs/epics/TEMPLATE.md`
-- ✅ `.blackbox5/specs/tasks/TEMPLATE.md`
+- ✅ `blackbox5/specs/prds/TEMPLATE.md`
+- ✅ `blackbox5/specs/epics/TEMPLATE.md`
+- ✅ `blackbox5/specs/tasks/TEMPLATE.md`
 
 ### Step 3: Create First PRD (Test Drive)
 
@@ -33,7 +33,7 @@ The templates are already created:
 
 ```bash
 # Copy template
-cp .blackbox5/specs/prds/TEMPLATE.md .blackbox5/specs/prds/001-debugging-helper.md
+cp blackbox5/specs/prds/TEMPLATE.md blackbox5/specs/prds/001-debugging-helper.md
 ```
 
 **Fill in the PRD**:
@@ -82,7 +82,7 @@ Minimal solution: 4-phase systematic process
 
 ```bash
 # Use the epic template
-cp .blackbox5/specs/epics/TEMPLATE.md .blackbox5/specs/epics/001-debugging-helper-epic.md
+cp blackbox5/specs/epics/TEMPLATE.md blackbox5/specs/epics/001-debugging-helper-epic.md
 ```
 
 **Fill in the Epic** (technical spec):
@@ -111,7 +111,7 @@ What to Eliminate:
 
 ## Components
 ### Component 1: SKILL.md
-File: `.blackbox5/engine/agents/.skills-new/development-workflow/testing-quality/systematic-debugging/SKILL.md`
+File: `blackbox5/engine/agents/.skills-new/development-workflow/testing-quality/systematic-debugging/SKILL.md`
 Content: XML-structured debugging methodology
 
 ## Acceptance Criteria
@@ -125,9 +125,9 @@ Content: XML-structured debugging methodology
 
 ```bash
 # Use the task template
-cp .blackbox5/specs/tasks/TEMPLATE.md .blackbox5/specs/tasks/001-create-skill-file.md
-cp .blackbox5/specs/tasks/TEMPLATE.md .blackbox5/specs/tasks/002-add-workflow.md
-cp .blackbox5/specs/tasks/TEMPLATE.md .blackbox5/specs/tasks/003-add-examples.md
+cp blackbox5/specs/tasks/TEMPLATE.md blackbox5/specs/tasks/001-create-skill-file.md
+cp blackbox5/specs/tasks/TEMPLATE.md blackbox5/specs/tasks/002-add-workflow.md
+cp blackbox5/specs/tasks/TEMPLATE.md blackbox5/specs/tasks/003-add-examples.md
 ```
 
 **Fill in each task** with acceptance criteria.
@@ -138,11 +138,11 @@ cp .blackbox5/specs/tasks/TEMPLATE.md .blackbox5/specs/tasks/003-add-examples.md
 
 ### Step 1: Create PRD Command
 
-**File**: `.blackbox5/commands/prd-new.sh`
+**File**: `blackbox5/commands/prd-new.sh`
 
 ```bash
 #!/bin/bash
-# .blackbox5/commands/prd-new.sh
+# blackbox5/commands/prd-new.sh
 # Create new PRD with first principles analysis
 
 SKILL_NAME=$1
@@ -163,16 +163,16 @@ echo "Then run: bb5 prd:parse ${SKILL_NAME}"
 
 **Make it executable**:
 ```bash
-chmod +x .blackbox5/commands/prd-new.sh
+chmod +x blackbox5/commands/prd-new.sh
 ```
 
 ### Step 2: Create Epic Generator Command
 
-**File**: `.blackbox5/commands/prd-parse.sh`
+**File**: `blackbox5/commands/prd-parse.sh`
 
 ```bash
 #!/bin/bash
-# .blackbox5/commands/prd-parse.sh
+# blackbox5/commands/prd-parse.sh
 # Transform PRD to technical epic
 
 SKILL_NAME=$1
@@ -213,11 +213,11 @@ echo "Then run: bb5 epic:decompose ${SKILL_NAME}"
 
 ### Step 3: Create Task Decomposer Command
 
-**File**: `.blackbox5/commands/epic-decompose.sh`
+**File**: `blackbox5/commands/epic-decompose.sh`
 
 ```bash
 #!/bin/bash
-# .blackbox5/commands/epic-decompose.sh
+# blackbox5/commands/epic-decompose.sh
 # Break epic into tasks
 
 SKILL_NAME=$1
@@ -270,10 +270,10 @@ echo "📝 Review tasks and assign to agents/humans"
 
 ```bash
 # Add BlackBox5 commands to PATH
-export PATH="$PATH:.blackbox5/commands"
+export PATH="$PATH:blackbox5/commands"
 
 # Or add to ~/.zshrc or ~/.bashrc
-echo 'export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/commands"' >> ~/.zshrc
+echo 'export PATH="$PATH:/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/commands"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -290,7 +290,7 @@ source ~/.zshrc
 bb5 prd:new test-driven-development
 
 # It should create:
-# .blackbox5/specs/prds/001-test-driven-development.md
+# blackbox5/specs/prds/001-test-driven-development.md
 
 # Edit the PRD to match existing skill
 ```
@@ -301,7 +301,7 @@ bb5 prd:new test-driven-development
 bb5 prd:parse test-driven-development
 
 # It should create:
-# .blackbox5/specs/epics/001-test-driven-development-epic.md
+# blackbox5/specs/epics/001-test-driven-development-epic.md
 ```
 
 ### Step 3: Decompose to Tasks
@@ -310,9 +310,9 @@ bb5 prd:parse test-driven-development
 bb5 epic:decompose test-driven-development
 
 # It should create:
-# .blackbox5/specs/tasks/001-tdd-red-phase.md
-# .blackbox5/specs/tasks/002-tdd-green-phase.md
-# .blackbox5/specs/tasks/003-tdd-refactor-phase.md
+# blackbox5/specs/tasks/001-tdd-red-phase.md
+# blackbox5/specs/tasks/002-tdd-green-phase.md
+# blackbox5/specs/tasks/003-tdd-refactor-phase.md
 ```
 
 ### Step 4: Implement Tasks
@@ -326,13 +326,13 @@ Each task should have:
 
 ```bash
 # Check that all components work:
-ls -la .blackbox5/specs/prds/
-ls -la .blackbox5/specs/epics/
-ls -la .blackbox5/specs/tasks/
+ls -la blackbox5/specs/prds/
+ls -la blackbox5/specs/epics/
+ls -la blackbox5/specs/tasks/
 
 # Verify workflow works
-cat .blackbox5/specs/prds/001-test-driven-development.md
-cat .blackbox5/specs/epics/001-test-driven-development-epic.md
+cat blackbox5/specs/prds/001-test-driven-development.md
+cat blackbox5/specs/epics/001-test-driven-development-epic.md
 ```
 
 ---
@@ -341,7 +341,7 @@ cat .blackbox5/specs/epics/001-test-driven-development-epic.md
 
 ### Connect to Agent Loader
 
-**File**: `.blackbox5/engine/core/AgentLoader.py`
+**File**: `blackbox5/engine/core/AgentLoader.py`
 
 **Add PRD check**:
 ```python
@@ -366,7 +366,7 @@ def load_agent(agent_id):
 
 ### Connect to Skill Manager
 
-**File**: `.blackbox5/engine/core/SkillManager.py`
+**File**: `blackbox5/engine/core/SkillManager.py`
 
 **Add spec validation**:
 ```python
@@ -425,17 +425,17 @@ bb5 task:status <task-id>
 ```bash
 # 1. Create PRD (5 min)
 bb5 prd:new code-review
-# Edit: .blackbox5/specs/prds/001-code-review.md
+# Edit: blackbox5/specs/prds/001-code-review.md
 # Add: First principles analysis, requirements, success metrics
 
 # 2. Generate Epic (5 min)
 bb5 prd:parse code-review
-# Edit: .blackbox5/specs/epics/001-code-review-epic.md
+# Edit: blackbox5/specs/epics/001-code-review-epic.md
 # Add: Technical decisions, architecture, components
 
 # 3. Decompose to Tasks (5 min)
 bb5 epic:decompose code-review
-# Edit: .blackbox5/specs/tasks/*.md
+# Edit: blackbox5/specs/tasks/*.md
 # Add: Acceptance criteria, file locations, definition of done
 
 # 4. Implement (agent or human)

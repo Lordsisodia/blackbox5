@@ -73,7 +73,7 @@ Implement GitHub Integration Suite to enable RALF agents to interact directly wi
    - Format: Markdown with sections
 
 5. **Create Configuration**
-   - File: `~/.blackbox5/github-config.yaml`
+   - File: `~/blackbox5/github-config.yaml`
    - GitHub credentials (PAT)
    - Repository settings (default branch, labels)
    - Feature flags (auto-create PRs, webhook URL)
@@ -95,7 +95,7 @@ Implement GitHub Integration Suite to enable RALF agents to interact directly wi
 - `2-engine/.autonomous/lib/github_webhook_handler.py` - Webhook server
 - `2-engine/.autonomous/lib/github_health_monitor.py` - Health monitoring
 - `2-engine/.autonomous/config/github-config.yaml` - Configuration template
-- `~/.blackbox5/github-config.yaml` - User config
+- `~/blackbox5/github-config.yaml` - User config
 - `operations/.docs/github-integration-guide.md` - User guide
 - `.github/PULL_REQUEST_TEMPLATE.md` - PR template
 

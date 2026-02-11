@@ -85,7 +85,7 @@ Single commit revert if issues arise
 git branch --show-current
 
 # Test RALF runs without error
-cd ~/.blackbox5/5-project-memory/ralf-core/.autonomous
+cd ~/blackbox5/5-project-memory/ralf-core/.autonomous
 bash ralf-daemon.sh
 ```
 

@@ -10,13 +10,13 @@
 #   sync-goal-index.sh --dry-run    # Preview changes without applying
 #   sync-goal-index.sh --verbose    # Show detailed output
 #
-# Location: ~/.blackbox5/bin/sync-goal-index.sh
+# Location: ~/blackbox5/bin/sync-goal-index.sh
 # =============================================================================
 
 set -euo pipefail
 
 # Configuration
-GOALS_DIR="${BB5_GOALS_DIR:-$HOME/.blackbox5/5-project-memory/blackbox5/goals}"
+GOALS_DIR="${BB5_GOALS_DIR:-$HOME/blackbox5/5-project-memory/blackbox5/goals}"
 ACTIVE_GOALS_DIR="$GOALS_DIR/active"
 INDEX_FILE="$GOALS_DIR/INDEX.yaml"
 DRY_RUN=false

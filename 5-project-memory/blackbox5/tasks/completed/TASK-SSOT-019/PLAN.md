@@ -209,7 +209,7 @@ def validate_state(state: dict) -> list:
 #!/bin/bash
 # Regenerate STATE.yaml after task changes
 
-~/.blackbox5/2-engine/.autonomous/bin/generate-state.py
+~/blackbox5/2-engine/.autonomous/bin/generate-state.py
 ```
 
 #### Phase 4: Documentation (1 hour)

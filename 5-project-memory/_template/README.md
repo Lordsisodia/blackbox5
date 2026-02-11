@@ -213,8 +213,8 @@ Located in `decisions/` subfolders
 
 ## Related Documentation
 
-- `.blackbox5/5-project-memory/REORGANIZATION-COMPLETE.md` - Complete reorganization details
-- `.blackbox5/5-project-memory/OPTIMIZED-REORGANIZATION.md` - Design rationale
+- `blackbox5/5-project-memory/REORGANIZATION-COMPLETE.md` - Complete reorganization details
+- `blackbox5/5-project-memory/OPTIMIZED-REORGANIZATION.md` - Design rationale
 
 ## Version History
 

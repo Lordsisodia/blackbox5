@@ -4,7 +4,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PIDFILE="/tmp/bb5-ci-orchestrator.pid"
-LOGFILE="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/ci/logs/orchestrator.log"
+LOGFILE="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/ci/logs/orchestrator.log"
 
 # Ensure log directory exists
 mkdir -p "$(dirname "$LOGFILE")"
@@ -16,7 +16,7 @@ start() {
     fi
 
     echo "Starting BB5 CI Orchestrator..."
-    nohup python3 "$SCRIPT_DIR/ci_orchestrator.py" start >> "$LOGFILE" 2>&1 &
+    nohup python3 -u "$SCRIPT_DIR/ci_orchestrator.py" start >> "$LOGFILE" 2>&1 &
     echo $! > "$PIDFILE"
     echo "Started (PID: $!)"
     echo "Logs: $LOGFILE"

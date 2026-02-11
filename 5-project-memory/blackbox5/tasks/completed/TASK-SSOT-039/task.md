@@ -32,7 +32,7 @@ CLAUDE.md currently mixes global instructions with project-specific content, cre
 
 ### Decision: Rules-Based Approach is Sufficient
 
-The project already has a well-organized rules-based structure at `~/.blackbox5/5-project-memory/blackbox5/.claude/rules/` with 8 rule files covering all behavioral aspects:
+The project already has a well-organized rules-based structure at `~/blackbox5/5-project-memory/blackbox5/.claude/rules/` with 8 rule files covering all behavioral aspects:
 
 1. **001-one-task-per-session.md** - One task per session rule
 2. **002-read-before-change.md** - Read before change rule
@@ -45,7 +45,7 @@ The project already has a well-organized rules-based structure at `~/.blackbox5/
 
 ### What Was Created
 
-1. **Project-Level CLAUDE.md** (`~/.blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`)
+1. **Project-Level CLAUDE.md** (`~/blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`)
    - References the rules/ directory
    - Contains BlackBox5-specific workflows (bb5 commands, directory structure)
    - Documents the hierarchical loading order
@@ -68,7 +68,7 @@ The project already has a well-organized rules-based structure at `~/.blackbox5/
 
 ## Files Modified
 - `/Users/shaansisodia/.claude/CLAUDE.md` - Cleaned to universal standards only
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md` - Created with BlackBox5-specific content
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md` - Created with BlackBox5-specific content
 
 ## Estimated Effort
 2-3 hours

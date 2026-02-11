@@ -11,7 +11,7 @@
 
 ```bash
 # Run this one command to check everything
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 ```
 
 **What it checks**:
@@ -26,7 +26,7 @@ bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 
 ```bash
 # Run automated setup
-bash .blackbox5/1-docs/03-guides/02-tutorials/setup-agent-orchestration.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/setup-agent-orchestration.sh
 ```
 
 **What it does**:
@@ -40,7 +40,7 @@ bash .blackbox5/1-docs/03-guides/02-tutorials/setup-agent-orchestration.sh
 
 ```bash
 # Run complete workflow test
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 **What it tests**:
@@ -76,12 +76,12 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 - [ ] **1.4 Install Python dependencies**
   ```bash
-  pip install -r .blackbox5/2-engine/requirements.txt
+  pip install -r blackbox5/2-engine/requirements.txt
   ```
 
 - [ ] **1.5 Install Node dependencies**
   ```bash
-  cd .blackbox5/2-engine/07-operations/runtime/ralphy
+  cd blackbox5/2-engine/07-operations/runtime/ralphy
   npm install
   ```
 
@@ -93,7 +93,7 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
   docker run -d -p 3001:3001 vibekanban/server
 
   # Option B: Local installation
-  cd .blackbox5/2-engine/06-integrations/vibe
+  cd blackbox5/2-engine/06-integrations/vibe
   npm install
   npm start
   ```
@@ -125,11 +125,11 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 - [ ] **3.1 Configure Planning Agent**
   ```bash
-  cp .blackbox5/2-engine/02-agents/config/planning-agent.yaml.example \
-     .blackbox5/2-engine/02-agents/config/planning-agent.yaml
+  cp blackbox5/2-engine/02-agents/config/planning-agent.yaml.example \
+     blackbox5/2-engine/02-agents/config/planning-agent.yaml
 
   # Edit configuration
-  nano .blackbox5/2-engine/02-agents/config/planning-agent.yaml
+  nano blackbox5/2-engine/02-agents/config/planning-agent.yaml
   ```
 
   **Required settings**:
@@ -141,8 +141,8 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 - [ ] **3.2 Configure Orchestrator Agent**
   ```bash
-  cp .blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml.example \
-     .blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml
+  cp blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml.example \
+     blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml
   ```
 
   **Required settings**:
@@ -157,15 +157,15 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
   ```bash
   # Already configured in previous integration
   # Verify it exists
-  ls -la .blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh
+  ls -la blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh
   ```
 
 ### Phase 4: Project Memory Setup (2 minutes)
 
 - [ ] **4.1 Create Project Memory structure**
   ```bash
-  mkdir -p .blackbox5/5-project-memory/siso-internal/operations/{agents,ralphy}
-  mkdir -p .blackbox5/5-project-memory/siso-internal/operations/agents/{active,history}
+  mkdir -p blackbox5/5-project-memory/siso-internal/operations/{agents,ralphy}
+  mkdir -p blackbox5/5-project-memory/siso-internal/operations/agents/{active,history}
   ```
 
 - [ ] **4.2 Verify AgentMemory module**
@@ -184,7 +184,7 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 - [ ] **4.3 Test Ralphy integration**
   ```bash
-  python3 .blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py
+  python3 blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py
   # Should output session data
   ```
 
@@ -192,21 +192,21 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 - [ ] **5.1 Test Planning Agent**
   ```bash
-  python3 .blackbox5/1-docs/03-guides/02-tutorials/test-planning-agent.py
+  python3 blackbox5/1-docs/03-guides/02-tutorials/test-planning-agent.py
   ```
 
   **Expected output**:
   ```
   ✅ Planning Agent test started
-  ✅ PRD created: .blackbox5/specs/prds/test-prd.md
-  ✅ Epic created: .blackbox5/specs/epics/test-epic.md
+  ✅ PRD created: blackbox5/specs/prds/test-prd.md
+  ✅ Epic created: blackbox5/specs/epics/test-epic.md
   ✅ Tasks created: 5
   ✅ Pushed to Vibe Kanban: 5 cards
   ```
 
 - [ ] **5.2 Test Orchestrator Agent**
   ```bash
-  python3 .blackbox5/1-docs/03-guides/02-tutorials/test-orchestrator-agent.py
+  python3 blackbox5/1-docs/03-guides/02-tutorials/test-orchestrator-agent.py
   ```
 
   **Expected output**:
@@ -222,7 +222,7 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 - [ ] **5.3 Test Ralphy Integration**
   ```bash
   cd /tmp/ralphy-orchestration-test
-  python3 ../.blackbox5/1-docs/03-guides/02-tutorials/test-ralphy-workflow.py
+  python3 ../blackbox5/1-docs/03-guides/02-tutorials/test-ralphy-workflow.py
   ```
 
   **Expected output**:
@@ -237,7 +237,7 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 - [ ] **5.4 Test Complete Workflow**
   ```bash
-  python3 .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+  python3 blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
   ```
 
   **Expected output**:
@@ -265,7 +265,7 @@ python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 Run this single command to verify everything:
 
 ```bash
-bash .blackbox5/1-docs/03-guides/02-tutorials/verify-all.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/verify-all.sh
 ```
 
 **What it checks**:
@@ -306,13 +306,13 @@ python3 -c "from blackbox5.engine.agents.workflows.orchestrator_agent import Orc
 
 **Check 4: Ralphy**
 ```bash
-.blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh --help
+blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh --help
 # Expected: Ralphy usage information
 ```
 
 **Check 5: Project Memory**
 ```bash
-ls -la .blackbox5/5-project-memory/siso-internal/operations/
+ls -la blackbox5/5-project-memory/siso-internal/operations/
 # Expected: agents/, ralphy/ directories exist
 ```
 
@@ -324,7 +324,7 @@ ls -la .blackbox5/5-project-memory/siso-internal/operations/
 
 ```bash
 # Run complete automated test
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 # This will:
 # 1. Create a sample project
@@ -364,14 +364,14 @@ EOF
 
 # Step 4: Check results
 echo "📊 Results in Project Memory:"
-ls -la .blackbox5/5-project-memory/siso-internal/operations/
+ls -la blackbox5/5-project-memory/siso-internal/operations/
 ```
 
 ### Option 3: Interactive Demo
 
 ```bash
 # Run interactive demo
-python .blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
+python blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
 ```
 
 **This will**:
@@ -424,7 +424,7 @@ docker ps | grep vibekanban
 docker run -d -p 3001:3001 vibekanban/server
 
 # If using local installation
-cd .blackbox5/2-engine/06-integrations/vibe
+cd blackbox5/2-engine/06-integrations/vibe
 npm start
 ```
 
@@ -438,7 +438,7 @@ npm start
 export PYTHONPATH="$PWD:$PYTHONPATH"
 
 # Or install in development mode
-pip install -e .blackbox5/2-engine/
+pip install -e blackbox5/2-engine/
 ```
 
 ### Issue: Orchestrator can't connect to Vibe Kanban
@@ -451,7 +451,7 @@ pip install -e .blackbox5/2-engine/
 curl http://localhost:3001/health
 
 # Update configuration if using different port
-nano .blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml
+nano blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml
 # Change: vibe_kanban_url: "http://localhost:3001"
 ```
 
@@ -462,13 +462,13 @@ nano .blackbox5/2-engine/02-agents/config/orchestrator-agent.yaml
 **Solution**:
 ```bash
 # Check Ralphy integration
-python3 .blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py
+python3 blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py
 
 # Verify Project Memory path
-ls -la .blackbox5/5-project-memory/siso-internal/operations/ralphy/
+ls -la blackbox5/5-project-memory/siso-internal/operations/ralphy/
 
 # Check if using integrated wrapper
-ls -la .blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh
+ls -la blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh
 ```
 
 ---
@@ -478,37 +478,37 @@ ls -la .blackbox5/2-engine/07-operations/runtime/ralphy-bb5-integrated.sh
 ### Setup Commands
 ```bash
 # Check prerequisites
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 
 # Run setup
-bash .blackbox5/1-docs/03-guides/02-tutorials/setup-agent-orchestration.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/setup-agent-orchestration.sh
 
 # Verify everything
-bash .blackbox5/1-docs/03-guides/02-tutorials/verify-all.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/verify-all.sh
 ```
 
 ### Test Commands
 ```bash
 # Test Planning Agent
-python .blackbox5/1-docs/03-guides/02-tutorials/test-planning-agent.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-planning-agent.py
 
 # Test Orchestrator
-python .blackbox5/1-docs/03-guides/02-tutorials/test-orchestrator-agent.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-orchestrator-agent.py
 
 # Test Ralphy
-python .blackbox5/1-docs/03-guides/02-tutorials/test-ralphy-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-ralphy-workflow.py
 
 # Test complete workflow
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 ### Run Commands
 ```bash
 # Interactive demo
-python .blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
+python blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
 
 # Quick test
-cd /tmp/quick-test && python ../.blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+cd /tmp/quick-test && python ../blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 ---
@@ -534,12 +534,12 @@ Once setup is complete:
 
 1. **Read the complete workflow guide**:
    ```bash
-   cat .blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md
+   cat blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md
    ```
 
 2. **Run your first real workflow**:
    ```bash
-   python .blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
+   python blackbox5/1-docs/03-guides/02-tutorials/interactive-demo.py
    ```
 
 3. **Monitor in Vibe Kanban**:
@@ -550,8 +550,8 @@ Once setup is complete:
 
 4. **Check results in Project Memory**:
    ```bash
-   ls -la .blackbox5/5-project-memory/siso-internal/operations/agents/
-   ls -la .blackbox5/5-project-memory/siso-internal/operations/ralphy/
+   ls -la blackbox5/5-project-memory/siso-internal/operations/agents/
+   ls -la blackbox5/5-project-memory/siso-internal/operations/ralphy/
    ```
 
 ---
@@ -562,7 +562,7 @@ If something doesn't work:
 
 1. **Check the troubleshooting section above**
 2. **Run verification script**: `bash verify-all.sh`
-3. **Check logs**: `.blackbox5/5-project-memory/siso-internal/operations/logs/`
+3. **Check logs**: `blackbox5/5-project-memory/siso-internal/operations/logs/`
 4. **Review test output**: Look for error messages
 5. **Consult the main documentation**: See the docs folder
 

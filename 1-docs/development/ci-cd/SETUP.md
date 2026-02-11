@@ -7,7 +7,7 @@ The CI/CD pipeline is already configured. Here's how to verify it's working:
 ### 1. Verify Workflows Exist
 
 ```bash
-ls -la ~/.blackbox5/.github/workflows/
+ls -la ~/blackbox5/.github/workflows/
 ```
 
 You should see:
@@ -20,7 +20,7 @@ You should see:
 ### 2. Push to GitHub
 
 ```bash
-cd ~/.blackbox5
+cd ~/blackbox5
 git add .github/
 git commit -m "ci: Add GitHub Actions workflows
 
@@ -91,7 +91,7 @@ Install `act` to test workflows locally:
 brew install act
 
 # Run default workflow (CI)
-cd ~/.blackbox5
+cd ~/blackbox5
 act
 
 # Run specific workflow

@@ -181,7 +181,7 @@ When you create items with `bb5 create`, templates are automatically populated w
 The hierarchy follows this pattern:
 
 ```
-~/.blackbox5/5-project-memory/blackbox5/
+~/blackbox5/5-project-memory/blackbox5/
 ├── goals/
 │   └── active/
 │       └── IG-XXX/              # Goal folder
@@ -255,6 +255,6 @@ bb5 task:create "Task Name"
 
 ## Files Location
 
-- CLI scripts: `~/.blackbox5/bin/bb5*`
-- Hooks: `~/.blackbox5/.claude/hooks/`
-- This guide: `~/.blackbox5/5-project-memory/blackbox5/NAVIGATION-GUIDE.md`
+- CLI scripts: `~/blackbox5/bin/bb5*`
+- Hooks: `~/blackbox5/.claude/hooks/`
+- This guide: `~/blackbox5/5-project-memory/blackbox5/NAVIGATION-GUIDE.md`

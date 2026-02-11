@@ -9,12 +9,12 @@
 ## Component Overview
 
 ### 1. RALF System
-**Location:** `/Users/shaansisodia/.blackbox5/bin/ralf*`, `2-engine/.autonomous/`
+**Location:** `/Users/shaansisodia/blackbox5/bin/ralf*`, `2-engine/.autonomous/`
 **Purpose:** Recursive Autonomous Learning Framework - non-stop self-improvement loop
 **Core Scripts:** `ralf-loop.sh`, `ralf`, `improvement-loop.py`, `scout-intelligent.py`, `planner-prioritize.py`, `executor-implement.py`, `verifier-validate.py`
 
 **Boundary Violations:**
-- Hardcoded paths to `~/.blackbox5/5-project-memory/blackbox5` in all Python scripts
+- Hardcoded paths to `~/blackbox5/5-project-memory/blackbox5` in all Python scripts
 - Directly manipulates task files, queue.yaml, and skill metrics
 - Cannot be reused for other projects due to tight coupling to BlackBox5 structure
 
@@ -122,11 +122,11 @@
 
 ## Key Files Analyzed
 
-- `/Users/shaansisodia/.blackbox5/bin/ralf-loop.sh` - Main RALF loop
-- `/Users/shaansisodia/.blackbox5/bin/bb5-task` - Task management CLI
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/state_machine.py` - Task state machine
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/workflow_loader.py` - Workflow loading
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/memory.py` - Legacy memory system
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Skill selection rules
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/STRUCTURAL_ISSUES_MASTER_LIST.md` - Prior structural analysis
+- `/Users/shaansisodia/blackbox5/bin/ralf-loop.sh` - Main RALF loop
+- `/Users/shaansisodia/blackbox5/bin/bb5-task` - Task management CLI
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/state_machine.py` - Task state machine
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/workflow_loader.py` - Workflow loading
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/memory.py` - Legacy memory system
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml` - Task queue
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Skill selection rules
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/STRUCTURAL_ISSUES_MASTER_LIST.md` - Prior structural analysis

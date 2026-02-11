@@ -359,4 +359,4 @@ EOF
 
 - **Framework Repo:** https://github.com/disler/claude-code-hooks-multi-agent-observability
 - **Documentation:** /tmp/claude-code-hooks-multi-agent-observability/README.md
-- **BB5 Framework Doc:** /Users/shaansisodia/.blackbox5/6-roadmap/01-research/frameworks/claude-code-hooks-multi-agent-observability.md
+- **BB5 Framework Doc:** /Users/shaansisodia/blackbox5/6-roadmap/01-research/frameworks/claude-code-hooks-multi-agent-observability.md

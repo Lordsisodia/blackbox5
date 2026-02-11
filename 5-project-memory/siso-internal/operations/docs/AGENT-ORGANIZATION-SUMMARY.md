@@ -14,7 +14,7 @@ All 890+ files from Black Box 4 have been successfully migrated and **fully orga
 ## Final Structure
 
 ```
-.blackbox5/engine/agents/
+blackbox5/engine/agents/
 │
 ├── .skills/                  # 40 skills - Composable capabilities
 │   ├── 1-core/
@@ -179,9 +179,9 @@ version: "1.0.0"
 
 ## Files Created
 
-1. **`.blackbox5/engine/agents/README.md`** - Comprehensive agent documentation
-2. **`.blackbox5/memory/context/AGENT-MIGRATION-INVENTORY.md`** - Migration inventory
-3. **`.blackbox5/memory/context/AGENT-ORGANIZATION-SUMMARY.md`** - This document
+1. **`blackbox5/engine/agents/README.md`** - Comprehensive agent documentation
+2. **`blackbox5/memory/context/AGENT-MIGRATION-INVENTORY.md`** - Migration inventory
+3. **`blackbox5/memory/context/AGENT-ORGANIZATION-SUMMARY.md`** - This document
 
 ---
 

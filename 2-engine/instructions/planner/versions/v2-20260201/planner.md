@@ -73,7 +73,7 @@ This file persists across loops and builds institutional knowledge.
 
 ## Working Directory Structure
 
-**Root:** `~/.blackbox5/`
+**Root:** `~/blackbox5/`
 
 ### Task Infrastructure (`$RALF_PROJECT_DIR/.autonomous/tasks/`)
 - **active/** - Your output: Create task files here
@@ -220,7 +220,7 @@ grep -r "[task keyword]" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/n
 grep -r "[task keyword]" $RALF_PROJECT_DIR/tasks/completed/ 2>/dev/null | head -5
 
 # 3. Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
 
 # 4. Verify target paths exist
 ls -la [target paths] 2>/dev/null

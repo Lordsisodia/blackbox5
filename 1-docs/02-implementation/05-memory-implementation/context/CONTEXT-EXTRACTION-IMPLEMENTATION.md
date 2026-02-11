@@ -80,9 +80,9 @@ FileContext     DocSection    ConversationContext
 
 | File | Description |
 |------|-------------|
-| `.blackbox5/engine/core/context_extractor.py` | Main implementation |
-| `.blackbox5/tests/test_context_extraction.py` | Comprehensive test suite |
-| `.blackbox5/docs/CONTEXT-EXTRACTION-IMPLEMENTATION.md` | This document |
+| `blackbox5/engine/core/context_extractor.py` | Main implementation |
+| `blackbox5/tests/test_context_extraction.py` | Comprehensive test suite |
+| `blackbox5/docs/CONTEXT-EXTRACTION-IMPLEMENTATION.md` | This document |
 
 ### Data Structures
 
@@ -494,16 +494,16 @@ The implementation includes a comprehensive test suite with **200+ test cases** 
 
 ```bash
 # Run all tests
-pytest .blackbox5/tests/test_context_extraction.py -v
+pytest blackbox5/tests/test_context_extraction.py -v
 
 # Run specific test class
-pytest .blackbox5/tests/test_context_extraction.py::TestContextExtractor -v
+pytest blackbox5/tests/test_context_extraction.py::TestContextExtractor -v
 
 # Run with coverage
-pytest .blackbox5/tests/test_context_extraction.py --cov=core.context_extractor -v
+pytest blackbox5/tests/test_context_extraction.py --cov=core.context_extractor -v
 
 # Run performance tests
-pytest .blackbox5/tests/test_context_extraction.py::TestContextExtractor::test_extract_context_performance -v
+pytest blackbox5/tests/test_context_extraction.py::TestContextExtractor::test_extract_context_performance -v
 ```
 
 ### Test Fixtures
@@ -846,9 +846,9 @@ extractor = ContextExtractor(
 
 ### Related Components
 
-- **Task Types:** `.blackbox5/engine/core/task_types.py`
-- **Complexity Analysis:** `.blackbox5/engine/core/complexity.py`
-- **Task Router:** `.blackbox5/engine/core/task_router.py`
+- **Task Types:** `blackbox5/engine/core/task_types.py`
+- **Complexity Analysis:** `blackbox5/engine/core/complexity.py`
+- **Task Router:** `blackbox5/engine/core/task_router.py`
 
 ### Design Documents
 

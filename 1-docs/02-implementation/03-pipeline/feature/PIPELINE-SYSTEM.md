@@ -223,10 +223,10 @@ python -m core.unified_pipeline stats
 
 ## Data Storage
 
-All pipeline data is stored in `.blackbox5/pipeline/`:
+All pipeline data is stored in `blackbox5/pipeline/`:
 
 ```
-.blackbox5/pipeline/
+blackbox5/pipeline/
 ├── feature_backlog.yaml      # Active features
 ├── completed_features.yaml   # Completed features
 ├── test_results.yaml         # Test history

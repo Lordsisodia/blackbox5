@@ -28,9 +28,9 @@ from collections import defaultdict
 from typing import Dict, List, Tuple, Optional
 
 # Configuration
-COMPLETED_TASKS_DIR = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/completed")
-RUNS_DIR = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs")
-ESTIMATION_GUIDELINES_PATH = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/estimation-guidelines.yaml")
+COMPLETED_TASKS_DIR = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/completed")
+RUNS_DIR = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs")
+ESTIMATION_GUIDELINES_PATH = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/estimation-guidelines.yaml")
 
 
 def parse_task_file(task_path: Path) -> Optional[Dict]:

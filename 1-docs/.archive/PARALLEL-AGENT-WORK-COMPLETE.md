@@ -14,15 +14,15 @@
 **Agent ID**: af57de4
 
 **What Was Done**:
-- ✅ Created comprehensive test suite: `.blackbox5/tests/test_glm_api_working.py`
+- ✅ Created comprehensive test suite: `blackbox5/tests/test_glm_api_working.py`
 - ✅ Fixed bugs in GLMClient.py (missing methods)
 - ✅ All 10 tests passing (100%)
 - ✅ Mock client fully functional
 - ✅ Real API client ready (just needs API key)
 
 **Files Created**:
-- `.blackbox5/tests/test_glm_api_working.py` (test suite)
-- `.blackbox5/tests/GLM-CLIENT-TEST-SUMMARY.md` (documentation)
+- `blackbox5/tests/test_glm_api_working.py` (test suite)
+- `blackbox5/tests/GLM-CLIENT-TEST-SUMMARY.md` (documentation)
 
 **Bugs Fixed**:
 - GLMClientMock missing `_validate_model()` and `_format_messages()`
@@ -49,12 +49,12 @@
 - ✅ Real GLM API integration
 
 **Files Created**:
-- `.blackbox5/engine/agents/core/BaseAgent.py` (enhanced)
-- `.blackbox5/engine/agents/agents/DeveloperAgent.py`
-- `.blackbox5/engine/agents/agents/AnalystAgent.py`
-- `.blackbox5/engine/agents/agents/ArchitectAgent.py`
-- `.blackbox5/engine/agents/test_agents_simple.py`
-- `.blackbox5/tests/test_agents.py`
+- `blackbox5/engine/agents/core/BaseAgent.py` (enhanced)
+- `blackbox5/engine/agents/agents/DeveloperAgent.py`
+- `blackbox5/engine/agents/agents/AnalystAgent.py`
+- `blackbox5/engine/agents/agents/ArchitectAgent.py`
+- `blackbox5/engine/agents/test_agents_simple.py`
+- `blackbox5/tests/test_agents.py`
 - Multiple documentation files
 
 **Status**: ✅ **COMPLETE** - 3 working agents ready to use
@@ -86,14 +86,14 @@ result = agent.execute_sync(task)
 - ✅ Full documentation
 
 **Files Created**:
-- `.blackbox5/engine/tools/base.py` (tool interface)
-- `.blackbox5/engine/tools/file_tools.py` (file ops)
-- `.blackbox5/engine/tools/bash_tool.py` (bash execution)
-- `.blackbox5/engine/tools/search_tool.py` (search)
-- `.blackbox5/engine/tools/registry.py` (tool registry)
-- `.blackbox5/engine/tools/README.md`
-- `.blackbox5/tests/test_tools.py` (40 tests)
-- `.blackbox5/examples/tools_demo.py` (demo)
+- `blackbox5/engine/tools/base.py` (tool interface)
+- `blackbox5/engine/tools/file_tools.py` (file ops)
+- `blackbox5/engine/tools/bash_tool.py` (bash execution)
+- `blackbox5/engine/tools/search_tool.py` (search)
+- `blackbox5/engine/tools/registry.py` (tool registry)
+- `blackbox5/engine/tools/README.md`
+- `blackbox5/tests/test_tools.py` (40 tests)
+- `blackbox5/examples/tools_demo.py` (demo)
 
 **Status**: ✅ **COMPLETE** - Full tool system working
 
@@ -127,23 +127,23 @@ result = await bash_tool.run(command="ls -la")
 - ✅ Full documentation
 
 **Files Created**:
-- `.blackbox5/bb5.py` (completely rewritten, 270 lines)
-- `.blackbox5/bb5` (bash wrapper)
-- `.blackbox5/CLI-GUIDE.md` (user guide)
-- `.blackbox5/CLI-FIX-SUMMARY.md` (technical summary)
+- `blackbox5/bb5.py` (completely rewritten, 270 lines)
+- `blackbox5/bb5` (bash wrapper)
+- `blackbox5/CLI-GUIDE.md` (user guide)
+- `blackbox5/CLI-FIX-SUMMARY.md` (technical summary)
 
 **Status**: ✅ **COMPLETE** - CLI fully functional
 
 **Usage**:
 ```bash
 # Mock mode (testing)
-python .blackbox5/bb5.py --mock "Say hello"
+python blackbox5/bb5.py --mock "Say hello"
 
 # Interactive mode
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 
 # Real API (requires GLM_API_KEY)
-python .blackbox5/bb5.py "Write a python function"
+python blackbox5/bb5.py "Write a python function"
 ```
 
 ---
@@ -186,7 +186,7 @@ python .blackbox5/bb5.py "Write a python function"
 
 ### 1. Use the CLI
 ```bash
-cd .blackbox5
+cd blackbox5
 python bb5.py --mock "Write a hello world function"
 ```
 
@@ -209,13 +209,13 @@ content = await file_tool.run(path="src/main.py")
 ### 4. Run Tests
 ```bash
 # Test GLM client
-python3 .blackbox5/tests/test_glm_api_working.py
+python3 blackbox5/tests/test_glm_api_working.py
 
 # Test agents
-python3 .blackbox5/engine/agents/test_agents_simple.py
+python3 blackbox5/engine/agents/test_agents_simple.py
 
 # Test tools
-python3 .blackbox5/tests/test_tools.py
+python3 blackbox5/tests/test_tools.py
 ```
 
 ---

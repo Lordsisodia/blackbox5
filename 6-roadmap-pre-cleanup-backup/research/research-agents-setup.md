@@ -37,7 +37,7 @@ Each of the 19 research categories will have a dedicated autonomous research age
 For each category, the agent will maintain:
 
 ### 1. Research Log
-**Location:** `.blackbox5/roadmap/01-research/{category}/research-log.md`
+**Location:** `blackbox5/roadmap/01-research/{category}/research-log.md`
 
 **Structure:**
 ```markdown
@@ -127,7 +127,7 @@ For each category, the agent will maintain:
 ```
 
 ### 2. Findings Database
-**Location:** `.blackbox5/roadmap/01-research/{category}/findings/`
+**Location:** `blackbox5/roadmap/01-research/{category}/findings/`
 
 **Structure:**
 - `whitepapers/` - Analysis of academic papers
@@ -137,7 +137,7 @@ For each category, the agent will maintain:
 - `competitors/` - Competitive analysis
 
 ### 3. Proposals Generated
-**Location:** `.blackbox5/roadmap/02-design/{category}/`
+**Location:** `blackbox5/roadmap/02-design/{category}/`
 
 Based on research findings, agents generate specific proposals.
 
@@ -370,7 +370,7 @@ Blogs: "LLM memory optimization" "context window" site:openai.com OR site:anthro
 ## File Structure
 
 ```
-.blackbox5/roadmap/
+blackbox5/roadmap/
 ├── 01-research/
 │   ├── memory-context/
 │   │   ├── research-log.md

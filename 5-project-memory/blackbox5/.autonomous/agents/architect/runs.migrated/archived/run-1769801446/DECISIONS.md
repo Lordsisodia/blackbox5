@@ -63,7 +63,7 @@
    - Pros: No changes
    - Cons: Wrong path, breaks workspace operations
 
-2. **OPT-002:** Update to ~/.blackbox5 (SELECTED)
+2. **OPT-002:** Update to ~/blackbox5 (SELECTED)
    - Pros: Correct current location
    - Cons: Still hardcoded, not portable
 

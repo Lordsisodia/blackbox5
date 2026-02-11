@@ -63,11 +63,11 @@
 4. Proper documentation organization in Project Memory
 
 **Key files**:
-- `.blackbox5/5-project-memory/siso-internal/operations/README.md` - Main entry point
-- `.blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md` - Agent quick reference
-- `.blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md` - Complete workflow
-- `.blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py` - Ralphy bridge
-- `.blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/SKILL.md` - Agent skill
+- `blackbox5/5-project-memory/siso-internal/operations/README.md` - Main entry point
+- `blackbox5/5-project-memory/siso-internal/operations/AGENT-REFERENCE.md` - Agent quick reference
+- `blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md` - Complete workflow
+- `blackbox5/2-engine/07-operations/runtime/ralphy/blackbox_integration.py` - Ralphy bridge
+- `blackbox5/2-engine/02-agents/capabilities/skills-cap/development-workflow/autonomous/agent-orchestration/SKILL.md` - Agent skill
 
 **How it works**:
 ```
@@ -85,7 +85,7 @@ User → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 
 **Structure**:
 ```
-.blackbox5/5-project-memory/siso-internal/operations/
+blackbox5/5-project-memory/siso-internal/operations/
 ├── README.md  # Main entry point
 ├── AGENT-REFERENCE.md  # Quick reference for agents
 ├── DOCUMENTATION-STRUCTURE.md  # How docs are organized
@@ -130,7 +130,7 @@ User → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 - Tracks all sessions in Project Memory
 - Records: goals, achievements, files, timestamps
 
-**Location**: `.blackbox5/2-engine/07-operations/runtime/ralphy/`
+**Location**: `blackbox5/2-engine/07-operations/runtime/ralphy/`
 
 ### 2. Agent Orchestration Documentation ✅
 
@@ -142,7 +142,7 @@ User → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 - Code examples
 - Best practices
 
-**Location**: `.blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md`
+**Location**: `blackbox5/1-docs/01-theory/03-workflows/production/COMPLETE-AGENT-ORCHESTRATION-WORKFLOW.md`
 
 ### 3. Easy Setup System ✅
 
@@ -154,7 +154,7 @@ User → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 - Step-by-step guides
 - Troubleshooting sections
 
-**Location**: `.blackbox5/1-docs/03-guides/02-tutorials/`
+**Location**: `blackbox5/1-docs/03-guides/02-tutorials/`
 
 ### 4. Documentation Organization ✅
 
@@ -166,7 +166,7 @@ User → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 - Detailed docs in organized structure
 - Agent skills point to correct locations
 
-**Location**: `.blackbox5/5-project-memory/siso-internal/operations/`
+**Location**: `blackbox5/5-project-memory/siso-internal/operations/`
 
 ---
 
@@ -195,13 +195,13 @@ User → Planning Agent → Vibe Kanban → Orchestrator → 5 Parallel Agents
 Commands:
 ```bash
 # 1. Check prerequisites
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
 
 # 2. Run test
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 
 # 3. Verify results
-ls -la .blackbox5/5-project-memory/siso-internal/operations/
+ls -la blackbox5/5-project-memory/siso-internal/operations/
 ```
 
 **Expected**: All tests pass, Agent Orchestration system ready to use
@@ -211,7 +211,7 @@ ls -la .blackbox5/5-project-memory/siso-internal/operations/
 **Action**: Commit the Tier 0 optimizations
 
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/5-project-memory/siso-internal
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/5-project-memory/siso-internal
 git add .
 git commit -m "feat: complete Project Memory Tier 0 optimization
 
@@ -286,39 +286,39 @@ Based on 2025 AI agent memory best practices:
 ### For Agent Orchestration
 
 **Main Documentation**:
-- `.blackbox5/5-project-memory/siso-internal/operations/README.md`
-- `.blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md`
+- `blackbox5/5-project-memory/siso-internal/operations/README.md`
+- `blackbox5/5-project-memory/siso-internal/operations/docs/AGENT-ORCHESTRATION-WORKFLOW.md`
 
 **Setup & Testing**:
-- `.blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh`
-- `.blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py`
+- `blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh`
+- `blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py`
 
 ### For Project Memory System
 
 **Main Files**:
-- `.blackbox5/5-project-memory/siso-internal/STATE.yaml` - Single source of truth
-- `.blackbox5/5-project-memory/siso-internal/ACTIVE.md` - Active dashboard
-- `.blackbox5/5-project-memory/siso-internal/WORK-LOG.md` - Work log
-- `.blackbox5/5-project-memory/siso-internal/QUERIES.md` - Agent query guide
-- `.blackbox5/5-project-memory/siso-internal/project/memory/SESSION.md` - Session state
+- `blackbox5/5-project-memory/siso-internal/STATE.yaml` - Single source of truth
+- `blackbox5/5-project-memory/siso-internal/ACTIVE.md` - Active dashboard
+- `blackbox5/5-project-memory/siso-internal/WORK-LOG.md` - Work log
+- `blackbox5/5-project-memory/siso-internal/QUERIES.md` - Agent query guide
+- `blackbox5/5-project-memory/siso-internal/project/memory/SESSION.md` - Session state
 
 **Scripts**:
-- `.blackbox5/5-project-memory/siso-internal/scripts/generate-dashboards.sh`
-- `.blackbox5/5-project-memory/siso-internal/scripts/complete-task.sh`
-- `.blackbox5/5-project-memory/siso-internal/scripts/new-task.sh`
-- `.blackbox5/5-project-memory/siso-internal/scripts/new-decision.sh`
-- `.blackbox5/5-project-memory/siso-internal/scripts/new-research.sh`
-- `.blackbox5/5-project-memory/siso-internal/scripts/new-retro.sh`
+- `blackbox5/5-project-memory/siso-internal/scripts/generate-dashboards.sh`
+- `blackbox5/5-project-memory/siso-internal/scripts/complete-task.sh`
+- `blackbox5/5-project-memory/siso-internal/scripts/new-task.sh`
+- `blackbox5/5-project-memory/siso-internal/scripts/new-decision.sh`
+- `blackbox5/5-project-memory/siso-internal/scripts/new-research.sh`
+- `blackbox5/5-project-memory/siso-internal/scripts/new-retro.sh`
 
 ### For Roadmap
 
 **Roadmap Summary**:
-- `.blackbox5/6-roadmap/ROADMAP-SUMMARY.md` - Overview of all 19 proposals
-- `.blackbox5/6-roadmap/COMPLETE-SUMMARY.md` - Detailed summary
-- `.blackbox5/6-roadmap/QUICK-WINS-SUMMARY.md` - Quick wins to implement
+- `blackbox5/6-roadmap/ROADMAP-SUMMARY.md` - Overview of all 19 proposals
+- `blackbox5/6-roadmap/COMPLETE-SUMMARY.md` - Detailed summary
+- `blackbox5/6-roadmap/QUICK-WINS-SUMMARY.md` - Quick wins to implement
 
 **Proposals**:
-- `.blackbox5/6-roadmap/00-proposed/` - All 19 research proposals
+- `blackbox5/6-roadmap/00-proposed/` - All 19 research proposals
 
 ---
 
@@ -341,23 +341,23 @@ Based on 2025 AI agent memory best practices:
 
 ```bash
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-bash .blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
-python .blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
+bash blackbox5/1-docs/03-guides/02-tutorials/check-prerequisites.sh
+python blackbox5/1-docs/03-guides/02-tutorials/test-complete-workflow.py
 ```
 
 ### Step 2: Review Project Memory System (5 minutes)
 
 ```bash
-cat .blackbox5/5-project-memory/siso-internal/STATE.yaml
-cat .blackbox5/5-project-memory/siso-internal/project/memory/SESSION.md
+cat blackbox5/5-project-memory/siso-internal/STATE.yaml
+cat blackbox5/5-project-memory/siso-internal/project/memory/SESSION.md
 ```
 
 ### Step 3: Review Roadmap (10 minutes)
 
 ```bash
-cat .blackbox5/6-roadmap/ROADMAP-SUMMARY.md
-cat .blackbox5/6-roadmap/COMPLETE-SUMMARY.md
-ls .blackbox5/6-roadmap/00-proposed/
+cat blackbox5/6-roadmap/ROADMAP-SUMMARY.md
+cat blackbox5/6-roadmap/COMPLETE-SUMMARY.md
+ls blackbox5/6-roadmap/00-proposed/
 ```
 
 ### Step 4: Begin Implementation Planning

@@ -61,7 +61,7 @@ redis-cli ping
 
 ```bash
 # Navigate to BlackBox5
-cd ~/.blackbox5
+cd ~/blackbox5
 
 # Create bridge file
 cat > mcp-redis-bridge.py << 'BRIDGE_EOF'
@@ -293,7 +293,7 @@ chmod +x mcp-redis-bridge.py
   "mcpServers": {
     "redis-bridge": {
       "command": "python3",
-      "args": ["/Users/shaansisodia/.blackbox5/mcp-redis-bridge.py"]
+      "args": ["/Users/shaansisodia/blackbox5/mcp-redis-bridge.py"]
     }
   }
 }
@@ -377,7 +377,7 @@ class OpenClawRedisBridge {
 
   async getTasks() {
     return new Promise((resolve) => {
-      exec('ls ~/.blackbox5/5-project-memory/blackbox5/tasks/active/ 2>/dev/null | head -5', (err, stdout) => {
+      exec('ls ~/blackbox5/5-project-memory/blackbox5/tasks/active/ 2>/dev/null | head -5', (err, stdout) => {
         if (err) {
           resolve('Could not fetch tasks');
         } else {
@@ -469,7 +469,7 @@ Update all references from Telegram to Redis:
 
 ```bash
 # Find Telegram references
-grep -r "telegram" ~/.blackbox5/5-project-memory/blackbox5/ --include="*.md" -l
+grep -r "telegram" ~/blackbox5/5-project-memory/blackbox5/ --include="*.md" -l
 
 # Update each file
 # Replace Telegram instructions with Redis equivalents
@@ -528,7 +528,7 @@ If issues arise:
 
 | File | Purpose |
 |------|---------|
-| `~/.blackbox5/mcp-redis-bridge.py` | Claude Code MCP bridge |
+| `~/blackbox5/mcp-redis-bridge.py` | Claude Code MCP bridge |
 | `/opt/openclaw-redis-bridge.js` | OpenClaw VPS bridge |
 | `/etc/systemd/system/openclaw-redis-bridge.service` | VPS service config |
 | `~/.claude/settings.json` | MCP configuration |

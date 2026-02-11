@@ -13,7 +13,7 @@ The GitHub Integration system has been **successfully extracted and adapted from
    - Studied GitHub operations patterns
    - Reviewed CCPM's integration approach
 
-2. ✅ **Created `.blackbox5/integration/github/GitHubManager.py`**
+2. ✅ **Created `blackbox5/integration/github/GitHubManager.py`**
    - `GitHubManager` class implemented
    - `create_issue(title, body, labels)` method ✓
    - `create_pr(branch, title, body, base)` method ✓
@@ -25,7 +25,7 @@ The GitHub Integration system has been **successfully extracted and adapted from
    - No external dependencies beyond `requests`
    - Clean, maintainable code
 
-4. ✅ **Created `.blackbox5/tests/test_github_integration.py`**
+4. ✅ **Created `blackbox5/tests/test_github_integration.py`**
    - Comprehensive test suite
    - Unit tests (mocked)
    - Integration tests (real GitHub API)
@@ -45,7 +45,7 @@ All success criteria **100% achieved**:
 
 ### Core Implementation (450 lines)
 
-**File**: `.blackbox5/integration/github/GitHubManager.py`
+**File**: `blackbox5/integration/github/GitHubManager.py`
 
 **Features**:
 - `GitHubManager` class with full GitHub API v3 integration
@@ -78,7 +78,7 @@ check_repository_safe() -> bool
 
 ### Test Suite (650 lines)
 
-**File**: `.blackbox5/tests/test_github_integration.py`
+**File**: `blackbox5/tests/test_github_integration.py`
 
 **Coverage**:
 - ✅ 50+ test cases
@@ -113,7 +113,7 @@ check_repository_safe() -> bool
 
 ### Demo Script (300 lines)
 
-**File**: `.blackbox5/integration/github/demo.py`
+**File**: `blackbox5/integration/github/demo.py`
 
 **Features**:
 - Interactive demonstration
@@ -315,22 +315,22 @@ export GITHUB_REPO="owner/repo"
 ### 4. Run Demo
 
 ```bash
-python .blackbox5/integration/github/demo.py
+python blackbox5/integration/github/demo.py
 ```
 
 ### 5. Run Tests
 
 ```bash
-pytest .blackbox5/tests/test_github_integration.py -v
+pytest blackbox5/tests/test_github_integration.py -v
 ```
 
 ## 📚 Documentation
 
 ### Quick Reference
 
-- **Quick Start**: `.blackbox5/integration/github/QUICKSTART.md`
-- **Full Docs**: `.blackbox5/integration/github/README.md`
-- **Implementation**: `.blackbox5/integration/github/IMPLEMENTATION-SUMMARY.md`
+- **Quick Start**: `blackbox5/integration/github/QUICKSTART.md`
+- **Full Docs**: `blackbox5/integration/github/README.md`
+- **Implementation**: `blackbox5/integration/github/IMPLEMENTATION-SUMMARY.md`
 
 ### Code Examples
 
@@ -346,7 +346,7 @@ All documentation includes:
 ### Run Unit Tests
 
 ```bash
-pytest .blackbox5/tests/test_github_integration.py -v -m "not integration"
+pytest blackbox5/tests/test_github_integration.py -v -m "not integration"
 ```
 
 ### Run Integration Tests
@@ -355,14 +355,14 @@ pytest .blackbox5/tests/test_github_integration.py -v -m "not integration"
 export GITHUB_TOKEN="ghp_xxx"
 export GITHUB_REPO="owner/repo"
 
-pytest .blackbox5/tests/test_github_integration.py -v -m integration
+pytest blackbox5/tests/test_github_integration.py -v -m integration
 ```
 
 ### Test Coverage
 
 ```bash
-pytest .blackbox5/tests/test_github_integration.py \
-    --cov=.blackbox5/integration/github \
+pytest blackbox5/tests/test_github_integration.py \
+    --cov=blackbox5/integration/github \
     --cov-report=html
 ```
 
@@ -396,8 +396,8 @@ pytest .blackbox5/tests/test_github_integration.py \
 
 1. **Install dependencies**: `pip install requests`
 2. **Set credentials**: `export GITHUB_TOKEN='ghp_xxx'`
-3. **Try demo**: `python .blackbox5/integration/github/demo.py`
-4. **Run tests**: `pytest .blackbox5/tests/test_github_integration.py -v`
+3. **Try demo**: `python blackbox5/integration/github/demo.py`
+4. **Run tests**: `pytest blackbox5/tests/test_github_integration.py -v`
 
 ### Future Enhancements
 

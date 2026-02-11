@@ -8,14 +8,14 @@ A production-ready, distributed event bus system built on Redis for the BlackBox
 
 ### Core Components
 
-1. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/events.py`** (11 KB)
+1. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/events.py`** (11 KB)
    - Event type definitions and enums
    - BaseEvent, TaskEvent, AgentEvent, SystemEvent, CircuitBreakerEvent classes
    - EventBuilder for fluent event creation
    - Event validation functions
    - Standard topic definitions
 
-2. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/event_bus.py`** (20 KB)
+2. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/event_bus.py`** (20 KB)
    - RedisEventBus class with full pub/sub implementation
    - Thread-safe subscriber management
    - Automatic reconnection logic
@@ -24,7 +24,7 @@ A production-ready, distributed event bus system built on Redis for the BlackBox
    - Context manager for auto-reconnection
    - Singleton pattern for global access
 
-3. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/exceptions.py`** (10 KB)
+3. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/exceptions.py`** (10 KB)
    - Comprehensive exception hierarchy
    - EventBusError, RedisConnectionError, RedisPubSubError
    - EventValidationError, EventSerializationError
@@ -32,13 +32,13 @@ A production-ready, distributed event bus system built on Redis for the BlackBox
    - AgentNotFoundError, AgentError, AgentExecutionError
    - Helper functions for error handling
 
-4. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/__init__.py`** (1.5 KB)
+4. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/__init__.py`** (1.5 KB)
    - Module initialization with exports
    - Clean public API
 
 ### Infrastructure
 
-5. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/runtime/start-redis.sh`** (9 KB, executable)
+5. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/runtime/start-redis.sh`** (9 KB, executable)
    - Bash script for Redis lifecycle management
    - Start, stop, restart, status commands
    - Connection checking and validation
@@ -48,14 +48,14 @@ A production-ready, distributed event bus system built on Redis for the BlackBox
 
 ### Documentation & Examples
 
-6. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/EVENT_BUS_README.md`** (11 KB)
+6. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/EVENT_BUS_README.md`** (11 KB)
    - Complete usage documentation
    - API reference
    - Best practices
    - Troubleshooting guide
    - Configuration options
 
-7. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/event_bus_examples.py`** (10 KB)
+7. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/event_bus_examples.py`** (10 KB)
    - 8 comprehensive examples
    - Basic pub/sub
    - Event builder usage
@@ -197,16 +197,16 @@ REDIS_DB=0
 ### Start Redis
 ```bash
 # Start with defaults
-.blackbox5/engine/runtime/start-redis.sh
+blackbox5/engine/runtime/start-redis.sh
 
 # Custom configuration
-REDIS_PORT=6380 .blackbox5/engine/runtime/start-redis.sh
+REDIS_PORT=6380 blackbox5/engine/runtime/start-redis.sh
 
 # Check status
-.blackbox5/engine/runtime/start-redis.sh status
+blackbox5/engine/runtime/start-redis.sh status
 
 # Stop
-.blackbox5/engine/runtime/start-redis.sh stop
+blackbox5/engine/runtime/start-redis.sh stop
 ```
 
 ## Production Readiness
@@ -265,7 +265,7 @@ REDIS_PORT=6380 .blackbox5/engine/runtime/start-redis.sh
 
 2. **Start Redis**
    ```bash
-   .blackbox5/engine/runtime/start-redis.sh
+   blackbox5/engine/runtime/start-redis.sh
    ```
 
 3. **Run Examples**
@@ -284,7 +284,7 @@ REDIS_PORT=6380 .blackbox5/engine/runtime/start-redis.sh
 All files are in the BlackBox 5 engine directory:
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── core/
 │   ├── __init__.py
 │   ├── events.py

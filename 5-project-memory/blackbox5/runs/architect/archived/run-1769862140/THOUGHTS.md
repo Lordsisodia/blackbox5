@@ -13,7 +13,7 @@ PLAN-003 is a 3-5 day plan. Following Agent-2.5's simple approach, I focused on 
 1. Checked for duplicate tasks - none found
 2. Explored existing agent system via Task tool
 3. Understood BaseAgent structure, AgentConfig, AgentTask, AgentResult
-4. Identified correct location: ~/.blackbox5/2-engine/core/agents/definitions/
+4. Identified correct location: ~/blackbox5/2-engine/core/agents/definitions/
 
 ## Implementation Approach
 - Created PlanningAgent as a Python class inheriting from BaseAgent

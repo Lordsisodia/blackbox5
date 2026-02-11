@@ -21,7 +21,7 @@ This plan provides a **safe, incremental integration** of Ralph-y's git worktree
 
 ### Step 1.1: Add Module to RALPH Runtime
 
-**Location:** `.blackbox5/2-engine/runtime/lib/ralph-runtime/git_worktree_manager.py`
+**Location:** `blackbox5/2-engine/runtime/lib/ralph-runtime/git_worktree_manager.py`
 
 **Action:** Copy the tested prototype
 
@@ -34,7 +34,7 @@ cp 6-roadmap/frameworks/ralphy-integration-analysis/prototype/git-worktree-manag
 
 ### Step 1.2: Create Tests
 
-**Location:** `.blackbox5/2-engine/runtime/lib/ralph-runtime/tests/test_git_worktree_manager.py`
+**Location:** `blackbox5/2-engine/runtime/lib/ralph-runtime/tests/test_git_worktree_manager.py`
 
 **Action:** Add comprehensive unit tests
 
@@ -73,7 +73,7 @@ python -m pytest tests/test_git_worktree_manager.py -v
 
 ### Step 2.1: Add Configuration
 
-**Location:** `.blackbox5/2-engine/runtime/lib/ralph-runtime/config.py`
+**Location:** `blackbox5/2-engine/runtime/lib/ralph-runtime/config.py`
 
 **Action:** Add new options (OFF by default)
 
@@ -93,7 +93,7 @@ class RalphConfig:
 
 ### Step 2.2: Create Adapter Pattern
 
-**Location:** `.blackbox5/2-engine/runtime/lib/ralph-runtime/task_executor.py`
+**Location:** `blackbox5/2-engine/runtime/lib/ralph-runtime/task_executor.py`
 
 **Action:** Create adapter that chooses strategy
 
@@ -120,7 +120,7 @@ class TaskExecutor:
 
 ### Step 3.1: Integration Tests
 
-**Location:** `.blackbox5/2-engine/runtime/lib/ralph-runtime/tests/test_integration.py`
+**Location:** `blackbox5/2-engine/runtime/lib/ralph-runtime/tests/test_integration.py`
 
 ```python
 def test_existing_behavior_unchanged():

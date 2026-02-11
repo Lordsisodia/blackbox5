@@ -5,7 +5,7 @@
 set -e
 
 VPS_IP="77.42.66.40"
-MCP_CONFIG="~/.blackbox5/.mcp-moltbot.json"
+MCP_CONFIG="~/blackbox5/.mcp-moltbot.json"
 
 echo "═══════════════════════════════════════════════════════════════"
 echo "  Moltbot MCP Connection Setup"
@@ -22,7 +22,7 @@ else
 fi
 
 # Test moltbot-vps (local stdio)
-if echo '{"jsonrpc": "2.0", "id": 1, "method": "initialize"}' | python3 ~/.blackbox5/mcp-server-moltbot.py > /dev/null 2>&1; then
+if echo '{"jsonrpc": "2.0", "id": 1, "method": "initialize"}' | python3 ~/blackbox5/mcp-server-moltbot.py > /dev/null 2>&1; then
     echo "✓ moltbot-vps MCP server working"
 else
     echo "✗ moltbot-vps MCP server error"
@@ -34,7 +34,7 @@ echo "  MCP Setup Complete"
 echo "═══════════════════════════════════════════════════════════════"
 echo ""
 echo "To start Claude Code with MCP:"
-echo "  cd ~/.blackbox5 && claude --mcp-config .mcp-moltbot.json"
+echo "  cd ~/blackbox5 && claude --mcp-config .mcp-moltbot.json"
 echo ""
 echo "Available MCP tools:"
 echo ""

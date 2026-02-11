@@ -89,8 +89,8 @@ This agent is auto-spawned by the session-start-agent-teams.sh hook when agent t
 
 ```yaml
 agent_id: bb5-context-collector-220140-b06699bf
-bb5_dir: /Users/shaansisodia/.blackbox5
-run_folder: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/spawner-20260209_220140
+bb5_dir: /Users/shaansisodia/blackbox5
+run_folder: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/runs/spawner-20260209_220140
 spawned_at: '2026-02-09T22:01:40.366432'
 task_id: TEST-001
 task_path: null
@@ -110,7 +110,7 @@ Execute your responsibilities according to your agent definition above.
 5. Signal completion with: <agent_complete status="COMPLETE|PARTIAL|FAILED" />
 
 ### Output Location:
-Run folder: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/spawner-20260209_220140
-Agent artifacts: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/spawner-20260209_220140/agents/
+Run folder: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/runs/spawner-20260209_220140
+Agent artifacts: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/runs/spawner-20260209_220140/agents/
 
 Begin execution now.

@@ -1,17 +1,18 @@
-# Goal: Improve Hooks for Automated Maintenance
+# Goal: Improve Hook Automation
 # =============================================================================
 goal_id: IG-009
-name: "Improve Hooks for Automated Architecture, Context, and Timeline Maintenance"
-description: "Create comprehensive hook system that automatically maintains project timeline, architecture consistency, context synchronization, and ensures all system state is kept up-to-date without manual intervention"
+name: "Improve Hook Automation"
+description: "Continuously improve the hook system that automates task lifecycle, maintains system state, and makes agents smarter without manual intervention"
 
 meta:
   created: "2026-02-04"
-  target_completion: "2026-02-18"
+  updated: "2026-02-10"
+  target_completion: "ongoing"
   owner: "architect-agent"
-  priority: high
-  status: completed
+  priority: critical
+  status: in_progress
   category: infrastructure
-  completed_date: "2026-02-04"
+  note: "Phase 1 complete (9 hooks). Now continuous improvement including world-class features from IG-010."
 
 # =============================================================================
 # SUB-GOALS
@@ -19,103 +20,86 @@ meta:
 
 sub_goals:
   - id: SG-009-1
-    name: "Audit and Document Existing Hooks"
-    description: "Review current hooks and document functionality"
-    weight: 10
+    name: "Phase 1: Core Hook Infrastructure"
+    description: "Build foundational hooks (COMPLETED: 9 hooks deployed)"
+    weight: 20
     status: completed
+
+    acceptance_criteria:
+      - "SessionStart hooks auto-detect agent type"
+      - "PreToolUse security hooks active"
+      - "Subagent tracking functional"
+      - "All hooks registered in settings.json"
 
   - id: SG-009-2
-    name: "Build Smart Agent-Aware SessionStart Hook"
-    description: "Create session-start-blackbox5.sh that auto-detects agent type and loads appropriate context"
-    weight: 15
-    status: completed
+    name: "Phase 2: Task Lifecycle Automation"
+    description: "Automate task status transitions, claiming, and completion"
+    weight: 20
+    status: not_started
 
     acceptance_criteria:
-      - "Auto-detects agent from run directory path"
-      - "Loads planner/executor/architect specific context"
-      - "No environment variables required"
-      - "Returns additionalContext for Claude"
+      - "Auto-claim task from queue on session start"
+      - "Auto-update status to in_progress"
+      - "Pre-completion validation hooks"
+      - "Auto-mark complete when criteria met"
 
   - id: SG-009-3
-    name: "Build Smart Subagent Tracking Hooks"
-    description: "Create subagent-tracking.sh for agent lifecycle logging"
-    weight: 15
-    status: completed
+    name: "Phase 3: Quality and Safety Hooks"
+    description: "Enforce quality gates and safety checks automatically"
+    weight: 20
+    status: not_started
 
     acceptance_criteria:
-      - "Auto-detects agent type on start/stop"
-      - "Logs to communications/events.yaml"
-      - "Updates agent-state.yaml"
-      - "No manual agent ID required"
+      - "Git safety guards (no force push to main)"
+      - "Quality gate validation before commits"
+      - "Context warnings at 70% usage"
+      - "Pre-commit validation suite"
 
   - id: SG-009-4
-    name: "Build Smart Pre-Tool Security Hook"
-    description: "Create pre-tool-security.py with agent-aware security rules"
-    weight: 15
-    status: completed
+    name: "Phase 4: Intelligence Hooks"
+    description: "Hooks that make agents smarter - memory search, decision extraction"
+    weight: 20
+    status: not_started
 
     acceptance_criteria:
-      - "Blocks dangerous rm -rf for all agents"
-      - "Allows executor .env access"
-      - "Blocks planner/executor force push"
-      - "Requires architect for destructive DB ops"
-      - "Logs all security checks"
+      - "Smart memory search on context gaps"
+      - "Auto-extract decisions to DECISIONS.md"
+      - "Verification subagent triggers"
+      - "Pattern detection and suggestion"
 
   - id: SG-009-5
-    name: "Build Supporting Hooks"
-    description: "Timeline, architecture, context hooks"
-    weight: 25
-    status: completed
-
-  - id: SG-009-6
-    name: "Create Hook Framework Documentation"
-    description: "Document smart hook patterns"
-    weight: 10
-    status: completed
+    name: "Phase 5: Best Practice Integration"
+    description: "Integrate patterns from 19+ GitHub hook repositories"
+    weight: 20
+    status: not_started
 
     acceptance_criteria:
-      - "HOOKS.md created with comprehensive documentation"
-      - "All 9 hooks documented"
-      - "Event types documented"
-      - "Best practices included"
-      - "Troubleshooting section added"
-
-  - id: SG-009-7
-    name: "Integrate and Test All Hooks"
-    description: "Register in settings.json and test"
-    weight: 10
-    status: completed
-
-    acceptance_criteria:
-      - "All 9 hooks registered in settings.json"
-      - "SessionStart hooks tested"
-      - "PreToolUse hooks tested"
-      - "PostToolUse hooks registered"
-      - "Subagent hooks registered"
-      - "Stop hooks registered"
+      - "multi-agent-ralph-loop patterns integrated"
+      - "juno-code lifecycle hooks adapted"
+      - "SWE-agent patterns where applicable"
+      - "BB5-specific innovations documented"
 
 # =============================================================================
 # PROGRESS
 # =============================================================================
 
 progress:
-  percentage: 100
-  last_updated: "2026-02-04"
+  percentage: 20
+  last_updated: "2026-02-10"
 
   by_sub_goal:
-    SG-009-1: 100
-    SG-009-2: 100
-    SG-009-3: 100
-    SG-009-4: 100
-    SG-009-5: 100
-    SG-009-6: 100
-    SG-009-7: 100
+    SG-009-1: 100  # Phase 1 complete
+    SG-009-2: 0   # Phase 2 not started
+    SG-009-3: 0   # Phase 3 not started
+    SG-009-4: 0   # Phase 4 not started
+    SG-009-5: 0   # Phase 5 not started
 
   summary:
     total_tasks: 7
     completed_tasks: 7
     in_progress_tasks: 0
     blocked_tasks: 0
+    note: "Phase 1 (9 hooks) complete. Phases 2-5 represent continuous improvement."
 
 # =============================================================================
 # LINKS
@@ -136,13 +120,20 @@ links:
     - CG-004  # Navigation (hooks enhance this)
 
   plans:
-    - hooks-framework
+    - hook-system-infrastructure
+
+  tasks:
+    - TASK-HOOK-001  # Create settings.json
+    - TASK-HOOK-002  # Auto-claim tasks
 
 # =============================================================================
 # NOTES
 # =============================================================================
 
 notes: |
+  MERGED IG-010 on 2026-02-10: World-class hook system is now part of
+  continuous improvement. The "world-class" features become Phase 5.
+
   SMART HOOKS PRINCIPLE: No environment variables needed
   =====================================================
   All hooks self-discover context from:
@@ -153,39 +144,28 @@ notes: |
 
   This makes hooks work automatically regardless of how agents are spawned.
 
-  Hook Inventory (9 total):
-  ========================
+  Hook Inventory (9 total deployed, more in development):
+  ========================================================
 
   SessionStart Hooks:
-  - session-start-blackbox5.sh (NEW) - Agent-aware context loading
-    * Auto-detects planner/executor/architect
-    * Loads agent-specific context
-    * Returns additionalContext for Claude
+  - session-start-blackbox5.sh - Agent-aware context loading
+  - bb5-discover-context - Auto-context detection
 
   PreToolUse Hooks:
-  - pre-tool-security.py (NEW) - Agent-aware security
-    * Blocks rm -rf for all agents
-    * Allows executor .env access
-    * Blocks planner/executor force push
-    * Requires architect for DB ops
-  - pre-tool-validation.sh (existing) - Structure validation
-  - architecture-consistency.sh (NEW) - Naming conventions
+  - pre-tool-security.py - Agent-aware security
+  - pre-tool-validation.sh - Structure validation
 
   PostToolUse Hooks:
-  - timeline-maintenance.sh (NEW) - Auto-update timeline
-  - context-synchronization.sh (NEW) - Sync across files
+  - timeline-maintenance.sh - Auto-update timeline
 
   Subagent Hooks:
-  - subagent-tracking.sh (NEW) - Agent lifecycle logging
-    * Logs to communications/events.yaml
-    * Updates agent-state.yaml
+  - subagent-tracking.sh - Agent lifecycle logging
 
   Stop Hooks:
-  - stop-hierarchy-update.sh (existing) - Parent timeline updates
+  - stop-hierarchy-update.sh - Parent timeline updates
 
-  Research Integration:
-  - claude-code-hooks-mastery patterns adapted
-  - UV single-file script pattern (Python hooks)
-  - JSON logging standardization
-  - Exit code semantics (0=continue, 2=block)
-  - Agent-aware adaptations for BB5
+  Phases 2-5 Roadmap:
+  - Phase 2: Task lifecycle automation (auto-claim, auto-complete)
+  - Phase 3: Quality gates and safety enforcement
+  - Phase 4: Intelligence hooks (memory, decisions, verification)
+  - Phase 5: Best practices from 19+ GitHub repos integrated

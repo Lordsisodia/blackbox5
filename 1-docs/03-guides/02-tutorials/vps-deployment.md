@@ -12,19 +12,19 @@
 ```bash
 # 1. Clone/setup BB5 (if not done)
 cd ~
-git clone <your-repo> .blackbox5
+git clone <your-repo> blackbox5
 
 # 2. Run setup
-~/.blackbox5/bin/setup-health-monitoring.sh
+~/blackbox5/bin/setup-health-monitoring.sh
 
 # 3. Configure Telegram
-nano ~/.blackbox5/config/watch.env
+nano ~/blackbox5/config/watch.env
 
 # 4. Test
 bb5-health
 
 # 5. Install systemd service
-sudo cp ~/.blackbox5/config/systemd/bb5-watch.service /etc/systemd/system/
+sudo cp ~/blackbox5/config/systemd/bb5-watch.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable bb5-watch@$USER
 sudo systemctl start bb5-watch@$USER
@@ -43,7 +43,7 @@ bb5-watch status
 journalctl -u bb5-watch@$USER -f
 
 # Log files
-tail -f ~/.blackbox5/.autonomous/health/watch.log
+tail -f ~/blackbox5/.autonomous/health/watch.log
 ```
 
 ### Health Check
@@ -70,7 +70,7 @@ bb5-watch start --foreground
 
 ### No Telegram alerts
 
-1. Check token: `cat ~/.blackbox5/config/watch.env`
+1. Check token: `cat ~/blackbox5/config/watch.env`
 2. Test manually: `bb5-watch test-alert telegram`
 3. Check logs for errors
 

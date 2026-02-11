@@ -29,7 +29,7 @@
 
 **Status:** VERIFIED
 
-**Verification Result:** ralf.md references `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` which matches our created file path.
+**Verification Result:** ralf.md references `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` which matches our created file path.
 
 ---
 

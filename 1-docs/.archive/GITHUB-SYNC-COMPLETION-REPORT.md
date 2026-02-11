@@ -272,7 +272,7 @@ export GITHUB_REPO=owner/repo
 
 ### Run All Tests
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine
 python3 tests/integrations/test_github_sync_commands.py
 ```
 
@@ -284,7 +284,7 @@ python3 -m unittest tests.integrations.test_github_sync_commands.TestGitHubSyncE
 ## File Structure
 
 ```
-.blackbox5/engine/
+blackbox5/engine/
 ├── cli/
 │   └── github_commands.py (521 lines)
 ├── integrations/

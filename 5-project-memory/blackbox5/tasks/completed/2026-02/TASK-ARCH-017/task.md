@@ -29,7 +29,7 @@ Fix the ENGINE_DIR path reference in blackbox.py to point to the correct directo
 **Suggested Action:** Update ENGINE_DIR path to '2-engine/core'
 
 **Files to Check/Modify:**
-- `/Users/shaansisodia/.blackbox5/bin/blackbox.py`
+- `/Users/shaansisodia/blackbox5/bin/blackbox.py`
 
 ---
 
@@ -45,8 +45,8 @@ If changes cause issues:
 ## Notes
 
 **Completed 2026-02-05:**
-- Found blackbox.py at `/Users/shaansisodia/.blackbox5/bin/blackbox.py`
+- Found blackbox.py at `/Users/shaansisodia/blackbox5/bin/blackbox.py`
 - Line 26 had: `ENGINE_DIR = Path(__file__).parent / "2-engine" / "01-core"`
 - Changed to: `ENGINE_DIR = Path(__file__).parent / "2-engine" / "core"`
-- Verified the `core/` directory exists at `/Users/shaansisodia/.blackbox5/2-engine/core/`
+- Verified the `core/` directory exists at `/Users/shaansisodia/blackbox5/2-engine/core/`
 - Fix applied using sed command

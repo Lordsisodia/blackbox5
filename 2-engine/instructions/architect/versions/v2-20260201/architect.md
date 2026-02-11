@@ -231,8 +231,8 @@ echo "Synthesizing recommendation..."
 ```bash
 # Detect architectural smell
 echo "=== Detecting Issue ==="
-find ~/.blackbox5 -type d -name ".autonomous" | wc -l
-find ~/.blackbox5 -name "*.yaml" | grep config | wc -l
+find ~/blackbox5 -type d -name ".autonomous" | wc -l
+find ~/blackbox5 -name "*.yaml" | grep config | wc -l
 
 # Document in ISSUE.md
 cat > "$RUN_DIR/ISSUE.md" << 'EOF'

@@ -21,10 +21,10 @@ Previous scouts identified missing permission error handling, no validation of f
 **Issue:** Multiple scripts construct file paths from user input without validation, allowing `../` traversal attacks.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 932-936)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (line 582)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (line 687)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 304-349)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 932-936)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (line 582)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (line 687)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 304-349)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -51,10 +51,10 @@ python bb5-queue-manager.py load --queue-file "../../../etc/shadow"
 **Issue:** No symlink validation before file operations - scripts follow symlinks to sensitive files.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 93-103, 133)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 56, 271)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 226, 250, 285, 299)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` (line 64)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 93-103, 133)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 56, 271)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 226, 250, 285, 299)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` (line 64)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -83,9 +83,9 @@ ln -s /etc/passwd runs/run-latest/THOUGHTS.md
 **Issue:** File existence checks followed by separate read operations create race condition windows.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 92-94, 100-103)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 53-56, 267-272)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 249-250, 284-285)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 92-94, 100-103)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 53-56, 267-272)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 249-250, 284-285)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -116,9 +116,9 @@ done
 **Issue:** User-controlled file paths passed to shell commands without sanitization.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-parallel-dispatch.sh` (line 378)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 428-434)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (line 655)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-parallel-dispatch.sh` (line 378)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 428-434)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (line 655)
 
 **Vulnerable Code Pattern:**
 ```bash
@@ -156,10 +156,10 @@ queue:
 **Issue:** Scripts read entire files without size checks, enabling DoS via large files.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 226, 250, 285, 299, 333)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 93, 101, 133)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (line 56)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` (line 54)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 226, 250, 285, 299, 333)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 93, 101, 133)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (line 56)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` (line 54)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -184,10 +184,10 @@ dd if=/dev/zero of=runs/run-latest/THOUGHTS.md bs=1M count=10000
 **Issue:** Files created without explicit permissions, defaulting to world-readable on many systems.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` (lines 75-76)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 128-129)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 384-386)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (lines 330-332)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` (lines 75-76)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 128-129)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 384-386)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (lines 330-332)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -209,8 +209,8 @@ with open(self.queue_path, "w") as f:
 **Issue:** API keys and credentials stored in YAML files without encryption.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` (lines 44-45)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/*/metadata.yaml` (multiple files)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` (lines 44-45)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs/*/metadata.yaml` (multiple files)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -235,9 +235,9 @@ env:
 **Issue:** Detailed error messages expose file paths and system information.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 642-644, 666)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 251-253, 339-340)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 251-253)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 642-644, 666)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 251-253, 339-340)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 251-253)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -255,10 +255,10 @@ except Exception as e:
 **Issue:** Unrestricted glob/iterdir operations traverse entire directory trees without depth limits.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 208, 240, 284, 296, 317, 385)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 68, 86, 114)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (line 271)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` (line 457)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` (lines 208, 240, 284, 296, 317, 385)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` (lines 68, 86, 114)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (line 271)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/memory/operations/retain.py` (line 457)
 
 **Vulnerable Code Pattern:**
 ```python
@@ -278,10 +278,10 @@ md_files = list(source.rglob("*.md"))  # Unbounded recursion
 **Issue:** YAML files loaded without schema validation or safe loading checks.
 
 **Affected Files:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 248-249, 334-335, 375-376)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (lines 248-251)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` (lines 64-65)
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 119-120, 279-280)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` (lines 248-249, 334-335, 375-376)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` (lines 248-251)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` (lines 64-65)
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` (lines 119-120, 279-280)
 
 **Vulnerable Code Pattern:**
 ```python

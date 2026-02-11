@@ -180,7 +180,7 @@ Warn List (Require Confirmation):
   - git clean -fd
   - git push --force
   - docker system prune
-  - Destructive operations on .blackbox5/
+  - Destructive operations on blackbox5/
 
 BB5-Specific Validations:
   Git Operations:

@@ -370,7 +370,7 @@ class Blackbox5TUI:
 
 **Files to create:**
 ```python
-# .blackbox5/engine/runtime/tui/
+# blackbox5/engine/runtime/tui/
 ├── __init__.py
 ├── app.py              # Main Textual app
 ├── panels/             # UI panels
@@ -544,7 +544,7 @@ class Blackbox5TUI:
 ### Basic TUI App
 
 ```python
-# .blackbox5/engine/runtime/tui/app.py
+# blackbox5/engine/runtime/tui/app.py
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer
 
@@ -592,7 +592,7 @@ class Blackbox5TUI(App):
 ### Task Panel
 
 ```python
-# .blackbox5/engine/runtime/tui/panels/task_panel.py
+# blackbox5/engine/runtime/tui/panels/task_panel.py
 from textual.widgets import ListView, ListItem
 from textual.reactive import reactive
 
@@ -620,7 +620,7 @@ class TaskPanel(ListView):
 ### Execution Panel
 
 ```python
-# .blackbox5/engine/runtime/tui/panels/execution_panel.py
+# blackbox5/engine/runtime/tui/panels/execution_panel.py
 from textual.widgets import Log
 from textual.reactive import reactive
 
@@ -653,8 +653,8 @@ class ExecutionPanel(Log):
 pip install textual rich
 
 # Create basic app
-mkdir -p .blackbox5/engine/runtime/tui
-cd .blackbox5/engine/runtime/tui
+mkdir -p blackbox5/engine/runtime/tui
+cd blackbox5/engine/runtime/tui
 
 # Create files
 touch __init__.py app.py styles/default.css
@@ -685,7 +685,7 @@ if __name__ == "__main__":
 
 **Run it:**
 ```bash
-python .blackbox5/engine/runtime/tui/app.py
+python blackbox5/engine/runtime/tui/app.py
 ```
 
 ---

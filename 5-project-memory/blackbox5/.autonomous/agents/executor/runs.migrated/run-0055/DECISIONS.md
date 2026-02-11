@@ -41,7 +41,7 @@
 **Selected:** Two-tier system (user config + default config)
 
 **Rationale:**
-- **User config:** `~/.blackbox5/config.yaml` (optional, overrides defaults)
+- **User config:** `~/blackbox5/config.yaml` (optional, overrides defaults)
 - **Default config:** `2-engine/.autonomous/config/default.yaml` (built-in)
 - **Benefits:**
   - User only needs to specify values they want to change

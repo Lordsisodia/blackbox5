@@ -41,10 +41,10 @@ Or visit: https://github.com/geekan/MetaGPT/issues
 ### Output Files Generated
 
 Ralph created detailed analysis files:
-- `.blackbox5/engine/runtime/ralph/framework-github/METAGPT-ISSUES-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/framework-github/SWARM-ARCHITECTURE-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/framework-github/BMAD-WORKFLOW-ANALYSIS.md`
-- `.blackbox5/engine/runtime/ralph/framework-github/BLACKBOX5-RECOMMENDATIONS.md`
+- `blackbox5/engine/runtime/ralph/framework-github/METAGPT-ISSUES-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/framework-github/SWARM-ARCHITECTURE-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/framework-github/BMAD-WORKFLOW-ANALYSIS.md`
+- `blackbox5/engine/runtime/ralph/framework-github/BLACKBOX5-RECOMMENDATIONS.md`
 
 ## How It Works
 
@@ -67,7 +67,7 @@ This means:
 
 ### 2. State Tracking
 
-Ralph maintains state in `.blackbox5/engine/operations/runtime/ralph/github_state.json`:
+Ralph maintains state in `blackbox5/engine/operations/runtime/ralph/github_state.json`:
 
 ```json
 {
@@ -118,12 +118,12 @@ This runs Ralph for 3 iterations and shows:
 
 Start Ralph continuously:
 ```bash
-bash .blackbox5/engine/operations/runtime/ralph/start-framework-research.sh
+bash blackbox5/engine/operations/runtime/ralph/start-framework-research.sh
 ```
 
 Monitor in real-time:
 ```bash
-bash .blackbox5/engine/operations/runtime/ralph/monitor-autonomous.sh
+bash blackbox5/engine/operations/runtime/ralph/monitor-autonomous.sh
 ```
 
 ### Option 3: Watch Logs

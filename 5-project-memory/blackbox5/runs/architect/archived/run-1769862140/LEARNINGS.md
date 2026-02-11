@@ -1,7 +1,7 @@
 # Learnings - Loop 41
 
 ## Agent System Structure
-- Agents defined in ~/.blackbox5/2-engine/core/agents/definitions/
+- Agents defined in ~/blackbox5/2-engine/core/agents/definitions/
 - BaseAgent provides execute_with_hooks() which handles validation, timing, status
 - Required methods: execute() and think()
 - Optional hooks: before_execution, after_execution, validate_task

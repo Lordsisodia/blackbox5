@@ -299,13 +299,13 @@ Comprehensive tests are available in `test_state_manager.py`:
 
 ```bash
 # Run all tests
-pytest .blackbox5/engine/core/test_state_manager.py -v
+pytest blackbox5/engine/core/test_state_manager.py -v
 
 # Run specific test class
-pytest .blackbox5/engine/core/test_state_manager.py::TestStateManager -v
+pytest blackbox5/engine/core/test_state_manager.py::TestStateManager -v
 
 # Run integration tests
-pytest .blackbox5/engine/core/test_state_manager.py::TestIntegrationScenarios -v
+pytest blackbox5/engine/core/test_state_manager.py::TestIntegrationScenarios -v
 ```
 
 Test coverage:
@@ -325,7 +325,7 @@ Test coverage:
 Run the demo script to see STATE.md in action:
 
 ```bash
-python .blackbox5/engine/core/state_manager_demo.py
+python blackbox5/engine/core/state_manager_demo.py
 ```
 
 The demo shows:

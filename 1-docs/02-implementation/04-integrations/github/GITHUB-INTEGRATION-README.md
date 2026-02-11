@@ -27,17 +27,17 @@ A complete skill that enables BlackBox5 agents to:
 
 1. **John (PM Agent)** creates PRD using this skill
    - Brainstorms requirements with you
-   - Creates `.blackbox5/specs/prds/user-auth.md`
+   - Creates `blackbox5/specs/prds/user-auth.md`
 
 2. **Winston (Architect)** generates Epic using this skill
    - Reads PRD
    - Creates technical spec
-   - Saves to `.blackbox5/specs/epics/user-auth/epic.md`
+   - Saves to `blackbox5/specs/epics/user-auth/epic.md`
 
 3. **Winston + Arthur** decompose into Tasks
    - Break epic into components
    - Create task files
-   - Save to `.blackbox5/specs/epics/user-auth/{001,002,003}.md`
+   - Save to `blackbox5/specs/epics/user-auth/{001,002,003}.md`
 
 4. **System** syncs to GitHub
    - Creates Epic Issue #200
@@ -79,7 +79,7 @@ I'll guide you through the requirements gathering...
 - Requirements
 - Success criteria]
 
-✅ PRD created: .blackbox5/specs/prds/user-auth.md"
+✅ PRD created: blackbox5/specs/prds/user-auth.md"
 ```
 
 ### Step 2: Agent Generates Epic
@@ -94,7 +94,7 @@ BlackBox5 (using github-integration skill):
 - Components (login, refresh, middleware)
 - Data flow]
 
-✅ Epic created: .blackbox5/specs/epics/user-auth/epic.md"
+✅ Epic created: blackbox5/specs/epics/user-auth/epic.md"
 ```
 
 ### Step 3: Agent Decomposes Tasks
@@ -192,7 +192,7 @@ Closes issue #201]
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── specs/
 │   ├── prds/                           # Product Requirements
 │   │   └── user-auth.md                # PRD with frontmatter
@@ -367,7 +367,7 @@ Let me ask some questions:
 
 [Captures your answers and creates PRD]
 
-✅ PRD created: .blackbox5/specs/prds/user-profile.md"
+✅ PRD created: blackbox5/specs/prds/user-profile.md"
 ```
 
 ### Full Workflow Test

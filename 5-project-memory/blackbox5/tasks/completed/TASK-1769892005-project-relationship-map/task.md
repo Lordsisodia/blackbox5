@@ -38,7 +38,7 @@ Understanding these relationships will improve planning and execution.
 
 ## Approach
 
-1. List all projects in ~/.blackbox5/
+1. List all projects in ~/blackbox5/
 2. Search for cross-references (file paths, imports, mentions)
 3. Analyze STATE.yaml and goals.yaml for project references
 4. Check runs/ for cross-project task patterns
@@ -47,10 +47,10 @@ Understanding these relationships will improve planning and execution.
 
 ## Files to Read
 
-- ~/.blackbox5/5-project-memory/*/STATE.yaml
-- ~/.blackbox5/5-project-memory/*/goals.yaml
-- ~/.blackbox5/2-engine/.autonomous/**/*.md
-- ~/.blackbox5/6-roadmap/**/*.md
+- ~/blackbox5/5-project-memory/*/STATE.yaml
+- ~/blackbox5/5-project-memory/*/goals.yaml
+- ~/blackbox5/2-engine/.autonomous/**/*.md
+- ~/blackbox5/6-roadmap/**/*.md
 - runs/completed/*/THOUGHTS.md (sample for cross-project references)
 
 ## Files to Create

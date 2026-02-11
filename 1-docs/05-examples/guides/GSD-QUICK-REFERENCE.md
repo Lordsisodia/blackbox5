@@ -82,8 +82,8 @@ The orchestrator **automatically**:
 
 ### Result Files
 
-- **STATE.md** - Human-readable progress at `.blackbox5/my_workspace/STATE.md`
-- **Checkpoints** - Crash recovery state at `.blackbox5/my_workspace/checkpoints/`
+- **STATE.md** - Human-readable progress at `blackbox5/my_workspace/STATE.md`
+- **Checkpoints** - Crash recovery state at `blackbox5/my_workspace/checkpoints/`
 - **Commits** - Atomic git commits (one per task)
 
 ---
@@ -152,7 +152,7 @@ See `examples/simple_gsd_starter.py` for a complete working example.
 
 Run it:
 ```bash
-python3 .blackbox5/examples/simple_gsd_starter.py
+python3 blackbox5/examples/simple_gsd_starter.py
 ```
 
 ---

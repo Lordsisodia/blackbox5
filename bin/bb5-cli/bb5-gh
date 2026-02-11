@@ -1,0 +1,173 @@
+#!/bin/bash
+# BB5 GitHub CLI
+# GitHub operations without MCP
+
+BB5_DIR="${BB5_DIR:-$HOME/blackbox5}"
+source "$BB5_DIR/bin/bb5-cli/lib/bb5_cli_colors.sh"
+
+COMMAND="${1:-help}"
+shift || true
+
+# Check if gh CLI is installed
+if ! command -v gh &> /dev/null; then
+    bb5_print_error "GitHub CLI (gh) not installed"
+    echo "Install from: https://cli.github.com/" >&2
+    exit 1
+fi
+
+# Check if authenticated
+if ! gh auth status &> /dev/null; then
+    bb5_print_error "Not authenticated with GitHub"
+    echo "Run: gh auth login" >&2
+    exit 1
+fi
+
+case "$COMMAND" in
+    pushes|activity)
+        REPO="${1:-.}"
+        SINCE="${2:-24h}"
+
+        bb5_print_info "Recent pushes in last $SINCE"
+        echo ""
+
+        # Convert since to git date format
+        case "$SINCE" in
+            1h|1hour) GIT_SINCE="1 hour ago" ;;
+            6h|6hours) GIT_SINCE="6 hours ago" ;;
+            12h|12hours) GIT_SINCE="12 hours ago" ;;
+            24h|24hours|1d|1day) GIT_SINCE="24 hours ago" ;;
+            7d|7days|1w|1week) GIT_SINCE="7 days ago" ;;
+            *) GIT_SINCE="24 hours ago" ;;
+        esac
+
+        # Get recent pushes
+        gh api "repos/{owner}/{repo}/events?per_page=30" --jq "
+            [.[] | select(.type == \"PushEvent\") | {
+                date: .created_at,
+                author: .actor.login,
+                branch: .payload.ref | split(\"/\") | last,
+                commits: .payload.size,
+                message: .payload.commits[0].message
+            }] | group_by(.branch) | .[] | {
+                branch: .[0].branch,
+                pushes: length,
+                latest: .[0].date,
+                author: .[0].author
+            }
+        " 2>/dev/null | jq -r '
+            "Branch: \(.branch)" +
+            "\n  Pushes: \(.pushes)" +
+            "\n  Latest: \(.latest)" +
+            "\n  By: \(.author)" +
+            "\n"
+        ' || {
+            # Fallback to git log if gh api fails
+            git -C "$REPO" log --all --since="$GIT_SINCE" --pretty=format:"%h|%an|%ar|%s" | \
+            awk -F'|' '
+                {commits[$2]++; latest[$2]=$3; msg[$2]=$4}
+                END {for (author in commits) print author ": " commits[author] " commits, latest: " latest[author]}
+            '
+        }
+        ;;
+
+    commits)
+        REPO="${1:-.}"
+        LIMIT="${2:-10}"
+
+        bb5_print_info "Last $LIMIT commits"
+        echo ""
+
+        gh api "repos/{owner}/{repo}/commits?per_page=$LIMIT" --jq '
+            .[] | "\(.sha[:7]) | \(.commit.author.name) | \(.commit.message | split("\n")[0]) | \(.commit.author.date)"
+        ' 2>/dev/null | column -t -s'|' || {
+            git -C "$REPO" log -n "$LIMIT" --pretty=format:"%h | %an | %s | %ar"
+        }
+        ;;
+
+    prs|pull-requests)
+        STATE="${1:-open}"
+
+        bb5_print_info "Pull requests ($STATE)"
+        echo ""
+
+        gh pr list --state "$STATE" --limit 20 2>/dev/null || {
+            gh api "repos/{owner}/{repo}/pulls?state=$STATE&per_page=20" --jq '
+                .[] | "#\(.number) | \(.title) | \(.user.login) | \(.created_at)"
+            ' | column -t -s'|'
+        }
+        ;;
+
+    status)
+        bb5_print_info "Repository status"
+        echo ""
+
+        echo "Current branch:"
+        gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name' 2>/dev/null || git branch --show-current
+
+        echo ""
+        echo "Recent activity:"
+        gh api "repos/{owner}/{repo}/events?per_page=5" --jq '.[].type' 2>/dev/null | sort | uniq -c | sort -rn
+        ;;
+
+    branches)
+        bb5_print_info "Recent branch activity"
+        echo ""
+
+        git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) | %(refname:short) | %(authorname)' | head -20 | column -t -s'|'
+        ;;
+
+    review)
+        PR="$1"
+        if [[ -z "$PR" ]]; then
+            bb5_print_error "PR number required"
+            echo "Usage: bb5 gh review <pr-number>" >&2
+            exit 1
+        fi
+
+        bb5_print_info "Reviewing PR #$PR"
+        gh pr view "$PR" --web 2>/dev/null || gh pr view "$PR"
+        ;;
+
+    merge)
+        PR="$1"
+        if [[ -z "$PR" ]]; then
+            bb5_print_error "PR number required"
+            exit 1
+        fi
+
+        bb5_print_info "Merging PR #$PR"
+        gh pr merge "$PR" --squash
+        ;;
+
+    help|*)
+        cat << 'EOF'
+BB5 GitHub CLI
+
+USAGE:
+  bb5 gh <command> [options]
+
+COMMANDS:
+  pushes [repo] [since]     Show recent pushes (default: last 24h)
+  commits [repo] [limit]    Show recent commits
+  prs [state]               List pull requests (open/closed/merged)
+  status                    Show repository status
+  branches                  List recent branch activity
+  review <pr>               Open PR for review
+  merge <pr>                Merge a pull request
+  help                      Show this help
+
+EXAMPLES:
+  bb5 gh pushes                    # Pushes in last 24h
+  bb5 gh pushes . 7d               # Pushes in last 7 days
+  bb5 gh commits                   # Last 10 commits
+  bb5 gh commits . 20              # Last 20 commits
+  bb5 gh prs open                  # Open PRs
+  bb5 gh prs closed                # Closed PRs
+  bb5 gh review 123                # Review PR #123
+
+NOTES:
+  - Requires 'gh' CLI to be installed and authenticated
+  - Run from within a git repository or specify repo path
+EOF
+        ;;
+esac

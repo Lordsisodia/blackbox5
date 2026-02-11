@@ -138,7 +138,7 @@ Followed the **DS (Develop Story)** workflow from bmad-dev skill:
 
 **Challenge 3: Configuration File Path**
 - **Issue:** Need default config location
-- **Resolution:** Used `~/.blackbox5/api-config.yaml` as default, configurable via `--config` flag. Follows existing RALF patterns.
+- **Resolution:** Used `~/blackbox5/api-config.yaml` as default, configurable via `--config` flag. Follows existing RALF patterns.
 
 ## Key Decisions
 
@@ -167,7 +167,7 @@ Followed the **DS (Develop Story)** workflow from bmad-dev skill:
 - Libraries: `2-engine/.autonomous/lib/`
 - Connectors: `2-engine/.autonomous/lib/connectors/`
 - Config: `2-engine/.autonomous/config/api-config.yaml` (template)
-- User config: `~/.blackbox5/api-config.yaml`
+- User config: `~/blackbox5/api-config.yaml`
 - Docs: `operations/.docs/api-gateway-guide.md`
 
 **Future Enhancements:**

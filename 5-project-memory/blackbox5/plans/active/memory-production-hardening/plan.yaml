@@ -1,0 +1,171 @@
+---
+id: "PLAN-MEMORY-HARDEN-001"
+title: "Memory Architecture Production Hardening"
+slug: "memory-production-hardening"
+status: "draft"
+stage: "01-draft"
+
+# Metadata
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+updated_at: "2026-02-10T12:00:00Z"
+
+# Classification
+category: "architecture"
+domain: "memory"
+priority: "critical"
+
+# Relationships
+depends_on:
+  - "PLAN-HINDSIGHT-001"
+blocks: []
+blocked_by: []
+relates_to: []
+
+parent_goal: "IG-008"
+
+# Tasks
+related_tasks: []
+
+# Effort Tracking
+estimated_hours: 60
+actual_hours: 0
+progress: 0.0
+
+# Review
+review_status: "not-reviewed"
+reviewed_by: null
+reviewed_at: null
+approval_notes: null
+
+# Tags
+tags:
+  - "memory"
+  - "hindsight"
+  - "production"
+  - "hardening"
+
+# Links
+plan_link: "5-project-memory/blackbox5/plans/active/memory-production-hardening/plan.yaml"
+---
+
+# Memory Architecture Production Hardening Plan
+
+## Overview
+
+The Hindsight MVP is 75% complete with core functionality working (RETAIN, RECALL, REFLECT). This plan addresses production hardening gaps: CLI accessibility, auto-RETAIN wiring, deduplication, decay, and testing.
+
+## Success Criteria
+
+- [ ] bb5-memory CLI accessible from anywhere (in PATH)
+- [ ] Auto-RETAIN triggers on every task completion
+- [ ] Memory deduplication prevents duplicate entries
+- [ ] Memory decay reduces confidence over time
+- [ ] Unit tests cover all 3 operations
+- [ ] Benchmarks show <500ms recall at 1000 memories
+
+## Phase Breakdown
+
+### Phase 1: CLI Accessibility (Week 1)
+
+**Objective:** Make bb5-memory available system-wide
+
+**Sub-goal:** SG-008-6 (Integration completion)
+
+**Tasks:**
+1. Create symlink `bin/bb5-memory` → `.autonomous/memory/cli.py`
+2. Update shell profile to include `~/blackbox5/bin` in PATH
+3. Test `bb5-memory` command from outside project directory
+4. Add CLI completion for bash/zsh
+
+**Acceptance Criteria:**
+- `bb5-memory` works from any directory
+- All 8 commands functional (stats, recall, retain, reflect, add, export, import, dashboard)
+- Help text displays correctly
+
+### Phase 2: Auto-RETAIN Integration (Week 1)
+
+**Objective:** Wire automatic memory extraction
+
+**Sub-goal:** SG-008-3 (RETAIN completion)
+
+**Tasks:**
+1. Enhance `retain-on-complete.py` hook to process all task files
+2. Ensure hook runs on task completion (Stop event)
+3. Add error handling and retry logic
+4. Test end-to-end: complete task → memory extracted
+
+**Acceptance Criteria:**
+- 90%+ of completed tasks have memories retained
+- RETAIN runs automatically without manual trigger
+- Failed extractions are logged and retried
+
+### Phase 3: Memory Deduplication (Week 2)
+
+**Objective:** Prevent duplicate memories
+
+**Sub-goal:** SG-008-2 (Infrastructure completion)
+
+**Tasks:**
+1. Implement embedding similarity check before storage
+2. Set threshold (0.95 cosine similarity) for duplicate detection
+3. Update existing memory confidence instead of creating duplicate
+4. Add `bb5-memory dedup` command for cleanup
+
+**Acceptance Criteria:**
+- Duplicate memories detected at 95%+ similarity
+- No duplicate entries in vector store
+- Confidence scores updated for similar memories
+
+### Phase 4: Memory Decay (Week 2)
+
+**Objective:** Implement forgetting mechanism
+
+**Sub-goal:** SG-008-5 (REFLECT completion)
+
+**Tasks:**
+1. Add `last_accessed` timestamp to memories
+2. Implement confidence decay function (e.g., 1% per week)
+3. Create `bb5-memory decay` command to apply decay
+4. Add low-confidence memory archival (below threshold)
+
+**Acceptance Criteria:**
+- Unused memories lose confidence over time
+- Frequently accessed memories retain high confidence
+- Low-confidence memories archived, not deleted
+- Decay rate configurable
+
+### Phase 5: Testing and Benchmarks (Week 3)
+
+**Objective:** Ensure reliability and performance
+
+**Sub-goal:** SG-008-6 (Integration completion)
+
+**Tasks:**
+1. Write unit tests for RETAIN operation
+2. Write unit tests for RECALL operation
+3. Write unit tests for REFLECT operation
+4. Create benchmark suite (recall latency vs memory count)
+5. Document performance characteristics
+
+**Acceptance Criteria:**
+- >80% code coverage
+- All tests passing
+- Recall <500ms at 1000 memories
+- Benchmarks run on CI
+
+## Dependencies
+
+- Hindsight MVP (Phases 1-6 of PLAN-HINDSIGHT-001)
+- Task completion hooks
+- Vector store with JSON persistence
+
+## Timeline
+
+| Phase | Duration | Focus |
+|-------|----------|-------|
+| 1 | 3 days | CLI accessibility |
+| 2 | 2 days | Auto-RETAIN wiring |
+| 3 | 3 days | Deduplication |
+| 4 | 2 days | Memory decay |
+| 5 | 5 days | Testing and benchmarks |

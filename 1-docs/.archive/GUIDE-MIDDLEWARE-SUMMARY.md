@@ -7,7 +7,7 @@ The **Guide Middleware** has been successfully created and integrated into Black
 ## Files Created
 
 ### 1. Main Implementation
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/guide_middleware.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/guide_middleware.py`
 
 **Size**: 13KB
 **Lines**: ~400 lines
@@ -23,7 +23,7 @@ The **Guide Middleware** has been successfully created and integrated into Black
 - Guide discovery and search
 
 ### 2. Test Suite
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/test_guide_middleware.py`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/test_guide_middleware.py`
 
 **Size**: 4.3KB
 **Tests**: 5 comprehensive tests
@@ -37,7 +37,7 @@ The **Guide Middleware** has been successfully created and integrated into Black
 - Search functionality
 
 ### 3. Documentation
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/GUIDE-MIDDLEWARE.md`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/GUIDE-MIDDLEWARE.md`
 
 **Size**: 14KB
 **Sections**: 10
@@ -54,7 +54,7 @@ The **Guide Middleware** has been successfully created and integrated into Black
 ## Integration Points
 
 ### 1. Core Module (`__init__.py`)
-Added exports to `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/__init__.py`:
+Added exports to `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/__init__.py`:
 ```python
 from .guide_middleware import (
     GuideMiddleware,
@@ -67,7 +67,7 @@ from .guide_middleware import (
 ```
 
 ### 2. Guides Module (`__init__.py`)
-Fixed exports in `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/guides/__init__.py`:
+Fixed exports in `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/guides/__init__.py`:
 ```python
 from .operation import Step, Trigger
 from .registry import OperationRegistry, get_registry, Operation, TriggerCondition, StepDefinition
@@ -78,7 +78,7 @@ from .recipe import Recipe, RecipeStatus, CurrentStep, NextStep, StepResult
 
 | Criterion | Status | Notes |
 |-----------|--------|-------|
-| File exists at specified path | ✅ | `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/guide_middleware.py` |
+| File exists at specified path | ✅ | `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/guide_middleware.py` |
 | GuideMiddleware class implemented | ✅ | Full implementation with all required methods |
 | before_agent_action() works with 0.7 threshold | ✅ | Tested and verified |
 | after_agent_action() works with 0.5 threshold | ✅ | Tested and verified |

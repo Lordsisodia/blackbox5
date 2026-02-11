@@ -6,7 +6,7 @@
 
 | Criterion | Status | Evidence |
 |-----------|--------|----------|
-| v2.4 templates directory created | ✅ COMPLETE | `ls -la ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.4/templates/` |
+| v2.4 templates directory created | ✅ COMPLETE | `ls -la ~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.4/templates/` |
 | decision_registry.yaml template exists | ✅ COMPLETE | File exists, updated header for v2.4 |
 | bin/ralf.md updated to Agent-2.4 | ✅ COMPLETE | All 2.3 references changed to 2.4 |
 | ralf-metrics.jsonl initialized | ✅ COMPLETE | File created with INIT entry |
@@ -23,13 +23,13 @@
 
 ```bash
 # v2.4 templates
-$ ls -la ~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.4/templates/
+$ ls -la ~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.4/templates/
 drwxr-xr-x  3 shaansisodia  staff    96 31 Jan 06:07 .
 drwxr-xr-x  4 shaansisodia  staff   128 31 Jan 06:06 ..
 -rw-r--r--  1 shaansisodia  staff  1829 31 Jan 06:07 decision_registry.yaml
 
 # ralf-metrics.jsonl
-$ cat ~/.blackbox5/ralf-metrics.jsonl
+$ cat ~/blackbox5/ralf-metrics.jsonl
 {"loop":0,"duration":0,"timestamp":"2026-01-31T06:06:16Z","model":"GLM-4.7","task":"TASK-1738304776","status":"INIT","notes":"Metrics file initialized for Agent-2.4"}
 ```
 
@@ -37,7 +37,7 @@ $ cat ~/.blackbox5/ralf-metrics.jsonl
 
 ```bash
 # ralf-dashboard test
-$ bash ~/.blackbox5/bin/ralf-dashboard
+$ bash ~/blackbox5/bin/ralf-dashboard
 === RALF Performance Dashboard ===
 📊 Overall Stats
 Total Loops: 1
@@ -126,7 +126,7 @@ From dashboard data on previous 29 runs:
 
 ## Metrics Logged
 
-Entry added to `~/.blackbox5/ralf-metrics.jsonl`:
+Entry added to `~/blackbox5/ralf-metrics.jsonl`:
 ```json
 {"loop":0,"duration":0,"timestamp":"2026-01-31T06:06:16Z","model":"GLM-4.7","task":"TASK-1738304776","status":"INIT","notes":"Metrics file initialized for Agent-2.4"}
 ```

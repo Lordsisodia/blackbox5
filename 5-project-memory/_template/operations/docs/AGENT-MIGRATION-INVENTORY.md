@@ -2,7 +2,7 @@
 
 **Migration Date:** 2025-01-18
 **Source:** `.blackbox/` (Black Box 4)
-**Destination:** `.blackbox5/engine/` (Black Box 5)
+**Destination:** `blackbox5/engine/` (Black Box 5)
 
 ---
 

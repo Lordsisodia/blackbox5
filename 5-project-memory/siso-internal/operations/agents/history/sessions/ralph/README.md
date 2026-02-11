@@ -109,7 +109,7 @@ Ralph is an **autonomous coding agent** that:
 cd /path/to/project
 
 # Run Ralph
-.blackbox5/engine/runtime/ralph/start-ralph.sh 100
+blackbox5/engine/runtime/ralph/start-ralph.sh 100
 ```
 
 ### 3. Watch It Work
@@ -591,7 +591,7 @@ Ralph stops when:
 
 **Error:** `No agents found`
 
-**Solution:** Ensure agents are in `.blackbox5/engine/agents/` directory
+**Solution:** Ensure agents are in `blackbox5/engine/agents/` directory
 
 ### Quality checks fail
 

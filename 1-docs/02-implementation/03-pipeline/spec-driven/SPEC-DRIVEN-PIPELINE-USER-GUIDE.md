@@ -37,17 +37,17 @@ The pipeline is included with BlackBox5. Ensure you have:
 ```bash
 # BlackBox5 should be installed
 cd /path/to/your/project
-.blackbox5/cli/bb5 --help
+blackbox5/cli/bb5 --help
 ```
 
 ### Your First PRD
 
 ```bash
 # Create a new PRD interactively
-.blackbox5/cli/bb5 prd:new "User Authentication System"
+blackbox5/cli/bb5 prd:new "User Authentication System"
 
 # Or non-interactively
-.blackbox5/cli/bb5 prd:new "User Auth" --non-interactive \
+blackbox5/cli/bb5 prd:new "User Auth" --non-interactive \
   --description "Implement JWT-based authentication"
 ```
 
@@ -55,24 +55,24 @@ cd /path/to/your/project
 
 ```bash
 # Transform PRD to Epic
-.blackbox5/cli/bb5 epic:create \
-  --prd .blackbox5/specs/prds/prd-user-authentication-system.md
+blackbox5/cli/bb5 epic:create \
+  --prd blackbox5/specs/prds/prd-user-authentication-system.md
 ```
 
 ### Create Tasks from Epic
 
 ```bash
 # Generate tasks from epic
-.blackbox5/cli/bb5 task:create \
-  .blackbox5/specs/epics/epic-001-user-authentication-system.md
+blackbox5/cli/bb5 task:create \
+  blackbox5/specs/epics/epic-001-user-authentication-system.md
 ```
 
 ### Sync to GitHub (Optional)
 
 ```bash
 # Sync epic to GitHub
-.blackbox5/cli/bb5 github:sync-epic \
-  .blackbox5/specs/epics/epic-001-user-authentication-system.md
+blackbox5/cli/bb5 github:sync-epic \
+  blackbox5/specs/epics/epic-001-user-authentication-system.md
 ```
 
 ## PRD Creation
@@ -91,7 +91,7 @@ A Product Requirements Document (PRD) defines:
 **Interactive Mode** (recommended for first-time users):
 
 ```bash
-.blackbox5/cli/bb5 prd:new "My Feature"
+blackbox5/cli/bb5 prd:new "My Feature"
 ```
 
 You'll be prompted for:
@@ -104,7 +104,7 @@ You'll be prompted for:
 **Non-Interactive Mode**:
 
 ```bash
-.blackbox5/cli/bb5 prd:new "My Feature" --non-interactive \
+blackbox5/cli/bb5 prd:new "My Feature" --non-interactive \
   --description "Brief description of the feature" \
   --author "Your Name"
 ```
@@ -113,7 +113,7 @@ Then edit the generated file:
 
 ```bash
 # Edit the PRD
-vim .blackbox5/specs/prds/prd-my-feature.md
+vim blackbox5/specs/prds/prd-my-feature.md
 ```
 
 ### PRD Structure
@@ -166,14 +166,14 @@ What do we need to validate?
 ### Validating a PRD
 
 ```bash
-.blackbox5/cli/bb5 prd:validate \
-  .blackbox5/specs/prds/prd-my-feature.md
+blackbox5/cli/bb5 prd:validate \
+  blackbox5/specs/prds/prd-my-feature.md
 ```
 
 ### Listing PRDs
 
 ```bash
-.blackbox5/cli/bb5 prd:list
+blackbox5/cli/bb5 prd:list
 ```
 
 ## Epic Generation
@@ -189,8 +189,8 @@ An Epic is a technical specification that:
 ### Creating an Epic
 
 ```bash
-.blackbox5/cli/bb5 epic:create \
-  --prd .blackbox5/specs/prds/prd-my-feature.md
+blackbox5/cli/bb5 epic:create \
+  --prd blackbox5/specs/prds/prd-my-feature.md
 ```
 
 The Epic Agent will:
@@ -250,8 +250,8 @@ Why we chose this option
 ### Validating an Epic
 
 ```bash
-.blackbox5/cli/bb5 epic:validate \
-  .blackbox5/specs/epics/epic-001-my-feature.md
+blackbox5/cli/bb5 epic:validate \
+  blackbox5/specs/epics/epic-001-my-feature.md
 ```
 
 ## Task Breakdown
@@ -267,8 +267,8 @@ Tasks are implementation units that:
 ### Creating Tasks
 
 ```bash
-.blackbox5/cli/bb5 task:create \
-  .blackbox5/specs/epics/epic-001-my-feature.md
+blackbox5/cli/bb5 task:create \
+  blackbox5/specs/epics/epic-001-my-feature.md
 ```
 
 The Task Agent will:
@@ -328,31 +328,31 @@ Implement the Component1 as specified in the epic.
 
 ```bash
 # List all task documents
-.blackbox5/cli/bb5 task:list
+blackbox5/cli/bb5 task:list
 
 # Filter by epic
-.blackbox5/cli/bb5 task:list --epic EPIC-001
+blackbox5/cli/bb5 task:list --epic EPIC-001
 ```
 
 ### Showing Task Details
 
 ```bash
 # Show summary
-.blackbox5/cli/bb5 task:show EPIC-001-001
+blackbox5/cli/bb5 task:show EPIC-001-001
 
 # Show full markdown
-.blackbox5/cli/bb5 task:show EPIC-001-001 --format markdown
+blackbox5/cli/bb5 task:show EPIC-001-001 --format markdown
 
 # Show JSON
-.blackbox5/cli/bb5 task:show EPIC-001-001 --format json
+blackbox5/cli/bb5 task:show EPIC-001-001 --format json
 ```
 
 ### Validating Tasks
 
 ```bash
 # Validate all tasks in a document
-.blackbox5/cli/bb5 task:validate \
-  .blackbox5/specs/tasks/epic-001-my-feature-tasks.md
+blackbox5/cli/bb5 task:validate \
+  blackbox5/specs/tasks/epic-001-my-feature-tasks.md
 ```
 
 ## GitHub Integration
@@ -367,7 +367,7 @@ export GITHUB_TOKEN=your_token_here
 export GITHUB_REPO=owner/repo
 
 # Or create config file
-cat > .blackbox5/config.yml << EOF
+cat > blackbox5/config.yml << EOF
 github:
   token: ${GITHUB_TOKEN}
   repo_owner: owner
@@ -379,8 +379,8 @@ EOF
 ### Syncing Epic to GitHub
 
 ```bash
-.blackbox5/cli/bb5 github:sync-epic \
-  .blackbox5/specs/epics/epic-001-my-feature.md
+blackbox5/cli/bb5 github:sync-epic \
+  blackbox5/specs/epics/epic-001-my-feature.md
 ```
 
 This creates:
@@ -391,8 +391,8 @@ This creates:
 ### Syncing Tasks to GitHub
 
 ```bash
-.blackbox5/cli/bb5 task:sync \
-  .blackbox5/specs/tasks/epic-001-my-feature-tasks.md \
+blackbox5/cli/bb5 task:sync \
+  blackbox5/specs/tasks/epic-001-my-feature-tasks.md \
   --epic-issue 123
 ```
 
@@ -405,7 +405,7 @@ This creates:
 ### Updating Progress
 
 ```bash
-.blackbox5/cli/bb5 github:update \
+blackbox5/cli/bb5 github:update \
   --issue 124 \
   --status "in_progress" \
   --comment "Working on implementation"
@@ -414,7 +414,7 @@ This creates:
 ### Checking Sync Status
 
 ```bash
-.blackbox5/cli/bb5 github:status --epic EPIC-001
+blackbox5/cli/bb5 github:status --epic EPIC-001
 ```
 
 ## Complete Workflow Example
@@ -424,13 +424,13 @@ Let's walk through building a "User Dashboard" feature:
 ### Step 1: Create PRD
 
 ```bash
-.blackbox5/cli/bb5 prd:new "User Dashboard" --non-interactive
+blackbox5/cli/bb5 prd:new "User Dashboard" --non-interactive
 ```
 
 Edit the PRD:
 
 ```bash
-vim .blackbox5/specs/prds/prd-user-dashboard.md
+vim blackbox5/specs/prds/prd-user-dashboard.md
 ```
 
 Add content:
@@ -473,15 +473,15 @@ Users need a centralized view of their account information and recent activity.
 Validate:
 
 ```bash
-.blackbox5/cli/bb5 prd:validate \
-  .blackbox5/specs/prds/prd-user-dashboard.md
+blackbox5/cli/bb5 prd:validate \
+  blackbox5/specs/prds/prd-user-dashboard.md
 ```
 
 ### Step 2: Generate Epic
 
 ```bash
-.blackbox5/cli/bb5 epic:create \
-  --prd .blackbox5/specs/prds/prd-user-dashboard.md
+blackbox5/cli/bb5 epic:create \
+  --prd blackbox5/specs/prds/prd-user-dashboard.md
 ```
 
 Output:
@@ -491,20 +491,20 @@ Output:
   Title: User Dashboard - Technical Specification
   Components: 4
   Technical Decisions: 3
-  File: .blackbox5/specs/epics/epic-001-user-dashboard.md
+  File: blackbox5/specs/epics/epic-001-user-dashboard.md
 ```
 
 Review the epic:
 
 ```bash
-vim .blackbox5/specs/epics/epic-001-user-dashboard.md
+vim blackbox5/specs/epics/epic-001-user-dashboard.md
 ```
 
 ### Step 3: Generate Tasks
 
 ```bash
-.blackbox5/cli/bb5 task:create \
-  .blackbox5/specs/epics/epic-001-user-dashboard.md
+blackbox5/cli/bb5 task:create \
+  blackbox5/specs/epics/epic-001-user-dashboard.md
 ```
 
 Output:
@@ -517,19 +517,19 @@ Output:
 
   Total estimated hours: 24.0h
 
-  File: .blackbox5/specs/tasks/epic-001-user-dashboard-tasks.md
+  File: blackbox5/specs/tasks/epic-001-user-dashboard-tasks.md
 ```
 
 ### Step 4: Sync to GitHub (Optional)
 
 ```bash
 # Sync epic
-.blackbox5/cli/bb5 github:sync-epic \
-  .blackbox5/specs/epics/epic-001-user-dashboard.md
+blackbox5/cli/bb5 github:sync-epic \
+  blackbox5/specs/epics/epic-001-user-dashboard.md
 
 # Sync tasks (note the epic issue number from output)
-.blackbox5/cli/bb5 task:sync \
-  .blackbox5/specs/tasks/epic-001-user-dashboard-tasks.md \
+blackbox5/cli/bb5 task:sync \
+  blackbox5/specs/tasks/epic-001-user-dashboard-tasks.md \
   --epic-issue 42
 ```
 
@@ -539,12 +539,12 @@ As you work on tasks:
 
 ```bash
 # Update status
-.blackbox5/cli/bb5 github:update \
+blackbox5/cli/bb5 github:update \
   --issue 43 \
   --status "in_progress"
 
 # When complete
-.blackbox5/cli/bb5 github:update \
+blackbox5/cli/bb5 github:update \
   --issue 43 \
   --status "done" \
   --comment "Completed implementation with tests"
@@ -859,7 +859,7 @@ Options:
 
 ### Custom Configuration
 
-Create `.blackbox5/config.yml`:
+Create `blackbox5/config.yml`:
 
 ```yaml
 github:
@@ -883,7 +883,7 @@ agent:
 logging:
   level: INFO
   console: true
-  file: .blackbox5/pipeline.log
+  file: blackbox5/pipeline.log
 ```
 
 ### Programmatic Usage
@@ -923,8 +923,8 @@ task_agent.save_task_document(task_doc, config.paths.specs_dir)
 
 To improve the pipeline:
 
-1. Review the code in `.blackbox5/engine/spec_driven/`
-2. Add tests to `.blackbox5/tests/`
+1. Review the code in `blackbox5/engine/spec_driven/`
+2. Add tests to `blackbox5/tests/`
 3. Update documentation
 4. Submit pull request
 

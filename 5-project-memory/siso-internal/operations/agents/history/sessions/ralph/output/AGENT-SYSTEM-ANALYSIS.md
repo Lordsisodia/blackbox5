@@ -3,7 +3,7 @@
 **Analyzed by:** Ralph Runtime
 **Date:** 2026-01-18 14:49:17
 
-## Analysis: .blackbox5/engine/agents
+## Analysis: blackbox5/engine/agents
 
 ### Directory Structure
 
@@ -45,5 +45,5 @@ drwxr-xr-x@ 12 shaansisodia  staff  384 18 Jan 14:22 skills
 
 ### Summary
 
-The directory `.blackbox5/engine/agents` contains 45 Python files, 0 TypeScript files, and 2 main components.
+The directory `blackbox5/engine/agents` contains 45 Python files, 0 TypeScript files, and 2 main components.
 

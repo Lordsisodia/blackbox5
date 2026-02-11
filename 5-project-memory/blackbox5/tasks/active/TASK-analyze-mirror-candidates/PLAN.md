@@ -58,7 +58,7 @@
 ### Folder Structure to Analyze
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── 1-docs/                    # Documentation
 ├── 2-engine/                  # Core engine (RALF, agents)
 │   ├── .autonomous/agents/    # Agent implementations

@@ -12,17 +12,17 @@ TASK-1769895001: Optimize LEGACY.md Operational Procedures
 
 ### Context Gathered
 - Files read:
-  - `~/.blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md` - Core operational procedures
-  - `~/.blackbox5/2-engine/.autonomous/prompts/ralf-executor.md` - RALF executor prompt
-  - `~/.blackbox5/5-project-memory/blackbox5/goals.yaml` - IG-002 improvement goal
-  - `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0020/THOUGHTS.md` - Baseline run
-  - `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0021/THOUGHTS.md` - Phase 1.5 first run
-  - `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0022/THOUGHTS.md` - Skill consideration at 70%
-  - `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0023/THOUGHTS.md` - Phase 1.5 compliant
-  - `~/.blackbox5/5-project-memory/blackbox5/runs/executor/run-0024/THOUGHTS.md` - Skill consideration at 75%
-  - `~/.blackbox5/2-engine/.autonomous/skills/bmad-analyst/SKILL.md` - Skill structure
-  - `~/.blackbox5/2-engine/.autonomous/skills/bmad-dev/SKILL.md` - Skill structure
-  - `~/.blackbox5/2-engine/.autonomous/skills/run-initialization/SKILL.md` - Run init process
+  - `~/blackbox5/5-project-memory/siso-internal/.Autonomous/LEGACY.md` - Core operational procedures
+  - `~/blackbox5/2-engine/.autonomous/prompts/ralf-executor.md` - RALF executor prompt
+  - `~/blackbox5/5-project-memory/blackbox5/goals.yaml` - IG-002 improvement goal
+  - `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0020/THOUGHTS.md` - Baseline run
+  - `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0021/THOUGHTS.md` - Phase 1.5 first run
+  - `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0022/THOUGHTS.md` - Skill consideration at 70%
+  - `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0023/THOUGHTS.md` - Phase 1.5 compliant
+  - `~/blackbox5/5-project-memory/blackbox5/runs/executor/run-0024/THOUGHTS.md` - Skill consideration at 75%
+  - `~/blackbox5/2-engine/.autonomous/skills/bmad-analyst/SKILL.md` - Skill structure
+  - `~/blackbox5/2-engine/.autonomous/skills/bmad-dev/SKILL.md` - Skill structure
+  - `~/blackbox5/2-engine/.autonomous/skills/run-initialization/SKILL.md` - Run init process
 
 - Key findings:
   1. LEGACY.md describes Legacy system (siso-internal), not RALF system (blackbox5)

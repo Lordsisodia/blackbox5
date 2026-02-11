@@ -32,8 +32,8 @@ Validate that improvement tasks actually produced measurable improvements by cre
 The improvement pipeline (`operations/improvement-pipeline.yaml`) defines a validation stage where improvements should be measured for effectiveness, but no actual validation tooling existed to compare before/after metrics or verify that improvements produced the expected results.
 
 **Files to Check/Modify:**
-- Created: `~/.blackbox5/bin/validate-improvements.sh`
-- Created: `~/.blackbox5/5-project-memory/blackbox5/.autonomous/templates/improvement-report-template.md`
+- Created: `~/blackbox5/bin/validate-improvements.sh`
+- Created: `~/blackbox5/5-project-memory/blackbox5/.autonomous/templates/improvement-report-template.md`
 
 ---
 
@@ -83,8 +83,8 @@ Validated script against 10 completed improvements:
 ## Rollback Strategy
 
 If changes cause issues:
-1. Remove validation script: `rm ~/.blackbox5/bin/validate-improvements.sh`
-2. Remove template: `rm ~/.blackbox5/5-project-memory/blackbox5/.autonomous/templates/improvement-report-template.md`
+1. Remove validation script: `rm ~/blackbox5/bin/validate-improvements.sh`
+2. Remove template: `rm ~/blackbox5/5-project-memory/blackbox5/.autonomous/templates/improvement-report-template.md`
 3. Document what went wrong
 4. Update this task with learnings
 
@@ -132,6 +132,6 @@ The validation framework uses the following approach:
 
 ## Files Created
 
-1. `/Users/shaansisodia/.blackbox5/bin/validate-improvements.sh` (executable)
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/templates/improvement-report-template.md`
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/validations/improvement-validation-20260209_111435.yaml` (sample output)
+1. `/Users/shaansisodia/blackbox5/bin/validate-improvements.sh` (executable)
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/templates/improvement-report-template.md`
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/validations/improvement-validation-20260209_111435.yaml` (sample output)

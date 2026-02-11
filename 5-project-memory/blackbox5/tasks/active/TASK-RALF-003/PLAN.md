@@ -85,7 +85,7 @@ if 'threshold: 60' in content:  # Assumes BB5 format
 **4. Metrics Collector:**
 ```python
 # Problem: Absolute path
-metrics_path = Path('/Users/shaansisodia/.blackbox5/.../skill-metrics.yaml')
+metrics_path = Path('/Users/shaansisodia/blackbox5/.../skill-metrics.yaml')
 ```
 
 ---
@@ -353,7 +353,7 @@ class ScoutImprove:
 **Changes:**
 ```python
 # BEFORE (BROKEN)
-metrics_path = Path('/Users/shaansisodia/.blackbox5/.../skill-metrics.yaml')
+metrics_path = Path('/Users/shaansisodia/blackbox5/.../skill-metrics.yaml')
 
 # AFTER
 metrics_path = PROJECT_DIR / "operations" / "skill-metrics.yaml"

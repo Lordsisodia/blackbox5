@@ -20,11 +20,11 @@
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  🖥️ YOUR LAPTOP/DESKTOP                                   │
-│  ├─ .blackbox5/engine/           # Shared engine code         │
-│  ├─ .blackbox5/memory/           # SISO-INTERNAL memory      │
-│  ├─ project-1/.blackbox5/memory/  # Project 1 memory        │
-│  ├─ project-2/.blackbox5/memory/  # Project 2 memory        │
-│  └─ project-3/.blackbox5/memory/  # Project 3 memory        │
+│  ├─ blackbox5/engine/           # Shared engine code         │
+│  ├─ blackbox5/memory/           # SISO-INTERNAL memory      │
+│  ├─ project-1/blackbox5/memory/  # Project 1 memory        │
+│  ├─ project-2/blackbox5/memory/  # Project 2 memory        │
+│  └─ project-3/blackbox5/memory/  # Project 3 memory        │
 │                                                              │
 │  🗄️ LOCAL DATABASES:                                        │
 │  ├─ SQLite (working memory)       # Free, built-in          │
@@ -57,7 +57,7 @@
 ```
 ~/
 ├── SISO-INTERNAL/                 # Your main repo
-│   ├── .blackbox5/
+│   ├── blackbox5/
 │   │   ├── engine/               # Shared engine (code only)
 │   │   └── memory/              # SISO-INTERNAL memory (data)
 │   │       ├── working/          # Active sessions
@@ -67,7 +67,7 @@
 │   └── src/                     # Your code
 │
 ├── my-project-2/
-│   ├── .blackbox5/
+│   ├── blackbox5/
 │   │   └── memory/              # Project 2 memory
 │   │       ├── working/
 │   │       ├── extended/
@@ -76,7 +76,7 @@
 │   └── src/
 │
 └── client-website/
-    ├── .blackbox5/
+    ├── blackbox5/
     │   └── memory/              # Client website memory
     │       ├── working/
     │       ├── extended/
@@ -88,20 +88,20 @@
 ### 🔑 Key Principles
 
 1. **Engine is Shared** (Code Only)
-   - Location: `.blackbox5/engine/`
+   - Location: `blackbox5/engine/`
    - Contains: Agent definitions, skills, workflows, brain system
    - This is REFERENCE CODE - not your data
 
 2. **Memory is Per-Project** (Data Only)
-   - Each project has its own `.blackbox5/memory/`
-   - SISO-INTERNAL has: `SISO-INTERNAL/.blackbox5/memory/`
-   - my-project-2 has: `my-project-2/.blackbox5/memory/`
+   - Each project has its own `blackbox5/memory/`
+   - SISO-INTERNAL has: `SISO-INTERNAL/blackbox5/memory/`
+   - my-project-2 has: `my-project-2/blackbox5/memory/`
    - This is YOUR DATA - specific to each project
 
 3. **Gitignore the Data**
    ```gitignore
    # Memory data (per-project)
-   .blackbox5/memory/
+   blackbox5/memory/
    ```
 
 4. **Commit the Engine**
@@ -120,19 +120,19 @@ Based on BlackBox4's proven architecture:
 TIER 1: Working Memory (10 MB)          FAST, Session-based
 ├─ What: Current task context, active files
 ├─ Backend: SQLite (embedded, fast)
-├─ Location: .blackbox5/memory/working/
+├─ Location: blackbox5/memory/working/
 └─ Lifetime: Current session, auto-compacts
 
 TIER 2: Extended Memory (500 MB)        SEARCHABLE, Semantic
 ├─ What: Codebase embeddings, past tasks, patterns
 ├─ Backend: ChromaDB (vector database)
-├─ Location: .blackbox5/memory/extended/
+├─ Location: blackbox5/memory/extended/
 └─ Lifetime: Project lifetime, searchable
 
 TIER 3: Archival Memory (5 GB)          COLD STORAGE, Compressed
 ├─ What: Old sessions, completed tasks, snapshots
 ├─ Backend: Filesystem (compressed tar.gz)
-├─ Location: .blackbox5/memory/archival/
+├─ Location: blackbox5/memory/archival/
 └─ Lifetime: Permanent, for reference
 ```
 
@@ -177,8 +177,8 @@ The brain is a **separate system** that provides:
 
 **Brain Location:**
 ```
-.blackbox5/engine/brain/    # Engine code (shared)
-.blackbox5/memory/brain-index/  # Project index (per-project)
+blackbox5/engine/brain/    # Engine code (shared)
+blackbox5/memory/brain-index/  # Project index (per-project)
 ```
 
 ### 🗄️ Brain Databases (Local, Free)
@@ -210,7 +210,7 @@ docker run -d \
 ```bash
 # Runs embedded in Python (no Docker needed)
 pip install chromadb
-# Stores in: .blackbox5/memory/extended/chroma-db/
+# Stores in: blackbox5/memory/extended/chroma-db/
 ```
 
 **Total storage:** ~1-2 GB for all databases per project
@@ -223,7 +223,7 @@ pip install chromadb
 
 ```
 SISO-INTERNAL/
-├── .blackbox5/
+├── blackbox5/
 │   ├── engine/                 # Shared code (committed)
 │   │   ├── .agents/
 │   │   ├── .skills/
@@ -247,7 +247,7 @@ SISO-INTERNAL/
 
 ```
 my-project-2/
-├── .blackbox5/
+├── blackbox5/
 │   └── memory/                # Project 2 data (gitignored)
 │       ├── working/
 │       ├── extended/
@@ -269,7 +269,7 @@ my-project-2/
 cd ~/SISO-INTERNAL
 
 # Start brain databases (one-time setup)
-docker-compose -f .blackbox5/docker-compose.brain.yml up -d
+docker-compose -f blackbox5/docker-compose.brain.yml up -d
 
 # Initialize memory for this project
 blackbox5 memory init
@@ -304,13 +304,13 @@ blackbox5 memory init
 ```
 ~/
 ├── SISO-INTERNAL/
-│   └── .blackbox5/memory/          # SISO data
+│   └── blackbox5/memory/          # SISO data
 │       ├── working/
 │       ├── extended/chroma-db/
 │       └── archival/
 │
 ├── my-project-2/
-│   └── .blackbox5/memory/          # Project 2 data
+│   └── blackbox5/memory/          # Project 2 data
 │       ├── working/
 │       ├── extended/chroma-db/
 │       └── archival/
@@ -345,10 +345,10 @@ pip install chromadb
 
 # 2. Start brain databases
 cd ~/SISO-INTERNAL
-docker-compose -f .blackbox5/docker-compose.brain.yml up -d
+docker-compose -f blackbox5/docker-compose.brain.yml up -d
 
 # 3. Initialize memory
-mkdir -p .blackbox5/memory/{working,extended,archival}
+mkdir -p blackbox5/memory/{working,extended,archival}
 
 # 4. Start using
 blackbox5 task create 52
@@ -361,7 +361,7 @@ blackbox5 task create 52
 ### 🐳 Simple Docker Compose for Brain
 
 ```yaml
-# .blackbox5/docker-compose.brain.yml
+# blackbox5/docker-compose.brain.yml
 version: '3.8'
 
 services:
@@ -393,7 +393,7 @@ volumes:
     driver: local
 ```
 
-**Start with:** `docker-compose -f .blackbox5/docker-compose.brain.yml up -d`
+**Start with:** `docker-compose -f blackbox5/docker-compose.brain.yml up -d`
 
 ---
 
@@ -405,10 +405,10 @@ volumes:
 
 ### Q2: How does per-project memory work?
 
-**Each project has its own `.blackbox5/memory/` folder:**
-- `SISO-INTERNAL/.blackbox5/memory/`
-- `my-project-2/.blackbox5/memory/`
-- `client-website/.blackbox5/memory/`
+**Each project has its own `blackbox5/memory/` folder:**
+- `SISO-INTERNAL/blackbox5/memory/`
+- `my-project-2/blackbox5/memory/`
+- `client-website/blackbox5/memory/`
 
 **Engine is shared code, memory is per-project data.**
 

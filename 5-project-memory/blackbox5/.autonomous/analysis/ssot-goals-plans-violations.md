@@ -127,7 +127,7 @@ status: pending  # MISMATCH!
 - etc.
 
 **Plus root timeline.yaml:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/timeline.yaml`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/timeline.yaml`
 
 **Issue:** Events related to goals are logged in BOTH:
 - The goal's specific timeline.yaml

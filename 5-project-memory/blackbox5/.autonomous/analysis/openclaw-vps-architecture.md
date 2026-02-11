@@ -597,7 +597,7 @@ openclaw gateway --tailscale funnel
 
 ## References
 
-- Source documentation: `/Users/shaansisodia/.blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/`
+- Source documentation: `/Users/shaansisodia/blackbox5/6-roadmap/research/external/documentation/openclaw/raw/pages/`
 - Gateway Configuration: `gateway-configuration.md`
 - Remote Access: `gateway-remote.md`, `gateway-remote-gateway-readme.md`
 - Multi-Agent: `concepts-multi-agent.md`

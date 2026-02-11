@@ -103,7 +103,7 @@ from core.interface.client.ClaudeCodeClient import ClaudeCodeClient
 ## Completion
 
 **Completed:** 2026-01-30T22:37:11Z
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769812631
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769812631
 **Agent:** Agent-2.3
 **Path Used:** quick
 **Phase Gates:** All passed

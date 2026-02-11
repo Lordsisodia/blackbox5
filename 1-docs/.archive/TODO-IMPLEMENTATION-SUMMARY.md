@@ -7,7 +7,7 @@ Component 7 of the GSD (Getting Stuff Done) framework has been successfully impl
 ## Deliverables
 
 ### 1. Core Implementation
-**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/todo_manager.py`
+**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/todo_manager.py`
 
 **Features:**
 - Todo dataclass with comprehensive fields
@@ -26,7 +26,7 @@ Component 7 of the GSD (Getting Stuff Done) framework has been successfully impl
 - `TodoManager`: Main management class
 
 ### 2. Comprehensive Test Suite
-**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/test_todo_manager.py`
+**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/test_todo_manager.py`
 
 **Test Coverage:**
 - 43 tests, all passing
@@ -51,8 +51,8 @@ Component 7 of the GSD (Getting Stuff Done) framework has been successfully impl
 
 ### 3. Documentation
 **Files:**
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/docs/TODO-MANAGEMENT-IMPLEMENTATION.md`
-- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/docs/TODO-QUICK-REFERENCE.md`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/docs/TODO-MANAGEMENT-IMPLEMENTATION.md`
+- `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/docs/TODO-QUICK-REFERENCE.md`
 
 **Content:**
 - Complete API reference
@@ -63,7 +63,7 @@ Component 7 of the GSD (Getting Stuff Done) framework has been successfully impl
 - Performance considerations
 
 ### 4. Demo Script
-**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/todo_demo.py`
+**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/todo_demo.py`
 
 **Demonstrates:**
 - Quick capture workflow
@@ -98,7 +98,7 @@ TodoManager.quick_add()
     ↓
 Todo object created
     ↓
-Atomic write to ~/.blackbox5/todos.json
+Atomic write to ~/blackbox5/todos.json
     ↓
 Persisted across sessions
 ```
@@ -198,7 +198,7 @@ bugs = tm.search("bug")
 
 ### Location
 ```
-~/.blackbox5/todos.json
+~/blackbox5/todos.json
 ```
 
 ### Format
@@ -321,11 +321,11 @@ related = tm.search("auth")
 
 ## Files Created
 
-1. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/todo_manager.py` (267 lines)
-2. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/test_todo_manager.py` (408 lines)
-3. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/docs/TODO-MANAGEMENT-IMPLEMENTATION.md` (600+ lines)
-4. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/docs/TODO-QUICK-REFERENCE.md` (200+ lines)
-5. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/todo_demo.py` (150+ lines)
+1. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/todo_manager.py` (267 lines)
+2. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/test_todo_manager.py` (408 lines)
+3. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/docs/TODO-MANAGEMENT-IMPLEMENTATION.md` (600+ lines)
+4. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/docs/TODO-QUICK-REFERENCE.md` (200+ lines)
+5. `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/todo_demo.py` (150+ lines)
 
 **Total:** ~1,600+ lines of code, tests, and documentation
 
@@ -348,7 +348,7 @@ To verify the implementation:
 
 ```bash
 # Run tests
-cd .blackbox5
+cd blackbox5
 python3 -m pytest tests/test_todo_manager.py -v
 
 # Run demo

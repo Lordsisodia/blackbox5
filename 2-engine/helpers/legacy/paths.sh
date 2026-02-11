@@ -21,7 +21,7 @@
 # =============================================================================
 
 # Allow override via environment
-: "${BLACKBOX5_HOME:=${BB5_HOME:-$HOME/.blackbox5}}"
+: "${BLACKBOX5_HOME:=${BB5_HOME:-$HOME/blackbox5}}"
 : "${BB5_PROJECT:=blackbox5}"
 
 # Cache for computed paths (using simple variables for bash 3.x compatibility)

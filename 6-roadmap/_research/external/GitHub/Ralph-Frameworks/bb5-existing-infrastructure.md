@@ -82,7 +82,7 @@ BlackBox5 (BB5) has a sophisticated, multi-layered autonomous execution framewor
 
 ### RALF Executor
 
-**Location:** `/Users/shaansisodia/.blackbox5/bin/ralf-executor/`
+**Location:** `/Users/shaansisodia/blackbox5/bin/ralf-executor/`
 
 | File | Purpose |
 |------|---------|
@@ -104,7 +104,7 @@ BlackBox5 (BB5) has a sophisticated, multi-layered autonomous execution framewor
 
 ### RALF Loops
 
-**Location:** `/Users/shaansisodia/.blackbox5/bin/ralf-loops/`
+**Location:** `/Users/shaansisodia/blackbox5/bin/ralf-loops/`
 
 | Loop | Purpose | Trigger |
 |------|---------|---------|
@@ -126,7 +126,7 @@ BlackBox5 (BB5) has a sophisticated, multi-layered autonomous execution framewor
 
 ### RALF Tools
 
-**Location:** `/Users/shaansisodia/.blackbox5/bin/ralf-tools/`
+**Location:** `/Users/shaansisodia/blackbox5/bin/ralf-tools/`
 
 | Tool | Purpose |
 |------|---------|
@@ -142,7 +142,7 @@ BlackBox5 (BB5) has a sophisticated, multi-layered autonomous execution framewor
 
 ### Agent System
 
-**Agent Definitions:** `/Users/shaansisodia/.blackbox5/.claude/agents/`
+**Agent Definitions:** `/Users/shaansisodia/blackbox5/.claude/agents/`
 
 | Agent | Model | Timeout | Purpose |
 |-------|-------|---------|---------|
@@ -202,7 +202,7 @@ impact = (business_value * 0.4) + (technical_debt * 0.35) + (unblock_factor * 0.
 
 ### Communication Queue
 
-**Location:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/`
+**Location:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/`
 
 **Files:**
 | File | Written By | Read By | Purpose |
@@ -482,7 +482,7 @@ sudo journalctl -u bb5-ralf-executor -f
 ## File Locations Summary
 
 ```
-/Users/shaansisodia/.blackbox5/
+/Users/shaansisodia/blackbox5/
 ├── bin/ralf-executor/           # Core executor engine
 ├── bin/ralf-loops/              # Loop scripts and prompts
 ├── bin/ralf-tools/              # Utility scripts

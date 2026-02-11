@@ -30,15 +30,15 @@ Create an extraction rate tracking system that counts learnings and decisions ex
 **Suggested Action:** Analyze the 70 learnings not converted to improvements
 
 **Files Created/Modified:**
-- `~/.blackbox5/bin/track-extraction-rates.py` - Extraction tracking script
-- `~/.blackbox5/5-project-memory/blackbox5/operations/extraction-report-20260209.yaml` - Initial report
+- `~/blackbox5/bin/track-extraction-rates.py` - Extraction tracking script
+- `~/blackbox5/5-project-memory/blackbox5/operations/extraction-report-20260209.yaml` - Initial report
 
 ---
 
 ## Rollback Strategy
 
 If changes cause issues:
-1. Delete the tracking script: `rm ~/.blackbox5/bin/track-extraction-rates.py`
+1. Delete the tracking script: `rm ~/blackbox5/bin/track-extraction-rates.py`
 2. Remove the report file if needed
 3. Document what went wrong
 

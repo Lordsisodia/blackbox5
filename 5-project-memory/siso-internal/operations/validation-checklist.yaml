@@ -110,13 +110,13 @@ quick_commands:
     description: "Quick duplicate task search"
     command: |
       KEYWORD="$1"
-      grep -r "$KEYWORD" ~/.blackbox5/5-project-memory/siso-internal/.autonomous/tasks/completed/ 2>/dev/null | head -5
+      grep -r "$KEYWORD" ~/blackbox5/5-project-memory/siso-internal/.autonomous/tasks/completed/ 2>/dev/null | head -5
 
   check_commits:
     description: "Check recent commits for keyword"
     command: |
       KEYWORD="$1"
-      cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "$KEYWORD" | head -5
+      cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "$KEYWORD" | head -5
 
   check_paths:
     description: "Verify multiple paths exist"

@@ -17,7 +17,7 @@ Create a documentation workflow that requires agents to justify skill overrides,
 
 ## Success Criteria
 
-- [ ] Create `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/skill-override-justification.md`
+- [ ] Create `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/skill-override-justification.md`
 - [ ] Update rule 004-phase-1-5-skill-check.md with override documentation requirement
 - [ ] Update CLAUDE.md with override justification workflow
 - [ ] Create `bb5 skill:override-log` command to view override history
@@ -49,25 +49,25 @@ Agents override thresholds subjectively with no documentation or audit trail.
 
 ### New Files
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.templates/skill-override-justification.md`
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.templates/skill-override-justification.md`
    - Template for override justification
    - Required fields: reason, confidence, expected_outcome
 
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-skill-override-log`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-skill-override-log`
    - CLI command to view override history
    - Filter by skill, date, or validity
 
 ### Modified Files
 
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/rules/004-phase-1-5-skill-check.md`
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/rules/004-phase-1-5-skill-check.md`
    - Add override documentation requirement
    - Specify required fields for justification
 
-4. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`
+4. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`
    - Add override workflow section
    - Document analysis process
 
-5. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
+5. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
    - Add override_analysis section
    - Track patterns and outcomes
 

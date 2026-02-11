@@ -124,6 +124,6 @@ Create directly in `2-engine/.autonomous/prompts/agents/` (not as symlinks)
 
 ## File Paths
 
-- **Engine agents:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts/agents/`
-- **Research pipeline:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.templates/prompts/`
-- **Deprecated originals:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/prompts/agents/deprecated/`
+- **Engine agents:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/prompts/agents/`
+- **Research pipeline:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/research-pipeline/.templates/prompts/`
+- **Deprecated originals:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/prompts/agents/deprecated/`

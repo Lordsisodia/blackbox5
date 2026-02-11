@@ -299,7 +299,7 @@ RUN_DIR="$RALF_PROJECT_DIR/runs/executor/run-xxx"
 
 # 1. Check if claimed files exist
 for file in $(grep -oE '\`[^`]+\.py\`' $RUN_DIR/RESULTS.md | tr -d '\`'); do
-    ls -la "/Users/shaansisodia/.blackbox5/$file" 2>&1 || echo "HALLUCINATION: $file does not exist"
+    ls -la "/Users/shaansisodia/blackbox5/$file" 2>&1 || echo "HALLUCINATION: $file does not exist"
 done
 
 # 2. Check verification evidence

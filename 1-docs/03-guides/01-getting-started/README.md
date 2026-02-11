@@ -83,34 +83,34 @@ This directory contains quick start guides and getting started resources for Bla
 ### I Want to Fix a Bug
 ```bash
 # Fastest way
-python .blackbox5/bb5.py --agent bug_fixer "The reward catalog shows undefined"
+python blackbox5/bb5.py --agent bug_fixer "The reward catalog shows undefined"
 
 # Or interactive mode
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 bb5> --agent bug_fixer Fix the null reference in RewardCatalog.tsx
 ```
 
 ### I Want to Add a Feature
 ```bash
 # With specific agent
-python .blackbox5/bb5.py --agent frontend_developer "Add loading state to dashboard"
+python blackbox5/bb5.py --agent frontend_developer "Add loading state to dashboard"
 
 # Or workflow for complex features
-python .blackbox5/bb5.py --workflow "Design, implement, test the new feature"
+python blackbox5/bb5.py --workflow "Design, implement, test the new feature"
 ```
 
 ### I Want a Code Review
 ```bash
-python .blackbox5/bb5.py --agent code_reviewer "Review the recent analytics changes"
+python blackbox5/bb5.py --agent code_reviewer "Review the recent analytics changes"
 ```
 
 ### I Want to Run Tests
 ```bash
 # All orchestrator tests
-cd .blackbox5/tests && python -m pytest test_orchestrator.py -v
+cd blackbox5/tests && python -m pytest test_orchestrator.py -v
 
 # All tests
-python -m pytest .blackbox5/tests/ -v
+python -m pytest blackbox5/tests/ -v
 ```
 
 ---
@@ -133,8 +133,8 @@ python -m pytest .blackbox5/tests/ -v
 
 ### Default Configuration
 - **Model**: GLM-4.7
-- **Config File**: `.blackbox5/engine/config.yml`
-- **Memory Path**: `.blackbox5/memory/`
+- **Config File**: `blackbox5/engine/config.yml`
+- **Memory Path**: `blackbox5/memory/`
 
 ### Environment Variables
 ```bash
@@ -167,7 +167,7 @@ SISO-INTERNAL/
 │   │                   └── AnalyticsDashboard.tsx
 │   └── lib/utils/
 │       └── formatters.ts
-├── .blackbox5/                 # BlackBox5 system
+├── blackbox5/                 # BlackBox5 system
 │   ├── engine/                 # Core engine
 │   ├── custom_agents/          # Agent definitions
 │   └── memory/                 # Project memory
@@ -214,7 +214,7 @@ After completing the quick start:
 
 1. **Try Interactive Mode**
    ```bash
-   python .blackbox5/bb5.py --interactive
+   python blackbox5/bb5.py --interactive
    ```
 
 2. **Read Full Documentation**
@@ -224,7 +224,7 @@ After completing the quick start:
 
 3. **Run Examples**
    ```bash
-   python .blackbox5/examples/orchestrator_demo.py
+   python blackbox5/examples/orchestrator_demo.py
    ```
 
 4. **Explore Project Memory**

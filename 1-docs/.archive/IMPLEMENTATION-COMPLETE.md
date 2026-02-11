@@ -20,10 +20,10 @@ A complete multi-agent orchestration system powered by GLM (no Anthropic API req
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 
 # Run a task
-python .blackbox5/bb5.py "Fix the bug in RewardCatalog.tsx"
+python blackbox5/bb5.py "Fix the bug in RewardCatalog.tsx"
 
 # Or use interactive mode
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 ---
@@ -90,7 +90,7 @@ Six specialized agents for your project:
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── bb5.py                          # 🚀 CLI interface (START HERE)
 ├── START-NOW.md                    # ⚡ Quick start guide
 ├── QUICKSTART.md                   # 📖 Comprehensive guide
@@ -128,19 +128,19 @@ Six specialized agents for your project:
 ### Option 1: Direct Commands
 ```bash
 # Simple task
-python .blackbox5/bb5.py "Add console.log to RewardCatalog.tsx"
+python blackbox5/bb5.py "Add console.log to RewardCatalog.tsx"
 
 # Specific agent
-python .blackbox5/bb5.py --agent bug_fixer "Fix the bug"
-python .blackbox5/bb5.py --agent frontend_developer "Add loading state"
+python blackbox5/bb5.py --agent bug_fixer "Fix the bug"
+python blackbox5/bb5.py --agent frontend_developer "Add loading state"
 
 # Workflow
-python .blackbox5/bb5.py --workflow "Analyze, fix, test, review"
+python blackbox5/bb5.py --workflow "Analyze, fix, test, review"
 ```
 
 ### Option 2: Interactive Mode (Recommended)
 ```bash
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 Then:
@@ -153,7 +153,7 @@ bb5> quit
 
 ### Option 3: Run Examples
 ```bash
-python .blackbox5/examples/real-world-tasks.py
+python blackbox5/examples/real-world-tasks.py
 ```
 
 ---
@@ -205,7 +205,7 @@ General-purpose development tasks
 
 Run the setup verification:
 ```bash
-bash .blackbox5/verify-setup.sh
+bash blackbox5/verify-setup.sh
 ```
 
 This checks:
@@ -294,7 +294,7 @@ All tests passing:
 
 1. **Try it now**
    ```bash
-   python .blackbox5/bb5.py --interactive
+   python blackbox5/bb5.py --interactive
    ```
 
 2. **Start with a simple task**
@@ -309,7 +309,7 @@ All tests passing:
 
 4. **Explore examples**
    ```bash
-   python .blackbox5/examples/real-world-tasks.py
+   python blackbox5/examples/real-world-tasks.py
    ```
 
 ---
@@ -325,7 +325,7 @@ All tests passing:
 ## Support
 
 ### Troubleshooting
-- Run `bash .blackbox5/verify-setup.sh`
+- Run `bash blackbox5/verify-setup.sh`
 - Check Redis is running
 - Verify GLM_API_KEY is set
 - Ensure you're in the project directory
@@ -348,7 +348,7 @@ BlackBox5 is now:
 
 **Start using it now:**
 ```bash
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 ---

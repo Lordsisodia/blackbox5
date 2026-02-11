@@ -338,7 +338,7 @@
 
 ## 📁 File Structure
 
-All research located at: `.blackbox5/roadmap/01-research/`
+All research located at: `blackbox5/roadmap/01-research/`
 
 ```
 ├── RESEARCH-STATUS-REPORT.md          # This report
@@ -507,8 +507,8 @@ All research located at: `.blackbox5/roadmap/01-research/`
 
 **Verification:**
 - Agent output files: `/tmp/claude/.../tasks/{agent_id}.output`
-- Session summaries: `.blackbox5/roadmap/01-research/{category}/session-summaries/`
-- Research logs: `.blackbox5/roadmap/01-research/{category}/research-log.md`
+- Session summaries: `blackbox5/roadmap/01-research/{category}/session-summaries/`
+- Research logs: `blackbox5/roadmap/01-research/{category}/research-log.md`
 
 ---
 

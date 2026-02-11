@@ -157,13 +157,13 @@ echo "10. Checking Project Memory structure..."
 if [ -d "blackbox5/5-project-memory/siso-internal/operations/agents" ]; then
     check_pass "Project Memory agents directory exists"
 else
-    check_fail "Project Memory agents directory not found (run: mkdir -p .blackbox5/5-project-memory/siso-internal/operations/agents)"
+    check_fail "Project Memory agents directory not found (run: mkdir -p blackbox5/5-project-memory/siso-internal/operations/agents)"
 fi
 
 if [ -d "blackbox5/5-project-memory/siso-internal/operations/ralphy" ]; then
     check_pass "Project Memory ralphy directory exists"
 else
-    check_fail "Project Memory ralphy directory not found (run: mkdir -p .blackbox5/5-project-memory/siso-internal/operations/ralphy)"
+    check_fail "Project Memory ralphy directory not found (run: mkdir -p blackbox5/5-project-memory/siso-internal/operations/ralphy)"
 fi
 echo ""
 

@@ -214,21 +214,21 @@ manager.update(
 
 ```bash
 # Run all tests
-pytest .blackbox5/engine/core/test_state_manager.py -v
+pytest blackbox5/engine/core/test_state_manager.py -v
 
 # Run specific test
-pytest .blackbox5/engine/core/test_state_manager.py::TestStateManager::test_initialize_workflow -v
+pytest blackbox5/engine/core/test_state_manager.py::TestStateManager::test_initialize_workflow -v
 
 # Run demo
-python .blackbox5/engine/core/state_manager_demo.py
+python blackbox5/engine/core/state_manager_demo.py
 ```
 
 ## File Locations
 
-- **Implementation**: `.blackbox5/engine/core/state_manager.py`
-- **Tests**: `.blackbox5/engine/core/test_state_manager.py`
-- **Demo**: `.blackbox5/engine/core/state_manager_demo.py`
-- **Docs**: `.blackbox5/engine/core/STATE_MANAGER_README.md`
+- **Implementation**: `blackbox5/engine/core/state_manager.py`
+- **Tests**: `blackbox5/engine/core/test_state_manager.py`
+- **Demo**: `blackbox5/engine/core/state_manager_demo.py`
+- **Docs**: `blackbox5/engine/core/STATE_MANAGER_README.md`
 
 ## Quick Tips
 

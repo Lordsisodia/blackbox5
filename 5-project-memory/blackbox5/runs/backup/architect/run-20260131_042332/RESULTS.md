@@ -19,7 +19,7 @@ The skills system audit revealed that **no issues exist**. The alleged problems 
 
 ### 1. Skills Directory Audit ✅
 
-**Location:** `~/.blackbox5/2-engine/.autonomous/skills/`
+**Location:** `~/blackbox5/2-engine/.autonomous/skills/`
 
 **Findings:**
 - Directory exists and is properly structured
@@ -29,7 +29,7 @@ The skills system audit revealed that **no issues exist**. The alleged problems 
 
 ### 2. Skill Router Configuration ✅
 
-**File:** `~/.blackbox5/2-engine/.autonomous/lib/skill_router.py`
+**File:** `~/blackbox5/2-engine/.autonomous/lib/skill_router.py`
 
 **Findings:**
 - Line 166 correctly references `skills/` directory
@@ -49,7 +49,7 @@ The skills system audit revealed that **no issues exist**. The alleged problems 
 
 ### 4. BMAD Integration ✅
 
-**Location:** `~/.blackbox5/2-engine/.autonomous/bmad/`
+**Location:** `~/blackbox5/2-engine/.autonomous/bmad/`
 
 **Findings:**
 - Properly separated from skills/

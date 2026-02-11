@@ -5,9 +5,9 @@
 
 set -e
 
-ANALYSIS_DIR="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/analyses"
-SCOUT_DIR="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports"
-EXECUTOR_DIR="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/executor-reports"
+ANALYSIS_DIR="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/analyses"
+SCOUT_DIR="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports"
+EXECUTOR_DIR="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/executor-reports"
 INDEX_FILE="$ANALYSIS_DIR/index.yaml"
 
 # Ensure analysis directory exists

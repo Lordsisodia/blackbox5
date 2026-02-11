@@ -132,7 +132,7 @@ results = await orchestrator.parallel_execute(tasks)
 
 ### 2. Persistent Memory
 - Each agent maintains its own memory store
-- JSON-based storage in `.blackbox5/agent_memory/`
+- JSON-based storage in `blackbox5/agent_memory/`
 - Survives agent restarts
 - Automatic save/load
 
@@ -229,7 +229,7 @@ if decision.strategy == ExecutionStrategy.MULTI_AGENT:
 
 ```bash
 # Run all orchestrator tests
-cd .blackbox5/tests
+cd blackbox5/tests
 python -m pytest test_orchestrator.py -v
 
 # Run specific test class
@@ -254,14 +254,14 @@ python -m pytest test_orchestrator.py --cov=. --cov-report=html
 ## File Locations
 
 ### Implementation
-- `.blackbox5/engine/core/Orchestrator.py` - Core implementation (1,100+ lines)
-- `.blackbox5/engine/core/__init__.py` - Package exports
+- `blackbox5/engine/core/Orchestrator.py` - Core implementation (1,100+ lines)
+- `blackbox5/engine/core/__init__.py` - Package exports
 
 ### Tests
-- `.blackbox5/tests/test_orchestrator.py` - Test suite (800+ lines)
+- `blackbox5/tests/test_orchestrator.py` - Test suite (800+ lines)
 
 ### Examples
-- `.blackbox5/examples/orchestrator_demo.py` - Demo script (300+ lines)
+- `blackbox5/examples/orchestrator_demo.py` - Demo script (300+ lines)
 
 ### Documentation
 - `ORCHESTRATOR_README.md` - Usage guide (500+ lines)

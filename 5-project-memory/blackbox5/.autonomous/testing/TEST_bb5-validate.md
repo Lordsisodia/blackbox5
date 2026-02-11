@@ -2,7 +2,7 @@
 
 **Test Date:** 2026-02-06
 **Tester:** Claude Code (QA Tester)
-**Command Location:** /Users/shaansisodia/.blackbox5/bin/bb5-validate
+**Command Location:** /Users/shaansisodia/blackbox5/bin/bb5-validate
 
 ---
 
@@ -25,7 +25,7 @@
 
 **Command:**
 ```bash
-/Users/shaansisodia/.blackbox5/bin/bb5-validate docs /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082556-TASK-ARCH-021
+/Users/shaansisodia/blackbox5/bin/bb5-validate docs /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082556-TASK-ARCH-021
 ```
 
 **Output:**
@@ -34,7 +34,7 @@
   Validating Run Documentation
 ═══════════════════════════════════════════════════════════════
 
-[INFO] Validating docs in: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082556-TASK-ARCH-021
+[INFO] Validating docs in: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082556-TASK-ARCH-021
 
 [PASS] THOUGHTS.md exists with content (895 chars)
 [PASS] RESULTS.md exists with status
@@ -60,7 +60,7 @@
 
 **Command:**
 ```bash
-/Users/shaansisodia/.blackbox5/bin/bb5-validate docs /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/test-empty-run
+/Users/shaansisodia/blackbox5/bin/bb5-validate docs /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/test-empty-run
 ```
 
 **Output:**
@@ -69,7 +69,7 @@
   Validating Run Documentation
 ═══════════════════════════════════════════════════════════════
 
-[INFO] Validating docs in: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/test-empty-run
+[INFO] Validating docs in: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/test-empty-run
 
 [FAIL] THOUGHTS.md is missing
 [FAIL] RESULTS.md is missing
@@ -94,7 +94,7 @@
 
 **Command:**
 ```bash
-/Users/shaansisodia/.blackbox5/bin/bb5-validate task TASK-ARCH-021
+/Users/shaansisodia/blackbox5/bin/bb5-validate task TASK-ARCH-021
 ```
 
 **Output:**
@@ -136,7 +136,7 @@
 
 **Command:**
 ```bash
-/Users/shaansisodia/.blackbox5/bin/bb5-validate ssot
+/Users/shaansisodia/blackbox5/bin/bb5-validate ssot
 ```
 
 **Output:**
@@ -194,7 +194,7 @@ STATE.yaml Validation
 
 **Command:**
 ```bash
-/Users/shaansisodia/.blackbox5/bin/bb5-validate skills
+/Users/shaansisodia/blackbox5/bin/bb5-validate skills
 ```
 
 **Output:**
@@ -225,7 +225,7 @@ STATE.yaml Validation
 
 **Command:**
 ```bash
-/Users/shaansisodia/.blackbox5/bin/bb5-validate all
+/Users/shaansisodia/blackbox5/bin/bb5-validate all
 ```
 
 **Output:**
@@ -238,7 +238,7 @@ STATE.yaml Validation
   Validating Run Documentation
 ═══════════════════════════════════════════════════════════════
 
-[INFO] Validating docs in: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/run-20260206-082556-TASK-ARCH-021
+[INFO] Validating docs in: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/run-20260206-082556-TASK-ARCH-021
 
 [PASS] THOUGHTS.md exists with content (895 chars)
 [PASS] RESULTS.md exists with status
@@ -354,7 +354,7 @@ STATE.yaml Validation
 
 - **OS:** Darwin 24.5.0
 - **Shell:** bash
-- **BlackBox5 Path:** /Users/shaansisodia/.blackbox5
+- **BlackBox5 Path:** /Users/shaansisodia/blackbox5
 - **Test Task:** TASK-ARCH-021
 - **Test Run:** run-20260206-082556-TASK-ARCH-021
 

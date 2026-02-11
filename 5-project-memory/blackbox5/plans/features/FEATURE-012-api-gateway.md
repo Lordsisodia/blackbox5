@@ -141,7 +141,7 @@ GET  /api/v1/features         - List features
 - [ ] Authentication with API keys working
 - [ ] Core API endpoints functional (health, tasks, queue, metrics)
 - [ ] Webhook receiver can parse payloads
-- [ ] Configuration file for API settings (`~/.blackbox5/api-config.yaml`)
+- [ ] Configuration file for API settings (`~/blackbox5/api-config.yaml`)
 - [ ] Error handling for invalid requests
 
 ### Should-Have (P1)
@@ -207,7 +207,7 @@ Trigger RALF action → Task created/updated → Response
 
 ### Configuration File
 
-**Location:** `~/.blackbox5/api-config.yaml`
+**Location:** `~/blackbox5/api-config.yaml`
 
 ```yaml
 api:
@@ -231,7 +231,7 @@ api:
     enabled: true
     origins:
       - "http://localhost:3000"
-      - "https://dashboard.blackbox5.com"
+      - "https://dashboardblackbox5.com"
 
 # Service Connectors
 connectors:
@@ -290,13 +290,13 @@ webhooks:
 - `2-engine/.autonomous/lib/connectors/jira_connector.py` - Jira (~150 lines)
 - `2-engine/.autonomous/lib/connectors/trello_connector.py` - Trello (~120 lines)
 - `2-engine/.autonomous/config/api-config.yaml` - Configuration template (~80 lines)
-- `~/.blackbox5/api-config.yaml` - User config (created on init)
+- `~/blackbox5/api-config.yaml` - User config (created on init)
 - `operations/.docs/api-gateway-guide.md` - User guide (~350 lines)
 - `operations/.docs/connector-development-guide.md` - Connector dev guide (~200 lines)
 
 ### Modified Files
 - `2-engine/.autonomous/lib/task_completor.py` - Add connector triggers
-- `~/.blackbox5/config.yaml` - Add API gateway settings
+- `~/blackbox5/config.yaml` - Add API gateway settings
 
 ---
 

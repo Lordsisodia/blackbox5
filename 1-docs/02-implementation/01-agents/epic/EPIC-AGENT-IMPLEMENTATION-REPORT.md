@@ -12,7 +12,7 @@ Successfully implemented the **Epic-Agent** - a PRD to Epic transformation syste
 
 ### 1. Core Agent Files ✅
 
-#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/spec_driven/prd_agent.py`
+#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/spec_driven/prd_agent.py`
 - **PRDParser**: Parses PRD markdown files into structured data
 - **PRDValidator**: Validates PRD completeness and quality
 - **PRDAgent**: Main PRD management interface
@@ -25,7 +25,7 @@ Successfully implemented the **Epic-Agent** - a PRD to Epic transformation syste
 - Parses risks and open questions
 - Validates PRD completeness
 
-#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/spec_driven/epic_agent.py`
+#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/spec_driven/epic_agent.py`
 - **EpicParser**: Parses Epic markdown files
 - **EpicValidator**: Validates Epic completeness and PRD alignment
 - **EpicAgent**: Main Epic creation and management interface
@@ -45,7 +45,7 @@ Successfully implemented the **Epic-Agent** - a PRD to Epic transformation syste
 
 ### 2. CLI Commands ✅
 
-#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/cli/epic_commands.py`
+#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/cli/epic_commands.py`
 
 **Commands Implemented**:
 - `epic:create <prd_id>` - Create epic from PRD
@@ -70,7 +70,7 @@ python3 -m engine.cli.epic_commands show EPIC-001-authentication
 
 ### 3. Templates ✅
 
-#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/templates/spec_driven/epic_technical.md`
+#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/templates/spec_driven/epic_technical.md`
 - Comprehensive Epic template with all sections
 - First principles design guidance
 - Technical decision format
@@ -79,7 +79,7 @@ python3 -m engine.cli.epic_commands show EPIC-001-authentication
 
 ### 4. Tests ✅
 
-#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/tests/spec_driven/test_epic_agent.py`
+#### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/tests/spec_driven/test_epic_agent.py`
 - EpicParser tests
 - EpicValidator tests
 - EpicAgent tests
@@ -90,14 +90,14 @@ python3 -m engine.cli.epic_commands show EPIC-001-authentication
 
 **Test Results**:
 ```bash
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
 python3 -m pytest tests/spec_driven/test_epic_agent.py -v
 ```
 
 ### 5. Examples ✅
 
 #### PRD Example
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/specs/prds/001-authentication-prd.md`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/specs/prds/001-authentication-prd.md`
 
 **Content**:
 - Complete PRD for authentication system
@@ -108,7 +108,7 @@ python3 -m pytest tests/spec_driven/test_epic_agent.py -v
 - Risk mitigation strategies
 
 #### Epic Example
-**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/examples/specs/epics/001-example-authentication-epic.md`
+**File**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/examples/specs/epics/001-example-authentication-epic.md`
 
 **Content**:
 - Complete technical Epic for authentication system
@@ -126,7 +126,7 @@ python3 -m pytest tests/spec_driven/test_epic_agent.py -v
 
 ```bash
 # From blackbox5 directory
-cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5
+cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5
 
 # Create epic from PRD
 python3 -c "
@@ -157,7 +157,7 @@ Decisions: 2
 
 ### Generated Epic File
 
-**Location**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/specs/epics/EPIC-001-authentication.md`
+**Location**: `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/specs/epics/EPIC-001-authentication.md`
 
 **Sections Generated**:
 1. Overview with PRD traceability
@@ -219,7 +219,7 @@ Each component includes:
 
 ### Module Structure
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   ├── spec_driven/
 │   │   ├── __init__.py (exports all classes)

@@ -44,7 +44,7 @@ Ralph Runtime has been running autonomously for **~25 minutes total**, completin
 
 ### Location
 ```
-.blackbox5/engine/operations/runtime/ralph/vibe-continuous/
+blackbox5/engine/operations/runtime/ralph/vibe-continuous/
 ```
 
 ### Generated Documents
@@ -55,7 +55,7 @@ Ralph Runtime has been running autonomously for **~25 minutes total**, completin
    - ⚠️ Low package-to-module ratio identified
 
 2. **ANALYSIS-VIBE-INTEGRATION.md** (1.2KB)
-   - 3 modules in `.blackbox5/integration/vibe/`
+   - 3 modules in `blackbox5/integration/vibe/`
    - **P1:** Zero test coverage (HIGH PRIORITY)
 
 3. **ANALYSIS-VIBE-RUNTIME.md** (844B)
@@ -95,7 +95,7 @@ Ralph Runtime has been running autonomously for **~25 minutes total**, completin
 1. **Add Test Coverage for Vibe Integration**
    - 3 modules with zero tests
    - Core Blackbox5 integration
-   - Location: `.blackbox5/integration/vibe/`
+   - Location: `blackbox5/integration/vibe/`
 
 2. **Add Test Coverage for Vibe Kanban Work**
    - Zero test coverage for active plans
@@ -148,7 +148,7 @@ Ralph Runtime has been running autonomously for **~25 minutes total**, completin
 ### Issue 1: Path Configuration Error
 **Problem:** Ralph couldn't find `ralph_runtime.py` after first run
 **Cause:** Incorrect path in continuous script
-**Fix:** Updated path from `.blackbox5/engine/runtime/ralph/` to `.blackbox5/engine/operations/runtime/ralph/`
+**Fix:** Updated path from `blackbox5/engine/runtime/ralph/` to `blackbox5/engine/operations/runtime/ralph/`
 **Status:** ✅ Resolved
 
 ### Issue 2: Output Directory Mismatch
@@ -163,7 +163,7 @@ Ralph Runtime has been running autonomously for **~25 minutes total**, completin
 
 ### Location
 ```
-.blackbox5/engine/runtime/ralph/backlog/
+blackbox5/engine/runtime/ralph/backlog/
 ```
 
 ### Files Created
@@ -190,12 +190,12 @@ tail -f ralph-vibe-background.log
 
 ### List Analysis Files
 ```bash
-ls -lah .blackbox5/engine/operations/runtime/ralph/vibe-continuous/
+ls -lah blackbox5/engine/operations/runtime/ralph/vibe-continuous/
 ```
 
 ### View Backlog
 ```bash
-cat .blackbox5/engine/runtime/ralph/backlog/BACKLOG-SUMMARY.md
+cat blackbox5/engine/runtime/ralph/backlog/BACKLOG-SUMMARY.md
 ```
 
 ### Stop Ralph

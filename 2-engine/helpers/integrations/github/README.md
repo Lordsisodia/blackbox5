@@ -403,7 +403,7 @@ class GitHubPR:
 ### Run Unit Tests
 
 ```bash
-pytest .blackbox5/tests/test_github_integration.py -v
+pytest blackbox5/tests/test_github_integration.py -v
 ```
 
 ### Run Integration Tests
@@ -414,14 +414,14 @@ Integration tests require a GitHub token and test repository:
 export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"
 export GITHUB_REPO="owner/test-repo"
 
-pytest .blackbox5/tests/test_github_integration.py -v -m integration
+pytest blackbox5/tests/test_github_integration.py -v -m integration
 ```
 
 ### Run with Coverage
 
 ```bash
-pytest .blackbox5/tests/test_github_integration.py \
-    --cov=.blackbox5/integration/github \
+pytest blackbox5/tests/test_github_integration.py \
+    --cov=blackbox5/integration/github \
     --cov-report=html
 ```
 

@@ -19,21 +19,21 @@ This architecture defines how BlackBox5 organizes memory across multiple project
 ```
 ~/DEV/SISO-ECOSYSTEM/
 ├── SISO-INTERNAL/
-│   ├── .blackbox5/
+│   ├── blackbox5/
 │   │   ├── engine/              # Shared engine code (committed)
 │   │   └── memory/             # SISO-INTERNAL memory (gitignored)
 │   │
 │   └── src/
 │
 ├── Luminel/
-│   ├── .blackbox5/
+│   ├── blackbox5/
 │   │   ├── engine/              # Symlink to shared engine (optional)
 │   │   └── memory/             # Luminel memory (gitignored)
 │   │
 │   └── src/
 │
 └── _TEMPLATE/
-    ├── .blackbox5/
+    ├── blackbox5/
     │   ├── engine/              # Symlink to shared engine (optional)
     │   └── memory/             # Template structure (committed)
     │
@@ -54,7 +54,7 @@ This architecture defines how BlackBox5 organizes memory across multiple project
 ### 📊 Complete Memory Structure
 
 ```
-.blackbox5/memory/
+blackbox5/memory/
 │
 ├── agents/                      # TIER 1: Agent Memory
 │   ├── active/                  # Currently running agents
@@ -368,7 +368,7 @@ This architecture defines how BlackBox5 organizes memory across multiple project
 ### 📁 SISO-INTERNAL Memory Layout
 
 ```
-SISO-INTERNAL/.blackbox5/memory/
+SISO-INTERNAL/blackbox5/memory/
 │
 ├── agents/
 │   ├── active/
@@ -472,7 +472,7 @@ SISO-INTERNAL/.blackbox5/memory/
 ### 📁 Luminel Memory Layout
 
 ```
-Luminel/.blackbox5/memory/
+Luminel/blackbox5/memory/
 │
 ├── agents/
 │   ├── active/
@@ -531,7 +531,7 @@ Luminel/.blackbox5/memory/
 ### 📁 _TEMPLATE Memory Layout
 
 ```
-_TEMPLATE/.blackbox5/memory/
+_TEMPLATE/blackbox5/memory/
 │
 ├── agents/
 │   ├── active/
@@ -718,7 +718,7 @@ blackbox5 memory init [--template] [--from-existing]
 ### 📝 Memory Initialization Script
 
 ```python
-# .blackbox5/engine/scripts/init_memory.py
+# blackbox5/engine/scripts/init_memory.py
 
 import os
 import shutil
@@ -885,16 +885,16 @@ def init_chromadb_collections(memory_path: Path):
 
 ```gitignore
 # BlackBox5 Memory (per-project data)
-.blackbox5/memory/
+blackbox5/memory/
 
 # Keep engine code
-!.blackbox5/engine/
+!blackbox5/engine/
 
 # Keep template structure
-!.blackbox5/memory/.gitkeep
-!.blackbox5/memory/**/.gitkeep
-!.blackbox5/memory/**/README.md
-!.blackbox5/memory/.memory-config/*.json
+!blackbox5/memory/.gitkeep
+!blackbox5/memory/**/.gitkeep
+!blackbox5/memory/**/README.md
+!blackbox5/memory/.memory-config/*.json
 ```
 
 ---
@@ -1026,7 +1026,7 @@ Memory Statistics for: SISO-INTERNAL
 ### Key Architecture Decisions
 
 1. **Per-Project Memory Isolation**
-   - Each project (SISO-INTERNAL, Luminel) has its own `.blackbox5/memory/`
+   - Each project (SISO-INTERNAL, Luminel) has its own `blackbox5/memory/`
    - No cross-contamination between projects
    - Shared engine code via symlinks or copies
 

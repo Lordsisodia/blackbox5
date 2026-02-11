@@ -223,7 +223,7 @@ def main():
     print("\n" + "="*60)
     print()
     print("For detailed setup instructions, see:")
-    print("  .blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md")
+    print("  blackbox5/engine/core/LLMLINGUA-SETUP-GUIDE.md")
     print()
 
 

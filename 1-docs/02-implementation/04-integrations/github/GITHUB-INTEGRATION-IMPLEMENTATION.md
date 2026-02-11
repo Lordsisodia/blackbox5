@@ -107,7 +107,7 @@ Successfully implemented production-ready GitHub Issues integration for BlackBox
 ## Directory Structure
 
 ```
-.blackbox5/engine/integrations/github/
+blackbox5/engine/integrations/github/
 ├── __init__.py                      # Main exports
 ├── README.md                        # Documentation
 ├── github_integration.py            # Main integration class
@@ -121,12 +121,12 @@ Successfully implemented production-ready GitHub Issues integration for BlackBox
 └── memory/
     └── __init__.py                 # Memory integration stub
 
-.blackbox5/engine/.workflows/github/
+blackbox5/engine/.workflows/github/
 ├── create-task.md                  # Create task workflow
 ├── sync-progress.md               # Sync progress workflow
 └── complete-task.md               # Complete task workflow
 
-.blackbox5/engine/templates/github/
+blackbox5/engine/templates/github/
 ├── issue-template.md              # Issue body template
 ├── progress-comment.md            # Progress comment template
 └── completion-comment.md          # Completion comment template
@@ -253,7 +253,7 @@ print('✅ GitHub integration ready')
 
 ## Configuration
 
-Add to `.blackbox5/config.yml`:
+Add to `blackbox5/config.yml`:
 
 ```yaml
 github:

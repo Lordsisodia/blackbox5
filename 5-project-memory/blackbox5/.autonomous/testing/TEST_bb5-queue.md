@@ -1,8 +1,8 @@
 # bb5-queue CLI Test Results
 
 **Test Date:** 2026-02-06
-**Command Location:** /Users/shaansisodia/.blackbox5/bin/bb5-queue
-**Queue File:** /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml
+**Command Location:** /Users/shaansisodia/blackbox5/bin/bb5-queue
+**Queue File:** /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml
 
 ---
 
@@ -26,7 +26,7 @@
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue list
+~/blackbox5/bin/bb5-queue list
 ```
 
 **Result:** PASS
@@ -64,7 +64,7 @@ Summary:       90 total |       59 pending |        6 in progress |       25 com
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue next
+~/blackbox5/bin/bb5-queue next
 ```
 
 **Result:** PASS
@@ -96,7 +96,7 @@ To claim this task: bb5 task:claim TASK-AUTO-015
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue ready
+~/blackbox5/bin/bb5-queue ready
 ```
 
 **Result:** PASS
@@ -132,7 +132,7 @@ Total ready tasks:       15
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue blocked
+~/blackbox5/bin/bb5-queue blocked
 ```
 
 **Result:** PASS
@@ -170,7 +170,7 @@ Total blocked tasks:       63
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue claimed
+~/blackbox5/bin/bb5-queue claimed
 ```
 
 **Result:** FAIL
@@ -207,7 +207,7 @@ Update the awk parser in bb5-queue to handle both `claimedBy` and `claimed_by` f
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue
+~/blackbox5/bin/bb5-queue
 ```
 
 **Result:** PASS
@@ -220,7 +220,7 @@ Update the awk parser in bb5-queue to handle both `claimedBy` and `claimed_by` f
 
 **Command:**
 ```bash
-~/.blackbox5/bin/bb5-queue unknown
+~/blackbox5/bin/bb5-queue unknown
 ```
 
 **Result:** PASS

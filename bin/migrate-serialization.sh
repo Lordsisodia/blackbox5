@@ -22,7 +22,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-PROJECT_ROOT="${HOME}/.blackbox5/5-project-memory/blackbox5"
+PROJECT_ROOT="${HOME}/blackbox5/5-project-memory/blackbox5"
 AUTONOMOUS_DIR="${PROJECT_ROOT}/.autonomous"
 EVENTS_SOURCE="${AUTONOMOUS_DIR}/agents/communications/events.yaml"
 MEMORIES_SOURCE="${AUTONOMOUS_DIR}/memory/data/memories.json"

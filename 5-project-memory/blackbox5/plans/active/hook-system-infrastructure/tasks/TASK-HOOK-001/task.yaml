@@ -1,0 +1,24 @@
+---
+id: "TASK-HOOK-001"
+title: "Create settings.json and Register Existing Hooks"
+status: "pending"
+priority: "critical"
+
+created_at: "2026-02-10T12:00:00Z"
+created_by: "claude"
+
+plan: "PLAN-HOOK-INFRA-001"
+phase: "Phase 1"
+
+# Task Details
+description: |
+  Create .claude/settings.json to register the 4 existing hooks with Claude Code.
+  Without this file, hooks exist but never execute.
+
+acceptance_criteria:
+  - settings.json exists at .claude/settings.json
+  - All 4 hooks registered: pre-tool-security.py, log-skill-on-complete.py, retain-on-complete.py, task_completion_skill_recorder.py
+  - Hook configurations are valid JSON
+  - Hooks execute when triggered (verified via logs)
+
+estimated_hours: 4

@@ -2,7 +2,7 @@
 
 **Purpose:** Track all significant decisions made across RALF runs for reversibility and learning.
 
-**Location:** `~/.blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml`
+**Location:** `~/blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml`
 
 ---
 

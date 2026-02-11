@@ -71,13 +71,17 @@ find_next_task() {
             continue
         fi
 
-        # Extract status from task file (use simple grep to avoid regex escaping issues)
-        local status_line=$(grep 'Status:' "$task_file" 2>/dev/null | grep -E '(pending|partial)' | head -1 || echo "")
-        local status=$(echo "$status_line" | sed 's/.*://' | tr -d '[:space:]*' || echo "")
+        # Extract the FIRST Status line from the file
+        # This prevents matching "Status: pending" in the history/comments if the top status is "completed"
+        local status_line=$(grep -m 1 -i '^Status:' "$task_file" 2>/dev/null || echo "")
+        
+        # Clean up the status value (remove "Status:", whitespace, convert to lowercase)
+        local status=$(echo "$status_line" | sed 's/.*://' | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
 
-        if [ -n "$status" ]; then
-            # Extract priority
-            local priority=$(grep 'Priority:' "$task_file" 2>/dev/null | head -1 | sed 's/.*://' | tr -d '[:space:]*' | tr '[:upper:]' '[:lower:]' || echo "medium")
+        # Only process if status is strictly pending or partial
+        if [[ "$status" == "pending" ]] || [[ "$status" == "partial" ]]; then
+            # Extract priority (first occurrence)
+            local priority=$(grep -m 1 -i '^Priority:' "$task_file" 2>/dev/null | sed 's/.*://' | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]' || echo "medium")
 
             # Convert priority to numeric value
             case "$priority" in
@@ -99,7 +103,6 @@ find_next_task() {
     echo "$highest_priority_task"
 }
 
-# Count remaining tasks
 count_remaining_tasks() {
     local count=0
     local tmpfile=$(mktemp)
@@ -109,7 +112,12 @@ count_remaining_tasks() {
         if [[ "$task_file" == *"/runs.migrated/"* ]] || [[ "$task_file" == *"/completed/"* ]]; then
             continue
         fi
-        if grep 'Status:' "$task_file" 2>/dev/null | grep -qE '(pending|partial)'; then
+        
+        # Extract the FIRST Status line
+        local status_line=$(grep -m 1 -i '^Status:' "$task_file" 2>/dev/null || echo "")
+        local status=$(echo "$status_line" | sed 's/.*://' | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
+        
+        if [[ "$status" == "pending" ]] || [[ "$status" == "partial" ]]; then
             count=$((count + 1))
         fi
     done < "$tmpfile"

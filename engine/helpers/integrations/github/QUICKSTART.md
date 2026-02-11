@@ -80,7 +80,7 @@ print(f"Created PR: {pr.html_url}")
 ## 5. Run Demo
 
 ```bash
-python .blackbox5/integration/github/demo.py
+python blackbox5/integration/github/demo.py
 ```
 
 ## 6. Run Tests
@@ -91,7 +91,7 @@ export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"
 export GITHUB_REPO="owner/test-repo"
 
 # Run tests
-pytest .blackbox5/tests/test_github_integration.py -v
+pytest blackbox5/tests/test_github_integration.py -v
 ```
 
 ## Common Patterns
@@ -292,8 +292,8 @@ HTTPError: 403 Rate limit exceeded
 ## Next Steps
 
 - 📖 Read full documentation: `README.md`
-- 🧪 Run tests: `pytest .blackbox5/tests/test_github_integration.py`
-- 🎮 Try demo: `python .blackbox5/integration/github/demo.py`
+- 🧪 Run tests: `pytest blackbox5/tests/test_github_integration.py`
+- 🎮 Try demo: `python blackbox5/integration/github/demo.py`
 - 📝 Check implementation details: `IMPLEMENTATION-SUMMARY.md`
 
 ## Support

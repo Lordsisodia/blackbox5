@@ -1,7 +1,7 @@
 # bb5-status CLI Command Test Report
 
 **Test Date:** 2026-02-06
-**Command Location:** `/Users/shaansisodia/.blackbox5/bin/bb5-status`
+**Command Location:** `/Users/shaansisodia/blackbox5/bin/bb5-status`
 **Tester:** QA Tester
 
 ---
@@ -20,7 +20,7 @@
 
 ## Test Case 1: Overall Status
 
-**Command:** `~/.blackbox5/bin/bb5-status`
+**Command:** `~/blackbox5/bin/bb5-status`
 
 ### Expected Behavior
 - Shows task counts
@@ -85,7 +85,7 @@ System Health
 
 ## Test Case 2: Task Status
 
-**Command:** `~/.blackbox5/bin/bb5-status tasks`
+**Command:** `~/blackbox5/bin/bb5-status tasks`
 
 ### Expected Behavior
 - Breakdown by status
@@ -147,7 +147,7 @@ Queue Metadata
 
 ## Test Case 3: Queue Status
 
-**Command:** `~/.blackbox5/bin/bb5-status queue`
+**Command:** `~/blackbox5/bin/bb5-status queue`
 
 ### Expected Behavior
 - Queue health check
@@ -163,7 +163,7 @@ Queue Metadata
 Queue File Status
 ─────────────────
   Status: ✓ HEALTHY
-  File:   /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml
+  File:   /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml
 
 Queue Statistics
 ────────────────
@@ -216,7 +216,7 @@ Orphaned Tasks Check
 
 ## Test Case 4: Goals Status
 
-**Command:** `~/.blackbox5/bin/bb5-status goals`
+**Command:** `~/blackbox5/bin/bb5-status goals`
 
 ### Expected Behavior
 - Progress bars

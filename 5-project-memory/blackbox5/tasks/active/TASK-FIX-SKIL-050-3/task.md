@@ -37,12 +37,12 @@ Update all documentation and references to reflect the final state of the infras
    - Update `underperforming_skills` list
 
 2. **Documentation Files to Check:**
-   - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.docs/skill-effectiveness-report.md`
-   - `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/knowledge/analysis/skill-system-analysis.md`
+   - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.docs/skill-effectiveness-report.md`
+   - `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/knowledge/analysis/skill-system-analysis.md`
    - Any CLAUDE.md or rules files referencing these skills
 
 3. **Decision Record:**
-   - Create ADR in `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/decisions/`
+   - Create ADR in `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/decisions/`
    - Document why skills were kept/removed/archived
 
 ---
@@ -67,7 +67,7 @@ analysis:
 Search for references to the three skills:
 ```bash
 grep -r "ralf-cloud-control\|github-codespaces-control\|legacy-cloud-control" \
-  /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/ \
+  /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/ \
   --include="*.md" --include="*.yaml" --include="*.json"
 ```
 
@@ -75,7 +75,7 @@ Update or remove references as appropriate.
 
 ### 3. Create ADR
 
-Create `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/decisions/ADR-XXX-infrastructure-skills.md`:
+Create `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/decisions/ADR-XXX-infrastructure-skills.md`:
 
 ```markdown
 # ADR-XXX: Infrastructure Skills Decision
@@ -98,7 +98,7 @@ Three infrastructure skills had zero usage...
 
 ### 4. Complete Parent Task
 
-Update `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-050/task.md`:
+Update `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-SKIL-050/task.md`:
 - Mark as completed
 - Add summary of actions taken
 - Reference the three fix tasks

@@ -38,7 +38,7 @@ questions_asked: []
 next_steps:
   - Install PyGithub dependency: pip install PyGithub
   - Configure environment variables (GITHUB_TOKEN, GITHUB_WEBHOOK_SECRET)
-  - Copy configuration template to ~/.blackbox5/github-config.yaml
+  - Copy configuration template to ~/blackbox5/github-config.yaml
   - Test GitHub connection
   - Enable feature flags when ready (auto_create_prs, auto_create_issues)
 

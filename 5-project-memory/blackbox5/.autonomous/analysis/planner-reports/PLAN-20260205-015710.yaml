@@ -1,7 +1,7 @@
 planner_report:
   id: PLAN-20260205-015710
   timestamp: '2026-02-05T01:57:10.950181'
-  source_scout_report: /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-intelligent-20260205-aggregated.yaml
+  source_scout_report: /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/analysis/scout-reports/scout-report-intelligent-20260205-aggregated.yaml
   summary:
     total_tasks_created: 52
     by_priority:

@@ -2,7 +2,7 @@
 
 **Purpose:** Research and prototype for integrating Ralph-y's git worktree pattern into RALPH Runtime
 **Status:** ✅ Complete and tested
-**Location:** `.blackbox5/6-roadmap/framework-research/ralphy-integration/`
+**Location:** `blackbox5/6-roadmap/framework-research/ralphy-integration/`
 
 ---
 
@@ -17,12 +17,12 @@ This directory contains research for improving the RALPH Runtime engine by adopt
 ### Framework Research
 - **General engine improvements** that benefit ALL projects
 - **Reusable patterns** for future development
-- **Location:** `.blackbox5/6-roadmap/framework-research/`
+- **Location:** `blackbox5/6-roadmap/framework-research/`
 
 ### Project Memory
 - **Project-specific data** for ONE specific project
 - **Session results** and project context
-- **Location:** `.blackbox5/5-project-memory/`
+- **Location:** `blackbox5/5-project-memory/`
 
 ---
 
@@ -83,5 +83,5 @@ ralphy-integration/
 ---
 
 **Type:** Framework research (general engine improvement)
-**Location:** `.blackbox5/6-roadmap/framework-research/ralphy-integration/`
+**Location:** `blackbox5/6-roadmap/framework-research/ralphy-integration/`
 **Maintainer:** BlackBox5 Engine Team

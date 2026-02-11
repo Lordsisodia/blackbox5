@@ -44,16 +44,16 @@ The current rule says "MUST check" not "MUST invoke" - this allows agents to ove
 
 ## Files to Modify
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/rules/004-phase-1-5-skill-check.md`
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/rules/004-phase-1-5-skill-check.md`
    - Change "MUST check" to "MUST invoke" for clear triggers
    - Add "Clear Trigger" definition (>= 85% confidence)
    - Add "Discretionary" range (70-84% confidence)
 
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`
    - Update Phase 1.5 section with same distinction
    - Update Auto-Trigger Rules table
 
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
    - Add `clear_trigger_threshold: 85`
    - Add `discretionary_threshold: 70`
    - Update domain mappings with trigger_type (clear/discretionary)

@@ -136,7 +136,7 @@ All other `.md` files are work summaries documenting specific implementations.
 
 ## Usage Tips
 
-1. **Searching**: Use `grep -r "keyword" /Users/shaansisodia/.blackbox5/1-docs/.archive/` to search contents
+1. **Searching**: Use `grep -r "keyword" /Users/shaansisodia/blackbox5/1-docs/.archive/` to search contents
 2. **Recent First**: Files are generally named with dates or ordered by completion time
 3. **Cross-Reference**: Many files reference each other - check "Related" sections within documents
 4. **Current Status**: For up-to-date info, always check the main documentation sections, not this archive

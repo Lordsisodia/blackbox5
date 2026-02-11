@@ -2,7 +2,7 @@
 
 **Created:** 2026-01-18
 **Version:** 1.0.0
-**Location:** `.blackbox5/engine/core/manifest.py`
+**Location:** `blackbox5/engine/core/manifest.py`
 
 ---
 
@@ -149,17 +149,17 @@ View operation manifests from the command line.
 
 **List recent manifests:**
 ```bash
-.blackbox5/engine/runtime/view-manifest.sh
+blackbox5/engine/runtime/view-manifest.sh
 ```
 
 **View specific manifest:**
 ```bash
-.blackbox5/engine/runtime/view-manifest.sh <manifest_id>
+blackbox5/engine/runtime/view-manifest.sh <manifest_id>
 ```
 
 **List all manifests:**
 ```bash
-.blackbox5/engine/runtime/view-manifest.sh --all
+blackbox5/engine/runtime/view-manifest.sh --all
 ```
 
 ## Manifest File Format
@@ -209,7 +209,7 @@ Manifests are stored as markdown files with the following structure:
 
 ## Storage
 
-- **Directory:** `.blackbox5/scratch/manifests/`
+- **Directory:** `blackbox5/scratch/manifests/`
 - **Format:** Markdown files (`.md`)
 - **Naming:** `{manifest_id}.md`
 - **Auto-created:** Directory created automatically on first use
@@ -374,10 +374,10 @@ Debug failed operations:
 
 ```bash
 # List failed manifests
-.blackbox5/engine/runtime/view-manifest.sh | grep "✗"
+blackbox5/engine/runtime/view-manifest.sh | grep "✗"
 
 # View specific failed manifest
-.blackbox5/engine/runtime/view-manifest.sh <failed_id>
+blackbox5/engine/runtime/view-manifest.sh <failed_id>
 ```
 
 ### 4. Performance Analysis
@@ -397,11 +397,11 @@ manifest_system.start_step(manifest, "step2")
 
 ## Examples
 
-See `.blackbox5/engine/core/test_manifest.py` for a complete working example.
+See `blackbox5/engine/core/test_manifest.py` for a complete working example.
 
 Run it with:
 ```bash
-python3 .blackbox5/engine/core/test_manifest.py
+python3 blackbox5/engine/core/test_manifest.py
 ```
 
 ## API Reference
@@ -411,7 +411,7 @@ python3 .blackbox5/engine/core/test_manifest.py
 Initialize the manifest system.
 
 **Parameters:**
-- `manifest_dir` (optional): Directory to store manifests. Defaults to `.blackbox5/scratch/manifests`
+- `manifest_dir` (optional): Directory to store manifests. Defaults to `blackbox5/scratch/manifests`
 
 ### ManifestSystem.create_manifest(operation_type: str, metadata: Dict = None) -> Manifest
 
@@ -476,7 +476,7 @@ List manifests with optional filtering.
 
 ## Related Components
 
-- **Structured Logging:** `.blackbox5/engine/core/logging.py`
-- **Task Router:** `.blackbox5/engine/core/task_router.py`
-- **Event Bus:** `.blackbox5/engine/core/event_bus.py`
-- **Circuit Breaker:** `.blackbox5/engine/core/circuit_breaker.py`
+- **Structured Logging:** `blackbox5/engine/core/logging.py`
+- **Task Router:** `blackbox5/engine/core/task_router.py`
+- **Event Bus:** `blackbox5/engine/core/event_bus.py`
+- **Circuit Breaker:** `blackbox5/engine/core/circuit_breaker.py`

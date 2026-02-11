@@ -54,7 +54,7 @@
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/memory/three_tier.py
+# blackbox5/engine/memory/three_tier.py
 class ThreeTierMemory:
     def __init__(self):
         self.working = WorkingMemory()      # Active session
@@ -100,7 +100,7 @@ class ThreeTierMemory:
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/runtime/ralph.py
+# blackbox5/engine/runtime/ralph.py
 class RalphRuntime:
     def __init__(self):
         self.task_queue = []
@@ -142,7 +142,7 @@ class RalphRuntime:
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/kanban.py
+# blackbox5/engine/kanban.py
 class KanbanBoard:
     def __init__(self):
         self.columns = {
@@ -193,7 +193,7 @@ class KanbanBoard:
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/agents/bmad/
+# blackbox5/engine/agents/bmad/
 class BMADMasterAgent(BaseAgent):
     async def execute(self, task):
         # Decompose task
@@ -238,7 +238,7 @@ class BMADArchitectAgent(BaseAgent):
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/brain/metadata.py
+# blackbox5/engine/brain/metadata.py
 class MetadataExtractor:
     def extract(self, artifact_path):
         # Parse metadata.yaml
@@ -246,7 +246,7 @@ class MetadataExtractor:
         # Find relationships
         pass
 
-# .blackbox5/engine/brain/query.py
+# blackbox5/engine/brain/query.py
 class UnifiedQueryEngine:
     def query(self, natural_language):
         # Parse intent
@@ -285,7 +285,7 @@ class UnifiedQueryEngine:
 
 ### Blackbox5 Current Structure
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   ├── agents/      # Agent system (mostly empty)
 │   ├── core/        # Core components
@@ -297,7 +297,7 @@ class UnifiedQueryEngine:
 
 ### Recommended Blackbox5 Structure
 ```
-.blackbox5/
+blackbox5/
 ├── .config/          # NEW: Configuration
 ├── .memory/          # NEW: Three-tier system
 │   ├── working/
@@ -338,7 +338,7 @@ Every session creates 4 files:
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/memory/session.py
+# blackbox5/engine/memory/session.py
 class SessionDocumentation:
     def create_session(self, session_id):
         return {
@@ -396,7 +396,7 @@ class SessionDocumentation:
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/kanban/work_queue.py
+# blackbox5/engine/kanban/work_queue.py
 class WorkQueue:
     def __init__(self, queue_path):
         self.queue_path = queue_path
@@ -448,7 +448,7 @@ class WorkQueue:
 
 **Implementation Needed:**
 ```python
-# .blackbox5/engine/memory/timeline.py
+# blackbox5/engine/memory/timeline.py
 class Timeline:
     def __init__(self, timeline_path):
         self.timeline_path = timeline_path

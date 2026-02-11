@@ -48,7 +48,7 @@ Make a clear decision on whether to keep, archive, or remove the three unused in
 - Primary usage is local development (Mac Mini, local Claude Code)
 - No active Kubernetes deployment for agents
 - No GitHub Codespaces integration currently in use
-- Legacy cloud scripts exist at `/Users/shaansisodia/.blackbox5/bin/legacy/` but may be deprecated
+- Legacy cloud scripts exist at `/Users/shaansisodia/blackbox5/bin/legacy/` but may be deprecated
 
 ---
 

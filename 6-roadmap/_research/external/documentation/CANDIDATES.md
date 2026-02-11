@@ -2727,18 +2727,23 @@ List of potential documentation sources to ingest, with research notes and ranki
 - name: "Shopify"
   url: "https://shopify.dev/docs"
   category: "platform"
-  research_status: "pending"
+  research_status: "complete"
   llms_txt: null
-  sitemap: null
-  estimated_pages: null
+  sitemap: "https://shopify.dev/sitemap.xml"
+  estimated_pages: 2000
   ranking:
-    score: 0
-    relevance: 0
-    quality: 0
-    freshness: 0
-    automation: 0
-  notes: "E-commerce platform. Storefront API, app development, themes. Leading e-commerce solution."
-  decision: "pending"
+    score: 88
+    relevance: 90
+    quality: 90
+    freshness: 85
+    automation: 70
+  notes: "E-commerce platform. Storefront API, Admin API, app development, themes, Polaris design system. ~2000+ pages. Key areas: App Home (https://shopify.dev/docs/api/app-home), Polaris Web Components (https://shopify.dev/docs/api/app-home/polaris-web-components), GraphQL Admin API, Storefront API. NO llms.txt found. Has sitemap.xml. Will need selective ingestion of relevant sections."
+  decision: "approve"
+  priority_sections:
+    - "https://shopify.dev/docs/api/app-home/polaris-web-components"
+    - "https://shopify.dev/docs/api/admin-graphql"
+    - "https://shopify.dev/docs/api/storefront"
+    - "https://shopify.dev/docs/apps"
 
 - name: "WooCommerce"
   url: "https://woocommerce.com/documentation"

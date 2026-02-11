@@ -29,7 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / ".autonomous" / "lib"))
 from storage import SkillRepository
 
 # Constants - kept for backward compatibility, but now uses SkillRepository
-SKILL_USAGE_FILE = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml")
+SKILL_USAGE_FILE = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-usage.yaml")
 
 
 def parse_thoughts_for_skill_usage(thoughts_path: Path) -> Optional[dict]:

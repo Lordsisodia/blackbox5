@@ -2,7 +2,7 @@
 
 ## What Was Fixed
 
-The original `.blackbox5/bb5.py` had several critical issues that prevented it from working:
+The original `blackbox5/bb5.py` had several critical issues that prevented it from working:
 
 ### Problems Identified
 
@@ -43,7 +43,7 @@ Created a **simplified, working CLI** that:
 
 ## Files Modified
 
-### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/bb5.py`
+### `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/bb5.py`
 **Complete rewrite** with:
 - Correct imports from existing modules
 - Simplified task execution
@@ -53,12 +53,12 @@ Created a **simplified, working CLI** that:
 
 ### New Files Created
 
-1. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/CLI-GUIDE.md`**
+1. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/CLI-GUIDE.md`**
    - Comprehensive user guide
    - Usage examples
    - Troubleshooting tips
 
-2. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/bb5`**
+2. **`/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/bb5`**
    - Bash wrapper script for easier CLI access
    - Executable convenience wrapper
 
@@ -68,13 +68,13 @@ Created a **simplified, working CLI** that:
 
 ```bash
 # From project root
-python .blackbox5/bb5.py --mock "Say hello"
+python blackbox5/bb5.py --mock "Say hello"
 
 # Or use the wrapper
-.blackbox5/bb5 --mock "Say hello"
+blackbox5/bb5 --mock "Say hello"
 
 # Interactive mode
-python .blackbox5/bb5.py --interactive
+python blackbox5/bb5.py --interactive
 ```
 
 ### Interactive Commands
@@ -89,7 +89,7 @@ All tests passed:
 
 ```bash
 # Mock mode test
-$ python3 .blackbox5/bb5.py --mock "Say hello"
+$ python3 blackbox5/bb5.py --mock "Say hello"
 Project: /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
 Initializing BlackBox5...
 Using MOCK GLM client (no API calls)
@@ -108,11 +108,11 @@ Tokens: 30
 
 ```bash
 # Info command
-$ echo "info" | python3 .blackbox5/bb5.py --mock
+$ echo "info" | python3 blackbox5/bb5.py --mock
 [Shows project capabilities, tools, and configuration]
 
 # Wrapper script
-$ .blackbox5/bb5 --mock "Test from wrapper"
+$ blackbox5/bb5 --mock "Test from wrapper"
 [Works correctly]
 ```
 
@@ -142,7 +142,7 @@ $ .blackbox5/bb5 --mock "Test from wrapper"
 ## Architecture
 
 ```
-.blackbox5/
+blackbox5/
 ├── bb5.py                 # Main Python CLI (270 lines)
 ├── bb5                    # Bash wrapper script
 ├── CLI-GUIDE.md           # User documentation
@@ -226,7 +226,7 @@ To enhance the CLI further:
 **Solution**: Set `GLM_API_KEY` environment variable or use `--mock` flag
 
 ### Issue: Project not detected
-**Solution**: Create `.blackbox5/project_index.json` or let CLI run with empty config
+**Solution**: Create `blackbox5/project_index.json` or let CLI run with empty config
 
 ## Summary
 

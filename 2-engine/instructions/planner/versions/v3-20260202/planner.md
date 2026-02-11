@@ -51,7 +51,7 @@ When reviewing executor runs, you MUST:
 ```bash
 # 1. Check if claimed files actually exist
 for file in $(grep -oE '\`[^`]+\.py\`' $RUN_DIR/RESULTS.md | tr -d '`'); do
-    ls -la "/Users/shaansisodia/.blackbox5/$file" 2>&1 || echo "HALLUCINATION: $file does not exist"
+    ls -la "/Users/shaansisodia/blackbox5/$file" 2>&1 || echo "HALLUCINATION: $file does not exist"
 done
 
 # 2. Check if verification section exists in RESULTS.md
@@ -181,7 +181,7 @@ grep -r "[task keyword]" $RALF_PROJECT_DIR/.autonomous/tasks/completed/ 2>/dev/n
 grep -r "[task keyword]" $RALF_PROJECT_DIR/tasks/completed/ 2>/dev/null | head -5
 
 # 3. Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -5
 
 # 4. Verify target paths exist
 ls -la [target paths] 2>/dev/null
@@ -261,7 +261,7 @@ for run in $(ls -t $RALF_PROJECT_DIR/runs/executor/ | head -3); do
         echo "=== Checking $run ==="
         # Extract claimed Python files
         grep -oE '\b[a-z_]+\.py\b' "$result_file" | while read file; do
-            if [ ! -f "/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/$file" ]; then
+            if [ ! -f "/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/$file" ]; then
                 echo "HALLUCINATION: $run claims $file but doesn't exist"
             fi
         done

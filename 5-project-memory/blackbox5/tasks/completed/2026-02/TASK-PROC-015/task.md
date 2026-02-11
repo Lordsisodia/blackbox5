@@ -30,18 +30,18 @@ Create a commit compliance tracking system to monitor whether completed tasks ha
 **Suggested Action:** Track non-committed tasks with reasons
 
 **Files Created/Modified:**
-- `~/.blackbox5/bin/track-commit-compliance.py` - Standalone compliance tracking script
-- `~/.blackbox5/bin/lib/health_monitor/calculators.py` - Added `calculate_commit_compliance()` function
-- `~/.blackbox5/bin/lib/health_monitor/__init__.py` - Exported new function
-- `~/.blackbox5/bin/bb5-health` - Added compliance section to output
-- `~/.blackbox5/bin/bb5-dashboard` - Added compliance panel to dashboard
+- `~/blackbox5/bin/track-commit-compliance.py` - Standalone compliance tracking script
+- `~/blackbox5/bin/lib/health_monitor/calculators.py` - Added `calculate_commit_compliance()` function
+- `~/blackbox5/bin/lib/health_monitor/__init__.py` - Exported new function
+- `~/blackbox5/bin/bb5-health` - Added compliance section to output
+- `~/blackbox5/bin/bb5-dashboard` - Added compliance panel to dashboard
 
 ---
 
 ## Implementation Summary
 
 ### 1. Created Compliance Tracking Script
-Location: `~/.blackbox5/bin/track-commit-compliance.py`
+Location: `~/blackbox5/bin/track-commit-compliance.py`
 
 Features:
 - Analyzes git commit history for TASK-* references

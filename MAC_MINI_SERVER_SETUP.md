@@ -19,7 +19,7 @@ ssh shaansisodia@shaans-mac-mini.tailnet-name.ts.net
 
 ### Repositories
 - `~/Projects/youtube-ai-research/` - YouTube transcript pipeline
-- `~/.blackbox5/` - Blackbox5 project (already existed)
+- `~/blackbox5/` - Blackbox5 project (already existed)
 
 ### YouTube Pipeline
 Location: `~/Projects/youtube-ai-research/`

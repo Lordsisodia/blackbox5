@@ -44,7 +44,7 @@ your-vault/
 pip install python-frontmatter
 ```
 
-Add to `.blackbox5/engine/requirements.txt`:
+Add to `blackbox5/engine/requirements.txt`:
 
 ```txt
 python-frontmatter>=1.4.0
@@ -335,13 +335,13 @@ else:
 Run the demo script:
 
 ```bash
-python .blackbox5/integration/obsidian/demo.py
+python blackbox5/integration/obsidian/demo.py
 ```
 
 Run unit tests:
 
 ```bash
-python .blackbox5/integration/obsidian/tests/test_obsidian.py
+python blackbox5/integration/obsidian/tests/test_obsidian.py
 ```
 
 ## Troubleshooting

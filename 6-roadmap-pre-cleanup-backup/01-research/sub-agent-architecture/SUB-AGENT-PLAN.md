@@ -325,6 +325,6 @@ Main Agent -> Sub-Agent A -> Result -> Sub-Agent B -> Result -> Sub-Agent C
 
 ## Related Documents
 
-- `~/.blackbox5/2-engine/.autonomous/skills/` - Current skill definitions
-- `~/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Skill selection framework
-- `~/.blackbox5/6-roadmap/01-research/superintelligence-protocol/` - Superintelligence research
+- `~/blackbox5/2-engine/.autonomous/skills/` - Current skill definitions
+- `~/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml` - Skill selection framework
+- `~/blackbox5/6-roadmap/01-research/superintelligence-protocol/` - Superintelligence research

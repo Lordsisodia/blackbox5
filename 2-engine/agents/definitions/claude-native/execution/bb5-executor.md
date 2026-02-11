@@ -130,7 +130,7 @@ Return brief XML status block:
   <title>Add validation to User model</title>
   <objective>Add email format validation</objective>
   <files>
-    <file path="/Users/shaansisodia/.blackbox5/app/models/user.py" action="edit"/>
+    <file path="/Users/shaansisodia/blackbox5/app/models/user.py" action="edit"/>
   </files>
   <requirements>
     <req>Validate email format using regex</req>
@@ -148,7 +148,7 @@ Return brief XML status block:
   <result>COMPLETE</result>
   <summary>Added email regex validation to User model</summary>
   <files_modified>
-    <file>/Users/shaansisodia/.blackbox5/app/models/user.py</file>
+    <file>/Users/shaansisodia/blackbox5/app/models/user.py</file>
   </files_modified>
   <commit>a1b2c3d</commit>
 </status>

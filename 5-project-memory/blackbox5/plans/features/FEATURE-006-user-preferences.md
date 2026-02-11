@@ -25,7 +25,7 @@
 ## Feature Scope
 
 **MVP (Minimum Viable Product):**
-- [ ] Configuration file at ~/.blackbox5/config.yaml
+- [ ] Configuration file at ~/blackbox5/config.yaml
 - [ ] Configuration parser and validator
 - [ ] Configurable thresholds (skill invocation, queue depth, timeouts)
 - [ ] Default configuration with sensible defaults
@@ -63,7 +63,7 @@
 - No customization possible without code changes
 
 **Desired State:**
-- All thresholds configurable via ~/.blackbox5/config.yaml
+- All thresholds configurable via ~/blackbox5/config.yaml
 - Invalid config falls back to defaults with error logging
 - Config changes take effect on reload (SIGUSR1 or restart)
 - Well-documented configuration options
@@ -73,7 +73,7 @@
 ## Success Criteria
 
 ### Must-Have (Required for completion)
-- [ ] Configuration file loads from ~/.blackbox5/config.yaml
+- [ ] Configuration file loads from ~/blackbox5/config.yaml
 - [ ] ConfigManager library provides load, validate, get, set operations
 - [ ] Default configuration provided (2-engine/.autonomous/config/default.yaml)
 - [ ] Skill invocation threshold configurable (0-100)
@@ -148,7 +148,7 @@
    - Well-documented (comments explain each setting)
    - Used as fallback when user config missing/invalid
 
-3. **Configuration File** (`~/.blackbox5/config.yaml`)
+3. **Configuration File** (`~/blackbox5/config.yaml`)
    - User-provided configuration (optional)
    - Overrides default values
    - Validated on load
@@ -160,7 +160,7 @@
 
 **Data Flow:**
 ```
-User Config (~/.blackbox5/config.yaml)
+User Config (~/blackbox5/config.yaml)
     ↓ (if missing/invalid)
 Default Config (2-engine/.autonomous/config/default.yaml)
     ↓ (merged)

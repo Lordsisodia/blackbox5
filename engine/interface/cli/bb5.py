@@ -41,9 +41,9 @@ class BB5RunTracker:
         self.run_id: Optional[str] = None
         self.run_dir: Optional[Path] = None
         self.start_time: Optional[datetime] = None
-        self.runs_base = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5" / "runs" / "cli"
+        self.runs_base = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5" / "runs" / "cli"
         self.runs_base.mkdir(parents=True, exist_ok=True)
-        self.events_file = Path.home() / ".blackbox5" / "5-project-memory" / "blackbox5" / ".autonomous" / "agents" / "communications" / "events.yaml"
+        self.events_file = Path.home() / "blackbox5" / "5-project-memory" / "blackbox5" / ".autonomous" / "agents" / "communications" / "events.yaml"
 
     def start_run(self, query: str, context: Optional[Dict] = None) -> str:
         """Initialize a new run with full tracking setup."""

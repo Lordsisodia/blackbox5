@@ -55,7 +55,7 @@ Use the `bb5` CLI to navigate the goals/plans/tasks hierarchy:
 **For EVERY new task, you MUST:**
 
 1. **Create/Use Workspace**
-   - Work in `~/.blackbox5/5-project-memory/[project]/.autonomous/`
+   - Work in `~/blackbox5/5-project-memory/[project]/.autonomous/`
    - Create run folder: `runs/run-YYYYMMDD_HHMMSS/`
    - Initialize with: THOUGHTS.md, DECISIONS.md, ASSUMPTIONS.md, LEARNINGS.md, RESULTS.md
    - Check `CURRENT_CONTEXT.md` for auto-discovered context
@@ -95,7 +95,7 @@ Use the `bb5` CLI to navigate the goals/plans/tasks hierarchy:
 ## BlackBox5 Directory Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── 1-docs/              # Documentation
 ├── 2-engine/            # Core engine (RALF, agents)
 ├── 5-project-memory/    # Project workspaces
@@ -115,7 +115,7 @@ Use the `bb5` CLI to navigate the goals/plans/tasks hierarchy:
 ## Integration with Superintelligence Protocol
 
 When working on BlackBox5:
-- Reference the Superintelligence Protocol at `/Users/shaansisodia/.blackbox5/6-roadmap/01-research/superintelligence-protocol/`
+- Reference the Superintelligence Protocol at `/Users/shaansisodia/blackbox5/6-roadmap/01-research/superintelligence-protocol/`
 - Use the Project Scanner for context gathering
 - Follow the Iterative Improvement Framework
 - Document learnings in the protocol research directory
@@ -204,7 +204,7 @@ This project uses the rules-based approach. See `.claude/rules/` for specific be
 
 BEFORE starting Phase 2 (Execution) of ANY task, you MUST:
 
-1. **Read skill-selection.yaml** at `~/.blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
+1. **Read skill-selection.yaml** at `~/blackbox5/5-project-memory/blackbox5/operations/skill-selection.yaml`
 2. **Check domain_mapping** for matching keywords in your task
 3. **Calculate confidence** using the formula in the file
 4. **Document decision** in THOUGHTS.md under "## Skill Usage for This Task"

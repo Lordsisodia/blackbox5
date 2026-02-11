@@ -2,7 +2,7 @@
 
 **Reviewer:** Senior Code Reviewer (20 years bash experience)
 **Date:** 2026-02-06
-**File:** `/Users/shaansisodia/.blackbox5/.claude/hooks/session-start-blackbox5.sh`
+**File:** `/Users/shaansisodia/blackbox5/.claude/hooks/session-start-blackbox5.sh`
 **Claimed Quality:** 88/100 (Production Ready)
 
 ---

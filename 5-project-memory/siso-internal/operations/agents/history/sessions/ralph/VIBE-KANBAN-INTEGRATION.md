@@ -366,7 +366,7 @@ Add a dark mode toggle switch to the settings page. The toggle should:
 ## 📊 File Structure
 
 ```
-.blackbox5/engine/runtime/ralph/
+blackbox5/engine/runtime/ralph/
 ├── __init__.py
 ├── ralph_runtime.py          # Main Ralph Runtime
 ├── quality.py                # Quality checker
@@ -403,8 +403,8 @@ Add a dark mode toggle switch to the settings page. The toggle should:
 
 - `.blackbox/4-scripts/integrations/vibe-kanban/webhook-server.py`
 - `.blackbox/4-scripts/integrations/vibe-kanban/vibe-monitor.py`
-- `.blackbox5/engine/runtime/ralph/ralph_runtime.py`
-- `.blackbox5/engine/runtime/ralph/quality.py`
+- `blackbox5/engine/runtime/ralph/ralph_runtime.py`
+- `blackbox5/engine/runtime/ralph/quality.py`
 
 ---
 

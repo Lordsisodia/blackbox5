@@ -1,0 +1,292 @@
+#!/usr/bin/env python3
+# BB5 MCP Wrapper - Wraps MCP servers as CLI tools
+# Usage: bb5 mcp <server> <tool> [args]
+
+import sys
+import json
+import subprocess
+import os
+
+BB5_DIR = os.environ.get('BB5_DIR', os.path.expanduser('~/blackbox5'))
+
+# MCP server configurations
+MCP_SERVERS = {
+    'supabase': {
+        'package': '@modelcontextprotocol/server-postgres',
+        'command': ['npx', '-y', '@modelcontextprotocol/server-postgres', 'postgresql://placeholder@localhost/db']
+    },
+    'filesystem': {
+        'package': '@modelcontextprotocol/server-filesystem',
+        'command': ['npx', '-y', '@modelcontextprotocol/server-filesystem', os.path.expanduser('~')]
+    },
+    'playwright': {
+        'package': '@executeautomation/playwright-mcp-server',
+        'command': ['npx', '-y', '@executeautomation/playwright-mcp-server']
+    },
+    'think': {
+        'package': '@modelcontextprotocol/server-sequential-thinking',
+        'command': ['npx', '-y', '@modelcontextprotocol/server-sequential-thinking']
+    },
+    'fetch': {
+        'package': '@modelcontextprotocol/server-fetch',
+        'command': ['npx', '-y', '@modelcontextprotocol/server-fetch']
+    },
+    'code': {
+        'package': '@boxabirds/mcp-code-parser',
+        'command': ['npx', '-y', '@boxabirds/mcp-code-parser']
+    }
+}
+
+def print_error(msg):
+    print(f"\033[31m✗ {msg}\033[0m", file=sys.stderr)
+
+def print_info(msg):
+    print(f"\033[34mℹ {msg}\033[0m")
+
+def print_success(msg):
+    print(f"\033[32m✓ {msg}\033[0m")
+
+def list_servers():
+    print("Available MCP Servers:")
+    print("")
+    for name, config in MCP_SERVERS.items():
+        print(f"  {name:12} - {config['package']}")
+    print("")
+    print("Usage: bb5 mcp <server> <tool> [args]")
+    print("       bb5 mcp <server> --list-tools")
+
+def list_tools(server_name):
+    if server_name not in MCP_SERVERS:
+        print_error(f"Unknown MCP server: {server_name}")
+        list_servers()
+        return 1
+
+    config = MCP_SERVERS[server_name]
+    print_info(f"Starting MCP server: {server_name}")
+    print_info("Fetching tool list...")
+
+    try:
+        # Start MCP server and get tool list
+        proc = subprocess.Popen(
+            config['command'],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+
+        # Initialize
+        init_request = {
+            "jsonrpc": "2.0",
+            "id": 0,
+            "method": "initialize",
+            "params": {
+                "protocolVersion": "2024-11-05",
+                "capabilities": {},
+                "clientInfo": {"name": "bb5-cli", "version": "1.0.0"}
+            }
+        }
+        proc.stdin.write(json.dumps(init_request) + '\n')
+        proc.stdin.flush()
+
+        # Read init response
+        init_response = proc.stdout.readline()
+
+        # Send initialized notification
+        initialized_notification = {"jsonrpc": "2.0", "method": "notifications/initialized"}
+        proc.stdin.write(json.dumps(initialized_notification) + '\n')
+        proc.stdin.flush()
+
+        # Get tools list
+        tools_request = {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}
+        proc.stdin.write(json.dumps(tools_request) + '\n')
+        proc.stdin.flush()
+
+        # Read tools response
+        response = proc.stdout.readline()
+        proc.terminate()
+
+        if response:
+            data = json.loads(response)
+            if 'result' in data and 'tools' in data['result']:
+                print("")
+                print(f"Tools for {server_name}:")
+                print("")
+                for tool in data['result']['tools']:
+                    desc = tool.get('description', 'No description')[:60]
+                    print(f"  {tool['name']:30} - {desc}")
+            else:
+                print_error("Failed to parse tools list")
+                print(response)
+        else:
+            print_error(f"Failed to get tools from {server_name}")
+            print("Make sure the MCP server is installed:")
+            print(f"  npm install -g {config['package']}")
+
+    except Exception as e:
+        print_error(f"Error: {e}")
+        return 1
+
+def call_tool(server_name, tool_name, args_list):
+    if server_name not in MCP_SERVERS:
+        print_error(f"Unknown MCP server: {server_name}")
+        list_servers()
+        return 1
+
+    config = MCP_SERVERS[server_name]
+
+    # Parse arguments
+    arguments = {}
+    i = 0
+    while i < len(args_list):
+        key = args_list[i]
+        if key.startswith('--'):
+            key = key[2:]
+            if i + 1 < len(args_list):
+                value = args_list[i + 1]
+                # Try to convert to int or bool
+                if value.isdigit():
+                    value = int(value)
+                elif value == 'true':
+                    value = True
+                elif value == 'false':
+                    value = False
+                arguments[key] = value
+                i += 2
+            else:
+                arguments[key] = True
+                i += 1
+        else:
+            i += 1
+
+    print_info(f"Calling {tool_name} on {server_name}...")
+
+    try:
+        proc = subprocess.Popen(
+            config['command'],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+
+        # Initialize
+        init_request = {
+            "jsonrpc": "2.0",
+            "id": 0,
+            "method": "initialize",
+            "params": {
+                "protocolVersion": "2024-11-05",
+                "capabilities": {},
+                "clientInfo": {"name": "bb5-cli", "version": "1.0.0"}
+            }
+        }
+        proc.stdin.write(json.dumps(init_request) + '\n')
+        proc.stdin.flush()
+        proc.stdout.readline()  # Read init response
+
+        # Send initialized notification
+        initialized_notification = {"jsonrpc": "2.0", "method": "notifications/initialized"}
+        proc.stdin.write(json.dumps(initialized_notification) + '\n')
+        proc.stdin.flush()
+
+        # Call tool
+        tool_request = {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "tools/call",
+            "params": {
+                "name": tool_name,
+                "arguments": arguments
+            }
+        }
+        proc.stdin.write(json.dumps(tool_request) + '\n')
+        proc.stdin.flush()
+
+        # Read response
+        response = proc.stdout.readline()
+        proc.terminate()
+
+        if response:
+            data = json.loads(response)
+            if 'error' in data:
+                print_error("Tool call failed")
+                print(json.dumps(data['error'], indent=2))
+                return 1
+            elif 'result' in data and 'content' in data['result']:
+                for item in data['result']['content']:
+                    if item.get('type') == 'text':
+                        print(item.get('text', ''))
+                    else:
+                        print(json.dumps(item, indent=2))
+                print_success("Tool executed successfully")
+            else:
+                print(json.dumps(data, indent=2))
+        else:
+            print_error("No response from MCP server")
+            return 1
+
+    except Exception as e:
+        print_error(f"Error: {e}")
+        return 1
+
+def main():
+    if len(sys.argv) < 2:
+        list_servers()
+        return 0
+
+    server = sys.argv[1]
+
+    if server in ['--list-servers', '-l']:
+        list_servers()
+        return 0
+
+    if server in ['help', '--help', '-h']:
+        print("""BB5 MCP Wrapper - Use MCP servers through CLI
+
+USAGE:
+  bb5 mcp <server> <tool> [args]     Call an MCP tool
+  bb5 mcp <server> --list-tools      List available tools
+  bb5 mcp --list-servers             List all MCP servers
+
+SERVERS:
+  supabase      - Supabase database operations
+  filesystem    - Filesystem operations
+  playwright    - Browser automation
+  think         - Sequential thinking
+  fetch         - HTTP requests
+  code          - Code parsing
+
+EXAMPLES:
+  bb5 mcp supabase --list-tools
+  bb5 mcp supabase execute_sql --query "SELECT * FROM users"
+  bb5 mcp filesystem read_file --path "/path/to/file"
+  bb5 mcp playwright playwright_navigate --url "https://example.com"
+
+NOTES:
+  - Arguments are passed as --key value pairs
+  - MCP servers are started on-demand
+  - Full MCP functionality including all tools
+""")
+        return 0
+
+    if server not in MCP_SERVERS:
+        print_error(f"Unknown MCP server: {server}")
+        list_servers()
+        return 1
+
+    if len(sys.argv) < 3:
+        print_error("Tool name required")
+        print(f"Usage: bb5 mcp {server} <tool> [args]")
+        print(f"       bb5 mcp {server} --list-tools")
+        return 1
+
+    tool = sys.argv[2]
+
+    if tool in ['--list-tools', '-l']:
+        return list_tools(server)
+
+    return call_tool(server, tool, sys.argv[3:])
+
+if __name__ == '__main__':
+    sys.exit(main())

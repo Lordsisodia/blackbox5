@@ -4,10 +4,10 @@
 
 The **Black Box** is this project's AI agent runtime and knowledge management system. It consists of:
 
-- **Memory Bank** (`.blackbox5/engine/memory/memory-bank/`): Persistent memory across all agent sessions
-- **Domain Knowledge** (`.blackbox5/engine/domains/`): Project knowledge organized by subsystem
-- **Agents** (`.blackbox5/engine/.agents/`): 285+ specialized agent configurations
-- **Skills** (`.blackbox5/engine/.agents/.skills/`): 40+ reusable skill patterns
+- **Memory Bank** (`blackbox5/engine/memory/memory-bank/`): Persistent memory across all agent sessions
+- **Domain Knowledge** (`blackbox5/engine/domains/`): Project knowledge organized by subsystem
+- **Agents** (`blackbox5/engine/.agents/`): 285+ specialized agent configurations
+- **Skills** (`blackbox5/engine/.agents/.skills/`): 40+ reusable skill patterns
 - **Tools** (MCP servers): Integration with external systems (Supabase, filesystem, etc.)
 
 ## Core Principles
@@ -25,16 +25,16 @@ You MUST load context before doing any work:
 
 ```bash
 # Read active context
-cat .blackbox5/engine/memory/memory-bank/active-context.md
+cat blackbox5/engine/memory/memory-bank/active-context.md
 
 # Read current progress
-cat .blackbox5/engine/memory/memory-bank/progress.md
+cat blackbox5/engine/memory/memory-bank/progress.md
 
 # Check for relevant domain knowledge
-find .blackbox5/engine/domains/ -name "*.md" | grep -i <relevant-domain>
+find blackbox5/engine/domains/ -name "*.md" | grep -i <relevant-domain>
 
 # Check for existing skills
-find .blackbox5/engine/.agents/.skills/ -name "SKILL.md" | xargs grep -i <keyword>
+find blackbox5/engine/.agents/.skills/ -name "SKILL.md" | xargs grep -i <keyword>
 ```
 
 ### 2. During Work
@@ -109,7 +109,7 @@ Reusable system patterns. Add:
 ## Domain Knowledge Structure
 
 ```
-.blackbox5/engine/domains/
+blackbox5/engine/domains/
 ├── _map.md                    # Domain index - START HERE
 ├── auth/                      # Authentication system
 ├── analytics/                 # Analytics & tracking
@@ -161,10 +161,10 @@ The system has 40+ skills for common patterns. ALWAYS check if a skill exists be
 **How to use skills**:
 ```bash
 # Find relevant skills
-find .blackbox5/engine/.agents/.skills/ -name "SKILL.md" | xargs grep -i <keyword>
+find blackbox5/engine/.agents/.skills/ -name "SKILL.md" | xargs grep -i <keyword>
 
 # Read a skill
-cat .blackbox5/engine/.agents/.skills/<category>/<skill-name>/SKILL.md
+cat blackbox5/engine/.agents/.skills/<category>/<skill-name>/SKILL.md
 ```
 
 ## MCP Tools Available
@@ -248,7 +248,7 @@ If you're unsure how to use the Black Box:
 1. Check this template first
 2. Look for relevant skills
 3. Check domain knowledge
-4. Read the Memory Bank README: `.blackbox5/engine/memory/README.md`
+4. Read the Memory Bank README: `blackbox5/engine/memory/README.md`
 
 ## Example Workflow
 
@@ -256,37 +256,37 @@ If you're unsure how to use the Black Box:
 
 ```bash
 # 1. Load context
-cat .blackbox5/engine/memory/memory-bank/active-context.md
+cat blackbox5/engine/memory/memory-bank/active-context.md
 
 # 2. Check progress
-cat .blackbox5/engine/memory/memory-bank/progress.md
+cat blackbox5/engine/memory/memory-bank/progress.md
 
 # 3. Find relevant domain knowledge
-find .blackbox5/engine/domains/ -name "*.md" | xargs grep -l "gamification"
+find blackbox5/engine/domains/ -name "*.md" | xargs grep -l "gamification"
 
 # 4. Check for skills
-find .blackbox5/engine/.agents/.skills/ -name "SKILL.md" | xargs grep -l "supabase"
+find blackbox5/engine/.agents/.skills/ -name "SKILL.md" | xargs grep -l "supabase"
 
 # 5. Update progress that you're starting
-echo "## Task: Add new feature" >> .blackbox5/engine/memory/memory-bank/progress.md
-echo "- Status: Starting" >> .blackbox5/engine/memory/memory-bank/progress.md
-echo "- Agent: Claude Code" >> .blackbox5/engine/memory/memory-bank/progress.md
-echo "- Started: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> .blackbox5/engine/memory/memory-bank/progress.md
+echo "## Task: Add new feature" >> blackbox5/engine/memory/memory-bank/progress.md
+echo "- Status: Starting" >> blackbox5/engine/memory/memory-bank/progress.md
+echo "- Agent: Claude Code" >> blackbox5/engine/memory/memory-bank/progress.md
+echo "- Started: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> blackbox5/engine/memory/memory-bank/progress.md
 ```
 
 ### During Work
 
 ```bash
 # Update progress
-echo "- Last Update: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> .blackbox5/engine/memory/memory-bank/progress.md
-echo "- Current Step: Implementing X" >> .blackbox5/engine/memory/memory-bank/progress.md
+echo "- Last Update: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> blackbox5/engine/memory/memory-bank/progress.md
+echo "- Current Step: Implementing X" >> blackbox5/engine/memory/memory-bank/progress.md
 ```
 
 ### Making a Decision
 
 ```bash
 # Log the decision
-cat >> .blackbox5/engine/memory/memory-bank/decision-log.md << 'EOF'
+cat >> blackbox5/engine/memory/memory-bank/decision-log.md << 'EOF'
 ## Decision: Use Supabase for new feature
 - Context: Need to store user preferences
 - Options: Local storage, Supabase, Custom backend
@@ -300,9 +300,9 @@ EOF
 
 ```bash
 # Update progress
-echo "- Status: Complete" >> .blackbox5/engine/memory/memory-bank/progress.md
-echo "- Completed: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> .blackbox5/engine/memory/memory-bank/progress.md
-echo "- Outcome: Successfully implemented feature X" >> .blackbox5/engine/memory/memory-bank/progress.md
+echo "- Status: Complete" >> blackbox5/engine/memory/memory-bank/progress.md
+echo "- Completed: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> blackbox5/engine/memory/memory-bank/progress.md
+echo "- Outcome: Successfully implemented feature X" >> blackbox5/engine/memory/memory-bank/progress.md
 ```
 
 ---

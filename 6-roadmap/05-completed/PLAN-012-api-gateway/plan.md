@@ -267,7 +267,7 @@ X-Webhook-Signature: sha256=...
 
 ## Configuration
 
-### Configuration File: `~/.blackbox5/api-config.yaml`
+### Configuration File: `~/blackbox5/api-config.yaml`
 
 ```yaml
 # API Server Configuration
@@ -278,7 +278,7 @@ server:
   cors_enabled: true
   cors_origins:
     - "http://localhost:3000"
-    - "https://dashboard.blackbox5.com"
+    - "https://dashboardblackbox5.com"
 
 # Authentication
 auth:
@@ -383,10 +383,10 @@ connectors:
 pip install flask pyyaml requests
 
 # Copy config template
-cp 2-engine/.autonomous/config/api-config.yaml ~/.blackbox5/api-config.yaml
+cp 2-engine/.autonomous/config/api-config.yaml ~/blackbox5/api-config.yaml
 
 # Edit config with your API keys
-vim ~/.blackbox5/api-config.yaml
+vim ~/blackbox5/api-config.yaml
 
 # Start server
 python -m 2-engine/.autonomous/lib/api_server
@@ -412,7 +412,7 @@ After=network.target
 Type=simple
 User=ralf
 WorkingDirectory=/home/ralf/blackbox5
-Environment="RALF_CONFIG=/home/ralf/.blackbox5/api-config.yaml"
+Environment="RALF_CONFIG=/home/ralf/blackbox5/api-config.yaml"
 ExecStart=/usr/bin/python3 -m gunicorn \
   -w 4 -b 0.0.0.0:5000 \
   "2_engine.autonomous.lib.api_server:app"
@@ -523,9 +523,9 @@ WantedBy=multi-user.target
 ## Maintenance
 
 ### Log Files
-- API access logs: `~/.blackbox5/logs/api-access.log`
-- Error logs: `~/.blackbox5/logs/api-errors.log`
-- Webhook logs: `~/.blackbox5/logs/webhooks.log`
+- API access logs: `~/blackbox5/logs/api-access.log`
+- Error logs: `~/blackbox5/logs/api-errors.log`
+- Webhook logs: `~/blackbox5/logs/webhooks.log`
 
 ### Monitoring
 - API uptime: Check `/health` endpoint

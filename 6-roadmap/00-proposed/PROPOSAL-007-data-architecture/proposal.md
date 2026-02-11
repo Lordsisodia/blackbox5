@@ -76,7 +76,7 @@ This causes data silos, inefficiencies, and integration challenges.
 ## Current State
 
 **What We Have:**
-- Basic schemas in `.blackbox5/engine/schemas/`
+- Basic schemas in `blackbox5/engine/schemas/`
 - Ad-hoc data structures
 - No unified data model
 

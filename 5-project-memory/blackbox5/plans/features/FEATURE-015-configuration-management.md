@@ -182,7 +182,7 @@
 ### File Structure
 
 ```
-~/.blackbox5/
+~/blackbox5/
 ├── config/
 │   ├── base.yaml              # Base configuration (shared)
 │   ├── dev.yaml               # Dev environment overrides

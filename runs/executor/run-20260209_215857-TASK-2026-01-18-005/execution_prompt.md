@@ -143,7 +143,7 @@ Task TASK-2026-01-18-005 is ready for execution. The user-profile epic has been 
 
 ## Epic Details
 
-**Epic Location**: `/Users/shaansisodia/.blackbox5/5-project-memory/siso-internal/plans/active/user-profile/`
+**Epic Location**: `/Users/shaansisodia/blackbox5/5-project-memory/siso-internal/plans/active/user-profile/`
 
 **Epic Status**: planned, 0% progress
 
@@ -170,7 +170,7 @@ Task TASK-2026-01-18-005 is ready for execution. The user-profile epic has been 
 
 All 18 task files are located at:
 ```
-/Users/shaansisodia/.blackbox5/5-project-memory/siso-internal/plans/active/user-profile/[001-018].md
+/Users/shaansisodia/blackbox5/5-project-memory/siso-internal/plans/active/user-profile/[001-018].md
 ```
 
 Additional files:
@@ -232,7 +232,7 @@ The following criteria MUST be met for successful completion:
 
 ## Run Context
 
-- **Run Folder:** /Users/shaansisodia/.blackbox5/runs/executor/run-20260209_215857-TASK-2026-01-18-005
+- **Run Folder:** /Users/shaansisodia/blackbox5/runs/executor/run-20260209_215857-TASK-2026-01-18-005
 - **Started:** 2026-02-09T21:58:57.297349
 
 ## Output Requirements

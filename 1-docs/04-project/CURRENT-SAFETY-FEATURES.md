@@ -153,7 +153,7 @@ cb = for_agent("researcher", agent_type="research")
    - Degraded operation mode (4 levels)
    - Simple, critical safety feature
    - **Status:** ✅ IMPLEMENTED
-   - **Location:** `.blackbox5/2-engine/01-core/safety/`
+   - **Location:** `blackbox5/2-engine/01-core/safety/`
    - **Files:** `kill_switch.py` (570 lines), `safe_mode.py` (480 lines)
 
 2. **Constitutional Classifiers** ✅ COMPLETE
@@ -161,7 +161,7 @@ cb = for_agent("researcher", agent_type="research")
    - Basic content filtering
    - Jailbreak detection (27+ patterns)
    - **Status:** ✅ IMPLEMENTED
-   - **Location:** `.blackbox5/2-engine/01-core/safety/`
+   - **Location:** `blackbox5/2-engine/01-core/safety/`
    - **File:** `constitutional_classifier.py` (650 lines)
 
 ### Remaining High Priority
@@ -223,12 +223,12 @@ cb = for_agent("researcher", agent_type="research")
 
 **Step 1: Check existing modules**
 ```bash
-find .blackbox5/2-engine/01-core -name "*.py" | grep -E "(circuit|breaker|safety|resilience)"
+find blackbox5/2-engine/01-core -name "*.py" | grep -E "(circuit|breaker|safety|resilience)"
 ```
 
 **Step 2: Read the implementation**
 ```bash
-cat .blackbox5/2-engine/01-core/resilience/circuit_breaker.py
+cat blackbox5/2-engine/01-core/resilience/circuit_breaker.py
 ```
 
 **Step 3: Compare with research findings**

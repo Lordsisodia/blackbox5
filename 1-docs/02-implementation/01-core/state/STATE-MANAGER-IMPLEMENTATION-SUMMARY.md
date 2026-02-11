@@ -251,7 +251,7 @@ core/test_state_manager.py::TestIntegrationScenarios::test_workflow_resume PASSE
 ## File Structure
 
 ```
-.blackbox5/engine/core/
+blackbox5/engine/core/
 ├── state_manager.py              # Core implementation (639 lines)
 ├── test_state_manager.py         # Comprehensive tests (847 lines)
 ├── state_manager_demo.py         # Interactive demo (578 lines)

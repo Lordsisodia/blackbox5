@@ -29,9 +29,9 @@ Create a routes.yaml template with placeholders and an initialization script to 
 **Suggested Action:** Create configuration initialization script that populates routes.yaml
 
 **Files Created/Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml.template` - Template with placeholders
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh` - Initialization script
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - Populated with actual values
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml.template` - Template with placeholders
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/init-routes.sh` - Initialization script
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context/routes.yaml` - Populated with actual values
 
 ---
 
@@ -51,7 +51,7 @@ If changes cause issues:
 1. Created `routes.yaml.template` with the following placeholders:
    - `{{PROJECT_NAME}}` - Replaced with "blackbox5"
    - `{{PROJECT_NAME_UPPER}}` - Replaced with "BLACKBOX5"
-   - `{{PROJECT_PATH}}` - Replaced with "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+   - `{{PROJECT_PATH}}` - Replaced with "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5"
 
 2. Created `init-routes.sh` script that:
    - Accepts PROJECT_NAME and PROJECT_PATH as arguments (with defaults)
@@ -63,6 +63,6 @@ If changes cause issues:
 
 **Usage:**
 ```bash
-cd /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/context
+cd /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/context
 ./init-routes.sh [PROJECT_NAME] [PROJECT_PATH]
 ```

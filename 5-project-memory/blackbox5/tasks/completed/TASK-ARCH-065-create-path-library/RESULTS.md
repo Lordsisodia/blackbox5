@@ -11,10 +11,10 @@ Successfully created path resolution libraries to abstract hardcoded paths betwe
 ## Files Created
 
 ### 1. Shell Library
-- **Path:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/paths.sh`
+- **Path:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/paths.sh`
 - **Size:** 10,777 bytes
 - **Functions:**
-  - `get_blackbox5_root()` - Returns ~/.blackbox5
+  - `get_blackbox5_root()` - Returns ~/blackbox5
   - `get_engine_path()` - Returns 2-engine path
   - `get_project_path()` - Returns parameterized project path
   - `get_routes_path()` - Returns routes.yaml path
@@ -24,7 +24,7 @@ Successfully created path resolution libraries to abstract hardcoded paths betwe
   - `get_analysis_path()` - Returns .autonomous/analysis directory
 
 ### 2. Python Library
-- **Path:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/paths.py`
+- **Path:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/paths.py`
 - **Size:** 14,953 bytes
 - **Class:** `PathResolver`
 - **Properties/Methods:**
@@ -34,11 +34,11 @@ Successfully created path resolution libraries to abstract hardcoded paths betwe
   - `get_path(*parts)` - Returns composed Path
 
 ### 3. Test Suite
-- **Path:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/lib/test_paths.py`
+- **Path:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/lib/test_paths.py`
 - **Size:** 11,492 bytes
 
 ### 4. Project-Specific Copy
-- **Path:** `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/paths.py`
+- **Path:** `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/paths.py`
 
 ## Integration
 

@@ -12,7 +12,7 @@ Transform BlackBox5's memory system from agent-centric to project-centric. Inste
 
 ### Current Structure (Agent-Centric)
 ```
-.blackbox5/data/memory/
+blackbox5/data/memory/
 └── john/              # Agent John's memory
     ├── sessions.json
     ├── insights.json
@@ -21,7 +21,7 @@ Transform BlackBox5's memory system from agent-centric to project-centric. Inste
 
 ### New Structure (Project-Centric)
 ```
-.blackbox5/project-memory/
+blackbox5/project-memory/
 ├── _template/         # Template for new projects
 │   ├── project.yaml
 │   ├── context.yaml
@@ -98,7 +98,7 @@ Transform BlackBox5's memory system from agent-centric to project-centric. Inste
 
 ### 1. Root Level
 ```
-.blackbox5/project-memory/
+blackbox5/project-memory/
 ├── _template/         # Project template
 ├── siso-internal/     # Current project
 └── _archive/          # Old/completed projects
@@ -460,7 +460,7 @@ Demonstrate enhanced GitHub integration workflow
 - .claude/prds/user-profile.md
 - .claude/prds/user-profile/first-principles.md
 - .claude/prds/user-profile/research/ (5 docs)
-- .blackbox5/data/memory/john/ (3 files)
+- blackbox5/data/memory/john/ (3 files)
 
 ## Next Steps
 - Create epic from PRD
@@ -549,7 +549,7 @@ Review after: 6 months
 ### Phase 1: Create Template Structure (Day 1)
 
 **Tasks**:
-1. Create `.blackbox5/project-memory/` directory
+1. Create `blackbox5/project-memory/` directory
 2. Create `_template/` with all templates
 3. Create YAML manifests for project metadata
 4. Create README files for each directory
@@ -570,7 +570,7 @@ Review after: 6 months
 ### Phase 3: Rename/Move Existing Memory (Day 2)
 
 **Tasks**:
-1. Rename `.blackbox5/data/memory/` to `.blackbox5/project-memory/`
+1. Rename `blackbox5/data/memory/` to `blackbox5/project-memory/`
 2. Migrate agent memories to project structure
 3. Update references in code
 4. Create migration script
@@ -679,7 +679,7 @@ Review after: 6 months
 
 **Current**:
 ```
-.blackbox5/data/memory/
+blackbox5/data/memory/
 └── john/
     ├── sessions.json
     ├── insights.json
@@ -688,7 +688,7 @@ Review after: 6 months
 
 **To New Structure**:
 ```
-.blackbox5/project-memory/
+blackbox5/project-memory/
 ├── _template/
 └── siso-internal/
     ├── project.yaml

@@ -19,34 +19,34 @@ Previous analysis identified 38+ files with raw yaml.safe_load()/json.load() cal
 #### Python Files with Direct File Operations
 
 **bin/ directory:**
-- `/Users/shaansisodia/.blackbox5/bin/generate_catalog.py` - Multiple open() calls for YAML reading
+- `/Users/shaansisodia/blackbox5/bin/generate_catalog.py` - Multiple open() calls for YAML reading
 
 **2-engine/.autonomous/bin/ directory (6-agent RALF pipeline):**
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/executor-implement.py` - **DIRECT FILE MODIFICATION** (lines 138-140, 185-187, 238-240)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/planner-prioritize.py` - Creates task.md files (line 279-280)
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/verifier-validate.py` - Reads YAML/JSON reports
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/scout-intelligent.py` - JSON parsing from subagents
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/scout-analyze.py` - YAML metrics loading
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/scout-task-based.py` - Creates JSON/YAML output
-- `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/improvement-loop.py` - Report generation
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/executor-implement.py` - **DIRECT FILE MODIFICATION** (lines 138-140, 185-187, 238-240)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/planner-prioritize.py` - Creates task.md files (line 279-280)
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/verifier-validate.py` - Reads YAML/JSON reports
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/scout-intelligent.py` - JSON parsing from subagents
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/scout-analyze.py` - YAML metrics loading
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/scout-task-based.py` - Creates JSON/YAML output
+- `/Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/improvement-loop.py` - Report generation
 
 **5-project-memory/blackbox5/bin/ directory (18+ files):**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` - Queue YAML read/write
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py` - JSON/YAML metrics
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` - Multiple YAML operations
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` - File reading
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` - Registry YAML
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` - Skill usage YAML
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/sync-state.py` - STATE.yaml operations
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py` - SSOT validation
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` - Skill validation
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-run-documentation.py` - Run validation
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py` - Metrics YAML
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/generate-skill-report.py` - Report generation
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/generate-skill-metrics-data.py` - Data generation
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/update-dashboard.py` - Dashboard write
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/standardize-run-names.py` - File moves
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/collect-skill-metrics.py` - Metrics collection
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py` - Queue YAML read/write
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py` - JSON/YAML metrics
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-reanalysis-engine.py` - Multiple YAML operations
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py` - File reading
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/skill_registry.py` - Registry YAML
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py` - Skill usage YAML
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/sync-state.py` - STATE.yaml operations
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-ssot.py` - SSOT validation
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py` - Skill validation
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-run-documentation.py` - Run validation
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/calculate-skill-metrics.py` - Metrics YAML
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/generate-skill-report.py` - Report generation
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/generate-skill-metrics-data.py` - Data generation
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/update-dashboard.py` - Dashboard write
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/standardize-run-names.py` - File moves
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/collect-skill-metrics.py` - Metrics collection
 
 **Total Python files with raw I/O: 25+ files** (not 38+ calls, but 25+ distinct files)
 
@@ -56,7 +56,7 @@ Previous analysis identified 38+ files with raw yaml.safe_load()/json.load() cal
 
 #### Pattern A: With Error Handling (GOOD - but still raw)
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py:193-221
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/validate-skill-usage.py:193-221
 try:
     with open(yaml_path, 'r') as f:
         data = yaml.safe_load(f)
@@ -68,22 +68,22 @@ except Exception as e:
 
 #### Pattern B: With Default Fallback (ACCEPTABLE)
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/sync-state.py:53
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/sync-state.py:53
 state = yaml.safe_load(f) or {}
 
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py:120
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/log-skill-usage.py:120
 return yaml.safe_load(f) or {'usage_log': [], 'skills': [], 'metadata': {}}
 ```
 
 #### Pattern C: NO Error Handling (DANGEROUS)
 ```python
-# /Users/shaansisodia/.blackbox5/bin/generate_catalog.py:102
+# /Users/shaansisodia/blackbox5/bin/generate_catalog.py:102
 data = yaml.safe_load(f)
 
-# /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/executor-implement.py:319
+# /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/executor-implement.py:319
 report = yaml.safe_load(f)
 
-# /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/scout-analyze.py:100
+# /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/scout-analyze.py:100
 metrics = yaml.safe_load(f)
 ```
 
@@ -93,7 +93,7 @@ metrics = yaml.safe_load(f)
 
 #### Pattern A: With Error Handling
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py:206-216
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py:206-216
 try:
     with open(self.tasks_file, 'r') as f:
         data = json.load(f)
@@ -105,10 +105,10 @@ except Exception as e:
 
 #### Pattern B: Direct Load (NO Error Handling)
 ```python
-# /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/planner-prioritize.py:91
+# /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/planner-prioritize.py:91
 data = json.load(f)
 
-# /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/verifier-validate.py:65
+# /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/verifier-validate.py:65
 return json.load(f)
 ```
 
@@ -118,7 +118,7 @@ return json.load(f)
 
 #### Pattern A: Direct Overwrite (NO Atomic Write)
 ```python
-# /Users/shaansisodia/.blackbox5/2-engine/.autonomous/bin/executor-implement.py:138-140
+# /Users/shaansisodia/blackbox5/2-engine/.autonomous/bin/executor-implement.py:138-140
 with open(file_path, 'w') as f:
     f.write(new_content)
 
@@ -129,14 +129,14 @@ with open(file_path, 'w') as f:
 
 #### Pattern B: YAML Dump Direct to File
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py:331-332
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-queue-manager.py:331-332
 with open(target, "w", encoding="utf-8") as f:
     yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
 ```
 
 #### Pattern C: JSON Dump Direct to File
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py:221-226
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py:221-226
 with open(self.tasks_file, 'w') as f:
     json.dump(
         {k: v.to_dict() for k, v in self._tasks.items()},
@@ -147,7 +147,7 @@ with open(self.tasks_file, 'w') as f:
 
 #### Pattern D: Line-by-Line JSON Append (EVENT LOG)
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py:233-234
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-metrics-collector.py:233-234
 with open(self.events_file, 'a') as f:
     f.write(json.dumps(event.to_dict()) + '\n')
 ```
@@ -206,15 +206,15 @@ echo $pid > "$pid_file"
 ```
 
 **Shell scripts identified with direct file I/O:**
-- `/Users/shaansisodia/.blackbox5/bin/ralf-session-start-hook.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-stop-hook.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-planner-queue.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-task-select.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-task-init.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-verifier.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-six-agent-pipeline.sh`
-- `/Users/shaansisodia/.blackbox5/bin/ralf-post-tool-hook.sh`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-parallel-dispatch.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-session-start-hook.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-stop-hook.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-planner-queue.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-task-select.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-task-init.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-verifier.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-six-agent-pipeline.sh`
+- `/Users/shaansisodia/blackbox5/bin/ralf-post-tool-hook.sh`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-parallel-dispatch.sh`
 
 ---
 
@@ -223,7 +223,7 @@ echo $pid > "$pid_file"
 **CRITICAL FINDING:** Only ONE instance of atomic-like operation found:
 
 ```python
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/standardize-run-names.py:140
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/standardize-run-names.py:140
 shutil.move(item["old"], item["new"])
 ```
 
@@ -274,10 +274,10 @@ fd, path = tempfile.mkstemp(suffix='.yaml')
 
 Pathlib read_text/write_text (better but still raw):
 ```python
-# /Users/shaansisodia/.blackbox5/bin/generate_catalog.py:448
+# /Users/shaansisodia/blackbox5/bin/generate_catalog.py:448
 output_path.write_text(markdown)
 
-# /Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py:299
+# /Users/shaansisodia/blackbox5/5-project-memory/blackbox5/bin/bb5-health-dashboard.py:299
 content = log_file.read_text()
 ```
 

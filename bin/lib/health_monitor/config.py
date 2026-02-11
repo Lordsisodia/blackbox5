@@ -36,7 +36,7 @@ class Config:
     @classmethod
     def from_env(cls) -> "Config":
         """Create config from environment variables or defaults."""
-        bb5_root = Path(os.environ.get("BB5_HOME", os.path.expanduser("~/.blackbox5")))
+        bb5_root = Path(os.environ.get("BB5_HOME", os.path.expanduser("~/blackbox5")))
         project_memory = bb5_root / "5-project-memory" / "blackbox5"
 
         return cls(

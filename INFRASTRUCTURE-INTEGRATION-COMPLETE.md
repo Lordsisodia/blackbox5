@@ -11,7 +11,7 @@
 - **Triggers:** UserPromptSubmit, PostToolUse
 - **Function:** Logs all chat content to BlackBox5 project memory
 - **Output:**
-  - `~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/YYYY-MM-DD.jsonl`
+  - `~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/YYYY-MM-DD.jsonl`
   - Updates `THOUGHTS.md` in current run folder
   - Logs events to `events.yaml` and `events.ldjson`
 
@@ -50,7 +50,7 @@ Hook registration in `~/.claude/settings.json`:
 - Stop: Create checkpoint
 - SessionEnd: Archive and finalize
 
-### 6. VPS Integration Scripts (`~/.blackbox5/bin/`)
+### 6. VPS Integration Scripts (`~/blackbox5/bin/`)
 - **`deploy-to-vps.sh`:** Deploys to Hellzinger VPS
 - **`start-autonomous.sh`:** Runs autonomous improvement loop
 
@@ -96,14 +96,14 @@ bb5 task:list  # Should show any spawned agent tasks
 
 ### 2. Deploy to VPS
 ```bash
-~/.blackbox5/bin/deploy-to-vps.sh autonomous-improvement
+~/blackbox5/bin/deploy-to-vps.sh autonomous-improvement
 ssh root@hellzinger
 cd /opt/blackbox5
 ./bin/start-autonomous.sh
 ```
 
 ### 3. Verify Agent Teams
-- Check `~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/`
+- Check `~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/`
 - Monitor `spawn-queue.yaml` for queued agents
 - Monitor `team-activation-queue.json` for team formations
 
@@ -125,10 +125,10 @@ bb5 task:create "Setup project structure"
 | Hooks | `~/.claude/hooks/` |
 | Agents | `~/.claude/agents/` |
 | Settings | `~/.claude/settings.json` |
-| Project Memory | `~/.blackbox5/5-project-memory/blackbox5/` |
-| Chat Logs | `~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/` |
-| Run Folders | `~/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/` |
-| VPS Scripts | `~/.blackbox5/bin/` |
+| Project Memory | `~/blackbox5/5-project-memory/blackbox5/` |
+| Chat Logs | `~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/` |
+| Run Folders | `~/blackbox5/5-project-memory/blackbox5/.autonomous/runs/` |
+| VPS Scripts | `~/blackbox5/bin/` |
 
 ---
 
@@ -139,13 +139,13 @@ bb5 task:create "Setup project structure"
 cat ~/.claude/settings.json | jq '.hooks'
 
 # Check recent chat logs
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/
 
 # Check current run
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/current/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.autonomous/runs/current/
 
 # Check agent communications
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/
 
 # Check agent definitions
 ls -la ~/.claude/agents/

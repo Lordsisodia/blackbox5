@@ -101,7 +101,7 @@
 
 ```bash
 # THE CRITICAL TEST
-python .blackbox5/bb5.py --mock "Read README.md and summarize it"
+python blackbox5/bb5.py --mock "Read README.md and summarize it"
 ```
 
 **What this tests**:
@@ -242,7 +242,7 @@ Don't test more docs. Don't test more specs. Test the EXECUTION PATH.
 
 **Test this now**:
 ```bash
-python .blackbox5/bb5.py --mock "Read README.md and tell me what it says"
+python blackbox5/bb5.py --mock "Read README.md and tell me what it says"
 ```
 
 If that works, the system is ALIVE. If it doesn't, nothing else matters.

@@ -38,10 +38,10 @@ Execute the decision made in TASK-FIX-SKIL-050-1: either create proper SKILL.md 
 - Skills reference cloud/Kubernetes functionality not currently in use
 
 **Files to Modify:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
-- New (if keeping): `/Users/shaansisodia/.blackbox5/.skills/ralf-cloud-control/SKILL.md`
-- New (if keeping): `/Users/shaansisodia/.blackbox5/.skills/github-codespaces-control/SKILL.md`
-- New (if keeping): `/Users/shaansisodia/.blackbox5/.skills/legacy-cloud-control/SKILL.md`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml`
+- New (if keeping): `/Users/shaansisodia/blackbox5/.skills/ralf-cloud-control/SKILL.md`
+- New (if keeping): `/Users/shaansisodia/blackbox5/.skills/github-codespaces-control/SKILL.md`
+- New (if keeping): `/Users/shaansisodia/blackbox5/.skills/legacy-cloud-control/SKILL.md`
 
 **SKILL.md Template Structure:**
 ```markdown

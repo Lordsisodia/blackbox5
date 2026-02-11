@@ -94,15 +94,15 @@
 ## Files to Modify
 
 ### New Files
-1. `/Users/shaansisodia/.blackbox5/bin/bb5` - Command wrapper
-2. `/Users/shaansisodia/.blackbox5/bin/bb5-pause` - Session pause
-3. `/Users/shaansisodia/.blackbox5/bin/bb5-resume` - Session resume
-4. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/templates/task.xml` - XML template
-5. `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/thin_orchestrator.py` - Thin orchestrator
+1. `/Users/shaansisodia/blackbox5/bin/bb5` - Command wrapper
+2. `/Users/shaansisodia/blackbox5/bin/bb5-pause` - Session pause
+3. `/Users/shaansisodia/blackbox5/bin/bb5-resume` - Session resume
+4. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/templates/task.xml` - XML template
+5. `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/thin_orchestrator.py` - Thin orchestrator
 
 ### Modified Files
-1. `/Users/shaansisodia/.blackbox5/bin/ralf-tools/ralf-executor` - Add thin mode
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/STATE.yaml` - Add STATE.md sync
+1. `/Users/shaansisodia/blackbox5/bin/ralf-tools/ralf-executor` - Add thin mode
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/STATE.yaml` - Add STATE.md sync
 3. Agent prompts - Add XML parsing
 
 ---

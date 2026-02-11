@@ -161,7 +161,7 @@
 ## Directory Structure Created
 
 ```
-.blackbox5/engine/agents/.skills-new/
+blackbox5/engine/agents/.skills-new/
 ├── integration-connectivity/
 │   └── database-operations/
 │       ├── orm-patterns/
@@ -279,19 +279,19 @@ Migrate 30 existing skills from `.skills/` to `.skills-new/` with XML format (~3
 
 ### Skill Files (6)
 ```
-.blackbox5/engine/agents/.skills-new/integration-connectivity/database-operations/orm-patterns/SKILL.md
-.blackbox5/engine/agents/.skills-new/integration-connectivity/database-operations/migrations/SKILL.md
-.blackbox5/engine/agents/.skills-new/development-workflow/testing-quality/integration-testing/SKILL.md
-.blackbox5/engine/agents/.skills-new/development-workflow/testing-quality/e2e-testing/SKILL.md
-.blackbox5/engine/agents/.skills-new/development-workflow/deployment-ops/ci-cd/SKILL.md
-.blackbox5/engine/agents/.skills-new/development-workflow/deployment-ops/kubernetes/SKILL.md
+blackbox5/engine/agents/.skills-new/integration-connectivity/database-operations/orm-patterns/SKILL.md
+blackbox5/engine/agents/.skills-new/integration-connectivity/database-operations/migrations/SKILL.md
+blackbox5/engine/agents/.skills-new/development-workflow/testing-quality/integration-testing/SKILL.md
+blackbox5/engine/agents/.skills-new/development-workflow/testing-quality/e2e-testing/SKILL.md
+blackbox5/engine/agents/.skills-new/development-workflow/deployment-ops/ci-cd/SKILL.md
+blackbox5/engine/agents/.skills-new/development-workflow/deployment-ops/kubernetes/SKILL.md
 ```
 
 ### Documentation Files (3)
 ```
-.blackbox5/engine/agents/.skills-new/PENDING-SKILLS-INVENTORY.md
-.blackbox5/engine/agents/.skills-new/CONVERSION-STATUS.md
-.blackbox5/SKILLS-CONVERSION-SUMMARY.md
+blackbox5/engine/agents/.skills-new/PENDING-SKILLS-INVENTORY.md
+blackbox5/engine/agents/.skills-new/CONVERSION-STATUS.md
+blackbox5/SKILLS-CONVERSION-SUMMARY.md
 ```
 
 ---

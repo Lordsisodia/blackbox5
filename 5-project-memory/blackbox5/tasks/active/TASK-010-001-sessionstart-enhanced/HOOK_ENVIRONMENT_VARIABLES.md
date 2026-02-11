@@ -12,7 +12,7 @@
 
 | Variable | Availability | Purpose | Example |
 |----------|--------------|---------|---------|
-| `CLAUDE_PROJECT_DIR` | All hooks | Project root path | `/Users/shaansisodia/.blackbox5` |
+| `CLAUDE_PROJECT_DIR` | All hooks | Project root path | `/Users/shaansisodia/blackbox5` |
 | `CLAUDE_PLUGIN_ROOT` | Plugin hooks | Plugin root directory | `/path/to/plugin` |
 | `CLAUDE_ENV_FILE` | **SessionStart only** | File to persist env vars | `/tmp/claude-env-xxx` |
 | `CLAUDE_CODE_REMOTE` | All hooks | "true" if remote web env | `true` or unset |
@@ -24,7 +24,7 @@
 | `RALF_RUN_DIR` | SessionStart hook | Current run directory | `/Users/.../runs/planner/run-20260206-011248` |
 | `RALF_RUN_ID` | SessionStart hook | Run identifier | `run-20260206-011248` |
 | `RALF_AGENT_TYPE` | SessionStart hook | Agent type | `planner`, `executor`, `architect` |
-| `RALF_PROJECT_ROOT` | SessionStart hook | BB5 root path | `/Users/shaansisodia/.blackbox5` |
+| `RALF_PROJECT_ROOT` | SessionStart hook | BB5 root path | `/Users/shaansisodia/blackbox5` |
 | `BB5_PROJECT` | SessionStart hook | Current project | `blackbox5`, `siso-internal` |
 
 ---
@@ -87,7 +87,7 @@ After the SessionStart hook runs, every Bash command in the session has access t
 #!/bin/bash
 # In SessionStart hook
 
-RUN_DIR="/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/runs/planner/run-20260206-011248"
+RUN_DIR="/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/runs/planner/run-20260206-011248"
 RUN_ID="run-20260206-011248"
 PROJECT="blackbox5"
 AGENT_TYPE="planner"

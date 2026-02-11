@@ -85,16 +85,16 @@
 
 ```bash
 # 1. Check chat logs
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.autonomous/memory/chat-logs/
 
 # 2. Check spawn queue
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/spawn-queue.yaml
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/spawn-queue.yaml
 
 # 3. Check current run
-ls -la ~/.blackbox5/5-project-memory/blackbox5/.autonomous/runs/current/
+ls -la ~/blackbox5/5-project-memory/blackbox5/.autonomous/runs/current/
 
 # 4. Check events
-cat ~/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.ldjson | tail -5
+cat ~/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/events.ldjson | tail -5
 ```
 
 ---

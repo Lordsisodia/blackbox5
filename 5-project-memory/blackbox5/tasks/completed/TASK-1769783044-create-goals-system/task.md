@@ -62,7 +62,7 @@ LOW - This is an additive feature that doesn't modify existing functionality. It
 ## Completion
 
 **Completed:** 2026-01-31T01:42:00Z
-**Run Folder:** ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131-0142/
+**Run Folder:** ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-20260131-0142/
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow
 **Phase Gates:** All passed

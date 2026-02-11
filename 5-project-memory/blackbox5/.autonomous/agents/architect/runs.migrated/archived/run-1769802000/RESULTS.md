@@ -61,7 +61,7 @@ Successfully integrated the Python phase gate, decision registry, and context bu
 
 ## Files Modified
 
-1. `~/.blackbox5/2-engine/.autonomous/shell/ralf-loop.sh`
+1. `~/blackbox5/2-engine/.autonomous/shell/ralf-loop.sh`
    - Added script path variables
    - Added `RUN_DIR` variable
    - Added `check_phase_gate()` function

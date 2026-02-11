@@ -34,7 +34,7 @@ The complete agent orchestration system enables:
 │ • Epic (Technical Architecture)                              │
 │ • Tasks (20+ implementation tasks)                           │
 │                                                              │
-│ Output: .blackbox5/specs/{prds,epics,tasks}/                │
+│ Output: blackbox5/specs/{prds,epics,tasks}/                │
 └──────────────┬──────────────────────────────────────────────┘
                │
                ▼
@@ -196,7 +196,7 @@ def setup_project():
 
 **Purpose**: Track all agent activity
 
-**Location**: `.blackbox5/5-project-memory/siso-internal/operations/`
+**Location**: `blackbox5/5-project-memory/siso-internal/operations/`
 
 **Structure**:
 ```
@@ -253,7 +253,7 @@ def main():
 
     # 4. Check Project Memory
     print(f"\n📊 Results tracked in:")
-    print(f"  .blackbox5/5-project-memory/siso-internal/operations/")
+    print(f"  blackbox5/5-project-memory/siso-internal/operations/")
     print(f"  ├── agents/ (agent sessions)")
     print(f"  └── ralphy/ (autonomous loops)")
 
@@ -317,8 +317,8 @@ http://localhost:3001
 
 Review Project Memory after completion:
 ```bash
-ls -la .blackbox5/5-project-memory/siso-internal/operations/agents/
-ls -la .blackbox5/5-project-memory/siso-internal/operations/ralphy/
+ls -la blackbox5/5-project-memory/siso-internal/operations/agents/
+ls -la blackbox5/5-project-memory/siso-internal/operations/ralphy/
 ```
 
 ### 4. Use Ralphy for Complex Tasks

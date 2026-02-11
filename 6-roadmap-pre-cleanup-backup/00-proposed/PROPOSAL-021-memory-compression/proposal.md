@@ -172,7 +172,7 @@ Nothing - this is a foundational improvement
 - RAG/Brain system improvements
 **Reference Links:**
 - DeerFlow research documentation
-- Memory system architecture (`.blackbox5/engine/memory/`)
+- Memory system architecture (`blackbox5/engine/memory/`)
 
 ---
 

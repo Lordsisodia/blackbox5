@@ -280,7 +280,7 @@ class RalphRuntime:
 ### Phase 1: Core Ralph Loop (Day 1-2)
 
 ```python
-# .blackbox5/engine/runtime/ralph.py
+# blackbox5/engine/runtime/ralph.py
 
 class RalphRuntime:
     """Autonomous agent loop"""
@@ -302,7 +302,7 @@ class RalphRuntime:
 ### Phase 2: PRD Management (Day 2-3)
 
 ```python
-# .blackbox5/engine/runtime/ralph/prd.py
+# blackbox5/engine/runtime/ralph/prd.py
 
 class PRDManager:
     """Manage PRD files"""
@@ -320,7 +320,7 @@ class PRDManager:
 ### Phase 3: Progress Tracking (Day 3)
 
 ```python
-# .blackbox5/engine/runtime/ralph/progress.py
+# blackbox5/engine/runtime/ralph/progress.py
 
 class ProgressTracker:
     """Track progress and learnings"""
@@ -335,7 +335,7 @@ class ProgressTracker:
 ### Phase 4: Quality Checks (Day 4)
 
 ```python
-# .blackbox5/engine/runtime/ralph/quality.py
+# blackbox5/engine/runtime/ralph/quality.py
 
 class QualityChecker:
     """Run quality checks"""
@@ -356,7 +356,7 @@ class QualityChecker:
 ### Phase 5: CLI (Day 5)
 
 ```bash
-# .blackbox5/engine/runtime/start-ralph.sh
+# blackbox5/engine/runtime/start-ralph.sh
 
 #!/bin/bash
 # Start Ralph autonomous loop

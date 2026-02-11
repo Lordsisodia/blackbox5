@@ -15,7 +15,7 @@ Successfully transformed BlackBox5's memory system from **agent-centric** to **p
 ## What Was Implemented
 
 ### 1. Template Project Structure
-Created `.blackbox5/project-memory/_template/` with:
+Created `blackbox5/project-memory/_template/` with:
 
 - **project.yaml** - Project metadata and settings
 - **context.yaml** - Project context template
@@ -26,7 +26,7 @@ Created `.blackbox5/project-memory/_template/` with:
 - **README.md** - Template usage guide
 
 ### 2. SISO-Internal Project Structure
-Created `.blackbox5/project-memory/siso-internal/` with:
+Created `blackbox5/project-memory/siso-internal/` with:
 
 - **project.yaml** - SISO-internal project metadata
 - **context.yaml** - Current project context
@@ -57,7 +57,7 @@ Created `.blackbox5/project-memory/siso-internal/` with:
 
 ### Before (Agent-Centric)
 ```
-.blackbox5/data/memory/
+blackbox5/data/memory/
 └── john/                    # Agent John's memory
     ├── sessions.json
     ├── insights.json
@@ -69,7 +69,7 @@ Created `.blackbox5/project-memory/siso-internal/` with:
 
 ### After (Project-Centric)
 ```
-.blackbox5/project-memory/
+blackbox5/project-memory/
 ├── _template/              # Template for new projects
 │   ├── project.yaml
 │   ├── context.yaml
@@ -156,31 +156,31 @@ Created `.blackbox5/project-memory/siso-internal/` with:
 ## Files Created
 
 ### Template Files (10 files)
-1. `.blackbox5/project-memory/_template/project.yaml`
-2. `.blackbox5/project-memory/_template/context.yaml`
-3. `.blackbox5/project-memory/_template/research/_template-research.md`
-4. `.blackbox5/project-memory/_template/research/README.md`
-5. `.blackbox5/project-memory/_template/plans/_template-prd.md`
-6. `.blackbox5/project-memory/_template/plans/_template-epic.md`
-7. `.blackbox5/project-memory/_template/plans/_template-task.md`
-8. `.blackbox5/project-memory/_template/plans/README.md`
-9. `.blackbox5/project-memory/_template/decisions/_template-technical.md`
-10. `.blackbox5/project-memory/_template/decisions/_template-architectural.md`
-11. `.blackbox5/project-memory/_template/decisions/README.md`
-12. `.blackbox5/project-memory/_template/README.md`
+1. `blackbox5/project-memory/_template/project.yaml`
+2. `blackbox5/project-memory/_template/context.yaml`
+3. `blackbox5/project-memory/_template/research/_template-research.md`
+4. `blackbox5/project-memory/_template/research/README.md`
+5. `blackbox5/project-memory/_template/plans/_template-prd.md`
+6. `blackbox5/project-memory/_template/plans/_template-epic.md`
+7. `blackbox5/project-memory/_template/plans/_template-task.md`
+8. `blackbox5/project-memory/_template/plans/README.md`
+9. `blackbox5/project-memory/_template/decisions/_template-technical.md`
+10. `blackbox5/project-memory/_template/decisions/_template-architectural.md`
+11. `blackbox5/project-memory/_template/decisions/README.md`
+12. `blackbox5/project-memory/_template/README.md`
 
 ### SISO-Internal Files (30+ files)
-1. `.blackbox5/project-memory/siso-internal/project.yaml`
-2. `.blackbox5/project-memory/siso-internal/context.yaml`
-3. `.blackbox5/project-memory/siso-internal/research/user-profile/*` (6 files)
-4. `.blackbox5/project-memory/siso-internal/plans/user-profile/*` (20+ files)
-5. `.blackbox5/project-memory/siso-internal/tasks/active/*` (5 files)
-6. `.blackbox5/project-memory/siso-internal/research/user-profile/metadata.yaml`
-7. `.blackbox5/project-memory/siso-internal/plans/user-profile/metadata.yaml`
+1. `blackbox5/project-memory/siso-internal/project.yaml`
+2. `blackbox5/project-memory/siso-internal/context.yaml`
+3. `blackbox5/project-memory/siso-internal/research/user-profile/*` (6 files)
+4. `blackbox5/project-memory/siso-internal/plans/user-profile/*` (20+ files)
+5. `blackbox5/project-memory/siso-internal/tasks/active/*` (5 files)
+6. `blackbox5/project-memory/siso-internal/research/user-profile/metadata.yaml`
+7. `blackbox5/project-memory/siso-internal/plans/user-profile/metadata.yaml`
 
 ### Documentation Files (2 files)
-1. `.blackbox5/project-memory/README.md`
-2. `.blackbox5/PROJECT-MEMORY-IMPLEMENTATION-SUMMARY.md` (this file)
+1. `blackbox5/project-memory/README.md`
+2. `blackbox5/PROJECT-MEMORY-IMPLEMENTATION-SUMMARY.md` (this file)
 
 **Total Files Created**: 44 files
 
@@ -192,7 +192,7 @@ Created `.blackbox5/project-memory/siso-internal/` with:
 
 1. **Copy the template**:
    ```bash
-   cp -r .blackbox5/project-memory/_template/ .blackbox5/project-memory/new-project/
+   cp -r blackbox5/project-memory/_template/ blackbox5/project-memory/new-project/
    ```
 
 2. **Fill in project.yaml**:
@@ -213,7 +213,7 @@ Created `.blackbox5/project-memory/siso-internal/` with:
 
 ### Accessing Current Project
 
-All current project data is in `.blackbox5/project-memory/siso-internal/`:
+All current project data is in `blackbox5/project-memory/siso-internal/`:
 - **Research**: `research/user-profile/`
 - **Plans**: `plans/user-profile/`
 - **Tasks**: `tasks/active/`

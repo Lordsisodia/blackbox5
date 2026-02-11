@@ -17,7 +17,7 @@ Create a pre-execution hook that enforces skill invocation for clear triggers (>
 
 ## Success Criteria
 
-- [ ] Create `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh`
+- [ ] Create `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh`
 - [ ] Hook runs before any task execution
 - [ ] Hook calls detect-skill.py to analyze task
 - [ ] For clear triggers (>=85%): Block execution until skill is invoked
@@ -55,25 +55,25 @@ No enforcement mechanism exists - agents override threshold subjectively even wh
 
 ### New Files
 
-1. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh`
+1. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh`
    - Main enforcement hook (~100 lines)
    - Calls detect-skill.py
    - Implements blocking logic
    - Logs enforcement actions
 
-2. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/README.md`
+2. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/README.md`
    - Documentation for the hook
    - Bypass instructions
    - Troubleshooting
 
 ### Modified Files
 
-3. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`
+3. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.claude/CLAUDE.md`
    - Add pre-execution hook section
    - Document enforcement behavior
    - Add bypass env var documentation
 
-4. `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
+4. `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
    - Add enforcement_log section
    - Track blocked executions, overrides, justifications
 

@@ -14,11 +14,11 @@ Successfully created the missing `templates/` directory in Agent-2.3 with the `d
 ## What Was Delivered
 
 ### 1. Templates Directory
-**Location:** `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/`
+**Location:** `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/`
 **Status:** Created
 
 ### 2. Decision Registry Template
-**Location:** `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml`
+**Location:** `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml`
 **Size:** 1,837 bytes
 **Status:** Created with v2.3 header
 
@@ -60,16 +60,16 @@ Successfully created the missing `templates/` directory in Agent-2.3 with the `d
 
 ## Files Modified
 
-1. **Created:** `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` (directory)
-2. **Created:** `~/.blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` (file)
+1. **Created:** `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/` (directory)
+2. **Created:** `~/blackbox5/2-engine/.autonomous/prompt-progression/versions/v2.3/templates/decision_registry.yaml` (file)
 
 ## Files Created (Run Documentation)
 
-1. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/THOUGHTS.md`
-2. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/DECISIONS.md`
-3. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/ASSUMPTIONS.md`
-4. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/LEARNINGS.md`
-5. `~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/RESULTS.md`
+1. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/THOUGHTS.md`
+2. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/DECISIONS.md`
+3. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/ASSUMPTIONS.md`
+4. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/LEARNINGS.md`
+5. `~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769800330/RESULTS.md`
 
 ## Path Used
 

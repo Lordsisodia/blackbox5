@@ -172,7 +172,7 @@ import { execSync } from 'child_process';
 import { readFileSync, existsSync } from 'fs';
 
 // Blackbox5 configuration
-const BLACKBOX5_PATH = process.env.BLACKBOX5_PATH || '/Users/shaansisodia/.blackbox5';
+const BLACKBOX5_PATH = process.env.BLACKBOX5_PATH || '/Users/shaansisodia/blackbox5';
 const BLACKBOX5_API_URL = process.env.BLACKBOX5_API_URL || 'http://localhost:8000';
 const RALF_QUEUE_FILE = `${BLACKBOX5_PATH}/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`;
 
@@ -596,7 +596,7 @@ def start_ralf_watcher(project_path: str):
 
 if __name__ == "__main__":
     import sys
-    project_path = sys.argv[1] if len(sys.argv) > 1 else "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5"
+    project_path = sys.argv[1] if len(sys.argv) > 1 else "/Users/shaansisodia/blackbox5/5-project-memory/blackbox5"
     start_ralf_watcher(project_path)
 ```
 
@@ -698,7 +698,7 @@ services:
   blackbox5:
     build: ./blackbox5
     volumes:
-      - ~/.blackbox5:/blackbox5
+      - ~/blackbox5:/blackbox5
     environment:
       - OPENCLAW_GATEWAY=http://openclaw:18789
     networks:

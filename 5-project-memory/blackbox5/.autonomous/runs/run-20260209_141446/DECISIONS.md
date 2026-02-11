@@ -22,14 +22,14 @@ Decisions made during this session with rationale.
 ## 2026-02-09T14:23:33+07:00 - File Operation
 
 - **Tool:** Edit
-- **File:** /Users/shaansisodia/.blackbox5/engine/infrastructure/main.py
+- **File:** /Users/shaansisodia/blackbox5/engine/infrastructure/main.py
 - **Task:** 
 
 
 ## 2026-02-09T14:23:51+07:00 - File Operation
 
 - **Tool:** Edit
-- **File:** /Users/shaansisodia/.blackbox5/engine/infrastructure/main.py
+- **File:** /Users/shaansisodia/blackbox5/engine/infrastructure/main.py
 - **Task:** 
 
 

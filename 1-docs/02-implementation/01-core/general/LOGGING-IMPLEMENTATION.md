@@ -11,7 +11,7 @@ The Structured Logging System provides comprehensive JSON-based logging for Blac
 ## Files Created/Modified
 
 ### 1. Core Logging Module
-**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/logging.py`
+**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/logging.py`
 
 **Components:**
 - `setup_logging(level, log_file, json_logs)` - Configure structlog with JSON output
@@ -32,7 +32,7 @@ The Structured Logging System provides comprehensive JSON-based logging for Blac
   - `get_operation_logger(operation_id)` - Create operation logger
 
 ### 2. Core Module Exports
-**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/__init__.py`
+**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/__init__.py`
 
 **Added exports:**
 ```python
@@ -46,7 +46,7 @@ from .logging import (
 ```
 
 ### 3. Log Viewer Script
-**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/runtime/view-logs.sh`
+**File:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/runtime/view-logs.sh`
 
 **Features:**
 - ✅ View today's logs by default
@@ -76,7 +76,7 @@ from .logging import (
 ```
 
 ### 4. Logs Directory
-**Directory:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/logs/`
+**Directory:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/logs/`
 
 **Created:**
 - `.gitkeep` - Ensures directory is tracked in git
@@ -173,7 +173,7 @@ setup_logging(
 ## Known Issues
 
 ### Syntax Error in complexity.py
-The file `.blackbox5/engine/core/complexity.py` has a syntax error on line 278:
+The file `blackbox5/engine/core/complexity.py` has a syntax error on line 278:
 ```python
 (r\bafter\b', 1),  # Invalid escape sequence
 ```
@@ -205,7 +205,7 @@ This prevents importing from `core.__init__.py` until fixed.
 4. **View logs:**
    ```bash
    cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-   ./.blackbox5/engine/runtime/view-logs.sh
+   ./blackbox5/engine/runtime/view-logs.sh
    ```
 
 5. **Integrate with existing agents:**
@@ -224,10 +224,10 @@ This prevents importing from `core.__init__.py` until fixed.
 
 ## File Locations
 
-- **Logging Module:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/logging.py`
-- **Core Init:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/core/__init__.py`
-- **Log Viewer:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/engine/runtime/view-logs.sh`
-- **Logs Directory:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/.blackbox5/logs/`
+- **Logging Module:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/logging.py`
+- **Core Init:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/core/__init__.py`
+- **Log Viewer:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/engine/runtime/view-logs.sh`
+- **Logs Directory:** `/Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL/blackbox5/logs/`
 
 ---
 

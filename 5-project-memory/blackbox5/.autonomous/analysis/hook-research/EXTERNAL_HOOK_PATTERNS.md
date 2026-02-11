@@ -814,8 +814,8 @@ These four hooks form a foundation that enables safe, trackable, and coordinated
 **Document Version:** 1.0
 **Last Updated:** 2026-02-06
 **Research Sources:**
-- /Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery
-- /Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3
-- /Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-multi-agent-observability
-- /Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-showcase
-- /Users/shaansisodia/.blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/everything-claude-code
+- /Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-mastery
+- /Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/Continuous-Claude-v3
+- /Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-hooks-multi-agent-observability
+- /Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/claude-code-showcase
+- /Users/shaansisodia/blackbox5/6-roadmap/.research/external/GitHub/Claude-Code/data/repos/everything-claude-code

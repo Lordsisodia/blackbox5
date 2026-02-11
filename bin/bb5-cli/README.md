@@ -2,7 +2,7 @@
 
 **Purpose**: Replace MCP servers with discoverable, token-efficient CLI tools.
 
-**Location**: `~/.blackbox5/bin/bb5-cli/`
+**Location**: `~/blackbox5/bin/bb5-cli/`
 
 ---
 
@@ -86,10 +86,10 @@ bb5 db query -s "SELECT *" -c client-a
 
 ## Configuration
 
-Contexts stored in: `~/.blackbox5/config/bb5-cli/contexts/`
+Contexts stored in: `~/blackbox5/config/bb5-cli/contexts/`
 
 ```yaml
-# Example: ~/.blackbox5/config/bb5-cli/contexts/supabase/client-a.yaml
+# Example: ~/blackbox5/config/bb5-cli/contexts/supabase/client-a.yaml
 name: client-a
 project_ref: abc123
 url: https://abc123.supabase.co

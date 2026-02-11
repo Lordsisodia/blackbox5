@@ -18,7 +18,7 @@ It shows:
 9. How anti-pattern detection maintains code quality
 
 Usage:
-    python .blackbox5/examples/gsd_integration_demo.py
+    python blackbox5/examples/gsd_integration_demo.py
 """
 
 import asyncio

@@ -26,7 +26,7 @@
 
 ## 3. Configure
 
-Edit `~/.blackbox5/config/watch.env`:
+Edit `~/blackbox5/config/watch.env`:
 
 ```
 TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz

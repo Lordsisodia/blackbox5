@@ -207,7 +207,7 @@ These rules are fundamental to system operation and safety.
 **Content:** Use queue.yaml, events.yaml, chat-log.yaml, heartbeat.yaml
 
 ### 35. `035-bb5-navigation.md`
-**Trigger:** Path: ~/.blackbox5/
+**Trigger:** Path: ~/blackbox5/
 **Content:** Use bb5 CLI for navigation (whereami, goal:list, task:list, etc.)
 
 ---

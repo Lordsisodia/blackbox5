@@ -171,7 +171,7 @@ Agent Memory Storage
     │
     ▼
 ┌─────────────────────────────┐
-│ .blackbox5/agent_memory/     │
+│ blackbox5/agent_memory/     │
 ├─────────────────────────────┤
 │ developer_1_memory.json      │
 │ {                            │

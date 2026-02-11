@@ -144,7 +144,7 @@ operations/agents/
 - **Reporting**: Evaluation results and insights
 
 **Usage**:
-- Location: `.blackbox5/2-engine/.deepeval/`
+- Location: `blackbox5/2-engine/.deepeval/`
 - Integration: Used in agent testing workflows
 - Output: Evaluation reports and metrics
 

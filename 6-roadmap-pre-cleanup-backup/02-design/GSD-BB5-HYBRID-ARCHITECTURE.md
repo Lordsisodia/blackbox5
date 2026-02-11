@@ -215,11 +215,11 @@ Agent Context (200k)
 
 ## Critical Implementation Files
 
-1. `/Users/shaansisodia/.blackbox5/bin/bb5` - Command wrapper
-2. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/templates/task.xml` - XML schema
-3. `/Users/shaansisodia/.blackbox5/2-engine/core/orchestration/thin_orchestrator.py` - Thin orchestrator
-4. `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/workflows/parallel-research.yaml` - Parallel research
-5. `/Users/shaansisodia/.blackbox5/bin/bb5-pause` and `bb5-resume` - Session handoff
+1. `/Users/shaansisodia/blackbox5/bin/bb5` - Command wrapper
+2. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/templates/task.xml` - XML schema
+3. `/Users/shaansisodia/blackbox5/2-engine/core/orchestration/thin_orchestrator.py` - Thin orchestrator
+4. `/Users/shaansisodia/blackbox5/2-engine/.autonomous/workflows/parallel-research.yaml` - Parallel research
+5. `/Users/shaansisodia/blackbox5/bin/bb5-pause` and `bb5-resume` - Session handoff
 
 ---
 

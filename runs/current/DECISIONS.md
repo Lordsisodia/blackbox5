@@ -26,7 +26,7 @@
 **Timestamp:** 2026-02-09 (Session Start)
 **Made By:** User directive
 
-**Decision:** Document all BB5 activity in permanent memory at `/Users/shaansisodia/.blackbox5/runs/current/`.
+**Decision:** Document all BB5 activity in permanent memory at `/Users/shaansisodia/blackbox5/runs/current/`.
 
 **Rationale:**
 - Ensure continuity across sessions

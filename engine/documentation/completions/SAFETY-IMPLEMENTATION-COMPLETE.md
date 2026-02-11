@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-19
 **Status:** ✅ COMPLETE
-**Location:** `.blackbox5/2-engine/01-core/safety/`
+**Location:** `blackbox5/2-engine/01-core/safety/`
 
 ---
 
@@ -165,7 +165,7 @@ def my_agent(user_input: str) -> str:
 ## File Structure
 
 ```
-.blackbox5/2-engine/01-core/safety/
+blackbox5/2-engine/01-core/safety/
 ├── __init__.py                      # Package exports
 ├── kill_switch.py                   # Emergency shutdown (570 lines)
 ├── safe_mode.py                     # Degraded operation (480 lines)
@@ -216,7 +216,7 @@ def my_agent(user_input: str) -> str:
 ### Running Tests
 
 ```bash
-cd .blackbox5/2-engine/01-core/safety
+cd blackbox5/2-engine/01-core/safety
 python3 -m pytest tests/test_safety_system.py -v
 ```
 
@@ -418,7 +418,7 @@ Now that Phase 1 is complete, we can:
 
 ### All Tests Pass ✅
 ```bash
-$ cd .blackbox5/2-engine/01-core/safety
+$ cd blackbox5/2-engine/01-core/safety
 $ python3 -m pytest tests/test_safety_system.py -v
 
 ====================== test session starts ======================

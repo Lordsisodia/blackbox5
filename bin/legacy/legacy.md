@@ -22,7 +22,7 @@
 
 ## Working Directory Structure
 
-**Root:** `~/.blackbox5/`
+**Root:** `~/blackbox5/`
 
 ### Engine (`2-engine/`)
 - **Skills:** `2-engine/instructions/skills/` - BMAD skills for task execution
@@ -50,7 +50,7 @@
 - Current state: `6-roadmap/STATE.yaml`
 
 ### Configuration
-- **This prompt:** `~/.blackbox5/bin/legacy.md`
+- **This prompt:** `~/blackbox5/bin/legacy.md`
 - **GitHub:** `https://github.com/Lordsisodia/blackbox5` (branch: main)
 
 ---
@@ -87,9 +87,9 @@ cat ~/.claude/ralf-state.json 2>/dev/null || echo '{"loop": 0}'
 **Before selecting a task, analyze:**
 
 1. **Read current state:**
-   - `cat ~/.blackbox5/5-project-memory/ralf-core/STATE.yaml`
-   - `cat ~/.blackbox5/6-roadmap/STATE.yaml`
-   - Recent runs: `ls -t ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/ | head -3`
+   - `cat ~/blackbox5/5-project-memory/ralf-core/STATE.yaml`
+   - `cat ~/blackbox5/6-roadmap/STATE.yaml`
+   - Recent runs: `ls -t ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/ | head -3`
 
 2. **Apply first principles:**
    - What is the core goal of BlackBox5?
@@ -100,7 +100,7 @@ cat ~/.claude/ralf-state.json 2>/dev/null || echo '{"loop": 0}'
 
 3. **Check active tasks:**
    ```bash
-   ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/
+   ls ~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/
    ```
 
 4. **Decision:**
@@ -111,7 +111,7 @@ cat ~/.claude/ralf-state.json 2>/dev/null || echo '{"loop": 0}'
 **Task Creation (when needed):**
 ```bash
 TASK_ID="TASK-$(date +%s)"
-TASK_FILE="~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/${TASK_ID}-[brief-name].md"
+TASK_FILE="~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active/${TASK_ID}-[brief-name].md"
 
 cat > "$TASK_FILE" << 'EOF'
 # [TASK-ID]: [Title]
@@ -139,10 +139,10 @@ EOF
 **Pre-execution:**
 ```bash
 # Check for duplicates
-grep -r "[task keyword]" ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/ 2>/dev/null | head -3
+grep -r "[task keyword]" ~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/ 2>/dev/null | head -3
 
 # Check recent commits
-cd ~/.blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
+cd ~/blackbox5 && git log --oneline --since="1 week ago" | grep -i "[keyword]" | head -3
 ```
 
 **Execute:**
@@ -211,13 +211,13 @@ EOF
 
 **Update task and commit:**
 ```bash
-TASK_FILE=$(find ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active -name "*[TASK-ID]*" | head -1)
+TASK_FILE=$(find ~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active -name "*[TASK-ID]*" | head -1)
 if [ -n "$TASK_FILE" ]; then
     sed -i '' 's/^\*\*Status:\*\* .*/\*\*Status:\*\* completed/' "$TASK_FILE"
-    mv "$TASK_FILE" ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/
+    mv "$TASK_FILE" ~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/
 fi
 
-cd ~/.blackbox5
+cd ~/blackbox5
 git add -A
 git commit -m "legacy: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [brief description]"
 git push origin main
@@ -259,7 +259,7 @@ git push origin main
 
 3. **Update task status appropriately:**
    ```bash
-   TASK_FILE=$(find ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active -name "*[TASK-ID]*" | head -1)
+   TASK_FILE=$(find ~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/active -name "*[TASK-ID]*" | head -1)
    if [ -n "$TASK_FILE" ]; then
        # Update status based on failure type
        sed -i '' 's/^\*\*Status:\*\* .*/\*\*Status:\*\* [failed/blocked/partial]/' "$TASK_FILE"
@@ -274,13 +274,13 @@ git push origin main
    EOF
 
        # Move to completed (even failures are completed attempts)
-       mv "$TASK_FILE" ~/.blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/
+       mv "$TASK_FILE" ~/blackbox5/5-project-memory/ralf-core/.autonomous/tasks/completed/
    fi
    ```
 
 4. **Commit the failure (so it's recorded):**
    ```bash
-   cd ~/.blackbox5
+   cd ~/blackbox5
    git add -A
    git commit -m "legacy: [$(date +%Y%m%d-%H%M%S)] [TASK-ID] - [FAILED/BLOCKED/PARTIAL]: [brief reason]"
    git push origin main
@@ -300,7 +300,7 @@ git push origin main
 
 1. **Read last 10 runs:**
    ```bash
-   ls -t ~/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/ | head -10
+   ls -t ~/blackbox5/5-project-memory/ralf-core/.autonomous/runs/ | head -10
    ```
 
 2. **Analyze patterns:**
@@ -317,7 +317,7 @@ git push origin main
 
 4. **Output review document:**
    ```bash
-   REVIEW_DIR="~/.blackbox5/5-project-memory/ralf-core/.autonomous/reviews/"
+   REVIEW_DIR="~/blackbox5/5-project-memory/ralf-core/.autonomous/reviews/"
    mkdir -p "$REVIEW_DIR"
 
    cat > "$REVIEW_DIR/review-$(date +%s).md" << 'EOF'

@@ -39,7 +39,7 @@ Update the subagent-tracking.sh hook system to capture and persist agent context
 5. Queries `queue.yaml` for parent_task
 
 **Files Modified:**
-- `/Users/shaansisodia/.blackbox5/.claude/hooks/subagent-tracking.sh`
+- `/Users/shaansisodia/blackbox5/.claude/hooks/subagent-tracking.sh`
 
 **New Functions Added:**
 - `save_context()` - Writes agent context to `.agent-context` file

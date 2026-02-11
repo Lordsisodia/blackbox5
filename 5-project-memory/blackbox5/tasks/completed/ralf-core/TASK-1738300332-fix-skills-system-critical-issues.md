@@ -31,14 +31,14 @@ Execute the initial audit of the three skills systems (skills-cap/, .skills-new/
 ## Completion
 
 **Completed:** 2026-01-31T04:27:32Z
-**Run Folder:** /Users/shaansisodia/.blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769808452
+**Run Folder:** /Users/shaansisodia/blackbox5/5-project-memory/ralf-core/.autonomous/runs/run-1769808452
 **Agent:** Agent-2.3
 **Path Used:** Quick Flow (Discovery Phase Only)
 **Status:** COMPLETE - NO ACTION NEEDED
 
 ### Key Findings
 
-1. **Only ONE skills system exists:** `~/.blackbox5/2-engine/.autonomous/skills/`
+1. **Only ONE skills system exists:** `~/blackbox5/2-engine/.autonomous/skills/`
 2. **No duplicate skills found:** The PLAN-001 document references directories (skills-cap/, .skills-new/) that don't exist in the current codebase
 3. **SkillRouter working correctly:** Correctly references the skills/ directory
 4. **Previous task completed:** TASK-20260130-001 already addressed skills system on 2026-01-30

@@ -14,7 +14,7 @@ The `AgentOrchestrator` is a powerful multi-agent coordination system adapted fr
 ### Persistent Memory
 - Each agent maintains its own memory store
 - Survives agent restarts
-- JSON-based storage in `.blackbox5/agent_memory/`
+- JSON-based storage in `blackbox5/agent_memory/`
 
 ### Workflow Execution
 - Sequential workflows with dependencies

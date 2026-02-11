@@ -8,7 +8,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ARCHIVE_SCRIPT="${SCRIPT_DIR}/archive-runs.sh"
-CRON_LOG="${HOME}/.blackbox5/5-project-memory/.archive-cron.log"
+CRON_LOG="${HOME}/blackbox5/5-project-memory/.archive-cron.log"
 
 # Colors
 GREEN='\033[0;32m'

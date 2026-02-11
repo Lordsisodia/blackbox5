@@ -2,7 +2,7 @@
 
 **Analyst:** UX/Error Messaging Expert
 **Date:** 2026-02-06
-**Source:** `/Users/shaansisodia/.blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
+**Source:** `/Users/shaansisodia/blackbox5/2-engine/.autonomous/hooks/pipeline/stop/STOP_HOOK_CHECKLIST.md`
 
 ---
 

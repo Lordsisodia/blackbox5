@@ -58,24 +58,24 @@
 cd /path/to/your/project
 
 # Verify BlackBox5 exists
-ls .blackbox5/
+ls blackbox5/
 ```
 
 ### Step 2: Install Python Dependencies
 
 ```bash
 # Create virtual environment
-python3 -m venv .blackbox5/venv
+python3 -m venv blackbox5/venv
 
 # Activate virtual environment
 # On Linux/macOS:
-source .blackbox5/venv/bin/activate
+source blackbox5/venv/bin/activate
 # On Windows:
 # blackbox5\venv\Scripts\activate
 
 # Install dependencies
 pip install --upgrade pip
-pip install -r .blackbox5/engine/requirements.txt
+pip install -r blackbox5/engine/requirements.txt
 ```
 
 **Dependencies include:**
@@ -158,17 +158,17 @@ neo4j start
 
 ```bash
 # Copy example config
-cp .blackbox5/engine/config.example.yml .blackbox5/config.yml
+cp blackbox5/engine/config.example.yml blackbox5/config.yml
 
 # Edit config with your settings
-nano .blackbox5/config.yml
+nano blackbox5/config.yml
 ```
 
 ---
 
 ## Configuration
 
-### Basic Configuration (`.blackbox5/config.yml`)
+### Basic Configuration (`blackbox5/config.yml`)
 
 ```yaml
 # BlackBox5 Configuration
@@ -205,7 +205,7 @@ memory:
   # Episodic memory (ChromaDB)
   episodic:
     enabled: true
-    path: "./.blackbox5/data/chroma"
+    path: "./blackbox5/data/chroma"
     collection_name: "episodic"
 
   # Semantic memory (Neo4j)
@@ -223,8 +223,8 @@ memory:
 # Agent System
 agents:
   loader:
-    agent_dir: "./.blackbox5/engine/agents"
-    skill_dir: "./.blackbox5/engine/agents/skills"
+    agent_dir: "./blackbox5/engine/agents"
+    skill_dir: "./blackbox5/engine/agents/skills"
     hot_reload: true
 
   # Task routing
@@ -278,20 +278,20 @@ health:
 # Manifests (Operation Tracking)
 manifests:
   enabled: true
-  output_dir: "./.blackbox5/scratch/manifests"
+  output_dir: "./blackbox5/scratch/manifests"
   retain_days: 30
 
 # Logging
 logging:
   level: "INFO"
   format: "json"  # json or console
-  file: "./.blackbox5/logs/blackbox5.log"
+  file: "./blackbox5/logs/blackbox5.log"
   rotation: "10 MB"
 ```
 
 ### Environment Variables (`.env` file)
 
-Create `.blackbox5/.env`:
+Create `blackbox5/.env`:
 
 ```bash
 # Anthropic API
@@ -314,7 +314,7 @@ VIBE_API_KEY=your_vibe_api_key
 
 ```bash
 # On Linux/macOS
-source .blackbox5/.env
+source blackbox5/.env
 
 # Or use dotenv in Python
 pip install python-dotenv
@@ -331,10 +331,10 @@ pip install python-dotenv
 cd /path/to/your/project
 
 # Activate virtual environment
-source .blackbox5/venv/bin/activate
+source blackbox5/venv/bin/activate
 
 # Boot BlackBox5
-python .blackbox5/engine/core/boot.py
+python blackbox5/engine/core/boot.py
 ```
 
 **Expected output:**
@@ -814,13 +814,13 @@ AgentLoadError: Failed to load agent 'manager'
 **Solution:**
 ```bash
 # Check agent definition exists
-ls .blackbox5/engine/agents/1-core/manager/
+ls blackbox5/engine/agents/1-core/manager/
 
 # Validate agent YAML
 python -c "import yaml; print(yaml.safe_load(open('blackbox5/engine/agents/1-core/manager/agent.md')))"
 
 # Check for syntax errors
-python .blackbox5/engine/agents/core/AgentLoader.py --validate
+python blackbox5/engine/agents/core/AgentLoader.py --validate
 ```
 
 ### Issue 3: Memory System Error
@@ -833,13 +833,13 @@ MemoryError: Failed to connect to ChromaDB
 **Solution:**
 ```bash
 # Check ChromaDB directory exists
-ls .blackbox5/data/chroma
+ls blackbox5/data/chroma
 
 # Reinitialize ChromaDB
 python -c "import chromadb; chromadb.Client()"
 
 # Check permissions
-chmod -R 755 .blackbox5/data/
+chmod -R 755 blackbox5/data/
 ```
 
 ### Issue 4: API Key Not Found
@@ -858,10 +858,10 @@ echo $ANTHROPIC_API_KEY
 export ANTHROPIC_API_KEY="sk-ant-your-key-here"
 
 # Or add to .env file
-echo "ANTHROPIC_API_KEY=sk-ant-your-key-here" >> .blackbox5/.env
+echo "ANTHROPIC_API_KEY=sk-ant-your-key-here" >> blackbox5/.env
 
 # Reload .env
-source .blackbox5/.env
+source blackbox5/.env
 ```
 
 ### Issue 5: Event Bus Not Receiving Events
@@ -882,7 +882,7 @@ redis-cli
 > PUBLISH agent.task.started '{"test": "data"}'
 
 # Check event bus logs
-tail -f .blackbox5/logs/blackbox5.log | grep event_bus
+tail -f blackbox5/logs/blackbox5.log | grep event_bus
 ```
 
 ### Issue 6: Multi-Agent Coordination Hanging
@@ -901,7 +901,7 @@ python -c "from blackbox5.engine.core import CircuitBreaker; print(CircuitBreake
 redis-cli FLUSHALL
 
 # Check agent health
-.blackbox5/engine/runtime/agent-status.sh
+blackbox5/engine/runtime/agent-status.sh
 ```
 
 ---
@@ -911,7 +911,7 @@ redis-cli FLUSHALL
 ### Enable Semantic Memory (Neo4j)
 
 ```yaml
-# .blackbox5/config.yml
+# blackbox5/config.yml
 
 memory:
   semantic:
@@ -923,7 +923,7 @@ memory:
 
 ### Custom Agent Definitions
 
-Create custom agent in `.blackbox5/engine/agents/custom/`:
+Create custom agent in `blackbox5/engine/agents/custom/`:
 
 ```yaml
 ---
@@ -974,7 +974,7 @@ When tasks require specialized knowledge in your domain, you provide expert anal
 
 ### Custom Skills
 
-Add custom skill in `.blackbox5/engine/agents/skills/custom/`:
+Add custom skill in `blackbox5/engine/agents/skills/custom/`:
 
 ```markdown
 ---
@@ -1067,11 +1067,11 @@ vibe.update_card_status(card_id, "in_progress")
 ## Support
 
 For issues and questions:
-- Check logs: `.blackbox5/logs/blackbox5.log`
-- Run health check: `.blackbox5/engine/runtime/agent-status.sh`
-- View manifests: `.blackbox5/engine/runtime/view-manifest.sh <id>`
-- Documentation: `.blackbox5/EXTRACTION-SUMMARY.md`
-- Architecture: `.blackbox5/ARCHITECTURE.md`
+- Check logs: `blackbox5/logs/blackbox5.log`
+- Run health check: `blackbox5/engine/runtime/agent-status.sh`
+- View manifests: `blackbox5/engine/runtime/view-manifest.sh <id>`
+- Documentation: `blackbox5/EXTRACTION-SUMMARY.md`
+- Architecture: `blackbox5/ARCHITECTURE.md`
 
 ---
 

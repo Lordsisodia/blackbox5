@@ -48,7 +48,7 @@ This implementation provides automatic, per-task atomic commits for BlackBox5, e
 
 ### 1. Enhanced GitOps Class
 
-**File:** `.blackbox5/engine/operations/tools/git_ops.py`
+**File:** `blackbox5/engine/operations/tools/git_ops.py`
 
 **New Methods:**
 
@@ -83,7 +83,7 @@ rollback_hash = git_ops.create_rollback_commit(commit_hash)
 
 ### 2. AtomicCommitManager
 
-**File:** `.blackbox5/engine/core/atomic_commit_manager.py`
+**File:** `blackbox5/engine/core/atomic_commit_manager.py`
 
 **Key Features:**
 
@@ -152,7 +152,7 @@ def infer_commit_type(description: str, category: str) -> str:
 
 ### 3. Orchestrator Integration
 
-**File:** `.blackbox5/engine/core/Orchestrator.py`
+**File:** `blackbox5/engine/core/Orchestrator.py`
 
 **Integration Points:**
 
@@ -207,7 +207,7 @@ orchestrator.rollback_task("developer_1")
 
 ### 4. Comprehensive Tests
 
-**File:** `.blackbox5/tests/test_atomic_commits.py`
+**File:** `blackbox5/tests/test_atomic_commits.py`
 
 **Test Coverage:**
 
@@ -225,17 +225,17 @@ orchestrator.rollback_task("developer_1")
 
 ```bash
 cd /Users/shaansisodia/DEV/SISO-ECOSYSTEM/SISO-INTERNAL
-python -m pytest .blackbox5/tests/test_atomic_commits.py -v
+python -m pytest blackbox5/tests/test_atomic_commits.py -v
 
 # Run with coverage
-python -m pytest .blackbox5/tests/test_atomic_commits.py -v --cov=.blackbox5/engine/core/atomic_commit_manager
+python -m pytest blackbox5/tests/test_atomic_commits.py -v --cov=blackbox5/engine/core/atomic_commit_manager
 ```
 
 ## Storage Format
 
 ### Commit History JSON
 
-**Location:** `.blackbox5/agent_memory/atomic_commits.json`
+**Location:** `blackbox5/agent_memory/atomic_commits.json`
 
 ```json
 [
@@ -635,20 +635,20 @@ Potential improvements for future versions:
 ## Files Modified/Created
 
 ### Modified Files
-- `.blackbox5/engine/operations/tools/git_ops.py` - Enhanced with rollback and detection methods
-- `.blackbox5/engine/core/Orchestrator.py` - Integrated atomic commit manager
+- `blackbox5/engine/operations/tools/git_ops.py` - Enhanced with rollback and detection methods
+- `blackbox5/engine/core/Orchestrator.py` - Integrated atomic commit manager
 
 ### Created Files
-- `.blackbox5/engine/core/atomic_commit_manager.py` - Main atomic commit manager
-- `.blackbox5/tests/test_atomic_commits.py` - Comprehensive test suite
-- `.blackbox5/docs/ATOMIC-COMMITS-IMPLEMENTATION.md` - This documentation
+- `blackbox5/engine/core/atomic_commit_manager.py` - Main atomic commit manager
+- `blackbox5/tests/test_atomic_commits.py` - Comprehensive test suite
+- `blackbox5/docs/ATOMIC-COMMITS-IMPLEMENTATION.md` - This documentation
 
 ## Testing
 
 All tests pass successfully:
 
 ```bash
-$ python -m pytest .blackbox5/tests/test_atomic_commits.py -v
+$ python -m pytest blackbox5/tests/test_atomic_commits.py -v
 
 ======================== test session starts =========================
 collected 28 items

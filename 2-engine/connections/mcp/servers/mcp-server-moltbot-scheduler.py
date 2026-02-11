@@ -14,7 +14,7 @@ from datetime import datetime
 VPS_IP = "77.42.66.40"
 VPS_USER = "root"
 SSH_KEY = os.path.expanduser("~/.ssh/ralf_hetzner")
-SCHEDULER_CONFIG = os.path.expanduser("~/.blackbox5/moltbot-scheduler.yaml")
+SCHEDULER_CONFIG = os.path.expanduser("~/blackbox5/moltbot-scheduler.yaml")
 
 
 def log(msg):

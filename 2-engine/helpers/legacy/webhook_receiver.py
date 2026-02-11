@@ -6,7 +6,7 @@ Part of Feature F-012 (API Gateway & External Service Integration)
 Usage:
     from webhook_receiver import WebhookReceiver, WebhookValidator
 
-    receiver = WebhookReceiver(config_file="~/.blackbox5/api-config.yaml")
+    receiver = WebhookReceiver(config_file="~/blackbox5/api-config.yaml")
     signature = request.headers.get('X-Webhook-Signature')
     payload = request.get_json()
     is_valid = receiver.validate_webhook('slack', payload, signature)
@@ -372,7 +372,7 @@ def create_webhook_endpoint(receiver: WebhookReceiver):
         from flask import Flask, request
 
         app = Flask(__name__)
-        receiver = WebhookReceiver(config_file="~/.blackbox5/api-config.yaml")
+        receiver = WebhookReceiver(config_file="~/blackbox5/api-config.yaml")
 
         @app.route('/api/v1/webhooks/<service>', methods=['POST'])
         def handle_webhook(service):

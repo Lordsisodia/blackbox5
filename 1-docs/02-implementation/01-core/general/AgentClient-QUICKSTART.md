@@ -60,7 +60,7 @@ max_thinking = config["max_thinking_tokens"]
 
 ## Project Capabilities
 
-The client automatically detects project capabilities from `.blackbox5/project_index.json`:
+The client automatically detects project capabilities from `blackbox5/project_index.json`:
 
 ### Detected Capabilities
 
@@ -173,13 +173,13 @@ tools = get_tools_for_agent(
 
 ```bash
 # Run all tests
-python3 -m pytest .blackbox5/tests/test_agent_client.py -v
+python3 -m pytest blackbox5/tests/test_agent_client.py -v
 
 # Run specific test class
-python3 -m pytest .blackbox5/tests/test_agent_client.py::TestCreateClient -v
+python3 -m pytest blackbox5/tests/test_agent_client.py::TestCreateClient -v
 
 # Run specific test
-python3 -m pytest .blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_basic_client -v
+python3 -m pytest blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_basic_client -v
 ```
 
 ## Architecture
@@ -234,7 +234,7 @@ invalidate_project_cache(project_dir)
 ### Missing Capabilities
 
 ```python
-# Ensure .blackbox5/project_index.json exists
+# Ensure blackbox5/project_index.json exists
 # Check file format and structure
 ```
 
@@ -257,5 +257,5 @@ invalidate_project_cache(project_dir)
 ## References
 
 - Full documentation: `AGENTCLIENT-ADAPTATION-SUMMARY.md`
-- Source tests: `.blackbox5/tests/test_agent_client.py`
+- Source tests: `blackbox5/tests/test_agent_client.py`
 - Auto-Claude source: `.docs/research/agents/auto-claude/apps/backend/core/client.py`

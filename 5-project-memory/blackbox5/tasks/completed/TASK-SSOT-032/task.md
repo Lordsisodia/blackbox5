@@ -78,19 +78,19 @@ If derivation causes performance issues:
 
 ## Files Cleaned
 
-1. **`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`**
+1. **`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/agents/communications/queue.yaml`**
    - Removed: `schema.total_tasks`, `schema.completed`, `schema.in_progress`, `schema.pending`
    - Removed: `queue_metadata.total_tasks`, `queue_metadata.by_status.*`, `queue_metadata.last_counted_at`
    - Added: Notes indicating counts are dynamically derived
 
-2. **`/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/goals/INDEX.yaml`**
+2. **`/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/goals/INDEX.yaml`**
    - Removed: `meta.total_goals`
    - Removed: `summary.not_started`, `summary.in_progress`, `summary.completed`, `summary.draft`, `summary.cancelled`, `summary.merged`, `summary.active`
    - Added: Notes indicating counts are dynamically derived from goals/active/
 
 ## Derivation Scripts Verified
 
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/lib/task_utils.py` - Contains `get_task_counts()`, `get_queue_counts()`, `get_timeline_counts()`, and `validate_cached_counts()`
+- `/Users/shaansisodia/blackbox5/5-project-memory/blackbox5/.autonomous/lib/task_utils.py` - Contains `get_task_counts()`, `get_queue_counts()`, `get_timeline_counts()`, and `validate_cached_counts()`
 
 ---
 

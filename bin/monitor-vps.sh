@@ -4,8 +4,8 @@
 VPS_IP="77.42.66.40"
 VPS_USER="root"
 SSH_KEY="$HOME/.ssh/ralf_hetzner"
-LOG_FILE="$HOME/.blackbox5/.logs/vps-monitor.log"
-ALERT_FILE="$HOME/.blackbox5/.logs/vps-alerts.log"
+LOG_FILE="$HOME/blackbox5/.logs/vps-monitor.log"
+ALERT_FILE="$HOME/blackbox5/.logs/vps-alerts.log"
 
 mkdir -p "$(dirname "$LOG_FILE")"
 

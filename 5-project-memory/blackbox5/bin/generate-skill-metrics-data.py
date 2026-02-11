@@ -23,7 +23,7 @@ except ImportError:
 
 
 # Constants
-PROJECT_DIR = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5")
+PROJECT_DIR = Path("/Users/shaansisodia/blackbox5/5-project-memory/blackbox5")
 METRICS_FILE = PROJECT_DIR / "operations" / "skill-metrics.yaml"
 USAGE_FILE = PROJECT_DIR / "operations" / "skill-usage.yaml"
 

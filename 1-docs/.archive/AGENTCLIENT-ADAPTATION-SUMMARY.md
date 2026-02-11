@@ -7,8 +7,8 @@ Successfully extracted and adapted the Agent SDK Client from Auto-Claude for Bla
 **Source**: `.docs/research/agents/auto-claude/apps/backend/core/client.py`
 
 **Created Files**:
-- `.blackbox5/engine/core/AgentClient.py` - Main client module
-- `.blackbox5/tests/test_agent_client.py` - Comprehensive test suite
+- `blackbox5/engine/core/AgentClient.py` - Main client module
+- `blackbox5/tests/test_agent_client.py` - Comprehensive test suite
 
 ## What Was Adapted
 
@@ -25,7 +25,7 @@ Successfully extracted and adapted the Agent SDK Client from Auto-Claude for Bla
    - Debug logging support
 
 3. **`load_project_index()`** - Project index scanner
-   - Reads from `.blackbox5/project_index.json`
+   - Reads from `blackbox5/project_index.json`
    - Graceful handling of missing/invalid files
    - Returns empty dict on errors
 
@@ -74,26 +74,26 @@ Successfully extracted and adapted the Agent SDK Client from Auto-Claude for Bla
 ### Test Results: **20/20 Passing** ✅
 
 ```
-.blackbox5/tests/test_agent_client.py::TestLoadProjectIndex::test_load_existing_index PASSED
-.blackbox5/tests/test_agent_client.py::TestLoadProjectIndex::test_load_missing_index PASSED
-.blackbox5/tests/test_agent_client.py::TestLoadProjectIndex::test_load_invalid_json PASSED
-.blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_react_project PASSED
-.blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_electron_project PASSED
-.blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_empty_project PASSED
-.blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_nextjs_project PASSED
-.blackbox5/tests/test_agent_client.py::TestGetToolsForAgent::test_coder_tools PASSED
-.blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_planner_tools PASSED
-.blackbox5/tests/test_agent_client.py::TestGetToolsForAgent::test_qa_reviewer_tools PASSED
-.blackbox5/tests/test_agent_client.py::TestGetToolsForAgent::test_qa_reviewer_with_electron PASSED
-.blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_basic_client PASSED
-.blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_client_with_custom_model PASSED
-.blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_client_with_thinking_tokens PASSED
-.blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_qa_reviewer_client PASSED
-.blackbox5/tests/test_agent_client.py::TestProjectCache::test_cache_hit PASSED
-.blackbox5/tests/test_agent_client.py::TestProjectCache::test_cache_expiration PASSED
-.blackbox5/tests/test_agent_client.py::TestProjectCache::test_cache_invalidate_cache PASSED
-.blackbox5/tests/test_agent_client.py::TestProjectCache::test_invalidate_all_cache PASSED
-.blackbox5/tests/test_agent_client.py::TestIntegration::test_full_workflow PASSED
+blackbox5/tests/test_agent_client.py::TestLoadProjectIndex::test_load_existing_index PASSED
+blackbox5/tests/test_agent_client.py::TestLoadProjectIndex::test_load_missing_index PASSED
+blackbox5/tests/test_agent_client.py::TestLoadProjectIndex::test_load_invalid_json PASSED
+blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_react_project PASSED
+blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_electron_project PASSED
+blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_empty_project PASSED
+blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_detect_nextjs_project PASSED
+blackbox5/tests/test_agent_client.py::TestGetToolsForAgent::test_coder_tools PASSED
+blackbox5/tests/test_agent_client.py::TestDetectProjectCapabilities::test_planner_tools PASSED
+blackbox5/tests/test_agent_client.py::TestGetToolsForAgent::test_qa_reviewer_tools PASSED
+blackbox5/tests/test_agent_client.py::TestGetToolsForAgent::test_qa_reviewer_with_electron PASSED
+blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_basic_client PASSED
+blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_client_with_custom_model PASSED
+blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_client_with_thinking_tokens PASSED
+blackbox5/tests/test_agent_client.py::TestCreateClient::test_create_qa_reviewer_client PASSED
+blackbox5/tests/test_agent_client.py::TestProjectCache::test_cache_hit PASSED
+blackbox5/tests/test_agent_client.py::TestProjectCache::test_cache_expiration PASSED
+blackbox5/tests/test_agent_client.py::TestProjectCache::test_cache_invalidate_cache PASSED
+blackbox5/tests/test_agent_client.py::TestProjectCache::test_invalidate_all_cache PASSED
+blackbox5/tests/test_agent_client.py::TestIntegration::test_full_workflow PASSED
 ```
 
 ### Test Categories
@@ -154,7 +154,7 @@ print(config["project_capabilities"])  # Detected capabilities
 ## File Structure
 
 ```
-.blackbox5/
+blackbox5/
 ├── engine/
 │   └── core/
 │       └── AgentClient.py          # Main client module (390 lines)

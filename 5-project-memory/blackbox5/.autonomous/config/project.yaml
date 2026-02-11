@@ -8,7 +8,7 @@
 #
 # Configuration Hierarchy:
 #   1. Environment Variables
-#   2. User Config (~/.blackbox5/config/user.yaml)
+#   2. User Config (~/blackbox5/config/user.yaml)
 #   3. Project Config (this file) <- You are here
 #   4. Engine Config (engine.yaml)
 #   5. Base Defaults (base.yaml)
