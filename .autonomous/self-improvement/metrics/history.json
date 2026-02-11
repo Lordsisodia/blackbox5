@@ -206,13 +206,42 @@
         "TASK-AUTO-20260211000001"
       ],
       "success_rate": 1.0
+    },
+    {
+      "timestamp": "2026-02-11T00:30:01Z",
+      "duration_seconds": 0.005319,
+      "system_checks": {
+        "active_tasks": 62,
+        "stuck_tasks": [],
+        "improvement_tasks": 1,
+        "error_count": 0,
+        "warning_count": 0,
+        "log_file_sizes": {
+          "improvement-2026-02-11.log": {
+            "size_mb": 0.0,
+            "needs_rotation": false
+          },
+          "improvement-2026-02-10.log": {
+            "size_mb": 0.01,
+            "needs_rotation": false
+          }
+        },
+        "large_log_files": []
+      },
+      "improvements_attempted": 1,
+      "improvements_succeeded": 1,
+      "improvements_failed": 0,
+      "tasks_created": [
+        "TASK-AUTO-20260211003001"
+      ],
+      "success_rate": 1.0
     }
   ],
   "summary": {
-    "total_runs": 8,
-    "total_improvements": 10,
-    "success_rate": 0.875,
-    "avg_duration": 0.04554424999999999,
+    "total_runs": 9,
+    "total_improvements": 11,
+    "success_rate": 0.8888888888888888,
+    "avg_duration": 0.041074777777777766,
     "top_improvement_categories": []
   }
 }
