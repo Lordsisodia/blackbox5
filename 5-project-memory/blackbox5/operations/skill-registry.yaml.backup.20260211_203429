@@ -9,7 +9,7 @@ metadata:
   - skill-selection.yaml
   - improvement-metrics.yaml
   total_skills: 23
-  total_usage_records: 6
+  total_usage_records: 1
   calculation_frequency: weekly
   next_calculation_due: '2026-02-08T09:00:00Z'
   total_invocations: 1
@@ -254,7 +254,7 @@ skills:
       usage_count: 1
       success_count: 0
       failure_count: 0
-      first_used: '2026-02-07T16:08:38.955055+00:00'
+      first_used: '2026-02-07T16:08:38.955351+00:00'
       last_used: '2026-02-07T16:08:38.955351+00:00'
       avg_execution_time_ms: null
     roi:
@@ -1306,7 +1306,7 @@ quality_rating_scale:
   1: Poor - Failed to meet requirements, major issues
 improvement_pipeline:
   pipeline:
-    description: "Learning \u2192 Improvement \u2192 Task \u2192 Completion Pipeline"
+    description: Learning → Improvement → Task → Completion Pipeline
     stages:
     - name: learnings_captured
       description: Raw insights captured from runs

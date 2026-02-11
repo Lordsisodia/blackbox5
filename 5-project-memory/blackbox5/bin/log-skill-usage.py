@@ -70,37 +70,37 @@ def parse_thoughts_for_skill_usage(thoughts_path: Path) -> Optional[dict]:
         'duration_minutes': None
     }
 
-    # Extract applicable skills
-    skills_match = re.search(r'\*\*Applicable skills:\*\*\s*(.+?)(?=\n\*\*|$)', section, re.DOTALL)
+    # Extract applicable skills (try both **format and -format)
+    skills_match = re.search(r'(?:\*\*|-)\s*Applicable\s+skills\s*(?::|\:)\s*(.+?)(?=\n(?:\*\*|-)|$)', section, re.DOTALL | re.IGNORECASE)
     if skills_match:
         skills_text = skills_match.group(1).strip()
         if skills_text.lower() not in ['none', 'n/a', '']:
             result['applicable_skills'] = [s.strip() for s in skills_text.split(',')]
 
-    # Extract invoked skill
-    invoked_match = re.search(r'\*\*Skill invoked:\*\*\s*(.+?)(?=\n\*\*|$)', section, re.DOTALL)
+    # Extract invoked skill (try both **format and -format)
+    invoked_match = re.search(r'(?:\*\*|-)\s*Skill\s+invoked\s*(?::|\:)\s*(.+?)(?=\n(?:\*\*|-)|$)', section, re.DOTALL | re.IGNORECASE)
     if invoked_match:
         invoked_text = invoked_match.group(1).strip()
         if invoked_text.lower() not in ['none', 'n/a', '']:
             result['skill_invoked'] = invoked_text
 
-    # Extract confidence
-    confidence_match = re.search(r'\*\*Confidence:\*\*\s*(\d+)%?', section)
+    # Extract confidence (try both **format and -format)
+    confidence_match = re.search(r'(?:\*\*|-)\s*Confidence\s*(?::|\:)\s*(\d+)%?', section, re.IGNORECASE)
     if confidence_match:
         result['confidence'] = int(confidence_match.group(1))
 
-    # Extract rationale
-    rationale_match = re.search(r'\*\*Rationale:\*\*\s*(.+?)(?=\n\*\*|$)', section, re.DOTALL)
+    # Extract rationale (try both **format and -format)
+    rationale_match = re.search(r'(?:\*\*|-)\s*Rationale\s*(?::|\:)\s*(.+?)(?=\n(?:\*\*|-)|$)', section, re.DOTALL | re.IGNORECASE)
     if rationale_match:
         result['rationale'] = rationale_match.group(1).strip()
 
     # Extract outcome (optional)
-    outcome_match = re.search(r'\*\*Outcome:\*\*\s*(success|failure|partial)', section, re.IGNORECASE)
+    outcome_match = re.search(r'(?:\*\*|-)\s*Outcome\s*(?::|\:)\s*(success|failure|partial)', section, re.IGNORECASE)
     if outcome_match:
         result['outcome'] = outcome_match.group(1).lower()
 
     # Extract duration (optional)
-    duration_match = re.search(r'\*\*Duration:\*\*\s*(\d+)\s*min', section, re.IGNORECASE)
+    duration_match = re.search(r'(?:\*\*|-)\s*Duration\s*(?::|\:)\s*(\d+)\s*min', section, re.IGNORECASE)
     if duration_match:
         result['duration_minutes'] = int(duration_match.group(1))
 

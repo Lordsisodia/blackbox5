@@ -117,20 +117,26 @@ def sync_skill_usage():
     total_usage_records = source_data.get('metadata', {}).get('total_invocations', 0)
     target_data.setdefault('metadata', {})['total_usage_records'] = total_usage_records
 
-    # Sync usage_log to task_outcomes if not present
+    # Sync usage_log to task_outcomes if not present OR backfill null skill_used
     usage_log = source_data.get('usage_log', [])
     if usage_log:
         task_outcomes = target_data.get('task_outcomes', [])
-        existing_task_ids = {o.get('task_id') for o in task_outcomes}
+        # Create a mapping of task_id to index for O(1) lookups
+        task_id_to_index = {o.get('task_id'): i for i, o in enumerate(task_outcomes)}
 
         for log_entry in usage_log:
             task_id = log_entry.get('task_id')
-            if task_id and task_id not in existing_task_ids:
+            skill = log_entry.get('skill')
+
+            if not task_id or not skill:
+                continue
+
+            if task_id not in task_id_to_index:
                 # Create task outcome entry from usage log
                 outcome = {
                     'task_id': task_id,
                     'timestamp': log_entry.get('timestamp'),
-                    'skill_used': log_entry.get('skill'),
+                    'skill_used': skill,
                     'task_type': log_entry.get('result', 'unknown'),
                     'duration_minutes': None,
                     'outcome': log_entry.get('result', 'unknown'),
@@ -142,6 +148,22 @@ def sync_skill_usage():
                 task_outcomes.append(outcome)
                 sync_count += 1
                 print(f"✅ Added task outcome: {task_id}")
+            else:
+                # Backfill existing task outcome if skill_used is null
+                existing_outcome = task_outcomes[task_id_to_index[task_id]]
+                if existing_outcome.get('skill_used') is None:
+                    existing_outcome['skill_used'] = skill
+                    # Update task_type from result if unknown
+                    if existing_outcome.get('task_type') == 'unknown' and log_entry.get('result'):
+                        existing_outcome['task_type'] = log_entry.get('result')
+                    # Update outcome from result if unknown
+                    if existing_outcome.get('outcome') == 'unknown' and log_entry.get('result'):
+                        existing_outcome['outcome'] = log_entry.get('result')
+                    # Add notes if not present
+                    if not existing_outcome.get('notes') and log_entry.get('notes'):
+                        existing_outcome['notes'] = log_entry.get('notes')
+                    sync_count += 1
+                    print(f"✅ Backfilled skill_used for {task_id}: {skill}")
 
         target_data['task_outcomes'] = task_outcomes
 

@@ -22,7 +22,10 @@ import sys
 from pathlib import Path
 
 # Add project root to path for imports
-PROJECT_ROOT = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5")
+# Detect project root dynamically
+script_path = Path(__file__).resolve()
+# Navigate from .claude/hooks/log-skill-on-complete.py up to project root
+PROJECT_ROOT = script_path.parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "bin"))
 
 # Import the log-skill-usage functionality
