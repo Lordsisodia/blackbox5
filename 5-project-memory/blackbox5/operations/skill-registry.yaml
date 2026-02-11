@@ -1,7 +1,7 @@
 metadata:
   version: 2.0.0
   created: '2026-02-06T00:00:00Z'
-  last_updated: '2026-02-10T22:34:36.765061'
+  last_updated: '2026-02-11T15:13:02.997547'
   schema_version: '2.0'
   replaces_files:
   - skill-metrics.yaml
@@ -1193,7 +1193,7 @@ selection_framework:
       documentation: 'Note in THOUGHTS.md: ''Multiple skills applicable, selected
         X because...'''
 analysis:
-  last_calculated: '2026-02-10T22:34:36.764940'
+  last_calculated: '2026-02-11T15:13:02.997450'
   top_skills: []
   underperforming_skills: []
   category_performance:
