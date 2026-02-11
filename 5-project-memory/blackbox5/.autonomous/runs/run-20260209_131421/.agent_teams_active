@@ -1,0 +1,8 @@
+AGENT_TEAMS_ACTIVE: true
+RUN_ID: 20260209_131421
+ACTIVATED_AT: 2026-02-09T13:14:22Z
+CORE_TEAM:
+  - bb5-context-collector: Gather BB5 state
+  - bb5-superintelligence: Analyze and decide
+  - bb5-scribe: Document everything
+ACTION: commit_changes

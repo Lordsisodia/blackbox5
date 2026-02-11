@@ -1,0 +1,104 @@
+# {{PROJECT_NAME}} Autonomous Agent Goals
+# =============================================================================
+# Purpose: Explicit goals for the autonomous agent's continuous improvement
+# Created: {{TIMESTAMP}}
+# =============================================================================
+
+meta:
+  version: "1.0.0"
+  last_updated: "{{TIMESTAMP}}"
+  review_cycle: "monthly"
+  owner: "autonomous-agent"
+
+# =============================================================================
+# CORE GOALS - What the agent is working to achieve
+# =============================================================================
+
+core_goals:
+  - id: {{PROJECT_PREFIX}}-001
+    name: "Project Foundation"
+    description: "Establish core project infrastructure and initial setup"
+    priority: critical
+    status: active
+    success_criteria:
+      - "Project structure complete"
+      - "Initial goals defined"
+      - "Documentation started"
+      - "First task created"
+    metrics:
+      - "infrastructure_setup_complete"
+      - "documentation_coverage"
+
+  - id: {{PROJECT_PREFIX}}-002
+    name: "Continuous Improvement"
+    description: "Continuously improve project capabilities and processes"
+    priority: high
+    status: pending
+    success_criteria:
+      - "Learning captured from every run"
+      - "At least 1 improvement per review cycle"
+    metrics:
+      - "learnings_captured"
+      - "improvements_applied"
+
+# =============================================================================
+# IMPROVEMENT GOALS - Specific targets for self-improvement
+# =============================================================================
+
+improvement_goals: []
+
+# =============================================================================
+# DATA COLLECTION GOALS - Ensuring we capture the right data
+# =============================================================================
+
+data_goals:
+  - id: {{PROJECT_PREFIX}}-D001
+    name: "Capture Actionable Learnings"
+    description: "Every run must produce at least one actionable insight"
+    priority: high
+    status: active
+    required_data:
+      - "What worked well (to repeat)"
+      - "What was hard (to fix)"
+      - "What would we do differently (to improve)"
+      - "Patterns detected (to analyze)"
+    storage: "runs/run-*/LEARNINGS.md"
+
+  - id: {{PROJECT_PREFIX}}-D002
+    name: "Track Decision Rationale"
+    description: "Document why choices were made for future analysis"
+    priority: high
+    status: active
+    required_data:
+      - "Decision made"
+      - "Alternatives considered"
+      - "Why this choice"
+    storage: "runs/run-*/DECISIONS.md"
+
+# =============================================================================
+# REVIEW SCHEDULE
+# =============================================================================
+
+review_schedule:
+  first_principles_review:
+    frequency: "every 5 runs"
+    next_due: null
+    last_completed: null
+    trigger_condition: "current_loop % 5 == 0"
+    auto_trigger: true
+
+  monthly_goal_review:
+    frequency: "monthly"
+    next_due: null
+    last_completed: null
+
+# =============================================================================
+# CHANGE LOG
+# =============================================================================
+
+changelog:
+  - date: "{{TIMESTAMP}}"
+    version: "1.0.0"
+    changes:
+      - "Initial goal structure created"
+      - "Project initialized with BB5 project setup"
