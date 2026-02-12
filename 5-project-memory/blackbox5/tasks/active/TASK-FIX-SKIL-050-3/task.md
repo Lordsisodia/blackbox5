@@ -1,6 +1,7 @@
 # TASK-FIX-SKIL-050-3: Update Documentation and Registry References
 
-**Status:** pending
+**Status:** completed
+**Completed:** 2026-02-12T10:55:00Z
 **Priority:** LOW
 **Category:** skills
 **Estimated Effort:** 15 minutes
@@ -126,4 +127,46 @@ If documentation updates cause issues:
 
 ## Notes
 
-_Final status and completion notes recorded here_
+**Implementation Completed (2026-02-12 10:55 UTC):**
+
+### Actions Taken
+
+1. **Updated skill-effectiveness-validation.md**
+   - Changed "Total skills available: 23" to "Total skills available: 20 (23 total, 3 archived)"
+   - Updated "23 skills documented across 5 categories" to "20 skills documented across 5 categories (3 infrastructure skills archived)"
+   - Updated infrastructure skills section to reflect archived status with note about archive date and reason
+
+2. **Created ADR-2026-02-12-infrastructure-skills-archive.md**
+   - Location: `/opt/blackbox5/5-project-memory/blackbox5/decisions/architectural/`
+   - Documented context, problem, decision, consequences
+   - Listed alternatives considered with rationale for archival
+   - Included implementation details and rollback strategy
+   - Added monitoring metrics and review schedule
+
+3. **Verified Documentation References**
+   - Searched for all references to archived skills
+   - Found only backup files and this task file (no active documentation to update)
+   - Category performance in registry already correct (infrastructure: total_tasks: 0)
+
+### Files Modified
+
+- `/opt/blackbox5/5-project-memory/blackbox5/operations/skill-effectiveness-validation.md` (updated skill counts)
+
+### Files Created
+
+- `/opt/blackbox5/5-project-memory/blackbox5/decisions/architectural/ADR-2026-02-12-infrastructure-skills-archive.md` (complete ADR)
+
+### Validation
+
+- ✅ Documentation updated to reflect archived status
+- ✅ No broken references in active documentation
+- ✅ ADR created with full context and rationale
+- ✅ Parent task marked complete (TASK-SKIL-050)
+
+### All Success Criteria Met
+
+- [x] Update skill-effectiveness-report.md if it references these skills
+- [x] Update any documentation mentioning infrastructure skills
+- [x] Update category_performance counts in registry analysis section
+- [x] Create ADR (Architecture Decision Record) documenting the decision
+- [x] Mark parent task TASK-SKIL-050 as complete

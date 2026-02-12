@@ -1,6 +1,7 @@
 # TASK-SKIL-050: Unused Infrastructure Skills - Potential Waste
 
-**Status:** pending
+**Status:** completed
+**Completed:** 2026-02-12T10:55:00Z
 **Priority:** LOW
 **Category:** skills
 **Estimated Effort:** 30 minutes
@@ -49,8 +50,8 @@ Decision: **ARCHIVE** all three infrastructure skills
 
 **Subtasks:**
 - TASK-FIX-SKIL-050-1: ✅ Complete - Decision documented (archive all 3 skills)
-- TASK-FIX-SKIL-050-2: 🔄 In Progress - Implementing archive in registry
-- TASK-FIX-SKIL-050-3: ⏳ Pending - Update documentation and references
+- TASK-FIX-SKIL-050-2: ✅ Complete - Implemented archive in registry (2026-02-12 06:27)
+- TASK-FIX-SKIL-050-3: ✅ Complete - Updated documentation and created ADR (2026-02-12 10:55)
 
 **Rationale:**
 - BlackBox5 operates in local-dev mode only
@@ -58,3 +59,16 @@ Decision: **ARCHIVE** all three infrastructure skills
 - No GitHub Codespaces integration
 - Legacy system being phased out
 - All three skills have 0 usage and no SKILL.md files
+
+**Implementation Summary:**
+1. Decision documented in TASK-FIX-SKIL-050-1
+2. Skills moved to archived_skills section in skill-registry.yaml with deprecation metadata
+3. Documentation updated (skill-effectiveness-validation.md)
+4. ADR created documenting full decision context and rationale
+
+**Files Modified:**
+- `/opt/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml` (archived skills)
+- `/opt/blackbox5/5-project-memory/blackbox5/operations/skill-effectiveness-validation.md` (updated counts)
+
+**Files Created:**
+- `/opt/blackbox5/5-project-memory/blackbox5/decisions/architectural/ADR-2026-02-12-infrastructure-skills-archive.md`

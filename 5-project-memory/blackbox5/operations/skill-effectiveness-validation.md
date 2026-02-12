@@ -41,7 +41,7 @@ The skill system validation reveals a **critical gap**: despite comprehensive sk
 
 | Component | Status | Finding |
 |-----------|--------|---------|
-| Skill registry (skill-usage.yaml) | ✅ Complete | 23 skills documented across 5 categories |
+| Skill registry (skill-usage.yaml) | ✅ Complete | 20 skills documented across 5 categories (3 infrastructure skills archived) |
 | Effectiveness schema (skill-metrics.yaml) | ✅ Complete | Weighted composite scoring defined |
 | Selection guidance (CLAUDE.md) | ✅ Complete | "When to Use Skills" section added |
 | Usage tracking | ❌ Empty | Zero entries in usage_log |
@@ -49,12 +49,13 @@ The skill system validation reveals a **critical gap**: despite comprehensive sk
 
 ### 2. Skill Invocation Analysis
 
-**Total skills available:** 23
+**Total skills available:** 20 (23 total, 3 archived)
 - Agent skills: 10 (bmad-pm, architect, analyst, sm, ux, dev, qa, tea, quick-flow, planning)
 - Protocol skills: 3 (superintelligence-protocol, continuous-improvement, run-initialization)
 - Utility skills: 3 (web-search, codebase-navigation, supabase-operations)
 - Core skills: 4 (truth-seeking, git-commit, task-selection, state-management)
-- Infrastructure skills: 3 (ralf-cloud-control, github-codespaces-control, legacy-cloud-control)
+- Infrastructure skills: 0 (3 skills archived: ralf-cloud-control, github-codespaces-control, legacy-cloud-control)
+  - Note: Infrastructure skills archived 2026-02-12 due to zero usage; system operates in local-dev mode only
 
 **Actual invocations:** 0
 
