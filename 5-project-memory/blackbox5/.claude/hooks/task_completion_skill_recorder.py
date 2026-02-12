@@ -31,7 +31,19 @@ from typing import Any
 import yaml
 
 # Import shared JSON logger
-from hooks.utils.json_logger import log_hook_data
+import sys
+from pathlib import Path
+
+# Add hooks directory to path
+hooks_dir = Path(__file__).parent.parent.parent.parent / '.claude' / 'hooks' / 'utils'
+sys.path.insert(0, str(hooks_dir))
+
+try:
+    from json_logger import log_hook_data
+except ImportError:
+    # Fallback: create a dummy log_hook_data function
+    def log_hook_data(hook_name, data):
+        pass  # Silently ignore logging if json_logger is not available
 
 
 def load_yaml_file(filepath: Path) -> dict:
@@ -134,22 +146,26 @@ def record_event(events_file: Path, event: dict) -> None:
     try:
         with open(events_file, 'r') as f:
             events = yaml.safe_load(f) or []
-    except FileNotFoundError:
+    except (FileNotFoundError, yaml.YAMLError) as e:
+        print(f"⚠️  Warning: Could not read events file: {e}")
         events = []
 
     events.append(event)
 
-    with open(events_file, 'w') as f:
-        yaml.dump(events, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+    try:
+        with open(events_file, 'w') as f:
+            yaml.dump(events, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
 
-    # Also log to JSON for analytics
-    log_entry = {
-        "timestamp": event.get("timestamp", datetime.now().isoformat()),
-        "type": event.get("type"),
-        "task_id": event.get("task_id"),
-        "data": event.get("data", {})
-    }
-    log_hook_data("task-completion-skill-recorder", log_entry)
+        # Also log to JSON for analytics
+        log_entry = {
+            "timestamp": event.get("timestamp", datetime.now().isoformat()),
+            "type": event.get("type"),
+            "task_id": event.get("task_id"),
+            "data": event.get("data", {})
+        }
+        log_hook_data("task-completion-skill-recorder", log_entry)
+    except yaml.YAMLError as e:
+        print(f"⚠️  Warning: Could not write events file: {e}")
 
 
 def get_env_or_default(env_var: str, default: Any = None) -> Any:

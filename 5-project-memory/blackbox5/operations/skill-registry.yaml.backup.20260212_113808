@@ -1151,24 +1151,6 @@ task_outcomes:
   outcome: success
   duration_minutes: 30
   quality_rating: 4
-- task_id: TEST-SKILL-RECORD-001
-  timestamp: '2026-02-12T11:39:50.946573'
-  skill_used: bmad-dev
-  outcome: success
-  duration_minutes: 5
-  quality_rating: 5
-  trigger_was_correct: true
-  would_use_again: true
-  notes: Test skill recording integration
-- task_id: TEST-SKILL-RECORD-002
-  timestamp: '2026-02-12T11:40:12.175021'
-  skill_used: bmad-pm
-  outcome: success
-  duration_minutes: 10
-  quality_rating: 4
-  trigger_was_correct: false
-  would_use_again: true
-  notes: Second test of skill recording
 selection_framework:
   version: 1.3.0
   confidence_threshold: 70

@@ -11,12 +11,22 @@ usage_log:
     use the storage abstraction. The bmad-dev skill covers implementation and code
     migration patterns.
   notes: Logged from task TASK-SSOT-025
+- timestamp: '2026-02-12T11:39:50.946573'
+  skill: bmad-dev
+  task_id: TEST-SKILL-RECORD-001
+  result: success
+  notes: Test skill recording integration
+- timestamp: '2026-02-12T11:40:12.175021'
+  skill: bmad-pm
+  task_id: TEST-SKILL-RECORD-002
+  result: success
+  notes: Second test of skill recording
 skills:
 - name: bmad-dev
-  usage_count: 1
-  success_count: 0
+  usage_count: 2
+  success_count: 1
   failure_count: 0
-  last_used: '2026-02-07T16:08:38.955055+00:00'
+  last_used: '2026-02-12T11:39:50.946573'
   first_used: '2026-02-07T16:08:38.955055+00:00'
   trigger_accuracy: 0.0%
 metadata:
