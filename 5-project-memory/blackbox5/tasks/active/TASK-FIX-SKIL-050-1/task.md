@@ -94,4 +94,47 @@ If decision needs reversal:
 
 ## Notes
 
-_Decision recorded here after analysis_
+**Decision Made (2026-02-12 06:24 UTC):**
+
+After analysis of the current BlackBox5 environment and usage patterns, the decision is to **ARCHIVE** all three infrastructure skills.
+
+### Rationale:
+
+1. **Current Environment:**
+   - BlackBox5 operates primarily in local development mode
+   - Primary deployment: Mac Mini and VPS (moltbot-vps-ai)
+   - No active Kubernetes cluster for RALF agents
+   - No GitHub Codespaces integration in use
+
+2. **Legacy System Status:**
+   - Legacy cloud scripts exist at `/opt/blackbox5/bin/legacy/`
+   - Legacy agents are being phased out (IG-006 and IG-007 indicate architecture restructure)
+   - Legacy agent definitions exist but are not actively used
+
+3. **Future Planning:**
+   - No roadmap items indicating K8s deployment in next 6 months
+   - Focus is on architecture refactoring (IG-006, IG-007) and autonomy (IG-AUTONOMY-001)
+   - Cloud infrastructure not a priority
+
+### Decision Summary:
+
+| Skill | Decision | Rationale |
+|-------|----------|-----------|
+| ralf-cloud-control | ARCHIVE | No K8s deployment; RALF currently local-only |
+| github-codespaces-control | ARCHIVE | No Codespaces integration; not on roadmap |
+| legacy-cloud-control | ARCHIVE | Legacy system being phased out; deprecated |
+
+### Next Steps:
+
+1. Create archived_skills section in skill-registry.yaml
+2. Move all three skills to archived section with deprecation metadata
+3. Update total_skills count from 23 to 20
+4. Create ADR documenting this decision
+5. Update documentation references
+
+### Benefits of Archiving (vs Removing):
+
+- Preserves historical context for future reference
+- Git history shows when/why these were considered
+- Can easily restore if cloud deployment becomes a priority
+- Maintains audit trail without active maintenance overhead

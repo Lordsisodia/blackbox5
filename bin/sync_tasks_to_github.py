@@ -8,13 +8,10 @@ corresponding GitHub Issues with proper labels and metadata.
 
 import json
 import os
-import re
 import sys
 from pathlib import Path
-from datetime import datetime
 
 import requests
-import yaml
 
 
 # Configuration
@@ -96,7 +93,9 @@ def format_issue_body(task_data):
     subtasks = task_data.get('subtasks', [])
     if subtasks:
         for i, subtask in enumerate(subtasks, 1):
-            body += f"{i}. **[{subtask.get('status', 'pending').upper()}]** {subtask.get('title', 'Untitled')}\n"
+            status = subtask.get('status', 'pending').upper()
+            title = subtask.get('title', 'Untitled')
+            body += f"{i}. **[{status}]** {title}\n"
     else:
         body += "No subtasks defined\n"
 
@@ -140,8 +139,10 @@ def create_issue(task_data):
     body = format_issue_body(task_data)
     labels = get_labels_for_task(task_data)
 
+    task_id = task_data.get('id', 'Unknown')
+    objective = task_data.get('objective', 'No objective')[:80]
     data = {
-        "title": f"[Task {task_data.get('id', 'Unknown')}] {task_data.get('objective', 'No objective')[:80]}",
+        "title": f"[Task {task_id}] {objective}",
         "body": body,
         "labels": labels,
     }

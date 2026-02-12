@@ -1,23 +1,19 @@
 metadata:
   version: 2.0.0
   created: '2026-02-06T00:00:00Z'
-  last_updated: '2026-02-12T06:27:34.643993+00:00'
+  last_updated: '2026-02-11T15:13:02.997547'
   schema_version: '2.0'
   replaces_files:
   - skill-metrics.yaml
   - skill-usage.yaml
   - skill-selection.yaml
   - improvement-metrics.yaml
-  total_skills: 25
+  total_skills: 23
   total_usage_records: 6
   calculation_frequency: weekly
   next_calculation_due: '2026-02-08T09:00:00Z'
   total_invocations: 1
   total_tasks_tracked: 6
-  archive:
-    archived_count: 3
-    archive_date: '2026-02-12T06:27:34.643997+00:00'
-    reason: Infrastructure skills with zero usage; local-dev mode only
 metrics_schema:
   version: 1.0.0
   calculation_method: weighted_composite
@@ -813,14 +809,120 @@ skills:
       when_to_use: Progress tracking, STATE.yaml updates
       when_to_avoid: N/A - Always use for state updates
       confidence: low
+  ralf-cloud-control:
+    name: RALF Cloud Control
+    description: Manage RALF agents in Kubernetes
+    category: infrastructure
+    agent: null
+    version: '1.0'
+    created: '2026-01-15'
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers:
+      - RALF
+      - K8s
+      - Kubernetes
+      - agent management
+      - infrastructure
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: RALF agent management, K8s operations
+      when_to_avoid: Local development, non-infrastructure work
+      confidence: low
+  github-codespaces-control:
+    name: GitHub Codespaces Control
+    description: Spawn agents in GitHub Codespaces
+    category: infrastructure
+    agent: null
+    version: '1.0'
+    created: '2026-01-15'
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 25
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers:
+      - Codespaces
+      - GitHub
+      - spawn agent
+      - cloud agent
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: GitHub Codespaces agent spawning
+      when_to_avoid: Local development, non-Codespaces work
+      confidence: low
+  legacy-cloud-control:
+    name: Legacy Cloud Control
+    description: Control Legacy agents in K8s
+    category: infrastructure
+    agent: null
+    version: '1.0'
+    created: '2026-01-15'
+    metrics:
+      effectiveness_score: null
+      success_rate: null
+      time_efficiency: null
+      trigger_accuracy: null
+      quality_score: null
+      reuse_rate: null
+    usage:
+      usage_count: 0
+      success_count: 0
+      failure_count: 0
+      first_used: null
+      last_used: null
+      avg_execution_time_ms: null
+    roi:
+      baseline_minutes: 30
+      time_saved_minutes: null
+      quality_improvement: null
+      cost_benefit_ratio: null
+    selection:
+      triggers:
+      - legacy
+      - agent control
+      - K8s legacy
+      confidence_threshold: 70
+      priority: 1
+      when_to_use: Legacy agent management
+      when_to_avoid: RALF operations, non-legacy work
+      confidence: low
   openclaw-doc-generator:
     name: doc-generator
-    description: Automated documentation generation from code structure, APIs, and
-      architecture. Use when generating project documentation, API references, architecture
-      docs, README files, or any technical documentation that needs to be created
-      or updated from source code. Supports Python code analysis, API endpoint detection,
-      dependency mapping, and template-based doc creation. Ideal for large codebases,
-      REST APIs, libraries, and web applications.
+    description: Automated documentation generation from code structure, APIs, and architecture. Use when generating project documentation, API references, architecture docs, README files, or any technical documentation that needs to be created or updated from source code. Supports Python code analysis, API endpoint detection, dependency mapping, and template-based doc creation. Ideal for large codebases, REST APIs, libraries, and web applications.
     category: utility
     agent: null
     version: '1.0'
@@ -859,15 +961,12 @@ skills:
       - when
       confidence_threshold: 70
       priority: 1
-      when_to_use: Use Doc Generator for documentation generation
+      when_to_use: "Use Doc Generator when:"
       when_to_avoid: doc-generator-inappropriate tasks
       confidence: low
   openclaw-log-analyzer:
     name: log-analyzer
-    description: Automated log file analysis with pattern detection, anomaly detection,
-      and real-time monitoring. Use when analyzing log files for errors, warnings,
-      churn loops, or system health monitoring. Supports autonomous system monitoring
-      (RALF), web server logs, application logs, and multi-file analysis.
+    description: Automated log file analysis with pattern detection, anomaly detection, and real-time monitoring. Use when analyzing log files for errors, warnings, churn loops, or system health monitoring. Supports autonomous system monitoring (RALF), web server logs, application logs, and multi-file analysis.
     category: infrastructure
     agent: null
     version: '1.0'
@@ -911,11 +1010,7 @@ skills:
       confidence: low
   openclaw-metric-tracker:
     name: metric-tracker
-    description: Automated system health and performance monitoring with proactive
-      alerts and periodic reports. Use when monitoring system metrics (CPU, memory,
-      disk), application health (OpenClaw gateway, RALF autonomous system), project
-      state (task backlogs, git churn), or generating health reports with configurable
-      thresholds and alerting channels. Integrates with cron for automated checks.
+    description: Automated system health and performance monitoring with proactive alerts and periodic reports. Use when monitoring system metrics (CPU, memory, disk), application health (OpenClaw gateway, RALF autonomous system), project state (task backlogs, git churn), or generating health reports with configurable thresholds and alerting channels. Integrates with cron for automated checks.
     category: infrastructure
     agent: null
     version: '1.0'
@@ -959,12 +1054,7 @@ skills:
       confidence: low
   openclaw-research-synthesis:
     name: research-synthesis
-    description: Multi-source research synthesis that performs web searches, fetches
-      and analyzes content from multiple sources, extracts key insights, and compiles
-      findings into structured, cited reports. Use when Codex needs to research a
-      topic across multiple sources, synthesize information from web content, create
-      research reports with proper citations, analyze competitive landscapes or market
-      research, or extract insights from documents or web pages
+    description: Multi-source research synthesis that performs web searches, fetches and analyzes content from multiple sources, extracts key insights, and compiles findings into structured, cited reports. Use when Codex needs to research a topic across multiple sources, synthesize information from web content, create research reports with proper citations, analyze competitive landscapes or market research, or extract insights from documents or web pages
     category: research
     agent: null
     version: '1.0'
@@ -1008,12 +1098,7 @@ skills:
       confidence: low
   openclaw-test-generator:
     name: test-generator
-    description: Automated test creation and coverage analysis for code quality. Use
-      when generating unit tests, integration tests, or coverage reports for Python,
-      JavaScript, or Go projects. Supports pytest, jest, and go test frameworks. Analyzes
-      source code structure, generates test templates, detects edge cases, and identifies
-      untested code paths. Ideal for improving code quality, regression testing, and
-      ensuring test coverage standards.
+    description: Automated test creation and coverage analysis for code quality. Use when generating unit tests, integration tests, or coverage reports for Python, JavaScript, or Go projects. Supports pytest, jest, and go test frameworks. Analyzes source code structure, generates test templates, detects edge cases, and identifies untested code paths. Ideal for improving code quality, regression testing, and ensuring test coverage standards.
     category: testing
     agent: null
     version: '1.0'
@@ -1055,6 +1140,7 @@ skills:
       when_to_use: Use when test-generator is needed
       when_to_avoid: test-generator-inappropriate tasks
       confidence: low
+
 usage_history:
 - timestamp: '2026-02-05T16:09:58.809463+00:00'
   task_id: TEST-001
@@ -1145,12 +1231,6 @@ task_outcomes:
   trigger_was_correct: null
   would_use_again: null
   notes: Time tracked by task_time_tracker.py
-- task_id: TEST-FIX-001
-  timestamp: '2026-02-12T08:00:27.643319'
-  skill_used: test-skill
-  outcome: success
-  duration_minutes: 30
-  quality_rating: 4
 selection_framework:
   version: 1.3.0
   confidence_threshold: 70
@@ -1447,7 +1527,7 @@ quality_rating_scale:
   1: Poor - Failed to meet requirements, major issues
 improvement_pipeline:
   pipeline:
-    description: Learning → Improvement → Task → Completion Pipeline
+    description: "Learning \u2192 Improvement \u2192 Task \u2192 Completion Pipeline"
     stages:
     - name: learnings_captured
       description: Raw insights captured from runs
@@ -1550,130 +1630,3 @@ improvement_pipeline:
     task_id: TASK-1769914000
     category: infrastructure
     impact_level: medium
-archived_skills:
-  ralf-cloud-control:
-    name: RALF Cloud Control
-    description: Manage RALF agents in Kubernetes
-    category: infrastructure
-    agent: null
-    version: '1.0'
-    created: '2026-01-15'
-    metrics:
-      effectiveness_score: null
-      success_rate: null
-      time_efficiency: null
-      trigger_accuracy: null
-      quality_score: null
-      reuse_rate: null
-    usage:
-      usage_count: 0
-      success_count: 0
-      failure_count: 0
-      first_used: null
-      last_used: null
-      avg_execution_time_ms: null
-    roi:
-      baseline_minutes: 30
-      time_saved_minutes: null
-      quality_improvement: null
-      cost_benefit_ratio: null
-    selection:
-      triggers:
-      - RALF
-      - K8s
-      - Kubernetes
-      - agent management
-      - infrastructure
-      confidence_threshold: 70
-      priority: 1
-      when_to_use: RALF agent management, K8s operations
-      when_to_avoid: Local development, non-infrastructure work
-      confidence: low
-    archived: true
-    archived_date: '2026-02-12T06:27:34.643952+00:00'
-    archived_reason: No usage; system operates in local-dev mode only; no K8s/Codespaces
-      deployment planned
-    replacement: null
-  github-codespaces-control:
-    name: GitHub Codespaces Control
-    description: Spawn agents in GitHub Codespaces
-    category: infrastructure
-    agent: null
-    version: '1.0'
-    created: '2026-01-15'
-    metrics:
-      effectiveness_score: null
-      success_rate: null
-      time_efficiency: null
-      trigger_accuracy: null
-      quality_score: null
-      reuse_rate: null
-    usage:
-      usage_count: 0
-      success_count: 0
-      failure_count: 0
-      first_used: null
-      last_used: null
-      avg_execution_time_ms: null
-    roi:
-      baseline_minutes: 25
-      time_saved_minutes: null
-      quality_improvement: null
-      cost_benefit_ratio: null
-    selection:
-      triggers:
-      - Codespaces
-      - GitHub
-      - spawn agent
-      - cloud agent
-      confidence_threshold: 70
-      priority: 1
-      when_to_use: GitHub Codespaces agent spawning
-      when_to_avoid: Local development, non-Codespaces work
-      confidence: low
-    archived: true
-    archived_date: '2026-02-12T06:27:34.643983+00:00'
-    archived_reason: No usage; system operates in local-dev mode only; no K8s/Codespaces
-      deployment planned
-    replacement: null
-  legacy-cloud-control:
-    name: Legacy Cloud Control
-    description: Control Legacy agents in K8s
-    category: infrastructure
-    agent: null
-    version: '1.0'
-    created: '2026-01-15'
-    metrics:
-      effectiveness_score: null
-      success_rate: null
-      time_efficiency: null
-      trigger_accuracy: null
-      quality_score: null
-      reuse_rate: null
-    usage:
-      usage_count: 0
-      success_count: 0
-      failure_count: 0
-      first_used: null
-      last_used: null
-      avg_execution_time_ms: null
-    roi:
-      baseline_minutes: 30
-      time_saved_minutes: null
-      quality_improvement: null
-      cost_benefit_ratio: null
-    selection:
-      triggers:
-      - legacy
-      - agent control
-      - K8s legacy
-      confidence_threshold: 70
-      priority: 1
-      when_to_use: Legacy agent management
-      when_to_avoid: RALF operations, non-legacy work
-      confidence: low
-    archived: true
-    archived_date: '2026-02-12T06:27:34.643989+00:00'
-    archived_reason: No usage; system operates in local-dev mode only; no K8s/Codespaces
-      deployment planned
-    replacement: null

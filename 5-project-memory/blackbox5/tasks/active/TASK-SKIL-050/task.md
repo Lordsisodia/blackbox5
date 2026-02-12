@@ -43,4 +43,18 @@ If changes cause issues:
 
 ## Notes
 
-_Add notes as you work on this task_
+**Decision Made (2026-02-12 06:24 UTC):**
+
+Decision: **ARCHIVE** all three infrastructure skills
+
+**Subtasks:**
+- TASK-FIX-SKIL-050-1: ✅ Complete - Decision documented (archive all 3 skills)
+- TASK-FIX-SKIL-050-2: 🔄 In Progress - Implementing archive in registry
+- TASK-FIX-SKIL-050-3: ⏳ Pending - Update documentation and references
+
+**Rationale:**
+- BlackBox5 operates in local-dev mode only
+- No K8s deployment for RALF agents
+- No GitHub Codespaces integration
+- Legacy system being phased out
+- All three skills have 0 usage and no SKILL.md files

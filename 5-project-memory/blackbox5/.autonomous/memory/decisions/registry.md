@@ -1,8 +1,6 @@
-# RALF Global Decision Registry
+# BB5 Memory Decision Registry
 
-**Purpose:** Track all significant decisions made across RALF runs for reversibility and learning.
-
-**Location:** `~/.blackbox5/5-project-memory/blackbox5/.autonomous/decisions/decision_registry.yaml`
+**Purpose:** Track all significant decisions made across BB5 runs for reversibility and learning.
 
 ---
 

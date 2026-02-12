@@ -1145,12 +1145,6 @@ task_outcomes:
   trigger_was_correct: null
   would_use_again: null
   notes: Time tracked by task_time_tracker.py
-- task_id: TEST-FIX-001
-  timestamp: '2026-02-12T08:00:27.643319'
-  skill_used: test-skill
-  outcome: success
-  duration_minutes: 30
-  quality_rating: 4
 selection_framework:
   version: 1.3.0
   confidence_threshold: 70
@@ -1447,7 +1441,7 @@ quality_rating_scale:
   1: Poor - Failed to meet requirements, major issues
 improvement_pipeline:
   pipeline:
-    description: Learning → Improvement → Task → Completion Pipeline
+    description: "Learning \u2192 Improvement \u2192 Task \u2192 Completion Pipeline"
     stages:
     - name: learnings_captured
       description: Raw insights captured from runs

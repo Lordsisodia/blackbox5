@@ -4,15 +4,18 @@
 
 set -e
 
-BB5_DIR="${BB5_DIR:-/opt/blackbox5}"
-RUNS_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/runs"
-IMPROVEMENTS_DIR="$BB5_DIR/5-project-memory/blackbox5/.autonomous/tasks/improvements"
-LOG_FILE="$BB5_DIR/.autonomous/logs/bb5-simple-improver.log"
+# Source common library for shared functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/lib/bb5-common.sh"
 
-mkdir -p "$RUNS_DIR" "$IMPROVEMENTS_DIR" "$(dirname "$LOG_FILE")"
+# Initialize
+BB5_SCRIPT_NAME="BB5-IMPROVER"
+bb5_init_logging "bb5-simple-improver"
+bb5_ensure_directories
 
+# Alias bb5_log for backward compatibility
 log() {
-    echo "[$(date '+%H:%M:%S')] [BB5-IMPROVER] $1" | tee -a "$LOG_FILE"
+    bb5_log "$1"
 }
 
 log "═══════════════════════════════════════════════════"
@@ -23,25 +26,24 @@ LOOP_COUNT=0
 while true; do
     LOOP_COUNT=$((LOOP_COUNT + 1))
     RUN_ID=$(date +"%Y%m%d_%H%M%S")
-    RUN_FOLDER="$RUNS_DIR/run-${RUN_ID}"
+    RUN_FOLDER="$BB5_RUNS_DIR/run-${RUN_ID}"
     mkdir -p "$RUN_FOLDER"
 
     log ""
     log "Cycle $LOOP_COUNT - Run $RUN_ID"
 
     # Pull latest
-    cd "$BB5_DIR"
-    git pull origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log" || log "Pull failed"
+    bb5_git_pull "$RUN_FOLDER/git.log" || log "Pull failed"
 
-    # Analyze BB5 state
-    ACTIVE_TASKS=$(find "$BB5_DIR/5-project-memory/blackbox5/.autonomous/tasks/active" -name "*.md" 2>/dev/null | wc -l)
-    RECENT_RUNS=$(ls -1t "$RUNS_DIR" 2>/dev/null | head -10 | wc -l)
+    # Analyze BB5 state using common library functions
+    ACTIVE_TASKS=$(bb5_count_active_tasks)
+    RECENT_RUNS=$(ls -1t "$BB5_RUNS_DIR" 2>/dev/null | head -10 | wc -l)
 
     log "Active tasks: $ACTIVE_TASKS, Recent runs: $RECENT_RUNS"
 
     # Create improvement task based on state
     IMPROVEMENT_ID="IMP-$(date +%Y%m%d-%H%M%S)"
-    IMPROVEMENT_FILE="$IMPROVEMENTS_DIR/${IMPROVEMENT_ID}.md"
+    IMPROVEMENT_FILE="$BB5_IMPROVEMENTS_DIR/${IMPROVEMENT_ID}.md"
 
     # Determine improvement type based on cycle
     case $((LOOP_COUNT % 5)) in
@@ -127,12 +129,9 @@ EOF
 
     echo "COMPLETED" > "$RUN_FOLDER/status.txt"
 
-    # Commit changes
-    git add -A
-    git commit -m "bb5-improver: [$RUN_ID] Created $IMPROVEMENT_TYPE improvement task" || true
-
-    # Push
-    git push origin vps 2>&1 | tee -a "$RUN_FOLDER/git.log" || log "Push failed"
+    # Commit and push changes using common library
+    bb5_git_commit "bb5-improver: [$RUN_ID] Created $IMPROVEMENT_TYPE improvement task" || true
+    bb5_git_push "$RUN_FOLDER/git.log" || log "Push failed"
 
     log "Cycle $LOOP_COUNT complete. Next cycle in 5 minutes..."
 

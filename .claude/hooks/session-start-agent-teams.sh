@@ -7,14 +7,18 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BB5_DIR="$(cd "$SCRIPT_DIR/../../../" && pwd)"
+LOG_FILE="$BB5_DIR/logs/session-start-agent-teams.json"
 
-# Log to events
-echo "{
-  \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\",
-  \"event\": \"session_start_agent_teams\",
-  \"hook\": \"session-start-agent-teams.sh\",
-  \"bb5_dir\": \"$BB5_DIR\"
-}" >> "$BB5_DIR/.autonomous/agents/communications/events.yaml"
+# Standard JSON logging for hooks
+mkdir -p "$BB5_DIR/logs"
+{
+  echo "{"
+  echo "  \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\","
+  echo "  \"hook\": \"session-start-agent-teams.sh\","
+  echo "  \"bb5_dir\": \"$BB5_DIR\","
+  echo "  \"event\": \"session_start_agent_teams\""
+  echo "}"
+} >> "$LOG_FILE"
 
 # Ensure BB5 memory structure exists
 mkdir -p "$BB5_DIR/.autonomous/memory/data"
