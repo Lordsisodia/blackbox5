@@ -1,0 +1,63 @@
+# Skill Metrics and Enforcement Log
+# Tracks skill usage, effectiveness, and enforcement actions
+
+metadata:
+  generated: "2026-02-12T22:00:00Z"
+  version: "1.0.0"
+
+# Enforcement log for pre-execution hook
+enforcement_log: []
+  # Format:
+  # - timestamp: "2026-02-12T12:00:00Z"
+  #   task_id: "TASK-xxx"
+  #   trigger_type: "clear" | "discretionary" | "none"
+  #   skill_recommended: "skill-name"
+  #   confidence: 85
+  #   action_taken: "blocked_pending_invocation" | "override_with_justification" | "allowed"
+  #   overridden: false | true
+  #   justification: "Reason for override"
+
+# Override analysis (from skill-registry.yaml)
+override_analysis:
+  total_overrides: 0
+  last_review: null
+  next_review: null
+  review_frequency: "weekly"
+
+  by_skill: {}
+  # Format:
+  # git-commit:
+  #   overrides: 0
+  #   valid: 0
+  #   invalid: 0
+  #   common_reason: ""
+
+  validity_patterns:
+    valid:
+      - "Simple documentation typo fix"
+      - "One-line configuration change"
+      - "Emergency hotfix (speed critical)"
+      - "Skill content already known/memorized"
+      - "Task is skill maintenance itself"
+
+    invalid:
+      - "I can handle this"
+      - "It will be faster"
+      - "The skill is wrong"
+      - No justification provided
+
+  improvement_recommendations: []
+  # Format:
+  # - skill: "skill-name"
+  #   issue: "Agents override skill frequently"
+  #   suggestion: "Increase clear trigger threshold to 90%"
+  #   expected_impact: "Reduce invalid overrides by 50%"
+
+# Skill effectiveness tracking (future expansion)
+skill_effectiveness: {}
+  # Format:
+  # skill-name:
+  #   usage_count: 0
+  #   avg_confidence: 0
+  #   success_rate: 0
+  #   avg_duration_minutes: 0

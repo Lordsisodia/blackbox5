@@ -366,6 +366,197 @@ bb5-skill-override-log --last-month
 
 ---
 
+## Pre-Execution Hook: Skill Enforcement
+
+**CRITICAL:** Before executing ANY task, the `skill-enforcement.sh` pre-execution hook runs automatically to enforce skill invocation based on confidence scores.
+
+### What the Hook Does
+
+The hook analyzes your task using `detect-skill.py` and takes action based on confidence:
+
+1. **Clear Trigger (>=85% confidence):**
+   - **Action:** BLOCKS execution
+   - **Required:** You MUST invoke the recommended skill before proceeding
+   - **Output:** Shows required skill and invocation instructions
+   - **Exit Code:** 1 (blocked)
+
+2. **Discretionary Trigger (70-84% confidence):**
+   - **Action:** Warns but allows execution
+   - **Recommended:** You SHOULD invoke the skill (or document override)
+   - **Output:** Shows recommended skill and override template
+   - **Exit Code:** 0 (allowed)
+
+3. **No Match (<70% confidence):**
+   - **Action:** Allows execution normally
+   - **Required:** No skill needed
+   - **Output:** Brief confirmation
+   - **Exit Code:** 0 (allowed)
+
+### Hook Output Examples
+
+**Clear Trigger (BLOCKED):**
+```
+╔════════════════════════════════════════════════════════════════╗
+║         SKILL ENFORCEMENT: CLEAR TRIGGER DETECTED            ║
+╚════════════════════════════════════════════════════════════════╝
+
+Task: Implement git commit workflow
+
+Required skill: git-commit (confidence: 95%)
+Action: MUST invoke before proceeding
+
+To proceed:
+  1. Invoke skill: skill: "git-commit"
+  2. Or set BB5_SKIP_SKILL_ENFORCEMENT=1 (not recommended)
+
+Execution blocked until skill is invoked.
+```
+
+**Discretionary Trigger (WARNED):**
+```
+╔════════════════════════════════════════════════════════════════╗
+║     SKILL ENFORCEMENT: DISCRETIONARY TRIGGER DETECTED      ║
+╚════════════════════════════════════════════════════════════════╝
+
+Task: Implement user authentication
+
+Recommended skill: bmad-architect (confidence: 75%)
+Action: SHOULD invoke (override allowed with justification)
+
+Override? Add to THOUGHTS.md:
+  ## Skill Override Justification
+  Reason for not invoking: [explain]
+```
+
+**No Match (ALLOWED):**
+```
+╔════════════════════════════════════════════════════════════════╗
+║            SKILL ENFORCEMENT: NO MATCH DETECTED             ║
+╚════════════════════════════════════════════════════════════════╝
+
+Task: Fix typo in README.md
+
+Action: Continue normally (confidence: <70%)
+```
+
+### Bypassing Enforcement (NOT RECOMMENDED)
+
+**Emergency only:**
+
+```bash
+# Set environment variable to bypass
+export BB5_SKIP_SKILL_ENFORCEMENT=1
+
+# Or for single command
+BB5_SKIP_SKILL_ENFORCEMENT=1 bb5 task:run TASK-xxx
+```
+
+**When to use bypass:**
+- Emergency hotfix (speed critical)
+- Debugging the hook itself
+- Testing override workflow
+
+**DO NOT use bypass for:**
+- "I don't want to invoke this skill"
+- "It will be faster this way"
+- Routine task execution
+
+### Hook Logging
+
+All enforcement actions are logged to:
+
+1. **Log File:** `/opt/blackbox5/5-project-memory/blackbox5/logs/skill-enforcement.log`
+   - Timestamped entries for all hook runs
+   - Format: `[timestamp] action: details`
+
+2. **Skill Metrics:** `/opt/blackbox5/5-project-memory/blackbox5/operations/skill-metrics.yaml`
+   - Structured enforcement log in YAML format
+   - Tracks: task_id, trigger_type, skill_recommended, confidence, action_taken, overridden, justification
+   - Feeds into override analysis and improvement
+
+### Hook Files
+
+- **Hook Script:** `/opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh`
+- **Documentation:** `/opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/README.md`
+- **Skill Detection:** `/opt/blackbox5/5-project-memory/blackbox5/bin/detect-skill.py`
+
+### Troubleshooting
+
+**Hook not running:**
+```bash
+# Check permissions
+ls -l /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh
+# Should be: -rwxr-xr-x
+
+# Fix if needed
+chmod +x /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh
+```
+
+**detect-skill.py not found:**
+```bash
+# Verify path
+ls -l /opt/blackbox5/5-project-memory/blackbox5/bin/detect-skill.py
+# Should be: -rwxr-xr-x
+```
+
+**Task file not found:**
+```bash
+# Set TASK_FILE environment variable
+export TASK_FILE=/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-xxx/task.md
+```
+
+### Testing the Hook
+
+```bash
+# Test manually
+cd /opt/blackbox5
+export TASK_FILE=/opt/blackbox5/5-project-memory/blackbox5/tasks/active/TASK-xxx/task.md
+./5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh
+
+# Test with bypass
+export BB5_SKIP_SKILL_ENFORCEMENT=1
+./5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh
+```
+
+### Rollback
+
+To disable the hook temporarily:
+
+```bash
+# Rename to disable
+mv /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh \
+   /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh.disabled
+```
+
+To re-enable:
+
+```bash
+# Rename back
+mv /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh.disabled \
+   /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh
+chmod +x /opt/blackbox5/5-project-memory/blackbox5/.claude/hooks/pre-execution/skill-enforcement.sh
+```
+
+### Integration
+
+The hook integrates with:
+
+1. **detect-skill.py** - Analyzes task and returns recommended skills
+2. **skill-registry.yaml** - Contains skill definitions and triggers
+3. **skill-metrics.yaml** - Logs enforcement actions for analysis
+4. **THOUGHTS.md** - Where agents document override justifications (for discretionary triggers)
+5. **skill-override-justification.md** - Template for documenting overrides
+
+### Important Notes
+
+- **Clear triggers CANNOT be overridden** - The hook blocks execution
+- **Discretionary triggers can be overridden** - But MUST be documented
+- **Bypass env var is for emergencies only** - Not routine use
+- **All actions are logged** - Audit trail for improvement
+- **Hook runs before Phase 2 (Execution)** - Part of skill checking workflow
+
+---
+
 ## Context Management
 
 - **70% context usage:** Summarize THOUGHTS.md
