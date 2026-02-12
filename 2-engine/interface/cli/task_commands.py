@@ -427,10 +427,10 @@ class TaskCompleteCommand(BaseCommand):
     """
     Mark a task as complete.
 
-    Moves the task to completed/, generates a final report, and updates
-    the CODE-INDEX with new components.
+    Moves the task to completed/, generates a final report, updates
+    the CODE-INDEX with new components, and records skill usage.
 
-    Usage: bb5 task:complete <task-id>
+    Usage: bb5 task:complete <task-id> [--skill skill-name]
     """
     name = "task:complete"
     description = "Mark task complete and archive"
@@ -440,6 +440,14 @@ class TaskCompleteCommand(BaseCommand):
         task_id = args.get("task_id")
         if not task_id:
             raise CommandError("Missing task_id argument", exit_code=2)
+
+        skill_used = args.get("skill") or args.get("skill_used")
+        outcome = args.get("outcome", "success")
+        duration = args.get("duration")
+        quality = args.get("quality")
+        trigger_correct = args.get("trigger_correct")
+        would_use_again = args.get("would_use_again")
+        notes = args.get("notes", "")
 
         memory_root = Path.cwd() / "blackbox5" / "memory" / "project-memory" / "siso-internal"
         if not memory_root.exists():
@@ -472,6 +480,43 @@ Completed: {datetime.now().isoformat()}
 ## Next Steps
 [What to do next]
 """)
+
+        # Record skill usage if skill recorder hook exists
+        project_root = memory_root.parent.parent
+        skill_recorder_hook = project_root / "5-project-memory" / "blackbox5" / ".claude" / "hooks" / "task_completion_skill_recorder.py"
+
+        if skill_recorder_hook.exists():
+            try:
+                import subprocess
+                cmd = [
+                    "python3",
+                    str(skill_recorder_hook),
+                    "--task-id", task_id,
+                    "--outcome", outcome
+                ]
+
+                if skill_used:
+                    cmd.extend(["--skill", skill_used])
+                if duration is not None:
+                    cmd.extend(["--duration", str(duration)])
+                if quality is not None:
+                    cmd.extend(["--quality", str(quality)])
+                if trigger_correct is not None:
+                    cmd.extend(["--trigger-correct", str(trigger_correct).lower()])
+                if would_use_again is not None:
+                    cmd.extend(["--would-use-again", str(would_use_again).lower()])
+                if notes:
+                    cmd.extend(["--notes", notes])
+
+                result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+                if result.returncode == 0:
+                    print(f"✓ Skill usage recorded for: {skill_used or 'None'}")
+                else:
+                    print(f"⚠️  Skill recording failed: {result.stderr}")
+            except Exception as e:
+                print(f"⚠️  Could not record skill usage: {e}")
+        else:
+            print(f"⚠️  Skill recorder hook not found: {skill_recorder_hook}")
 
         # Move task directory
         import shutil
