@@ -68,9 +68,16 @@ send_telegram_update() {
 
     # Read git stats if available
     if [ -f "$run_folder/git.log" ]; then
-        local commits=$(grep -c "commit" "$run_folder/git.log" 2>/dev/null || echo "0")
-        local pushed=$(grep -c "push" "$run_folder/git.log" 2>/dev/null || echo "0")
-        if [ "$commits" -gt 0 ] || [ "$pushed" -gt 0 ]; then
+        # Get commit/push counts properly (sanitize to prevent integer expression errors)
+        local commits=$(grep "commit" "$run_folder/git.log" 2>/dev/null | wc -l | tr -d '[:space:]')
+        local pushed=$(grep "push" "$run_folder/git.log" 2>/dev/null | wc -l | tr -d '[:space:]')
+        # Force numeric values to prevent comparison errors
+        local commits_num=$((commits + 0))
+        local pushed_num=$((pushed + 0))
+        if [ "$commits_num" -gt 0 ] || [ "$pushed_num" -gt 0 ]; then
+            # Use the sanitized values for display
+            commits="$commits_num"
+            pushed="$pushed_num"
             message+="<b>🔄 Git</b>%0A"
             [ "$commits" -gt 0 ] && message+="• Commits: ${commits}%0A"
             [ "$pushed" -gt 0 ] && message+="• Pushed: yes%0A"
@@ -89,13 +96,13 @@ send_telegram_update() {
     # Add next action hint
     case "$status" in
         COMPLETED)
-            message+"<i>✓ Run completed successfully. Starting next cycle...</i>"
+            message="<i>✓ Run completed successfully. Starting next cycle...</i>"
             ;;
         FAILED)
-            message+"<i>⚠ Run failed. Will retry (failure ${CONSECUTIVE_FAILURES}/${MAX_CONSECUTIVE_FAILURES})</i>"
+            message="<i>⚠ Run failed. Will retry (failure ${CONSECUTIVE_FAILURES}/${MAX_CONSECUTIVE_FAILURES})</i>"
             ;;
         PARTIAL)
-            message+"<i>⏳ Run partial. Continuing in next cycle...</i>"
+            message="<i>⏳ Run partial. Continuing in next cycle...</i>"
             ;;
     esac
 
