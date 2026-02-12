@@ -264,6 +264,108 @@ BEFORE starting Phase 2 (Execution) of ANY task, you MUST:
 
 ---
 
+## Skill Override Documentation Workflow
+
+### When to Document an Override
+
+**For discretionary triggers (70-84% confidence) where you choose NOT to invoke the skill**, you MUST document your justification. This creates an audit trail for improving trigger accuracy over time.
+
+### Override Documentation Process
+
+1. **Copy the Override Template:**
+   ```bash
+   cp .templates/skill-override-justification.md ./skill-override-justification.md
+   ```
+
+2. **Fill Out ALL Required Fields:**
+   - **Override Reason:** Specific explanation of why skill is not being invoked
+   - **Confidence Assessment:** Why the confidence calculation is wrong or misleading
+   - **Expected Outcome:** What will happen without the skill
+   - **Risk Acknowledgment:** What could go wrong by not using the skill
+
+3. **Mark Validity in Checklist:**
+   - If valid override: Check the appropriate valid pattern
+   - If invalid override: Explain why the override should be reconsidered
+
+4. **Document in THOUGHTS.md:**
+   ```markdown
+   ## Skill Override for This Task
+
+   **Skill Recommended:** [skill-name]
+   **Confidence:** [XX%]
+   **Override File:** skill-override-justification.md
+   **Override Reason:** [brief summary]
+   ```
+
+5. **Log to skill-registry.yaml** (automatic or manual):
+   - Override data will be tracked in `operations/skill-registry.yaml` > `override_analysis` section
+
+### Valid vs Invalid Overrides
+
+**Valid Override Patterns:**
+- Simple documentation typo fix
+- One-line configuration change
+- Emergency hotfix (speed critical)
+- Skill content already known/memorized
+- Task is skill maintenance itself
+
+**Invalid Override Patterns:**
+- "I can handle this" (no specific reason)
+- "It will be faster" (without risk assessment)
+- "The skill is wrong" (without explaining why)
+- No justification provided
+
+### Override Review Process
+
+**Monthly Override Review:**
+
+1. View override log:
+   ```bash
+   bb5-skill-override-log --last-month
+   ```
+
+2. Categorize each override as valid/invalid
+
+3. Identify patterns in invalid overrides
+
+4. Adjust trigger rules to reduce invalid overrides:
+   - Update confidence thresholds in skill-selection.yaml
+   - Add/remove trigger keywords
+   - Refine domain mappings
+
+5. Update skill-registry.yaml with learnings
+
+### CLI Commands
+
+```bash
+# View all overrides
+bb5-skill-override-log
+
+# View summary only
+bb5-skill-override-log --summary
+
+# View overrides by skill
+bb5-skill-override-log --skill bmad-dev
+
+# View valid overrides only
+bb5-skill-override-log --valid-only
+
+# View invalid overrides only
+bb5-skill-override-log --invalid-only
+
+# View last month's overrides
+bb5-skill-override-log --last-month
+```
+
+### Important Notes
+
+- **Override without justification = PROTOCOL VIOLATION**
+- Invalid overrides are reviewed monthly to improve trigger accuracy
+- Override data feeds into continuous improvement of the skill system
+- Clear triggers (>=85% confidence) CANNOT be overridden
+
+---
+
 ## Context Management
 
 - **70% context usage:** Summarize THOUGHTS.md

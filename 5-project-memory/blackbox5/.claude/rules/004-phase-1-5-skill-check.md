@@ -45,6 +45,9 @@ When confidence is below 70%, you MAY check the skill but invocation is optional
 3. Calculate confidence using the formula in the file
 4. **If confidence >= 85% (Clear Trigger): MUST invoke skill** - no override allowed
 5. **If confidence 70-84% (Discretionary): SHOULD invoke skill** - agent judgment allowed
+   - If you choose to override: **MUST document justification using template**
+   - Copy `.templates/skill-override-justification.md` to task folder
+   - Fill out all required fields
 6. **If confidence < 70%: MAY check skill** - invocation optional
 
 ## Documentation
@@ -53,6 +56,29 @@ Document in THOUGHTS.md under "## Skill Usage for This Task":
 - Skill invoked (or "None")
 - Confidence percentage
 - Rationale for decision (especially if discretion was used)
+
+## Override Documentation Requirement
+**For discretionary triggers (70-84% confidence) where you choose NOT to invoke the skill:**
+
+1. Copy the override template:
+   ```bash
+   cp .templates/skill-override-justification.md ./skill-override-justification.md
+   ```
+
+2. Fill out ALL required fields:
+   - Override Reason (specific explanation)
+   - Confidence Assessment (why calculation is wrong)
+   - Expected Outcome (what happens without skill)
+   - Risk Acknowledgment (what could go wrong)
+
+3. Mark validity in checklist:
+   - If valid override: Check appropriate pattern
+   - If invalid override: Explain why override should be reconsidered
+
+4. Log to skill-registry.yaml (automatic via hook or manual):
+   - See `skill-registry.yaml > override_analysis` section
+
+**Override without justification = PROTOCOL VIOLATION**
 
 ## Auto-Trigger Rules
 

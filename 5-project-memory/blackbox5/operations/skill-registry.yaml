@@ -1695,3 +1695,23 @@ archived_skills:
     archived_reason: No usage; system operates in local-dev mode only; no K8s/Codespaces
       deployment planned
     replacement: null
+
+override_analysis:
+  total_overrides: 0
+  by_skill: {}
+  validity_patterns:
+    valid:
+      - "Simple documentation typo fix"
+      - "One-line configuration change"
+      - "Emergency hotfix (speed critical)"
+      - "Skill content already known/memorized"
+      - "Task is skill maintenance itself"
+    invalid:
+      - "I can handle this (no specific reason)"
+      - "It will be faster (without risk assessment)"
+      - "The skill is wrong (without explaining why)"
+      - "No justification provided"
+  improvement_recommendations: []
+  last_review: null
+  next_review: '2026-02-19T00:00:00Z'
+  review_frequency: weekly

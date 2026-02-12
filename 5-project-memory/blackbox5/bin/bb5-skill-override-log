@@ -1,0 +1,207 @@
+#!/bin/bash
+
+# bb5-skill-override-log - View skill override history and analysis
+# Usage: bb5-skill-override-log [options]
+# Options:
+#   --last-month    Show overrides from last month
+#   --skill NAME    Filter by specific skill
+#   --valid-only    Show only valid overrides
+#   --invalid-only  Show only invalid overrides
+#   --summary       Show summary statistics only
+
+set -e
+
+# Configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Script is in bin/, so we go up one level to get to blackbox5 root
+REGISTRY_FILE="$(dirname "$SCRIPT_DIR")/operations/skill-registry.yaml"
+
+# Parse arguments
+SHOW_LAST_MONTH=false
+FILTER_SKILL=""
+VALID_ONLY=false
+INVALID_ONLY=false
+SUMMARY_ONLY=false
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --last-month)
+      SHOW_LAST_MONTH=true
+      shift
+      ;;
+    --skill)
+      FILTER_SKILL="$2"
+      shift 2
+      ;;
+    --valid-only)
+      VALID_ONLY=true
+      shift
+      ;;
+    --invalid-only)
+      INVALID_ONLY=true
+      shift
+      ;;
+    --summary)
+      SUMMARY_ONLY=true
+      shift
+      ;;
+    --help|-h)
+      echo "Usage: bb5-skill-override-log [options]"
+      echo ""
+      echo "Options:"
+      echo "  --last-month    Show overrides from last month"
+      echo "  --skill NAME    Filter by specific skill"
+      echo "  --valid-only    Show only valid overrides"
+      echo "  --invalid-only  Show only invalid overrides"
+      echo "  --summary       Show summary statistics only"
+      echo "  --help, -h      Show this help message"
+      echo ""
+      echo "Examples:"
+      echo "  bb5-skill-override-log"
+      echo "  bb5-skill-override-log --last-month"
+      echo "  bb5-skill-override-log --skill bmad-dev"
+      echo "  bb5-skill-override-log --summary"
+      exit 0
+      ;;
+    *)
+      echo "Unknown option: $1"
+      echo "Use --help for usage information"
+      exit 1
+      ;;
+  esac
+done
+
+# Check if registry file exists
+if [[ ! -f "$REGISTRY_FILE" ]]; then
+  echo "Error: skill-registry.yaml not found at $REGISTRY_FILE"
+  exit 1
+fi
+
+# Extract override analysis from YAML
+extract_override_data() {
+  # Parse YAML with sed/awk (simple extraction)
+  sed -n '/^override_analysis:/,/^$/p' "$REGISTRY_FILE"
+}
+
+# Display summary
+display_summary() {
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "      SKILL OVERRIDE SUMMARY"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo ""
+
+  local total_overrides=$(grep -A 5 "^override_analysis:" "$REGISTRY_FILE" | grep "total_overrides:" | awk '{print $2}' || echo "0")
+  echo "Total Overrides: $total_overrides"
+  echo ""
+
+  # Last review date
+  local last_review=$(grep -A 15 "^override_analysis:" "$REGISTRY_FILE" | grep "last_review:" | awk -F': ' '{print $2}' || echo "Never")
+  echo "Last Review: $last_review"
+
+  # Next review date
+  local next_review=$(grep -A 15 "^override_analysis:" "$REGISTRY_FILE" | grep "next_review:" | awk -F': ' '{print $2}' || echo "Not scheduled")
+  echo "Next Review: $next_review"
+  echo ""
+
+  # Valid patterns
+  echo "Valid Override Patterns:"
+  grep -A 10 "^override_analysis:" "$REGISTRY_FILE" | sed -n '/^    valid:/,/^\s*invalid:/p' | grep -v "^    invalid:" | sed 's/^- //' | grep -v "^$" | sed 's/^/  ✓ /'
+  echo ""
+
+  # Invalid patterns
+  echo "Invalid Override Patterns:"
+  grep -A 20 "^override_analysis:" "$REGISTRY_FILE" | sed -n '/^    invalid:/,/^\s*improvement_recommendations:/p' | grep -v "^    improvement_recommendations:" | sed 's/^- //' | grep -v "^$" | sed 's/^/  ✗ /'
+  echo ""
+
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+}
+
+# Display overrides by skill
+display_by_skill() {
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "      OVERRIDES BY SKILL"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo ""
+
+  local in_skill_section=false
+  local current_skill=""
+
+  while IFS= read -r line; do
+    if [[ $line =~ ^[[:space:]]*([a-z0-9_-]+):[[:space:]]*$ ]]; then
+      in_skill_section=true
+      current_skill="${BASH_REMATCH[1]}"
+    fi
+
+    if $in_skill_section && [[ $line =~ overrides: ]]; then
+      local count=$(echo "$line" | awk '{print $2}')
+      echo "  $current_skill: $count overrides"
+      in_skill_section=false
+    fi
+  done < <(sed -n '/^override_analysis:/,/^[a-z]/p' "$REGISTRY_FILE")
+
+  echo ""
+}
+
+# Display improvement recommendations
+display_recommendations() {
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo "      IMPROVEMENT RECOMMENDATIONS"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo ""
+
+  local in_recommendations=false
+
+  while IFS= read -r line; do
+    if [[ $line =~ improvement_recommendations: ]]; then
+      in_recommendations=true
+      continue
+    fi
+
+    if $in_recommendations; then
+      if [[ $line =~ ^[[:space:]]*-[[:space:]]*skill: ]]; then
+        local skill=$(echo "$line" | awk -F': ' '{print $2}')
+        echo "  Skill: $skill"
+      elif [[ $line =~ issue: ]]; then
+        local issue=$(echo "$line" | awk -F': ' '{print $2}')
+        echo "  Issue: $issue"
+      elif [[ $line =~ suggestion: ]]; then
+        local suggestion=$(echo "$line" | awk -F': ' '{print $2}')
+        echo "  Suggestion: $suggestion"
+      elif [[ $line =~ expected_impact: ]]; then
+        local impact=$(echo "$line" | awk -F': ' '{print $2}')
+        echo "  Expected Impact: $impact"
+        echo ""
+      fi
+    fi
+  done < <(sed -n '/^override_analysis:/,/^[a-z]/p' "$REGISTRY_FILE")
+
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+}
+
+# Main execution
+if $SUMMARY_ONLY; then
+  display_summary
+else
+  display_summary
+  echo ""
+
+  if [[ -n "$FILTER_SKILL" ]]; then
+    echo "Filtering by skill: $FILTER_SKILL"
+    echo ""
+  fi
+
+  if $VALID_ONLY; then
+    echo "Showing valid overrides only"
+    echo ""
+  elif $INVALID_ONLY; then
+    echo "Showing invalid overrides only"
+    echo ""
+  fi
+
+  display_by_skill
+  echo ""
+
+  if ! $VALID_ONLY && ! $INVALID_ONLY; then
+    display_recommendations
+  fi
+fi
