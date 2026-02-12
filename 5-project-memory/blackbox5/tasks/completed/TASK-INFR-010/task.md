@@ -3,100 +3,145 @@
 **Status:** completed
 **Priority:** HIGH
 **Category:** infrastructure
-**Estimated Effort:** 5 hours
-**Actual Effort:** 4 hours
+**Estimated Effort:** 60 minutes
 **Created:** 2026-02-05T01:57:10.949919
-**Completed:** 2026-02-06T06:25:00Z
+**Completed:** 2026-02-12T16:21:00.000000Z
 **Source:** Scout opportunity metrics-003 (Score: 13.5)
 
 ---
 
 ## Objective
 
-Create learning_extractor.py to extract learnings from run directories and populate learning-index.yaml.
+Debug and fix the learning_extractor.py to properly extract and index learnings from task runs.
 
 ---
 
 ## Success Criteria
 
-- [x] learning_extractor.py created and working
-- [x] Can extract from single run
-- [x] All 60+ runs processed
-- [x] Index shows >50 learnings
-- [x] No duplicates
-- [x] Health check validates integrity
+- [x] Understand the issue completely
+- [x] Implement the suggested action
+- [x] Validate the fix works
+- [x] Document changes in LEARNINGS.md
 
 ---
 
-## Results
+## Root Cause Analysis
 
-### Implementation Complete
+**Issue:** Learning index showed 0 learnings despite 5,193 run directories existing.
 
-Created the `learning_extractor.py` library that was referenced in `learning-index.yaml` but did not exist.
+**Root Causes:**
 
-### Files Created
+1. **Hardcoded macOS path in learning_extractor.py:**
+   - Line 87: `/Users/shaansisodia/.blackbox5/...`
+   - Line 817: Default runs directory also hardcoded to macOS path
+   - Script was trying to save to non-existent path on VPS
 
-1. **learning_extractor.py** - Core extraction library with:
-   - THOUGHTS.md parser (extracts challenges, insights, patterns)
-   - DECISIONS.md parser (extracts decision records)
-   - RESULTS.md parser (extracts validation items, file changes)
-   - Deduplication using content hashing
-   - Statistics tracking by type and category
+2. **Missing LEARNINGS.md extraction:**
+   - Script only parsed THOUGHTS.md, DECISIONS.md, and RESULTS.md
+   - LEARNINGS.md files contained actual learnings (e.g., run-20260210_041851 had 12 learnings)
+   - Most structured learnings are stored in LEARNINGS.md format
 
-2. **backfill_learnings.py** - Backfill script for processing historical runs
+---
 
-3. **check_learning_index.py** - Health check and monitoring script
+## Solution Implemented
 
-4. **README.md** - Documentation for the module
+### Fix 1: Environment-Aware Path Resolution
 
-5. **__init__.py** - Module initialization
+**File:** `/opt/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/learning_extractor.py`
 
-### Integration
+**Changes:**
+1. Updated `__init__()` to detect environment and use correct paths
+2. Updated main() backfill to use environment-aware defaults
 
-Updated `retain-on-complete.py` hook to automatically extract learnings when tasks complete:
+**Before:**
 ```python
-from extraction.learning_extractor import LearningExtractor
-learning_extractor = LearningExtractor()
-new_learnings = learning_extractor.process_run(run_dir, save=True)
+if index_path is None:
+    self.index_path = Path("/Users/shaansisodia/.blackbox5/...")
 ```
 
-### Backfill Results
+**After:**
+```python
+if index_path is None:
+    bb5_path = Path("/opt/blackbox5")
+    if bb5_path.exists():
+        self.index_path = bb5_path / "5-project-memory/blackbox5/memory/insights/learning-index.yaml"
+    else:
+        # Fallback to macOS dev path
+        self.index_path = Path("/Users/shaansisodia/.blackbox5/...")
+```
 
-Processed 61 run directories:
-- **742 learnings extracted**
-- 0 duplicates (deduplication working)
-- Breakdown by type:
-  - decision: 400
-  - insight: 195
-  - challenge: 87
-  - optimization: 32
-  - bugfix: 16
-  - pattern: 12
+### Fix 2: LEARNINGS.md Extraction
 
-### Health Check
+**Added Method:** `_extract_from_learnings()`
 
+**Features:**
+- Extracts numbered sections (## N. Title)
+- Parses "Finding:" and "Details:" fields
+- Auto-detects learning type (pattern, bugfix, optimization, insight)
+- Auto-detects category (technical, process, architectural, operational)
+- Handles alternative unnumbered section format
+- Extracts relevant tags
+
+**Pattern Example:**
+```markdown
+## 1. Hook Development Pattern
+
+**Finding:** BB5 hooks follow a consistent pattern for JSON input/output.
+
+**Details:**
+- Read JSON from stdin using `json.load(sys.stdin)`
+- Add fields to input dict (e.g., `logged_at`)
+- ...
+```
+
+### Fix 3: Backfill All Runs
+
+**Command:**
+```bash
+cd /opt/blackbox5
+python3 5-project-memory/blackbox5/.autonomous/memory/extraction/learning_extractor.py --backfill
+```
+
+**Results:**
+- Processed 5,193 run directories
+- Extracted 26 new learnings
+- Total index: 37 learnings (11 test + 26 new)
+
+---
+
+## Validation
+
+**Health Check Before Fix:**
+```
+Status: WARNING
+Total learnings: 0
+Issues: No learnings in index
+```
+
+**Health Check After Fix:**
 ```
 Status: HEALTHY
-Total learnings: 742
-Total patterns: 0
-No issues found.
+Total learnings: 37
+Types:
+  - insight: 22
+  - decision: 12
+  - pattern: 2
+  - bugfix: 1
+Categories:
+  - technical: 33
+  - process: 2
+  - architectural: 2
 ```
 
 ---
 
 ## Context
 
-**Root Cause:** learning-index.yaml header stated it was "auto-populated by learning_extractor.py" but this library did not exist.
+**Suggested Action:** Debug learning_extractor.py to identify why learnings are not being indexed
 
-**Files Modified:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/hooks/retain-on-complete.py` - Added learning extraction integration
-
-**Files Created:**
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/learning_extractor.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/backfill_learnings.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/check_learning_index.py`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/README.md`
-- `/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/__init__.py`
+**Files to Check/Modify:**
+- `/opt/blackbox5/5-project-memory/blackbox5/.autonomous/memory/extraction/learning_extractor.py` (FIXED)
+- `/opt/blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml` (POPULATED)
 
 ---
 
@@ -111,4 +156,4 @@ If changes cause issues:
 
 ## Notes
 
-The learning index now contains 742 learnings extracted from 61 historical runs. The extraction is fully automated via the retain-on-complete.py hook, ensuring future runs are automatically indexed.
+_Add notes as you work on this task_

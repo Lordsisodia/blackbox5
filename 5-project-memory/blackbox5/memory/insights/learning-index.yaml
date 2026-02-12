@@ -5,128 +5,1110 @@
 # This file is auto-populated by the learning_extractor.py library
 # Manual edits should follow the same structure
 
-# ==============================================================================
-# Metadata
-# ==============================================================================
 metadata:
-  version: "1.0.0"
-  created: "2026-02-01T14:42:30Z"
-  last_updated: "2026-02-01T14:42:30Z"
-  total_learnings: 0
-  last_task_id: "UNKNOWN"
+  version: 1.0.0
+  created: '2026-02-01T14:42:30Z'
+  last_updated: '2026-02-12T16:27:16.878457Z'
+  total_learnings: 37
+  last_task_id: TASK-20260203171822
+learnings:
+- learning_id: TASK-20260203171823-RESULT-1
+  task_id: TASK-20260203171823
+  task_title: RESULTS
+  timestamp: '2026-02-12T16:27:10.334784Z'
+  source_file: RESULTS.md
+  learning_type: insight
+  title: Files modified in TASK-20260203171823
+  description: "Modified files:\n### settings.json\n**Location:** `.claude/settings.json`\n\
+    \n**Changes:** Added hook registrations\n\n**Before:**\n```json\n{\n  \"hooks\"\
+    : {\n    \"pre_tool_use\": {...},\n    \"pre_message\": {...},\n    \"post_message\"\
+    : {...}\n  }\n}\n```\n\n**After:**\n```json\n{\n  \"hooks\": {\n    \"pre_tool_use\"\
+    : {...},\n    \"pre_message\": {...},\n    \"post_message\": {...},\n    \"subagent_start\"\
+    : {\n      \"enabled\": true,\n      \"path\": \".claude/hooks/subagent_start.py\"\
+    \n    },\n    \"subagent_stop\": {\n      \"enabled\": true,\n      \"path\":\
+    \ \".claude/hooks/subagent_stop.py\"\n    }\n  }\n}\n```\n\n---"
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - files
+  - modifications
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: aa17d0fe9f08667c
+- learning_id: TASK-20260203171823-LEARNING-1
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335234Z'
+  source_file: LEARNINGS.md
+  learning_type: pattern
+  title: Hook Development Pattern
+  description: 'Finding: BB5 hooks follow a consistent pattern for JSON input/output.
 
-# ==============================================================================
-# Learnings
-# ==============================================================================
-# Each learning represents a lesson learned from a task run
-# Fields:
-#   - learning_id: Unique identifier (TASK-XXX-LEARNING-N)
-#   - task_id: Source task ID
-#   - task_title: Title of the source task
-#   - feature_id: Related feature ID (if applicable)
-#   - timestamp: When the learning was extracted
-#   - source_file: THOUGHTS.md or DECISIONS.md
-#   - learning_type: pattern, decision, challenge, optimization, bugfix, insight
-#   - title: Short title
-#   - description: Full description
-#   - severity: critical, high, medium, low (for issues)
-#   - effectiveness: 0.0 to 1.0 (tracked over time)
-#   - frequency: recurring, occasional, one-time
-#   - category: technical, process, architectural, operational
-#   - tags: List of keywords
-#   - related_tasks: List of related task IDs
-#   - pattern: The pattern or issue identified
-#   - action_item: What action to take
 
-learnings: []
+    Details:
 
-# ==============================================================================
-# Patterns
-# ==============================================================================
-# Recurring patterns identified across multiple tasks
-# Fields:
-#   - pattern_id: Unique identifier
-#   - pattern_type: keyword, context, error_type, decision
-#   - description: Pattern description
-#   - frequency: How often this pattern occurs
-#   - related_tasks: Task IDs where this pattern appears
-#   - confidence: 0.0 to 1.0
-#   - keywords: List of keywords
-#   - applicability: broad, specific, niche
+    - Read JSON from stdin using `json.load(sys.stdin)`
 
+    - Add fields to input dict (e.g., `logged_at`)
+
+    - Write log files in JSON array format
+
+    - Exit with 0 on success, handle errors gracefully
+
+
+    **Reference:** `retain-on-complete.py` shows the established pattern.'
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: process
+  tags:
+  - json
+  - error-handling
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 99ea1408216b3174
+- learning_id: TASK-20260203171823-LEARNING-2
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335316Z'
+  source_file: LEARNINGS.md
+  learning_type: pattern
+  title: JSONL Transcript Structure
+  description: "Finding: Subagent transcripts use JSONL format with user message entries.\n\
+    \nDetails:\n- Each line is a JSON object\n- User messages have `type: \"user\"\
+    `\n- Content is in `message.content` (nested) or direct `content`\n- Can contain\
+    \ arrays of content blocks\n\n**Example Entry:**\n```json\n{\n  \"type\": \"user\"\
+    ,\n  \"message\": {\n    \"content\": \"Analyze the codebase\"\n  }\n}\n```"
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: process
+  tags:
+  - json
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 979e0239b213aa20
+- learning_id: TASK-20260203171823-LEARNING-3
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335355Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Flexible Transcript Path Handling
+  description: "Finding: Input may contain either `agent_transcript_path` or `transcript_path`.\n\
+    \nDetails:\n- Different RALF configurations use different field names\n- Need\
+    \ to check both in order of preference\n- Fallback to generic message if neither\
+    \ exists\n\n**Pattern:**\n```python\ntranscript_path = input_data.get(\"agent_transcript_path\"\
+    )\nif not transcript_path:\n    transcript_path = input_data.get(\"transcript_path\"\
+    )\n```"
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - python
+  - file-io
+  - configuration
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: ee7a029f5590bede
+- learning_id: TASK-20260203171823-LEARNING-4
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335387Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Content Extraction Complexity
+  description: "Finding: Content can be string, dict, or list of dicts.\n\nDetails:\n\
+    - Direct `content` field (string or dict)\n- Nested `message.content` (dict with\
+    \ \"content\" key)\n- Array of content blocks with `type=\"text\"` keys\n\n**Extraction\
+    \ Pattern:**\n```python\n# Try nested path first\ncontent = message.get(\"content\"\
+    , \"\")\n# Then try direct path\nif not content:\n    content = entry.get(\"content\"\
+    )\n# Then check array of blocks\nif isinstance(content, list):\n    for block\
+    \ in content:\n        if isinstance(block, dict) and block.get(\"type\") == \"\
+    text\":\n            text = block.get(\"te"
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - python
+  - file-io
+  - extraction
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 94b8445d040ddbe0
+- learning_id: TASK-20260203171823-LEARNING-5
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335425Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Heuristic Summarization Effectiveness
+  description: 'Finding: Simple heuristic works well for initial MVP.
+
+
+    Details:
+
+    - Takes first sentence (split by ".")
+
+    - Falls back to comma-separated (split by ",")
+
+    - Truncates to 100 chars if no punctuation
+
+
+    **Trade-off:** Better than nothing, but can be improved with LLM.'
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: fafe703985e2fad0
+- learning_id: TASK-20260203171823-LEARNING-6
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335466Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Log Directory Creation
+  description: 'Finding: Always create log directory before writing files.
+
+
+    Details:
+
+    - `os.makedirs(path, exist_ok=True)` is idempotent
+
+    - Safe to call even if directory exists
+
+    - Don''t need to check existence first
+
+
+    **Pattern:**
+
+    ```python
+
+    log_dir = os.path.join(os.getcwd(), "logs")
+
+    os.makedirs(log_dir, exist_ok=True)
+
+    ```'
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: architectural
+  tags:
+  - python
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: b00c02393c4cc369
+- learning_id: TASK-20260203171823-LEARNING-7
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335513Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Executable Permissions
+  description: 'Finding: Hooks must be executable for RALF to run them.
+
+
+    Details:
+
+    - Use `chmod +x` on Python scripts
+
+    - Or shebang line: `#!/usr/bin/env python3`
+
+    - RALF looks for executable files'
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - python
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 5c249819198cc96d
+- learning_id: TASK-20260203171823-LEARNING-8
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335546Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Settings.json Hook Registration
+  description: "Finding: Hook registration is simple key-value in settings.json.\n\
+    \nDetails:\n- `enabled: true` enables the hook\n- `path` specifies the script\
+    \ file\n- Hooks are called in order listed\n\n**Structure:**\n```json\n{\n  \"\
+    hooks\": {\n    \"hook_name\": {\n      \"enabled\": true,\n      \"path\": \"\
+    .claude/hooks/hook_name.py\"\n    }\n  }\n}\n```"
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: architectural
+  tags:
+  - json
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 82a49ef6d47ce652
+- learning_id: TASK-20260203171823-LEARNING-9
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335582Z'
+  source_file: LEARNINGS.md
+  learning_type: bugfix
+  title: Graceful Error Handling
+  description: 'Finding: Hooks should never crash the main session.
+
+
+    Details:
+
+    - Catch `json.JSONDecodeError` separately
+
+    - Catch all exceptions and exit 0
+
+    - Fail silently but log errors if possible
+
+
+    **Rationale:** Hook failures should not prevent user work from proceeding.'
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - json
+  - error-handling
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 9c0761473047b2ba
+- learning_id: TASK-20260203171823-LEARNING-10
+  task_id: TASK-20260203171823
+  task_title: LEARNINGS
+  timestamp: '2026-02-12T16:27:10.335609Z'
+  source_file: LEARNINGS.md
+  learning_type: insight
+  title: Reusable Utility Modules
+  description: 'Finding: It''s beneficial to extract common logic into utilities.
+
+
+    Details:
+
+    - Task summarization logic used by both hooks
+
+    - Can be tested independently
+
+    - Easy to extend with LLM later
+
+
+    **Pattern:**
+
+    - Create `utils/task_summarizer.py`
+
+    - Import with `sys.path.insert(0, ...)`
+
+    - Provide clear public API'
+  severity: medium
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - testing
+  - api
+  - file-io
+  - imports
+  - modules
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 732e2ab0722347cb
+- learning_id: TASK-SSOT-025-LEARNING-7814
+  task_id: TASK-SSOT-025
+  task_title: '**Applicable skills:** bmad-dev, continuous-improvement'
+  timestamp: '2026-02-12T16:27:15.678336Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: s, decisions, assumptions
+  description: s, decisions, assumptions
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 46f9b33e8e9f0392
+- learning_id: UNKNOWN-LEARNING-7156
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.684747Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: 's
+
+    4. Complete and exit'
+  description: 's
+
+    4. Complete and exit'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 63d3417722d7ee9c
+- learning_id: UNKNOWN-LEARNING-1531
+  task_id: UNKNOWN
+  task_title: '** IMP-20260209-130504 - Enhance Agent Definitions'
+  timestamp: '2026-02-12T16:27:15.690129Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: 's
+
+    4. **luminell-context-collector.md** - Luminell-specific context collector
+
+    5. ...'
+  description: 's
+
+    4. **luminell-context-collector.md** - Luminell-specific context collector
+
+    5. **luminell-architect.md** - Luminell system architect
+
+    6. **bb5-superintelligence.md** - Performs 7-dimension analysis'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: e69f79084ff8c128
+- learning_id: UNKNOWN-DECISION-1
+  task_id: UNKNOWN
+  task_title: execution
+  timestamp: '2026-02-12T16:27:15.691513Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: Decisions Made
+  description: '### 2026-02-09T13:07:00Z - Agent Definition Format Standard
+
+
+    **Context:** Current agent definitions lack proper YAML frontmatter and consistent
+    structure needed for Claude Code plugin compatibility.
+
+
+    **Options Considered:**
+
+    1. Keep current format - simple markdown with headers
+
+    2. Add YAML frontmatter - standard Claude Code plugin format
+
+    3. Create separate agent registry - JSON/YAML index file
+
+
+    **Decision:** Adopt YAML frontmatter format for all agents (Option 2).
+
+
+    **Rationale:**
+
+    - Aligns with Cl'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - yaml
+  - json
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 6e6ea2e4d2dee58c
+- learning_id: UNKNOWN-DECISION-2
+  task_id: UNKNOWN
+  task_title: execution
+  timestamp: '2026-02-12T16:27:15.691562Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: 2026-02-09T13:08:00Z - Path Reference Strategy
+  description: '**Context:** `activate-core-team.md` contains hardcoded absolute paths
+    that won''t work across different environments.
+
+
+    **Options Considered:**
+
+    1. Use environment variables - `${BB5_DIR}/.claude/agents/...`
+
+    2. Use relative paths - `.claude/agents/...`
+
+    3. Use plugin root variable - `${CLAUDE_PLUGIN_ROOT}/.claude/agents/...`
+
+
+    **Decision:** Use relative paths from BB5 root (Option 2).
+
+
+    **Rationale:**
+
+    - Simple and portable across environments
+
+    - Works regardless of where BB5 is cloned
+
+    - Consistent wit'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  - dependencies
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 589b840a593bb31b
+- learning_id: UNKNOWN-DECISION-3
+  task_id: UNKNOWN
+  task_title: execution
+  timestamp: '2026-02-12T16:27:15.691599Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: 2026-02-09T13:09:00Z - Orchestrator Agent Addition
+  description: '**Context:** The core team has context collector, scribe, and superintelligence
+    but lacks coordination for multi-file tasks.
+
+
+    **Options Considered:**
+
+    1. Add orchestration to existing agents - each agent self-coordinates
+
+    2. Create dedicated orchestrator agent - single coordination point
+
+    3. Use superintelligence for orchestration - overload existing agent
+
+
+    **Decision:** Create dedicated orchestrator agent (Option 2).
+
+
+    **Rationale:**
+
+    - Clear separation of concerns
+
+    - Orchestrator can spawn and manag'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: b5249d898d1815f1
+- learning_id: UNKNOWN-LEARNING-780
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695631Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: s index** - The insights directory was referenced but didn't exist
+  description: s index** - The insights directory was referenced but didn't exist
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 7bfd7aa08801b45e
+- learning_id: UNKNOWN-LEARNING-1511
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695664Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: s/ directory with an index.md
+  description: s/ directory with an index.md
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 076e00c7983c3899
+- learning_id: UNKNOWN-LEARNING-2543
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695694Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: 'extraction is already automated via hooks
+
+    - Vector store is functional with ~100...'
+  description: 'extraction is already automated via hooks
+
+    - Vector store is functional with ~1000 memories stored
+
+    - The system is at 80% completion for Phase 1'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - functions
+  - extraction
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: f4a4d8d585cbcb95
+- learning_id: UNKNOWN-DECISION-1
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695803Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: Create Root README
+  description: 'Context: The memory directory lacked a central documentation file.
+
+
+    **Options:**
+
+    1. Create comprehensive README with full structure documentation
+
+    2. Create minimal README with just links
+
+    3. Update existing fil...
+
+
+    Selected: Option 1 - Comprehensive README...
+
+
+    Rationale: - Provides single source of truth for memory structure
+
+    - Helps new developers understand the system
+
+    - Documents the 4-network architecture clearly
+
+    - Includes usage examples...'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  - memory
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: dcc6307540827b34
+- learning_id: UNKNOWN-DECISION-2
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695838Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: Fix Hardcoded Paths
+  description: 'Context: `extraction/README.md` contained `/Users/shaansisodia/.blackbox5/`
+    path.
+
+
+    **Options:**
+
+    1. Replace with relative path `.autonomous/memory/`
+
+    2. Use environment variable reference
+
+    3. Remove the reference...
+
+
+    Selected: Option 1 - Relative path...
+
+
+    Rationale: - Makes documentation portable across environments
+
+    - Follows existing conventions in other docs
+
+    - Simple and clear...'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  - memory
+  - extraction
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 250b0d11007fa44a
+- learning_id: UNKNOWN-DECISION-3
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695866Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: Update Decision Registry
+  description: 'Context: `decisions/registry.md` had outdated RALF references.
+
+
+    **Options:**
+
+    1. Update to BB5 references
+
+    2. Delete the deprecated file
+
+    3. Leave as-is with note...
+
+
+    Selected: Option 1 - Update references...
+
+
+    Rationale: - Maintains the deprecation notice
+
+    - Updates the project name for consistency
+
+    - Keeps the format template which is still useful...'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: a492a7cc5ca0ab36
+- learning_id: UNKNOWN-DECISION-4
+  task_id: UNKNOWN
+  task_title: Unknown Task
+  timestamp: '2026-02-12T16:27:15.695890Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: Create Insights Index
+  description: 'Context: The insights directory was referenced but didn''t exist.
+
+
+    **Options:**
+
+    1. Create directory with index.md
+
+    2. Create directory only
+
+    3. Update references to remove insights mention...
+
+
+    Selected: Option 1 - Directory with index.md...
+
+
+    Rationale: - Provides documentation for the learning index
+
+    - Explains the 4-network memory types with examples
+
+    - Documents usage and maintenance procedures...'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - file-io
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: e640246a4e34d169
+- learning_id: TASK-2026-01-18-005-LEARNING-2832
+  task_id: TASK-2026-01-18-005
+  task_title: Execution
+  timestamp: '2026-02-12T16:27:16.251322Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: 'S.md as you work
+
+    4. **Test**: Verify your changes work as expected
+
+    5. **Commit**...'
+  description: 'S.md as you work
+
+    4. **Test**: Verify your changes work as expected
+
+    5. **Commit**: Create atomic commits with clear messages'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - testing
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: cacceb7781eaca19
+- learning_id: TASK-001-B:-INSIGHT-1454
+  task_id: 'TASK-001-B:'
+  task_title: THOUGHTS
+  timestamp: '2026-02-12T16:27:16.780834Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: 1. **Worker-Validator separation is critical** - Workers execute, validators
+    lea...
+  description: 1. **Worker-Validator separation is critical** - Workers execute, validators
+    learn. They share state but have distinct interfaces.
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 8865935e9f3b6a10
+- learning_id: TASK-001-B:-INSIGHT-5365
+  task_id: 'TASK-001-B:'
+  task_title: THOUGHTS
+  timestamp: '2026-02-12T16:27:16.780888Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: '**Event-driven architecture** - Agents communicate via events in events.yaml,
+    no...'
+  description: '**Event-driven architecture** - Agents communicate via events in events.yaml,
+    not direct messaging.'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - yaml
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 40ec12c246e23130
+- learning_id: TASK-001-B:-INSIGHT-5838
+  task_id: 'TASK-001-B:'
+  task_title: THOUGHTS
+  timestamp: '2026-02-12T16:27:16.780908Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: '**Token budget enforcement** - All agents must track and respect their token
+    bud...'
+  description: '**Token budget enforcement** - All agents must track and respect their
+    token budgets with checkpoint support.'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 4b5788cd9ee69ee4
+- learning_id: TASK-001-B:-INSIGHT-8942
+  task_id: 'TASK-001-B:'
+  task_title: THOUGHTS
+  timestamp: '2026-02-12T16:27:16.780923Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: '**Self-modification capability** - Agents update their timeline-memory and
+    long-...'
+  description: '**Self-modification capability** - Agents update their timeline-memory
+    and long-term memory during runs.'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - memory
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: f33070c78744364d
+- learning_id: TASK-001-B:-INSIGHT-3034
+  task_id: 'TASK-001-B:'
+  task_title: THOUGHTS
+  timestamp: '2026-02-12T16:27:16.780936Z'
+  source_file: THOUGHTS.md
+  learning_type: insight
+  title: '**BB5 alignment** - Research pipeline must match BB5''s run/metrics/state
+    pattern...'
+  description: '**BB5 alignment** - Research pipeline must match BB5''s run/metrics/state
+    patterns for consistency.
+
+
+    ---'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: b48e558a98e07291
+- learning_id: TASK-001-B:-DECISION-1
+  task_id: 'TASK-001-B:'
+  task_title: DECISIONS
+  timestamp: '2026-02-12T16:27:16.788550Z'
+  source_file: DECISIONS.md
+  learning_type: decision
+  title: Open Questions
+  description: "1. **Neo4j integration timing:** Should Neo4j be available from day\
+    \ 1 or added later?\n   - *Decision:* Document schema but don't enforce immediate\
+    \ implementation. Optional for Phase 2.\n\n2. **Validator agent interfaces:**\
+    \ Should validators have formal input/output contracts?\n   - *Decision:* No.\
+    \ Validators use private feedback via chat-log.yaml and memory files. Only workers\
+    \ have public interfaces.\n\n3. **Executor Agent frequency:** How often does BB5\
+    \ executor check queue.yaml?\n   - *Decision:* Ex"
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - yaml
+  - database
+  - file-io
+  - memory
+  - schema
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: ab9220a1970b8847
+- learning_id: TASK-20260203171822-standardize-json-logging-RESULT-1
+  task_id: TASK-20260203171822-standardize-json-logging
+  task_title: RESULTS
+  timestamp: '2026-02-12T16:27:16.791135Z'
+  source_file: RESULTS.md
+  learning_type: insight
+  title: Files modified in TASK-20260203171822-standardize-json-logging
+  description: "Modified files:\n```\n.claude/hooks/\n├── session-start-agent-teams.sh\
+    \          # 2 hooks converted\n├── post-message-agent-teams.sh           # to\
+    \ JSON logging\n└── pre_tool_use.py                       # Updated to use shared\
+    \ logger\n\n5-project-memory/blackbox5/.autonomous/\n└── tasks/active/IMPROVING-V2-HOOKS/tasks/TASK-20260203171822-standardize-json-logging.md\n\
+    \   # Updated status to COMPLETED with implementation details\n```"
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - files
+  - modifications
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 391d92a10738d6aa
+- learning_id: TASK-20260203171822-DECISION-4203
+  task_id: TASK-20260203171822
+  task_title: 'was marked as **partial**, which means there was more work to be done.
+    Upon inspection:'
+  timestamp: '2026-02-12T16:27:16.791400Z'
+  source_file: THOUGHTS.md
+  learning_type: decision
+  title: '1. **Use existing logger**: All hooks now import and use `hooks.utils.json_logge...'
+  description: '1. **Use existing logger**: All hooks now import and use `hooks.utils.json_logger.log_hook_data()`'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - json
+  - imports
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 764100101178c3e8
+- learning_id: TASK-20260203171822-DECISION-5154
+  task_id: TASK-20260203171822
+  task_title: 'was marked as **partial**, which means there was more work to be done.
+    Upon inspection:'
+  timestamp: '2026-02-12T16:27:16.791435Z'
+  source_file: THOUGHTS.md
+  learning_type: decision
+  title: '**Consistent format**: All logs follow the same structure with `hook`, `timestam...'
+  description: '**Consistent format**: All logs follow the same structure with `hook`,
+    `timestamp`, and relevant data'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 24539cfb54441586
+- learning_id: TASK-20260203171822-DECISION-6478
+  task_id: TASK-20260203171822
+  task_title: 'was marked as **partial**, which means there was more work to be done.
+    Upon inspection:'
+  timestamp: '2026-02-12T16:27:16.791454Z'
+  source_file: THOUGHTS.md
+  learning_type: decision
+  title: '**Minimal changes**: Only added logging calls, did not change hook logic'
+  description: '**Minimal changes**: Only added logging calls, did not change hook
+    logic'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags: []
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: d0b880c894517400
+- learning_id: TASK-20260203171822-DECISION-4205
+  task_id: TASK-20260203171822
+  task_title: 'was marked as **partial**, which means there was more work to be done.
+    Upon inspection:'
+  timestamp: '2026-02-12T16:27:16.791469Z'
+  source_file: THOUGHTS.md
+  learning_type: decision
+  title: '**Error handling**: Maintained existing error handling while adding structured
+    l...'
+  description: '**Error handling**: Maintained existing error handling while adding
+    structured logging'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - error-handling
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: 32528baec2979a3e
+- learning_id: TASK-20260203171822-RESULT-1
+  task_id: TASK-20260203171822
+  task_title: from **partial** to **completed**.
+  timestamp: '2026-02-12T16:27:16.792346Z'
+  source_file: RESULTS.md
+  learning_type: insight
+  title: Files modified in TASK-20260203171822
+  description: 'Modified files:
+
+    ### Hooks Updated with JSON Logging
+
+
+    | Hook | Type | Changes |
+
+    |------|------|---------|
+
+    | `retain-on-complete.py` | Python | Added 3 logging calls with task_id, run_dir,
+    memory extraction results |
+
+    | `task_completion_skill_recorder.py` | Python | Added logging for events and
+    usage logs |
+
+    | `log-skill-on-complete.py` | Python | Added logging for skill tracking and run
+    metadata |
+
+    | `pre-tool-security.py` | Python | Replaced custom logger with shared `log_hook_data()`
+    |
+
+
+    ### Hooks Previously Completed (from task description)
+
+
+    | Hook | Type | Status |
+
+    |------|------|--------|
+
+    | `session-start-agent-teams.sh` | Bash | Already completed |
+
+    | `post-message-agent-teams.sh` | Bash | Already completed |
+
+    | `pre_tool_use.py` | Python | Already completed |'
+  severity: null
+  effectiveness: 0.0
+  frequency: one-time
+  category: technical
+  tags:
+  - files
+  - modifications
+  related_tasks: []
+  pattern: null
+  action_item: null
+  content_hash: dd59757243ef54d1
 patterns: []
-
-# ==============================================================================
-# Statistics
-# ==============================================================================
 statistics:
-  # Learning counts by type
   by_type:
-    pattern: 0
-    decision: 0
-    challenge: 0
-    optimization: 0
-    bugfix: 0
-    insight: 0
-
-  # Learning counts by category
+    insight: 22
+    pattern: 2
+    bugfix: 1
+    decision: 12
   by_category:
-    technical: 0
-    process: 0
-    architectural: 0
-    operational: 0
-
-  # Learning counts by severity
+    technical: 33
+    process: 2
+    architectural: 2
   by_severity:
-    critical: 0
-    high: 0
-    medium: 0
-    low: 0
-
-  # Effectiveness statistics
+    medium: 10
+  by_frequency:
+    one-time: 37
   effectiveness:
     average: null
     min: null
     max: null
     total_tracked: 0
-
-  # Frequency statistics
   frequency:
     recurring: 0
     occasional: 0
-    one_time: 0
-
-# ==============================================================================
-# Index Maintenance
-# ==============================================================================
-# This section tracks index maintenance operations
+    one_time: 37
 maintenance:
-  last_rebuild: null
+  last_rebuild: '2026-02-12T16:27:16.878820Z'
   last_cleanup: null
   last_effectiveness_update: null
-  total_rebuilds: 0
+  total_rebuilds: 1
+notes: 'Learning Index Auto-Generated
 
-# ==============================================================================
-# Notes
-# ==============================================================================
-notes: |
-  Learning Index Auto-Generated
 
   This index is automatically populated by the learning_extractor.py library
+
   after each task completion. Manual edits should maintain the YAML structure.
 
+
   Index structure:
+
   - learnings: Array of learning objects extracted from tasks
+
   - patterns: Array of recurring patterns identified across tasks
+
   - statistics: Aggregated statistics for quick querying
+
   - maintenance: Index maintenance tracking
 
+
   Usage:
-  - Query with knowledge_retriever.py: python3 -m knowledge_retriever search "import error"
+
+  - Query with knowledge_retriever.py: python3 -m knowledge_retriever search "import
+  error"
+
   - Find patterns with pattern_matcher.py: python3 -m pattern_matcher patterns
-  - Apply learnings with learning_applier.py: python3 -m learning_applier inject --task-id TASK-XXX --title "My Task"
+
+  - Apply learnings with learning_applier.py: python3 -m learning_applier inject --task-id
+  TASK-XXX --title "My Task"
+
 
   Maintenance:
+
   - Rebuild: python3 -m learning_extractor rebuild-index
+
   - Cleanup: python3 -m learning_extractor cleanup-index
+
   - Update effectiveness: python3 -m learning_applier update-effectiveness
+
+  '

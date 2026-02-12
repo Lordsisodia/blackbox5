@@ -92,7 +92,13 @@ class LearningExtractor:
             index_path: Path to learning-index.yaml (default: standard location)
         """
         if index_path is None:
-            self.index_path = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml")
+            # Use environment-aware path for BlackBox5 installations
+            bb5_path = Path("/opt/blackbox5")
+            if bb5_path.exists():
+                self.index_path = bb5_path / "5-project-memory/blackbox5/memory/insights/learning-index.yaml"
+            else:
+                # Fallback to macOS dev path
+                self.index_path = Path("/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/memory/insights/learning-index.yaml")
         else:
             self.index_path = Path(index_path)
 
@@ -262,6 +268,13 @@ Maintenance:
             learnings.extend(results_learnings)
             print(f"  RESULTS.md: {len(results_learnings)} learnings")
 
+        # Extract from LEARNINGS.md
+        learnings_file = run_dir / "LEARNINGS.md"
+        if learnings_file.exists():
+            learnings_md_learnings = self._extract_from_learnings(learnings_file)
+            learnings.extend(learnings_md_learnings)
+            print(f"  LEARNINGS.md: {len(learnings_md_learnings)} learnings")
+
         # Deduplicate against existing learnings
         new_learnings = []
         for learning in learnings:
@@ -430,6 +443,80 @@ Maintenance:
                 tags=["files", "modifications"],
             )
             learnings.append(learning)
+
+        return learnings
+
+    def _extract_from_learnings(self, filepath: Path) -> List[Learning]:
+        """Extract learnings from LEARNINGS.md file."""
+        content = filepath.read_text()
+        learnings = []
+
+        # Extract task info
+        task_id = self._extract_task_id(content)
+        task_title = self._extract_task_title(content)
+
+        # Pattern: Extract numbered sections (## N. Title)
+        numbered_sections = re.findall(r'##\s+\d+\.\s+(.+?)\n\n\*\*Finding:\*\*(.+?)\n\n\*\*Details:\*\*(.+?)(?=\n\n##\s+\d+\.|\Z)', content, re.DOTALL)
+
+        for title, finding, details in numbered_sections:
+            title = title.strip()
+            finding = finding.strip()
+            details = details.strip()
+
+            # Determine learning type based on content
+            learning_type = "insight"
+            if any(kw in title.lower() + finding.lower() for kw in ["pattern", "structure", "format", "approach"]):
+                learning_type = "pattern"
+            elif any(kw in title.lower() + finding.lower() for kw in ["error", "issue", "problem", "failure"]):
+                learning_type = "bugfix"
+            elif any(kw in title.lower() + finding.lower() for kw in ["future", "integration", "enhancement"]):
+                learning_type = "optimization"
+
+            # Determine category
+            category = "technical"
+            if any(kw in title.lower() for kw in ["development", "pattern", "approach", "structure"]):
+                category = "process"
+            elif any(kw in title.lower() for kw in ["api", "log", "json"]):
+                category = "architectural"
+            elif any(kw in title.lower() for kw in ["use case", "case"]):
+                category = "operational"
+
+            learning = Learning(
+                learning_id=f"{task_id}-LEARNING-{len(learnings)+1}",
+                task_id=task_id,
+                task_title=task_title,
+                timestamp=datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+                source_file=filepath.name,
+                learning_type=learning_type,
+                title=title[:100],
+                description=f"Finding: {finding[:300]}\n\nDetails:\n{details[:500]}",
+                severity="medium",
+                category=category,
+                tags=self._extract_tags(title + " " + finding + " " + details),
+            )
+            learnings.append(learning)
+
+        # Alternative pattern: Extract unnumbered sections with headers
+        if not learnings:
+            sections = re.findall(r'##\s+(.+?)\n\n\*\*(?:Finding|Note):?\*\*(.+?)(?=\n\n##|\Z)', content, re.DOTALL)
+            for title, body in sections:
+                title = title.strip()
+                body = body.strip()
+
+                if len(title) > 10 and len(body) > 20:
+                    learning = Learning(
+                        learning_id=f"{task_id}-LEARNING-{len(learnings)+1}",
+                        task_id=task_id,
+                        task_title=task_title,
+                        timestamp=datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+                        source_file=filepath.name,
+                        learning_type="insight",
+                        title=title[:100],
+                        description=body[:600],
+                        category="technical",
+                        tags=self._extract_tags(title + " " + body),
+                    )
+                    learnings.append(learning)
 
         return learnings
 
@@ -816,8 +903,13 @@ def main():
 
     elif args.backfill:
         if not args.runs_dir:
-            # Use default runs directory
-            args.runs_dir = "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs"
+            # Use environment-aware default runs directory
+            bb5_path = Path("/opt/blackbox5")
+            if bb5_path.exists():
+                args.runs_dir = str(bb5_path / "5-project-memory/blackbox5/.autonomous/runs")
+            else:
+                # Fallback to macOS dev path
+                args.runs_dir = "/Users/shaansisodia/.blackbox5/5-project-memory/blackbox5/.autonomous/agents/executor/runs"
         extractor.backfill(Path(args.runs_dir), dry_run=args.dry_run)
 
     elif args.run_dir:
