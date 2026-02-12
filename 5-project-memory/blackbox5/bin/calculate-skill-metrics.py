@@ -228,6 +228,8 @@ def dict_to_skill_list(skills_dict: dict) -> list[dict]:
         # skill_id might be like "bmad-dev", skill_data contains all the details
         if isinstance(skill_data, dict):
             skill = skill_data.copy()
+            # Store the original dict key for lookup
+            skill['id'] = skill_id
             # Ensure name is set from key if not present
             if 'name' not in skill:
                 skill['name'] = skill_id
@@ -313,8 +315,9 @@ def update_skill_metrics(registry_data: dict, outcomes: list[dict]) -> dict:
     skills_list = dict_to_skill_list(skills_dict)
 
     for skill in skills_list:
-        skill_name = skill['name']
-        skill_outcomes = get_outcomes_for_skill(outcomes, skill_name)
+        skill_id = skill['id']  # Use skill ID for dict lookup
+        skill_name = skill['name']  # Display name for reporting
+        skill_outcomes = get_outcomes_for_skill(outcomes, skill_id)  # Match by ID
 
         # Get baseline from ROI section
         baseline = skill.get('roi', {}).get('baseline_minutes', 30)
@@ -332,40 +335,40 @@ def update_skill_metrics(registry_data: dict, outcomes: list[dict]) -> dict:
         effectiveness = calculate_effectiveness_score(metrics)
 
         # Update skill metrics in nested structure
-        if skill_name in skills_dict:
+        if skill_id in skills_dict:
             # Ensure nested structures exist
-            if 'metrics' not in skills_dict[skill_name]:
-                skills_dict[skill_name]['metrics'] = {}
-            if 'roi' not in skills_dict[skill_name]:
-                skills_dict[skill_name]['roi'] = {}
-            if 'usage' not in skills_dict[skill_name]:
-                skills_dict[skill_name]['usage'] = {}
+            if 'metrics' not in skills_dict[skill_id]:
+                skills_dict[skill_id]['metrics'] = {}
+            if 'roi' not in skills_dict[skill_id]:
+                skills_dict[skill_id]['roi'] = {}
+            if 'usage' not in skills_dict[skill_id]:
+                skills_dict[skill_id]['usage'] = {}
 
             # Update metrics
-            skills_dict[skill_name]['metrics']['effectiveness_score'] = effectiveness
+            skills_dict[skill_id]['metrics']['effectiveness_score'] = effectiveness
             for key, value in metrics.items():
-                skills_dict[skill_name]['metrics'][key] = value
+                skills_dict[skill_id]['metrics'][key] = value
 
             # Update ROI calculations
-            skills_dict[skill_name]['roi']['time_saved_minutes'] = calculate_time_saved(skill_outcomes, baseline)
-            skills_dict[skill_name]['roi']['quality_improvement'] = calculate_quality_improvement(skill_outcomes)
-            skills_dict[skill_name]['roi']['cost_benefit_ratio'] = calculate_cost_benefit_ratio(skill_outcomes, baseline)
+            skills_dict[skill_id]['roi']['time_saved_minutes'] = calculate_time_saved(skill_outcomes, baseline)
+            skills_dict[skill_id]['roi']['quality_improvement'] = calculate_quality_improvement(skill_outcomes)
+            skills_dict[skill_id]['roi']['cost_benefit_ratio'] = calculate_cost_benefit_ratio(skill_outcomes, baseline)
 
             # Update usage counts from outcomes
             if skill_outcomes:
-                skills_dict[skill_name]['usage']['usage_count'] = len(skill_outcomes)
-                skills_dict[skill_name]['usage']['success_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'success')
-                skills_dict[skill_name]['usage']['failure_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'failure')
+                skills_dict[skill_id]['usage']['usage_count'] = len(skill_outcomes)
+                skills_dict[skill_id]['usage']['success_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'success')
+                skills_dict[skill_id]['usage']['failure_count'] = sum(1 for o in skill_outcomes if o.get('outcome') == 'failure')
 
                 # Update timestamps
                 timestamps = [o.get('timestamp') for o in skill_outcomes if o.get('timestamp')]
                 if timestamps:
-                    skills_dict[skill_name]['usage']['first_used'] = min(timestamps)
-                    skills_dict[skill_name]['usage']['last_used'] = max(timestamps)
+                    skills_dict[skill_id]['usage']['first_used'] = min(timestamps)
+                    skills_dict[skill_id]['usage']['last_used'] = max(timestamps)
 
             # Update selection confidence if present
-            if 'selection' in skills_dict[skill_name]:
-                skills_dict[skill_name]['selection']['confidence'] = determine_confidence_level(effectiveness)
+            if 'selection' in skills_dict[skill_id]:
+                skills_dict[skill_id]['selection']['confidence'] = determine_confidence_level(effectiveness)
 
     # Update analysis section
     registry_data['analysis'] = {
