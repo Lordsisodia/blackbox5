@@ -146,7 +146,7 @@ def check_duplicate_tasks():
                     duplicates.append({
                         "task_id": task_dir.name,
                         "title": title,
-                        "similar_to": existing
+                        "similar_to": existing,
                         "similarity": similarity
                     })
                     log(f"  ⚠️  Near-duplicate: {task_dir} ({similarity:.0%} similar to {existing})")
@@ -356,18 +356,44 @@ def execute_improvement_task(task_id: str, execution_plan: list):
     
     # Move to completed if all acceptance criteria met
     all_done = all(f"- [x]" in criteria for criteria in execution_plan)
-    
+
     if all_done:
         log(f"  ✅ All acceptance criteria met, moving to completed/")
-        
+
         # Move task directory
         completed_dir = TASKS_COMPLETED / task_id
         shutil.move(str(task_dir), str(completed_dir))
-        
+
         log(f"  ✅ Moved task to: {completed_dir}")
+
+        # Call post-task-completion hook to sync roadmap state
+        hook_script = BB5_DIR / ".autonomous/hooks/post-task-complete.sh"
+        if hook_script.exists():
+            log(f"  🔄 Running roadmap synchronization hook...")
+            try:
+                # Extract plan_id and goal_id from task content if possible
+                import subprocess
+                result = subprocess.run(
+                    [str(hook_script), task_id],
+                    capture_output=True,
+                    text=True,
+                    timeout=30
+                )
+                if result.returncode == 0:
+                    log(f"  ✅ Roadmap synchronization successful")
+                else:
+                    log(f"  ⚠️  Roadmap hook returned error code {result.returncode}")
+                    if result.stderr:
+                        log(f"  ⚠️  Error: {result.stderr}")
+            except subprocess.TimeoutExpired:
+                log(f"  ⚠️  Roadmap hook timed out after 30s")
+            except Exception as e:
+                log(f"  ⚠️  Roadmap hook failed: {str(e)}")
+        else:
+            log(f"  ⚠️  Roadmap sync hook not found: {hook_script}")
     else:
         log(f"  ⚠️  Not all acceptance criteria met yet")
-    
+
     return len(changes_made), all_done
 
 def main():
