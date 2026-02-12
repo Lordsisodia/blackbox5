@@ -101,141 +101,67 @@ def spawn_context_gatherer(entry):
     log(f"Context gatherer completed - scanned {len(context['projects_scanned'])} projects")
     return True
 
-def spawn_superintelligence(entry):
-    """Activate superintelligence protocol"""
-    log("Activating superintelligence protocol...")
+# Mapping of agent types to signal file names and display names
+AGENT_SIGNAL_MAP = {
+    'superintelligence': ('superintelligence-active', 'superintelligence protocol'),
+    'research-suite': ('research-suite-active', 'research suite'),
+    'executor': ('executor-active', 'executor'),
+    'planner': ('planner-active', 'planner'),
+    'debug-workflow': ('debug-workflow-active', 'debug workflow'),
+    'validator': ('validator-active', 'validator'),
+    'git-commit': ('git-commit-active', 'git commit'),
+    'dependency-analysis': ('dependency-analysis-active', 'dependency analysis'),
+    'performance-analysis': ('performance-analysis-active', 'performance analysis'),
+    'security-audit': ('security-audit-active', 'security audit'),
+}
 
-    # Create team activation signal
-    team_signal = SIGNALS_DIR / "superintelligence-active"
-    with open(team_signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
+def spawn_agent(agent_type, entry):
+    """
+    Generic agent spawner that creates signal files.
 
-    log("Superintelligence team activation signal created")
-    return True
+    Args:
+        agent_type: Type of agent to spawn
+        entry: Queue entry containing prompt and metadata
 
-def spawn_research_suite(entry):
-    """Spawn research suite agents"""
-    log("Spawning research suite...")
-    signal = SIGNALS_DIR / "research-suite-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Research suite activation signal created")
-    return True
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    if agent_type not in AGENT_SIGNAL_MAP:
+        log(f"Unknown agent type for signal spawning: {agent_type}")
+        return False
 
-def spawn_executor(entry):
-    """Spawn executor agent"""
-    log("Spawning executor...")
-    signal = SIGNALS_DIR / "executor-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Executor activation signal created")
-    return True
+    signal_file, display_name = AGENT_SIGNAL_MAP[agent_type]
+    log(f"Spawning {display_name}...")
 
-def spawn_planner(entry):
-    """Spawn planner agent"""
-    log("Spawning planner...")
-    signal = SIGNALS_DIR / "planner-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Planner activation signal created")
-    return True
+    try:
+        signal = SIGNALS_DIR / signal_file
+        with open(signal, "w") as f:
+            f.write(json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "prompt": entry.get('prompt', ''),
+                "status": "activating"
+            }))
 
-def spawn_debug_workflow(entry):
-    """Spawn debug workflow"""
-    log("Spawning debug workflow...")
-    signal = SIGNALS_DIR / "debug-workflow-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Debug workflow activation signal created")
-    return True
-
-def spawn_validator(entry):
-    """Spawn validator agent"""
-    log("Spawning validator...")
-    signal = SIGNALS_DIR / "validator-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Validator activation signal created")
-    return True
-
-def spawn_git_commit(entry):
-    """Spawn git commit agent"""
-    log("Spawning git commit agent...")
-    signal = SIGNALS_DIR / "git-commit-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Git commit activation signal created")
-    return True
-
-def spawn_dependency_analysis(entry):
-    """Spawn dependency analysis"""
-    log("Spawning dependency analysis...")
-    signal = SIGNALS_DIR / "dependency-analysis-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Dependency analysis activation signal created")
-    return True
-
-def spawn_performance_analysis(entry):
-    """Spawn performance analysis"""
-    log("Spawning performance analysis...")
-    signal = SIGNALS_DIR / "performance-analysis-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Performance analysis activation signal created")
-    return True
-
-def spawn_security_audit(entry):
-    """Spawn security audit"""
-    log("Spawning security audit...")
-    signal = SIGNALS_DIR / "security-audit-active"
-    with open(signal, "w") as f:
-        f.write(json.dumps({
-            "timestamp": datetime.now().isoformat(),
-            "prompt": entry.get('prompt', ''),
-            "status": "activating"
-        }))
-    log("Security audit activation signal created")
-    return True
+        log(f"{display_name.title()} activation signal created")
+        return True
+    except Exception as e:
+        log(f"Error creating signal for {agent_type}: {e}")
+        return False
 
 def process_entry(entry):
-    """Process a single spawn queue entry"""
+    """
+    Process a single spawn queue entry.
+
+    Routes to appropriate spawn handler based on agent type.
+    Agents with custom logic have dedicated handlers,
+    while signal-based agents use the generic spawn_agent function.
+
+    Args:
+        entry: Queue entry with agent_type, status, prompt, etc.
+
+    Returns:
+        Updated entry with status and completion info
+    """
     agent_type = entry.get('agent_type')
     status = entry.get('status')
 
@@ -251,30 +177,14 @@ def process_entry(entry):
     # Spawn based on agent type
     success = False
     try:
+        # Agents with custom logic
         if agent_type == 'scribe':
             success = spawn_scribe_agent(entry)
         elif agent_type == 'context-gatherer':
             success = spawn_context_gatherer(entry)
-        elif agent_type == 'superintelligence':
-            success = spawn_superintelligence(entry)
-        elif agent_type == 'research-suite':
-            success = spawn_research_suite(entry)
-        elif agent_type == 'executor':
-            success = spawn_executor(entry)
-        elif agent_type == 'planner':
-            success = spawn_planner(entry)
-        elif agent_type == 'debug-workflow':
-            success = spawn_debug_workflow(entry)
-        elif agent_type == 'validator':
-            success = spawn_validator(entry)
-        elif agent_type == 'git-commit':
-            success = spawn_git_commit(entry)
-        elif agent_type == 'dependency-analysis':
-            success = spawn_dependency_analysis(entry)
-        elif agent_type == 'performance-analysis':
-            success = spawn_performance_analysis(entry)
-        elif agent_type == 'security-audit':
-            success = spawn_security_audit(entry)
+        # Signal-based agents use generic handler
+        elif agent_type in AGENT_SIGNAL_MAP:
+            success = spawn_agent(agent_type, entry)
         else:
             log(f"Unknown agent type: {agent_type}")
             entry['status'] = 'failed'
