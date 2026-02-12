@@ -22,7 +22,7 @@ The Goals System enables humans to specify high-level objectives for RALF to ach
                                 │
                     ┌───────────▼─────────────┐
                     │  Check Active Goals     │◄───────┐
-                    │  (goals/active/*.md)    │        │
+                    │  (goals/active/IG-XXX/) │        │
                     └───────────┬─────────────┘        │
                                 │                      │
                       ┌─────────┴─────────┐            │
@@ -46,76 +46,146 @@ The Goals System enables humans to specify high-level objectives for RALF to ach
 ## Directory Structure
 
 ```
-5-project-memory/ralf-core/.autonomous/goals/
-├── active/           # Currently active goals
-│   └── GOAL-XXX-*.md
-├── completed/        # Completed goals
-│   └── GOAL-XXX-*.md
-└── templates/        # Goal templates
-    └── goal-template.md
+5-project-memory/blackbox5/goals/
+├── README.md              # Goals system overview
+├── INDEX.yaml             # Auto-generated: all goals, quick lookup
+│
+├── core/                  # Perpetual goals (never complete)
+│   └── core-goals.yaml    # CG-001, CG-002, CG-003
+│
+├── active/                # Improvement goals in progress
+│   └── IG-XXX/            # Each goal gets a folder
+│       ├── goal.yaml      # Definition + sub-goals
+│       ├── timeline.yaml  # Structured events
+│       └── journal/       # Narrative updates
+│           └── YYYY-MM-DD.md
+│
+├── completed/             # Archived goals
+│   └── IG-XXX/
+│       ├── goal.yaml
+│       ├── timeline.yaml
+│       ├── outcome.yaml   # What actually happened
+│       └── journal/
+│
+└── templates/
+    └── goal-template.yaml
 ```
 
 ## Goal Format
 
-Goals use YAML frontmatter + markdown:
+Goals use structured YAML files in subdirectories:
 
-```markdown
-# GOAL-{ID}: {Title}
+### goal.yaml Structure
 
-**Status:** active
-**Priority:** {HIGH|MEDIUM|LOW}
-**Created:** {YYYY-MM-DDTHH:MM:SSZ}
-**Target Completion:** {YYYY-MM-DD}
-**Owner:** {human|autonomous}
+```yaml
+# Goal: {Goal Title}
+# =============================================================================
+goal_id: IG-XXX
+name: "{Goal Name}"
+description: "{Brief description}"
 
----
+meta:
+  created: "YYYY-MM-DD"
+  target_completion: "YYYY-MM-DD"
+  owner: "{agent-id}"
+  priority: critical|high|medium|low
+  status: not_started|in_progress|completed
+  category: {category}
 
-## Objective
+# =============================================================================
+# SUB-GOALS
+# =============================================================================
 
-{Clear statement of the high-level goal}
+sub_goals:
+  - id: SG-XXX-1
+    name: "{Sub-goal name}"
+    description: "{Sub-goal description}"
+    weight: 40  # Percentage of total goal
+    status: not_started|in_progress|completed
 
-## Success Criteria
+    acceptance_criteria:
+      - "{Measurable outcome 1}"
+      - "{Measurable outcome 2}"
 
-- [ ] {Measurable outcome 1}
-- [ ] {Measurable outcome 2}
-- [ ] {Measurable outcome 3}
+    linked_tasks:
+      - TASK-XXX
+      - TASK-YYY
 
-## Sub-Goals (Optional)
+# =============================================================================
+# PROGRESS TRACKING
+# =============================================================================
 
-Break down complex goals into smaller milestones:
+progress:
+  percentage: 35  # Auto: (completed_task_weight / total_weight) * 100
+  last_updated: "YYYY-MM-DDTHH:MM:SSZ"
 
-- [ ] **Sub-Goal 1:** {Description} → Creates: {TASK-XXXX}
-- [ ] **Sub-Goal 2:** {Description} → Creates: {TASK-XXXX}
-- [ ] **Sub-Goal 3:** {Description} → Creates: {TASK-XXXX}
+  by_sub_goal:
+    SG-XXX-1: 85%  # Calculated from linked tasks
+    SG-XXX-2: 0%
 
-## Context
+# =============================================================================
+# NOTES & CONTEXT
+# =============================================================================
 
-{Background information, motivation, and relevant details}
+context: |
+  {Background information, motivation, and relevant details}
 
-## Constraints
+constraints:
+  - "{Constraint 1}"
+  - "{Constraint 2}"
 
-- {Constraint 1}
-- {Constraint 2}
+notes: |
+  {Additional thoughts, references, or considerations}
+```
 
-## Notes
+### timeline.yaml Structure
 
-{Additional thoughts, references, or considerations}
+```yaml
+events:
+  - timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+    type: goal_created
+    description: "Goal created by {agent}"
 
----
+  - timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+    type: sub_goal_started
+    sub_goal: SG-XXX-1
+    task_created: TASK-XXX
 
-## Progress Log
+  - timestamp: "YYYY-MM-DDTHH:MM:SSZ"
+    type: task_completed
+    task: TASK-XXX
+    progress_delta: +20%
+    agent: "{agent-id}"
+```
 
-| Date | Event | Task Created |
-|------|-------|--------------|
-| {DATE} | Goal created | - |
-| {DATE} | Sub-goal 1 started | TASK-XXXX |
-| {DATE} | Sub-goal 1 completed | - |
+### journal/ Directory
 
-## Completion
+Narrative updates stored as dated markdown files:
+- `journal/YYYY-MM-DD.md` - Daily updates, learnings, observations
 
-**Completed:** {YYYY-MM-DDTHH:MM:SSZ}
-**Final Status:** {completed|abandoned|superseded}
-**Outcome:** {Summary of results}
+### outcome.yaml (for completed goals)
+
+```yaml
+outcome:
+  completion_date: "YYYY-MM-DDTHH:MM:SSZ"
+  final_status: completed|abandoned|superseded
+  success_percentage: 100
+
+  lessons_learned:
+    - "{Lesson 1}"
+    - "{Lesson 2}"
+
+  unexpected_results:
+    - "{Result 1}"
+    - "{Result 2}"
+
+  next_steps:
+    - "{Follow-up task 1}"
+    - "{Follow-up task 2}"
+
+  superseded_by:  # If applicable
+    goal_id: IG-YYY
+    reason: "{Why this goal was superseded}"
 ```
 
 ## Task Generation Logic
@@ -138,17 +208,18 @@ decision_matrix:
 
 1. **Check for active goals**
    ```bash
-   ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md
+   ls /opt/blackbox5/5-project-memory/blackbox5/goals/active/
    ```
 
 2. **Read highest priority goal**
-   - Sort by priority (HIGH > MEDIUM > LOW)
+   - Sort by priority (critical > high > medium > low)
    - If tie, use creation date (older first)
+   - Read each `IG-XXX/goal.yaml` file
 
 3. **Find next incomplete sub-goal**
-   - Scan `## Sub-Goals` section
-   - Find first unchecked `[ ]` item
-   - Extract task description
+   - Scan `sub_goals` array in goal.yaml
+   - Find first sub-goal with `status: not_started` or `in_progress`
+   - Get task description from sub-goal
 
 4. **Create derived task**
    - Task type: `GOAL_DERIVED`
@@ -159,20 +230,28 @@ decision_matrix:
 
 ### Creating a New Goal
 
-1. Copy the template:
+1. Create directory:
    ```bash
-   cp ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/templates/goal-template.md \
-      ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/GOAL-{ID}-{title}.md
+   mkdir -p /opt/blackbox5/5-project-memory/blackbox5/goals/active/IG-XXX
    ```
 
-2. Fill in required fields:
-   - ID (incremental: GOAL-001, GOAL-002, etc.)
-   - Title (descriptive)
-   - Objective (clear statement)
-   - Success criteria (measurable outcomes)
-   - Sub-goals (breakdown if complex)
+2. Copy and edit template:
+   ```bash
+   cp /opt/blackbox5/5-project-memory/blackbox5/goals/templates/goal-template.yaml \
+      /opt/blackbox5/5-project-memory/blackbox5/goals/active/IG-XXX/goal.yaml
+   ```
 
-3. Save to `goals/active/`
+3. Fill in required fields:
+   - `goal_id` (incremental: IG-001, IG-002, etc.)
+   - `name` (descriptive)
+   - `description` (brief summary)
+   - `meta.priority` (critical|high|medium|low)
+   - `sub_goals` array with acceptance criteria
+
+4. Create initial timeline:
+   ```bash
+   touch /opt/blackbox5/5-project-memory/blackbox5/goals/active/IG-XXX/timeline.yaml
+   ```
 
 ### Goal Lifecycle
 
@@ -190,34 +269,51 @@ decision_matrix:
 
 ### Updating Goal Progress
 
-As sub-goals complete, update the goal file:
+As sub-goals complete, update the goal.yaml file:
 
-```markdown
-## Sub-Goals
+```yaml
+sub_goals:
+  - id: SG-XXX-1
+    name: "Sub-goal 1"
+    status: completed  # Changed from in_progress
+    linked_tasks:
+      - TASK-001
 
-- [x] **Sub-Goal 1:** {Description} → Creates: TASK-001 (completed)
-- [ ] **Sub-Goal 2:** {Description} → Creates: TASK-002 (in progress)
-- [ ] **Sub-Goal 3:** {Description} → Creates: TASK-XXXX
+  - id: SG-XXX-2
+    name: "Sub-goal 2"
+    status: in_progress  # Still in progress
+    linked_tasks:
+      - TASK-002
 ```
 
-Add to Progress Log:
-```markdown
-| 2026-01-30 | Sub-goal 1 completed | TASK-001 |
+Add event to timeline.yaml:
+```yaml
+events:
+  - timestamp: "2026-02-12T15:00:00Z"
+    type: sub_goal_completed
+    sub_goal: SG-XXX-1
+    task: TASK-001
+    agent: "{agent-id}"
 ```
 
 ### Completing a Goal
 
-When all success criteria are met:
+When all sub-goals are complete:
 
-1. Mark all sub-goals as complete
-2. Update status to `completed`
-3. Fill in Completion section:
-   ```markdown
-   **Completed:** 2026-01-30T15:00:00Z
-   **Final Status:** completed
-   **Outcome:** Successfully implemented [feature]
+1. Verify all acceptance criteria met
+2. Update status in goal.yaml to `completed`
+3. Create outcome.yaml:
+   ```yaml
+   outcome:
+     completion_date: "2026-02-12T15:00:00Z"
+     final_status: completed
+     success_percentage: 100
+     lessons_learned:
+       - "Lesson 1"
+       - "Lesson 2"
    ```
-4. Move to `goals/completed/`
+4. Move entire directory to `goals/completed/`
+5. Update INDEX.yaml
 
 ## Integration with RALF
 
@@ -234,12 +330,12 @@ When `tasks/active/` is empty:
 
 ```bash
 # Check goals directory for active goals
-ls ~/.blackbox5/5-project-memory/ralf-core/.autonomous/goals/active/*.md 2>/dev/null
+ls /opt/blackbox5/5-project-memory/blackbox5/goals/active/ 2>/dev/null
 ```
 
 **If active goals exist:**
-- Read the highest priority goal
-- Find first incomplete sub-goal or success criterion
+- Read the highest priority goal.yaml
+- Find first incomplete sub-goal
 - Create task to advance that goal
 - **Priority Override:** Goal-derived tasks score 90+ priority
 
