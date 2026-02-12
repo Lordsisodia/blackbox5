@@ -33,15 +33,35 @@ jobs:
 
       - name: Check shell scripts
         run: |
-          # Check all .sh files in bin/
-          shellcheck bin/*.sh
-
-          # Check shell scripts in project root
-          shellcheck legacy-codespace-loop.sh 2>/dev/null || true
-
-          # Check scripts in 5-project-memory/blackbox5/.autonomous/
-          shellcheck 5-project-memory/blackbox5/.autonomous/ralf-daemon.sh 2>/dev/null || true
+          # Find and check all .sh files (excluding .git and node_modules)
+          shellcheck $(find . -type f -name "*.sh" \
+            ! -path "./.git/*" \
+            ! -path "./node_modules/*" \
+            ! -path "./6-roadmap-pre-cleanup-backup/*" \
+            ! -path "*/.*/*") || {
+            echo "Shellcheck found issues. See details above."
+            exit 1
+          }
         continue-on-error: false
+
+      - name: Generate shellcheck report
+        if: always()
+        run: |
+          echo "# Shellcheck Report" > shellcheck-report.md
+          echo "" >> shellcheck-report.md
+          shellcheck $(find . -type f -name "*.sh" \
+            ! -path "./.git/*" \
+            ! -path "./node_modules/*" \
+            ! -path "./6-roadmap-pre-cleanup-backup/*" \
+            ! -path "*/.*/*") >> shellcheck-report.md || true
+
+      - name: Upload shellcheck report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shellcheck-report
+          path: shellcheck-report.md
+          retention-days: 30
 
   # ========================================================================
   # CODE QUALITY CHECKS
