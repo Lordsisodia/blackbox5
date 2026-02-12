@@ -13,8 +13,14 @@ import threading
 import time
 from datetime import datetime
 
-REDIS_HOST = "77.42.66.40"
-REDIS_PORT = 6379
+from ...mcp import get_redis_config, get_vps_config
+
+
+# Configuration from centralized config
+redis_config = get_redis_config()
+vps_config = get_vps_config()
+REDIS_HOST = redis_config.host
+REDIS_PORT = redis_config.port
 AGENT_ID = "moltbot-vps-ai"
 SESSION_ID = "redis-bridge-session"
 
@@ -56,11 +62,13 @@ class RealMoltbotBridge:
 
     def query_real_ai(self, message):
         """Query the real Moltbot AI via CLI"""
+        import os
         try:
             # Use OpenClaw CLI to talk to real AI
+            ssh_key = os.path.expanduser(vps_config.ssh_key_path) if vps_config.ssh_key_path else os.path.expanduser("~/.ssh/ralf_hetzner")
             cmd = [
-                "ssh", "-i", "/Users/shaansisodia/.ssh/ralf_hetzner",
-                "root@77.42.66.40",
+                "ssh", "-i", ssh_key,
+                f"{vps_config.user}@{vps_config.ip}",
                 f'echo "{message.replace(chr(34), chr(92)+chr(34))}" | openclaw agent --local --message - --session-id {SESSION_ID}'
             ]
 

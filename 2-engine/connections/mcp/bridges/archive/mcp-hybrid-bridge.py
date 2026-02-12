@@ -12,6 +12,8 @@ import threading
 import time
 from datetime import datetime
 
+from ...mcp import get_redis_config, get_nats_config
+
 # NATS imports
 try:
     import nats
@@ -20,11 +22,13 @@ try:
 except ImportError:
     NATS_AVAILABLE = False
 
-# Configuration
-REDIS_HOST = "77.42.66.40"
-REDIS_PORT = 6379
-NATS_HOST = "77.42.66.40"
-NATS_PORT = 4222
+# Configuration from centralized config
+redis_config = get_redis_config()
+nats_config = get_nats_config()
+REDIS_HOST = redis_config.host
+REDIS_PORT = redis_config.port
+NATS_HOST = nats_config.host
+NATS_PORT = nats_config.port
 
 class HybridBridge:
     def __init__(self, agent_id="claude-mac-01"):

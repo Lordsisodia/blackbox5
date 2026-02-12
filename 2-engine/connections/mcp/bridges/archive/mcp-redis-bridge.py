@@ -12,10 +12,14 @@ import threading
 import time
 from datetime import datetime
 
-# Redis configuration
-REDIS_HOST = "77.42.66.40"
-REDIS_PORT = 6379
-REDIS_DB = 0
+from ...mcp import get_redis_config
+
+
+# Redis configuration from centralized config
+redis_config = get_redis_config()
+REDIS_HOST = redis_config.host
+REDIS_PORT = redis_config.port
+REDIS_DB = redis_config.db
 
 # Channel names
 CHANNEL_CLAUDE_TO_OPENCLAW = "claude:openclaw:messages"

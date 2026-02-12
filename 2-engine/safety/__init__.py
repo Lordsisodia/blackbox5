@@ -9,7 +9,7 @@ Provides critical safety features for multi-agent operations:
 
 from .kill_switch import KillSwitch, get_kill_switch, activate_emergency_shutdown
 from .safe_mode import SafeMode, SafeModeLevel, get_safe_mode
-from .constitutional_classifier import ConstitutionalClassifier, get_classifier
+from .classifier.constitutional_classifier import ConstitutionalClassifier, get_classifier
 
 __all__ = [
     'KillSwitch',

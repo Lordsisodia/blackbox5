@@ -12,8 +12,12 @@ import threading
 import queue
 import time
 
-# OpenClaw VPS config
-VPS_IP = "77.42.66.40"
+from ...mcp import get_vps_config
+
+
+# OpenClaw VPS config from centralized config
+vps_config = get_vps_config()
+VPS_IP = vps_config.ip
 GATEWAY_PORT = 18789
 GATEWAY_TOKEN = "ralf-local-token-12345"  # From openclaw.json
 

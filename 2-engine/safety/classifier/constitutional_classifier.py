@@ -234,7 +234,7 @@ class ConstitutionalClassifier:
 
             # Trigger kill switch for jailbreak attempts
             if self.strict_mode:
-                from .kill_switch import get_kill_switch
+                from ..kill_switch.kill_switch import get_kill_switch
                 ks = get_kill_switch()
                 ks.trigger(
                     KillSwitchReason.MALICE_DETECTED,
@@ -302,7 +302,7 @@ class ConstitutionalClassifier:
             self._record_violation(violation)
 
             # Trigger kill switch for harmful output
-            from .kill_switch import get_kill_switch
+            from ..kill_switch.kill_switch import get_kill_switch
             ks = get_kill_switch()
             ks.trigger(
                 KillSwitchReason.SAFETY_VIOLATION,
@@ -551,4 +551,4 @@ def check_agent_output(func):
 
 
 # Import for type annotations
-from .kill_switch import KillSwitchReason
+from ..kill_switch.kill_switch import KillSwitchReason

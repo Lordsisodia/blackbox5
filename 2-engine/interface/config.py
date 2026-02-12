@@ -118,6 +118,40 @@ class PathConfig:
 
 
 @dataclass
+class RedisConfig:
+    """Redis connection configuration."""
+
+    host: str = "127.0.0.1"
+    port: int = 6379
+    db: int = 0
+    password: Optional[str] = None
+    max_connections: int = 50
+    socket_timeout: int = 5
+    socket_connect_timeout: int = 5
+
+
+@dataclass
+class NATSConfig:
+    """NATS connection configuration."""
+
+    host: str = "127.0.0.1"
+    port: int = 4222
+    max_reconnect_attempts: int = -1  # -1 = infinite
+    reconnect_wait: int = 2  # seconds
+    timeout: int = 10  # seconds
+
+
+@dataclass
+class VPSConfig:
+    """VPS connection configuration."""
+
+    ip: str = "127.0.0.1"
+    user: str = "root"
+    ssh_key_path: Optional[Path] = None
+    ssh_port: int = 22
+
+
+@dataclass
 class LoggingConfig:
     """Logging configuration."""
 
@@ -141,6 +175,9 @@ class Config:
     agent: AgentConfig = field(default_factory=AgentConfig)
     paths: PathConfig = field(default_factory=PathConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
+    redis: RedisConfig = field(default_factory=RedisConfig)
+    nats: NATSConfig = field(default_factory=NATSConfig)
+    vps: VPSConfig = field(default_factory=VPSConfig)
 
     # PRD settings (legacy compatibility)
     prd_template_path: Path = field(init=False)
@@ -368,6 +405,50 @@ def _update_config_from_dict(config: Config, data: Dict[str, Any]) -> Config:
         if "console" in logging_data:
             config.logging.console = logging_data["console"]
 
+    # Redis config
+    if "redis" in data:
+        redis_data = data["redis"]
+        if "host" in redis_data:
+            config.redis.host = redis_data["host"]
+        if "port" in redis_data:
+            config.redis.port = redis_data["port"]
+        if "db" in redis_data:
+            config.redis.db = redis_data["db"]
+        if "password" in redis_data:
+            config.redis.password = redis_data["password"]
+        if "max_connections" in redis_data:
+            config.redis.max_connections = redis_data["max_connections"]
+        if "socket_timeout" in redis_data:
+            config.redis.socket_timeout = redis_data["socket_timeout"]
+        if "socket_connect_timeout" in redis_data:
+            config.redis.socket_connect_timeout = redis_data["socket_connect_timeout"]
+
+    # NATS config
+    if "nats" in data:
+        nats_data = data["nats"]
+        if "host" in nats_data:
+            config.nats.host = nats_data["host"]
+        if "port" in nats_data:
+            config.nats.port = nats_data["port"]
+        if "max_reconnect_attempts" in nats_data:
+            config.nats.max_reconnect_attempts = nats_data["max_reconnect_attempts"]
+        if "reconnect_wait" in nats_data:
+            config.nats.reconnect_wait = nats_data["reconnect_wait"]
+        if "timeout" in nats_data:
+            config.nats.timeout = nats_data["timeout"]
+
+    # VPS config
+    if "vps" in data:
+        vps_data = data["vps"]
+        if "ip" in vps_data:
+            config.vps.ip = vps_data["ip"]
+        if "user" in vps_data:
+            config.vps.user = vps_data["user"]
+        if "ssh_key_path" in vps_data:
+            config.vps.ssh_key_path = Path(vps_data["ssh_key_path"]) if vps_data["ssh_key_path"] else None
+        if "ssh_port" in vps_data:
+            config.vps.ssh_port = vps_data["ssh_port"]
+
     # General settings
     if "environment" in data:
         config.environment = data["environment"]
@@ -403,6 +484,40 @@ def _update_config_from_env(config: Config) -> Config:
         config.agent.model = os.getenv("CLAUDE_MODEL")
     if os.getenv("CLAUDE_TEMPERATURE"):
         config.agent.temperature = float(os.getenv("CLAUDE_TEMPERATURE", "0.7"))
+
+    # Redis settings
+    if os.getenv("REDIS_HOST"):
+        config.redis.host = os.getenv("REDIS_HOST")
+    if os.getenv("REDIS_PORT"):
+        config.redis.port = int(os.getenv("REDIS_PORT"))
+    if os.getenv("REDIS_DB"):
+        config.redis.db = int(os.getenv("REDIS_DB"))
+    if os.getenv("REDIS_PASSWORD"):
+        config.redis.password = os.getenv("REDIS_PASSWORD")
+    if os.getenv("REDIS_MAX_CONNECTIONS"):
+        config.redis.max_connections = int(os.getenv("REDIS_MAX_CONNECTIONS"))
+    if os.getenv("REDIS_SOCKET_TIMEOUT"):
+        config.redis.socket_timeout = int(os.getenv("REDIS_SOCKET_TIMEOUT"))
+
+    # NATS settings
+    if os.getenv("NATS_HOST"):
+        config.nats.host = os.getenv("NATS_HOST")
+    if os.getenv("NATS_PORT"):
+        config.nats.port = int(os.getenv("NATS_PORT"))
+    if os.getenv("NATS_MAX_RECONNECT_ATTEMPTS"):
+        config.nats.max_reconnect_attempts = int(os.getenv("NATS_MAX_RECONNECT_ATTEMPTS"))
+    if os.getenv("NATS_RECONNECT_WAIT"):
+        config.nats.reconnect_wait = int(os.getenv("NATS_RECONNECT_WAIT"))
+
+    # VPS settings
+    if os.getenv("VPS_IP"):
+        config.vps.ip = os.getenv("VPS_IP")
+    if os.getenv("VPS_USER"):
+        config.vps.user = os.getenv("VPS_USER")
+    if os.getenv("VPS_SSH_KEY_PATH"):
+        config.vps.ssh_key_path = Path(os.getenv("VPS_SSH_KEY_PATH"))
+    if os.getenv("VPS_SSH_PORT"):
+        config.vps.ssh_port = int(os.getenv("VPS_SSH_PORT"))
 
     # Environment
     if os.getenv("ENVIRONMENT"):

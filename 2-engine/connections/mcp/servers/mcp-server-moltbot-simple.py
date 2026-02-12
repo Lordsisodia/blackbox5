@@ -11,9 +11,14 @@ import os
 import yaml
 from datetime import datetime
 
-VPS_IP = "77.42.66.40"
-VPS_USER = "root"
-SSH_KEY = os.path.expanduser("~/.ssh/ralf_hetzner")
+from ...mcp import get_vps_config
+
+
+# Get configuration from centralized config
+vps_config = get_vps_config()
+VPS_IP = vps_config.ip
+VPS_USER = vps_config.user
+SSH_KEY = os.path.expanduser(vps_config.ssh_key_path) if vps_config.ssh_key_path else os.path.expanduser("~/.ssh/ralf_hetzner")
 CONFIG_FILE = os.path.expanduser("~/.blackbox5/moltbot-conversational.yaml")
 
 

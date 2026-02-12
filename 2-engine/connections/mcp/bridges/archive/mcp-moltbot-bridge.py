@@ -12,10 +12,15 @@ import threading
 import websockets
 from datetime import datetime
 
-# Configuration
-REDIS_HOST = "77.42.66.40"
-REDIS_PORT = 6379
-MOLTBOT_WS = "ws://77.42.66.40:18789/ws"  # OpenClaw WebSocket
+from ...mcp import get_redis_config, get_vps_config
+
+
+# Configuration from centralized config
+redis_config = get_redis_config()
+vps_config = get_vps_config()
+REDIS_HOST = redis_config.host
+REDIS_PORT = redis_config.port
+MOLTBOT_WS = f"ws://{vps_config.ip}:18789/ws"  # OpenClaw WebSocket
 AGENT_ID = "moltbot-vps-01"
 
 class MoltbotBridge:

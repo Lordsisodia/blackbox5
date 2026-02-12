@@ -9,12 +9,18 @@ import sys
 import subprocess
 import os
 
+from ...mcp import get_vps_config
+
+
 def log(msg):
     print(f"[OPENCLAW-MCP] {msg}", file=sys.stderr)
 
-VPS_IP = "77.42.66.40"
-VPS_USER = "root"
-SSH_KEY = os.path.expanduser("~/.ssh/ralf_hetzner")
+
+# Get configuration from centralized config
+vps_config = get_vps_config()
+VPS_IP = vps_config.ip
+VPS_USER = vps_config.user
+SSH_KEY = os.path.expanduser(vps_config.ssh_key_path) if vps_config.ssh_key_path else os.path.expanduser("~/.ssh/ralf_hetzner")
 
 def run_vps_command(cmd):
     """Run command on VPS via SSH"""

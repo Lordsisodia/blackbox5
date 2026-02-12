@@ -1,0 +1,379 @@
+{
+  "current_level": "restricted",
+  "enter_time": "2026-02-12T03:28:12.473830",
+  "enter_reason": "Test",
+  "history": [
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "High memory usage",
+      "source": "test",
+      "timestamp": "2026-02-12T03:23:37.526533"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.528587"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.529578"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Issue resolved",
+      "source": "test",
+      "timestamp": "2026-02-12T03:23:37.530186"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.534618"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.536913"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.538203"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.540567"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.541838"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.545573"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "manual",
+      "timestamp": "2026-02-12T03:23:37.546977"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:23:37.633929"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "High memory usage",
+      "source": "test",
+      "timestamp": "2026-02-12T03:27:06.223386"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.224678"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.225304"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Issue resolved",
+      "source": "test",
+      "timestamp": "2026-02-12T03:27:06.225696"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.228009"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.229217"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.229954"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.231147"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.231776"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.233118"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "manual",
+      "timestamp": "2026-02-12T03:27:06.233751"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.263662"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:27:06.277436"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.947620"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "High memory usage",
+      "source": "test",
+      "timestamp": "2026-02-12T03:28:08.950508"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.952052"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.952858"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Issue resolved",
+      "source": "test",
+      "timestamp": "2026-02-12T03:28:08.953375"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.956327"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.958015"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.958781"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.960167"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.962146"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.963663"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "manual",
+      "timestamp": "2026-02-12T03:28:08.965027"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.979114"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:08.986856"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.339525"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "High memory usage",
+      "source": "test",
+      "timestamp": "2026-02-12T03:28:12.346598"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.351076"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.354499"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Issue resolved",
+      "source": "test",
+      "timestamp": "2026-02-12T03:28:12.357575"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.364597"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.369315"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.372901"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.377794"
+    },
+    {
+      "from_level": "off",
+      "to_level": "limited",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.381658"
+    },
+    {
+      "from_level": "limited",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.388289"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "manual",
+      "timestamp": "2026-02-12T03:28:12.392313"
+    },
+    {
+      "from_level": "restricted",
+      "to_level": "off",
+      "reason": "Test cleanup",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.457324"
+    },
+    {
+      "from_level": "off",
+      "to_level": "restricted",
+      "reason": "Test",
+      "source": "unknown",
+      "timestamp": "2026-02-12T03:28:12.473818"
+    }
+  ],
+  "last_updated": "2026-02-12T03:28:12.473866"
+}

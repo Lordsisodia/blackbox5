@@ -11,9 +11,15 @@ import subprocess
 import threading
 import queue
 import time
+import os
 
-VPS_IP = "77.42.66.40"
-SSH_KEY = "/Users/shaansisodia/.ssh/ralf_hetzner"
+from ...mcp import get_vps_config
+
+
+# Get configuration from centralized config
+vps_config = get_vps_config()
+VPS_IP = vps_config.ip
+SSH_KEY = os.path.expanduser(vps_config.ssh_key_path) if vps_config.ssh_key_path else os.path.expanduser("~/.ssh/ralf_hetzner")
 
 # Message queue for async responses
 message_queue = queue.Queue()
