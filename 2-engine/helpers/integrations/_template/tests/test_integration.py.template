@@ -11,7 +11,8 @@ from unittest.mock import AsyncMock, MagicMock
 # from integration.service_name import TemplateManager
 # from integration.service_name.types import EntityType, EntityStatus
 
-from manager import TemplateManager
+# TODO: After replacing placeholders and renaming, import from manager.py
+# from manager import TemplateManager
 
 
 @pytest.fixture
@@ -59,7 +60,7 @@ async def test_create_entity(mock_manager):
     }
     mock_manager.client.post.return_value = mock_response
 
-    from manager import OperationSpec
+    # from manager import OperationSpec
     spec = OperationSpec(param1="test")
 
     entity = await mock_manager.create_entity(spec)

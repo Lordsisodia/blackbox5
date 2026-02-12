@@ -255,7 +255,7 @@ The agent should read its prompt, which will contain all information regarding t
 - [x] Document hook-based enforcement model ✅
 - [x] Correct directory paths to `/opt/blackbox5/` ✅
 
-### Phase 3: Task Selection
+### Phase 3: Task Selection ✅ COMPLETED 2026-02-12 17:30 UTC
 If it's an executor agent, it should look at the main task list. There will be different types of tasks (architecture, feature, etc.), but the agent will pick the next item set to high priority—likely something a planning agent has already placed there as the most important thing to do next.
 
 **Existing Infrastructure:**
@@ -264,13 +264,107 @@ If it's an executor agent, it should look at the main task list. There will be d
 - Dual-RALF queue system in `.autonomous/communications/queue.yaml`
 - Skill defined: `2-engine/.autonomous/skills/task-selection/`
 
-### Phase 4: Task Folder Creation
+**Phase 3 Implementation:**
+
+**Created:** `/opt/blackbox5/bin/ralf-task-select.py` (7,056 bytes)
+
+**Features:**
+- Scans `tasks/active/` directory for all `task.md` files
+- Parses priority and status from task metadata
+- Sorts by priority weight: critical (100) > HIGH (90) > MEDIUM (50) > LOW (10)
+- Supports task claiming to prevent duplicate execution (moves to `tasks/working/`)
+- Machine-readable output format: `TASK_ID|PATH|PRIORITY|STATUS`
+- List mode with human-readable table output
+
+**Usage:**
+```bash
+# Select highest priority task
+python3 bin/ralf-task-select.py
+
+# Select and claim task (move to working/)
+python3 bin/ralf-task-select.py --claim
+
+# List all tasks with priority scores
+python3 bin/ralf-task-select.py --list
+
+# Show first 50 tasks
+python3 bin/ralf-task-select.py --list -n 50
+```
+
+**Phase 3 Deliverables:**
+- [x] `bin/ralf-task-select.py` - Programmatic task selection ✅
+- [x] Priority ordering mechanism ✅
+- [x] Task claiming to prevent duplicate execution ✅
+
+### Phase 4: Task Folder Creation ✅ COMPLETED 2026-02-12 17:30 UTC
 Once a task is picked, the agent will create a templated task folder in the task area. The point of this folder is to have a README with a date and timestamp that includes:
 - (a) The goal
 - (b) The reasoning for the goal
 - (c) A task plan document (similar to SISO internal context)
 
-**Location Decision Needed:** Should this be in `/tasks/` (flat) or `/tasks/active/` and `/tasks/completed/`?
+**Location Decision:** Templates created in `tasks/template/` - to be used when creating task folders
+
+**Phase 4 Implementation:**
+
+**Created comprehensive template suite in `/opt/blackbox5/5-project-memory/blackbox5/tasks/template/`:**
+
+1. **README.md** (2,587 bytes) - Task entry point
+   - Goal, reasoning, and quick links
+   - Folder structure documentation
+   - Context files explanation
+   - Execution artifacts overview
+
+2. **TASK-CONTEXT.md** (3,119 bytes) - Planning agent context
+   - Task overview and background
+   - Relevant files and routes
+   - Dependencies and prerequisites
+   - Architectural considerations
+   - Implementation constraints
+   - Testing strategy
+   - Rollback strategy
+
+3. **ACTIVE-CONTEXT.md** (3,972 bytes) - Execution agent context
+   - Lessons learned (what worked/didn't work)
+   - Unexpected discoveries
+   - New patterns found
+   - Code quality observations
+   - Documentation updates
+   - Testing notes
+   - Future work recommendations
+
+4. **PLAN.md** (4,252 bytes) - Implementation plan
+   - 6 phases: Preparation → Analysis → Implementation → Testing → Documentation → Validation
+   - Each phase with checkboxes and time estimates
+   - Timeline summary table
+   - Detailed step-by-step approach
+
+5. **TIMELINE.md** (4,749 bytes) - Chronological log
+   - Execution log table with timestamps
+   - Detailed event descriptions
+   - Critical events (blockers, issues)
+   - Deviations from plan
+   - Time analysis (planned vs actual)
+   - Key milestones
+
+6. **CHANGELOG.md** (6,395 bytes) - Change documentation
+   - Added, Changed, Fixed, Removed sections
+   - Documentation updates
+   - Configuration changes
+   - Database changes
+   - Dependency updates
+   - Breaking changes
+   - Migration guide
+
+**All templates use placeholder syntax** (e.g., `{TASK_ID}`, `{TIMESTAMP}`) for easy customization.
+
+**Phase 4 Deliverables:**
+- [x] Define task folder structure ✅
+- [x] Create `README.md` template (goal, reasoning, plan) ✅
+- [x] Create `TASK-CONTEXT.md` template (from planner) ✅
+- [x] Create `ACTIVE-CONTEXT.md` template (for executor) ✅
+- [x] Create `PLAN.md` template (step-by-step plan) ✅
+- [x] Create `TIMELINE.md` template (chronological log) ✅
+- [x] Create `CHANGELOG.md` template (modifications log) ✅
 
 ### Phase 5: Context and Execution
 Inside that task folder (created specifically for the execution agent doing the work), there should be two types of context in an MD file:
@@ -349,7 +443,7 @@ Proposed hierarchy:
 
 - [x] Document the complete agent execution flow with folder structure ✅ COMPLETED 2026-02-12
 - [x] Decide on enforcement mechanism (hooks vs prompts vs wrapper) ✅ COMPLETED 2026-02-12 (hooks chosen)
-- [ ] Define task folder location and structure ⏳ IN PROGRESS (templates in prompts, need implementation)
+- [x] Define task folder location and structure ✅ COMPLETED 2026-02-12 17:30 UTC (templates created)
 - [x] Clarify timeline vs thought log relationship ✅ COMPLETED 2026-02-12 (kept separate)
 - [x] Create hook implementation plan for critical path enforcement ✅ COMPLETED 2026-02-12 (hooks implemented)
 - [x] Update existing prompts to reference new flow ✅ COMPLETED 2026-02-12 (both prompts updated)
@@ -360,11 +454,17 @@ Proposed hierarchy:
 ## Files to Create/Modify
 
 **New Files:**
-- `.claude/settings.json` - Hook configuration for enforcement
-- `bin/ralf-session-start-hook.sh` - Session initialization enforcement
-- `bin/ralf-stop-hook.sh` - Task completion and sync enforcement
-- `bin/ralf-post-tool-hook.sh` - File modification detection
-- `.autonomous/tasks/active/TASK-XXXX/` - New task folder template
+- [x] `.claude/settings.json` - Hook configuration for enforcement ✅ CREATED 2026-02-12
+- [x] `bin/ralf-session-start-hook.sh` - Session initialization enforcement ✅ CREATED 2026-02-12
+- [x] `bin/ralf-stop-hook.sh` - Task completion and sync enforcement ✅ CREATED 2026-02-12
+- [ ] `bin/ralf-post-tool-hook.sh` - File modification detection ⏳ NOT STARTED
+- [x] `bin/ralf-task-select.py` - Programmatic task selection ✅ CREATED 2026-02-12 17:30 UTC
+- [x] `tasks/template/README.md` - Task folder entry point ✅ CREATED 2026-02-12 17:30 UTC
+- [x] `tasks/template/TASK-CONTEXT.md` - Planning agent context ✅ CREATED 2026-02-12 17:30 UTC
+- [x] `tasks/template/ACTIVE-CONTEXT.md` - Execution agent context ✅ CREATED 2026-02-12 17:30 UTC
+- [x] `tasks/template/PLAN.md` - Implementation plan template ✅ CREATED 2026-02-12 17:30 UTC
+- [x] `tasks/template/TIMELINE.md` - Chronological log template ✅ CREATED 2026-02-12 17:30 UTC
+- [x] `tasks/template/CHANGELOG.md` - Change log template ✅ CREATED 2026-02-12 17:30 UTC
 
 **Files to Modify:**
 - `2-engine/.autonomous/prompts/ralf-executor.md` - Reference new flow
@@ -396,18 +496,54 @@ The queue automation has a 100% failure rate (0/5 features synced) not because o
 - Documented hook-based enforcement model (SessionStart and Stop hooks)
 - Added task folder structure with templates
 
+**Progress Update (2026-02-12 17:30 UTC):**
+✅ **Phase 3 Completed** - Programmatic task selection script
+- Created `/opt/blackbox5/bin/ralf-task-select.py` (7,056 bytes)
+- Script scans tasks/active/ directory for task.md files
+- Parses priority and status from each task
+- Sorts by priority weight: critical (100) > HIGH (90) > MEDIUM (50) > LOW (10)
+- Supports task claiming to prevent duplicate execution
+- Usage: `python3 bin/ralf-task-select.py` (select task) or `--list` (list all tasks)
+- Tested successfully: Returns highest priority pending task
+
+✅ **Phase 4 Completed** - Task folder templates
+- Created comprehensive template suite in `tasks/template/`:
+  - **README.md** (2,587 bytes) - Task overview, goal, reasoning, quick links
+  - **TASK-CONTEXT.md** (3,119 bytes) - Planning agent context (files, routes, dependencies)
+  - **ACTIVE-CONTEXT.md** (3,972 bytes) - Execution agent context (lessons learned, discoveries)
+  - **PLAN.md** (4,252 bytes) - Detailed implementation plan with 6 phases
+  - **TIMELINE.md** (4,749 bytes) - Chronological log of all steps and events
+  - **CHANGELOG.md** (6,395 bytes) - Detailed list of all modifications made
+
+**Phase 3 Implementation Details:**
+- Python script with argparse CLI interface
+- Priority-based selection with configurable weights
+- Task claiming mechanism (moves task to tasks/working/ to prevent duplicates)
+- Machine-readable output format: `TASK_ID|PATH|PRIORITY|STATUS`
+- List mode with table output for human readability
+
+**Phase 4 Implementation Details:**
+- All templates use placeholder syntax: `{VARIABLE_NAME}`
+- README.md serves as entry point with links to all context files
+- TASK-CONTEXT.md structured for planning agent (files, routes, dependencies)
+- ACTIVE-CONTEXT.md structured for execution agent (lessons, patterns, debt)
+- PLAN.md follows 6-phase structure: Preparation → Analysis → Implementation → Testing → Documentation → Validation
+- TIMELINE.md captures chronological events, blockers, milestones, time analysis
+- CHANGELOG.md comprehensive: Added, Changed, Fixed, Removed, Breaking Changes, Migrations
+
 **Phase Status:**
 - Phase 1: ✅ COMPLETE (hooks created 2026-02-12)
 - Phase 2: ✅ COMPLETE (prompts updated 2026-02-12)
-- Phase 3: ⏳ NOT STARTED (task selection script)
-- Phase 4: ⏳ NOT STARTED (task folder templates)
+- Phase 3: ✅ COMPLETE (task selection script created 2026-02-12 17:30 UTC)
+- Phase 4: ✅ COMPLETE (task folder templates created 2026-02-12 17:30 UTC)
 - Phase 5: ✅ DOCUMENTED (context formats in prompts)
 - Phase 6: ✅ DOCUMENTED (templates in prompts)
 - Phase 7: ✅ COMPLETE (Stop hook created 2026-02-12)
 
 **Next Steps:**
-- Phase 3: Create `bin/ralf-task-select.py` for programmatic task selection
-- Phase 4: Define and create task folder templates (README.md, PLAN.md, etc.)
+- Test enforcement mechanism with actual agent run
+- Integrate task selection script into ralf-loop.sh
+- Create task completion script (bin/ralf-task-complete.sh)
 
 **The Fix:**
 ```
