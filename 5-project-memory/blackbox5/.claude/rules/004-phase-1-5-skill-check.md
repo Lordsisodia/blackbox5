@@ -80,6 +80,102 @@ Document in THOUGHTS.md under "## Skill Usage for This Task":
 
 **Override without justification = PROTOCOL VIOLATION**
 
+## Post-Task Validation Requirement
+**AFTER completing ANY task where a skill decision was made (invoked or overridden):**
+
+You MUST validate whether the skill decision was correct to improve trigger accuracy over time.
+
+### When to Validate
+
+**MUST validate when:**
+- A skill was invoked (whether clear or discretionary trigger)
+- A discretionary skill was overridden
+- Task outcome provides clear evidence about skill quality
+
+**MAY validate when:**
+- Low confidence trigger (<70%) and skill was not used
+- Task outcome is ambiguous
+- Task was abandoned/cancelled
+
+### Validation Process
+
+1. Copy the validation template:
+   ```bash
+   cp .templates/skill-validation-post-task.md ./skill-validation.md
+   ```
+
+2. Fill out ALL required fields:
+   - Task outcome documented
+   - Skill effectiveness assessed (helped/hindered/no impact)
+   - Decision type: CORRECT, INCORRECT, PARTIAL, or UNCLEAR
+   - Detailed rationale provided (evidence for your assessment)
+
+3. Record validation in skill registry:
+   ```bash
+   bb5 skill:validate --file ./skill-validation.md
+   ```
+   Or manually:
+   ```bash
+   bb5 skill:validate --task TASK-ID --skill SKILL-NAME --decision CORRECT
+   ```
+
+4. Review trigger accuracy trends:
+   ```bash
+   bb5 skill:validate --by-skill SKILL-NAME
+   bb5 skill:validate --summary
+   ```
+
+### Decision Types
+
+**CORRECT** - Skill decision was the right choice:
+- Task completed successfully
+- Skill contributed positively to outcome
+- No better alternative would have been better
+
+**INCORRECT** - Skill decision was wrong:
+- Wrong skill was invoked (should have used different skill or none)
+- Override was incorrect (should have invoked the skill)
+- Task was hindered or required rework due to bad decision
+
+**PARTIAL** - Skill helped but wasn't optimal:
+- Skill provided some benefit
+- Better approach would have been more effective
+- Learnings for skill improvement identified
+
+**UNCLEAR** - Cannot determine:
+- Insufficient evidence to assess
+- Task outcome ambiguous
+- Requires more information
+
+### Impact of Validation
+
+Validations directly improve the skill system:
+
+1. **Trigger Accuracy Calculation:**
+   ```
+   trigger_accuracy = (correct + 0.5 * partial) / (total - unclear) * 100
+   ```
+
+2. **Skill Recommendations:**
+   - High trigger_accuracy (>80%) → Increase confidence threshold
+   - Low trigger_accuracy (<60%) → Decrease threshold or improve skill content
+
+3. **Continuous Improvement:**
+   - Track trends over time
+   - Identify patterns in incorrect decisions
+   - Refine trigger keywords and confidence thresholds
+
+**Validation Failure = Missed Improvement Opportunity**
+
+### Validation Checklist
+
+Before marking a task as complete, ensure:
+- [ ] Skill decision documented in THOUGHTS.md (before execution)
+- [ ] Override justification created (if skill was overridden)
+- [ ] Post-task validation created (after task completion)
+- [ ] Validation recorded in skill-registry.yaml
+- [ ] Trigger accuracy reviewed for trends
+
 ## Auto-Trigger Rules
 
 | Trigger Condition | Confidence Level | Action | Override Allowed |

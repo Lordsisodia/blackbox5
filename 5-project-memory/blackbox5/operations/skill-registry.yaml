@@ -1,7 +1,7 @@
 metadata:
   version: 2.0.0
   created: '2026-02-06T00:00:00Z'
-  last_updated: '2026-02-12T06:27:34.643993+00:00'
+  last_updated: '2026-02-12T22:00:01.614833'
   schema_version: '2.0'
   replaces_files:
   - skill-metrics.yaml
@@ -13,7 +13,7 @@ metadata:
   calculation_frequency: weekly
   next_calculation_due: '2026-02-08T09:00:00Z'
   total_invocations: 1
-  total_tasks_tracked: 6
+  total_tasks_tracked: 9
   archive:
     archived_count: 3
     archive_date: '2026-02-12T06:27:34.643997+00:00'
@@ -51,24 +51,24 @@ skills:
     version: '1.0'
     created: '2026-01-15'
     metrics:
-      effectiveness_score: null
-      success_rate: null
-      time_efficiency: null
-      trigger_accuracy: null
-      quality_score: null
-      reuse_rate: null
+      effectiveness_score: 71.44
+      success_rate: 100.0
+      time_efficiency: 77.78
+      trigger_accuracy: 0.0
+      quality_score: 80.0
+      reuse_rate: 100.0
     usage:
-      usage_count: 0
-      success_count: 0
+      usage_count: 1
+      success_count: 1
       failure_count: 0
-      first_used: null
-      last_used: null
+      first_used: '2026-02-12T11:40:12.175021'
+      last_used: '2026-02-12T11:40:12.175021'
       avg_execution_time_ms: null
     roi:
       baseline_minutes: 45
-      time_saved_minutes: null
-      quality_improvement: null
-      cost_benefit_ratio: null
+      time_saved_minutes: 35
+      quality_improvement: 33.33
+      cost_benefit_ratio: 1.17
     selection:
       triggers:
       - PRD
@@ -81,7 +81,25 @@ skills:
       priority: 1
       when_to_use: PRD creation, requirements gathering, feature definition
       when_to_avoid: Simple tasks, coding-only work
-      confidence: low
+      confidence: medium
+    validation_history:
+    - task_id: TASK-TEST-001
+      decision: CORRECT
+      confidence: HIGH
+      timestamp: '2026-02-12T20:54:49Z'
+      notes: null
+    - task_id: TASK-TEST-001
+      decision: CORRECT
+      confidence: HIGH
+      timestamp: '2026-02-12T20:55:00Z'
+      notes: null
+    validation_metrics:
+      total_validations: 2
+      correct: 2
+      incorrect: 0
+      partial: 0
+      unclear: 0
+      trigger_accuracy: 100.0
   bmad-architect:
     name: System Architect
     description: System design, architecture, and patterns
@@ -248,24 +266,24 @@ skills:
     version: '1.0'
     created: '2026-01-15'
     metrics:
-      effectiveness_score: null
-      success_rate: null
-      time_efficiency: null
-      trigger_accuracy: null
-      quality_score: null
-      reuse_rate: null
+      effectiveness_score: 67.5
+      success_rate: 50.0
+      time_efficiency: 90.0
+      trigger_accuracy: 50.0
+      quality_score: 100.0
+      reuse_rate: 50.0
     usage:
-      usage_count: 1
-      success_count: 0
+      usage_count: 2
+      success_count: 1
       failure_count: 0
       first_used: '2026-02-07T16:08:38.955055+00:00'
-      last_used: '2026-02-07T16:08:38.955351+00:00'
+      last_used: '2026-02-12T11:39:50.946573'
       avg_execution_time_ms: null
     roi:
       baseline_minutes: 50
-      time_saved_minutes: null
-      quality_improvement: null
-      cost_benefit_ratio: null
+      time_saved_minutes: 45
+      quality_improvement: 66.67
+      cost_benefit_ratio: 1.5
     selection:
       triggers:
       - implement
@@ -278,7 +296,7 @@ skills:
       priority: 1
       when_to_use: Implementation, coding tasks, testing, code review
       when_to_avoid: High-level planning, architecture decisions
-      confidence: low
+      confidence: medium
   bmad-qa:
     name: Quality Assurance
     description: Testing strategy and quality assurance
@@ -1352,8 +1370,14 @@ selection_framework:
       documentation: 'Note in THOUGHTS.md: ''Multiple skills applicable, selected
         X because...'''
 analysis:
-  last_calculated: '2026-02-11T15:13:02.997450'
-  top_skills: []
+  last_calculated: '2026-02-12T22:00:01.614697'
+  top_skills:
+  - name: Product Manager
+    effectiveness_score: 71.44
+    category: agent
+  - name: Developer
+    effectiveness_score: 67.5
+    category: agent
   underperforming_skills: []
   category_performance:
   - category: agent
@@ -1369,6 +1393,14 @@ analysis:
     total_tasks: 0
     success_rate: null
   - category: protocol
+    avg_effectiveness: null
+    total_tasks: 0
+    success_rate: null
+  - category: research
+    avg_effectiveness: null
+    total_tasks: 0
+    success_rate: null
+  - category: testing
     avg_effectiveness: null
     total_tasks: 0
     success_rate: null
@@ -1389,6 +1421,8 @@ analysis:
     - task_id: TASK-1769910000
       reason: Skill system recovery analysis. bmad-analyst applicable but confidence
         below threshold. Analysis com
+    - task_id: TEST-SKILL-RECORD-002
+      reason: Second test of skill recording
     common_missed_opportunities:
     - task_id: TASK-1769909001
       reason: bmad-analyst identified as applicable (70% confidence) but not invoked
@@ -1695,88 +1729,81 @@ archived_skills:
     archived_reason: No usage; system operates in local-dev mode only; no K8s/Codespaces
       deployment planned
     replacement: null
-
 comparison_pairs:
-  # Comparison 1: Git Commit Operations
-  - task_type: "git-commit"
-    baseline_tasks:
-      - task_id: "TASK-GIT-BASE-001"
-        duration_minutes: 25
-        date: "2026-02-01T10:30:00Z"
-      - task_id: "TASK-GIT-BASE-002"
-        duration_minutes: 28
-        date: "2026-02-03T14:45:00Z"
-    skill_tasks:
-      - task_id: "TASK-GIT-SKILL-001"
-        skill_used: "git-automation"
-        duration_minutes: 12
-        date: "2026-02-02T09:15:00Z"
-      - task_id: "TASK-GIT-SKILL-002"
-        skill_used: "git-automation"
-        duration_minutes: 14
-        date: "2026-02-04T11:20:00Z"
-    time_saved_minutes: 13.5
-    time_saved_percent: 51.9
-    sample_size: 2
-    confidence: high
-
-  # Comparison 2: Documentation Writing
-  - task_type: "documentation"
-    baseline_tasks:
-      - task_id: "TASK-DOC-BASE-001"
-        duration_minutes: 45
-        date: "2026-02-05T16:00:00Z"
-    skill_tasks:
-      - task_id: "TASK-DOC-SKILL-001"
-        skill_used: "openclaw-doc-generator"
-        duration_minutes: 28
-        date: "2026-02-06T13:30:00Z"
-    time_saved_minutes: 17
-    time_saved_percent: 37.8
-    sample_size: 1
-    confidence: medium
-
-  # Comparison 3: Code Refactoring
-  - task_type: "refactoring"
-    baseline_tasks:
-      - task_id: "TASK-REF-BASE-001"
-        duration_minutes: 60
-        date: "2026-02-07T09:00:00Z"
-      - task_id: "TASK-REF-BASE-002"
-        duration_minutes: 55
-        date: "2026-02-08T10:15:00Z"
-      - task_id: "TASK-REF-BASE-003"
-        duration_minutes: 58
-        date: "2026-02-09T14:30:00Z"
-    skill_tasks:
-      - task_id: "TASK-REF-SKILL-001"
-        skill_used: "refactoring-automation"
-        duration_minutes: 35
-        date: "2026-02-10T11:45:00Z"
-      - task_id: "TASK-REF-SKILL-002"
-        skill_used: "refactoring-automation"
-        duration_minutes: 32
-        date: "2026-02-11T13:00:00Z"
-    time_saved_minutes: 23.5
-    time_saved_percent: 40.5
-    sample_size: 3
-    confidence: high
-
+- task_type: git-commit
+  baseline_tasks:
+  - task_id: TASK-GIT-BASE-001
+    duration_minutes: 25
+    date: '2026-02-01T10:30:00Z'
+  - task_id: TASK-GIT-BASE-002
+    duration_minutes: 28
+    date: '2026-02-03T14:45:00Z'
+  skill_tasks:
+  - task_id: TASK-GIT-SKILL-001
+    skill_used: git-automation
+    duration_minutes: 12
+    date: '2026-02-02T09:15:00Z'
+  - task_id: TASK-GIT-SKILL-002
+    skill_used: git-automation
+    duration_minutes: 14
+    date: '2026-02-04T11:20:00Z'
+  time_saved_minutes: 13.5
+  time_saved_percent: 51.9
+  sample_size: 2
+  confidence: high
+- task_type: documentation
+  baseline_tasks:
+  - task_id: TASK-DOC-BASE-001
+    duration_minutes: 45
+    date: '2026-02-05T16:00:00Z'
+  skill_tasks:
+  - task_id: TASK-DOC-SKILL-001
+    skill_used: openclaw-doc-generator
+    duration_minutes: 28
+    date: '2026-02-06T13:30:00Z'
+  time_saved_minutes: 17
+  time_saved_percent: 37.8
+  sample_size: 1
+  confidence: medium
+- task_type: refactoring
+  baseline_tasks:
+  - task_id: TASK-REF-BASE-001
+    duration_minutes: 60
+    date: '2026-02-07T09:00:00Z'
+  - task_id: TASK-REF-BASE-002
+    duration_minutes: 55
+    date: '2026-02-08T10:15:00Z'
+  - task_id: TASK-REF-BASE-003
+    duration_minutes: 58
+    date: '2026-02-09T14:30:00Z'
+  skill_tasks:
+  - task_id: TASK-REF-SKILL-001
+    skill_used: refactoring-automation
+    duration_minutes: 35
+    date: '2026-02-10T11:45:00Z'
+  - task_id: TASK-REF-SKILL-002
+    skill_used: refactoring-automation
+    duration_minutes: 32
+    date: '2026-02-11T13:00:00Z'
+  time_saved_minutes: 23.5
+  time_saved_percent: 40.5
+  sample_size: 3
+  confidence: high
 override_analysis:
   total_overrides: 0
   by_skill: {}
   validity_patterns:
     valid:
-      - "Simple documentation typo fix"
-      - "One-line configuration change"
-      - "Emergency hotfix (speed critical)"
-      - "Skill content already known/memorized"
-      - "Task is skill maintenance itself"
+    - Simple documentation typo fix
+    - One-line configuration change
+    - Emergency hotfix (speed critical)
+    - Skill content already known/memorized
+    - Task is skill maintenance itself
     invalid:
-      - "I can handle this (no specific reason)"
-      - "It will be faster (without risk assessment)"
-      - "The skill is wrong (without explaining why)"
-      - "No justification provided"
+    - I can handle this (no specific reason)
+    - It will be faster (without risk assessment)
+    - The skill is wrong (without explaining why)
+    - No justification provided
   improvement_recommendations: []
   last_review: null
   next_review: '2026-02-19T00:00:00Z'

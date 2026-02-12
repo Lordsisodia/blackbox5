@@ -1,0 +1,552 @@
+#!/bin/bash
+# bb5-skill-validate
+# Tool for validating skill decisions and recording them in skill-registry.yaml
+#
+# Usage:
+#   bb5 skill:validate --task TASK_ID --skill SKILL_NAME --decision CORRECT
+#   bb5 skill:validate --summary
+#   bb5 skill:validate --by-skill SKILL_NAME
+#   bb5 skill:validate --help
+
+set -e
+
+# Color codes
+if [ -t 1 ]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    MAGENTA='\033[0;35m'
+    CYAN='\033[0;36m'
+    NC='\033[0m'
+else
+    RED=''
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    MAGENTA=''
+    CYAN=''
+    NC=''
+fi
+
+# Configuration
+SKILL_REGISTRY="/opt/blackbox5/5-project-memory/blackbox5/operations/skill-registry.yaml"
+TEMPLATE_DIR="/opt/blackbox5/5-project-memory/blackbox5/.templates"
+
+# Logging functions
+log() { echo -e "${BLUE}[VALIDATE]${NC} $1"; }
+success() { echo -e "${GREEN}[✓]${NC} $1"; }
+error() { echo -e "${RED}[✗]${NC} $1"; }
+warn() { echo -e "${YELLOW}[!]${NC} $1"; }
+info() { echo -e "${CYAN}[i]${NC} $1"; }
+
+# Show help
+show_help() {
+    cat <<EOF
+${CYAN}BlackBox5 Skill Validation Tool${NC}
+
+${GREEN}Usage:${NC}
+  bb5 skill:validate [OPTIONS] --task TASK_ID --skill SKILL --decision DECISION
+
+${GREEN}Options:${NC}
+  -t, --task ID           Task ID (e.g., TASK-SKIL-018)
+  -s, --skill NAME        Skill name (e.g., git-commit, bmad-architect)
+  -d, --decision TYPE     Decision type: CORRECT, INCORRECT, PARTIAL, UNCLEAR
+  -c, --confidence LEVEL  Validation confidence: HIGH, MEDIUM, LOW (default: MEDIUM)
+  --file PATH             Path to completed validation file
+  --summary               Show summary statistics
+  --by-skill NAME         Show validations for specific skill
+  --last-week             Show validations from last 7 days
+  --last-month            Show validations from last 30 days
+  --export FILE           Export validations to CSV file
+  -h, --help              Show this help message
+
+${GREEN}Examples:${NC}
+  bb5 skill:validate --task TASK-SKIL-018 --skill git-commit --decision CORRECT
+  bb5 skill:validate --task TASK-DOCU-025 --skill test-generator --decision PARTIAL
+  bb5 skill:validate --summary
+  bb5 skill:validate --by-skill git-commit
+
+${GREEN}Decision Types:${NC}
+  CORRECT   - Skill decision was the right choice
+  INCORRECT - Skill decision was wrong
+  PARTIAL   - Skill helped but wasn't optimal
+  UNCLEAR   - Cannot determine
+
+${GREEN}Workflow:${NC}
+  1. Copy template: cp .templates/skill-validation-post-task.md ./skill-validation.md
+  2. Fill out validation details
+  3. Record: bb5 skill:validate --file ./skill-validation.md
+  4. Review: bb5 skill:validate --summary
+
+EOF
+}
+
+# Parse command line arguments
+TASK_ID=""
+SKILL_NAME=""
+DECISION=""
+CONFIDENCE="MEDIUM"
+VALIDATION_FILE=""
+SHOW_SUMMARY=false
+BY_SKILL=""
+LAST_WEEK=false
+LAST_MONTH=false
+EXPORT_FILE=""
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -t|--task)
+            TASK_ID="$2"
+            shift 2
+            ;;
+        -s|--skill)
+            SKILL_NAME="$2"
+            shift 2
+            ;;
+        -d|--decision)
+            DECISION="$2"
+            shift 2
+            ;;
+        -c|--confidence)
+            CONFIDENCE="$2"
+            shift 2
+            ;;
+        --file)
+            VALIDATION_FILE="$2"
+            shift 2
+            ;;
+        --summary)
+            SHOW_SUMMARY=true
+            shift
+            ;;
+        --by-skill)
+            BY_SKILL="$2"
+            shift 2
+            ;;
+        --last-week)
+            LAST_WEEK=true
+            shift
+            ;;
+        --last-month)
+            LAST_MONTH=true
+            shift
+            ;;
+        --export)
+            EXPORT_FILE="$2"
+            shift 2
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)
+            error "Unknown option: $1"
+            echo "Use --help for usage information"
+            exit 1
+            ;;
+    esac
+done
+
+# Validate decision type
+validate_decision() {
+    local decision="$1"
+    case "$decision" in
+        CORRECT|INCORRECT|PARTIAL|UNCLEAR)
+            return 0
+            ;;
+        *)
+            error "Invalid decision type: $decision"
+            echo "Valid types: CORRECT, INCORRECT, PARTIAL, UNCLEAR"
+            exit 1
+            ;;
+    esac
+}
+
+# Validate confidence level
+validate_confidence() {
+    local confidence="$1"
+    case "$confidence" in
+        HIGH|MEDIUM|LOW)
+            return 0
+            ;;
+        *)
+            error "Invalid confidence level: $confidence"
+            echo "Valid levels: HIGH, MEDIUM, LOW"
+            exit 1
+            ;;
+    esac
+}
+
+# Get timestamp
+get_timestamp() {
+    date -u +"%Y-%m-%dT%H:%M:%SZ"
+}
+
+# Record validation
+record_validation() {
+    local task_id="$1"
+    local skill_name="$2"
+    local decision="$3"
+    local confidence="$4"
+    local notes="$5"
+
+    local timestamp=$(get_timestamp)
+
+    # Create validation record
+    cat <<EOF
+  - task_id: $task_id
+    skill: $skill_name
+    decision: $decision
+    confidence: $confidence
+    timestamp: $timestamp
+    notes: $notes
+EOF
+}
+
+# Update skill registry with validation
+update_skill_registry() {
+    local task_id="$1"
+    local skill_name="$2"
+    local decision="$3"
+    local confidence="$4"
+    local notes="$5"
+    local timestamp=$(get_timestamp)
+
+    log "Recording validation for skill: $skill_name"
+
+    # Check if skill exists in registry (using Python for accuracy)
+    if ! python3 -c "import yaml; data = yaml.safe_load(open('$SKILL_REGISTRY')); exit(0 if '$skill_name' in data.get('skills', {}) else 1)"; then
+        error "Skill '$skill_name' not found in skill-registry.yaml"
+        echo "Available skills:"
+        python3 -c "import yaml; data = yaml.safe_load(open('$SKILL_REGISTRY')); print('  ' + '\n  '.join(data.get('skills', {}).keys()))"
+        exit 1
+    fi
+
+    # Create temp file for modifications
+    local temp_file=$(mktemp)
+
+    # Use Python for YAML manipulation (more reliable than sed)
+    python3 <<PYTHON_SCRIPT
+import yaml
+import sys
+from datetime import datetime
+
+# Load skill registry
+with open('$SKILL_REGISTRY', 'r') as f:
+    data = yaml.safe_load(f)
+
+# Skill name
+skill_name = '$skill_name'
+
+# Initialize validation tracking if not exists
+if 'validation_history' not in data['skills'][skill_name]:
+    data['skills'][skill_name]['validation_history'] = []
+
+if 'validation_metrics' not in data['skills'][skill_name]:
+    data['skills'][skill_name]['validation_metrics'] = {
+        'total_validations': 0,
+        'correct': 0,
+        'incorrect': 0,
+        'partial': 0,
+        'unclear': 0,
+        'trigger_accuracy': 0.0
+    }
+
+# Add validation record
+validation_record = {
+    'task_id': '$task_id',
+    'decision': '$decision',
+    'confidence': '$confidence',
+    'timestamp': '$timestamp',
+    'notes': '$notes' if '$notes' else None
+}
+
+data['skills'][skill_name]['validation_history'].append(validation_record)
+
+# Update metrics
+metrics = data['skills'][skill_name]['validation_metrics']
+metrics['total_validations'] += 1
+
+# Increment decision counters
+if '$decision' == 'CORRECT':
+    metrics['correct'] += 1
+elif '$decision' == 'INCORRECT':
+    metrics['incorrect'] += 1
+elif '$decision' == 'PARTIAL':
+    metrics['partial'] += 1
+elif '$decision' == 'UNCLEAR':
+    metrics['unclear'] += 1
+
+# Calculate trigger_accuracy
+# Formula: (correct + 0.5 * partial) / (total - unclear)
+correct_count = metrics['correct']
+partial_count = metrics['partial']
+unclear_count = metrics['unclear']
+total_count = metrics['total_validations']
+
+if total_count - unclear_count > 0:
+    metrics['trigger_accuracy'] = ((correct_count + 0.5 * partial_count) / (total_count - unclear_count)) * 100
+else:
+    metrics['trigger_accuracy'] = 0.0
+
+# Also update main trigger_accuracy metric in the metrics section
+if 'metrics' in data['skills'][skill_name]:
+    data['skills'][skill_name]['metrics']['trigger_accuracy'] = round(metrics['trigger_accuracy'], 2)
+
+# Write back
+with open('$SKILL_REGISTRY', 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+
+print(f"✓ Validation recorded: {skill_name} - $decision")
+print(f"✓ New trigger_accuracy: {metrics['trigger_accuracy']:.2f}%")
+print(f"✓ Total validations: {total_count}")
+PYTHON_SCRIPT
+
+    rm -f "$temp_file"
+
+    success "Validation recorded successfully"
+}
+
+# Show summary
+show_summary() {
+    log "Skill Validation Summary"
+    echo ""
+
+    python3 <<PYTHON_SCRIPT
+import yaml
+from datetime import datetime, timedelta
+
+# Load skill registry
+with open('$SKILL_REGISTRY', 'r') as f:
+    data = yaml.safe_load(f)
+
+total_validations = 0
+correct_count = 0
+incorrect_count = 0
+partial_count = 0
+unclear_count = 0
+
+skills_with_validations = []
+
+for skill_name, skill_data in data['skills'].items():
+    if 'validation_metrics' in skill_data:
+        metrics = skill_data['validation_metrics']
+        if metrics['total_validations'] > 0:
+            skills_with_validations.append({
+                'name': skill_name,
+                'metrics': metrics
+            })
+            total_validations += metrics['total_validations']
+            correct_count += metrics['correct']
+            incorrect_count += metrics['incorrect']
+            partial_count += metrics['partial']
+            unclear_count += metrics['unclear']
+
+print(f"Total Validations: {total_validations}")
+print(f"")
+print(f"By Decision Type:")
+print(f"  ✓ CORRECT:   {correct_count}")
+print(f"  ✗ INCORRECT: {incorrect_count}")
+print(f"  ◐ PARTIAL:   {partial_count}")
+print(f"  ? UNCLEAR:   {unclear_count}")
+print(f"")
+
+if skills_with_validations:
+    print(f"Skills with Validations:")
+    print(f"")
+    print(f"{'Skill':<30} {'Total':>8} {'Correct':>8} {'Incorrect':>10} {'Accuracy':>10}")
+    print(f"{'-'*30} {'-'*8} {'-'*8} {'-'*10} {'-'*10}")
+
+    # Sort by total validations
+    skills_with_validations.sort(key=lambda x: x['metrics']['total_validations'], reverse=True)
+
+    for skill in skills_with_validations:
+        name = skill['name']
+        m = skill['metrics']
+        accuracy = m['trigger_accuracy']
+        print(f"{name:<30} {m['total_validations']:>8} {m['correct']:>8} {m['incorrect']:>10} {accuracy:>9.2f}%")
+
+PYTHON_SCRIPT
+}
+
+# Show validations by skill
+show_by_skill() {
+    local skill_name="$1"
+
+    log "Validations for skill: $skill_name"
+    echo ""
+
+    python3 <<PYTHON_SCRIPT
+import yaml
+from datetime import datetime, timezone
+
+# Load skill registry
+with open('$SKILL_REGISTRY', 'r') as f:
+    data = yaml.safe_load(f)
+
+skill_name = '$skill_name'
+
+if skill_name not in data['skills']:
+    print(f"Skill '{skill_name}' not found in registry")
+    sys.exit(1)
+
+skill_data = data['skills'][skill_name]
+
+if 'validation_history' not in skill_data or not skill_data['validation_history']:
+    print(f"No validations recorded for {skill_name}")
+    sys.exit(0)
+
+print(f"Metrics:")
+if 'validation_metrics' in skill_data:
+    m = skill_data['validation_metrics']
+    print(f"  Total Validations: {m['total_validations']}")
+    print(f"  Correct: {m['correct']}")
+    print(f"  Incorrect: {m['incorrect']}")
+    print(f"  Partial: {m['partial']}")
+    print(f"  Unclear: {m['unclear']}")
+    print(f"  Trigger Accuracy: {m['trigger_accuracy']:.2f}%")
+
+print(f"")
+print(f"Validation History:")
+print(f"")
+
+for record in skill_data['validation_history']:
+    timestamp = record.get('timestamp', 'Unknown')
+    decision = record.get('decision', 'Unknown')
+    confidence = record.get('confidence', 'Unknown')
+    task_id = record.get('task_id', 'Unknown')
+    notes = record.get('notes', '')
+
+    # Parse timestamp
+    try:
+        dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+        ts_str = dt.strftime('%Y-%m-%d %H:%M')
+    except:
+        ts_str = timestamp
+
+    # Color code decision
+    decision_color = decision
+    if decision == 'CORRECT':
+        decision_color = f'\\033[0;32m{decision}\\033[0m'  # Green
+    elif decision == 'INCORRECT':
+        decision_color = f'\\033[0;31m{decision}\\033[0m'  # Red
+    elif decision == 'PARTIAL':
+        decision_color = f'\\033[1;33m{decision}\\033[0m'  # Yellow
+
+    print(f"{ts_str} | {task_id}")
+    print(f"  Decision: {decision_color}")
+    print(f"  Confidence: {confidence}")
+    if notes:
+        print(f"  Notes: {notes}")
+    print(f"")
+PYTHON_SCRIPT
+}
+
+# Export validations to CSV
+export_validations() {
+    local export_file="$1"
+
+    log "Exporting validations to: $export_file"
+
+    python3 <<PYTHON_SCRIPT
+import yaml
+import csv
+
+# Load skill registry
+with open('$SKILL_REGISTRY', 'r') as f:
+    data = yaml.safe_load(f)
+
+# Create CSV
+with open('$export_file', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['timestamp', 'skill', 'task_id', 'decision', 'confidence', 'notes'])
+
+    for skill_name, skill_data in data['skills'].items():
+        if 'validation_history' in skill_data:
+            for record in skill_data['validation_history']:
+                writer.writerow([
+                    record.get('timestamp', ''),
+                    skill_name,
+                    record.get('task_id', ''),
+                    record.get('decision', ''),
+                    record.get('confidence', ''),
+                    record.get('notes', '')
+                ])
+
+print(f"✓ Exported {sum(len(s.get('validation_history', [])) for s in data['skills'].values())} validations")
+PYTHON_SCRIPT
+
+    success "Export complete: $export_file"
+}
+
+# Main execution
+main() {
+    if [ "$SHOW_SUMMARY" = true ]; then
+        show_summary
+        exit 0
+    fi
+
+    if [ -n "$BY_SKILL" ]; then
+        show_by_skill "$BY_SKILL"
+        exit 0
+    fi
+
+    if [ -n "$EXPORT_FILE" ]; then
+        export_validations "$EXPORT_FILE"
+        exit 0
+    fi
+
+    # Validate required arguments
+    if [ -n "$VALIDATION_FILE" ]; then
+        # Parse validation file
+        if [ ! -f "$VALIDATION_FILE" ]; then
+            error "Validation file not found: $VALIDATION_FILE"
+            exit 1
+        fi
+
+        # Extract fields from validation file
+        TASK_ID=$(grep "^**Task ID:**" "$VALIDATION_FILE" | sed 's/\*\*Task ID:\*\* //' | tr -d ' ')
+        SKILL_NAME=$(grep "^**Skill Recommended:**" "$VALIDATION_FILE" | sed 's/\*\*Skill Recommended:\*\* //' | tr -d ' ')
+        DECISION=$(grep -E "^\- \[\x\].*\*\*CORRECT\*\*" "$VALIDATION_FILE" >/dev/null && echo "CORRECT" || \
+                   grep -E "^\- \[\x\].*\*\*INCORRECT\*\*" "$VALIDATION_FILE" >/dev/null && echo "INCORRECT" || \
+                   grep -E "^\- \[\x\].*\*\*PARTIAL\*\*" "$VALIDATION_FILE" >/dev/null && echo "PARTIAL" || \
+                   grep -E "^\- \[\x\].*\*\*UNCLEAR\*\*" "$VALIDATION_FILE" >/dev/null && echo "UNCLEAR" || echo "")
+        CONFIDENCE=$(grep "^**Validation Confidence:**" "$VALIDATION_FILE" | sed 's/\*\*Validation Confidence:\*\* //' | tr -d ' ')
+
+        # Extract notes (rationale section)
+        NOTES=$(sed -n '/^### Detailed Rationale/,/^### /p' "$VALIDATION_FILE" | head -20 | tr '\n' ' ' | sed 's/  */ /g')
+
+        if [ -z "$TASK_ID" ] || [ -z "$SKILL_NAME" ] || [ -z "$DECISION" ]; then
+            error "Could not extract required fields from validation file"
+            error "Ensure the file has: Task ID, Skill Recommended, and Decision checked"
+            exit 1
+        fi
+
+        [ -z "$CONFIDENCE" ] && CONFIDENCE="MEDIUM"
+    else
+        if [ -z "$TASK_ID" ] || [ -z "$SKILL_NAME" ] || [ -z "$DECISION" ]; then
+            error "Missing required arguments"
+            echo "Required: --task, --skill, --decision"
+            echo "Or: --file to parse completed validation file"
+            echo ""
+            echo "Use --help for usage information"
+            exit 1
+        fi
+
+        validate_decision "$DECISION"
+        validate_confidence "$CONFIDENCE"
+    fi
+
+    # Record validation
+    update_skill_registry "$TASK_ID" "$SKILL_NAME" "$DECISION" "$CONFIDENCE" "$NOTES"
+
+    echo ""
+    info "Next steps:"
+    echo "  • Review validation: bb5 skill:validate --by-skill $SKILL_NAME"
+    echo "  • Check summary: bb5 skill:validate --summary"
+    echo "  • View all validations: bb5 skill:validate --export validations.csv"
+}
+
+# Execute main function
+main "$@"
