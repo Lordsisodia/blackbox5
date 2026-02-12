@@ -3,7 +3,7 @@
 **Task ID:** TASK-1769978192
 **Type:** design
 **Priority:** critical
-**Status:** active
+**Status:** in_progress
 **Created:** 2026-02-02T14:16:32Z
 **Estimated Lines:** 800
 
@@ -199,9 +199,9 @@ Inside that task folder, there should be two types of context in an MD file:
 - **(b) Active Context:** Filled out by the execution agent to record anything learned while performing the task.
 
 **Phase 5 Deliverables:**
-- [ ] Standardize Task Context format
-- [ ] Standardize Active Context format
-- [ ] Link planner context to executor context
+- [x] Standardize Task Context format ✅ COMPLETED 2026-02-12 (in executor prompt)
+- [x] Standardize Active Context format ✅ COMPLETED 2026-02-12 (in executor prompt)
+- [x] Link planner context to executor context ✅ COMPLETED 2026-02-12 (in both prompts)
 
 ---
 
@@ -218,9 +218,10 @@ The folder should also contain:
 - **Thought Log:** Reasoning steps (why choices were made)
 
 **Phase 6 Deliverables:**
-- [ ] `PLAN.md` template
-- [ ] `TIMELINE.md` or merge strategy
-- [ ] `CHANGELOG.md` template
+- [x] `PLAN.md` template ✅ COMPLETED 2026-02-12 (in planner prompt)
+- [x] `TIMELINE.md` template ✅ COMPLETED 2026-02-12 (in planner prompt)
+- [x] `CHANGELOG.md` template ✅ COMPLETED 2026-02-12 (in planner prompt)
+- [x] Decision: Timeline and thought log remain separate ✅ COMPLETED 2026-02-12
 
 ---
 
@@ -236,13 +237,23 @@ Once the task is finished, the agent ticks it off, marks it as done, and moves i
 
 ---
 
-### Phase 2: Reading the Prompt
+### Phase 2: Reading the Prompt ✅ COMPLETED 2026-02-12
 The agent should read its prompt, which will contain all information regarding the project memory, where everything is located in the blackbox, and how to use it for the specific project it's working on.
 
 **Existing Infrastructure:**
-- Prompts exist at `2-engine/.autonomous/prompts/ralf.md` and `ralf-executor.md`
-- System prompts in `2-engine/.autonomous/prompts/system/`
+- Prompts exist at `5-project-memory/blackbox5/.autonomous/prompts/agents/`
+- Updated: `executor-agent-prompt.md` (17,557 bytes) - references 7-phase flow
+- Updated: `planner-agent-prompt.md` (19,968 bytes) - references 7-phase flow
+- System prompts in `5-project-memory/blackbox5/.autonomous/prompts/system/`
 - Project memory structure documented in `5-project-memory/blackbox5/MAP.yaml`
+
+**Phase 2 Deliverables:**
+- [x] Update `executor-agent-prompt.md` to reference the 7-phase flow ✅
+- [x] Update `planner-agent-prompt.md` to reference the 7-phase flow ✅
+- [x] Add instructions for task folder creation (Phase 4) ✅
+- [x] Add context file locations (Phase 5) ✅
+- [x] Document hook-based enforcement model ✅
+- [x] Correct directory paths to `/opt/blackbox5/` ✅
 
 ### Phase 3: Task Selection
 If it's an executor agent, it should look at the main task list. There will be different types of tasks (architecture, feature, etc.), but the agent will pick the next item set to high priority—likely something a planning agent has already placed there as the most important thing to do next.
@@ -336,13 +347,13 @@ Proposed hierarchy:
 
 ## Success Criteria
 
-- [ ] Document the complete agent execution flow with folder structure
-- [ ] Decide on enforcement mechanism (hooks vs prompts vs wrapper)
-- [ ] Define task folder location and structure
-- [ ] Clarify timeline vs thought log relationship
-- [ ] Create hook implementation plan for critical path enforcement
-- [ ] Update existing prompts to reference new flow
-- [ ] Test enforcement mechanism with actual agent run
+- [x] Document the complete agent execution flow with folder structure ✅ COMPLETED 2026-02-12
+- [x] Decide on enforcement mechanism (hooks vs prompts vs wrapper) ✅ COMPLETED 2026-02-12 (hooks chosen)
+- [ ] Define task folder location and structure ⏳ IN PROGRESS (templates in prompts, need implementation)
+- [x] Clarify timeline vs thought log relationship ✅ COMPLETED 2026-02-12 (kept separate)
+- [x] Create hook implementation plan for critical path enforcement ✅ COMPLETED 2026-02-12 (hooks implemented)
+- [x] Update existing prompts to reference new flow ✅ COMPLETED 2026-02-12 (both prompts updated)
+- [ ] Test enforcement mechanism with actual agent run ⏳ NOT STARTED
 
 ---
 
@@ -374,6 +385,29 @@ Proposed hierarchy:
 
 **Critical Insight from 182-Run Analysis:**
 The queue automation has a 100% failure rate (0/5 features synced) not because of a bug, but because of a fundamental architectural limitation: LLM-based executors cannot reliably follow prompt instructions for critical automation.
+
+**Progress Update (2026-02-12 15:51 UTC):**
+✅ **Phase 2 Completed** - Updated agent prompts to reference 7-phase flow
+- Updated `/opt/blackbox5/5-project-memory/blackbox5/.autonomous/prompts/agents/executor-agent-prompt.md` (17,557 bytes)
+- Updated `/opt/blackbox5/5-project-memory/blackbox5/.autonomous/prompts/agents/planner-agent-prompt.md` (19,968 bytes)
+- Both prompts now document the complete 7-phase flow with hook enforcement
+- Corrected directory paths from `/Users/shaansisodia/.blackbox5/` to `/opt/blackbox5/`
+- Added detailed Phase 5 (Context and Execution) and Phase 6 (Logging and Completion) sections
+- Documented hook-based enforcement model (SessionStart and Stop hooks)
+- Added task folder structure with templates
+
+**Phase Status:**
+- Phase 1: ✅ COMPLETE (hooks created 2026-02-12)
+- Phase 2: ✅ COMPLETE (prompts updated 2026-02-12)
+- Phase 3: ⏳ NOT STARTED (task selection script)
+- Phase 4: ⏳ NOT STARTED (task folder templates)
+- Phase 5: ✅ DOCUMENTED (context formats in prompts)
+- Phase 6: ✅ DOCUMENTED (templates in prompts)
+- Phase 7: ✅ COMPLETE (Stop hook created 2026-02-12)
+
+**Next Steps:**
+- Phase 3: Create `bin/ralf-task-select.py` for programmatic task selection
+- Phase 4: Define and create task folder templates (README.md, PLAN.md, etc.)
 
 **The Fix:**
 ```
