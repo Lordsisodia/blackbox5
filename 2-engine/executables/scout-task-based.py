@@ -239,14 +239,14 @@ def run_analyzer_with_task_tool(analyzer_type: str) -> Dict[str, Any]:
     print(f"\n{'='*60}")
     print(f"TASK TOOL CALL FOR: {analyzer_names[analyzer_type]}")
     print(f"{'='*60}")
-    print(f"""
-Use the Task tool with these parameters:
-
-subagent_type: "general-purpose"
-model: "sonnet"
-prompt: """{prompt}"""
-run_in_background: true
-""")
+    print("Use the Task tool with these parameters:")
+    print("")
+    print('subagent_type: "general-purpose"')
+    print('model: "sonnet"')
+    print('prompt: """')
+    print(prompt)
+    print('"""')
+    print("run_in_background: true")
 
     # Since we can't actually call the Task tool from within a script,
     # we return a placeholder that indicates this needs to be run manually

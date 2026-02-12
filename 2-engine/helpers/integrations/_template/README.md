@@ -1,131 +1,60 @@
-# {SERVICE_NAME} Integration for BlackBox5
+# Integration Template
 
-> **NOTE:** This is a template directory for creating new integrations.
-> Files contain placeholder syntax like `{SERVICE_NAME}`, `{ServiceName}`, etc.
-> which should be replaced when creating a new integration from this template.
-> These placeholder markers intentionally cause syntax errors - they are not bugs.
+This directory contains a template for creating new integrations for BlackBox5.
 
-{BRIEF_DESCRIPTION_OF_WHAT_THIS_INTEGRATION_DOES}
+## Files
 
-## Features
+- `__init__.py.template` - Template for the integration's `__init__.py` file
+- `manager.py` - Template for the main manager class
+- `types.py` - Template for type definitions
+- `config.py.template` - Template for configuration
+- `demo.py` - Example usage
 
-- **Feature 1**: Description of primary capability
-- **Feature 2**: Description of secondary capability
-- **Feature 3**: Description of additional capability
+## How to Create a New Integration
 
-## Architecture
+1. Copy the entire `_template` directory:
+   ```bash
+   cp -r _template my_service
+   ```
 
-### Components
+2. Replace template placeholders:
+   - `{SERVICE_NAME}` → Your service name (e.g., "GitHub", "Notion")
+   - `{SERVICE_LOWER}` → Lowercase version (e.g., "github", "notion")
+   - `{ServiceName}` → CamelCase version (e.g., "GitHub", "Notion")
 
-- **`{ServiceName}Manager`**: Main manager class for all operations
-- **`DataType`**: Data class for {specific entity}
-- **`EnumType`**: Enum for {options/statuses}
+3. Rename `__init__.py.template` to `__init__.py`:
+   ```bash
+   mv my_service/__init__.py.template my_service/__init__.py
+   ```
 
-## Requirements
+4. Replace template placeholders in all files using your text editor or:
+   ```bash
+   find my_service -type f -exec sed -i \
+     -e 's/{SERVICE_NAME}/MyService/g' \
+     -e 's/{SERVICE_LOWER}/my_service/g' \
+     -e 's/{ServiceName}/MyService/g' {} \;
+   ```
 
-### Authentication
+5. Implement the required methods in `manager.py`
 
-1. **Get API Token**:
-   - Navigate to {URL_TO_GET_TOKEN}
-   - Create {TOKEN_TYPE} with permissions:
-     - Permission 1
-     - Permission 2
-   - Copy token and set as environment variable:
-     ```bash
-     export {SERVICE_NAME}_TOKEN="your_token_here"
-     ```
+6. Update `config.py` with your service's configuration
 
-2. **Additional Configuration** (if needed):
-   - {CONFIG_ITEM_1}
-   - {CONFIG_ITEM_2}
+7. Test your integration using `demo.py`
 
-### Python Dependencies
-
-```bash
-pip install {LIBRARY_NAME}
-```
-
-Add to `.blackbox5/engine/requirements.txt`:
-```txt
-{LIBRARY_NAME}>=1.0.0
-```
-
-## Usage
-
-### Basic Usage
-
-```python
-import asyncio
-from integration.{SERVICE_LOWER} import {ServiceName}Manager
-
-async def main():
-    # Initialize manager
-    manager = {ServiceName}Manager(
-        token="{ENV_VAR_NAME}",
-        # additional_params
-    )
-
-    # Perform operation
-    result = await manager.{operation_name}()
-
-    # Close connection
-    await manager.close()
-
-asyncio.run(main())
-```
-
-### Advanced Usage
-
-{ADVANCED_EXAMPLE}
-
-## API Reference
-
-### Methods
-
-| Method | Description | Parameters | Returns |
-|--------|-------------|------------|---------|
-| `method_name` | Description | `param1`, `param2` | `ReturnType` |
-
-### Data Classes
-
-#### `DataType`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `field1` | `str` | Description |
-| `field2` | `int` | Description |
-
-## Error Handling
-
-```python
-from {SERVICE_LOWER}_exceptions import {ServiceName}Error
-
-try:
-    result = await manager.operation()
-except {ServiceName}Error as e:
-    print(f"Error: {e}")
-```
-
-## Rate Limits
-
-- **Rate Limit**: {RATE_LIMIT_DETAILS}
-- **Best Practices**: {BEST_PRACTICES}
-
-## Testing
+## Example: Creating a Slack Integration
 
 ```bash
-# Run tests
-python .blackbox5/integration/{SERVICE_LOWER}/tests/test_integration.py
+cd /opt/blackbox5/2-engine/helpers/integrations
+cp -r _template slack
+cd slack
+sed -i 's/{SERVICE_NAME}/Slack/g' *.py
+sed -i 's/{SERVICE_LOWER}/slack/g' *.py
+sed -i 's/{ServiceName}/Slack/g' *.py
+mv __init__.py.template __init__.py
 ```
 
-## Troubleshooting
+## Notes
 
-### Common Issues
-
-**Issue**: {COMMON_ISSUE}
-- **Solution**: {SOLUTION}
-
-## See Also
-
-- {SERVICE_NAME} Documentation: {DOCS_URL}
-- API Reference: {API_REF_URL}
+- The `__init__.py.template` file uses Python f-string-style placeholders that are NOT valid Python
+- Always rename it to `__init__.py` after replacing placeholders
+- See existing integrations (github, notion, vibe) for reference implementations
