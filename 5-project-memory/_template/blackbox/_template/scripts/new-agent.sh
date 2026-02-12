@@ -22,8 +22,17 @@ if [[ -e "$dest" ]]; then
 fi
 
 mkdir -p "$dest"
-cp -R "$template_dir"/. "$dest/"
 
+# Copy templates and remove .template extension
+for template_file in "$template_dir"/*; do
+  if [[ -f "$template_file" ]]; then
+    filename="$(basename "$template_file")"
+    dest_file="$dest/${filename%.template}"
+    cp "$template_file" "$dest_file"
+  fi
+done
+
+# Replace placeholders
 if [[ -f "$dest/agent.md" ]]; then
   sed_inplace "s/<agent-name>/${name//\//\\/}/g" "$dest/agent.md"
 fi

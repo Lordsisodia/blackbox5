@@ -26,11 +26,16 @@ Template files contain placeholder text like `{SERVICE_NAME}`, `{SERVICE_LOWER}`
 - `config.py.template`
 - `demo.py.template`
 - `test_integration.py.template`
+- `task.md.template`
+- `agent.md.template`
+- `prompt.md.template`
 
 **❌ Wrong:**
 - `__init__.py` (contains `{SERVICE_NAME}` placeholder)
 - `manager.py` (contains `{SERVICE_NAME}` placeholder)
 - `config.py.yaml` (contains template placeholders)
+- `task.md` (contains `{Task Name}` placeholder)
+- `agent.md` (contains `<agent-name>` placeholder)
 
 ### How to Create a New Integration
 
@@ -53,10 +58,38 @@ Template files contain placeholder text like `{SERVICE_NAME}`, `{SERVICE_LOWER}`
    done
    ```
 
+### Common Template Placeholders
+
+**Python integration templates:**
+- `{SERVICE_NAME}` - PascalCase service name
+- `{SERVICE_LOWER}` - lowercase service name
+- `{ServiceName}` - Mixed case service name
+- `{PACKAGE_NAME}` - Package name
+- `{MODULE_NAME}` - Module name
+- `{CLASS_NAME}` - Class name
+
+**Task templates:**
+- `{Task Name}` - Task title
+- `{YYYY-MM-DD}` - Date
+- `{Agent Name}` - Agent assigned
+- `{Brief description...}` - Task description
+- `{Specific, testable criteria}` - Acceptance criteria
+
+**Agent templates:**
+- `<agent-name>` - Agent name
+- `<agent-id>` - Agent ID (slugified)
+- `<What this agent does...>` - Agent description
+- `<short title>` - Plan title
+- `<YYYY-MM-DD HH:MM>` - Timestamp
+
+**Plan templates:**
+- `<short title>` - Plan description
+- `<YYYY-MM-DD HH:MM>` - Plan creation timestamp
+
 ### Pre-commit Hook
 
 A pre-commit hook is installed at `.git/hooks/pre-commit` that automatically checks for:
-- Files with template placeholders (e.g., `{SERVICE_NAME}`)
+- Files with template placeholders (all patterns listed above)
 - Missing `.template` extension
 
 **To bypass the hook (not recommended):**

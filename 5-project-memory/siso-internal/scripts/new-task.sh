@@ -18,7 +18,7 @@ TASK_ID="TASK-$TODAY-$TASK_NUM"
 echo "📝 Creating new task: $TASK_ID"
 
 # Copy template
-cp "$PROJECT_ROOT/tasks/working/_template/task.md" "$PROJECT_ROOT/tasks/active/$TASK_ID.md"
+cp "$PROJECT_ROOT/tasks/working/_template/task.md.template" "$PROJECT_ROOT/tasks/active/$TASK_ID.md"
 
 echo "✅ Created: tasks/active/$TASK_ID.md"
 echo ""
