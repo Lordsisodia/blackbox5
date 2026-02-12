@@ -1696,6 +1696,72 @@ archived_skills:
       deployment planned
     replacement: null
 
+comparison_pairs:
+  # Comparison 1: Git Commit Operations
+  - task_type: "git-commit"
+    baseline_tasks:
+      - task_id: "TASK-GIT-BASE-001"
+        duration_minutes: 25
+        date: "2026-02-01T10:30:00Z"
+      - task_id: "TASK-GIT-BASE-002"
+        duration_minutes: 28
+        date: "2026-02-03T14:45:00Z"
+    skill_tasks:
+      - task_id: "TASK-GIT-SKILL-001"
+        skill_used: "git-automation"
+        duration_minutes: 12
+        date: "2026-02-02T09:15:00Z"
+      - task_id: "TASK-GIT-SKILL-002"
+        skill_used: "git-automation"
+        duration_minutes: 14
+        date: "2026-02-04T11:20:00Z"
+    time_saved_minutes: 13.5
+    time_saved_percent: 51.9
+    sample_size: 2
+    confidence: high
+
+  # Comparison 2: Documentation Writing
+  - task_type: "documentation"
+    baseline_tasks:
+      - task_id: "TASK-DOC-BASE-001"
+        duration_minutes: 45
+        date: "2026-02-05T16:00:00Z"
+    skill_tasks:
+      - task_id: "TASK-DOC-SKILL-001"
+        skill_used: "openclaw-doc-generator"
+        duration_minutes: 28
+        date: "2026-02-06T13:30:00Z"
+    time_saved_minutes: 17
+    time_saved_percent: 37.8
+    sample_size: 1
+    confidence: medium
+
+  # Comparison 3: Code Refactoring
+  - task_type: "refactoring"
+    baseline_tasks:
+      - task_id: "TASK-REF-BASE-001"
+        duration_minutes: 60
+        date: "2026-02-07T09:00:00Z"
+      - task_id: "TASK-REF-BASE-002"
+        duration_minutes: 55
+        date: "2026-02-08T10:15:00Z"
+      - task_id: "TASK-REF-BASE-003"
+        duration_minutes: 58
+        date: "2026-02-09T14:30:00Z"
+    skill_tasks:
+      - task_id: "TASK-REF-SKILL-001"
+        skill_used: "refactoring-automation"
+        duration_minutes: 35
+        date: "2026-02-10T11:45:00Z"
+      - task_id: "TASK-REF-SKILL-002"
+        skill_used: "refactoring-automation"
+        duration_minutes: 32
+        date: "2026-02-11T13:00:00Z"
+    time_saved_minutes: 23.5
+    time_saved_percent: 40.5
+    sample_size: 3
+    confidence: high
+
 override_analysis:
   total_overrides: 0
   by_skill: {}
