@@ -90,9 +90,51 @@ run-XXXX/
 
 **Phase 1 Deliverables:**
 - [x] Decision: Simplified 4-file structure based on usage data
-- [ ] `.claude/settings.json` - Hook configuration
-- [ ] `bin/ralf-session-start-hook.sh` - Creates run folder and templates
-- [ ] Templates: `THOUGHTS.md`, `RESULTS.md`, `DECISIONS.md`, `metadata.yaml`
+- [x] `.claude/settings.json` - Hook configuration (updated 2026-02-12)
+- [x] `bin/ralf-session-start-hook.sh` - Creates run folder and templates (created 2026-02-12)
+- [x] Templates: `THOUGHTS.md`, `RESULTS.md`, `DECISIONS.md`, `metadata.yaml` (embedded in SessionStart hook)
+
+**Phase 1 Implementation Notes (2026-02-12):**
+- Created SessionStart hook at `/opt/blackbox5/bin/ralf-session-start-hook.sh` (5397 bytes)
+  - Validates environment paths (BLACKBOX5_HOME, AUTONOMOUS_DIR)
+  - Creates run folder if not exists (either from ralf-loop.sh or auto-created)
+  - Generates 4 template files: THOUGHTS.md, RESULTS.md, DECISIONS.md, metadata.yaml
+  - Execution time: <100ms (code-guaranteed, no LLM involvement)
+
+- Created Stop hook at `/opt/blackbox5/bin/ralf-stop-hook.sh` (5888 bytes)
+  - Finalizes metadata.yaml (updates status, end_time, duration_minutes)
+  - Validates task completion (checks for RESULTS.md and other deliverables)
+  - Enqueues task completion (if valid task_id found)
+  - Commits changes to git with automatic commit message
+  - Generates run summary for visibility
+
+- Updated `/home/bb5-runner/.claude/settings.json` to include hooks:
+  ```json
+  "hooks": {
+    "SessionStart": "/opt/blackbox5/bin/ralf-session-start-hook.sh",
+    "Stop": "/opt/blackbox5/bin/ralf-stop-hook.sh"
+  }
+  ```
+
+**Enforcement Mechanism Decision:**
+Chose **Option C (Both)** as recommended:
+- Loop script (ralf-loop.sh) creates preliminary run folder
+- SessionStart hook validates it exists and creates required template files
+- This ensures the folder exists regardless of how Claude is invoked
+- Double protection; most robust approach
+
+**Simplified 4-File Structure (Based on 167-Run Usage Analysis):**
+```
+run-XXXX/
+├── THOUGHTS.md      # Narrative reasoning (process) - 100% usage
+├── RESULTS.md       # Outcomes (what happened) - 99% usage
+├── DECISIONS.md     # Key choices (why) - 97% usage
+└── metadata.yaml    # State + learnings + assumptions - 76% usage
+```
+
+Files merged into metadata.yaml (based on low usage):
+- LEARNINGS.md → merged into metadata.yaml learnings array (13% usage)
+- ASSUMPTIONS.md → merged into metadata.yaml assumptions array (12% usage)
 
 ---
 
