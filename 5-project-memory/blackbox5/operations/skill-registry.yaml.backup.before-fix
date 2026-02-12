@@ -258,7 +258,7 @@ skills:
       last_used: '2026-02-07T16:08:38.955351+00:00'
       avg_execution_time_ms: null
     roi:
-      baseline_minutes: 50
+      baseline_minutes: 35
       time_saved_minutes: null
       quality_improvement: null
       cost_benefit_ratio: null
