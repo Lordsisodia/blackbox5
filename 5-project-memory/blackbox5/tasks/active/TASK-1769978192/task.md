@@ -542,8 +542,58 @@ The queue automation has a 100% failure rate (0/5 features synced) not because o
 
 **Next Steps:**
 - Test enforcement mechanism with actual agent run
-- Integrate task selection script into ralf-loop.sh
+- Integrate task selection script (ralf-task-select.py) into ralf-core.sh
+  - Replace existing find_next_task() function with call to ralf-task-select.py
+  - Add task claiming support via --claim flag
+  - Update execute_task() to handle claimed tasks from tasks/working/
+  - Test integration with priority-based selection
 - Create task completion script (bin/ralf-task-complete.sh)
+
+**Integration Plan for ralf-task-select.py:**
+
+The ralf-core.sh script already has a `find_next_task()` function that scans for tasks by priority. This can be enhanced by calling the ralf-task-select.py script:
+
+**Current Implementation:**
+```bash
+# In ralf-core.sh, find_next_task() function
+find_next_task() {
+    # Scans tasks/active/ for TASK-*.md files
+    # Extracts status (pending/partial) and priority
+    # Sorts by priority (critical > high > medium > low)
+    # Returns highest priority task path
+}
+```
+
+**Proposed Integration:**
+```bash
+# Replace with call to ralf-task-select.py
+find_next_task() {
+    local task_selection=$(python3 "$BB5_DIR/bin/ralf-task-select.py" --claim 2>/dev/null)
+    local task_id=$(echo "$task_selection" | cut -d'|' -f1)
+    local task_path=$(echo "$task_selection" | cut -d'|' -f2)
+    local priority=$(echo "$task_selection" | cut -d'|' -f3)
+
+    if [ -z "$task_id" ]; then
+        echo ""
+    else
+        echo "$task_path"
+    fi
+}
+```
+
+**Benefits of Integration:**
+- Task claiming prevents duplicate execution (moves to tasks/working/)
+- Consistent priority scoring across all scripts
+- Machine-readable output for logging
+- Support for task listing mode (--list flag)
+- Future extensibility (filtering, sorting options)
+
+**Testing Plan:**
+1. Run ralf-core.sh with modified find_next_task()
+2. Verify task is claimed (moved to tasks/working/)
+3. Verify task executes correctly
+4. Verify task is completed and moved back
+5. Verify no duplicate task selection on next iteration
 
 **Progress Update (2026-02-12 21:21 UTC):**
 ✅ **PostTool Hook Completed** - File modification detection
