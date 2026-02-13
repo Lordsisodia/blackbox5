@@ -403,6 +403,43 @@ with open(validation_file, 'w') as f:
 print(f'✓ Validation logged to {validation_file}')
 print(f'✓ Overall result: {overall_result.upper()}')
 
+# Log to events.yaml
+events_file = '$EVENTS_FILE'
+try:
+    # Load existing events or create new list
+    if os.path.exists(events_file):
+        with open(events_file, 'r') as f:
+            events = yaml.safe_load(f) or []
+    else:
+        events = []
+
+    # Create validation event
+    validation_event = {
+        'timestamp': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3],
+        'type': 'validation',
+        'task_id': task_id,
+        'data': {
+            'result': overall_result,
+            'exit_code': exit_code,
+            'validator': 'bb5-validate-task',
+            'run_id': log_entry['run_id'],
+            'checks_count': len(results),
+            'failed_checks': [r['check_id'] for r in results if r['status'] == 'failed']
+        }
+    }
+
+    # Append event
+    events.append(validation_event)
+
+    # Save events file
+    with open(events_file, 'w') as f:
+        yaml.dump(events, f, default_flow_style=False, sort_keys=False)
+
+    print(f'✓ Event logged to {events_file}')
+
+except Exception as e:
+    print(f'Warning: Could not log to events.yaml: {e}', file=sys.stderr)
+
 # Exit with appropriate code
 sys.exit(exit_code)
 "

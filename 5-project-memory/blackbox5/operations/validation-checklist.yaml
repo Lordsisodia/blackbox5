@@ -310,6 +310,28 @@ usage_log:
     duration_seconds: 0.0
   overall_result: failed
   exit_code: 2
+- timestamp: '2026-02-13T03:54:39Z'
+  task_id: TASK-PROC-030
+  run_id: run-20260213-035439
+  validator: bb5-validate-task
+  checks_performed:
+  - check_id: duplicate_task_check
+    check_name: Duplicate Task Check
+    status: failed
+    required: true
+    duration_seconds: 0.01
+  - check_id: path_validation
+    check_name: Path Validation
+    status: failed
+    required: true
+    duration_seconds: 0.0
+  - check_id: active_tasks_check
+    check_name: Active Tasks Check
+    status: passed
+    required: true
+    duration_seconds: 0.0
+  overall_result: failed
+  exit_code: 2
 analysis:
   last_review: null
   common_failure_patterns: []

@@ -2,7 +2,7 @@
 
 **Type:** implement
 **Priority:** medium
-**Status:** in_progress (Should-Have P1 mostly complete)
+**Status:** in_progress (All P0 and P1 complete!)
 **Created:** 2026-02-06
 **Estimated Effort:** 4-6 hours
 
@@ -33,7 +33,7 @@ The `operations/validation-checklist.yaml` file defines pre-execution validation
 - [x] Quick validation mode for common checks ✅ IMPLEMENTED (--quick)
 - [x] JSON output option for automation ✅ IMPLEMENTED (--output json)
 - [x] Summary statistics from usage_log ✅ FIXED (timezone bug resolved)
-- [ ] Integration with events.yaml
+- [x] Integration with events.yaml ✅ IMPLEMENTED (2026-02-13)
 - [x] Command-line args to override required checks ✅ IMPLEMENTED (--check, --required-only)
 
 ### Nice-to-Have (P2)
@@ -169,4 +169,47 @@ Check Statistics:
   state_freshness: 100.0% pass rate
 ```
 
-All Should-Have (P1) features now complete except integration with events.yaml.
+All Should-Have (P1) features now complete!
+
+**2026-02-13 03:54 UTC - Events.yaml Integration Complete**
+
+Problem: Validation runs needed to be logged to events.yaml for system-wide visibility and auditing.
+
+Solution Implemented:
+1. Added events_file variable to validation script
+2. Implemented function to load and append to events.yaml
+3. Created validation event structure with:
+   - timestamp (milliseconds precision)
+   - type: validation
+   - task_id
+   - data object containing:
+     - result (passed/warnings/failed)
+     - exit_code
+     - validator (bb5-validate-task)
+     - run_id
+     - checks_count
+     - failed_checks (list)
+
+Testing:
+```bash
+$ /opt/blackbox5/bin/bb5-validate-task --quick TASK-PROC-030
+# Output includes: ✓ Event logged to /opt/blackbox5/.../events.yaml
+```
+
+Event Logged Example:
+```yaml
+- timestamp: '2026-02-13T03:54:39.177'
+  type: validation
+  task_id: TASK-PROC-030
+  data:
+    result: failed
+    exit_code: 2
+    validator: bb5-validate-task
+    run_id: run-20260213-035439
+    checks_count: 3
+    failed_checks:
+      - duplicate_task_check
+      - path_validation
+```
+
+**Status:** All P0 (Must-Have) and P1 (Should-Have) features complete ✅

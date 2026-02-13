@@ -4,3 +4,15 @@
   data:
     skill: bmad-pm
     outcome: success
+- timestamp: '2026-02-13T03:54:39.177'
+  type: validation
+  task_id: TASK-PROC-030
+  data:
+    result: failed
+    exit_code: 2
+    validator: bb5-validate-task
+    run_id: run-20260213-035439
+    checks_count: 3
+    failed_checks:
+    - duplicate_task_check
+    - path_validation
