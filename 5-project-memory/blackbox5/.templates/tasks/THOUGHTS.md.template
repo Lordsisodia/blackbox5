@@ -63,10 +63,21 @@
 
 ---
 
-## Validation
+## Validation (MANDATORY)
 
-- [ ] Pre-execution research completed
-- [ ] Duplicate check performed
+**⚠️ CRITICAL: You MUST complete ALL checkboxes below before making ANY code changes.**
+
+### Pre-Execution Research (MANDATORY - BLOCKS IMPLEMENTATION)
+- [x] **Duplicate check performed** - Checked completed/ and recent commits
+- [x] **No duplicates found** OR **Duplicate documented** (TASK-XXX referenced)
+- [x] **Context gathered** - All relevant files read and documented
+- [x] **Risk assessment completed** - Integration risks, unknowns, blockers documented
+- [x] **No critical blockers** - All blockers resolved or documented
+- [x] **THOUGHTS.md "Pre-Execution Research" section complete** - All subsections filled
+
+**ONLY proceed to implementation if ALL checkboxes above are checked (x).**
+
+### Other Validation
 - [ ] Skill evaluation completed (Step 2.5)
 - [ ] "Skill Usage for This Task" section filled out
 - [ ] All target files read before modification

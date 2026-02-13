@@ -365,7 +365,121 @@ cd "$RUN_DIR"
 
 ---
 
-### Step 2: Execute Implementation Steps
+### Step 2: Pre-Execution Research (MANDATORY - DO NOT SKIP) ⚠️
+
+**CRITICAL:** You MUST complete this step before making ANY code changes. Pre-execution research is mandatory for all tasks to prevent duplicate work and validate assumptions.
+
+**Research Location:** The SessionStart hook automatically created a run folder with THOUGHTS.md. Complete the "Pre-Execution Research (REQUIRED)" section in that file.
+
+**Path:** `/opt/blackbox5/5-project-memory/blackbox5/.autonomous/runs/run-{timestamp}/THOUGHTS.md`
+
+---
+
+#### 2a) Duplicate Detection (MANDATORY)
+
+Before starting, you MUST check for duplicates:
+
+```bash
+# Check completed tasks for similar work
+cd /opt/blackbox5/5-project-memory/blackbox5
+find .autonomous/tasks/completed/ -name "task.md" -exec grep -l "KEYWORD" {} \;
+
+# Check recent commits (last 2 weeks)
+cd /opt/blackbox5
+git log --since="2 weeks ago" --all --oneline | grep -i "KEYWORD"
+```
+
+**Replace KEYWORD** with main keywords from your task (e.g., "template", "hook", "research").
+
+**Document in THOUGHTS.md:**
+```markdown
+### Duplicate Check
+- [x] Checked completed/ for similar tasks
+- [x] Checked recent commits (2 weeks)
+- Result: [No duplicates found / Potential duplicate: TASK-XXX]
+```
+
+**If duplicate found:**
+- Do NOT start implementation
+- Update task.md status to "duplicate"
+- Reference existing task
+- Document findings in RESULTS.md
+- Move task to completed/ with status "duplicate"
+
+---
+
+#### 2b) Context Gathering (MANDATORY)
+
+Read all relevant files before making changes:
+
+```bash
+# Read task.md to understand requirements
+cat .autonomous/tasks/active/TASK-XXX/task.md
+
+# Read PLAN.md if available
+cat .autonomous/tasks/active/TASK-XXX/PLAN.md
+
+# Read related files mentioned in task
+cat /opt/blackbox5/path/to/file
+```
+
+**Document in THOUGHTS.md:**
+```markdown
+### Context Gathered
+**Files read:**
+- [List all files read before making changes]
+
+**Key findings:**
+- [Important discoveries about existing code/state]
+
+**Dependencies identified:**
+- [List of dependencies]
+```
+
+---
+
+#### 2c) Risk Assessment (MANDATORY)
+
+Assess potential risks before starting:
+
+```markdown
+### Risk Assessment
+- **Integration risks:** [low/medium/high]
+- **Unknowns:** [What needs clarification]
+- **Blockers:** [none / list]
+```
+
+**If high risk or blockers:**
+- Document in THOUGHTS.md
+- Consider breaking task into smaller subtasks
+- Do not proceed without clarification on blockers
+
+---
+
+#### 2d) Research Validation Checkpoint
+
+Before proceeding to Step 3, you MUST validate that research is complete:
+
+```markdown
+## Research Validation (MANDATORY)
+- [x] Duplicate check performed and documented
+- [x] All relevant files read and documented
+- [x] Risk assessment completed
+- [x] THOUGHTS.md "Pre-Execution Research" section is complete
+- [x] No duplicates found (or duplicate task referenced)
+- [x] No critical blockers unresolved
+```
+
+**ONLY proceed to Step 3 if all checkboxes above are checked.**
+
+**If research is incomplete:**
+- Complete missing research items
+- Do NOT skip this step
+- Do NOT proceed to implementation
+
+---
+
+### Step 3: Execute Implementation Steps
 
 Follow PLAN.md "Implementation Steps" in order:
 
@@ -387,7 +501,7 @@ Follow PLAN.md "Implementation Steps" in order:
 
 ---
 
-### Step 3: Testing
+### Step 4: Testing
 
 Run all tests from PLAN.md "Testing Approach":
 
@@ -405,7 +519,7 @@ cd /opt/blackbox5 && ./bin/bb5 stats
 
 ---
 
-### Step 4: Validation
+### Step 5: Validation
 
 Check against task.md "Success Criteria":
 
@@ -423,7 +537,7 @@ Check against task.md "Success Criteria":
 
 ---
 
-### Step 5: Create RESULTS.md
+### Step 6: Create RESULTS.md
 
 Create at:
 ```
@@ -489,7 +603,7 @@ If partial completion:
 
 ---
 
-### Step 6: Update Task Status
+### Step 7: Update Task Status
 
 Update `tasks/active/TASK-XXX/task.md`:
 ```markdown
