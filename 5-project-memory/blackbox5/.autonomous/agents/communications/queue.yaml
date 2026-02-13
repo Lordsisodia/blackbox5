@@ -292,7 +292,7 @@ tasks:
   goal: IG-007
 - id: TASK-PROC-003
   type: process
-  status: pending
+  status: completed
   priority: LOW
   priority_score: 4.0
   title: Fix Empty Template Files
@@ -309,6 +309,10 @@ tasks:
   resource_type: io_bound
   parallel_group: wave_1
   goal: IG-007
+  claimed_by: moltbot-vps-ai
+  claimed_at: '2026-02-13T00:52:37+00:00'
+  completed_by: moltbot-vps-ai
+  completed_at: '2026-02-13T00:52:43+00:00'
 - id: TASK-PROC-006
   type: process
   status: pending

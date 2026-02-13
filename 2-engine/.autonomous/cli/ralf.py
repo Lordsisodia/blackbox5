@@ -92,6 +92,51 @@ def load_heartbeat():
         print_error(f"Failed to load heartbeat: {e}")
         return {}
 
+def load_full_queue():
+    """Load full queue.yaml with metadata."""
+    queue_file = COMM_DIR / 'queue.yaml'
+    if not queue_file.exists():
+        print_error(f"Queue file not found: {queue_file}")
+        return None
+
+    try:
+        with open(queue_file, 'r') as f:
+            return yaml.safe_load(f) or {}
+    except Exception as e:
+        print_error(f"Failed to load queue: {e}")
+        return None
+
+def save_queue(queue_data):
+    """Save queue.yaml with backup."""
+    queue_file = COMM_DIR / 'queue.yaml'
+
+    # Create backup
+    backup_file = COMM_DIR / 'queue.yaml.backup'
+    try:
+        if queue_file.exists():
+            import shutil
+            shutil.copy2(queue_file, backup_file)
+    except Exception as e:
+        print_warning(f"Failed to create backup: {e}")
+
+    # Save updated data
+    try:
+        with open(queue_file, 'w') as f:
+            yaml.dump(queue_data, f, default_flow_style=False, sort_keys=False)
+        print_success(f"Queue saved to {queue_file}")
+        return True
+    except Exception as e:
+        print_error(f"Failed to save queue: {e}")
+        # Restore backup if save failed
+        try:
+            if backup_file.exists():
+                import shutil
+                shutil.copy2(backup_file, queue_file)
+                print_info("Restored from backup")
+        except:
+            pass
+        return False
+
 @click.group()
 @click.version_option(version='1.0.0')
 @click.help_option('-h', '--help')
@@ -174,6 +219,102 @@ def task_show(task_id, output):
 
     if 'blocks' in task and task['blocks']:
         print(f"  Blocks: {', '.join(task['blocks'])}")
+
+    if 'claimed_by' in task:
+        print(f"  Claimed By: {task['claimed_by']}")
+
+    print()
+
+@task.command('claim')
+@click.argument('task_id')
+@click.option('--agent', '-a', default='operator', help='Agent or operator claiming the task')
+def task_claim(task_id, agent):
+    """Claim a task manually."""
+    queue_data = load_full_queue()
+    if not queue_data:
+        return
+
+    tasks = queue_data.get('tasks', [])
+
+    # Find task by ID
+    task_index = -1
+    for i, t in enumerate(tasks):
+        if t.get('id') == task_id:
+            task_index = i
+            break
+
+    if task_index == -1:
+        print_error(f"Task not found: {task_id}")
+        return
+
+    task = tasks[task_index]
+
+    # Check if already claimed
+    if 'claimed_by' in task:
+        print_warning(f"Task already claimed by: {task['claimed_by']}")
+        response = click.confirm("Do you want to re-claim it?")
+        if not response:
+            return
+
+    # Update task
+    task['claimed_by'] = agent
+    task['claimed_at'] = os.popen('date -Iseconds').read().strip()
+
+    # If status is pending, change to in_progress
+    if task.get('status') == 'pending':
+        task['status'] = 'in_progress'
+        print_info(f"Task status changed from pending to in_progress")
+
+    # Save queue
+    if save_queue(queue_data):
+        print_success(f"Task {task_id} claimed by {agent}")
+        print(f"  Title: {task.get('title', 'No title')}")
+        print(f"  Status: {task.get('status', 'unknown').upper()}")
+
+@task.command('complete')
+@click.argument('task_id')
+@click.option('--agent', '-a', default='operator', help='Agent or operator completing the task')
+def task_complete(task_id, agent):
+    """Mark a task as complete."""
+    queue_data = load_full_queue()
+    if not queue_data:
+        return
+
+    tasks = queue_data.get('tasks', [])
+
+    # Find task by ID
+    task_index = -1
+    for i, t in enumerate(tasks):
+        if t.get('id') == task_id:
+            task_index = i
+            break
+
+    if task_index == -1:
+        print_error(f"Task not found: {task_id}")
+        return
+
+    task = tasks[task_index]
+
+    # Check if already completed
+    if task.get('status') == 'completed':
+        print_warning(f"Task already marked as completed")
+        response = click.confirm("Do you want to mark it as complete again?")
+        if not response:
+            return
+
+    # Confirm completion
+    if not click.confirm(f"Mark task {task_id} as complete?", default=True):
+        return
+
+    # Update task
+    task['status'] = 'completed'
+    task['completed_by'] = agent
+    task['completed_at'] = os.popen('date -Iseconds').read().strip()
+
+    # Save queue
+    if save_queue(queue_data):
+        print_success(f"Task {task_id} marked as complete by {agent}")
+        print(f"  Title: {task.get('title', 'No title')}")
 
     print()
 

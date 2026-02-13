@@ -43,13 +43,13 @@ Feature spec: `plans/features/FEATURE-016-cli-tooling.md`
 
 ### Should-Have (P1)
 - [x] `ralf task show <task-id>` displays full task details ✅ IMPLEMENTED
-- [ ] `ralf task claim <task-id>` claims a task manually
+- [x] `ralf task claim <task-id>` claims a task manually ✅ IMPLEMENTED (2026-02-13)
+- [ ] `ralf task complete <task-id>` marks task as complete ✅ IMPLEMENTED (2026-02-13)
 - [ ] `ralf queue add <feature-id>` creates new task from backlog
 - [ ] `ralf config get <key>` retrieves configuration value
 - [ ] `ralf config set <key> <value>` updates configuration
 - [ ] Auto-completion for bash/zsh
 - [x] JSON output mode for automation (`--output json`) ✅ IMPLEMENTED
-- [ ] JSON output mode for automation (`--output json`)
 
 ### Nice-to-Have (P2)
 - [ ] `ralf agent start/stop/restart` controls agent lifecycle
