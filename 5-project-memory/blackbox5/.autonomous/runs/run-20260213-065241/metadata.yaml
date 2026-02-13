@@ -1,0 +1,35 @@
+# Run Metadata
+# This file tracks state, learnings, and assumptions for this run
+
+run:
+  id: "run-20260213-065241"
+  timestamp: 2026-02-13T06:52:41Z
+  agent: claude
+  role: executor
+  status: in_progress
+
+task:
+  id: "TBD"
+  title: "TBD"
+  priority: "TBD"
+  type: "TBD"  # architecture, feature, fix, etc.
+
+context:
+  previous_runs: []
+  dependencies: []
+
+learnings: []
+assumptions: []
+
+# Track metrics for ROI calculation
+metrics:
+  start_time: 1770965561
+  end_time: null
+  duration_minutes: null
+  files_modified: 0
+  lines_added: 0
+  lines_removed: 0
+
+# Track skill usage (if applicable)
+skill_used: null
+skill_effectiveness: null
