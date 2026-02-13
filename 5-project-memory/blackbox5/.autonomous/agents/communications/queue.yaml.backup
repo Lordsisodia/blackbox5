@@ -1,10 +1,6 @@
 schema:
   version: 1.0.1
   generated: '2026-02-07'
-  total_tasks: 88
-  completed: 24
-  in_progress: 4
-  pending: 60
 priority_formula:
   description: (impact / effort) * confidence
   impact:
@@ -120,46 +116,6 @@ tasks:
   resource_type: memory_bound
   parallel_group: wave_4
   goal: IG-007
-- id: TASK-ARCH-005
-  type: cleanup
-  status: completed
-  priority: HIGH
-  priority_score: 9.3
-  title: Clean Up Empty Directories
-  estimated_minutes: 45
-  roi:
-    impact: 9.3
-    effort: 45
-    confidence: 1.4
-    business_value: 8
-    technical_debt: 9
-    unblock_factor: 7
-  blockedBy: []
-  blocks: []
-  resource_type: io_bound
-  parallel_group: wave_1
-  goal: IG-007
-- id: TASK-ARCH-006
-  type: infrastructure
-  status: completed
-  priority: CRITICAL
-  priority_score: 11.2
-  title: Create STATE.yaml Auto-Sync Script
-  estimated_minutes: 45
-  roi:
-    impact: 11.2
-    effort: 45
-    confidence: 1.2
-    business_value: 10
-    technical_debt: 9
-    unblock_factor: 8
-  blockedBy:
-  - TASK-ARCH-003
-  blocks:
-  - TASK-ARCH-007
-  resource_type: cpu_bound
-  parallel_group: wave_4
-  goal: IG-007
 - id: TASK-ARCH-007
   type: architecture
   status: completed
@@ -174,8 +130,7 @@ tasks:
     business_value: 10
     technical_debt: 10
     unblock_factor: 10
-  blockedBy:
-  - TASK-ARCH-006
+  blockedBy: []
   blocks: []
   resource_type: io_bound
   parallel_group: wave_4
@@ -200,25 +155,6 @@ tasks:
   resource_type: io_bound
   parallel_group: wave_4
   goal: IG-007
-- id: TASK-ARCH-009
-  type: documentation
-  status: completed
-  priority: MEDIUM
-  priority_score: 6.0
-  title: Populate Knowledge Base
-  estimated_minutes: 60
-  roi:
-    impact: 6.0
-    effort: 60
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 5
-    unblock_factor: 5
-  blockedBy: []
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_1
-  goal: IG-007
 - id: TASK-ARCH-010
   type: infrastructure
   status: completed
@@ -234,48 +170,8 @@ tasks:
     technical_debt: 6
     unblock_factor: 5
   blockedBy: []
-  blocks:
-  - TASK-ARCH-011
+  blocks: []
   resource_type: cpu_bound
-  parallel_group: wave_1
-  goal: IG-007
-- id: TASK-ARCH-011
-  type: infrastructure
-  status: completed
-  priority: MEDIUM
-  priority_score: 7.0
-  title: Create Architecture Dashboard
-  estimated_minutes: 45
-  roi:
-    impact: 7.0
-    effort: 45
-    confidence: 1.2
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 6
-  blockedBy:
-  - TASK-ARCH-010
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-ARCH-012
-  type: architecture
-  status: completed
-  priority: MEDIUM
-  priority_score: 6.8
-  title: Mirror Candidates Analysis
-  estimated_minutes: 60
-  roi:
-    impact: 6.8
-    effort: 60
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy: []
-  blocks: []
-  resource_type: memory_bound
   parallel_group: wave_1
   goal: IG-007
 - id: TASK-GOALS-001
@@ -337,47 +233,6 @@ tasks:
   resource_type: memory_bound
   parallel_group: wave_2
   goal: IG-007
-- id: TASK-ARCH-015-status-lifecycle
-  type: process
-  status: in_progress
-  priority: MEDIUM
-  priority_score: 5.5
-  title: Status Lifecycle (Placeholder)
-  estimated_minutes: 30
-  roi:
-    impact: 5.5
-    effort: 30
-    confidence: 1.0
-    business_value: 6
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy: []
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_1
-  goal: IG-007
-- id: TASK-ARCH-016
-  type: architecture
-  status: in_progress
-  priority: CRITICAL
-  priority_score: 15.0
-  title: Design Agent Execution Flow
-  estimated_minutes: 120
-  roi:
-    impact: 15.0
-    effort: 120
-    confidence: 1.2
-    business_value: 10
-    technical_debt: 10
-    unblock_factor: 10
-  blockedBy:
-  - TASK-ARCH-011
-  blocks:
-  - TASK-ARCH-039
-  - TASK-PROC-008
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-007
 - id: TASK-STATUS-LIFECYCLE-ACTION-PLAN
   type: process
   status: in_progress
@@ -392,32 +247,9 @@ tasks:
     business_value: 10
     technical_debt: 9
     unblock_factor: 8
-  blockedBy:
-  - TASK-ARCH-006
-  blocks:
-  - TASK-PROC-040
+  blockedBy: []
+  blocks: []
   resource_type: cpu_bound
-  parallel_group: wave_3
-  goal: IG-007
-- id: TASK-AUTO-014
-  type: cleanup
-  status: in_progress
-  priority: MEDIUM
-  priority_score: 7.5
-  title: BB5 Consolidation Loop
-  estimated_minutes: 60
-  roi:
-    impact: 7.5
-    effort: 60
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy:
-  - TASK-ARCH-007
-  blocks:
-  - TASK-PROC-020
-  resource_type: io_bound
   parallel_group: wave_3
   goal: IG-007
 - id: ACTION-PLAN-youtube-pipeline
@@ -435,195 +267,10 @@ tasks:
     technical_debt: 6
     unblock_factor: 7
   blockedBy: []
-  blocks:
-  - TASK-DEV-011
+  blocks: []
   resource_type: network_bound
   parallel_group: wave_1
   goal: IG-008
-- id: TASK-ARCH-001B
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 8.0
-  title: Knowledge Base Analysis
-  estimated_minutes: 60
-  roi:
-    impact: 8.0
-    effort: 60
-    confidence: 1.0
-    business_value: 8
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy:
-  - TASK-ARCH-001
-  blocks:
-  - TASK-ARCH-001C
-  resource_type: memory_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-ARCH-001C
-  type: architecture
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.5
-  title: First Principles Checklist
-  estimated_minutes: 45
-  roi:
-    impact: 6.5
-    effort: 45
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy:
-  - TASK-ARCH-001B
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_3
-  goal: IG-007
-- id: TASK-ARCH-003B
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 9.0
-  title: SSOT Audit Phase
-  estimated_minutes: 60
-  roi:
-    impact: 9.0
-    effort: 60
-    confidence: 1.1
-    business_value: 9
-    technical_debt: 8
-    unblock_factor: 7
-  blockedBy:
-  - TASK-ARCH-003
-  blocks:
-  - TASK-ARCH-003C
-  resource_type: io_bound
-  parallel_group: wave_4
-  goal: IG-007
-- id: TASK-ARCH-003C
-  type: architecture
-  status: pending
-  priority: CRITICAL
-  priority_score: 11.0
-  title: SSOT Execute Phase
-  estimated_minutes: 90
-  roi:
-    impact: 11.0
-    effort: 90
-    confidence: 1.1
-    business_value: 10
-    technical_debt: 9
-    unblock_factor: 8
-  blockedBy:
-  - TASK-ARCH-003B
-  blocks:
-  - TASK-ARCH-003D
-  resource_type: io_bound
-  parallel_group: sequential
-  goal: IG-007
-- id: TASK-ARCH-003D
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 8.5
-  title: SSOT Validate Phase
-  estimated_minutes: 45
-  roi:
-    impact: 8.5
-    effort: 45
-    confidence: 1.2
-    business_value: 8
-    technical_debt: 8
-    unblock_factor: 7
-  blockedBy:
-  - TASK-ARCH-003C
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_4
-  goal: IG-007
-- id: TASK-ARCH-017
-  type: architecture
-  status: completed
-  priority: HIGH
-  priority_score: 8.8
-  title: Fix blackbox.py Non-Existent Directory References
-  estimated_minutes: 30
-  roi:
-    impact: 8.8
-    effort: 30
-    confidence: 1.4
-    business_value: 8
-    technical_debt: 9
-    unblock_factor: 7
-  blockedBy: []
-  blocks: []
-  resource_type: io_bound
-  parallel_group: wave_1
-  goal: IG-007
-- id: TASK-ARCH-019
-  type: architecture
-  status: pending
-  priority: CRITICAL
-  priority_score: 12.5
-  title: Decouple Tight Coupling in RALF Loop
-  estimated_minutes: 120
-  roi:
-    impact: 12.5
-    effort: 120
-    confidence: 1.0
-    business_value: 10
-    technical_debt: 10
-    unblock_factor: 9
-  blockedBy:
-  - TASK-ARCH-016
-  blocks:
-  - TASK-ARCH-035
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-007
-- id: TASK-ARCH-021
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 9.5
-  title: Fix Agent Prompt Drift
-  estimated_minutes: 60
-  roi:
-    impact: 9.5
-    effort: 60
-    confidence: 1.1
-    business_value: 9
-    technical_debt: 9
-    unblock_factor: 7
-  blockedBy:
-  - TASK-ARCH-016
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_3
-  goal: IG-007
-- id: TASK-ARCH-022
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 9.0
-  title: Add Versioning to Workflow Loader
-  estimated_minutes: 75
-  roi:
-    impact: 9.0
-    effort: 75
-    confidence: 1.0
-    business_value: 9
-    technical_debt: 8
-    unblock_factor: 7
-  blockedBy:
-  - TASK-ARCH-019
-  blocks:
-  - TASK-ARCH-035
-  resource_type: cpu_bound
-  parallel_group: wave_4
-  goal: IG-007
 - id: TASK-ARCH-028
   type: architecture
   status: completed
@@ -643,129 +290,9 @@ tasks:
   resource_type: io_bound
   parallel_group: wave_1
   goal: IG-007
-- id: TASK-ARCH-029
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 8.5
-  title: Remove Hardcoded Definitions from Skill Router
-  estimated_minutes: 60
-  roi:
-    impact: 8.5
-    effort: 60
-    confidence: 1.0
-    business_value: 8
-    technical_debt: 8
-    unblock_factor: 6
-  blockedBy:
-  - TASK-SKIL-014
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-ARCH-035
-  type: architecture
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.5
-  title: Workflow Loader Versioning Implementation
-  estimated_minutes: 90
-  roi:
-    impact: 6.5
-    effort: 90
-    confidence: 0.8
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy:
-  - TASK-ARCH-019
-  - TASK-ARCH-022
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-007
-- id: TASK-ARCH-036
-  type: architecture
-  status: completed
-  priority: MEDIUM
-  priority_score: 6.8
-  title: Improve bb5 CLI Error Handling
-  estimated_minutes: 60
-  roi:
-    impact: 6.8
-    effort: 60
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 6
-  blockedBy:
-  - TASK-1770163374
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-ARCH-038
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 9.2
-  title: Decouple Task System
-  estimated_minutes: 90
-  roi:
-    impact: 9.2
-    effort: 90
-    confidence: 1.0
-    business_value: 9
-    technical_debt: 9
-    unblock_factor: 7
-  blockedBy:
-  - TASK-ARCH-016
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_3
-  goal: IG-007
-- id: TASK-ARCH-039
-  type: architecture
-  status: pending
-  priority: HIGH
-  priority_score: 9.0
-  title: Decouple Agent Execution
-  estimated_minutes: 90
-  roi:
-    impact: 9.0
-    effort: 90
-    confidence: 1.0
-    business_value: 9
-    technical_debt: 8
-    unblock_factor: 7
-  blockedBy:
-  - TASK-ARCH-016
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_3
-  goal: IG-007
-- id: TASK-ARCH-052
-  type: architecture
-  status: pending
-  priority: MEDIUM
-  priority_score: 5.5
-  title: New Architecture Task
-  estimated_minutes: 60
-  roi:
-    impact: 5.5
-    effort: 60
-    confidence: 0.9
-    business_value: 6
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy: []
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_1
-  goal: IG-007
 - id: TASK-PROC-003
   type: process
-  status: pending
+  status: in_progress
   priority: LOW
   priority_score: 4.0
   title: Fix Empty Template Files
@@ -782,27 +309,8 @@ tasks:
   resource_type: io_bound
   parallel_group: wave_1
   goal: IG-007
-- id: TASK-PROC-004
-  type: process
-  status: pending
-  priority: CRITICAL
-  priority_score: 11.5
-  title: Fix Task-to-Completion Pipeline Stall
-  estimated_minutes: 90
-  roi:
-    impact: 11.5
-    effort: 90
-    confidence: 1.1
-    business_value: 10
-    technical_debt: 9
-    unblock_factor: 8
-  blockedBy:
-  - TASK-STATUS-LIFECYCLE-ACTION-PLAN
-  blocks:
-  - TASK-PROC-040
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-007
+  claimed_by: moltbot-vps-ai
+  claimed_at: '2026-02-13T00:52:37+00:00'
 - id: TASK-PROC-006
   type: process
   status: pending
@@ -837,51 +345,10 @@ tasks:
     business_value: 9
     technical_debt: 8
     unblock_factor: 6
-  blockedBy:
-  - TASK-ARCH-016
+  blockedBy: []
   blocks: []
   resource_type: memory_bound
   parallel_group: wave_3
-  goal: IG-007
-- id: TASK-PROC-012
-  type: process
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.5
-  title: Populate Skill Metrics Zero Usage Data
-  estimated_minutes: 60
-  roi:
-    impact: 6.5
-    effort: 60
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy:
-  - TASK-ARCH-010
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-PROC-013
-  type: process
-  status: pending
-  priority: CRITICAL
-  priority_score: 12.0
-  title: Complete High Priority Improvements (0% completion)
-  estimated_minutes: 120
-  roi:
-    impact: 12.0
-    effort: 120
-    confidence: 1.0
-    business_value: 10
-    technical_debt: 10
-    unblock_factor: 9
-  blockedBy:
-  - TASK-PROC-004
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: sequential
   goal: IG-007
 - id: TASK-PROC-015
   type: process
@@ -916,8 +383,7 @@ tasks:
     business_value: 8
     technical_debt: 7
     unblock_factor: 6
-  blockedBy:
-  - TASK-AUTO-014
+  blockedBy: []
   blocks: []
   resource_type: io_bound
   parallel_group: wave_4
@@ -1018,47 +484,6 @@ tasks:
   resource_type: memory_bound
   parallel_group: wave_1
   goal: IG-007
-- id: TASK-PROC-037
-  type: process
-  status: pending
-  priority: MEDIUM
-  priority_score: 5.0
-  title: Implement First Principles Review Schedule
-  estimated_minutes: 45
-  roi:
-    impact: 5.0
-    effort: 45
-    confidence: 0.9
-    business_value: 6
-    technical_debt: 4
-    unblock_factor: 4
-  blockedBy:
-  - TASK-ARCH-001C
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_4
-  goal: IG-007
-- id: TASK-PROC-040
-  type: process
-  status: pending
-  priority: HIGH
-  priority_score: 8.5
-  title: Implement Task Completion Validation
-  estimated_minutes: 60
-  roi:
-    impact: 8.5
-    effort: 60
-    confidence: 1.0
-    business_value: 8
-    technical_debt: 8
-    unblock_factor: 6
-  blockedBy:
-  - TASK-STATUS-LIFECYCLE-ACTION-PLAN
-  - TASK-PROC-004
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-007
 - id: TASK-SKIL-001
   type: skill
   status: completed
@@ -1119,30 +544,9 @@ tasks:
   blockedBy:
   - TASK-SKIL-005
   blocks:
-  - TASK-SKIL-011
   - TASK-SKIL-014
   resource_type: cpu_bound
   parallel_group: wave_3
-  goal: IG-007
-- id: TASK-SKIL-011
-  type: skill
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.5
-  title: Enforce Skill Selection Framework
-  estimated_minutes: 60
-  roi:
-    impact: 6.5
-    effort: 60
-    confidence: 1.0
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy:
-  - TASK-SKIL-007
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_4
   goal: IG-007
 - id: TASK-SKIL-014
   type: skill
@@ -1160,8 +564,7 @@ tasks:
     unblock_factor: 4
   blockedBy:
   - TASK-SKIL-007
-  blocks:
-  - TASK-ARCH-029
+  blocks: []
   resource_type: memory_bound
   parallel_group: wave_4
   goal: IG-007
@@ -1185,25 +588,6 @@ tasks:
   resource_type: cpu_bound
   parallel_group: wave_2
   goal: IG-007
-- id: TASK-SKIL-023
-  type: skill
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.0
-  title: Add Missing Skill Coverage
-  estimated_minutes: 90
-  roi:
-    impact: 6.0
-    effort: 90
-    confidence: 0.8
-    business_value: 7
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy: []
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_1
-  goal: IG-007
 - id: TASK-SKIL-032
   type: skill
   status: pending
@@ -1224,26 +608,6 @@ tasks:
   resource_type: cpu_bound
   parallel_group: wave_4
   goal: IG-007
-- id: TASK-SKIL-046
-  type: skill
-  status: pending
-  priority: MEDIUM
-  priority_score: 5.8
-  title: Bootstrap Historical Skill Data
-  estimated_minutes: 60
-  roi:
-    impact: 5.8
-    effort: 60
-    confidence: 0.9
-    business_value: 6
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy:
-  - TASK-ARCH-010
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_2
-  goal: IG-007
 - id: TASK-SKIL-050
   type: skill
   status: pending
@@ -1258,51 +622,10 @@ tasks:
     business_value: 4
     technical_debt: 4
     unblock_factor: 3
-  blockedBy:
-  - TASK-SKIL-023
+  blockedBy: []
   blocks: []
   resource_type: memory_bound
   parallel_group: wave_2
-  goal: IG-007
-- id: TASK-INFR-002
-  type: infrastructure
-  status: pending
-  priority: HIGH
-  priority_score: 8.0
-  title: Populate Unpopulated Skill Metrics
-  estimated_minutes: 60
-  roi:
-    impact: 8.0
-    effort: 60
-    confidence: 1.0
-    business_value: 8
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy:
-  - TASK-ARCH-010
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-INFR-009
-  type: infrastructure
-  status: pending
-  priority: MEDIUM
-  priority_score: 5.5
-  title: Fix Empty Skill Usage Log
-  estimated_minutes: 45
-  roi:
-    impact: 5.5
-    effort: 45
-    confidence: 1.0
-    business_value: 6
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy:
-  - TASK-SKIL-001
-  blocks: []
-  resource_type: io_bound
-  parallel_group: wave_3
   goal: IG-007
 - id: TASK-INFR-010
   type: infrastructure
@@ -1376,30 +699,10 @@ tasks:
     business_value: 6
     technical_debt: 4
     unblock_factor: 3
-  blockedBy:
-  - TASK-ARCH-003D
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_4
-  goal: IG-007
-- id: TASK-DOCU-042
-  type: documentation
-  status: pending
-  priority: LOW
-  priority_score: 3.0
-  title: Create Missing WORK-LOG.md and ACTIVE.md
-  estimated_minutes: 30
-  roi:
-    impact: 3.0
-    effort: 30
-    confidence: 0.9
-    business_value: 3
-    technical_debt: 3
-    unblock_factor: 2
   blockedBy: []
   blocks: []
   resource_type: memory_bound
-  parallel_group: wave_1
+  parallel_group: wave_4
   goal: IG-007
 - id: TASK-DOCU-043
   type: documentation
@@ -1435,50 +738,10 @@ tasks:
     business_value: 5
     technical_debt: 4
     unblock_factor: 4
-  blockedBy:
-  - TASK-ARCH-038
+  blockedBy: []
   blocks: []
   resource_type: memory_bound
   parallel_group: wave_4
-  goal: IG-007
-- id: TASK-DOCU-045
-  type: documentation
-  status: pending
-  priority: MEDIUM
-  priority_score: 4.5
-  title: Fix Architecture.md References
-  estimated_minutes: 45
-  roi:
-    impact: 4.5
-    effort: 45
-    confidence: 0.9
-    business_value: 5
-    technical_debt: 4
-    unblock_factor: 3
-  blockedBy:
-  - TASK-ARCH-001
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-DOCU-047
-  type: documentation
-  status: pending
-  priority: LOW
-  priority_score: 3.2
-  title: Fix Template Count Discrepancy
-  estimated_minutes: 30
-  roi:
-    impact: 3.2
-    effort: 30
-    confidence: 0.9
-    business_value: 3
-    technical_debt: 3
-    unblock_factor: 2
-  blockedBy: []
-  blocks: []
-  resource_type: io_bound
-  parallel_group: wave_1
   goal: IG-007
 - id: TASK-DOCU-048
   type: documentation
@@ -1513,8 +776,7 @@ tasks:
     business_value: 6
     technical_debt: 5
     unblock_factor: 4
-  blockedBy:
-  - TASK-ARCH-011
+  blockedBy: []
   blocks: []
   resource_type: cpu_bound
   parallel_group: wave_2
@@ -1539,230 +801,6 @@ tasks:
   resource_type: memory_bound
   parallel_group: wave_2
   goal: IG-007
-- id: TASK-AUTO-010
-  type: autonomous
-  status: pending
-  priority: HIGH
-  priority_score: 9.0
-  title: Agent System Audit
-  estimated_minutes: 75
-  roi:
-    impact: 9.0
-    effort: 75
-    confidence: 1.0
-    business_value: 9
-    technical_debt: 8
-    unblock_factor: 6
-  blockedBy:
-  - TASK-ARCH-016
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_3
-  goal: IG-007
-- id: TASK-AUTO-013
-  type: autonomous
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.0
-  title: Claude Code Repo Analysis
-  estimated_minutes: 90
-  roi:
-    impact: 6.0
-    effort: 90
-    confidence: 0.8
-    business_value: 7
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy: []
-  blocks: []
-  resource_type: network_bound
-  parallel_group: wave_1
-  goal: IG-007
-- id: TASK-AUTO-015
-  type: autonomous
-  status: pending
-  priority: HIGH
-  priority_score: 8.5
-  title: Hindsight Memory - Foundation
-  estimated_minutes: 60
-  roi:
-    impact: 8.5
-    effort: 60
-    confidence: 1.1
-    business_value: 9
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy: []
-  blocks:
-  - TASK-AUTO-016
-  resource_type: memory_bound
-  parallel_group: wave_1
-  goal: IG-008
-- id: TASK-AUTO-016
-  type: autonomous
-  status: pending
-  priority: HIGH
-  priority_score: 8.0
-  title: Hindsight Memory - Infrastructure
-  estimated_minutes: 75
-  roi:
-    impact: 8.0
-    effort: 75
-    confidence: 1.0
-    business_value: 8
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy:
-  - TASK-AUTO-015
-  blocks:
-  - TASK-AUTO-017
-  resource_type: memory_bound
-  parallel_group: wave_2
-  goal: IG-008
-- id: TASK-AUTO-017
-  type: autonomous
-  status: pending
-  priority: MEDIUM
-  priority_score: 7.0
-  title: Hindsight Memory - RETAIN Operation
-  estimated_minutes: 90
-  roi:
-    impact: 7.0
-    effort: 90
-    confidence: 0.9
-    business_value: 8
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy:
-  - TASK-AUTO-016
-  blocks:
-  - TASK-AUTO-018
-  resource_type: cpu_bound
-  parallel_group: wave_3
-  goal: IG-008
-- id: TASK-AUTO-018
-  type: autonomous
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.5
-  title: Hindsight Memory - RECALL Operation
-  estimated_minutes: 75
-  roi:
-    impact: 6.5
-    effort: 75
-    confidence: 0.9
-    business_value: 7
-    technical_debt: 6
-    unblock_factor: 5
-  blockedBy:
-  - TASK-AUTO-017
-  blocks:
-  - TASK-AUTO-019
-  resource_type: cpu_bound
-  parallel_group: wave_4
-  goal: IG-008
-- id: TASK-AUTO-019
-  type: autonomous
-  status: pending
-  priority: MEDIUM
-  priority_score: 6.0
-  title: Hindsight Memory - REFLECT Operation
-  estimated_minutes: 90
-  roi:
-    impact: 6.0
-    effort: 90
-    confidence: 0.8
-    business_value: 7
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy:
-  - TASK-AUTO-018
-  blocks:
-  - TASK-AUTO-020
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-008
-- id: TASK-AUTO-020
-  type: autonomous
-  status: pending
-  priority: MEDIUM
-  priority_score: 5.5
-  title: Hindsight Memory - Integration
-  estimated_minutes: 60
-  roi:
-    impact: 5.5
-    effort: 60
-    confidence: 0.9
-    business_value: 6
-    technical_debt: 5
-    unblock_factor: 4
-  blockedBy:
-  - TASK-AUTO-019
-  blocks:
-  - TASK-AUTO-021
-  resource_type: cpu_bound
-  parallel_group: sequential
-  goal: IG-008
-- id: TASK-AUTO-021
-  type: autonomous
-  status: completed
-  priority: HIGH
-  priority_score: 8.0
-  title: Persistent Memory System
-  estimated_minutes: 120
-  roi:
-    impact: 8.0
-    effort: 120
-    confidence: 0.9
-    business_value: 9
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy:
-  - TASK-AUTO-020
-  blocks: []
-  resource_type: memory_bound
-  parallel_group: sequential
-  goal: IG-008
-- id: TASK-DEV-010
-  type: development
-  status: pending
-  priority: HIGH
-  priority_score: 8.5
-  title: CLI Interface F-016 Implementation
-  estimated_minutes: 90
-  roi:
-    impact: 8.5
-    effort: 90
-    confidence: 1.0
-    business_value: 9
-    technical_debt: 7
-    unblock_factor: 6
-  blockedBy:
-  - TASK-1770163374
-  blocks: []
-  resource_type: cpu_bound
-  parallel_group: wave_2
-  goal: IG-007
-- id: TASK-DEV-011
-  type: development
-  status: pending
-  priority: HIGH
-  priority_score: 9.5
-  title: YouTube Automation Scraper
-  estimated_minutes: 120
-  roi:
-    impact: 9.5
-    effort: 120
-    confidence: 1.0
-    business_value: 10
-    technical_debt: 8
-    unblock_factor: 7
-  blockedBy:
-  - ACTION-PLAN-youtube-pipeline
-  blocks: []
-  resource_type: network_bound
-  parallel_group: wave_2
-  goal: IG-008
 - id: TASK-analyze-mirror-candidates
   type: architecture
   status: pending
@@ -1777,8 +815,7 @@ tasks:
     business_value: 6
     technical_debt: 4
     unblock_factor: 3
-  blockedBy:
-  - TASK-ARCH-012
+  blockedBy: []
   blocks: []
   resource_type: memory_bound
   parallel_group: wave_2
@@ -1802,57 +839,427 @@ tasks:
   resource_type: memory_bound
   parallel_group: wave_1
   goal: IG-007
+- id: TASK-1769978192
+  type: design
+  status: active
+  priority: CRITICAL
+  priority_score: 20.0
+  title: 'Task: Design Agent Execution Flow with Enforcement Mechanisms'
+  estimated_minutes: 30
+  roi:
+    impact: 20.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TEMPLATE
+  type: implement
+  status: pending
+  priority: CRITICAL
+  priority_score: 20.0
+  title: Task Template
+  estimated_minutes: 30
+  roi:
+    impact: 20.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: SUBTASK-004
+  type: implement
+  status: in_progress
+  priority: CRITICAL
+  priority_score: 20.0
+  title: 'SUBTASK-004A: Create Health Monitor Core Library'
+  estimated_minutes: 30
+  roi:
+    impact: 20.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-HINDSIGHT-006
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-HINDSIGHT-006: Integrate and Validate'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-1738375000
+  type: implement
+  status: completed
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-1738375000: Implement Feature F-016 (CLI Interface & Tooling Suite)'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-007-1
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-FIX-SKIL-007-1: Sync skill-usage.yaml to skill-registry.yaml'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: AGENT-SYSTEM-AUDIT
+  type: implement
+  status: in_progress
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK: Agent System Audit & Integration Research'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-CC-REPO-ANALYSIS-001
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-CC-REPO-ANALYSIS-001: Claude Code GitHub Repo Analysis - Main Task'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-HINDSIGHT-005
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-HINDSIGHT-005: Implement REFLECT Operation'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-007-3
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-FIX-SKIL-007-3: Update task outcome logging to record skill_used'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-007-2
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-FIX-SKIL-007-2: Fix calculate-skill-metrics.py to target correct file'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-AUTO-010-agent-system-audit
+  type: implement
+  status: in_progress
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK: Agent System Audit & Integration Research'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-CC-001A
+  type: implement
+  status: pending
+  priority: HIGH
+  priority_score: 18.0
+  title: 'TASK-CC-001A: Discover Claude Code Related GitHub Repos'
+  estimated_minutes: 30
+  roi:
+    impact: 18.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-1
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 15.0
+  title: 'TASK-FIX-SKIL-018-1: Update Skill Selection Rule to "MUST Invoke"'
+  estimated_minutes: 20
+  roi:
+    impact: 15.0
+    effort: 20
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-DEV-011-youtube-automation
+  type: implement
+  status: pending
+  priority: MEDIUM
+  priority_score: 12.0
+  title: 'TASK: Set up YouTube Auto-Scraper on Render'
+  estimated_minutes: 30
+  roi:
+    impact: 12.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-DOCS-010-youtube-pipeline-plan
+  type: implement
+  status: active
+  priority: MEDIUM
+  priority_score: 12.0
+  title: 'ACTION PLAN: YouTube Pipeline (Minimal Moves)'
+  estimated_minutes: 30
+  roi:
+    impact: 12.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-PLAN-001-youtube-pipeline
+  type: implement
+  status: active
+  priority: MEDIUM
+  priority_score: 12.0
+  title: 'ACTION PLAN: YouTube Pipeline (Minimal Moves)'
+  estimated_minutes: 30
+  roi:
+    impact: 12.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-050-1
+  type: skills
+  status: pending
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-050-1: Decide Fate of Unused Infrastructure Skills'
+  estimated_minutes: 15
+  roi:
+    impact: 10.0
+    effort: 15
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-4
+  type: skills
+  status: pending
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-018-4: Add Skill Override Documentation Workflow'
+  estimated_minutes: 30
+  roi:
+    impact: 10.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-2
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-018-2: Create bin/detect-skill.py Auto-Detection Script'
+  estimated_minutes: 45
+  roi:
+    impact: 10.0
+    effort: 45
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-032-1
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-032-1: Implement Task-Level Time Tracking with Skill Attribution'
+  estimated_minutes: 45
+  roi:
+    impact: 10.0
+    effort: 45
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-050-2
+  type: skills
+  status: pending
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-FIX-SKIL-050-2: Implement Decision - Create or Remove Infrastructure
+    Skills'
+  estimated_minutes: 30
+  roi:
+    impact: 10.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-CLEANUP-LOOP
+  type: cleanup
+  status: in_progress
+  priority: MEDIUM
+  priority_score: 10.0
+  title: 'TASK-CLEANUP-LOOP: BB5 Consolidation Loop'
+  estimated_minutes: 30
+  roi:
+    impact: 10.0
+    effort: 30
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-018-3
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 7.5
+  title: 'TASK-FIX-SKIL-018-3: Create Pre-Execution Hook for Skill Enforcement'
+  estimated_minutes: 60
+  roi:
+    impact: 7.5
+    effort: 60
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-032-2
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 7.5
+  title: 'TASK-FIX-SKIL-032-2: Create A/B Comparison Framework for Skill vs No-Skill
+    Tasks'
+  estimated_minutes: 60
+  roi:
+    impact: 7.5
+    effort: 60
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-032-3
+  type: skills
+  status: pending
+  priority: HIGH
+  priority_score: 6.0
+  title: 'TASK-FIX-SKIL-032-3: Build Automated ROI Calculation Pipeline'
+  estimated_minutes: 75
+  roi:
+    impact: 6.0
+    effort: 75
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-FIX-SKIL-050-3
+  type: skills
+  status: pending
+  priority: LOW
+  priority_score: 5.0
+  title: 'TASK-FIX-SKIL-050-3: Update Documentation and Registry References'
+  estimated_minutes: 15
+  roi:
+    impact: 5.0
+    effort: 15
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
+- id: TASK-010-001
+  type: implement
+  status: pending
+  priority: CRITICAL
+  priority_score: 2.5
+  title: 'TASK-010-001: SessionStart Enhanced Hook'
+  estimated_minutes: 240
+  roi:
+    impact: 2.5
+    effort: 240
+    confidence: 1.0
+  blockedBy: []
+  blocks: []
+  resource_type: cpu_bound
+  parallel_group: wave_1
 queue_metadata:
-  total_tasks: 88
-  by_status:
-    completed: 24
-    in_progress: 4
-    pending: 60
-  by_priority:
-    CRITICAL: 10
-    HIGH: 32
-    MEDIUM: 34
-    LOW: 15
-  by_type:
-    architecture: 24
-    process: 18
-    skill: 10
-    infrastructure: 4
-    documentation: 10
-    development: 3
-    cleanup: 2
-    autonomous: 9
-  by_resource_type:
-    cpu_bound: 35
-    io_bound: 20
-    memory_bound: 28
-    network_bound: 3
-  by_parallel_group:
-    wave_1: 28
-    wave_2: 24
-    wave_3: 18
-    wave_4: 12
-    sequential: 9
-  priority_distribution:
-    excellent: 12
-    good: 28
-    fair: 35
-    poor: 16
-  quick_wins:
-  - TASK-ARCH-017
-  - TASK-ARCH-003D
-  - TASK-ARCH-005
-  - TASK-PROC-015
-  - TASK-DOCU-047
-  blocked_count: 52
-  ready_to_execute: 17
-  total_estimated_minutes: 5130
-  total_estimated_hours: 85.5
-  projections:
-    week_1: 12
-    week_2: 18
-    week_3: 22
-    week_4: 21
-    month_1_total: 73
-    month_2_total: 85
-    month_3_total: 91
+  derived_from_filesystem: true
