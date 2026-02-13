@@ -139,7 +139,7 @@ show_summary() {
     # Extract usage_log stats using Python
     python3 -c "
 import yaml
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import sys
 
 try:
@@ -155,7 +155,7 @@ try:
     print(f'\nTotal validation runs: {len(usage_log)}')
 
     # Last 24 hours
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     last_24h = [e for e in usage_log if datetime.fromisoformat(e['timestamp'].replace('Z', '+00:00')) >= now - timedelta(hours=24)]
     print(f'Last 24 hours: {len(last_24h)}')
 
@@ -243,7 +243,7 @@ import yaml
 import subprocess
 import sys
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Configuration from environment
 validation_file = '$VALIDATION_FILE'
@@ -305,7 +305,7 @@ for check in filtered_checks:
         command = command.replace('[keyword]', task_title[:30])
 
     # Run the check
-    start_time = datetime.utcnow()
+    start_time = datetime.now(timezone.utc)
     try:
         result = subprocess.run(
             command,
@@ -316,7 +316,7 @@ for check in filtered_checks:
             cwd=os.path.join(bb5_root, '5-project-memory/blackbox5')
         )
 
-        duration = (datetime.utcnow() - start_time).total_seconds()
+        duration = (datetime.now(timezone.utc) - start_time).total_seconds()
         status = 'passed' if result.returncode == 0 else 'failed'
 
         # Determine overall result
@@ -384,9 +384,9 @@ else:
 
 # Log the validation run
 log_entry = {
-    'timestamp': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+    'timestamp': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
     'task_id': task_id,
-    'run_id': f'run-{datetime.utcnow().strftime(\"%Y%m%d-%H%M%S\")}',
+    'run_id': f'run-{datetime.now(timezone.utc).strftime(\"%Y%m%d-%H%M%S\")}',
     'validator': 'bb5-validate-task',
     'checks_performed': results,
     'overall_result': overall_result,

@@ -32,7 +32,7 @@ The `operations/validation-checklist.yaml` file defines pre-execution validation
 ### Should-Have (P1)
 - [x] Quick validation mode for common checks ✅ IMPLEMENTED (--quick)
 - [x] JSON output option for automation ✅ IMPLEMENTED (--output json)
-- [ ] Summary statistics from usage_log ⚠️ PARTIAL (has timezone bug)
+- [x] Summary statistics from usage_log ✅ FIXED (timezone bug resolved)
 - [ ] Integration with events.yaml
 - [x] Command-line args to override required checks ✅ IMPLEMENTED (--check, --required-only)
 
@@ -124,3 +124,42 @@ bb5 validate --paths /opt/blackbox5/2-engine/core/
 - Existing validation-checklist.yaml structure
 
 ## Notes
+
+**2026-02-13 02:25 UTC - Timezone Bug Fixed**
+
+Problem: The `--summary` function was using `datetime.utcnow()` which creates timezone-naive datetime objects, but when parsing timestamps from the usage_log, the code converted 'Z' suffix to '+00:00' creating timezone-aware datetimes. This caused potential comparison issues when filtering runs by time (e.g., "Last 24 hours").
+
+Fix Applied:
+1. Changed all `datetime.utcnow()` calls to `datetime.now(timezone.utc)`
+2. Added `timezone` import to both Python sections of the script
+3. Updated locations:
+   - Line 149: Summary statistics "Last 24 hours" calculation
+   - Line 284: Check execution start_time
+   - Line 296: Duration calculation
+   - Lines 360-361: Log entry timestamp and run_id
+
+Result: Summary statistics now correctly filter validation runs by time using timezone-aware datetime objects consistently.
+
+**Testing:**
+```bash
+$ bb5 validate --summary
+[VALIDATE] Validation Summary
+
+Total validation runs: 5
+Last 24 hours: 5
+
+Results:
+  Passed:  0 (0.0%)
+  Warnings: 0 (0.0%)
+  Failed:  5 (100.0%)
+
+Check Statistics:
+  active_tasks_check: 100.0% pass rate
+  duplicate_task_check: 0.0% pass rate
+  file_history_check: 100.0% pass rate
+  path_validation: 0.0% pass rate
+  recent_commits_check: 0.0% pass rate
+  state_freshness: 100.0% pass rate
+```
+
+All Should-Have (P1) features now complete except integration with events.yaml.
