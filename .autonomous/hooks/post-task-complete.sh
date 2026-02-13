@@ -3,17 +3,20 @@
 # Post-Task-Completion Hook
 #
 # This hook is called after a task is completed to automatically sync
-# the roadmap state (STATE.yaml, goals.yaml, plan metadata).
+# the roadmap state (STATE.yaml, goals.yaml, plan metadata) and
+# log skill usage from the task run.
 #
-# Usage: ./post-task-complete.sh <task_id> [plan_id] [goal_id]
+# Usage: ./post-task-complete.sh <task_id> [plan_id] [goal_id] [run_dir]
 #
 # Arguments:
 #   task_id  - Required: Completed task ID (e.g., TASK-001)
 #   plan_id  - Optional: Plan ID associated with task (e.g., PLAN-001)
 #   goal_id  - Optional: Goal ID associated with task (e.g., IG-001)
+#   run_dir  - Optional: Run directory containing THOUGHTS.md (e.g., /path/to/run)
 #
 # Example:
 #   ./post-task-complete.sh TASK-001 PLAN-001 IG-001
+#   ./post-task-complete.sh TASK-001 PLAN-001 IG-001 /path/to/run
 #
 
 set -euo pipefail
@@ -49,16 +52,18 @@ log_error() {
 if [ $# -lt 1 ]; then
     log_error "Missing required argument: task_id"
     echo ""
-    echo "Usage: $0 <task_id> [plan_id] [goal_id]"
+    echo "Usage: $0 <task_id> [plan_id] [goal_id] [run_dir]"
     echo ""
     echo "Example:"
     echo "  $0 TASK-001 PLAN-001 IG-001"
+    echo "  $0 TASK-001 PLAN-001 IG-001 /path/to/run"
     exit 1
 fi
 
 TASK_ID="$1"
 PLAN_ID="${2:-}"
 GOAL_ID="${3:-}"
+RUN_DIR="${4:-}"
 
 log_info "Post-task-completion hook for ${TASK_ID}"
 echo ""
@@ -118,5 +123,26 @@ else
     log_error "Roadmap synchronization failed with exit code ${SYNC_EXIT_CODE}"
     exit $SYNC_EXIT_CODE
 fi
+
+# Log skill usage if run directory is provided
+if [ -n "$RUN_DIR" ] && [ -d "$RUN_DIR" ]; then
+    log_info "Logging skill usage..."
+
+    SKILL_LOG_SCRIPT="${BB5_DIR}/5-project-memory/blackbox5/.claude/hooks/log-skill-on-complete.py"
+
+    if [ ! -f "$SKILL_LOG_SCRIPT" ]; then
+        log_warning "Skill logging script not found: ${SKILL_LOG_SCRIPT}"
+    else
+        # Call skill logging script
+        python3 "$SKILL_LOG_SCRIPT" --run-dir "$RUN_DIR" --task-id "$TASK_ID" || {
+            log_warning "Skill usage logging failed (non-critical)"
+        }
+    fi
+else
+    log_info "No run directory provided, skipping skill usage logging"
+fi
+
+log_success "Post-task-completion hook finished"
+echo ""
 
 exit 0
