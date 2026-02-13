@@ -1,0 +1,424 @@
+#!/bin/bash
+# bb5-validate-task
+# Pre-execution validation runner for BlackBox5 tasks
+#
+# Usage:
+#   bb5 validate TASK_ID
+#   bb5 validate --check duplicate_task_check TASK_ID
+#   bb5 validate --quick TASK_ID
+#   bb5 validate --summary
+#   bb5 validate --help
+
+set -e
+
+# Color codes
+if [ -t 1 ]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    MAGENTA='\033[0;35m'
+    CYAN='\033[0;36m'
+    NC='\033[0m'
+else
+    RED=''
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    MAGENTA=''
+    CYAN=''
+    NC=''
+fi
+
+# Configuration
+BB5_ROOT="${BB5_ROOT:-/opt/blackbox5}"
+VALIDATION_FILE="$BB5_ROOT/5-project-memory/blackbox5/operations/validation-checklist.yaml"
+TASKS_DIR="$BB5_ROOT/5-project-memory/blackbox5/tasks/active"
+EVENTS_FILE="$BB5_ROOT/5-project-memory/blackbox5/.autonomous/agents/communications/events.yaml"
+
+# Logging functions
+log() { echo -e "${BLUE}[VALIDATE]${NC} $1"; }
+success() { echo -e "${GREEN}[✓]${NC} $1"; }
+error() { echo -e "${RED}[✗]${NC} $1"; }
+warn() { echo -e "${YELLOW}[!]${NC} $1"; }
+info() { echo -e "${CYAN}[i]${NC} $1"; }
+
+# Show help
+show_help() {
+    cat <<EOF
+${CYAN}BlackBox5 Task Validation Tool${NC}
+
+${GREEN}Usage:${NC}
+  bb5 validate [OPTIONS] TASK_ID
+
+${GREEN}Options:${NC}
+  -c, --check NAME         Run only specific check
+  -q, --quick              Quick validation (skip optional checks)
+  -r, --required-only      Run only required checks
+  -s, --summary            Show validation summary from usage_log
+  --output FORMAT          Output format: text (default), json
+  -h, --help               Show this help message
+
+${GREEN}Examples:${NC}
+  bb5 validate TASK-PROC-030
+  bb5 validate --check duplicate_task_check TASK-PROC-030
+  bb5 validate --quick TASK-PROC-030
+  bb5 validate --summary
+
+${GREEN}Exit Codes:${NC}
+  0 - All required checks passed, proceed with task
+  1 - Warnings present, review but may proceed
+  2 - Critical check failed, abort task execution
+
+${GREEN}Validation Checks:${NC}
+  duplicate_task_check   - Search for similar completed tasks
+  path_validation        - Verify referenced paths exist
+  state_freshness        - Check STATE.yaml age
+  active_tasks_check     - Ensure active tasks exist
+  recent_commits_check   - Check recent git commits
+  file_history_check     - Check recent file changes
+
+EOF
+}
+
+# Parse command line arguments
+TASK_ID=""
+CHECK_ONLY=""
+QUICK_MODE=false
+REQUIRED_ONLY=false
+SHOW_SUMMARY=false
+OUTPUT_FORMAT="text"
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -c|--check)
+            CHECK_ONLY="$2"
+            shift 2
+            ;;
+        -q|--quick)
+            QUICK_MODE=true
+            shift
+            ;;
+        -r|--required-only)
+            REQUIRED_ONLY=true
+            shift
+            ;;
+        -s|--summary)
+            SHOW_SUMMARY=true
+            shift
+            ;;
+        --output)
+            OUTPUT_FORMAT="$2"
+            shift 2
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -*)
+            error "Unknown option: $1"
+            show_help
+            exit 1
+            ;;
+        *)
+            TASK_ID="$1"
+            shift
+            ;;
+    esac
+done
+
+# Show summary from usage_log
+show_summary() {
+    log "Validation Summary"
+
+    if [ ! -f "$VALIDATION_FILE" ]; then
+        error "Validation file not found: $VALIDATION_FILE"
+        exit 1
+    fi
+
+    # Extract usage_log stats using Python
+    python3 -c "
+import yaml
+from datetime import datetime, timedelta
+import sys
+
+try:
+    with open('$VALIDATION_FILE', 'r') as f:
+        data = yaml.safe_load(f)
+
+    usage_log = data.get('usage_log', [])
+
+    if not usage_log:
+        print('No validation runs recorded yet.')
+        sys.exit(0)
+
+    print(f'\nTotal validation runs: {len(usage_log)}')
+
+    # Last 24 hours
+    now = datetime.utcnow()
+    last_24h = [e for e in usage_log if datetime.fromisoformat(e['timestamp'].replace('Z', '+00:00')) >= now - timedelta(hours=24)]
+    print(f'Last 24 hours: {len(last_24h)}')
+
+    # Overall results
+    passed = len([e for e in usage_log if e['overall_result'] == 'passed'])
+    warnings = len([e for e in usage_log if e['overall_result'] == 'warnings'])
+    failed = len([e for e in usage_log if e['overall_result'] == 'failed'])
+
+    print(f'\nResults:')
+    print(f'  Passed:  {passed} ({passed/len(usage_log)*100:.1f}%)')
+    print(f'  Warnings: {warnings} ({warnings/len(usage_log)*100:.1f}%)')
+    print(f'  Failed:  {failed} ({failed/len(usage_log)*100:.1f}%)')
+
+    # Check statistics
+    check_stats = {}
+    for entry in usage_log:
+        for check in entry.get('checks_performed', []):
+            check_id = check['check_id']
+            if check_id not in check_stats:
+                check_stats[check_id] = {'passed': 0, 'failed': 0, 'total': 0}
+            check_stats[check_id]['total'] += 1
+            if check['status'] == 'passed':
+                check_stats[check_id]['passed'] += 1
+            else:
+                check_stats[check_id]['failed'] += 1
+
+    print(f'\nCheck Statistics:')
+    for check_id, stats in sorted(check_stats.items()):
+        pass_rate = (stats['passed'] / stats['total'] * 100) if stats['total'] > 0 else 0
+        print(f'  {check_id}:')
+        print(f'    Total: {stats[\"total\"]}, Passed: {stats[\"passed\"]}, Failed: {stats[\"failed\"]}')
+        print(f'    Pass rate: {pass_rate:.1f}%')
+
+    # Last run
+    last_run = usage_log[-1]
+    print(f'\nLast validation run:')
+    print(f'  Timestamp: {last_run[\"timestamp\"]}')
+    print(f'  Task ID: {last_run[\"task_id\"]}')
+    print(f'  Result: {last_run[\"overall_result\"]}')
+
+except Exception as e:
+    print(f'Error reading usage log: {e}', file=sys.stderr)
+    sys.exit(1)
+"
+}
+
+# If showing summary, do it and exit
+if [ "$SHOW_SUMMARY" = true ]; then
+    show_summary
+    exit 0
+fi
+
+# Validate required arguments
+if [ -z "$TASK_ID" ]; then
+    error "TASK_ID is required"
+    show_help
+    exit 1
+fi
+
+# Validate validation file exists
+if [ ! -f "$VALIDATION_FILE" ]; then
+    error "Validation file not found: $VALIDATION_FILE"
+    exit 1
+fi
+
+# Check if task exists
+TASK_DIR="$TASKS_DIR/$TASK_ID"
+if [ ! -d "$TASK_DIR" ]; then
+    error "Task directory not found: $TASK_DIR"
+    exit 1
+fi
+
+# Extract task keywords for duplicate check
+TASK_TITLE=$(grep "^#.*:" "$TASK_DIR/task.md" 2>/dev/null | head -1 | sed 's/^[^:]*://;s/^ *//;s/ *$//' || echo "")
+TASK_OBJECTIVE=$(grep -i "objective" "$TASK_DIR/task.md" 2>/dev/null | head -1 | sed 's/.*: *//' || echo "")
+
+log "Validating task: $TASK_ID"
+info "Title: $TASK_TITLE"
+info "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo ""
+
+# Run validation using Python script
+python3 -c "
+import yaml
+import subprocess
+import sys
+import os
+from datetime import datetime
+
+# Configuration from environment
+validation_file = '$VALIDATION_FILE'
+task_id = '$TASK_ID'
+task_title = '$TASK_TITLE'
+task_objective = '$TASK_OBJECTIVE'
+bb5_root = '$BB5_ROOT'
+check_only = '$CHECK_ONLY'
+quick_mode = '$QUICK_MODE'
+required_only = '$REQUIRED_ONLY'
+output_format = '$OUTPUT_FORMAT'
+
+# Load validation file
+with open(validation_file, 'r') as f:
+    data = yaml.safe_load(f)
+
+checks = data.get('pre_execution', [])
+
+# Filter checks
+filtered_checks = []
+for check in checks:
+    # Skip if check_only is set and doesn't match
+    if check_only and check['id'] != check_only:
+        continue
+
+    # Skip optional checks in quick mode
+    if quick_mode and not check.get('required', False):
+        continue
+
+    # Skip non-required checks in required-only mode
+    if required_only and not check.get('required', False):
+        continue
+
+    filtered_checks.append(check)
+
+if not filtered_checks:
+    print('No checks to run.')
+    sys.exit(0)
+
+# Run checks
+results = []
+exit_code = 0
+
+for check in filtered_checks:
+    check_id = check['id']
+    check_name = check['name']
+    required = check.get('required', False)
+    fail_action = check.get('fail_action', 'warn')
+    command_template = check['command']
+    est_time = check.get('estimated_time_seconds', 0)
+
+    # Replace placeholders in command
+    command = command_template
+
+    # Add context for specific checks
+    if check_id == 'duplicate_task_check' and task_title:
+        command = command.replace('[task keyword]', task_title[:50])
+    elif check_id == 'recent_commits_check' and task_title:
+        command = command.replace('[keyword]', task_title[:30])
+
+    # Run the check
+    start_time = datetime.utcnow()
+    try:
+        result = subprocess.run(
+            command,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            cwd=os.path.join(bb5_root, '5-project-memory/blackbox5')
+        )
+
+        duration = (datetime.utcnow() - start_time).total_seconds()
+        status = 'passed' if result.returncode == 0 else 'failed'
+
+        # Determine overall result
+        if status == 'failed':
+            if fail_action == 'abort' or required:
+                if exit_code < 2:
+                    exit_code = 2
+            else:
+                if exit_code < 1:
+                    exit_code = 1
+
+    except subprocess.TimeoutExpired:
+        duration = est_time
+        status = 'failed'
+        if required or fail_action == 'abort':
+            if exit_code < 2:
+                exit_code = 2
+        else:
+            if exit_code < 1:
+                exit_code = 1
+
+    except Exception as e:
+        duration = 0
+        status = 'failed'
+        if required or fail_action == 'abort':
+            if exit_code < 2:
+                exit_code = 2
+        else:
+            if exit_code < 1:
+                exit_code = 1
+
+    results.append({
+        'check_id': check_id,
+        'check_name': check_name,
+        'status': status,
+        'required': required,
+        'duration_seconds': round(duration, 2)
+    })
+
+# Output results
+import json
+
+if output_format == 'json':
+    print(json.dumps(results, indent=2))
+else:
+    print('Validation Checks:')
+    print('-' * 80)
+    for r in results:
+        status_symbol = '✓' if r['status'] == 'passed' else '✗'
+        req_mark = '*' if r['required'] else ' '
+        print(f'{status_symbol} [{req_mark}] {r[\"check_name\"]}')
+        print(f'     ID: {r[\"check_id\"]}')
+        print(f'     Status: {r[\"status\"]}')
+        print(f'     Required: {\"Yes\" if r[\"required\"] else \"No\"}')
+        print(f'     Duration: {r[\"duration_seconds\"]}s')
+        print()
+
+# Determine overall result
+if exit_code == 0:
+    overall_result = 'passed'
+elif exit_code == 1:
+    overall_result = 'warnings'
+else:
+    overall_result = 'failed'
+
+# Log the validation run
+log_entry = {
+    'timestamp': datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+    'task_id': task_id,
+    'run_id': f'run-{datetime.utcnow().strftime(\"%Y%m%d-%H%M%S\")}',
+    'validator': 'bb5-validate-task',
+    'checks_performed': results,
+    'overall_result': overall_result,
+    'exit_code': exit_code
+}
+
+# Append to usage_log
+data['usage_log'].append(log_entry)
+
+# Save validation file
+with open(validation_file, 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+
+print(f'✓ Validation logged to {validation_file}')
+print(f'✓ Overall result: {overall_result.upper()}')
+
+# Exit with appropriate code
+sys.exit(exit_code)
+"
+
+exit_code=$?
+
+# Log to events.yaml if validation failed
+if [ $exit_code -ne 0 ]; then
+    RESULT="warnings"
+    if [ $exit_code -eq 2 ]; then
+        RESULT="failed"
+    fi
+
+    log "Validation $RESULT for task $TASK_ID"
+
+    # Note: Events logging would go here if needed
+fi
+
+exit $exit_code
