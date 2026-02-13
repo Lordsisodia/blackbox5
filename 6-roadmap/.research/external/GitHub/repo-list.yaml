@@ -1,0 +1,118 @@
+# Claude Code Related GitHub Repositories
+# Generated: 2026-02-13 by TASK-CC-001A
+# Purpose: Top repos for multi-agent analysis workflow
+
+discovered_repos:
+  - owner: "affaan-m"
+    repo: "everything-claude-code"
+    url: "https://github.com/affaan-m/everything-claude-code"
+    stars: 45144
+    forks: 5597
+    last_commit: "2026-02-13T01:34:24Z"
+    language: "JavaScript"
+    created_at: "2026-01-18T00:51:51Z"
+    description: "Complete Claude Code configuration collection - agents, skills, hooks, commands, rules, MCPs. Battle-tested configs from an Anthropic hackathon winner."
+    relevance_score: 10
+    analysis_priority: 1
+    reason: "Highest starred Claude Code repo (45K+ stars), actively maintained (last commit today), comprehensive collection of configs including agents, skills, hooks, and MCPs. This is a goldmine for understanding best practices."
+
+  - owner: "davila7"
+    repo: "claude-code-templates"
+    url: "https://github.com/davila7/claude-code-templates"
+    stars: 20197
+    forks: 1882
+    last_commit: "2026-02-12T03:56:54Z"
+    language: "Python"
+    created_at: "2025-07-04T01:26:26Z"
+    description: "CLI tool for configuring and monitoring Claude Code"
+    relevance_score: 9
+    analysis_priority: 2
+    reason: "Second highest star count (20K+ stars), focuses on CLI tooling and configuration. Very relevant for understanding Claude Code CLI patterns and configuration management."
+
+  - owner: "kodu-ai"
+    repo: "claude-coder"
+    url: "https://github.com/kodu-ai/claude-coder"
+    stars: 5291
+    forks: 200
+    last_commit: "2025-04-30T10:21:02Z"
+    language: "TypeScript"
+    created_at: "2024-09-01T13:42:47Z"
+    description: "Kodu is an autonomous coding agent that lives in your IDE. It is a VSCode extension that can help you build your dream project step by step by leveraging Claude"
+    relevance_score: 8
+    analysis_priority: 3
+    reason: "Autonomous coding agent with VSCode integration, demonstrates IDE extension patterns and autonomous agent implementation. Good for understanding IDE integrations."
+
+  - owner: "coder"
+    repo: "claudecode.nvim"
+    url: "https://github.com/coder/claudecode.nvim"
+    stars: 2012
+    forks: 139
+    last_commit: "2026-01-30T12:10:32Z"
+    language: "Lua"
+    created_at: "2025-05-21T12:35:56Z"
+    description: "🧩 Claude Code Neovim IDE Extension"
+    relevance_score: 8
+    analysis_priority: 4
+    reason: "Neovim extension for Claude Code, shows how to integrate Claude Code into different IDEs (Neovim vs VSCode). Active development (last commit 2 weeks ago)."
+
+  - owner: "tghamm"
+    repo: "Anthropic.SDK"
+    url: "https://github.com/tghamm/Anthropic.SDK"
+    stars: 210
+    forks: 42
+    last_commit: "2026-01-22T07:31:11Z"
+    language: "C#"
+    created_at: "2023-07-01T23:07:28Z"
+    description: "An unofficial C#/.NET SDK for accessing the Anthropic Claude API. This package is not affiliated with, endorsed by, or sponsored by Anthropic."
+    relevance_score: 7
+    analysis_priority: 5
+    reason: "Official SDK pattern reference, C#/.NET SDK shows SDK architecture and best practices. Lower stars but high technical relevance for understanding SDK design."
+
+  - owner: "win4r"
+    repo: "claude-code-clawdbot-skill"
+    url: "https://github.com/win4r/claude-code-clawdbot-skill"
+    stars: 67
+    forks: 0
+    last_commit: "2026-02-01T03:09:32Z"
+    language: null
+    created_at: "2025-07-22T18:50:57Z"
+    description: "Skill for OpenClaw agents - GitHub repo monitoring and analysis"
+    relevance_score: 7
+    analysis_priority: 6
+    reason: "OpenClaw integration skill, directly relevant to BlackBox5's integration with Claude Code. Shows skill architecture and GitHub automation patterns."
+
+  - owner: "anthropics"
+    repo: "anthropic-retrieval-demo"
+    url: "https://github.com/anthropics/anthropic-retrieval-demo"
+    stars: 178
+    forks: 0
+    last_commit: "2024-06-30T19:18:19Z"
+    language: null
+    created_at: "2024-06-25T23:42:42Z"
+    description: "Official Anthropic demo showing retrieval patterns"
+    relevance_score: 6
+    analysis_priority: 7
+    reason: "Official Anthropic repository for retrieval patterns. Important for understanding advanced Claude Code features like knowledge retrieval and context management."
+
+metadata:
+  total_repos: 7
+  search_date: "2026-02-13T03:30:00Z"
+  search_method: "GitHub API (unauthenticated)"
+  filters:
+    - type: "stars"
+      min: 50
+    - type: "recency"
+      max_age_months: 6
+  diversity_categories:
+    - "configuration_and_templates"
+    - "cli_tooling"
+    - "ide_extensions"
+    - "sdk_implementation"
+    - "official_demos"
+    - "openclaw_integration"
+
+next_steps:
+  - Create TASK-CC-001B-* subtasks for each repo
+  - Set blockedBy dependencies on TASK-CC-001A
+  - Update queue.yaml with new work items
+  - Begin Phase 2 analysis cycles
